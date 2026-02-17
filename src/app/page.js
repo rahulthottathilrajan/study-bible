@@ -464,7 +464,7 @@ export default function StudyBible() {
           <div style={{ fontFamily:ht.body,fontSize:13,color:`${ht.headerText}60`,fontStyle:"italic" }}>Hebrew & Greek · Word Studies · Cross-References · Notes</div>
           <div style={{ display:"flex",gap:8,justifyContent:"center",marginTop:12,alignItems:"center" }}>
             <DBBadge live={dbLive} t={ht} />
-            {!user && <button onClick={() => setAuthModal(true)} style={{ background:"rgba(212,168,83,0.2)",border:"1px solid rgba(212,168,83,0.3)",borderRadius:6,padding:"4px 12px",fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.accent,cursor:"pointer" }}>Sign In to Save Notes</button>}
+            {!user && <button onClick={() => setAuthModal(true)} style={{ background:"rgba(212,168,83,0.35)",border:"1px solid rgba(212,168,83,0.5)",borderRadius:8,padding:"8px 18px",fontFamily:ht.ui,fontSize:12,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>✏️ Sign In to Save Notes</button>}
             {user && <span style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.8)",fontWeight:700 }}>✓ Signed in as {profile?.display_name || "Reader"}</span>}
           </div>
         </div>
@@ -737,8 +737,8 @@ export default function StudyBible() {
       {view === "books" && <Books />}
       {view === "chapter" && <Chapters />}
       {view === "verse" && <VerseStudy />}
-      <AuthModal />
-      <PrayerModal />
+      {AuthModal()}
+      {PrayerModal()}
     </div>
   );
 }
