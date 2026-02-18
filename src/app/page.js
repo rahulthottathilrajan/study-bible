@@ -935,7 +935,7 @@ export default function StudyBible() {
                 {amount:"$30",label:"Support a book",icon:"📚"},
                 {amount:"$100",label:"Generous blessing",icon:"🙏"},
               ].map((d,i) => (
-                <a key={i} href={`https://donate.stripe.com/test_placeholder`} target="_blank" rel="noopener noreferrer"
+                <a key={i} href={`https://buy.stripe.com/test_4gM8wH6l4fFC2sFgu90x200`} target="_blank" rel="noopener noreferrer"
                   style={{
                     width:"100%",padding:"14px 18px",borderRadius:12,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",justifyContent:"space-between",
                     background:i===2?"linear-gradient(135deg,#D4A853,#B8860B)":ht.card,
@@ -956,7 +956,7 @@ export default function StudyBible() {
             </div>
 
             <div style={{textAlign:"center",marginTop:16}}>
-              <a href={`https://donate.stripe.com/test_placeholder`} target="_blank" rel="noopener noreferrer"
+              <a href={`https://buy.stripe.com/test_4gM8wH6l4fFC2sFgu90x200`} target="_blank" rel="noopener noreferrer"
                 style={{fontFamily:ht.ui,fontSize:13,color:ht.accent,fontWeight:600,textDecoration:"none"}}>
                 Or enter a custom amount →
               </a>
