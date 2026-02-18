@@ -1,14 +1,15 @@
-import Stripe from 'stripe';
-import { createClient } from '@supabase/supabase-js';
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+export const dynamic = 'force-dynamic';
 
 export async function POST(request) {
+  const Stripe = (await import('stripe')).default;
+  const { createClient } = await import('@supabase/supabase-js');
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+  const supabaseAdmin = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
+
   const body = await request.text();
   const sig = request.headers.get('stripe-signature');
 

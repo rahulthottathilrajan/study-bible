@@ -1,12 +1,4 @@
-import Stripe from 'stripe';
-import { createClient } from '@supabase/supabase-js';
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+export const dynamic = 'force-dynamic';
 
 const PRICES = {
   monthly: process.env.STRIPE_PRICE_MONTHLY,
@@ -15,6 +7,15 @@ const PRICES = {
 };
 
 export async function POST(request) {
+  const Stripe = (await import('stripe')).default;
+  const { createClient } = await import('@supabase/supabase-js');
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+  const supabaseAdmin = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
+
   try {
     const { plan, userId, email } = await request.json();
 
@@ -26,7 +27,6 @@ export async function POST(request) {
       return Response.json({ error: 'Invalid plan' }, { status: 400 });
     }
 
-    // Check if user already has a Stripe customer
     const { data: sub } = await supabaseAdmin
       .from('subscriptions')
       .select('stripe_customer_id')
@@ -35,7 +35,6 @@ export async function POST(request) {
 
     let customerId = sub?.stripe_customer_id;
 
-    // Create Stripe customer if needed
     if (!customerId) {
       const customer = await stripe.customers.create({
         email,
@@ -43,13 +42,11 @@ export async function POST(request) {
       });
       customerId = customer.id;
 
-      // Save customer ID
       await supabaseAdmin
         .from('subscriptions')
         .upsert({ user_id: userId, stripe_customer_id: customerId, plan: 'free', status: 'active' });
     }
 
-    // Create checkout session
     const sessionParams = {
       customer: customerId,
       payment_method_types: ['card'],
@@ -59,7 +56,6 @@ export async function POST(request) {
       metadata: { userId, plan },
     };
 
-    // Lifetime is one-time payment, others are subscriptions
     if (plan === 'lifetime') {
       sessionParams.mode = 'payment';
     } else {
