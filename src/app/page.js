@@ -203,7 +203,7 @@ export default function StudyBible() {
     (async () => {
       // Load personal note
       const { data: note } = await supabase.from("user_notes").select("*").eq("user_id", user.id).eq("verse_id", currentVerse.id).maybeSingle();
-      if (note) { setSavedNote(note); setUserNote(note.note_text); } else { setSavedNote(null); setUserNote(""); }
+      if (note) { setSavedNote(note); setUserNote(note.note_text); if (noteRef.current) noteRef.current.value = note.note_text; } else { setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = ""; }
       // Load highlight
       const { data: hl } = await supabase.from("user_highlights").select("*").eq("user_id", user.id).eq("verse_id", currentVerse.id).maybeSingle();
       setHighlight(hl);
@@ -215,17 +215,18 @@ export default function StudyBible() {
 
   // Clear user data when no user or verse changes
   useEffect(() => {
-    if (!user) { setSavedNote(null); setUserNote(""); setHighlight(null); setCommunityNotes([]); }
+    if (!user) { setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = ""; setHighlight(null); setCommunityNotes([]); }
   }, [user, verse]);
 
   const saveNote = async () => {
-    if (!user || !currentVerse || !userNote.trim()) return;
+    const noteText = noteRef.current?.value || "";
+    if (!user || !currentVerse || !noteText.trim()) return;
     setNoteLoading(true);
     if (savedNote) {
-      const { data } = await supabase.from("user_notes").update({ note_text: userNote, updated_at: new Date().toISOString() }).eq("id", savedNote.id).select().single();
+      const { data } = await supabase.from("user_notes").update({ note_text: noteText, updated_at: new Date().toISOString() }).eq("id", savedNote.id).select().single();
       if (data) setSavedNote(data);
     } else {
-      const { data } = await supabase.from("user_notes").insert({ user_id: user.id, verse_id: currentVerse.id, note_text: userNote }).select().single();
+      const { data } = await supabase.from("user_notes").insert({ user_id: user.id, verse_id: currentVerse.id, note_text: noteText }).select().single();
       if (data) setSavedNote(data);
     }
     setNoteLoading(false);
@@ -607,9 +608,9 @@ export default function StudyBible() {
           {tab === "my" && user && <div style={{display:"flex",flexDirection:"column",gap:12}}>
             <Card t={t}>
               <Label icon="✏️" t={t}>My Note on {book} {chapter}:{verse}</Label>
-              <textarea ref={noteRef} value={userNote} onChange={e => setUserNote(e.target.value)} placeholder="Write your personal thoughts, reflections, or insights on this verse..." rows={4} style={{ width:"100%",padding:"12px 14px",borderRadius:10,border:`1px solid ${t.divider}`,fontFamily:t.body,fontSize:14,color:t.text,outline:"none",background:t.bg,resize:"vertical",lineHeight:1.7 }} />
+              <textarea ref={noteRef} defaultValue={userNote} placeholder="Write your personal thoughts, reflections, or insights on this verse..." rows={4} style={{ width:"100%",padding:"12px 14px",borderRadius:10,border:`1px solid ${t.divider}`,fontFamily:t.body,fontSize:14,color:t.text,outline:"none",background:t.bg,resize:"vertical",lineHeight:1.7,boxSizing:"border-box" }} />
               <div style={{ display:"flex",gap:8,marginTop:10,alignItems:"center",flexWrap:"wrap" }}>
-                <button onClick={saveNote} disabled={noteLoading || !userNote.trim()} style={{ padding:"10px 20px",borderRadius:8,border:"none",background:userNote.trim()?t.accent:t.divider,color:"#fff",fontFamily:t.ui,fontSize:13,fontWeight:700,cursor:userNote.trim()?"pointer":"default" }}>{noteLoading ? "Saving..." : savedNote ? "Update Note" : "Save Note"}</button>
+                <button onClick={saveNote} disabled={noteLoading} style={{ padding:"10px 20px",borderRadius:8,border:"none",background:t.accent,color:"#fff",fontFamily:t.ui,fontSize:13,fontWeight:700,cursor:"pointer" }}>{noteLoading ? "Saving..." : savedNote ? "Update Note" : "Save Note"}</button>
                 {savedNote && <>
                   <button onClick={toggleNotePublic} style={{ padding:"8px 14px",borderRadius:8,border:`1px solid ${savedNote.is_public?'#7ED4AD':t.divider}`,background:savedNote.is_public?'#7ED4AD22':'transparent',fontFamily:t.ui,fontSize:12,fontWeight:600,color:savedNote.is_public?'#2E7D5B':t.muted,cursor:"pointer" }}>
                     {savedNote.is_public ? "🌍 Shared" : "🔒 Private"} — tap to {savedNote.is_public ? "make private" : "share"}
@@ -664,10 +665,10 @@ export default function StudyBible() {
   // ═══ RENDER ═══
   return (
     <div style={{ maxWidth:640,margin:"0 auto",transition:"opacity 0.12s ease",opacity:fade?1:0,minHeight:"100vh" }}>
-      {view === "home" && Home()}
-      {view === "books" && Books()}
-      {view === "chapter" && Chapters()}
-      {view === "verse" && VerseStudy()}
+      {view === "home" && <Home />}
+      {view === "books" && <Books />}
+      {view === "chapter" && <Chapters />}
+      {view === "verse" && <VerseStudy />}
       {/* AUTH MODAL */}
       {authModal && (
         <div style={{ position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center",padding:20 }}>
