@@ -664,10 +664,10 @@ export default function StudyBible() {
   // ═══ RENDER ═══
   return (
     <div style={{ maxWidth:640,margin:"0 auto",transition:"opacity 0.12s ease",opacity:fade?1:0,minHeight:"100vh" }}>
-      {view === "home" && <Home />}
-      {view === "books" && <Books />}
-      {view === "chapter" && <Chapters />}
-      {view === "verse" && <VerseStudy />}
+      {view === "home" && Home()}
+      {view === "books" && Books()}
+      {view === "chapter" && Chapters()}
+      {view === "verse" && VerseStudy()}
       {/* AUTH MODAL */}
       {authModal && (
         <div style={{ position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center",padding:20 }}>
