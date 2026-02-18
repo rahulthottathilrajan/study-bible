@@ -379,7 +379,7 @@ export default function StudyBible() {
     }, 120);
   }, []);
 
-  useEffect(() => { if (view === "verse" && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
+  useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
   useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) setVerse(verseNums[0]); }, [view, verse, verseNums]);
 
   // Auth modal rendered inline below in return
@@ -533,7 +533,7 @@ export default function StudyBible() {
           <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(52px,1fr))",gap:7 }}>
             {Array.from({length:bookInfo.chapters},(_,i)=>i+1).map(ch => {
               const has = avail.includes(ch);
-              return <button key={ch} onClick={()=>{if(has)nav("verse",{chapter:ch,verse:null,tab:"study"})}} style={{ background:has?t.card:t.bg,border:has?`1.5px solid ${t.accentBorder}`:`1px solid ${t.divider}`,borderRadius:10,padding:"13px 0",cursor:has?"pointer":"default",fontFamily:t.heading,fontSize:15,fontWeight:has?700:400,color:has?t.dark:t.light,position:"relative",opacity:has?1:0.5,boxShadow:has?"0 2px 6px rgba(0,0,0,0.05)":"none" }}>
+              return <button key={ch} onClick={()=>{if(has)nav("verses",{chapter:ch,verse:null})}} style={{ background:has?t.card:t.bg,border:has?`1.5px solid ${t.accentBorder}`:`1px solid ${t.divider}`,borderRadius:10,padding:"13px 0",cursor:has?"pointer":"default",fontFamily:t.heading,fontSize:15,fontWeight:has?700:400,color:has?t.dark:t.light,position:"relative",opacity:has?1:0.5,boxShadow:has?"0 2px 6px rgba(0,0,0,0.05)":"none" }}>
                 {ch}{has && <div style={{position:"absolute",top:3,right:3,width:6,height:6,borderRadius:"50%",background:t.accent}}/>}
               </button>;
             })}
@@ -546,10 +546,69 @@ export default function StudyBible() {
     );
   };
 
+  // ═══ VERSE LIST ═══
+  const VerseList = () => {
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} subtitle="Loading verses..." onBack={() => nav("chapter",{book})} /><Spinner t={t} /></div>;
+    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={() => nav("chapter",{book})} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
+
+    return (
+      <div style={{ minHeight:"100vh",background:t.bg }}>
+        <Header title={`${book} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={() => nav("chapter",{book})} />
+        <div style={{ maxWidth:620,margin:"0 auto",padding:"16px 16px 40px" }}>
+
+          {/* Chapter Overview (compact) */}
+          {chapterMeta?.overview && (
+            <Card accent t={t} style={{marginBottom:14}}>
+              <Label icon="📋" t={t}>Overview</Label>
+              <div style={{fontFamily:t.body,fontSize:13.5,color:t.text,lineHeight:1.6,display:"-webkit-box",WebkitLineClamp:3,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{chapterMeta.overview}</div>
+            </Card>
+          )}
+
+          {/* All Verses */}
+          <div style={{display:"flex",flexDirection:"column",gap:6}}>
+            {verses.map(v => {
+              const hasStudy = v.study_note || v.doctrinal_note;
+              const hasOriginal = v.original_text;
+              const vWordCount = (wordStudies[v.id] || []).length;
+              const vRefCount = (crossRefs[v.id] || []).length;
+              return (
+                <button key={v.verse_number} onClick={() => nav("verse",{verse:v.verse_number,tab:"study"})}
+                  style={{
+                    background:t.card,border:`1px solid ${t.divider}`,borderRadius:12,
+                    padding:"14px 16px",textAlign:"left",cursor:"pointer",
+                    display:"flex",gap:12,alignItems:"flex-start",
+                    boxShadow:"0 1px 3px rgba(0,0,0,0.03)",transition:"all 0.15s"
+                  }}>
+                  <span style={{
+                    fontFamily:t.heading,fontSize:18,fontWeight:800,color:t.verseNum,
+                    minWidth:28,textAlign:"center",lineHeight:1.4
+                  }}>{v.verse_number}</span>
+                  <div style={{flex:1,minWidth:0}}>
+                    <div style={{
+                      fontFamily:t.body,fontSize:14.5,color:t.text,lineHeight:1.65,
+                      display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"
+                    }}>{v.kjv_text}</div>
+                    <div style={{display:"flex",gap:6,marginTop:8,flexWrap:"wrap"}}>
+                      {hasStudy && <Badge t={t}>Study Notes</Badge>}
+                      {hasOriginal && <Badge t={t}>{isOT ? "Hebrew" : "Greek"}</Badge>}
+                      {vWordCount > 0 && <Badge t={t}>{vWordCount} Words</Badge>}
+                      {vRefCount > 0 && <Badge t={t}>{vRefCount} Refs</Badge>}
+                    </div>
+                  </div>
+                  <div style={{color:t.light,flexShrink:0,alignSelf:"center"}}><ChevIcon /></div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // ═══ VERSE STUDY ═══
   const VerseStudy = () => {
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={()=>nav("chapter",{book})} /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
-    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={()=>nav("chapter",{book})} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>{dbLive?"Loading...":"Connect to Supabase"}</div></div></div>;
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={() => nav("verses",{book, chapter})} /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
+    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={() => nav("verses",{book, chapter})} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>{dbLive?"Loading...":"Connect to Supabase"}</div></div></div>;
 
     const ref = `${book} ${chapter}:${verse}`;
     const vWords = wordStudies[currentVerse.id] || [];
@@ -558,7 +617,7 @@ export default function StudyBible() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={ref} subtitle={chapterMeta?.theme} onBack={() => nav("chapter",{book})}
+        <Header title={ref} subtitle={chapterMeta?.theme} onBack={() => nav("verses",{book,chapter})}
           right={<>
             <DBBadge live={dbLive} t={t} />
             {user && <Btn onClick={toggleBookmarkHL} style={{color:highlight?.is_bookmarked?"#ffd700":t.headerText,fontSize:18,padding:"7px 10px",background:highlight?.is_bookmarked?"rgba(255,215,0,0.2)":"rgba(255,255,255,0.1)"}}>{highlight?.is_bookmarked?"★":"☆"}</Btn>}
@@ -829,7 +888,7 @@ export default function StudyBible() {
   );
 
   // ═══ BOTTOM NAV ═══
-  const showNav = !["verse"].includes(view);
+  const showNav = !["verse","verses"].includes(view);
   const navItems = [
     { id:"home", label:"Home", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
     { id:"books", label:"Books", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> },
@@ -844,6 +903,7 @@ export default function StudyBible() {
       {view === "home" && Home()}
       {view === "books" && Books()}
       {view === "chapter" && Chapters()}
+      {view === "verses" && VerseList()}
       {view === "verse" && VerseStudy()}
       {view === "highlights" && Highlights()}
       {view === "account" && Account()}
