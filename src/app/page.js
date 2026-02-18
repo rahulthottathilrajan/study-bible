@@ -147,6 +147,8 @@ export default function StudyBible() {
   const [prayerTitle, setPrayerTitle] = useState("");
   const [prayerText, setPrayerText] = useState("");
   const [prayerLoading, setPrayerLoading] = useState(false);
+  const [allHighlights, setAllHighlights] = useState([]);
+  const [hlLoading, setHlLoading] = useState(false);
   const noteRef = useRef(null);
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
@@ -295,6 +297,22 @@ export default function StudyBible() {
     await supabase.from("prayer_journal").delete().eq("id", id);
     loadPrayers();
   };
+
+  // ═══ LOAD ALL HIGHLIGHTS ═══
+  const loadAllHighlights = useCallback(async () => {
+    if (!user) return;
+    setHlLoading(true);
+    const { data } = await supabase
+      .from("user_highlights")
+      .select("*, verses(verse_number, kjv_text, chapter_id, chapters(chapter_number, book_id, books(name)))")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
+    setAllHighlights(data || []);
+    setHlLoading(false);
+  }, [user]);
+
+  useEffect(() => { if (view === "highlights" && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
+  useEffect(() => { if (view === "account" && user) { loadAllHighlights(); loadPrayers(); } }, [view, user, loadAllHighlights, loadPrayers]);
 
   // ═══ DB & NAVIGATION ═══
   useEffect(() => {
@@ -662,13 +680,173 @@ export default function StudyBible() {
     );
   };
 
+  // ═══ HIGHLIGHTS COLLECTION ═══
+  const Highlights = () => (
+    <div style={{ minHeight:"100vh",background:ht.bg,paddingBottom:80 }}>
+      <Header title="My Highlights" subtitle={`${allHighlights.length} saved`} theme={ht} />
+      <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
+        {!user ? (
+          <Card t={ht} style={{textAlign:"center",padding:30}}>
+            <div style={{fontSize:36,marginBottom:12}}>🔐</div>
+            <div style={{fontFamily:ht.heading,fontSize:17,color:ht.dark,marginBottom:6}}>Sign In to See Highlights</div>
+            <div style={{fontFamily:ht.ui,fontSize:13,color:ht.muted,marginBottom:14}}>Highlight verses while reading and find them all here.</div>
+            <button onClick={() => setAuthModal(true)} style={{padding:"12px 28px",borderRadius:10,border:"none",background:ht.headerGradient,color:ht.headerText,fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer"}}>Sign In / Sign Up</button>
+          </Card>
+        ) : hlLoading ? <Spinner t={ht} /> : allHighlights.length === 0 ? (
+          <Card t={ht} style={{textAlign:"center",padding:30}}>
+            <div style={{fontSize:42,marginBottom:14}}>🎨</div>
+            <div style={{fontFamily:ht.heading,fontSize:18,color:ht.dark,marginBottom:6}}>No Highlights Yet</div>
+            <div style={{fontFamily:ht.ui,fontSize:13,color:ht.muted,lineHeight:1.6}}>Open any verse and use the colored dots to highlight. Bookmarked and highlighted verses will appear here!</div>
+          </Card>
+        ) : (
+          <div style={{display:"flex",flexDirection:"column",gap:8}}>
+            {allHighlights.map(h => {
+              const bName = h.verses?.chapters?.books?.name;
+              const chNum = h.verses?.chapters?.chapter_number;
+              const vNum = h.verses?.verse_number;
+              const ref = `${bName} ${chNum}:${vNum}`;
+              return (
+                <button key={h.id} onClick={() => nav("verse",{book:bName,chapter:chNum,verse:vNum,tab:"study"})}
+                  style={{ background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:12,padding:"14px 16px",textAlign:"left",cursor:"pointer",display:"flex",gap:12,alignItems:"flex-start",borderLeft:`4px solid ${h.highlight_color || '#FFD700'}`,boxShadow:"0 1px 3px rgba(0,0,0,0.04)" }}>
+                  <div style={{ flex:1 }}>
+                    <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:4}}>
+                      <span style={{fontFamily:ht.heading,fontSize:14,fontWeight:700,color:ht.dark}}>{ref}</span>
+                      {h.is_bookmarked && <span style={{fontSize:14}}>★</span>}
+                    </div>
+                    <div style={{fontFamily:ht.body,fontSize:13.5,color:ht.text,lineHeight:1.6,display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"}}>
+                      {h.verses?.kjv_text}
+                    </div>
+                  </div>
+                  <div style={{color:ht.light,flexShrink:0,alignSelf:"center"}}><ChevIcon /></div>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
+  // ═══ ACCOUNT PAGE ═══
+  const Account = () => (
+    <div style={{ minHeight:"100vh",background:ht.bg,paddingBottom:80 }}>
+      <Header title="My Account" theme={ht} />
+      <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
+        {!user ? (
+          <div style={{textAlign:"center",padding:"40px 20px"}}>
+            <div style={{color:ht.accent,marginBottom:16}}><CrossIcon /></div>
+            <h3 style={{fontFamily:ht.heading,fontSize:24,color:ht.dark,marginBottom:8}}>Welcome to Study Bible</h3>
+            <div style={{fontFamily:ht.ui,fontSize:14,color:ht.muted,lineHeight:1.6,marginBottom:24}}>Sign in to save your notes, highlights, bookmarks, and prayer journal across all your devices.</div>
+            <button onClick={() => { setAuthMode("signup"); setAuthModal(true); }} style={{width:"100%",padding:"14px",borderRadius:12,border:"none",background:ht.headerGradient,color:ht.headerText,fontFamily:ht.ui,fontSize:16,fontWeight:700,cursor:"pointer",marginBottom:10}}>Create Account</button>
+            <button onClick={() => { setAuthMode("login"); setAuthModal(true); }} style={{width:"100%",padding:"14px",borderRadius:12,border:`1.5px solid ${ht.accent}`,background:"transparent",color:ht.accent,fontFamily:ht.ui,fontSize:16,fontWeight:700,cursor:"pointer"}}>Sign In</button>
+          </div>
+        ) : (
+          <div style={{display:"flex",flexDirection:"column",gap:12}}>
+            {/* Profile Card */}
+            <Card t={ht}>
+              <div style={{display:"flex",alignItems:"center",gap:14}}>
+                <div style={{width:52,height:52,borderRadius:"50%",background:ht.headerGradient,display:"flex",alignItems:"center",justifyContent:"center",color:ht.headerText,fontFamily:ht.heading,fontSize:22,fontWeight:700}}>
+                  {(profile?.display_name || "R")[0].toUpperCase()}
+                </div>
+                <div>
+                  <div style={{fontFamily:ht.heading,fontSize:18,fontWeight:700,color:ht.dark}}>{profile?.display_name || "Reader"}</div>
+                  <div style={{fontFamily:ht.ui,fontSize:12,color:ht.muted}}>{user.email}</div>
+                  <div style={{fontFamily:ht.ui,fontSize:10,color:ht.light,marginTop:2}}>Joined {new Date(user.created_at).toLocaleDateString()}</div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Stats */}
+            <Card t={ht}>
+              <Label icon="📊" t={ht} color={ht.muted}>My Study Stats</Label>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                {[
+                  {n: allHighlights.length, l:"Highlights", icon:"🎨"},
+                  {n: allHighlights.filter(h=>h.is_bookmarked).length, l:"Bookmarks", icon:"★"},
+                  {n: prayers.length, l:"Prayers", icon:"🙏"},
+                  {n: prayers.filter(p=>p.is_answered).length, l:"Answered", icon:"✓"},
+                ].map((s,i) => (
+                  <div key={i} style={{background:ht.accentLight,borderRadius:10,padding:"14px",textAlign:"center",border:`1px solid ${ht.accentBorder}`}}>
+                    <div style={{fontSize:14,marginBottom:4}}>{s.icon}</div>
+                    <div style={{fontFamily:ht.heading,fontSize:22,fontWeight:700,color:ht.dark}}>{s.n}</div>
+                    <div style={{fontFamily:ht.ui,fontSize:10,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.08em"}}>{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            {/* Quick Actions */}
+            <Card t={ht}>
+              <Label icon="⚡" t={ht} color={ht.muted}>Quick Actions</Label>
+              {[
+                {label:"My Highlights",icon:"🎨",action:()=>nav("highlights")},
+                {label:"Prayer Journal",icon:"🙏",action:()=>setPrayerModal(true)},
+              ].map((a,i) => (
+                <button key={i} onClick={a.action} style={{width:"100%",display:"flex",alignItems:"center",gap:12,padding:"12px 14px",background:"transparent",border:`1px solid ${ht.divider}`,borderRadius:10,cursor:"pointer",marginBottom:6,textAlign:"left"}}>
+                  <span style={{fontSize:18}}>{a.icon}</span>
+                  <span style={{fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark,flex:1}}>{a.label}</span>
+                  <div style={{color:ht.light}}><ChevIcon /></div>
+                </button>
+              ))}
+            </Card>
+
+            {/* Coming Soon */}
+            <Card accent t={ht}>
+              <Label icon="✨" t={ht}>Coming Soon</Label>
+              <div style={{fontFamily:ht.ui,fontSize:13,color:ht.text,lineHeight:1.7}}>
+                Premium features including audio Bible, advanced word studies, reading plans, and more.
+              </div>
+            </Card>
+
+            {/* Sign Out */}
+            <button onClick={handleLogout} style={{width:"100%",padding:"14px",borderRadius:12,border:`1.5px solid #E8625C44`,background:"#E8625C08",color:"#E8625C",fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer",marginTop:8}}>Sign Out</button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
+  // ═══ BOTTOM NAV ═══
+  const showNav = !["verse"].includes(view);
+  const navItems = [
+    { id:"home", label:"Home", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
+    { id:"books", label:"Books", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> },
+    { id:"highlights", label:"Highlights", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"/></svg> },
+    { id:"prayer", label:"Prayers", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> },
+    { id:"account", label:"Account", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> },
+  ];
+
   // ═══ RENDER ═══
   return (
-    <div style={{ maxWidth:640,margin:"0 auto",transition:"opacity 0.12s ease",opacity:fade?1:0,minHeight:"100vh" }}>
-      {view === "home" && <Home />}
-      {view === "books" && <Books />}
-      {view === "chapter" && <Chapters />}
-      {view === "verse" && <VerseStudy />}
+    <div style={{ maxWidth:640,margin:"0 auto",transition:"opacity 0.12s ease",opacity:fade?1:0,minHeight:"100vh",paddingBottom:showNav?68:0 }}>
+      {view === "home" && Home()}
+      {view === "books" && Books()}
+      {view === "chapter" && Chapters()}
+      {view === "verse" && VerseStudy()}
+      {view === "highlights" && Highlights()}
+      {view === "account" && Account()}
+
+      {/* BOTTOM NAV */}
+      {showNav && (
+        <div style={{ position:"fixed",bottom:0,left:0,right:0,zIndex:50,background:ht.card,borderTop:`1px solid ${ht.divider}`,boxShadow:"0 -2px 12px rgba(0,0,0,0.06)" }}>
+          <div style={{ maxWidth:640,margin:"0 auto",display:"flex",justifyContent:"space-around",alignItems:"center",padding:"6px 0 10px" }}>
+            {navItems.map(item => {
+              const isActive = (item.id === "books" && ["books","chapter"].includes(view)) || (item.id === "prayer" ? false : view === item.id);
+              return (
+                <button key={item.id} onClick={() => {
+                  if (item.id === "prayer") { if (user) setPrayerModal(true); else setAuthModal(true); }
+                  else if (item.id === "books") nav("books", { testament: testament || "OT" });
+                  else nav(item.id);
+                }} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,background:"none",border:"none",cursor:"pointer",padding:"4px 12px",color:isActive?ht.accent:ht.muted,transition:"all 0.15s",opacity:isActive?1:0.7 }}>
+                  <div style={{ transform:isActive?"scale(1.1)":"scale(1)",transition:"transform 0.15s" }}>{item.icon}</div>
+                  <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:isActive?700:500,letterSpacing:"0.02em" }}>{item.label}</span>
+                  {isActive && <div style={{ width:4,height:4,borderRadius:"50%",background:ht.accent,marginTop:-1 }}/>}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
       {/* AUTH MODAL */}
       {authModal && (
         <div style={{ position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center",padding:20 }}>
