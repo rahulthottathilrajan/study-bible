@@ -556,6 +556,13 @@ export default function StudyBible() {
         <Header title={`${book} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={() => nav("chapter",{book})} />
         <div style={{ maxWidth:620,margin:"0 auto",padding:"16px 16px 40px" }}>
 
+          {/* Chapter Illustration — TEST */}
+          {book === "Genesis" && chapter === 1 && (
+            <div style={{marginBottom:14,borderRadius:14,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.1)"}}>
+              <img src="https://qpcafbwmvrkpztvvjnzx.supabase.co/storage/v1/object/public/illustrations/Gen%201.png" alt={`${book} ${chapter}`} style={{width:"100%",height:200,objectFit:"cover",display:"block"}} />
+            </div>
+          )}
+
           {/* Chapter Overview (compact) */}
           {chapterMeta?.overview && (
             <Card accent t={t} style={{marginBottom:14}}>
