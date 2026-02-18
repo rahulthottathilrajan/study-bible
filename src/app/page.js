@@ -149,6 +149,9 @@ export default function StudyBible() {
   const [prayerLoading, setPrayerLoading] = useState(false);
   const [allHighlights, setAllHighlights] = useState([]);
   const [hlLoading, setHlLoading] = useState(false);
+  const [subscription, setSubscription] = useState(null);
+  const [upgradeModal, setUpgradeModal] = useState(false);
+  const [checkoutLoading, setCheckoutLoading] = useState("");
   const noteRef = useRef(null);
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
@@ -158,6 +161,7 @@ export default function StudyBible() {
   const curIdx = verseNums.indexOf(verse);
   const t = useMemo(() => bookInfo ? THEMES[CATEGORY_THEME[bookInfo.category] || "home"] : THEMES.home, [bookInfo]);
   const ht = THEMES.home;
+  const isPremium = subscription?.plan && subscription.plan !== "free" && subscription.status === "active";
 
   // ═══ AUTH ═══
   useEffect(() => {
@@ -176,6 +180,9 @@ export default function StudyBible() {
   const loadProfile = async (uid) => {
     const { data } = await supabase.from("user_profiles").select("*").eq("id", uid).single();
     if (data) setProfile(data);
+    const { data: sub } = await supabase.from("subscriptions").select("*").eq("user_id", uid).single();
+    if (sub) setSubscription(sub);
+    else setSubscription({ plan: "free", status: "active" });
   };
 
   const handleAuth = async () => {
@@ -203,6 +210,35 @@ export default function StudyBible() {
       provider: "google",
       options: { redirectTo: window.location.origin }
     });
+  };
+
+  const handleCheckout = async (plan) => {
+    if (!user) { setAuthModal(true); return; }
+    setCheckoutLoading(plan);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan, userId: user.id, email: user.email }),
+      });
+      const data = await res.json();
+      if (data.url) window.location.href = data.url;
+      else alert(data.error || "Something went wrong");
+    } catch (e) { alert("Payment service unavailable. Please try again later."); }
+    setCheckoutLoading("");
+  };
+
+  // Premium gate component
+  const PremiumGate = ({ feature, children }) => {
+    if (isPremium) return children;
+    return (
+      <Card t={t} style={{textAlign:"center",padding:"24px 18px"}}>
+        <div style={{fontSize:32,marginBottom:10}}>👑</div>
+        <div style={{fontFamily:t.heading,fontSize:17,color:t.dark,marginBottom:6}}>Premium Feature</div>
+        <div style={{fontFamily:t.ui,fontSize:13,color:t.muted,lineHeight:1.6,marginBottom:14}}>{feature} is available with Study Bible Premium.</div>
+        <button onClick={() => setUpgradeModal(true)} style={{padding:"10px 24px",borderRadius:10,border:"none",background:"linear-gradient(135deg,#D4A853,#B8860B)",color:"#fff",fontFamily:t.ui,fontSize:14,fontWeight:700,cursor:"pointer",boxShadow:"0 2px 8px rgba(212,168,83,0.3)"}}>Upgrade to Premium</button>
+      </Card>
+    );
   };
 
   // ═══ USER FEATURES ═══
@@ -590,9 +626,9 @@ export default function StudyBible() {
           <div style={{ display:"flex",background:t.card,borderRadius:10,padding:3,marginBottom:14,border:`1px solid ${t.divider}` }}>
             {[
               {id:"study",label:"Study Notes"},
-              {id:"original",label:isOT?"Hebrew":"Greek"},
+              {id:"original",label:isOT?(isPremium?"Hebrew":"Hebrew 👑"):(isPremium?"Greek":"Greek 👑")},
               {id:"cross",label:`Cross-Refs${vRefs.length?` (${vRefs.length})`:""}`},
-              ...(user ? [{id:"my",label:"My Notes"}] : [])
+              ...(user ? [{id:"my",label:isPremium?"My Notes":"My Notes 👑"}] : [])
             ].map(tb => (
               <button key={tb.id} onClick={() => setTab(tb.id)} style={{ flex:1,padding:"10px 4px",border:"none",borderRadius:8,background:tab===tb.id?t.tabActive:"transparent",color:tab===tb.id?t.headerText:t.muted,fontFamily:t.ui,fontSize:12,fontWeight:700,cursor:"pointer",transition:"all 0.15s" }}>{tb.label}</button>
             ))}
@@ -606,7 +642,7 @@ export default function StudyBible() {
           </div>}
 
           {/* Hebrew/Greek Tab */}
-          {tab === "original" && <div style={{display:"flex",flexDirection:"column",gap:12}}>
+          {tab === "original" && <PremiumGate feature="Hebrew & Greek word studies"><div style={{display:"flex",flexDirection:"column",gap:12}}>
             {currentVerse.original_text && <Card t={t}><Label icon="🕎" t={t}>{isOT?"Hebrew Text":"Greek Text"}</Label>
               <div style={{fontFamily:"'Times New Roman',serif",fontSize:isOT?24:19,color:t.dark,lineHeight:2,direction:isOT?"rtl":"ltr",textAlign:isOT?"right":"left",padding:"14px 18px",background:t.hebrewBg,borderRadius:10,marginBottom:10}}>{currentVerse.original_text}</div>
               {currentVerse.transliteration && <div style={{fontFamily:t.body,fontSize:14,color:t.muted,fontStyle:"italic",lineHeight:1.6}}><span style={{fontWeight:700,fontStyle:"normal",fontSize:10,textTransform:"uppercase",letterSpacing:"0.05em",fontFamily:t.ui}}>Transliteration: </span>{currentVerse.transliteration}</div>}
@@ -621,7 +657,7 @@ export default function StudyBible() {
                 <div style={{fontFamily:t.ui,fontSize:13.5,color:t.text,lineHeight:1.6}}>{w.meaning}</div>
               </div>)}
             </div></Card>}
-          </div>}
+          </div></PremiumGate>}
 
           {/* Cross-Refs Tab */}
           {tab === "cross" && <Card t={t}><Label icon="🔗" t={t}>Cross References</Label>
@@ -630,7 +666,7 @@ export default function StudyBible() {
           </Card>}
 
           {/* MY NOTES Tab */}
-          {tab === "my" && user && <div style={{display:"flex",flexDirection:"column",gap:12}}>
+          {tab === "my" && user && <PremiumGate feature="Personal notes, sharing & prayer journal"><div style={{display:"flex",flexDirection:"column",gap:12}}>
             <Card t={t}>
               <Label icon="✏️" t={t}>My Note on {book} {chapter}:{verse}</Label>
               <textarea ref={noteRef} defaultValue={userNote} placeholder="Write your personal thoughts, reflections, or insights on this verse..." rows={4} style={{ width:"100%",padding:"12px 14px",borderRadius:10,border:`1px solid ${t.divider}`,fontFamily:t.body,fontSize:14,color:t.text,outline:"none",background:t.bg,resize:"vertical",lineHeight:1.7,boxSizing:"border-box" }} />
@@ -656,7 +692,7 @@ export default function StudyBible() {
                 <div style={{fontFamily:t.body,fontSize:13.5,color:t.text,lineHeight:1.65}}>{cn.note_text}</div>
               </div>)}
             </Card>}
-          </div>}
+          </div></PremiumGate>}
 
           {/* Not logged in prompt for My Notes tab */}
           {tab === "my" && !user && <Card t={t}>
@@ -804,12 +840,28 @@ export default function StudyBible() {
               ))}
             </Card>
 
-            {/* Coming Soon */}
+            {/* Subscription Status */}
             <Card accent t={ht}>
-              <Label icon="✨" t={ht}>Coming Soon</Label>
-              <div style={{fontFamily:ht.ui,fontSize:13,color:ht.text,lineHeight:1.7}}>
-                Premium features including audio Bible, advanced word studies, reading plans, and more.
-              </div>
+              <Label icon="👑" t={ht}>{isPremium ? "Premium Member" : "Free Plan"}</Label>
+              {isPremium ? (
+                <div>
+                  <div style={{fontFamily:ht.ui,fontSize:14,color:ht.dark,fontWeight:600,marginBottom:4}}>
+                    {subscription?.plan === "lifetime" ? "Lifetime" : subscription?.plan === "yearly" ? "Yearly" : "Monthly"} Plan — Active ✓
+                  </div>
+                  {subscription?.current_period_end && subscription.plan !== "lifetime" && (
+                    <div style={{fontFamily:ht.ui,fontSize:12,color:ht.muted}}>Renews: {new Date(subscription.current_period_end).toLocaleDateString()}</div>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  <div style={{fontFamily:ht.ui,fontSize:13,color:ht.text,lineHeight:1.7,marginBottom:12}}>
+                    Unlock Hebrew & Greek studies, personal notes, prayer journal, highlights, and all future features.
+                  </div>
+                  <button onClick={() => setUpgradeModal(true)} style={{padding:"12px 24px",borderRadius:10,border:"none",background:"linear-gradient(135deg,#D4A853,#B8860B)",color:"#fff",fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer",boxShadow:"0 2px 8px rgba(212,168,83,0.3)"}}>
+                    👑 Upgrade to Premium
+                  </button>
+                </div>
+              )}
             </Card>
 
             {/* Sign Out */}
@@ -892,6 +944,73 @@ export default function StudyBible() {
               <span onClick={() => { setAuthMode(authMode === "login" ? "signup" : "login"); setAuthError(""); }} style={{ color:ht.accent,cursor:"pointer",fontWeight:600 }}>
                 {authMode === "login" ? "Create Account" : "Sign In"}
               </span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* UPGRADE MODAL */}
+      {upgradeModal && (
+        <div style={{ position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center",padding:16 }}>
+          <div style={{ background:ht.bg,borderRadius:20,padding:"28px 22px",width:"100%",maxWidth:420,maxHeight:"90vh",overflow:"auto",position:"relative" }}>
+            <button onClick={() => setUpgradeModal(false)} style={{ position:"absolute",top:14,right:14,background:"none",border:"none",cursor:"pointer",color:ht.muted }}><CloseIcon /></button>
+            <div style={{ textAlign:"center",marginBottom:22 }}>
+              <div style={{fontSize:40,marginBottom:8}}>👑</div>
+              <h3 style={{ fontFamily:ht.heading,fontSize:24,color:ht.dark,margin:0 }}>Study Bible Premium</h3>
+              <p style={{ fontFamily:ht.ui,fontSize:13,color:ht.muted,margin:"8px 0 0",lineHeight:1.6 }}>Unlock the full depth of Scripture study</p>
+            </div>
+
+            {/* Features list */}
+            <div style={{background:ht.card,borderRadius:12,padding:"14px 16px",border:`1px solid ${ht.divider}`,marginBottom:18}}>
+              {[
+                {icon:"🕎",text:"Hebrew & Greek word studies"},
+                {icon:"✏️",text:"Personal notes on every verse"},
+                {icon:"🌍",text:"Share notes with community"},
+                {icon:"🙏",text:"Prayer journal linked to verses"},
+                {icon:"🎨",text:"Highlights & bookmarks"},
+                {icon:"🎧",text:"Audio Bible (coming soon)"},
+                {icon:"📅",text:"Reading plans (coming soon)"},
+                {icon:"🖼️",text:"Visual Bible (coming soon)"},
+                {icon:"🛡️",text:"Apologetics resources (coming soon)"},
+                {icon:"✨",text:"All future features included"},
+              ].map((f,i) => (
+                <div key={i} style={{display:"flex",alignItems:"center",gap:10,padding:"6px 0",borderBottom:i<9?`1px solid ${ht.divider}`:"none"}}>
+                  <span style={{fontSize:16,width:24,textAlign:"center"}}>{f.icon}</span>
+                  <span style={{fontFamily:ht.ui,fontSize:13,color:ht.text}}>{f.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Pricing Cards */}
+            <div style={{display:"flex",flexDirection:"column",gap:10}}>
+              {[
+                {plan:"monthly",label:"Monthly",price:"$4.99",sub:"/month",popular:false},
+                {plan:"yearly",label:"Yearly",price:"$29.99",sub:"/year — Save 50%",popular:true},
+                {plan:"lifetime",label:"Lifetime",price:"$79.99",sub:"one-time payment",popular:false},
+              ].map(p => (
+                <button key={p.plan} onClick={() => handleCheckout(p.plan)} disabled={!!checkoutLoading}
+                  style={{
+                    width:"100%",padding:"16px 18px",borderRadius:12,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",justifyContent:"space-between",transition:"all 0.15s",
+                    background:p.popular?"linear-gradient(135deg,#D4A853,#B8860B)":ht.card,
+                    border:p.popular?"none":`1.5px solid ${ht.divider}`,
+                    color:p.popular?"#fff":ht.dark,
+                    boxShadow:p.popular?"0 4px 15px rgba(212,168,83,0.3)":"none",
+                    position:"relative",overflow:"hidden"
+                  }}>
+                  {p.popular && <div style={{position:"absolute",top:0,right:16,background:"#fff",color:"#B8860B",fontSize:9,fontWeight:800,padding:"2px 8px",borderRadius:"0 0 6px 6px",fontFamily:ht.ui,textTransform:"uppercase",letterSpacing:"0.05em"}}>Most Popular</div>}
+                  <div>
+                    <div style={{fontFamily:ht.heading,fontSize:16,fontWeight:700}}>{p.label}</div>
+                    <div style={{fontFamily:ht.ui,fontSize:11,opacity:0.8,marginTop:2}}>{p.sub}</div>
+                  </div>
+                  <div style={{fontFamily:ht.heading,fontSize:22,fontWeight:800}}>
+                    {checkoutLoading === p.plan ? "..." : p.price}
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <div style={{textAlign:"center",marginTop:14,fontFamily:ht.ui,fontSize:11,color:ht.light}}>
+              Secure payment via Stripe · Cancel anytime
             </div>
           </div>
         </div>
