@@ -990,30 +990,31 @@ export default function StudyBible() {
 
             <div style={{background:ht.card,borderRadius:12,padding:"16px 18px",border:`1px solid ${ht.divider}`,marginBottom:18}}>
               <div style={{fontFamily:ht.body,fontSize:14,color:ht.text,lineHeight:1.75,fontStyle:"italic",textAlign:"center"}}>
-                "Freely ye have received, freely give."
+                "Give, and it shall be given unto you; good measure, pressed down, and shaken together, and running over."
               </div>
-              <div style={{fontFamily:ht.ui,fontSize:12,color:ht.accent,textAlign:"center",marginTop:4}}>— Matthew 10:8 (KJV)</div>
+              <div style={{fontFamily:ht.ui,fontSize:12,color:ht.accent,textAlign:"center",marginTop:4}}>— Luke 6:38 (KJV)</div>
             </div>
 
             <div style={{fontFamily:ht.ui,fontSize:13,color:ht.text,lineHeight:1.7,marginBottom:18,textAlign:"center"}}>
-              Your support helps us add more books, audio Bible, visual Bible, apologetics resources, and keep everything free for everyone.
+              Every verse, every word study, every tool — completely free. Your generosity helps us keep building and sharing God's Word with the world.
             </div>
 
             {/* Donation amounts */}
             <div style={{display:"flex",flexDirection:"column",gap:8}}>
               {[
-                {amount:"$5",label:"Buy us a coffee",icon:"☕"},
-                {amount:"$15",label:"Support a chapter",icon:"📖"},
-                {amount:"$30",label:"Support a book",icon:"📚"},
-                {amount:"$100",label:"Generous blessing",icon:"🙏"},
+                {amount:"AED 10",label:"Plant a seed",icon:"🌱"},
+                {amount:"AED 20",label:"Light a lamp",icon:"🕯️"},
+                {amount:"AED 30",label:"Support a chapter",icon:"📖"},
+                {amount:"AED 50",label:"Support a book",icon:"📚"},
+                {amount:"AED 100",label:"A generous blessing",icon:"🙏"},
               ].map((d,i) => (
                 <a key={i} href={`https://buy.stripe.com/test_4gM8wH6l4fFC2sFgu90x200`} target="_blank" rel="noopener noreferrer"
                   style={{
                     width:"100%",padding:"14px 18px",borderRadius:12,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",justifyContent:"space-between",
-                    background:i===2?"linear-gradient(135deg,#D4A853,#B8860B)":ht.card,
-                    border:i===2?"none":`1.5px solid ${ht.divider}`,
-                    color:i===2?"#fff":ht.dark,
-                    boxShadow:i===2?"0 4px 15px rgba(212,168,83,0.3)":"none",
+                    background:i===3?"linear-gradient(135deg,#D4A853,#B8860B)":ht.card,
+                    border:i===3?"none":`1.5px solid ${ht.divider}`,
+                    color:i===3?"#fff":ht.dark,
+                    boxShadow:i===3?"0 4px 15px rgba(212,168,83,0.3)":"none",
                     textDecoration:"none",boxSizing:"border-box"
                   }}>
                   <div style={{display:"flex",alignItems:"center",gap:10}}>
