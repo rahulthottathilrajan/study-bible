@@ -433,27 +433,14 @@ export default function StudyBible() {
       </div>
       <div style={{ padding:"22px 20px 40px" }}>
         <div style={{ maxWidth:520,margin:"0 auto" }}>
-          <Label icon="⭐" t={ht} color={ht.muted}>Featured Passages</Label>
-          <div style={{ display:"flex",flexDirection:"column",gap:7,marginBottom:26 }}>
-            {[
-              { bk:"Genesis",ch:1,v:1,t:"In the Beginning",s:"The Creation — 31 verses with Hebrew study",thm:"garden" },
-              { bk:"Genesis",ch:1,v:26,t:"Image of God",s:"Let us make man in our image",thm:"garden" },
-              { bk:"Genesis",ch:1,v:31,t:"Very Good",s:"God's final evaluation of creation",thm:"garden" },
-              { bk:"Genesis",ch:1,v:3,t:"Let There Be Light",s:"God's first spoken word",thm:"garden" },
-            ].map((f,i) => {
-              const ft = THEMES[f.thm];
-              return (
-                <button key={i} onClick={() => nav("verse",{book:f.bk,chapter:f.ch,verse:f.v,tab:"study"})} style={{ background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:12,padding:"13px 15px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:13,transition:"all 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.04)" }}>
-                  <div style={{ width:42,height:42,borderRadius:10,flexShrink:0,background:ft.headerGradient,display:"flex",alignItems:"center",justifyContent:"center",color:ft.headerText,fontFamily:ft.heading,fontSize:16,fontWeight:700 }}>G</div>
-                  <div style={{ flex:1 }}>
-                    <div style={{ fontFamily:ht.heading,fontSize:14.5,fontWeight:600,color:ht.dark }}>{f.t}</div>
-                    <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted }}>{f.bk} {f.ch}:{f.v} — {f.s}</div>
-                  </div>
-                  <div style={{ color:ht.light }}><ChevIcon /></div>
-                </button>
-              );
-            })}
-          </div>
+          <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.1),rgba(212,168,83,0.05))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"16px 18px",marginBottom:22,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:14,boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
+            <div style={{ width:44,height:44,borderRadius:12,background:"linear-gradient(135deg,#D4A853,#B8860B)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0 }}>❤️</div>
+            <div style={{ flex:1 }}>
+              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Support the Ministry</div>
+              <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,lineHeight:1.5,marginTop:2 }}>Every feature is free. Your generosity keeps it that way.</div>
+            </div>
+            <div style={{ color:ht.light }}><ChevIcon /></div>
+          </button>
           <Label icon="📖" t={ht} color={ht.muted}>Browse the Bible</Label>
           {[
             { t:"OT",l:"Old Testament",s:"39 Books · Genesis to Malachi",o:"בְּרֵאשִׁית — In the Beginning",thm:"garden" },
@@ -470,6 +457,24 @@ export default function StudyBible() {
               </div>
             </button>
           ))}
+          <Label icon="🏫" t={ht} color={ht.muted}>Learn the Original Languages</Label>
+          <div style={{ display:"flex",gap:10,marginBottom:22 }}>
+            <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
+              <div style={{ position:"absolute",top:8,right:8,background:"rgba(192,108,62,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#C06C3E",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
+              <div style={{ fontSize:32,marginBottom:8 }}>🕎</div>
+              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:22,color:ht.dark,direction:"rtl",marginBottom:4 }}>עִבְרִית</div>
+              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Learn Hebrew</div>
+              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>The language of the Old Testament</div>
+            </div>
+            <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
+              <div style={{ position:"absolute",top:8,right:8,background:"rgba(27,122,110,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#1B7A6E",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
+              <div style={{ fontSize:32,marginBottom:8 }}>🏛️</div>
+              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:22,color:ht.dark,marginBottom:4 }}>Ἑλληνική</div>
+              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Learn Greek</div>
+              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>The language of the New Testament</div>
+            </div>
+          </div>
+
           <div style={{ display:"flex",justifyContent:"center",gap:28,marginTop:22,padding:"14px 0",borderTop:`1px solid ${ht.divider}` }}>
             {[{n:"66",l:"Books"},{n:"1,189",l:"Chapters"},{n:"31,102",l:"Verses"}].map((s,i) => (
               <div key={i} style={{ textAlign:"center" }}>
