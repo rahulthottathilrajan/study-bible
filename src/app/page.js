@@ -534,30 +534,19 @@ export default function StudyBible() {
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <Header title={book} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={() => nav("books",{testament:bookInfo.testament})} />
-        <div style={{ padding:"22px 20px 40px",maxWidth:520,margin:"0 auto" }}>
-          {bookInfo.author && <Card accent t={t} style={{marginBottom:16}}><div style={{fontFamily:t.ui,fontSize:13.5,color:t.text,lineHeight:1.6}}><strong>Author:</strong> {bookInfo.author} · <strong>Date:</strong> {bookInfo.dateWritten}</div></Card>}
-          <Label icon="📋" t={t} color={t.muted}>Select Chapter</Label>
-          <div style={{ display:"flex",flexDirection:"column",gap:6 }}>
+        <div style={{ padding:"18px 16px 40px",maxWidth:520,margin:"0 auto" }}>
+          {bookInfo.author && <Card accent t={t} style={{marginBottom:14}}><div style={{fontFamily:t.ui,fontSize:13.5,color:t.text,lineHeight:1.6}}><strong>Author:</strong> {bookInfo.author} · <strong>Date:</strong> {bookInfo.dateWritten}</div></Card>}
+          <Label icon="📋" t={t} color={t.muted}>{bookInfo.chapters} Chapters</Label>
+          <div style={{ background:t.card,borderRadius:12,border:`1px solid ${t.divider}`,overflow:"hidden" }}>
             {Array.from({length:bookInfo.chapters},(_,i)=>i+1).map(ch => {
               const has = availNums.includes(ch);
               const theme = getTheme(ch);
-              return has ? (
-                <button key={ch} onClick={() => nav("verses",{chapter:ch,verse:null})} style={{ background:t.card,border:`1px solid ${t.divider}`,borderRadius:12,padding:"14px 16px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)",transition:"all 0.15s",borderLeft:`3px solid ${t.accent}` }}>
-                  <div style={{ width:40,height:40,borderRadius:10,background:t.accentLight,border:`1px solid ${t.accentBorder}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:t.heading,fontSize:17,fontWeight:800,color:t.accent,flexShrink:0 }}>{ch}</div>
-                  <div style={{ flex:1,minWidth:0 }}>
-                    <div style={{ fontFamily:t.heading,fontSize:14.5,fontWeight:600,color:t.dark }}>Chapter {ch}</div>
-                    {theme && <div style={{ fontFamily:t.ui,fontSize:12,color:t.muted,marginTop:2,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{theme}</div>}
-                  </div>
-                  <div style={{ color:t.light }}><ChevIcon /></div>
+              return (
+                <button key={ch} onClick={() => { if (has) nav("verses",{chapter:ch,verse:null}); }} style={{ width:"100%",display:"flex",alignItems:"center",padding:"10px 14px",background:"transparent",border:"none",borderBottom:`1px solid ${t.divider}`,cursor:has?"pointer":"default",opacity:has?1:0.4,textAlign:"left",transition:"all 0.1s",gap:10 }}>
+                  <span style={{ fontFamily:t.heading,fontSize:14,fontWeight:has?700:400,color:has?t.accent:t.light,minWidth:28,textAlign:"center" }}>{ch}</span>
+                  <span style={{ flex:1,fontFamily:t.ui,fontSize:12.5,color:has?t.text:t.light,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{theme || (has ? "Study available" : "—")}</span>
+                  {has && <div style={{ color:t.light,flexShrink:0 }}><ChevIcon /></div>}
                 </button>
-              ) : (
-                <div key={ch} style={{ background:t.bg,border:`1px solid ${t.divider}`,borderRadius:12,padding:"14px 16px",display:"flex",alignItems:"center",gap:14,opacity:0.45 }}>
-                  <div style={{ width:40,height:40,borderRadius:10,background:t.bg,border:`1px solid ${t.divider}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:t.heading,fontSize:17,fontWeight:400,color:t.light,flexShrink:0 }}>{ch}</div>
-                  <div style={{ flex:1 }}>
-                    <div style={{ fontFamily:t.heading,fontSize:14.5,fontWeight:400,color:t.light }}>Chapter {ch}</div>
-                    <div style={{ fontFamily:t.ui,fontSize:12,color:t.light,marginTop:2 }}>Coming soon</div>
-                  </div>
-                </div>
               );
             })}
           </div>
