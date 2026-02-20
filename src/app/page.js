@@ -475,6 +475,22 @@ export default function StudyBible() {
             </div>
           </div>
 
+          <Label icon="🔬" t={ht} color={ht.muted}>Study Tools</Label>
+          <div style={{ display:"flex",gap:10,marginBottom:22 }}>
+            <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
+              <div style={{ position:"absolute",top:8,right:8,background:"rgba(212,168,83,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#D4A853",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
+              <div style={{ fontSize:32,marginBottom:8 }}>📜</div>
+              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Biblical Timeline</div>
+              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>From Creation to Revelation</div>
+            </div>
+            <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
+              <div style={{ position:"absolute",top:8,right:8,background:"rgba(232,98,92,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#E8625C",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
+              <div style={{ fontSize:32,marginBottom:8 }}>🛡️</div>
+              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Apologetics</div>
+              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>Defend & understand the faith</div>
+            </div>
+          </div>
+
           <div style={{ display:"flex",justifyContent:"center",gap:28,marginTop:22,padding:"14px 0",borderTop:`1px solid ${ht.divider}` }}>
             {[{n:"66",l:"Books"},{n:"1,189",l:"Chapters"},{n:"31,102",l:"Verses"}].map((s,i) => (
               <div key={i} style={{ textAlign:"center" }}>
