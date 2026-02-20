@@ -333,10 +333,10 @@ export default function StudyBible() {
         const { data, error } = await supabase.from("books").select("name").limit(1);
         if (data?.length > 0 && !error) {
           setDbLive(true);
-          const { data: chapData } = await supabase.from("chapters").select("book_id, chapter_number, books(name)").order("chapter_number");
+          const { data: chapData } = await supabase.from("chapters").select("book_id, chapter_number, theme, books(name)").order("chapter_number");
           if (chapData) {
             const chMap = {};
-            chapData.forEach(c => { const n = c.books?.name; if (n) { if (!chMap[n]) chMap[n] = []; chMap[n].push(c.chapter_number); } });
+            chapData.forEach(c => { const n = c.books?.name; if (n) { if (!chMap[n]) chMap[n] = []; chMap[n].push({ num: c.chapter_number, theme: c.theme }); } });
             setDbChapters(chMap);
           }
         }
@@ -529,22 +529,37 @@ export default function StudyBible() {
   const Chapters = () => {
     if (!bookInfo) return null;
     const avail = dbChapters[book] || [];
+    const availNums = avail.map(a => a.num);
+    const getTheme = (ch) => { const found = avail.find(a => a.num === ch); return found?.theme || null; };
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <Header title={book} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={() => nav("books",{testament:bookInfo.testament})} />
         <div style={{ padding:"22px 20px 40px",maxWidth:520,margin:"0 auto" }}>
           {bookInfo.author && <Card accent t={t} style={{marginBottom:16}}><div style={{fontFamily:t.ui,fontSize:13.5,color:t.text,lineHeight:1.6}}><strong>Author:</strong> {bookInfo.author} · <strong>Date:</strong> {bookInfo.dateWritten}</div></Card>}
           <Label icon="📋" t={t} color={t.muted}>Select Chapter</Label>
-          <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(52px,1fr))",gap:7 }}>
+          <div style={{ display:"flex",flexDirection:"column",gap:6 }}>
             {Array.from({length:bookInfo.chapters},(_,i)=>i+1).map(ch => {
-              const has = avail.includes(ch);
-              return <button key={ch} onClick={()=>{if(has)nav("verses",{chapter:ch,verse:null})}} style={{ background:has?t.card:t.bg,border:has?`1.5px solid ${t.accentBorder}`:`1px solid ${t.divider}`,borderRadius:10,padding:"13px 0",cursor:has?"pointer":"default",fontFamily:t.heading,fontSize:15,fontWeight:has?700:400,color:has?t.dark:t.light,position:"relative",opacity:has?1:0.5,boxShadow:has?"0 2px 6px rgba(0,0,0,0.05)":"none" }}>
-                {ch}{has && <div style={{position:"absolute",top:3,right:3,width:6,height:6,borderRadius:"50%",background:t.accent}}/>}
-              </button>;
+              const has = availNums.includes(ch);
+              const theme = getTheme(ch);
+              return has ? (
+                <button key={ch} onClick={() => nav("verses",{chapter:ch,verse:null})} style={{ background:t.card,border:`1px solid ${t.divider}`,borderRadius:12,padding:"14px 16px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)",transition:"all 0.15s",borderLeft:`3px solid ${t.accent}` }}>
+                  <div style={{ width:40,height:40,borderRadius:10,background:t.accentLight,border:`1px solid ${t.accentBorder}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:t.heading,fontSize:17,fontWeight:800,color:t.accent,flexShrink:0 }}>{ch}</div>
+                  <div style={{ flex:1,minWidth:0 }}>
+                    <div style={{ fontFamily:t.heading,fontSize:14.5,fontWeight:600,color:t.dark }}>Chapter {ch}</div>
+                    {theme && <div style={{ fontFamily:t.ui,fontSize:12,color:t.muted,marginTop:2,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{theme}</div>}
+                  </div>
+                  <div style={{ color:t.light }}><ChevIcon /></div>
+                </button>
+              ) : (
+                <div key={ch} style={{ background:t.bg,border:`1px solid ${t.divider}`,borderRadius:12,padding:"14px 16px",display:"flex",alignItems:"center",gap:14,opacity:0.45 }}>
+                  <div style={{ width:40,height:40,borderRadius:10,background:t.bg,border:`1px solid ${t.divider}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:t.heading,fontSize:17,fontWeight:400,color:t.light,flexShrink:0 }}>{ch}</div>
+                  <div style={{ flex:1 }}>
+                    <div style={{ fontFamily:t.heading,fontSize:14.5,fontWeight:400,color:t.light }}>Chapter {ch}</div>
+                    <div style={{ fontFamily:t.ui,fontSize:12,color:t.light,marginTop:2 }}>Coming soon</div>
+                  </div>
+                </div>
+              );
             })}
-          </div>
-          <div style={{marginTop:16,padding:"10px 14px",background:t.accentLight,borderRadius:8,display:"flex",alignItems:"center",gap:8}}>
-            <div style={{width:6,height:6,borderRadius:"50%",background:t.accent}}/><span style={{fontFamily:t.ui,fontSize:12,color:t.muted}}>Colored dots = chapters with study notes</span>
           </div>
         </div>
       </div>
