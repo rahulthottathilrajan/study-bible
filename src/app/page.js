@@ -597,40 +597,29 @@ export default function StudyBible() {
           )}
 
           {/* All Verses */}
+          <div style={{padding:"10px 14px",background:t.accentLight,borderRadius:8,marginBottom:10,display:"flex",alignItems:"center",gap:8}}>
+            <span style={{fontSize:14}}>✨</span>
+            <span style={{fontFamily:t.ui,fontSize:12,color:t.muted}}>Tap any verse to explore study notes, {isOT ? "Hebrew" : "Greek"} text & cross-references</span>
+          </div>
           <div style={{display:"flex",flexDirection:"column",gap:6}}>
-            {verses.map(v => {
-              const hasStudy = v.study_note || v.doctrinal_note;
-              const hasOriginal = v.original_text;
-              const vWordCount = (wordStudies[v.id] || []).length;
-              const vRefCount = (crossRefs[v.id] || []).length;
-              return (
-                <button key={v.verse_number} onClick={() => nav("verse",{verse:v.verse_number,tab:"study"})}
-                  style={{
-                    background:t.card,border:`1px solid ${t.divider}`,borderRadius:12,
-                    padding:"14px 16px",textAlign:"left",cursor:"pointer",
-                    display:"flex",gap:12,alignItems:"flex-start",
-                    boxShadow:"0 1px 3px rgba(0,0,0,0.03)",transition:"all 0.15s"
-                  }}>
-                  <span style={{
-                    fontFamily:t.heading,fontSize:18,fontWeight:800,color:t.verseNum,
-                    minWidth:28,textAlign:"center",lineHeight:1.4
-                  }}>{v.verse_number}</span>
-                  <div style={{flex:1,minWidth:0}}>
-                    <div style={{
-                      fontFamily:t.body,fontSize:14.5,color:t.text,lineHeight:1.65,
-                      display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",overflow:"hidden"
-                    }}>{v.kjv_text}</div>
-                    <div style={{display:"flex",gap:6,marginTop:8,flexWrap:"wrap"}}>
-                      {hasStudy && <Badge t={t}>Study Notes</Badge>}
-                      {hasOriginal && <Badge t={t}>{isOT ? "Hebrew" : "Greek"}</Badge>}
-                      {vWordCount > 0 && <Badge t={t}>{vWordCount} Words</Badge>}
-                      {vRefCount > 0 && <Badge t={t}>{vRefCount} Refs</Badge>}
-                    </div>
-                  </div>
-                  <div style={{color:t.light,flexShrink:0,alignSelf:"center"}}><ChevIcon /></div>
-                </button>
-              );
-            })}
+            {verses.map(v => (
+              <button key={v.verse_number} onClick={() => nav("verse",{verse:v.verse_number,tab:"study"})}
+                style={{
+                  background:t.card,border:`1px solid ${t.divider}`,borderRadius:12,
+                  padding:"14px 16px",textAlign:"left",cursor:"pointer",
+                  display:"flex",gap:12,alignItems:"flex-start",
+                  boxShadow:"0 1px 3px rgba(0,0,0,0.03)",transition:"all 0.15s"
+                }}>
+                <span style={{
+                  fontFamily:t.heading,fontSize:18,fontWeight:800,color:t.verseNum,
+                  minWidth:28,textAlign:"center",lineHeight:1.4
+                }}>{v.verse_number}</span>
+                <div style={{flex:1,minWidth:0}}>
+                  <div style={{fontFamily:t.body,fontSize:14.5,color:t.text,lineHeight:1.65}}>{v.kjv_text}</div>
+                </div>
+                <div style={{color:t.light,flexShrink:0,alignSelf:"center"}}><ChevIcon /></div>
+              </button>
+            ))}
           </div>
         </div>
       </div>
