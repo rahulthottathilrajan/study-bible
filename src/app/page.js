@@ -1016,7 +1016,7 @@ export default function StudyBible() {
             ))}
           </div>
           {/* Lessons List */}
-          <Label icon="א" t={ht2} color={ht2.muted}>The Hebrew Alphabet — 22 Letters</Label>
+          <Label icon={hebrewCategory === "vocabulary" ? "📚" : "א"} t={ht2} color={ht2.muted}>{hebrewCategory === "vocabulary" ? "Names of God — 6 Lessons" : "The Hebrew Alphabet — 22 Letters"}</Label>
           {hebrewLessons.length === 0 ? <Spinner t={ht2}/> : (
             <div style={{ display:"flex",flexDirection:"column",gap:8 }}>
               {hebrewLessons.map(lesson => {
@@ -1123,8 +1123,20 @@ export default function StudyBible() {
           right={isDone && <span style={{ fontFamily:ht2.ui,fontSize:11,color:"#7ED4AD",fontWeight:700,background:"#7ED4AD22",padding:"4px 10px",borderRadius:6 }}>✓ Complete</span>}
         />
         <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
-          {/* Big letter */}
-          {(() => {
+          {/* Big letter / word hero — adapts to alphabet vs vocabulary */}
+          {hebrewLesson?.category === "vocabulary" ? (
+            <div style={{ background:ht2.headerGradient,borderRadius:20,padding:"36px 20px",marginBottom:18,textAlign:"center",position:"relative",overflow:"hidden" }}>
+              <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.25),transparent 70%)" }}/>
+              <div style={{ position:"relative",zIndex:1 }}>
+                <div style={{ fontFamily:"'Times New Roman',serif",fontSize:52,color:ht2.headerText,direction:"rtl",lineHeight:1.2,marginBottom:14,textShadow:"0 4px 24px rgba(0,0,0,0.35)",letterSpacing:2 }}>{content.word}</div>
+                <div style={{ fontFamily:ht2.heading,fontSize:24,color:ht2.accent,marginBottom:4 }}>{content.transliteration}</div>
+                <div style={{ fontFamily:ht2.body,fontSize:14,color:`${ht2.headerText}88`,fontStyle:"italic",marginBottom:10 }}>{content.part_of_speech}</div>
+                <div style={{ display:"inline-block",background:"rgba(192,108,62,0.25)",borderRadius:20,padding:"5px 16px",fontFamily:ht2.ui,fontSize:11,color:ht2.accent,letterSpacing:"0.05em" }}>
+                  {content.strongs} · Appears {content.numeric_occurrences?.toLocaleString()} times in OT
+                </div>
+              </div>
+            </div>
+          ) : (() => {
             const ANCIENT = { "א":"𐤀","ב":"𐤁","ג":"𐤂","ד":"𐤃","ה":"𐤄","ו":"𐤅","ז":"𐤆","ח":"𐤇","ט":"𐤈","י":"𐤉","כ":"𐤊","ל":"𐤋","מ":"𐤌","נ":"𐤍","ס":"𐤎","ע":"𐤏","פ":"𐤐","צ":"𐤑","ק":"𐤒","ר":"𐤓","שׁ":"𐤔","ת":"𐤕" };
             const modernLetter = content.letter || hebrewAlphabet?.hebrew_letter || "א";
             const ancientSymbol = ANCIENT[modernLetter] || "";
@@ -1132,7 +1144,6 @@ export default function StudyBible() {
               <div style={{ background:ht2.headerGradient,borderRadius:20,padding:"36px 20px",marginBottom:18,textAlign:"center",position:"relative",overflow:"hidden" }}>
                 <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.25),transparent 70%)" }}/>
                 <div style={{ position:"relative",zIndex:1 }}>
-                  {/* Side by side: Ancient → Modern */}
                   <div style={{ display:"flex",justifyContent:"center",alignItems:"center",gap:24,marginBottom:14 }}>
                     <div style={{ textAlign:"center" }}>
                       <div style={{ fontFamily:"'Times New Roman',serif",fontSize:80,color:`${ht2.headerText}55`,lineHeight:1,textShadow:"0 4px 24px rgba(0,0,0,0.2)" }}>{ancientSymbol}</div>
