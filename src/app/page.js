@@ -978,7 +978,8 @@ export default function StudyBible() {
       { id:"grammar", label:"Grammar", icon:"📝", desc:"Sentence structure", soon:true },
       { id:"reading", label:"Reading", icon:"📖", desc:"Read biblical texts", soon:true },
     ];
-    const completedCount = Object.values(hebrewProgress).filter(p => p.completed).length;
+    const currentLessonIds = hebrewLessons.map(l => l.id);
+    const completedCount = Object.values(hebrewProgress).filter(p => p.completed && currentLessonIds.includes(p.lesson_id)).length;
     const totalLessons = hebrewLessons.length;
     return (
       <div style={{ minHeight:"100vh",background:ht2.bg,paddingBottom:80 }}>
@@ -988,9 +989,15 @@ export default function StudyBible() {
           <div style={{ background:ht2.headerGradient,borderRadius:16,padding:"28px 20px",marginBottom:20,textAlign:"center",position:"relative",overflow:"hidden" }}>
             <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
             <div style={{ position:"relative",zIndex:1 }}>
-              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:56,color:ht2.headerText,direction:"rtl",lineHeight:1,marginBottom:10,textShadow:"0 4px 20px rgba(0,0,0,0.3)" }}>אָלֶף</div>
-              <div style={{ fontFamily:ht2.body,fontSize:14,color:`${ht2.headerText}99`,fontStyle:"italic",marginBottom:4 }}>Aleph — The first letter</div>
-              <div style={{ fontFamily:ht2.ui,fontSize:11,color:ht2.accent,letterSpacing:"0.12em",textTransform:"uppercase" }}>Begin Your Journey</div>
+              {hebrewCategory === "vocabulary" ? (<>
+                <div style={{ fontFamily:"'Times New Roman',serif",fontSize:42,color:ht2.headerText,direction:"rtl",lineHeight:1.2,marginBottom:10,textShadow:"0 4px 20px rgba(0,0,0,0.3)" }}>אֱלֹהִים</div>
+                <div style={{ fontFamily:ht2.body,fontSize:14,color:`${ht2.headerText}99`,fontStyle:"italic",marginBottom:4 }}>Elohim — The Creator God</div>
+                <div style={{ fontFamily:ht2.ui,fontSize:11,color:ht2.accent,letterSpacing:"0.12em",textTransform:"uppercase" }}>Names of God</div>
+              </>) : (<>
+                <div style={{ fontFamily:"'Times New Roman',serif",fontSize:56,color:ht2.headerText,direction:"rtl",lineHeight:1,marginBottom:10,textShadow:"0 4px 20px rgba(0,0,0,0.3)" }}>אָלֶף</div>
+                <div style={{ fontFamily:ht2.body,fontSize:14,color:`${ht2.headerText}99`,fontStyle:"italic",marginBottom:4 }}>Aleph — The first letter</div>
+                <div style={{ fontFamily:ht2.ui,fontSize:11,color:ht2.accent,letterSpacing:"0.12em",textTransform:"uppercase" }}>Begin Your Journey</div>
+              </>)}
             </div>
           </div>
           {/* Progress */}
