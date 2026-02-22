@@ -1581,7 +1581,7 @@ export default function StudyBible() {
         difficulty: "Intermediate",
         tag: "Psalms",
         color: "#8B5CF6",
-        available: false,
+        available: true,
       },
       {
         id: "deut6v4",
@@ -1592,7 +1592,7 @@ export default function StudyBible() {
         difficulty: "Intermediate",
         tag: "The Shema",
         color: "#D4A853",
-        available: false,
+        available: true,
       },
     ];
     return (
@@ -1646,6 +1646,8 @@ export default function StudyBible() {
     const VERSE_DATA = {
       gen1v1: { ref:"Genesis 1:1", kjv:"In the beginning God created the heaven and the earth.", hebrew:"בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ" },
       gen1v2: { ref:"Genesis 1:2", kjv:"And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.", hebrew:"וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם" },
+      psalm23v1: { ref:"Psalm 23:1", kjv:"The LORD is my shepherd; I shall not want.", hebrew:"יְהוָה רֹעִי לֹא אֶחְסָר" },
+      deut6v4: { ref:"Deuteronomy 6:4", kjv:"Hear, O Israel: The LORD our God is one LORD.", hebrew:"שְׁמַע יִשְׂרָאֵל יְהוָה אֱלֹהֵינוּ יְהוָה אֶחָד" },
     };
     const VERSE = VERSE_DATA[readingVerse] || VERSE_DATA.gen1v1;
 
@@ -1747,6 +1749,62 @@ export default function StudyBible() {
         ],
         devotional: "The earth is the final word of Genesis 1:1 — the destination of all creation. God began with Himself (Elohim), acted through His Word (bara), and ended with the earth — our home. The whole verse moves from heaven to earth, from infinite to finite, from Creator to creation.",
         color: "#2E4A33",
+      },
+    ];
+
+    const WORDS_PSALM23V1 = [
+      {
+        hebrew: "יְהוָה",
+        transliteration: "YHWH",
+        meaning: "The LORD",
+        grammar: "The sacred four-letter name of God — the Tetragrammaton (יהוה). Too holy to pronounce, Jewish readers say 'Adonai' (Lord) in its place. Appears 6,828 times in the OT.",
+        letters: [
+          { l:"י", name:"Yod", lesson:10, note:"The smallest letter — God's humility and power" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — God's very breath is in His name" },
+          { l:"ו", name:"Vav", lesson:6, note:"The nail — connecting God to His people" },
+          { l:"ה", name:"He", lesson:5, note:"Breath again — the name itself is breathing" },
+        ],
+        devotional: "The name YHWH is the first word of Psalm 23. David does not begin with 'God is powerful' or 'God is great' — he begins with the personal covenant name. The God of Psalm 23 is not a distant Creator but the God who made a covenant with Israel, who knows your name, who is present. Before any promise is made, the name itself is the foundation.",
+        color: "#D4A853",
+      },
+      {
+        hebrew: "רֹעִי",
+        transliteration: "Ro'i",
+        meaning: "My shepherd",
+        grammar: "Ro'eh (רֹעֶה = shepherd) + the suffix י (i = my). The possessive 'my' is built directly into the word. This is intimate, personal language.",
+        letters: [
+          { l:"ר", name:"Resh", lesson:20, note:"Head — the shepherd as the head, the leader" },
+          { l:"ע", name:"Ayin", lesson:16, note:"Eye — the shepherd who watches, who sees" },
+          { l:"י", name:"Yod", lesson:10, note:"The hand — and the possessive 'my'" },
+        ],
+        devotional: "Ro'i — my shepherd. Not a shepherd, not the shepherd, but my shepherd. David was himself a shepherd before he was a king. He knew what a shepherd does: leads to green pastures, guards from predators, searches for the lost one. When David calls YHWH his shepherd, he is drawing on everything he knew from the fields of Bethlehem.",
+        color: "#2E4A33",
+      },
+      {
+        hebrew: "לֹא",
+        transliteration: "Lo",
+        meaning: "Not / Shall not",
+        grammar: "The simple Hebrew negative particle. Absolute and unconditional — 'I shall not' with certainty, not 'I probably won't'.",
+        letters: [
+          { l:"ל", name:"Lamed", lesson:12, note:"The teaching staff — the authority behind the promise" },
+          { l:"א", name:"Aleph", lesson:1, note:"Silent strength — the firm, unshakeable no" },
+        ],
+        devotional: "Lo — not. Two letters, one of the most powerful words in the Psalm. Because YHWH is my shepherd — therefore lo. The promise flows from the relationship. David doesn't say 'I will try not to want' or 'I hope not to want.' The lo is absolute because the Shepherd is absolute. The sufficiency is as certain as the Shepherd's identity.",
+        color: "#1B7A6E",
+      },
+      {
+        hebrew: "אֶחְסָר",
+        transliteration: "Echsar",
+        meaning: "Want / Lack",
+        grammar: "From the root חָסַר (chasar — to lack, to be without). First person imperfect: 'I shall lack.' The imperfect tense points to ongoing, continuous sufficiency.",
+        letters: [
+          { l:"א", name:"Aleph", lesson:1, note:"The first letter — I, the speaker, the sheep" },
+          { l:"ח", name:"Chet", lesson:8, note:"Life fence — what is kept inside, protected" },
+          { l:"ס", name:"Samekh", lesson:15, note:"A support, a prop — being held up, not lacking" },
+          { l:"ר", name:"Resh", lesson:20, note:"Head — the head of all needs is met" },
+        ],
+        devotional: "Echsar — I shall lack. This is the entire gospel of Psalm 23 in one word, negated by lo. YHWH is my shepherd, therefore I shall not lack. Not 'I shall have everything I want' but 'I shall lack nothing I truly need.' The sheep does not manage its own provision — it simply stays close to the shepherd. That is the whole secret.",
+        color: "#8B5CF6",
       },
     ];
 
@@ -1881,7 +1939,95 @@ export default function StudyBible() {
       },
     ];
 
-    const WORDS = readingVerse === "gen1v2" ? WORDS_GEN1V2 : WORDS_GEN1V1;
+    const WORDS_DEUT6V4 = [
+      {
+        hebrew: "שְׁמַע",
+        transliteration: "Shema",
+        meaning: "Hear / Listen",
+        grammar: "A Qal imperative — a direct command. Not 'you might hear' but 'Hear!' The command form makes this an urgent summons to active listening.",
+        letters: [
+          { l:"שׁ", name:"Shin", lesson:21, note:"Fire — hearing that ignites, that burns within" },
+          { l:"מ", name:"Mem", lesson:13, note:"Water — hearing that flows through you and changes you" },
+          { l:"ע", name:"Ayin", lesson:16, note:"Eye — to truly hear is to truly see" },
+        ],
+        devotional: "Shema — hear. The most important word in Judaism. This single imperative has been recited by Jewish people twice daily for over three thousand years. It is the first word a Jewish child learns and the last word on the lips of Jewish martyrs. To shema is not passive hearing — it is active, obedient, life-transforming response to the voice of God.",
+        color: "#C06C3E",
+      },
+      {
+        hebrew: "יִשְׂרָאֵל",
+        transliteration: "Yisrael",
+        meaning: "Israel",
+        grammar: "The covenant name given to Jacob in Genesis 32:28 — meaning 'he who strives with God' or 'God strives.' Refers to both the nation and every individual within the covenant.",
+        letters: [
+          { l:"י", name:"Yod", lesson:10, note:"The hand of God — the hand that renamed Jacob" },
+          { l:"שׂ", name:"Shin", lesson:21, note:"Here as Sin — the striving, the wrestling" },
+          { l:"ר", name:"Resh", lesson:20, note:"Head — the one who prevailed" },
+          { l:"א", name:"Aleph", lesson:1, note:"Strength — the strength received in the struggle" },
+          { l:"ל", name:"Lamed", lesson:12, note:"The staff — guided and taught by God" },
+        ],
+        devotional: "Yisrael — the one who strives with God. This name was born in a night of wrestling at the Jabbok river. God calls His people by the name of a man who refused to let go until he received a blessing. The Shema is addressed to wrestlers, to those who have struggled with God and kept hold. It is not addressed to the comfortable but to the covenant people.",
+        color: "#2E4A33",
+      },
+      {
+        hebrew: "יְהוָה",
+        transliteration: "YHWH",
+        meaning: "The LORD",
+        grammar: "The Tetragrammaton — the four-letter personal name of God. Appearing here for the first time in the Shema, establishing who is speaking and who is being declared.",
+        letters: [
+          { l:"י", name:"Yod", lesson:10, note:"The smallest letter — God's humility and transcendence" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — the living God, not an idol" },
+          { l:"ו", name:"Vav", lesson:6, note:"The nail — God nailed in covenant to His people" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — the name itself breathes life" },
+        ],
+        devotional: "YHWH appears twice in this six-word verse. The first YHWH establishes identity — this is the covenant God of Israel, not a foreign deity. The rabbis taught that the two occurrences of YHWH point to God as He is known now and God as He will be fully known in the age to come. The God you know today is the same God who will be revealed in fullness.",
+        color: "#D4A853",
+      },
+      {
+        hebrew: "אֱלֹהֵינוּ",
+        transliteration: "Eloheinu",
+        meaning: "Our God",
+        grammar: "Elohim (אֱלֹהִים) + the suffix נוּ (nu = our). The plural possessive 'our' — this declaration is communal, not just personal. Our God, not just my God.",
+        letters: [
+          { l:"א", name:"Aleph", lesson:1, note:"Strength — the all-powerful God" },
+          { l:"ל", name:"Lamed", lesson:12, note:"Teaching staff — God as our teacher and authority" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — the living God among us" },
+          { l:"י", name:"Yod", lesson:10, note:"The hand — His hand upon us" },
+          { l:"נ", name:"Nun", lesson:14, note:"Fish, life — the God of all living" },
+          { l:"ו", name:"Vav", lesson:6, note:"The nail — and the suffix 'our'" },
+        ],
+        devotional: "Eloheinu — our God. Not my God in isolation but our God in community. The Shema is recited together. Faith in Israel was never purely private — it was communal, covenantal, shared. The same God who is YHWH the personal covenant God is also Elohim the cosmic Creator. He is both infinitely powerful and intimately ours.",
+        color: "#8B5CF6",
+      },
+      {
+        hebrew: "יְהוָה",
+        transliteration: "YHWH",
+        meaning: "The LORD",
+        grammar: "The second occurrence of the Tetragrammaton in this verse. Together with the first YHWH it creates a declaration: YHWH — Eloheinu — YHWH. The name frames the confession.",
+        letters: [
+          { l:"י", name:"Yod", lesson:10, note:"Yod again — the hand that holds all things" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — the same God, breathing still" },
+          { l:"ו", name:"Vav", lesson:6, note:"The nail — holding the whole declaration together" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — the final breath, the final word" },
+        ],
+        devotional: "YHWH appears again, closing the declaration like a bookend. The structure is: YHWH — our God — YHWH. The personal name frames everything. Whatever stands between the two names of YHWH is held, defined, and owned by Him. Your life stands between the YHWH who created you and the YHWH who will receive you. All of it is held in His name.",
+        color: "#D4A853",
+      },
+      {
+        hebrew: "אֶחָד",
+        transliteration: "Echad",
+        meaning: "One",
+        grammar: "The Hebrew word for one — echad. Unlike yachid (absolute solitary oneness), echad can mean a unified one — like one cluster of grapes or one evening and morning. The same word used for husband and wife becoming one flesh.",
+        letters: [
+          { l:"א", name:"Aleph", lesson:1, note:"The first letter — One, the beginning of all" },
+          { l:"ח", name:"Chet", lesson:8, note:"Life — oneness as the source of all life" },
+          { l:"ד", name:"Dalet", lesson:4, note:"Door — the one God as the only door" },
+        ],
+        devotional: "Echad — one. The final word of the Shema is the word that has sustained the Jewish people through every trial in history. Echad is a unified oneness — not a cold singularity but a oneness that contains richness. The rabbis said that when you recite Echad, you should dwell on it, extending the sound, meditating on God's sovereignty over every direction and dimension. One God. Everything else flows from this.",
+        color: "#1B7A6E",
+      },
+    ];
+
+    const WORDS = readingVerse === "gen1v2" ? WORDS_GEN1V2 : readingVerse === "psalm23v1" ? WORDS_PSALM23V1 : readingVerse === "deut6v4" ? WORDS_DEUT6V4 : WORDS_GEN1V1;
     const totalWords = WORDS.length;
     const currentWord = readingStep >= 1 && readingStep <= totalWords ? WORDS[readingStep - 1] : null;
 
@@ -1957,9 +2103,12 @@ export default function StudyBible() {
             </div>
           </div>
           <Card t={ht2} style={{ marginBottom:16, textAlign:"left" }}>
-            <Label icon="✨" t={ht2}>The Hidden Mystery</Label>
+            <Label icon="✨" t={ht2}>Reflection</Label>
             <div style={{ fontFamily:ht2.body, fontSize:14, color:ht2.text, lineHeight:1.8 }}>
-              Genesis 1:1 contains exactly <strong>7 words</strong> and <strong>28 letters</strong> (7×4). The first word has 6 letters, the last has 5. The middle word is <strong>אֵת</strong> — Aleph and Tav, the first and last letters of the alphabet. Jesus declared: "I am the Alpha and Omega" — the Aleph and Tav. He was hidden in the first verse of Genesis, waiting to be found.
+              {readingVerse === "gen1v1" && <>Genesis 1:1 contains exactly <strong>7 words</strong> and <strong>28 letters</strong> (7×4). The middle word is <strong>אֵת</strong> — Aleph and Tav, the first and last letters of the alphabet. Jesus declared: "I am the Alpha and Omega" — the Aleph and Tav. He was hidden in the first verse of Genesis, waiting to be found.</>}
+              {readingVerse === "gen1v2" && <>Genesis 1:2 introduces the <strong>Ruach Elohim</strong> — the Spirit of God — hovering over the waters. The word <strong>מְרַחֶפֶת</strong> (merachefet) appears only twice in all of Scripture: here, and in Deuteronomy 32:11 of an eagle hovering over its nest. The Spirit of God is not passive — He hovers with intention, preparing to bring forth life from chaos.</>}
+              {readingVerse === "psalm23v1" && <>Psalm 23:1 is only <strong>4 words</strong> in Hebrew yet contains the entire gospel of God's provision. David, a shepherd himself, chose the most intimate image he knew to describe God. The possessive <strong>רֹעִי</strong> (my shepherd) — not a shepherd, not the shepherd — makes this the most personal declaration in all the Psalms.</>}
+              {readingVerse === "deut6v4" && <>The Shema contains <strong>6 words</strong> and has been recited by Jewish people twice daily for over 3,000 years. The final letter of <strong>שְׁמַע</strong> (Ayin — ע) and the final letter of <strong>אֶחָד</strong> (Dalet — ד) are written larger in Torah scrolls. Together they spell <strong>עֵד</strong> (ed) — witness. Every time the Shema is recited, Israel bears witness to the oneness of God.</>}
             </div>
           </Card>
           <button onClick={() => setReadingStep(0)}
