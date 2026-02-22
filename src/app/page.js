@@ -1905,7 +1905,7 @@ export default function StudyBible() {
           <Card t={ht2} style={{ marginBottom:16 }}>
             <Label icon="🎓" t={ht2}>What You Will Learn</Label>
             <div style={{ fontFamily:ht2.body, fontSize:14, color:ht2.text, lineHeight:1.8 }}>
-              Genesis 1:1 contains <strong>7 Hebrew words</strong> and <strong>28 letters</strong>. In this lesson you will read each word one by one — seeing every letter, its name, and its meaning. You will discover why this single verse contains one of the most profound hidden mysteries in Scripture.
+              <strong>{VERSE.ref}</strong> contains <strong>{totalWords} Hebrew words</strong>. In this lesson you will read each word one by one — seeing every letter, its name, and its meaning. You will discover the profound depth God packed into every word of Scripture.
             </div>
           </Card>
           {/* Word overview */}
@@ -1928,9 +1928,9 @@ export default function StudyBible() {
     );
 
     // Full verse celebration screen
-    if (readingStep === 8) return (
+    if (readingStep === totalWords + 1) return (
       <div style={{ minHeight:"100vh", background:ht2.bg }}>
-        <Header title="You Read It!" subtitle="Genesis 1:1 Complete" onBack={() => setReadingStep(0)} theme={ht2} />
+        <Header title="You Read It!" subtitle={`${VERSE.ref} Complete`} onBack={() => setReadingStep(0)} theme={ht2} />
         <div style={{ maxWidth:520, margin:"0 auto", padding:"24px 20px 40px", textAlign:"center" }}>
           <div style={{ fontSize:64, marginBottom:16 }}>🎉</div>
           <div style={{ fontFamily:ht2.heading, fontSize:28, color:ht2.dark, marginBottom:8 }}>Shalom!</div>
@@ -1977,11 +1977,11 @@ export default function StudyBible() {
     // Word study screen
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg }}>
-        <Header title={`Word ${readingStep} of 7`} subtitle={`${currentWord.transliteration} — ${currentWord.meaning}`} onBack={() => readingStep === 1 ? setReadingStep(0) : setReadingStep(s => s-1)} theme={ht2} />
+        <Header title={`Word ${readingStep} of ${totalWords}`} subtitle={`${currentWord.transliteration} — ${currentWord.meaning}`} onBack={() => readingStep === 1 ? setReadingStep(0) : setReadingStep(s => s-1)} theme={ht2} />
         <div style={{ maxWidth:520, margin:"0 auto", padding:"16px 16px 40px" }}>
           {/* Progress */}
           <div style={{ background:ht2.divider, borderRadius:6, height:6, marginBottom:20, overflow:"hidden" }}>
-            <div style={{ width:`${((readingStep-1)/7)*100}%`, height:"100%", background:ht2.accent, borderRadius:6, transition:"width 0.4s ease" }}/>
+            <div style={{ width:`${((readingStep-1)/totalWords)*100}%`, height:"100%", background:ht2.accent, borderRadius:6, transition:"width 0.4s ease" }}/>
           </div>
           {/* Full verse context */}
           <div style={{ background:ht2.headerGradient, borderRadius:16, padding:"16px 18px", marginBottom:16, position:"relative", overflow:"hidden" }}>
@@ -2033,7 +2033,7 @@ export default function StudyBible() {
           {/* Navigation */}
           <button onClick={() => { setReadingStep(s => s+1); setShowLetters(false); }}
             style={{ width:"100%", padding:"16px", borderRadius:14, border:"none", background:ht2.headerGradient, color:ht2.headerText, fontFamily:ht2.ui, fontSize:15, fontWeight:700, cursor:"pointer", boxShadow:"0 4px 15px rgba(46,74,51,0.2)" }}>
-            {readingStep === 7 ? "Complete — See Full Verse 🎉" : `Next Word: ${WORDS[readingStep].transliteration} →`}
+            {readingStep === totalWords ? "Complete — See Full Verse 🎉" : `Next Word: ${WORDS[readingStep].transliteration} →`}
           </button>
         </div>
       </div>
