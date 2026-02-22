@@ -168,6 +168,7 @@ export default function StudyBible() {
   const [readingStep, setReadingStep] = useState(0);
   const [showLetters, setShowLetters] = useState(false);
   const [readingVerse, setReadingVerse] = useState('gen1v1');
+  const [vocabGroup, setVocabGroup] = useState(null);
   
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
@@ -1029,15 +1030,42 @@ export default function StudyBible() {
           </div>
           {/* Lessons List */}
           <Label icon={hebrewCategory === "vocabulary" ? "📚" : "א"} t={ht2} color={ht2.muted}>{hebrewCategory === "vocabulary" ? `Vocabulary — ${hebrewLessons.length} Lessons` : "The Hebrew Alphabet — 22 Letters"}</Label>
-          {hebrewLessons.length === 0 ? <Spinner t={ht2}/> : (
-            <div style={{ display:"flex",flexDirection:"column",gap:8 }}>
-              {hebrewLessons.map(lesson => {
+          {hebrewLessons.length === 0 ? <Spinner t={ht2}/> : hebrewCategory === "vocabulary" ? (() => {
+            const VOCAB_GROUPS = [
+              { id:"names-of-god", label:"Names of God", icon:"✡️", range:[101,106], color:"#D4A853", desc:"The divine names of the Creator" },
+              { id:"creation-covenant", label:"Creation & Covenant", icon:"🌿", range:[107,112], color:"#2E4A33", desc:"Words from the beginning" },
+              { id:"family-words", label:"Family Words", icon:"👨‍👩‍👧‍👦", range:[113,116], color:"#C06C3E", desc:"Av, Em, Ben, Bat" },
+            ];
+            return (
+              <div style={{ display:"flex",flexDirection:"column",gap:10 }}>
+                {VOCAB_GROUPS.map(group => {
+                  const groupLessons = hebrewLessons.filter(l => l.lesson_number >= group.range[0] && l.lesson_number <= group.range[1]);
+                  if (groupLessons.length === 0) return null;
+                  const isOpen = vocabGroup === group.id;
+                  const completedInGroup = groupLessons.filter(l => hebrewProgress[l.id]?.completed).length;
+                  return (
+                    <div key={group.id}>
+                      <button onClick={() => setVocabGroup(isOpen ? null : group.id)}
+                        style={{ width:"100%", background:isOpen?group.color:ht2.card, borderRadius:isOpen?"14px 14px 0 0":14, padding:"16px 18px", textAlign:"left", cursor:"pointer", display:"flex", alignItems:"center", gap:14, border:`1px solid ${isOpen?group.color:ht2.divider}`, borderBottom:isOpen?"none":"", transition:"all 0.2s", borderLeft:`4px solid ${group.color}` }}>
+                        <div style={{ width:44, height:44, borderRadius:12, background:isOpen?"rgba(255,255,255,0.15)":`${group.color}18`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:22, flexShrink:0 }}>{group.icon}</div>
+                        <div style={{ flex:1 }}>
+                          <div style={{ fontFamily:ht2.heading, fontSize:16, fontWeight:700, color:isOpen?ht2.headerText:ht2.dark }}>{group.label}</div>
+                          <div style={{ fontFamily:ht2.ui, fontSize:12, color:isOpen?`${ht2.headerText}88`:ht2.muted, marginTop:2 }}>{group.desc}</div>
+                        </div>
+                        <div style={{ textAlign:"right", flexShrink:0 }}>
+                          <div style={{ fontFamily:ht2.ui, fontSize:11, fontWeight:700, color:isOpen?ht2.accent:`${group.color}`, marginBottom:3 }}>{completedInGroup}/{groupLessons.length}</div>
+                          <div style={{ fontFamily:ht2.ui, fontSize:18, color:isOpen?ht2.headerText:ht2.muted }}>{isOpen?"▲":"▼"}</div>
+                        </div>
+                      </button>
+                      {isOpen && (
+                        <div style={{ border:`1px solid ${group.color}`, borderTop:"none", borderRadius:"0 0 14px 14px", overflow:"hidden" }}>
+                          {groupLessons.map(lesson => {
                 const cnt = lesson.content || {};
                 const isDone = hebrewProgress[lesson.id]?.completed;
                 const isVocab = lesson.category === "vocabulary";
                 return (
                   <button key={lesson.id} onClick={() => { setHebrewLesson(lesson); setHebrewAlphabet(null); setHebrewVocab([]); nav("hebrew-lesson"); }}
-                    style={{ background:ht2.card,border:`1px solid ${isDone?"#7ED4AD44":ht2.divider}`,borderRadius:12,padding:"14px 16px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:14,borderLeft:`3px solid ${isDone?"#7ED4AD":ht2.accent}`,boxShadow:"0 1px 3px rgba(0,0,0,0.04)",transition:"all 0.15s" }}>
+                    style={{ background:ht2.card,border:"none",borderBottom:`1px solid ${ht2.divider}`,borderRadius:0,padding:"14px 16px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:14,borderLeft:`3px solid ${isDone?"#7ED4AD":group.color}`,transition:"all 0.15s",width:"100%" }}>
                     {/* Alphabet: show single letter. Vocabulary: show Hebrew word */}
                     {isVocab ? (
                       <div style={{ minWidth:64,height:48,borderRadius:12,background:isDone?"#7ED4AD22":ht2.accentLight,border:`1px solid ${isDone?"#7ED4AD44":ht2.accentBorder}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Times New Roman',serif",fontSize:18,color:ht2.accent,flexShrink:0,direction:"rtl",padding:"0 8px" }}>
@@ -1061,6 +1089,38 @@ export default function StudyBible() {
                     <div style={{ textAlign:"right",flexShrink:0 }}>
                       {isVocab && <div style={{ fontFamily:ht2.ui,fontSize:9,color:ht2.light,marginBottom:2,textTransform:"uppercase",letterSpacing:"0.05em" }}>Vocab</div>}
                       {!isVocab && <div style={{ fontFamily:ht2.ui,fontSize:10,color:ht2.light }}>Lesson {lesson.lesson_number}</div>}
+                      <div style={{ color:ht2.light,marginTop:2 }}><ChevIcon/></div>
+                    </div>
+                  </button>
+                );
+              })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })() : (
+            <div style={{ display:"flex",flexDirection:"column",gap:8 }}>
+              {hebrewLessons.map(lesson => {
+                const cnt = lesson.content || {};
+                const isDone = hebrewProgress[lesson.id]?.completed;
+                return (
+                  <button key={lesson.id} onClick={() => { setHebrewLesson(lesson); setHebrewAlphabet(null); setHebrewVocab([]); nav("hebrew-lesson"); }}
+                    style={{ background:ht2.card,border:`1px solid ${isDone?"#7ED4AD44":ht2.divider}`,borderRadius:12,padding:"14px 16px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:14,borderLeft:`3px solid ${isDone?"#7ED4AD":ht2.accent}`,boxShadow:"0 1px 3px rgba(0,0,0,0.04)",transition:"all 0.15s" }}>
+                    <div style={{ width:48,height:48,borderRadius:12,background:isDone?"#7ED4AD22":ht2.accentLight,border:`1px solid ${isDone?"#7ED4AD44":ht2.accentBorder}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Times New Roman',serif",fontSize:30,color:ht2.accent,flexShrink:0,direction:"rtl" }}>
+                      {cnt.letter || "א"}
+                    </div>
+                    <div style={{ flex:1 }}>
+                      <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+                        <span style={{ fontFamily:ht2.heading,fontSize:15,fontWeight:700,color:ht2.dark }}>{lesson.title}</span>
+                        {isDone && <span style={{ fontSize:13,color:"#2E7D5B",fontWeight:700 }}>✓</span>}
+                      </div>
+                      <div style={{ fontFamily:ht2.body,fontSize:12.5,color:ht2.muted,fontStyle:"italic",marginTop:2 }}>{lesson.subtitle}</div>
+                    </div>
+                    <div style={{ textAlign:"right",flexShrink:0 }}>
+                      <div style={{ fontFamily:ht2.ui,fontSize:10,color:ht2.light }}>Lesson {lesson.lesson_number}</div>
                       <div style={{ color:ht2.light,marginTop:2 }}><ChevIcon/></div>
                     </div>
                   </button>
