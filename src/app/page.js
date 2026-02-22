@@ -169,6 +169,7 @@ export default function StudyBible() {
   const [showLetters, setShowLetters] = useState(false);
   const [readingVerse, setReadingVerse] = useState('gen1v1');
   const [vocabGroup, setVocabGroup] = useState(null);
+  const [grammarLesson, setGrammarLesson] = useState(null);
   
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
@@ -980,7 +981,7 @@ export default function StudyBible() {
     const categories = [
       { id:"alphabet", label:"Alphabet", icon:"א", desc:"All 22 Hebrew letters" },
       { id:"vocabulary", label:"Vocabulary", icon:"📚", desc:"Key biblical words" },
-      { id:"grammar", label:"Grammar", icon:"📝", desc:"Sentence structure", soon:true },
+      { id:"grammar", label:"Grammar", icon:"📝", desc:"Sentence structure", action:() => nav("hebrew-grammar-home") },
       { id:"reading", label:"Reading", icon:"📖", desc:"Read biblical texts", action:() => nav("hebrew-reading-home") },
     ];
     const currentLessonIds = hebrewLessons.map(l => l.id);
@@ -1022,7 +1023,7 @@ export default function StudyBible() {
           {/* Category Tabs */}
           <div style={{ display:"flex",gap:8,marginBottom:18,flexWrap:"wrap" }}>
             {categories.map(cat => (
-              <button key={cat.id} onClick={() => { if (cat.action) { setReadingStep(0); setShowLetters(false); cat.action(); } else if (!cat.soon) setHebrewCategory(cat.id); }}
+              <button key={cat.id} onClick={() => { if (cat.action) { setReadingStep(0); setShowLetters(false); setGrammarLesson(null); cat.action(); } else if (!cat.soon) setHebrewCategory(cat.id); }}
                 style={{ flexShrink:0,padding:"8px 16px",borderRadius:20,border:hebrewCategory===cat.id?"none":`1px solid ${ht2.divider}`,background:hebrewCategory===cat.id?ht2.tabActive:ht2.card,color:hebrewCategory===cat.id?ht2.headerText:cat.soon?ht2.light:ht2.text,fontFamily:ht2.ui,fontSize:12,fontWeight:700,cursor:cat.soon?"default":"pointer",opacity:cat.soon?0.55:1,whiteSpace:"nowrap" }}>
                 {cat.label}{cat.soon?" 🔒":""}
               </button>
@@ -1605,6 +1606,69 @@ export default function StudyBible() {
               ))}
             </div>
           )}
+        </div>
+      </div>
+    );
+  };
+
+  const HebrewGrammarHome = () => {
+    const ht2 = THEMES.garden;
+    const GRAMMAR_LESSONS = [
+      { id:1, number:201, icon:"הַ", title:"The Definite Article", subtitle:"How Hebrew says 'the'", difficulty:"Beginner", color:"#C06C3E" },
+      { id:2, number:202, icon:"וְ", title:"The Vav Conjunction", subtitle:"And, but, then — the connecting letter", difficulty:"Beginner", color:"#2E4A33" },
+      { id:3, number:203, icon:"בְּ", title:"Prepositions", subtitle:"In, like, to, from — built into words", difficulty:"Beginner", color:"#D4A853" },
+      { id:4, number:204, icon:"ז׳", title:"Noun Gender", subtitle:"Every noun is masculine or feminine", difficulty:"Beginner", color:"#1B7A6E" },
+      { id:5, number:205, icon:"ים", title:"Plural Endings", subtitle:"How Hebrew makes nouns plural", difficulty:"Beginner", color:"#8B5CF6" },
+    ];
+    return (
+      <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
+        <Header title="Hebrew Grammar" subtitle="How the language works" onBack={() => nav("hebrew-home")} theme={ht2} />
+        <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
+          {/* Hero */}
+          <div style={{ background:ht2.headerGradient, borderRadius:16, padding:"28px 20px", marginBottom:20, textAlign:"center", position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
+            <div style={{ position:"relative", zIndex:1 }}>
+              <div style={{ fontFamily:"'Times New Roman',serif", fontSize:42, color:ht2.headerText, direction:"rtl", marginBottom:10 }}>בְּרֵאשִׁית</div>
+              <div style={{ fontFamily:ht2.body, fontSize:14, color:`${ht2.headerText}88`, fontStyle:"italic", marginBottom:4 }}>Understanding how Hebrew is built</div>
+              <div style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.accent, letterSpacing:"0.1em", textTransform:"uppercase" }}>5 Beginner Lessons</div>
+            </div>
+          </div>
+          {/* Beginner warning */}
+          <div style={{ background:"#D4A85318", border:`1px solid #D4A85355`, borderRadius:12, padding:"14px 16px", marginBottom:18, display:"flex", gap:12, alignItems:"flex-start" }}>
+            <div style={{ fontSize:22, flexShrink:0 }}>📖</div>
+            <div>
+              <div style={{ fontFamily:ht2.heading, fontSize:14, fontWeight:700, color:"#8B6914", marginBottom:4 }}>Recommended Background</div>
+              <div style={{ fontFamily:ht2.body, fontSize:13, color:ht2.text, lineHeight:1.7 }}>These lessons are most rewarding after completing the first 5 alphabet lessons (Aleph through He). You'll recognise the letters and sounds as we work through grammar patterns.</div>
+            </div>
+          </div>
+          {/* Lesson list */}
+          <Label icon="📝" t={ht2} color={ht2.muted}>Grammar Lessons — 5 Lessons</Label>
+          <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+            {GRAMMAR_LESSONS.map((lesson, idx) => {
+              const isDone = hebrewProgress[`grammar-${lesson.number}`]?.completed;
+              return (
+                <button key={lesson.id} onClick={async () => {
+                  const { data } = await supabase.from("hebrew_lessons").select("*").eq("lesson_number", lesson.number).single();
+                  if (data) { setGrammarLesson(data); nav("hebrew-grammar-lesson"); }
+                }}
+                  style={{ background:ht2.card, border:`1px solid ${isDone?"#7ED4AD44":ht2.divider}`, borderRadius:14, padding:"16px", textAlign:"left", cursor:"pointer", display:"flex", alignItems:"center", gap:14, borderLeft:`4px solid ${lesson.color}`, boxShadow:"0 1px 4px rgba(0,0,0,0.04)", transition:"all 0.15s" }}>
+                  <div style={{ width:52, height:52, borderRadius:12, background:`${lesson.color}18`, border:`1px solid ${lesson.color}44`, display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Times New Roman',serif", fontSize:22, color:lesson.color, flexShrink:0, direction:"rtl" }}>{lesson.icon}</div>
+                  <div style={{ flex:1 }}>
+                    <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:2 }}>
+                      <span style={{ fontFamily:ht2.heading, fontSize:15, fontWeight:700, color:ht2.dark }}>{lesson.title}</span>
+                      {isDone && <span style={{ fontSize:13, color:"#2E7D5B", fontWeight:700 }}>✓</span>}
+                    </div>
+                    <div style={{ fontFamily:ht2.body, fontSize:12.5, color:ht2.muted, fontStyle:"italic" }}>{lesson.subtitle}</div>
+                    <div style={{ marginTop:5, display:"inline-block", background:`${lesson.color}18`, borderRadius:4, padding:"2px 8px", fontFamily:ht2.ui, fontSize:9, fontWeight:700, color:lesson.color, textTransform:"uppercase", letterSpacing:"0.05em" }}>{lesson.difficulty}</div>
+                  </div>
+                  <div style={{ textAlign:"right", flexShrink:0 }}>
+                    <div style={{ fontFamily:ht2.ui, fontSize:10, color:ht2.light, marginBottom:4 }}>Lesson {idx+1}</div>
+                    <div style={{ color:ht2.light }}><ChevIcon /></div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
@@ -2274,6 +2338,8 @@ export default function StudyBible() {
       {view === "account" && Account()}
       {view === "learn-home" && LearnHome()}
       {view === "journal-home" && JournalHome()}
+      {view === "hebrew-grammar-home" && HebrewGrammarHome()}
+      {view === "hebrew-grammar-lesson" && HebrewGrammarLesson()}
       {view === "hebrew-home" && HebrewHome()}
       {view === "hebrew-lesson" && HebrewLesson()}
       {view === "hebrew-practice" && HebrewPractice()}
@@ -2288,7 +2354,7 @@ export default function StudyBible() {
               const isActive =
                   (item.id === "home" && view === "home") ||
                   (item.id === "bible" && ["books","chapter","verses","verse"].includes(view)) ||
-                  (item.id === "learn" && ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading"].includes(view)) ||
+                  (item.id === "learn" && ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson"].includes(view)) ||
                   (item.id === "journal" && ["journal-home","highlights"].includes(view)) ||
                   (item.id === "account" && view === "account");
               return (
