@@ -1016,7 +1016,7 @@ export default function StudyBible() {
           {/* Category Tabs */}
           <div style={{ display:"flex",gap:8,marginBottom:18,overflowX:"auto",paddingBottom:4 }}>
             {categories.map(cat => (
-              <button key={cat.id} onClick={() => { if (cat.action) cat.action(); else if (!cat.soon) setHebrewCategory(cat.id); }}
+              <button key={cat.id} onClick={() => { if (cat.action) { setReadingStep(0); setShowLetters(false); cat.action(); } else if (!cat.soon) setHebrewCategory(cat.id); }}
                 style={{ flexShrink:0,padding:"8px 16px",borderRadius:20,border:hebrewCategory===cat.id?"none":`1px solid ${ht2.divider}`,background:hebrewCategory===cat.id?ht2.tabActive:ht2.card,color:hebrewCategory===cat.id?ht2.headerText:cat.soon?ht2.light:ht2.text,fontFamily:ht2.ui,fontSize:12,fontWeight:700,cursor:cat.soon?"default":"pointer",opacity:cat.soon?0.55:1,whiteSpace:"nowrap" }}>
                 {cat.label}{cat.soon?" 🔒":""}
               </button>
@@ -1546,9 +1546,6 @@ export default function StudyBible() {
   // ═══ HEBREW READING ═══
   const HebrewReading = () => {
     const ht2 = THEMES.garden;
-    const [readingStep, setReadingStep] = useState(0); // 0 = intro, 1-7 = words, 8 = full verse
-    const [letterIdx, setLetterIdx] = useState(0);
-    const [showLetters, setShowLetters] = useState(false);
 
     const VERSE = {
       ref: "Genesis 1:1",
@@ -1693,7 +1690,7 @@ export default function StudyBible() {
               </div>
             ))}
           </div>
-          <button onClick={() => { setReadingStep(1); setLetterIdx(0); setShowLetters(false); }}
+          <button onClick={() => { setReadingStep(1); setShowLetters(false); }}
             style={{ width:"100%", padding:"16px", borderRadius:14, border:"none", background:ht2.headerGradient, color:ht2.headerText, fontFamily:ht2.ui, fontSize:16, fontWeight:700, cursor:"pointer", boxShadow:"0 4px 15px rgba(46,74,51,0.25)" }}>
             Begin Reading →
           </button>
@@ -1805,7 +1802,7 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht2.body, fontSize:14, color:ht2.text, lineHeight:1.8, fontStyle:"italic" }}>{currentWord.devotional}</div>
           </Card>
           {/* Navigation */}
-          <button onClick={() => { setReadingStep(s => s+1); setLetterIdx(0); setShowLetters(false); }}
+          <button onClick={() => { setReadingStep(s => s+1); setShowLetters(false); }}
             style={{ width:"100%", padding:"16px", borderRadius:14, border:"none", background:ht2.headerGradient, color:ht2.headerText, fontFamily:ht2.ui, fontSize:15, fontWeight:700, cursor:"pointer", boxShadow:"0 4px 15px rgba(46,74,51,0.2)" }}>
             {readingStep === 7 ? "Complete — See Full Verse 🎉" : `Next Word: ${WORDS[readingStep].transliteration} →`}
           </button>
