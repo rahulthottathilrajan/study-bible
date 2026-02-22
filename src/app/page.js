@@ -1016,7 +1016,7 @@ export default function StudyBible() {
             </Card>
           )}
           {/* Category Tabs */}
-          <div style={{ display:"flex",gap:8,marginBottom:18,overflowX:"auto",paddingBottom:4 }}>
+          <div style={{ display:"flex",gap:8,marginBottom:18,flexWrap:"wrap" }}>
             {categories.map(cat => (
               <button key={cat.id} onClick={() => { if (cat.action) { setReadingStep(0); setShowLetters(false); cat.action(); } else if (!cat.soon) setHebrewCategory(cat.id); }}
                 style={{ flexShrink:0,padding:"8px 16px",borderRadius:20,border:hebrewCategory===cat.id?"none":`1px solid ${ht2.divider}`,background:hebrewCategory===cat.id?ht2.tabActive:ht2.card,color:hebrewCategory===cat.id?ht2.headerText:cat.soon?ht2.light:ht2.text,fontFamily:ht2.ui,fontSize:12,fontWeight:700,cursor:cat.soon?"default":"pointer",opacity:cat.soon?0.55:1,whiteSpace:"nowrap" }}>
