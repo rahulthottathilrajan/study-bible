@@ -165,6 +165,8 @@ export default function StudyBible() {
   const [hebrewPracticeAnswer, setHebrewPracticeAnswer] = useState(null);
   const [hebrewPracticeScore, setHebrewPracticeScore] = useState(0);
   const hebrewCache = useRef({});
+  const [readingStep, setReadingStep] = useState(0);
+  const [showLetters, setShowLetters] = useState(false);
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
   const isOT = bookInfo?.testament === "OT";
