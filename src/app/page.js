@@ -1674,6 +1674,167 @@ export default function StudyBible() {
     );
   };
 
+  const HebrewGrammarLesson = () => {
+    const ht2 = THEMES.garden;
+    if (!grammarLesson) return (
+      <div style={{ minHeight:"100vh", background:ht2.bg }}>
+        <Header title="Grammar" onBack={() => nav("hebrew-grammar-home")} theme={ht2}/>
+        <Spinner t={ht2}/>
+      </div>
+    );
+    const content = grammarLesson.content || {};
+    const verseConns = Array.isArray(grammarLesson.verse_connections) ? grammarLesson.verse_connections : [];
+    const isDone = hebrewProgress[grammarLesson.id]?.completed;
+    const tables = content.tables || [];
+    const patterns = content.patterns || [];
+    const examples = content.examples || [];
+
+    return (
+      <div style={{ minHeight:"100vh", background:ht2.bg }}>
+        <Header title={grammarLesson.title} subtitle={grammarLesson.subtitle} onBack={() => nav("hebrew-grammar-home")} theme={ht2}
+          right={isDone && <span style={{ fontFamily:ht2.ui, fontSize:11, color:"#7ED4AD", fontWeight:700, background:"#7ED4AD22", padding:"4px 10px", borderRadius:6 }}>✓ Complete</span>}
+        />
+        <div style={{ maxWidth:520, margin:"0 auto", padding:"16px 16px 40px" }}>
+          {/* Hero */}
+          <div style={{ background:ht2.headerGradient, borderRadius:20, padding:"32px 20px", marginBottom:18, textAlign:"center", position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.25),transparent 70%)" }}/>
+            <div style={{ position:"relative", zIndex:1 }}>
+              <div style={{ fontFamily:"'Times New Roman',serif", fontSize:72, color:ht2.headerText, direction:"rtl", lineHeight:1.1, marginBottom:12, textShadow:"0 4px 24px rgba(0,0,0,0.35)" }}>{content.symbol}</div>
+              <div style={{ fontFamily:ht2.heading, fontSize:24, color:ht2.accent, marginBottom:4 }}>{grammarLesson.title}</div>
+              <div style={{ fontFamily:ht2.body, fontSize:14, color:`${ht2.headerText}88`, fontStyle:"italic" }}>{grammarLesson.subtitle}</div>
+            </div>
+          </div>
+
+          {/* Overview */}
+          <Card t={ht2} style={{ marginBottom:14 }}>
+            <Label icon="📋" t={ht2}>Overview</Label>
+            <div style={{ fontFamily:ht2.body, fontSize:14.5, color:ht2.text, lineHeight:1.8 }}>{content.overview}</div>
+          </Card>
+
+          {/* Grammar Tables */}
+          {tables.map((table, ti) => (
+            <div key={ti} style={{ marginBottom:16 }}>
+              <Label icon="📊" t={ht2} color={ht2.muted}>{table.title}</Label>
+              <div style={{ background:ht2.card, borderRadius:14, border:`1px solid ${ht2.divider}`, overflow:"hidden" }}>
+                <div style={{ display:"flex", background:ht2.headerGradient, padding:"10px 14px" }}>
+                  {table.headers.map((h, hi) => (
+                    <div key={hi} style={{ flex:1, fontFamily:ht2.ui, fontSize:11, fontWeight:700, color:ht2.accent, textTransform:"uppercase", letterSpacing:"0.08em", textAlign:"center" }}>{h}</div>
+                  ))}
+                </div>
+                {table.rows.map((row, ri) => (
+                  <div key={ri} style={{ display:"flex", padding:"12px 14px", borderTop:`1px solid ${ht2.divider}`, background:ri%2===0?ht2.card:ht2.accentLight }}>
+                    {row.map((cell, ci) => (
+                      <div key={ci} style={{ flex:1, textAlign:"center" }}>
+                        {ci === 0 ? (
+                          <span style={{ fontFamily:"'Times New Roman',serif", fontSize:22, color:ht2.accent, direction:"rtl" }}>{cell}</span>
+                        ) : (
+                          <span style={{ fontFamily:ci===1?ht2.body:ht2.ui, fontSize:13, color:ht2.text, fontStyle:ci===1?"italic":"normal" }}>{cell}</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Patterns */}
+          {patterns.length > 0 && (
+            <div style={{ marginBottom:16 }}>
+              <Label icon="🔁" t={ht2} color={ht2.muted}>Patterns to Remember</Label>
+              <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+                {patterns.map((p, pi) => (
+                  <div key={pi} style={{ background:ht2.card, borderRadius:12, padding:"14px 16px", border:`1px solid ${ht2.divider}`, borderLeft:`3px solid ${ht2.accent}` }}>
+                    <div style={{ fontFamily:"'Times New Roman',serif", fontSize:24, color:ht2.accent, direction:"rtl", marginBottom:6 }}>{p.hebrew}</div>
+                    <div style={{ fontFamily:ht2.heading, fontSize:14, fontWeight:700, color:ht2.dark, marginBottom:4 }}>{p.rule}</div>
+                    <div style={{ fontFamily:ht2.body, fontSize:13, color:ht2.muted, fontStyle:"italic", lineHeight:1.65 }}>{p.explanation}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Real verse examples */}
+          {examples.length > 0 && (
+            <Card accent t={ht2} style={{ marginBottom:16 }}>
+              <Label icon="📖" t={ht2}>Spot It in Scripture</Label>
+              <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
+                {examples.map((ex, ei) => (
+                  <div key={ei} style={{ padding:"12px 14px", background:"rgba(255,255,255,0.6)", borderRadius:10, border:`1px solid ${ht2.accentBorder}` }}>
+                    <div style={{ fontFamily:"'Times New Roman',serif", fontSize:22, color:ht2.accent, direction:"rtl", marginBottom:4 }}>{ex.hebrew}</div>
+                    <div style={{ fontFamily:ht2.heading, fontSize:12, fontWeight:700, color:ht2.accent, marginBottom:4 }}>{ex.ref}</div>
+                    <div style={{ fontFamily:ht2.body, fontSize:13, color:ht2.text, lineHeight:1.65 }}>{ex.explanation}</div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          )}
+
+          {/* Devotional */}
+          {content.devotional && (
+            <Card t={ht2} style={{ marginBottom:16, borderLeft:`3px solid ${ht2.accent}` }}>
+              <Label icon="✨" t={ht2}>Insight</Label>
+              <div style={{ fontFamily:ht2.body, fontSize:14.5, color:ht2.text, lineHeight:1.8, fontStyle:"italic" }}>{content.devotional}</div>
+            </Card>
+          )}
+
+          {/* Verse connections */}
+          {verseConns.length > 0 && (
+            <Card t={ht2} style={{ marginBottom:16 }}>
+              <Label icon="🔗" t={ht2} color={ht2.muted}>In the Bible</Label>
+              <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
+                {verseConns.map((vc, i) => (
+                  <div key={i} style={{ padding:"12px 14px", background:ht2.accentLight, borderRadius:10, border:`1px solid ${ht2.accentBorder}` }}>
+                    <div style={{ fontFamily:ht2.heading, fontSize:13, fontWeight:700, color:ht2.accent, marginBottom:5 }}>{vc.ref}</div>
+                    <div style={{ fontFamily:ht2.body, fontSize:13.5, color:ht2.text, lineHeight:1.7 }}>{vc.connection}</div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          )}
+
+          {/* Practice questions */}
+          {content.practice?.length > 0 && (
+            <Card t={ht2} style={{ marginBottom:16 }}>
+              <Label icon="✍️" t={ht2} color={ht2.muted}>Quick Check</Label>
+              <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
+                {content.practice.map((q, qi) => (
+                  <div key={qi} style={{ padding:"12px 14px", background:ht2.bg, borderRadius:10, border:`1px solid ${ht2.divider}` }}>
+                    <div style={{ fontFamily:ht2.ui, fontSize:13, fontWeight:700, color:ht2.dark, marginBottom:6 }}>{q.question}</div>
+                    <div style={{ fontFamily:ht2.body, fontSize:13, color:ht2.muted, fontStyle:"italic", padding:"8px 10px", background:ht2.accentLight, borderRadius:8 }}>→ {q.answer}</div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          )}
+
+          {/* Complete button */}
+          {user && !isDone && (
+            <button onClick={() => markHebrewComplete(grammarLesson.id, 100)}
+              style={{ width:"100%", padding:"14px", borderRadius:12, border:"1.5px solid #7ED4AD", background:"#7ED4AD11", color:"#2E7D5B", fontFamily:ht2.ui, fontSize:14, fontWeight:700, cursor:"pointer", marginBottom:12 }}>
+              ✓ Mark as Complete
+            </button>
+          )}
+          {isDone && (
+            <div style={{ textAlign:"center", padding:"13px", borderRadius:12, background:"#7ED4AD22", border:"1px solid #7ED4AD44", marginBottom:12 }}>
+              <span style={{ fontFamily:ht2.ui, fontSize:13, color:"#2E7D5B", fontWeight:700 }}>✓ Lesson Complete</span>
+            </div>
+          )}
+          {!user && (
+            <div style={{ textAlign:"center", padding:"12px", borderRadius:10, background:ht2.accentLight, border:`1px solid ${ht2.accentBorder}`, marginBottom:12 }}>
+              <span style={{ fontFamily:ht2.ui, fontSize:12, color:ht2.muted }}>🔐 Sign in to save your progress</span>
+            </div>
+          )}
+
+          <button onClick={() => nav("hebrew-grammar-home")}
+            style={{ width:"100%", padding:"13px", borderRadius:12, border:`1.5px solid ${ht2.accentBorder}`, background:"transparent", color:ht2.accent, fontFamily:ht2.ui, fontSize:14, fontWeight:700, cursor:"pointer" }}>
+            ← Back to Grammar Lessons
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   const HebrewReadingHome = () => {
     const ht2 = THEMES.garden;
     const VERSES = [
