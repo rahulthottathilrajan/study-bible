@@ -168,10 +168,7 @@ export default function StudyBible() {
   const [readingStep, setReadingStep] = useState(0);
   const [showLetters, setShowLetters] = useState(false);
   const [readingVerse, setReadingVerse] = useState('gen1v1');
-  const [flashcardDeck, setFlashcardDeck] = useState([]);
-  const [flashcardIdx, setFlashcardIdx] = useState(0);
-  const [flashcardFlipped, setFlashcardFlipped] = useState(false);
-  const [flashcardScore, setFlashcardScore] = useState({known:0, again:0});
+  
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
   const isOT = bookInfo?.testament === "OT";
@@ -1020,19 +1017,7 @@ export default function StudyBible() {
               <div style={{ fontFamily:ht2.ui,fontSize:11,color:ht2.muted,marginTop:6 }}>{completedCount===0?"Start your first lesson below!":`${completedCount} lesson${completedCount>1?"s":""} completed · Keep going!`}</div>
             </Card>
           )}
-          {/* Flashcard button */}
-          <button onClick={() => {
-            const lessons = hebrewLessons.filter(l => !user || hebrewProgress[l.id]?.completed);
-            const deck = lessons.length > 0 ? lessons : hebrewLessons;
-            const shuffled = [...deck].sort(() => Math.random() - 0.5).map(l => ({ ...l.content, id:l.id, category:l.category }));
-            setFlashcardDeck(shuffled);
-            setFlashcardIdx(0);
-            setFlashcardFlipped(false);
-            setFlashcardScore({known:0, again:0});
-            nav("hebrew-flashcard");
-          }} style={{ width:"100%", marginBottom:18, padding:"14px", borderRadius:12, border:`1.5px solid ${ht2.accentBorder}`, background:ht2.accentLight, fontFamily:ht2.ui, fontSize:14, fontWeight:700, color:ht2.accent, cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", gap:8 }}>
-            🃏 Flashcard Review {user && Object.values(hebrewProgress).filter(p=>p.completed).length > 0 ? `· ${Object.values(hebrewProgress).filter(p=>p.completed).length} lessons ready` : ""}
-          </button>
+          
           {/* Category Tabs */}
           <div style={{ display:"flex",gap:8,marginBottom:18,flexWrap:"wrap" }}>
             {categories.map(cat => (
@@ -1556,168 +1541,6 @@ export default function StudyBible() {
                   </div>
                 </div>
               ))}
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  };
-
-  // ═══ HEBREW READING ═══
-  const HebrewFlashcard = () => {
-    const ht2 = THEMES.garden;
-    const total = flashcardDeck.length;
-
-    // Empty state
-    if (total === 0) return (
-      <div style={{ minHeight:"100vh", background:ht2.bg }}>
-        <Header title="Flashcard Review" onBack={() => nav("hebrew-home")} theme={ht2} />
-        <div style={{ textAlign:"center", padding:40 }}>
-          <div style={{ fontSize:48, marginBottom:16 }}>🃏</div>
-          <div style={{ fontFamily:ht2.heading, fontSize:18, color:ht2.dark }}>No cards available</div>
-          <div style={{ fontFamily:ht2.ui, fontSize:13, color:ht2.muted, marginTop:8 }}>Complete some lessons first to unlock flashcard review.</div>
-        </div>
-      </div>
-    );
-
-    const isDone = flashcardIdx >= total;
-    const card = isDone ? null : flashcardDeck[flashcardIdx];
-    const isVocab = card?.category === "vocabulary";
-    const pct = Math.round((flashcardIdx / total) * 100);
-
-    const handleKnow = () => {
-      setFlashcardScore(s => ({ ...s, known: s.known + 1 }));
-      setFlashcardFlipped(false);
-      setFlashcardIdx(i => i + 1);
-    };
-
-    const handleAgain = () => {
-      setFlashcardScore(s => ({ ...s, again: s.again + 1 }));
-      const remaining = [...flashcardDeck];
-      const [current] = remaining.splice(flashcardIdx, 1);
-      const insertAt = Math.min(flashcardIdx + 3, remaining.length);
-      remaining.splice(insertAt, 0, current);
-      setFlashcardDeck(remaining);
-      setFlashcardFlipped(false);
-    };
-
-    // Completion screen
-    if (isDone) {
-      const total2 = flashcardScore.known + flashcardScore.again;
-      const pctScore = total2 > 0 ? Math.round((flashcardScore.known / total2) * 100) : 0;
-      return (
-        <div style={{ minHeight:"100vh", background:ht2.bg }}>
-          <Header title="Review Complete!" onBack={() => nav("hebrew-home")} theme={ht2} />
-          <div style={{ maxWidth:520, margin:"0 auto", padding:"40px 20px", textAlign:"center" }}>
-            <div style={{ fontSize:64, marginBottom:16 }}>🎉</div>
-            <div style={{ fontFamily:ht2.heading, fontSize:28, color:ht2.dark, marginBottom:8 }}>Well Done!</div>
-            <div style={{ fontFamily:ht2.body, fontSize:15, color:ht2.muted, fontStyle:"italic", marginBottom:24, lineHeight:1.7 }}>
-              You reviewed all {total} cards.
-            </div>
-            <Card t={ht2} style={{ marginBottom:22, textAlign:"center" }}>
-              <div style={{ fontFamily:ht2.ui, fontSize:13, color:ht2.muted, marginBottom:6 }}>Your Score</div>
-              <div style={{ fontFamily:ht2.heading, fontSize:52, fontWeight:800, color:pctScore>=70?"#2E7D5B":ht2.accent }}>{pctScore}%</div>
-              <div style={{ display:"flex", justifyContent:"center", gap:24, marginTop:12 }}>
-                <div style={{ textAlign:"center" }}>
-                  <div style={{ fontFamily:ht2.heading, fontSize:28, fontWeight:700, color:"#2E7D5B" }}>{flashcardScore.known}</div>
-                  <div style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.muted, textTransform:"uppercase", letterSpacing:"0.08em" }}>Known ✓</div>
-                </div>
-                <div style={{ width:1, background:ht2.divider }}/>
-                <div style={{ textAlign:"center" }}>
-                  <div style={{ fontFamily:ht2.heading, fontSize:28, fontWeight:700, color:ht2.accent }}>{flashcardScore.again}</div>
-                  <div style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.muted, textTransform:"uppercase", letterSpacing:"0.08em" }}>Study Again ↺</div>
-                </div>
-              </div>
-            </Card>
-            <button onClick={() => {
-              const reshuffled = [...flashcardDeck].sort(() => Math.random() - 0.5);
-              setFlashcardDeck(reshuffled);
-              setFlashcardIdx(0);
-              setFlashcardFlipped(false);
-              setFlashcardScore({known:0, again:0});
-            }} style={{ width:"100%", padding:"14px", borderRadius:12, border:"none", background:ht2.headerGradient, color:ht2.headerText, fontFamily:ht2.ui, fontSize:15, fontWeight:700, cursor:"pointer", marginBottom:10 }}>
-              Review Again 🔄
-            </button>
-            <button onClick={() => nav("hebrew-home")}
-              style={{ width:"100%", padding:"13px", borderRadius:12, border:`1.5px solid ${ht2.accentBorder}`, background:"transparent", color:ht2.accent, fontFamily:ht2.ui, fontSize:14, fontWeight:700, cursor:"pointer" }}>
-              Back to Lessons
-            </button>
-          </div>
-        </div>
-      );
-    }
-
-    return (
-      <div style={{ minHeight:"100vh", background:ht2.bg }}>
-        <Header title="Flashcard Review" subtitle={`${flashcardIdx + 1} of ${total}`} onBack={() => nav("hebrew-home")} theme={ht2} />
-        <div style={{ maxWidth:520, margin:"0 auto", padding:"16px 16px 40px" }}>
-          {/* Progress bar */}
-          <div style={{ background:ht2.divider, borderRadius:6, height:6, marginBottom:6, overflow:"hidden" }}>
-            <div style={{ width:`${pct}%`, height:"100%", background:ht2.accent, borderRadius:6, transition:"width 0.4s ease" }}/>
-          </div>
-          <div style={{ display:"flex", justifyContent:"space-between", marginBottom:20 }}>
-            <span style={{ fontFamily:ht2.ui, fontSize:11, color:"#2E7D5B", fontWeight:700 }}>✓ {flashcardScore.known} known</span>
-            <span style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.accent, fontWeight:700 }}>↺ {flashcardScore.again} again</span>
-          </div>
-
-          {/* Card */}
-          <div onClick={() => setFlashcardFlipped(f => !f)}
-            style={{ background:flashcardFlipped?ht2.headerGradient:ht2.card, borderRadius:20, padding:"40px 24px", minHeight:280, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", textAlign:"center", cursor:"pointer", border:`1px solid ${ht2.accentBorder}`, boxShadow:"0 4px 20px rgba(0,0,0,0.08)", transition:"background 0.3s ease", marginBottom:16, position:"relative", overflow:"hidden" }}>
-            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.15),transparent 70%)", pointerEvents:"none" }}/>
-            <div style={{ position:"relative", zIndex:1, width:"100%" }}>
-              {!flashcardFlipped ? (
-                <>
-                  <div style={{ fontFamily:"'Times New Roman',serif", fontSize:isVocab?64:96, color:ht2.accent, direction:"rtl", lineHeight:1.1, marginBottom:16, textShadow:`0 2px 12px ${ht2.accentLight}` }}>
-                    {isVocab ? card.word : card.letter}
-                  </div>
-                  <div style={{ fontFamily:ht2.ui, fontSize:12, color:ht2.muted, letterSpacing:"0.1em", textTransform:"uppercase" }}>
-                    Tap to reveal
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div style={{ fontFamily:"'Times New Roman',serif", fontSize:isVocab?42:64, color:ht2.headerText, direction:"rtl", lineHeight:1.1, marginBottom:12, textShadow:"0 2px 12px rgba(0,0,0,0.3)" }}>
-                    {isVocab ? card.word : card.letter}
-                  </div>
-                  <div style={{ fontFamily:ht2.heading, fontSize:22, color:ht2.accent, marginBottom:6 }}>
-                    {isVocab ? card.transliteration : card.name}
-                  </div>
-                  <div style={{ fontFamily:ht2.body, fontSize:16, color:ht2.headerText, fontStyle:"italic", marginBottom:12, opacity:0.9 }}>
-                    {isVocab ? card.devotional?.split(".")[0] + "." : card.pictograph}
-                  </div>
-                  {isVocab && card.strongs && (
-                    <div style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.accent, background:"rgba(192,108,62,0.2)", borderRadius:20, padding:"4px 14px", display:"inline-block" }}>
-                      {card.strongs} · {card.numeric_occurrences?.toLocaleString()} occurrences
-                    </div>
-                  )}
-                  {!isVocab && card.numeric_value && (
-                    <div style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.accent, background:"rgba(192,108,62,0.2)", borderRadius:20, padding:"4px 14px", display:"inline-block" }}>
-                      Numeric value: {card.numeric_value}
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
-          </div>
-
-          {/* Hint */}
-          {!flashcardFlipped && (
-            <div style={{ textAlign:"center", fontFamily:ht2.body, fontSize:13, color:ht2.muted, fontStyle:"italic", marginBottom:20 }}>
-              {isVocab ? "What does this word mean?" : "What is the name and meaning of this letter?"}
-            </div>
-          )}
-
-          {/* Action buttons — only show after flip */}
-          {flashcardFlipped && (
-            <div style={{ display:"flex", gap:12, marginTop:4 }}>
-              <button onClick={handleAgain}
-                style={{ flex:1, padding:"16px", borderRadius:14, border:`2px solid ${ht2.accentBorder}`, background:ht2.card, fontFamily:ht2.ui, fontSize:15, fontWeight:700, color:ht2.accent, cursor:"pointer" }}>
-                ↺ Study Again
-              </button>
-              <button onClick={handleKnow}
-                style={{ flex:1, padding:"16px", borderRadius:14, border:"none", background:"linear-gradient(135deg,#2E7D5B,#1B5E42)", fontFamily:ht2.ui, fontSize:15, fontWeight:700, color:"#fff", cursor:"pointer", boxShadow:"0 4px 12px rgba(46,125,91,0.3)" }}>
-                Know It ✓
-              </button>
             </div>
           )}
         </div>
@@ -2392,7 +2215,6 @@ export default function StudyBible() {
       {view === "hebrew-home" && HebrewHome()}
       {view === "hebrew-lesson" && HebrewLesson()}
       {view === "hebrew-practice" && HebrewPractice()}
-      {view === "hebrew-flashcard" && HebrewFlashcard()}
       {view === "hebrew-reading-home" && HebrewReadingHome()}
       {view === "hebrew-reading" && HebrewReading()}
 
@@ -2404,7 +2226,7 @@ export default function StudyBible() {
               const isActive =
                   (item.id === "home" && view === "home") ||
                   (item.id === "bible" && ["books","chapter","verses","verse"].includes(view)) ||
-                  (item.id === "learn" && ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-flashcard","hebrew-reading-home","hebrew-reading"].includes(view)) ||
+                  (item.id === "learn" && ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading"].includes(view)) ||
                   (item.id === "journal" && ["journal-home","highlights"].includes(view)) ||
                   (item.id === "account" && view === "account");
               return (
