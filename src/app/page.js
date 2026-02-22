@@ -976,7 +976,7 @@ export default function StudyBible() {
       { id:"alphabet", label:"Alphabet", icon:"א", desc:"All 22 Hebrew letters" },
       { id:"vocabulary", label:"Vocabulary", icon:"📚", desc:"Key biblical words" },
       { id:"grammar", label:"Grammar", icon:"📝", desc:"Sentence structure", soon:true },
-      { id:"reading", label:"Reading", icon:"📖", desc:"Read biblical texts", soon:true },
+      { id:"reading", label:"Reading", icon:"📖", desc:"Read biblical texts", action:() => nav("hebrew-reading") },
     ];
     const currentLessonIds = hebrewLessons.map(l => l.id);
     const completedCount = Object.values(hebrewProgress).filter(p => p.completed && currentLessonIds.includes(p.lesson_id)).length;
@@ -1016,7 +1016,7 @@ export default function StudyBible() {
           {/* Category Tabs */}
           <div style={{ display:"flex",gap:8,marginBottom:18,overflowX:"auto",paddingBottom:4 }}>
             {categories.map(cat => (
-              <button key={cat.id} onClick={() => { if (!cat.soon) setHebrewCategory(cat.id); }}
+              <button key={cat.id} onClick={() => { if (cat.action) cat.action(); else if (!cat.soon) setHebrewCategory(cat.id); }}
                 style={{ flexShrink:0,padding:"8px 16px",borderRadius:20,border:hebrewCategory===cat.id?"none":`1px solid ${ht2.divider}`,background:hebrewCategory===cat.id?ht2.tabActive:ht2.card,color:hebrewCategory===cat.id?ht2.headerText:cat.soon?ht2.light:ht2.text,fontFamily:ht2.ui,fontSize:12,fontWeight:700,cursor:cat.soon?"default":"pointer",opacity:cat.soon?0.55:1,whiteSpace:"nowrap" }}>
                 {cat.label}{cat.soon?" 🔒":""}
               </button>
@@ -1543,6 +1543,277 @@ export default function StudyBible() {
     );
   };
 
+  // ═══ HEBREW READING ═══
+  const HebrewReading = () => {
+    const ht2 = THEMES.garden;
+    const [readingStep, setReadingStep] = useState(0); // 0 = intro, 1-7 = words, 8 = full verse
+    const [letterIdx, setLetterIdx] = useState(0);
+    const [showLetters, setShowLetters] = useState(false);
+
+    const VERSE = {
+      ref: "Genesis 1:1",
+      kjv: "In the beginning God created the heaven and the earth.",
+      hebrew: "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ",
+    };
+
+    const WORDS = [
+      {
+        hebrew: "בְּרֵאשִׁית",
+        transliteration: "Bereshit",
+        meaning: "In the beginning",
+        grammar: "Bet (בְּ = in) + Reshit (רֵאשִׁית = beginning). The very first word of the Bible.",
+        letters: [
+          { l:"ב", name:"Bet", lesson:2, note:"The letter of house — the Bible begins in God's house" },
+          { l:"ר", name:"Resh", lesson:20, note:"Head, beginning — the first, the highest" },
+          { l:"א", name:"Aleph", lesson:1, note:"Silent — takes the vowel sound here" },
+          { l:"שׁ", name:"Shin", lesson:21, note:"Fire, to press — the consuming start" },
+          { l:"י", name:"Yod", lesson:10, note:"The hand of God — the smallest letter" },
+          { l:"ת", name:"Tav", lesson:22, note:"The seal — the end within the beginning" },
+        ],
+        devotional: "The rabbis asked: why does the Torah begin with Bet and not Aleph? Because Bet means house — God began creation by building a home. And Aleph waited humbly, so God honoured it by beginning the Ten Commandments with Aleph: Anokhi — I am.",
+        color: "#C06C3E",
+      },
+      {
+        hebrew: "בָּרָא",
+        transliteration: "Bara",
+        meaning: "Created",
+        grammar: "A verb meaning to create out of nothing. Always used with God as subject — never humans.",
+        letters: [
+          { l:"ב", name:"Bet", lesson:2, note:"The house — what God is building" },
+          { l:"ר", name:"Resh", lesson:20, note:"Head — God acts as the head of creation" },
+          { l:"א", name:"Aleph", lesson:1, note:"Silent strength — the power behind the act" },
+        ],
+        devotional: "Only God bara. You can make, build, and craft — but you cannot create from nothing. This single verb separates the Creator from all creation. He spoke into absolute void and something real appeared.",
+        color: "#2E4A33",
+      },
+      {
+        hebrew: "אֱלֹהִים",
+        transliteration: "Elohim",
+        meaning: "God",
+        grammar: "Plural noun (ending ים) used with singular verbs — the plural of majesty. Appears over 2,600 times.",
+        letters: [
+          { l:"א", name:"Aleph", lesson:1, note:"Silent — God's quiet, powerful presence" },
+          { l:"ל", name:"Lamed", lesson:12, note:"The teaching staff — God as teacher and authority" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — God's own letter breathed into this name" },
+          { l:"י", name:"Yod", lesson:10, note:"The hand — God's active power" },
+          { l:"מ", name:"Mem", lesson:13, note:"Water — the Spirit hovered over waters in Genesis 1:2" },
+        ],
+        devotional: "The first name of God in Scripture is not Father, not Saviour, not Lord — it is Elohim, the Creator. Before relationship comes existence. Before love comes life. God introduced Himself first through power, then through covenant.",
+        color: "#8B5CF6",
+      },
+      {
+        hebrew: "אֵת",
+        transliteration: "Et",
+        meaning: "(Direct object marker)",
+        grammar: "Et (אֵת) has no English translation — it marks the direct object. It is made of Aleph (first letter) and Tav (last letter).",
+        letters: [
+          { l:"א", name:"Aleph", lesson:1, note:"The first letter of the alphabet" },
+          { l:"ת", name:"Tav", lesson:22, note:"The last letter of the alphabet" },
+        ],
+        devotional: "The rabbis noted that et (אֵת) contains Aleph and Tav — the first and last letters of the Hebrew alphabet. Jesus declared 'I am the Alpha and Omega' — in Hebrew: I am the Aleph and Tav. This tiny untranslatable word hidden in Genesis 1:1 was a signpost to the Word who was in the beginning.",
+        color: "#D4A853",
+      },
+      {
+        hebrew: "הַשָּׁמַיִם",
+        transliteration: "HaShamayim",
+        meaning: "The heavens",
+        grammar: "Ha (הַ = the definite article) + Shamayim (שָּׁמַיִם = heavens, always plural).",
+        letters: [
+          { l:"ה", name:"He", lesson:5, note:"He as the definite article — 'the'" },
+          { l:"שׁ", name:"Shin", lesson:21, note:"Fire — the blazing expanse of heaven" },
+          { l:"מ", name:"Mem", lesson:13, note:"Water — heaven and water share deep connection" },
+          { l:"י", name:"Yod", lesson:10, note:"The hand of God stretched across the sky" },
+          { l:"מ", name:"Mem (final)", lesson:13, note:"Final Mem ם — sealed, complete" },
+        ],
+        devotional: "The heavens are always plural in Hebrew — shamayim, never shameh. This plurality hints at layers: the sky we see, the stars beyond, and the dwelling place of God above all. Every time you look up, you see shamayim.",
+        color: "#1B7A6E",
+      },
+      {
+        hebrew: "וְאֵת",
+        transliteration: "VeEt",
+        meaning: "And (the)",
+        grammar: "Vav (וְ = and) + Et (אֵת = direct object marker). The Vav of connection links heaven and earth.",
+        letters: [
+          { l:"ו", name:"Vav", lesson:6, note:"The nail of connection — joining heaven to earth" },
+          { l:"א", name:"Aleph", lesson:1, note:"Silent strength holding all together" },
+          { l:"ת", name:"Tav", lesson:22, note:"The seal — marking what follows as direct object" },
+        ],
+        devotional: "The Vav joins heaven and earth in the very first verse. This tiny letter — the nail — connects the two realms God created. In Jewish mystical thought, the Vav is the channel between heaven and earth, the letter that makes relationship between Creator and creation possible.",
+        color: "#C06C3E",
+      },
+      {
+        hebrew: "הָאָרֶץ",
+        transliteration: "HaAretz",
+        meaning: "The earth",
+        grammar: "Ha (הָ = the definite article) + Aretz (אָרֶץ = earth, land, ground).",
+        letters: [
+          { l:"ה", name:"He", lesson:5, note:"He as the definite article — 'the'" },
+          { l:"א", name:"Aleph", lesson:1, note:"Aleph — strength, the foundation" },
+          { l:"ר", name:"Resh", lesson:20, note:"Resh — the head, the first matter formed" },
+          { l:"צ", name:"Tsade", lesson:18, note:"Tsade — the righteous earth, made for the righteous" },
+        ],
+        devotional: "The earth is the final word of Genesis 1:1 — the destination of all creation. God began with Himself (Elohim), acted through His Word (bara), and ended with the earth — our home. The whole verse moves from heaven to earth, from infinite to finite, from Creator to creation.",
+        color: "#2E4A33",
+      },
+    ];
+
+    const currentWord = readingStep >= 1 && readingStep <= 7 ? WORDS[readingStep - 1] : null;
+
+    // Intro screen
+    if (readingStep === 0) return (
+      <div style={{ minHeight:"100vh", background:ht2.bg }}>
+        <Header title="Read Genesis 1:1" subtitle="The First Verse · Word by Word" onBack={() => nav("hebrew-home")} theme={ht2} />
+        <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
+          {/* Hero */}
+          <div style={{ background:ht2.headerGradient, borderRadius:20, padding:"32px 20px", marginBottom:22, textAlign:"center", position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
+            <div style={{ position:"relative", zIndex:1 }}>
+              <div style={{ fontFamily:"'Times New Roman',serif", fontSize:28, color:ht2.headerText, direction:"rtl", lineHeight:1.8, marginBottom:16, textShadow:"0 2px 12px rgba(0,0,0,0.3)", letterSpacing:1 }}>
+                {VERSE.hebrew}
+              </div>
+              <div style={{ fontFamily:ht2.body, fontSize:14, color:`${ht2.headerText}88`, fontStyle:"italic", marginBottom:4 }}>{VERSE.kjv}</div>
+              <div style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.accent, letterSpacing:"0.1em", textTransform:"uppercase" }}>{VERSE.ref}</div>
+            </div>
+          </div>
+          {/* What you will learn */}
+          <Card t={ht2} style={{ marginBottom:16 }}>
+            <Label icon="🎓" t={ht2}>What You Will Learn</Label>
+            <div style={{ fontFamily:ht2.body, fontSize:14, color:ht2.text, lineHeight:1.8 }}>
+              Genesis 1:1 contains <strong>7 Hebrew words</strong> and <strong>28 letters</strong>. In this lesson you will read each word one by one — seeing every letter, its name, and its meaning. You will discover why this single verse contains one of the most profound hidden mysteries in Scripture.
+            </div>
+          </Card>
+          {/* Word overview */}
+          <Label icon="📖" t={ht2} color={ht2.muted}>The 7 Words</Label>
+          <div style={{ display:"flex", flexDirection:"column", gap:6, marginBottom:22 }}>
+            {WORDS.map((w,i) => (
+              <div key={i} style={{ background:ht2.card, borderRadius:10, padding:"12px 14px", border:`1px solid ${ht2.divider}`, display:"flex", alignItems:"center", gap:12, borderLeft:`3px solid ${w.color}` }}>
+                <span style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.light, minWidth:16 }}>{i+1}</span>
+                <span style={{ fontFamily:"'Times New Roman',serif", fontSize:20, color:w.color, direction:"rtl", minWidth:80 }}>{w.hebrew}</span>
+                <span style={{ fontFamily:ht2.body, fontSize:13, color:ht2.muted, fontStyle:"italic", flex:1 }}>{w.meaning}</span>
+              </div>
+            ))}
+          </div>
+          <button onClick={() => { setReadingStep(1); setLetterIdx(0); setShowLetters(false); }}
+            style={{ width:"100%", padding:"16px", borderRadius:14, border:"none", background:ht2.headerGradient, color:ht2.headerText, fontFamily:ht2.ui, fontSize:16, fontWeight:700, cursor:"pointer", boxShadow:"0 4px 15px rgba(46,74,51,0.25)" }}>
+            Begin Reading →
+          </button>
+        </div>
+      </div>
+    );
+
+    // Full verse celebration screen
+    if (readingStep === 8) return (
+      <div style={{ minHeight:"100vh", background:ht2.bg }}>
+        <Header title="You Read It!" subtitle="Genesis 1:1 Complete" onBack={() => setReadingStep(0)} theme={ht2} />
+        <div style={{ maxWidth:520, margin:"0 auto", padding:"24px 20px 40px", textAlign:"center" }}>
+          <div style={{ fontSize:64, marginBottom:16 }}>🎉</div>
+          <div style={{ fontFamily:ht2.heading, fontSize:28, color:ht2.dark, marginBottom:8 }}>Shalom!</div>
+          <div style={{ fontFamily:ht2.body, fontSize:15, color:ht2.muted, fontStyle:"italic", marginBottom:24, lineHeight:1.7 }}>
+            You have just read the first verse of God's Word in its original Hebrew.
+          </div>
+          {/* Full verse display */}
+          <div style={{ background:ht2.headerGradient, borderRadius:20, padding:"32px 20px", marginBottom:22, position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
+            <div style={{ position:"relative", zIndex:1 }}>
+              <div style={{ fontFamily:"'Times New Roman',serif", fontSize:26, color:ht2.headerText, direction:"rtl", lineHeight:2, marginBottom:16, textShadow:"0 2px 12px rgba(0,0,0,0.3)", letterSpacing:1 }}>
+                {VERSE.hebrew}
+              </div>
+              {/* Word by word */}
+              <div style={{ display:"flex", flexWrap:"wrap", justifyContent:"center", gap:8, direction:"rtl", marginBottom:16 }}>
+                {WORDS.map((w,i) => (
+                  <div key={i} style={{ textAlign:"center", background:"rgba(255,255,255,0.1)", borderRadius:8, padding:"6px 10px" }}>
+                    <div style={{ fontFamily:"'Times New Roman',serif", fontSize:18, color:ht2.headerText }}>{w.hebrew}</div>
+                    <div style={{ fontFamily:ht2.ui, fontSize:9, color:ht2.accent, marginTop:2 }}>{w.meaning}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontFamily:ht2.body, fontSize:14, color:`${ht2.headerText}88`, fontStyle:"italic" }}>{VERSE.kjv}</div>
+            </div>
+          </div>
+          <Card t={ht2} style={{ marginBottom:16, textAlign:"left" }}>
+            <Label icon="✨" t={ht2}>The Hidden Mystery</Label>
+            <div style={{ fontFamily:ht2.body, fontSize:14, color:ht2.text, lineHeight:1.8 }}>
+              Genesis 1:1 contains exactly <strong>7 words</strong> and <strong>28 letters</strong> (7×4). The first word has 6 letters, the last has 5. The middle word is <strong>אֵת</strong> — Aleph and Tav, the first and last letters of the alphabet. Jesus declared: "I am the Alpha and Omega" — the Aleph and Tav. He was hidden in the first verse of Genesis, waiting to be found.
+            </div>
+          </Card>
+          <button onClick={() => setReadingStep(0)}
+            style={{ width:"100%", padding:"14px", borderRadius:12, border:"none", background:ht2.headerGradient, color:ht2.headerText, fontFamily:ht2.ui, fontSize:15, fontWeight:700, cursor:"pointer", marginBottom:10 }}>
+            Read Again
+          </button>
+          <button onClick={() => nav("hebrew-home")}
+            style={{ width:"100%", padding:"13px", borderRadius:12, border:`1.5px solid ${ht2.accentBorder}`, background:"transparent", color:ht2.accent, fontFamily:ht2.ui, fontSize:14, fontWeight:700, cursor:"pointer" }}>
+            Back to Lessons
+          </button>
+        </div>
+      </div>
+    );
+
+    // Word study screen
+    return (
+      <div style={{ minHeight:"100vh", background:ht2.bg }}>
+        <Header title={`Word ${readingStep} of 7`} subtitle={`${currentWord.transliteration} — ${currentWord.meaning}`} onBack={() => readingStep === 1 ? setReadingStep(0) : setReadingStep(s => s-1)} theme={ht2} />
+        <div style={{ maxWidth:520, margin:"0 auto", padding:"16px 16px 40px" }}>
+          {/* Progress */}
+          <div style={{ background:ht2.divider, borderRadius:6, height:6, marginBottom:20, overflow:"hidden" }}>
+            <div style={{ width:`${((readingStep-1)/7)*100}%`, height:"100%", background:ht2.accent, borderRadius:6, transition:"width 0.4s ease" }}/>
+          </div>
+          {/* Full verse context */}
+          <div style={{ background:ht2.headerGradient, borderRadius:16, padding:"16px 18px", marginBottom:16, position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.15),transparent 70%)" }}/>
+            <div style={{ position:"relative", zIndex:1, display:"flex", flexWrap:"wrap", justifyContent:"center", gap:6, direction:"rtl" }}>
+              {WORDS.map((w,i) => (
+                <span key={i} style={{ fontFamily:"'Times New Roman',serif", fontSize:i===readingStep-1?22:15, color:i===readingStep-1?ht2.accent:`${ht2.headerText}66`, fontWeight:i===readingStep-1?700:400, transition:"all 0.3s", padding:"2px 4px", borderRadius:4, background:i===readingStep-1?"rgba(192,108,62,0.2)":"transparent" }}>
+                  {w.hebrew}
+                </span>
+              ))}
+            </div>
+          </div>
+          {/* Big word */}
+          <Card t={ht2} style={{ marginBottom:14, textAlign:"center" }}>
+            <div style={{ fontFamily:"'Times New Roman',serif", fontSize:64, color:ht2.accent, direction:"rtl", lineHeight:1.2, marginBottom:10, textShadow:`0 2px 12px ${ht2.accentLight}` }}>
+              {currentWord.hebrew}
+            </div>
+            <div style={{ fontFamily:ht2.heading, fontSize:22, color:ht2.dark, marginBottom:4 }}>{currentWord.transliteration}</div>
+            <div style={{ fontFamily:ht2.body, fontSize:16, color:ht2.muted, fontStyle:"italic", marginBottom:10 }}>{currentWord.meaning}</div>
+            <div style={{ fontFamily:ht2.ui, fontSize:13, color:ht2.text, lineHeight:1.65, textAlign:"left", padding:"10px 12px", background:ht2.accentLight, borderRadius:8 }}>{currentWord.grammar}</div>
+          </Card>
+          {/* Letter breakdown */}
+          <div style={{ marginBottom:14 }}>
+            <button onClick={() => setShowLetters(s => !s)}
+              style={{ width:"100%", padding:"12px 16px", borderRadius:10, border:`1px solid ${ht2.accentBorder}`, background:showLetters?ht2.accentLight:ht2.card, fontFamily:ht2.ui, fontSize:13, fontWeight:700, color:ht2.accent, cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom: showLetters?8:0 }}>
+              <span>🔠 Letter by Letter Breakdown ({currentWord.letters.length} letters)</span>
+              <span>{showLetters?"▲":"▼"}</span>
+            </button>
+            {showLetters && (
+              <div style={{ display:"flex", flexDirection:"column", gap:6 }}>
+                {currentWord.letters.map((lt,i) => (
+                  <div key={i} style={{ background:ht2.card, borderRadius:10, padding:"12px 14px", border:`1px solid ${ht2.divider}`, display:"flex", alignItems:"center", gap:12 }}>
+                    <div style={{ width:44, height:44, borderRadius:10, background:ht2.accentLight, border:`1px solid ${ht2.accentBorder}`, display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Times New Roman',serif", fontSize:26, color:ht2.accent, flexShrink:0, direction:"rtl" }}>{lt.l}</div>
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontFamily:ht2.heading, fontSize:13, fontWeight:700, color:ht2.dark }}>{lt.name}</div>
+                      <div style={{ fontFamily:ht2.body, fontSize:12, color:ht2.muted, fontStyle:"italic", marginTop:2 }}>{lt.note}</div>
+                    </div>
+                    <div style={{ fontFamily:ht2.ui, fontSize:9, color:ht2.accent, textAlign:"right", flexShrink:0, background:ht2.accentLight, padding:"3px 8px", borderRadius:4 }}>Lesson {lt.lesson}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          {/* Devotional */}
+          <Card accent t={ht2} style={{ marginBottom:20 }}>
+            <Label icon="✨" t={ht2}>Insight</Label>
+            <div style={{ fontFamily:ht2.body, fontSize:14, color:ht2.text, lineHeight:1.8, fontStyle:"italic" }}>{currentWord.devotional}</div>
+          </Card>
+          {/* Navigation */}
+          <button onClick={() => { setReadingStep(s => s+1); setLetterIdx(0); setShowLetters(false); }}
+            style={{ width:"100%", padding:"16px", borderRadius:14, border:"none", background:ht2.headerGradient, color:ht2.headerText, fontFamily:ht2.ui, fontSize:15, fontWeight:700, cursor:"pointer", boxShadow:"0 4px 15px rgba(46,74,51,0.2)" }}>
+            {readingStep === 7 ? "Complete — See Full Verse 🎉" : `Next Word: ${WORDS[readingStep].transliteration} →`}
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   // ═══ BOTTOM NAV ═══
   const showNav = !["verse","verses","hebrew-lesson","hebrew-practice"].includes(view);
   const navItems = [
@@ -1568,6 +1839,7 @@ export default function StudyBible() {
       {view === "hebrew-home" && HebrewHome()}
       {view === "hebrew-lesson" && HebrewLesson()}
       {view === "hebrew-practice" && HebrewPractice()}
+      {view === "hebrew-reading" && HebrewReading()}
 
       {/* BOTTOM NAV */}
       {showNav && (
