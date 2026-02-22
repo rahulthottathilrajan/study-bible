@@ -167,6 +167,7 @@ export default function StudyBible() {
   const hebrewCache = useRef({});
   const [readingStep, setReadingStep] = useState(0);
   const [showLetters, setShowLetters] = useState(false);
+  const [readingVerse, setReadingVerse] = useState('gen1v1');
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
   const isOT = bookInfo?.testament === "OT";
@@ -978,7 +979,7 @@ export default function StudyBible() {
       { id:"alphabet", label:"Alphabet", icon:"א", desc:"All 22 Hebrew letters" },
       { id:"vocabulary", label:"Vocabulary", icon:"📚", desc:"Key biblical words" },
       { id:"grammar", label:"Grammar", icon:"📝", desc:"Sentence structure", soon:true },
-      { id:"reading", label:"Reading", icon:"📖", desc:"Read biblical texts", action:() => nav("hebrew-reading") },
+      { id:"reading", label:"Reading", icon:"📖", desc:"Read biblical texts", action:() => nav("hebrew-reading-home") },
     ];
     const currentLessonIds = hebrewLessons.map(l => l.id);
     const completedCount = Object.values(hebrewProgress).filter(p => p.completed && currentLessonIds.includes(p.lesson_id)).length;
@@ -1546,16 +1547,109 @@ export default function StudyBible() {
   };
 
   // ═══ HEBREW READING ═══
+  const HebrewReadingHome = () => {
+    const ht2 = THEMES.garden;
+    const VERSES = [
+      {
+        id: "gen1v1",
+        ref: "Genesis 1:1",
+        hebrew: "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ",
+        kjv: "In the beginning God created the heaven and the earth.",
+        words: 7,
+        difficulty: "Beginner",
+        tag: "Creation",
+        color: "#2E4A33",
+        available: true,
+      },
+      {
+        id: "gen1v2",
+        ref: "Genesis 1:2",
+        hebrew: "וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ",
+        kjv: "And the earth was without form, and void...",
+        words: 9,
+        difficulty: "Beginner",
+        tag: "Creation",
+        color: "#1B7A6E",
+        available: true,
+      },
+      {
+        id: "psalm23v1",
+        ref: "Psalm 23:1",
+        hebrew: "יְהוָה רֹעִי לֹא אֶחְסָר",
+        kjv: "The LORD is my shepherd; I shall not want.",
+        words: 4,
+        difficulty: "Intermediate",
+        tag: "Psalms",
+        color: "#8B5CF6",
+        available: false,
+      },
+      {
+        id: "deut6v4",
+        ref: "Deuteronomy 6:4",
+        hebrew: "שְׁמַע יִשְׂרָאֵל יְהוָה אֱלֹהֵינוּ יְהוָה אֶחָד",
+        kjv: "Hear, O Israel: The LORD our God is one LORD.",
+        words: 6,
+        difficulty: "Intermediate",
+        tag: "The Shema",
+        color: "#D4A853",
+        available: false,
+      },
+    ];
+    return (
+      <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
+        <Header title="Reading" subtitle="Read Scripture in Hebrew" onBack={() => nav("hebrew-home")} theme={ht2} />
+        <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
+          {/* Hero */}
+          <div style={{ background:ht2.headerGradient, borderRadius:16, padding:"24px 20px", marginBottom:22, textAlign:"center", position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
+            <div style={{ position:"relative", zIndex:1 }}>
+              <div style={{ fontFamily:"'Times New Roman',serif", fontSize:32, color:ht2.headerText, direction:"rtl", marginBottom:10, textShadow:"0 2px 12px rgba(0,0,0,0.3)" }}>בְּרֵאשִׁית</div>
+              <div style={{ fontFamily:ht2.body, fontSize:14, color:`${ht2.headerText}88`, fontStyle:"italic", marginBottom:4 }}>Read God's Word word by word</div>
+              <div style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.accent, letterSpacing:"0.1em", textTransform:"uppercase" }}>Interactive Hebrew Reading</div>
+            </div>
+          </div>
+          {/* Intro */}
+          <div style={{ fontFamily:ht2.body, fontSize:14, color:ht2.muted, lineHeight:1.7, marginBottom:18, fontStyle:"italic" }}>
+            Each lesson walks you through a verse word by word — with every letter explained, grammar notes, and devotional insights.
+          </div>
+          {/* Verse list */}
+          <Label icon="📖" t={ht2} color={ht2.muted}>Choose a Verse</Label>
+          <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
+            {VERSES.map(v => (
+              <button key={v.id}
+                onClick={() => { if (v.available) { setReadingVerse(v.id); setReadingStep(0); setShowLetters(false); nav("hebrew-reading"); } }}
+                style={{ background:ht2.card, border:`1px solid ${v.available ? ht2.accentBorder : ht2.divider}`, borderRadius:14, padding:"16px", textAlign:"left", cursor:v.available?"pointer":"default", opacity:v.available?1:0.6, borderLeft:`4px solid ${v.color}`, transition:"all 0.15s" }}>
+                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:6 }}>
+                  <div>
+                    <span style={{ fontFamily:ht2.heading, fontSize:15, fontWeight:700, color:ht2.dark }}>{v.ref}</span>
+                    <span style={{ fontFamily:ht2.ui, fontSize:10, color:v.color, background:`${v.color}18`, borderRadius:4, padding:"2px 7px", marginLeft:8, textTransform:"uppercase", letterSpacing:"0.05em" }}>{v.tag}</span>
+                  </div>
+                  {!v.available && <span style={{ fontFamily:ht2.ui, fontSize:10, color:ht2.light }}>🔒 Soon</span>}
+                </div>
+                <div style={{ fontFamily:"'Times New Roman',serif", fontSize:18, color:v.color, direction:"rtl", marginBottom:6, lineHeight:1.6 }}>{v.hebrew}</div>
+                <div style={{ fontFamily:ht2.body, fontSize:12.5, color:ht2.muted, fontStyle:"italic", marginBottom:8 }}>{v.kjv}</div>
+                <div style={{ display:"flex", gap:8 }}>
+                  <span style={{ fontFamily:ht2.ui, fontSize:10, color:ht2.light, background:ht2.divider, borderRadius:4, padding:"2px 8px" }}>{v.words} words</span>
+                  <span style={{ fontFamily:ht2.ui, fontSize:10, color:ht2.light, background:ht2.divider, borderRadius:4, padding:"2px 8px" }}>{v.difficulty}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   const HebrewReading = () => {
     const ht2 = THEMES.garden;
 
-    const VERSE = {
-      ref: "Genesis 1:1",
-      kjv: "In the beginning God created the heaven and the earth.",
-      hebrew: "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ",
+    const VERSE_DATA = {
+      gen1v1: { ref:"Genesis 1:1", kjv:"In the beginning God created the heaven and the earth.", hebrew:"בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ" },
+      gen1v2: { ref:"Genesis 1:2", kjv:"And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.", hebrew:"וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם" },
     };
+    const VERSE = VERSE_DATA[readingVerse] || VERSE_DATA.gen1v1;
 
-    const WORDS = [
+    const WORDS_GEN1V1 = [
       {
         hebrew: "בְּרֵאשִׁית",
         transliteration: "Bereshit",
@@ -1656,12 +1750,145 @@ export default function StudyBible() {
       },
     ];
 
-    const currentWord = readingStep >= 1 && readingStep <= 7 ? WORDS[readingStep - 1] : null;
+    const WORDS_GEN1V2 = [
+      {
+        hebrew: "וְהָאָרֶץ",
+        transliteration: "VeHaAretz",
+        meaning: "And the earth",
+        grammar: "Vav (וְ = and) + Ha (הָ = the) + Aretz (אָרֶץ = earth). The Vav connects this verse directly to verse 1.",
+        letters: [
+          { l:"ו", name:"Vav", lesson:6, note:"The nail — connecting verse 2 to verse 1" },
+          { l:"ה", name:"He", lesson:5, note:"The definite article 'the'" },
+          { l:"א", name:"Aleph", lesson:1, note:"Strength — the foundation of the earth" },
+          { l:"ר", name:"Resh", lesson:20, note:"Head — the chief substance" },
+          { l:"צ", name:"Tsade", lesson:18, note:"Righteousness — even in chaos, God's purpose holds" },
+        ],
+        devotional: "The very first word of verse 2 begins with Vav — 'and'. This is not a new story. It is a continuation. The earth God created in verse 1 is now described in its initial state: unformed, waiting. God does not abandon what He makes in its raw state.",
+        color: "#2E4A33",
+      },
+      {
+        hebrew: "הָיְתָה",
+        transliteration: "Hayetah",
+        meaning: "Was",
+        grammar: "A feminine past tense verb from the root הָיָה (hayah — to be, to become). Matches the feminine noun Aretz.",
+        letters: [
+          { l:"ה", name:"He", lesson:5, note:"Breath — existence itself" },
+          { l:"י", name:"Yod", lesson:10, note:"The hand of God — He determined this state" },
+          { l:"ת", name:"Tav", lesson:22, note:"The seal — this was a sealed, appointed condition" },
+          { l:"ה", name:"He", lesson:5, note:"Feminine ending — agreeing with Aretz" },
+        ],
+        devotional: "The earth was — hayetah. This verb is the root of the name YHWH (יהוה) — He Who Is, Was, and Will Be. Even in the description of formlessness, the very word used points to the eternal God who exists outside of time.",
+        color: "#1B7A6E",
+      },
+      {
+        hebrew: "תֹהוּ",
+        transliteration: "Tohu",
+        meaning: "Without form",
+        grammar: "A noun meaning formless, chaos, emptiness. Used 20 times in the OT. Always describes something void of order.",
+        letters: [
+          { l:"ת", name:"Tav", lesson:22, note:"The seal — something marked as unfinished" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — a hollow, empty breath" },
+          { l:"ו", name:"Vav", lesson:6, note:"The nail — suspended, not yet anchored" },
+        ],
+        devotional: "Tohu does not mean evil — it means unformed. God did not create a broken world. He created raw material. A sculptor sees the statue inside the marble. God saw the garden inside the tohu. He begins with chaos not because He is limited, but because He delights in forming.",
+        color: "#C06C3E",
+      },
+      {
+        hebrew: "וָבֹהוּ",
+        transliteration: "VaVohu",
+        meaning: "And void",
+        grammar: "Vav (וָ = and) + Bohu (בֹהוּ = void, emptiness). Tohu and bohu always appear together in Scripture as a pair.",
+        letters: [
+          { l:"ו", name:"Vav", lesson:6, note:"And — joining tohu and bohu as inseparable twins" },
+          { l:"ב", name:"Bet", lesson:2, note:"House — an empty house, waiting for inhabitants" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — barely there, waiting to be filled" },
+          { l:"ו", name:"Vav", lesson:6, note:"The nail — suspended, incomplete" },
+        ],
+        devotional: "Tohu vavohu — formless and void. These two words only appear together three times in all of Scripture. Theologians call this the 'unformed and unfilled' state. God's work in creation is to form and to fill: forming on days 1–3, filling on days 4–6. Your life's empty places are not abandoned — they are waiting to be formed and filled.",
+        color: "#8B5CF6",
+      },
+      {
+        hebrew: "וְחֹשֶׁךְ",
+        transliteration: "VeChoshekh",
+        meaning: "And darkness",
+        grammar: "Vav (וְ = and) + Choshekh (חֹשֶׁךְ = darkness). Choshekh means the absence of light — not an evil force but an unfilled state.",
+        letters: [
+          { l:"ו", name:"Vav", lesson:6, note:"And — adding to the description of the unformed earth" },
+          { l:"ח", name:"Chet", lesson:8, note:"A fence, enclosure — darkness as a boundary" },
+          { l:"ש", name:"Shin", lesson:21, note:"Fire — but here, fire not yet lit" },
+          { l:"ך", name:"Kaf (final)", lesson:11, note:"The open hand — darkness as openness, waiting" },
+        ],
+        devotional: "Darkness was not created by God as an evil thing — it was simply the absence of what He was about to speak. God's first recorded act in creation is to speak light into darkness. He still does this. Whatever darkness you face is not beyond the reach of His first word: 'Let there be light.'",
+        color: "#2E4A33",
+      },
+      {
+        hebrew: "וְרוּחַ",
+        transliteration: "VeRuach",
+        meaning: "And the Spirit",
+        grammar: "Vav (וְ = and) + Ruach (רוּחַ = Spirit, wind, breath — H7307). The same word means all three: Spirit, wind, breath.",
+        letters: [
+          { l:"ו", name:"Vav", lesson:6, note:"And — the Spirit enters the scene" },
+          { l:"ר", name:"Resh", lesson:20, note:"Head — the Spirit as the head of all living things" },
+          { l:"ו", name:"Vav", lesson:6, note:"The nail — the Spirit as connector between God and creation" },
+          { l:"ח", name:"Chet", lesson:8, note:"Life fence — the Spirit as the boundary of life itself" },
+        ],
+        devotional: "Ruach — Spirit, wind, breath. This word holds three meanings in one. The Spirit of God is like breath: invisible, essential, life-giving. Like wind: powerful, direction-setting, you cannot see it but you see what it does. The same Ruach that hovered over the waters at creation hovers over every new beginning in your life.",
+        color: "#D4A853",
+      },
+      {
+        hebrew: "אֱלֹהִים",
+        transliteration: "Elohim",
+        meaning: "God",
+        grammar: "Plural noun used with singular verbs — the plural of majesty. The same Elohim from Genesis 1:1, appearing again.",
+        letters: [
+          { l:"א", name:"Aleph", lesson:1, note:"Silent — God's quiet, powerful presence" },
+          { l:"ל", name:"Lamed", lesson:12, note:"The teaching staff — God as teacher and authority" },
+          { l:"ה", name:"He", lesson:5, note:"Breath — God's own letter breathed into this name" },
+          { l:"י", name:"Yod", lesson:10, note:"The hand — God's active power" },
+          { l:"מ", name:"Mem", lesson:13, note:"Water — the Spirit hovered over the waters" },
+        ],
+        devotional: "Elohim appears again. In a verse describing chaos, emptiness, and darkness — God is still named. He is present in the tohu vavohu. He is not absent from your wilderness. The same God who spoke creation into order in verse 1 is standing over the void in verse 2, about to speak.",
+        color: "#8B5CF6",
+      },
+      {
+        hebrew: "מְרַחֶפֶת",
+        transliteration: "Merachefet",
+        meaning: "Moved / Hovered",
+        grammar: "A Piel participle from רָחַף (rachaph) — to hover, flutter, brood. Used only twice in the OT: here and Deuteronomy 32:11 of an eagle over its nest.",
+        letters: [
+          { l:"מ", name:"Mem", lesson:13, note:"Water — hovering over the waters" },
+          { l:"ר", name:"Resh", lesson:20, note:"Head — the Spirit as the head of all new life" },
+          { l:"ח", name:"Chet", lesson:8, note:"Life — this hovering is the beginning of all life" },
+          { l:"פ", name:"Pe", lesson:17, note:"Mouth — as if speaking life before the words come" },
+          { l:"ת", name:"Tav", lesson:22, note:"The seal — a complete, purposeful movement" },
+        ],
+        devotional: "Merachefet — hovering, brooding, fluttering. The Spirit of God was not passive over the void. He was like a mother eagle beating her wings over her nest, warming, protecting, preparing to bring forth life. Before God spoke a single word of creation, the Spirit was already there — hovering with intention. He hovers over every chaos with the same purpose.",
+        color: "#1B7A6E",
+      },
+      {
+        hebrew: "הַמָּיִם",
+        transliteration: "HaMayim",
+        meaning: "The waters",
+        grammar: "Ha (הַ = the) + Mayim (מָּיִם = waters, always plural). Water in Hebrew is always plural — mayim, never a singular form.",
+        letters: [
+          { l:"ה", name:"He", lesson:5, note:"The definite article 'the'" },
+          { l:"מ", name:"Mem", lesson:13, note:"Water — Mem is the letter of water itself" },
+          { l:"י", name:"Yod", lesson:10, note:"The hand of God moving through the waters" },
+          { l:"מ", name:"Mem (final)", lesson:13, note:"Final Mem ם — sealed, the waters enclosed" },
+        ],
+        devotional: "The verse ends where the Spirit is hovering: over the waters. Water in Hebrew thought represents chaos, potential, and life. Mem — the letter of water — looks like waves. The Spirit hovered over the mayim, and out of those chaotic waters God would speak forth an ordered, beautiful world. Every ending in Scripture that seems like water — like chaos — is a canvas for God's next creation.",
+        color: "#C06C3E",
+      },
+    ];
+
+    const WORDS = readingVerse === "gen1v2" ? WORDS_GEN1V2 : WORDS_GEN1V1;
+    const totalWords = WORDS.length;
+    const currentWord = readingStep >= 1 && readingStep <= totalWords ? WORDS[readingStep - 1] : null;
 
     // Intro screen
     if (readingStep === 0) return (
       <div style={{ minHeight:"100vh", background:ht2.bg }}>
-        <Header title="Read Genesis 1:1" subtitle="The First Verse · Word by Word" onBack={() => nav("hebrew-home")} theme={ht2} />
+        <Header title={`Read ${VERSE.ref}`} subtitle="Word by Word · Letter by Letter" onBack={() => nav("hebrew-reading-home")} theme={ht2} />
         <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient, borderRadius:20, padding:"32px 20px", marginBottom:22, textAlign:"center", position:"relative", overflow:"hidden" }}>
@@ -1838,6 +2065,7 @@ export default function StudyBible() {
       {view === "hebrew-home" && HebrewHome()}
       {view === "hebrew-lesson" && HebrewLesson()}
       {view === "hebrew-practice" && HebrewPractice()}
+      {view === "hebrew-reading-home" && HebrewReadingHome()}
       {view === "hebrew-reading" && HebrewReading()}
 
       {/* BOTTOM NAV */}
