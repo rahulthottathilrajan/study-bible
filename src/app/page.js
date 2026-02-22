@@ -1022,21 +1022,33 @@ export default function StudyBible() {
               {hebrewLessons.map(lesson => {
                 const cnt = lesson.content || {};
                 const isDone = hebrewProgress[lesson.id]?.completed;
+                const isVocab = lesson.category === "vocabulary";
                 return (
                   <button key={lesson.id} onClick={() => { setHebrewLesson(lesson); setHebrewAlphabet(null); setHebrewVocab([]); nav("hebrew-lesson"); }}
                     style={{ background:ht2.card,border:`1px solid ${isDone?"#7ED4AD44":ht2.divider}`,borderRadius:12,padding:"14px 16px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:14,borderLeft:`3px solid ${isDone?"#7ED4AD":ht2.accent}`,boxShadow:"0 1px 3px rgba(0,0,0,0.04)",transition:"all 0.15s" }}>
-                    <div style={{ width:48,height:48,borderRadius:12,background:isDone?"#7ED4AD22":ht2.accentLight,border:`1px solid ${isDone?"#7ED4AD44":ht2.accentBorder}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Times New Roman',serif",fontSize:30,color:ht2.accent,flexShrink:0,direction:"rtl" }}>
-                      {cnt.letter || "א"}
-                    </div>
+                    {/* Alphabet: show single letter. Vocabulary: show Hebrew word */}
+                    {isVocab ? (
+                      <div style={{ minWidth:64,height:48,borderRadius:12,background:isDone?"#7ED4AD22":ht2.accentLight,border:`1px solid ${isDone?"#7ED4AD44":ht2.accentBorder}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Times New Roman',serif",fontSize:18,color:ht2.accent,flexShrink:0,direction:"rtl",padding:"0 8px" }}>
+                        {cnt.word || "אֱלֹהִים"}
+                      </div>
+                    ) : (
+                      <div style={{ width:48,height:48,borderRadius:12,background:isDone?"#7ED4AD22":ht2.accentLight,border:`1px solid ${isDone?"#7ED4AD44":ht2.accentBorder}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Times New Roman',serif",fontSize:30,color:ht2.accent,flexShrink:0,direction:"rtl" }}>
+                        {cnt.letter || "א"}
+                      </div>
+                    )}
                     <div style={{ flex:1 }}>
                       <div style={{ display:"flex",alignItems:"center",gap:8 }}>
                         <span style={{ fontFamily:ht2.heading,fontSize:15,fontWeight:700,color:ht2.dark }}>{lesson.title}</span>
                         {isDone && <span style={{ fontSize:13,color:"#2E7D5B",fontWeight:700 }}>✓</span>}
                       </div>
                       <div style={{ fontFamily:ht2.body,fontSize:12.5,color:ht2.muted,fontStyle:"italic",marginTop:2 }}>{lesson.subtitle}</div>
+                      {isVocab && cnt.transliteration && (
+                        <div style={{ fontFamily:ht2.ui,fontSize:11,color:ht2.accent,marginTop:3,letterSpacing:"0.03em" }}>{cnt.transliteration}</div>
+                      )}
                     </div>
                     <div style={{ textAlign:"right",flexShrink:0 }}>
-                      <div style={{ fontFamily:ht2.ui,fontSize:10,color:ht2.light }}>Lesson {lesson.lesson_number}</div>
+                      {isVocab && <div style={{ fontFamily:ht2.ui,fontSize:9,color:ht2.light,marginBottom:2,textTransform:"uppercase",letterSpacing:"0.05em" }}>Vocab</div>}
+                      {!isVocab && <div style={{ fontFamily:ht2.ui,fontSize:10,color:ht2.light }}>Lesson {lesson.lesson_number}</div>}
                       <div style={{ color:ht2.light,marginTop:2 }}><ChevIcon/></div>
                     </div>
                   </button>
