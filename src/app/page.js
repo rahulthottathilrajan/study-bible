@@ -153,6 +153,19 @@ export default function StudyBible() {
   const [donateModal, setDonateModal] = useState(false);
   const noteRef = useRef(null);
 
+  // ─── Hebrew Learning state ───
+  const [hebrewLessons, setHebrewLessons] = useState([]);
+  const [hebrewLesson, setHebrewLesson] = useState(null);
+  const [hebrewAlphabet, setHebrewAlphabet] = useState(null);
+  const [hebrewVocab, setHebrewVocab] = useState([]);
+  const [hebrewCategory, setHebrewCategory] = useState('alphabet');
+  const [hebrewProgress, setHebrewProgress] = useState({});
+  const [hebrewPracticeMode, setHebrewPracticeMode] = useState(false);
+  const [hebrewPracticeIdx, setHebrewPracticeIdx] = useState(0);
+  const [hebrewPracticeAnswer, setHebrewPracticeAnswer] = useState(null);
+  const [hebrewPracticeScore, setHebrewPracticeScore] = useState(0);
+  const hebrewCache = useRef({});
+
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
   const isOT = bookInfo?.testament === "OT";
   const currentVerse = verses.find(v => v.verse_number === verse);
@@ -326,6 +339,53 @@ export default function StudyBible() {
   useEffect(() => { if (view === "highlights" && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
   useEffect(() => { if (view === "account" && user) { loadAllHighlights(); loadPrayers(); } }, [view, user, loadAllHighlights, loadPrayers]);
 
+  // ═══ HEBREW LEARNING ═══
+  const loadHebrewLessons = useCallback(async (cat = 'alphabet') => {
+    const cacheKey = `lessons-${cat}`;
+    if (hebrewCache.current[cacheKey]) { setHebrewLessons(hebrewCache.current[cacheKey]); return; }
+    const { data } = await supabase.from("hebrew_lessons").select("*").eq("category", cat).order("lesson_number");
+    if (data) { hebrewCache.current[cacheKey] = data; setHebrewLessons(data); }
+  }, []);
+
+  const loadHebrewLesson = useCallback(async (lessonId) => {
+    const cacheKey = `lesson-${lessonId}`;
+    if (hebrewCache.current[cacheKey]) {
+      const cached = hebrewCache.current[cacheKey];
+      setHebrewLesson(cached.lesson); setHebrewAlphabet(cached.alphabet); setHebrewVocab(cached.vocab);
+      return;
+    }
+    const { data: lesson } = await supabase.from("hebrew_lessons").select("*").eq("id", lessonId).single();
+    const { data: alphabet } = await supabase.from("hebrew_alphabet").select("*").eq("lesson_id", lessonId).single();
+    const { data: vocab } = await supabase.from("hebrew_vocabulary").select("*").eq("lesson_id", lessonId).order("id");
+    if (lesson) setHebrewLesson(lesson);
+    if (alphabet) setHebrewAlphabet(alphabet);
+    setHebrewVocab(vocab || []);
+    hebrewCache.current[cacheKey] = { lesson, alphabet, vocab: vocab || [] };
+  }, []);
+
+  const loadHebrewProgress = useCallback(async () => {
+    if (!user) return;
+    const { data } = await supabase.from("user_hebrew_progress").select("*").eq("user_id", user.id);
+    if (data) {
+      const map = {}; data.forEach(p => { map[p.lesson_id] = p; });
+      setHebrewProgress(map);
+    }
+  }, [user]);
+
+  const markHebrewComplete = async (lessonId, score) => {
+    if (!user) return;
+    const existing = hebrewProgress[lessonId];
+    if (existing) {
+      await supabase.from("user_hebrew_progress").update({ completed: true, score: score || existing.score, completed_at: new Date().toISOString() }).eq("id", existing.id);
+    } else {
+      await supabase.from("user_hebrew_progress").insert({ user_id: user.id, lesson_id: lessonId, completed: true, score, completed_at: new Date().toISOString() });
+    }
+    loadHebrewProgress();
+  };
+
+  useEffect(() => { if (view === "hebrew-home") { loadHebrewLessons(hebrewCategory); loadHebrewProgress(); } }, [view, hebrewCategory, loadHebrewLessons, loadHebrewProgress]);
+  useEffect(() => { if (view === "hebrew-lesson" && hebrewLesson?.id) loadHebrewLesson(hebrewLesson.id); }, [view]);
+
   // ═══ DB & NAVIGATION ═══
   useEffect(() => {
     (async () => {
@@ -459,13 +519,13 @@ export default function StudyBible() {
           ))}
           <Label icon="🏫" t={ht} color={ht.muted}>Learn the Original Languages</Label>
           <div style={{ display:"flex",gap:10,marginBottom:22 }}>
-            <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
-              <div style={{ position:"absolute",top:8,right:8,background:"rgba(192,108,62,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#C06C3E",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
+            <button onClick={() => nav("hebrew-home")} style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",cursor:"pointer",transition:"all 0.2s" }}>
               <div style={{ fontSize:32,marginBottom:8 }}>🕎</div>
               <div style={{ fontFamily:"'Times New Roman',serif",fontSize:22,color:ht.dark,direction:"rtl",marginBottom:4 }}>עִבְרִית</div>
               <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Learn Hebrew</div>
               <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>The language of the Old Testament</div>
-            </div>
+              <div style={{ marginTop:8,background:"rgba(192,108,62,0.12)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#C06C3E",textTransform:"uppercase",letterSpacing:"0.05em",display:"inline-block" }}>Start Learning →</div>
+            </button>
             <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
               <div style={{ position:"absolute",top:8,right:8,background:"rgba(27,122,110,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#1B7A6E",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
               <div style={{ fontSize:32,marginBottom:8 }}>🏛️</div>
@@ -908,6 +968,344 @@ export default function StudyBible() {
     </div>
   );
 
+  // ═══ HEBREW HOME ═══
+  const HebrewHome = () => {
+    const ht2 = THEMES.garden;
+    const categories = [
+      { id:"alphabet", label:"Alphabet", icon:"א", desc:"All 22 Hebrew letters" },
+      { id:"vocabulary", label:"Vocabulary", icon:"📚", desc:"Key biblical words", soon:true },
+      { id:"grammar", label:"Grammar", icon:"📝", desc:"Sentence structure", soon:true },
+      { id:"reading", label:"Reading", icon:"📖", desc:"Read biblical texts", soon:true },
+    ];
+    const completedCount = Object.values(hebrewProgress).filter(p => p.completed).length;
+    const totalLessons = hebrewLessons.length;
+    return (
+      <div style={{ minHeight:"100vh",background:ht2.bg,paddingBottom:80 }}>
+        <Header title="Learn Hebrew" subtitle="Biblical Hebrew · עִבְרִית" onBack={() => nav("home")} theme={ht2} />
+        <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
+          {/* Hero */}
+          <div style={{ background:ht2.headerGradient,borderRadius:16,padding:"28px 20px",marginBottom:20,textAlign:"center",position:"relative",overflow:"hidden" }}>
+            <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
+            <div style={{ position:"relative",zIndex:1 }}>
+              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:56,color:ht2.headerText,direction:"rtl",lineHeight:1,marginBottom:10,textShadow:"0 4px 20px rgba(0,0,0,0.3)" }}>אָלֶף</div>
+              <div style={{ fontFamily:ht2.body,fontSize:14,color:`${ht2.headerText}99`,fontStyle:"italic",marginBottom:4 }}>Aleph — The first letter</div>
+              <div style={{ fontFamily:ht2.ui,fontSize:11,color:ht2.accent,letterSpacing:"0.12em",textTransform:"uppercase" }}>Begin Your Journey</div>
+            </div>
+          </div>
+          {/* Progress */}
+          {user && totalLessons > 0 && (
+            <Card t={ht2} style={{ marginBottom:18 }}>
+              <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8 }}>
+                <Label icon="📊" t={ht2}>My Progress</Label>
+                <span style={{ fontFamily:ht2.ui,fontSize:13,fontWeight:700,color:ht2.accent }}>{completedCount}/{totalLessons}</span>
+              </div>
+              <div style={{ background:ht2.divider,borderRadius:6,height:8,overflow:"hidden" }}>
+                <div style={{ width:`${totalLessons>0?(completedCount/totalLessons)*100:0}%`,height:"100%",background:ht2.accent,borderRadius:6,transition:"width 0.5s ease" }}/>
+              </div>
+              <div style={{ fontFamily:ht2.ui,fontSize:11,color:ht2.muted,marginTop:6 }}>{completedCount===0?"Start your first lesson below!":`${completedCount} lesson${completedCount>1?"s":""} completed · Keep going!`}</div>
+            </Card>
+          )}
+          {/* Category Tabs */}
+          <div style={{ display:"flex",gap:8,marginBottom:18,overflowX:"auto",paddingBottom:4 }}>
+            {categories.map(cat => (
+              <button key={cat.id} onClick={() => { if (!cat.soon) setHebrewCategory(cat.id); }}
+                style={{ flexShrink:0,padding:"8px 16px",borderRadius:20,border:hebrewCategory===cat.id?"none":`1px solid ${ht2.divider}`,background:hebrewCategory===cat.id?ht2.tabActive:ht2.card,color:hebrewCategory===cat.id?ht2.headerText:cat.soon?ht2.light:ht2.text,fontFamily:ht2.ui,fontSize:12,fontWeight:700,cursor:cat.soon?"default":"pointer",opacity:cat.soon?0.55:1,whiteSpace:"nowrap" }}>
+                {cat.label}{cat.soon?" 🔒":""}
+              </button>
+            ))}
+          </div>
+          {/* Lessons List */}
+          <Label icon="א" t={ht2} color={ht2.muted}>The Hebrew Alphabet — 22 Letters</Label>
+          {hebrewLessons.length === 0 ? <Spinner t={ht2}/> : (
+            <div style={{ display:"flex",flexDirection:"column",gap:8 }}>
+              {hebrewLessons.map(lesson => {
+                const cnt = lesson.content || {};
+                const isDone = hebrewProgress[lesson.id]?.completed;
+                return (
+                  <button key={lesson.id} onClick={() => { setHebrewLesson(lesson); setHebrewAlphabet(null); setHebrewVocab([]); nav("hebrew-lesson"); }}
+                    style={{ background:ht2.card,border:`1px solid ${isDone?"#7ED4AD44":ht2.divider}`,borderRadius:12,padding:"14px 16px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:14,borderLeft:`3px solid ${isDone?"#7ED4AD":ht2.accent}`,boxShadow:"0 1px 3px rgba(0,0,0,0.04)",transition:"all 0.15s" }}>
+                    <div style={{ width:48,height:48,borderRadius:12,background:isDone?"#7ED4AD22":ht2.accentLight,border:`1px solid ${isDone?"#7ED4AD44":ht2.accentBorder}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Times New Roman',serif",fontSize:30,color:ht2.accent,flexShrink:0,direction:"rtl" }}>
+                      {cnt.letter || "א"}
+                    </div>
+                    <div style={{ flex:1 }}>
+                      <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+                        <span style={{ fontFamily:ht2.heading,fontSize:15,fontWeight:700,color:ht2.dark }}>{lesson.title}</span>
+                        {isDone && <span style={{ fontSize:13,color:"#2E7D5B",fontWeight:700 }}>✓</span>}
+                      </div>
+                      <div style={{ fontFamily:ht2.body,fontSize:12.5,color:ht2.muted,fontStyle:"italic",marginTop:2 }}>{lesson.subtitle}</div>
+                    </div>
+                    <div style={{ textAlign:"right",flexShrink:0 }}>
+                      <div style={{ fontFamily:ht2.ui,fontSize:10,color:ht2.light }}>Lesson {lesson.lesson_number}</div>
+                      <div style={{ color:ht2.light,marginTop:2 }}><ChevIcon/></div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+          {/* Coming soon letters */}
+          {hebrewLessons.length > 0 && hebrewLessons.length < 22 && (
+            <div style={{ marginTop:12,padding:"16px",borderRadius:12,border:`1px dashed ${ht2.divider}`,textAlign:"center" }}>
+              <div style={{ fontFamily:ht2.ui,fontSize:12,color:ht2.muted,marginBottom:6 }}>✦ {22-hebrewLessons.length} more letters coming soon</div>
+              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:20,color:ht2.light,direction:"rtl",letterSpacing:6,lineHeight:1.8 }}>ו ז ח ט י כ ל מ נ ס ע פ צ ק ר שׁ ת</div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  // ═══ HEBREW LESSON ═══
+  const HebrewLesson = () => {
+    const ht2 = THEMES.garden;
+    if (!hebrewLesson) return (
+      <div style={{ minHeight:"100vh",background:ht2.bg }}>
+        <Header title="Hebrew Lesson" onBack={() => nav("hebrew-home")} theme={ht2}/>
+        <Spinner t={ht2}/>
+      </div>
+    );
+    const content = hebrewLesson.content || {};
+    const verseConns = Array.isArray(hebrewLesson.verse_connections) ? hebrewLesson.verse_connections : [];
+    const isDone = hebrewProgress[hebrewLesson.id]?.completed;
+    const currentIdx = hebrewLessons.findIndex(l => l.id === hebrewLesson.id);
+    const prevLesson = currentIdx > 0 ? hebrewLessons[currentIdx-1] : null;
+    const nextLesson = currentIdx < hebrewLessons.length-1 ? hebrewLessons[currentIdx+1] : null;
+    return (
+      <div style={{ minHeight:"100vh",background:ht2.bg }}>
+        <Header title={hebrewLesson.title} subtitle={hebrewLesson.subtitle} onBack={() => nav("hebrew-home")} theme={ht2}
+          right={isDone && <span style={{ fontFamily:ht2.ui,fontSize:11,color:"#7ED4AD",fontWeight:700,background:"#7ED4AD22",padding:"4px 10px",borderRadius:6 }}>✓ Complete</span>}
+        />
+        <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
+          {/* Big letter */}
+          <div style={{ background:ht2.headerGradient,borderRadius:20,padding:"36px 20px",marginBottom:18,textAlign:"center",position:"relative",overflow:"hidden" }}>
+            <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.25),transparent 70%)" }}/>
+            <div style={{ position:"relative",zIndex:1 }}>
+              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:108,color:ht2.headerText,direction:"rtl",lineHeight:1,marginBottom:14,textShadow:"0 4px 24px rgba(0,0,0,0.35)" }}>
+                {content.letter || hebrewAlphabet?.hebrew_letter || "א"}
+              </div>
+              <div style={{ fontFamily:ht2.heading,fontSize:26,color:ht2.accent,marginBottom:4 }}>{content.name || hebrewAlphabet?.letter_name}</div>
+              <div style={{ fontFamily:ht2.body,fontSize:15,color:`${ht2.headerText}88`,fontStyle:"italic",marginBottom:10 }}>{content.transliteration || hebrewAlphabet?.transliteration}</div>
+              <div style={{ display:"inline-block",background:"rgba(192,108,62,0.25)",borderRadius:20,padding:"5px 16px",fontFamily:ht2.ui,fontSize:11,color:ht2.accent,letterSpacing:"0.05em" }}>
+                Numeric value: {content.numeric_value || hebrewAlphabet?.numeric_value}
+              </div>
+            </div>
+          </div>
+          {/* Pronunciation */}
+          <Card t={ht2} style={{ marginBottom:14 }}>
+            <Label icon="🔊" t={ht2}>Pronunciation</Label>
+            <div style={{ fontFamily:ht2.body,fontSize:14.5,color:ht2.text,lineHeight:1.75 }}>{content.pronunciation || hebrewAlphabet?.pronunciation_guide}</div>
+          </Card>
+          {/* Pictograph */}
+          <Card accent t={ht2} style={{ marginBottom:14 }}>
+            <Label icon="🖼️" t={ht2}>Ancient Pictograph</Label>
+            <div style={{ fontFamily:ht2.body,fontSize:14.5,color:ht2.text,lineHeight:1.75 }}>{content.pictograph || hebrewAlphabet?.pictographic}</div>
+          </Card>
+          {/* Fun fact */}
+          {content.fun_fact && (
+            <Card t={ht2} style={{ marginBottom:14,borderLeft:`3px solid ${ht2.accent}` }}>
+              <Label icon="✨" t={ht2}>Did You Know?</Label>
+              <div style={{ fontFamily:ht2.body,fontSize:14.5,color:ht2.text,lineHeight:1.8,fontStyle:"italic" }}>{content.fun_fact}</div>
+            </Card>
+          )}
+          {/* Vocabulary */}
+          {hebrewVocab.length > 0 && (
+            <div style={{ marginBottom:16 }}>
+              <Label icon="📚" t={ht2} color={ht2.muted}>Key Words This Lesson</Label>
+              <div style={{ display:"flex",flexDirection:"column",gap:8 }}>
+                {hebrewVocab.map((word,i) => (
+                  <div key={i} style={{ background:ht2.card,borderRadius:12,padding:"14px 16px",border:`1px solid ${ht2.divider}` }}>
+                    <div style={{ display:"flex",alignItems:"center",gap:10,marginBottom:6,flexWrap:"wrap" }}>
+                      <span style={{ fontFamily:"'Times New Roman',serif",fontSize:26,color:ht2.accent,direction:"rtl",fontWeight:700 }}>{word.hebrew_word}</span>
+                      <span style={{ fontFamily:ht2.body,fontSize:13,color:ht2.muted,fontStyle:"italic" }}>({word.transliteration})</span>
+                      <span style={{ marginLeft:"auto",background:ht2.accentLight,border:`1px solid ${ht2.accentBorder}`,padding:"2px 8px",borderRadius:4,fontFamily:"monospace",fontSize:10,color:ht2.muted }}>{word.strongs_number}</span>
+                    </div>
+                    <div style={{ fontFamily:ht2.ui,fontSize:13.5,color:ht2.text,lineHeight:1.6,marginBottom:6 }}>{word.meaning}</div>
+                    {word.example_verse_ref && (
+                      <div style={{ fontFamily:ht2.body,fontSize:12,color:ht2.muted,fontStyle:"italic",padding:"8px 10px",background:ht2.hebrewBg,borderRadius:8 }}>
+                        📖 <strong>{word.example_verse_ref}:</strong> "{word.example_verse_text}"
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          {/* Verse Connections */}
+          {verseConns.length > 0 && (
+            <Card t={ht2} style={{ marginBottom:16 }}>
+              <Label icon="🔗" t={ht2} color={ht2.muted}>In the Bible</Label>
+              <div style={{ display:"flex",flexDirection:"column",gap:10 }}>
+                {verseConns.map((vc,i) => (
+                  <div key={i} style={{ padding:"12px 14px",background:ht2.accentLight,borderRadius:10,border:`1px solid ${ht2.accentBorder}` }}>
+                    <div style={{ fontFamily:ht2.heading,fontSize:13,fontWeight:700,color:ht2.accent,marginBottom:5 }}>{vc.ref}</div>
+                    <div style={{ fontFamily:ht2.body,fontSize:13.5,color:ht2.text,lineHeight:1.7 }}>{vc.connection}</div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          )}
+          {/* Practice Button */}
+          <button onClick={() => { setHebrewPracticeIdx(0); setHebrewPracticeAnswer(null); setHebrewPracticeScore(0); nav("hebrew-practice"); }}
+            style={{ width:"100%",padding:"16px",borderRadius:14,border:"none",background:ht2.headerGradient,color:ht2.headerText,fontFamily:ht2.ui,fontSize:15,fontWeight:700,cursor:"pointer",marginBottom:12,boxShadow:"0 4px 15px rgba(46,74,51,0.25)" }}>
+            ✍️ Practice This Lesson
+          </button>
+          {/* Mark Complete / Done status */}
+          {user && !isDone && (
+            <button onClick={() => markHebrewComplete(hebrewLesson.id, 0)}
+              style={{ width:"100%",padding:"13px",borderRadius:12,border:"1.5px solid #7ED4AD",background:"#7ED4AD11",color:"#2E7D5B",fontFamily:ht2.ui,fontSize:14,fontWeight:700,cursor:"pointer",marginBottom:12 }}>
+              ✓ Mark as Complete
+            </button>
+          )}
+          {isDone && (
+            <div style={{ textAlign:"center",padding:"13px",borderRadius:12,background:"#7ED4AD22",border:"1px solid #7ED4AD44",marginBottom:12 }}>
+              <span style={{ fontFamily:ht2.ui,fontSize:13,color:"#2E7D5B",fontWeight:700 }}>
+                ✓ Lesson Complete{hebrewProgress[hebrewLesson.id]?.score ? ` · Best Score: ${hebrewProgress[hebrewLesson.id].score}%` : ""}
+              </span>
+            </div>
+          )}
+          {!user && (
+            <div style={{ textAlign:"center",padding:"12px",borderRadius:10,background:ht2.accentLight,border:`1px solid ${ht2.accentBorder}`,marginBottom:12 }}>
+              <span style={{ fontFamily:ht2.ui,fontSize:12,color:ht2.muted }}>🔐 Sign in to save your progress</span>
+            </div>
+          )}
+          {/* Prev / Next */}
+          <div style={{ display:"flex",gap:10 }}>
+            <button onClick={() => { if(prevLesson){ setHebrewLesson(prevLesson); setHebrewAlphabet(null); setHebrewVocab([]); loadHebrewLesson(prevLesson.id); }}} disabled={!prevLesson}
+              style={{ flex:1,padding:"12px",borderRadius:10,border:`1px solid ${ht2.divider}`,background:prevLesson?ht2.card:ht2.bg,fontFamily:ht2.ui,fontSize:13,color:ht2.dark,cursor:prevLesson?"pointer":"default",opacity:prevLesson?1:0.4 }}>← Prev</button>
+            <button onClick={() => { if(nextLesson){ setHebrewLesson(nextLesson); setHebrewAlphabet(null); setHebrewVocab([]); loadHebrewLesson(nextLesson.id); }}} disabled={!nextLesson}
+              style={{ flex:1,padding:"12px",borderRadius:10,border:`1px solid ${ht2.divider}`,background:nextLesson?ht2.card:ht2.bg,fontFamily:ht2.ui,fontSize:13,color:ht2.dark,cursor:nextLesson?"pointer":"default",opacity:nextLesson?1:0.4 }}>Next →</button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // ═══ HEBREW PRACTICE ═══
+  const HebrewPractice = () => {
+    const ht2 = THEMES.garden;
+    if (!hebrewLesson) return null;
+    const content = hebrewLesson.content || {};
+    const questions = content.practice || [];
+    if (questions.length === 0) return (
+      <div style={{ minHeight:"100vh",background:ht2.bg }}>
+        <Header title="Practice" onBack={() => nav("hebrew-lesson")} theme={ht2}/>
+        <div style={{ textAlign:"center",padding:40 }}>
+          <div style={{ fontSize:48,marginBottom:16 }}>✍️</div>
+          <div style={{ fontFamily:ht2.heading,fontSize:18,color:ht2.dark }}>No practice questions yet</div>
+        </div>
+      </div>
+    );
+    const isDone = hebrewPracticeIdx >= questions.length;
+    const currentQ = isDone ? null : questions[hebrewPracticeIdx];
+    const isLast = hebrewPracticeIdx === questions.length - 1;
+    const pct = isDone ? 100 : Math.round((hebrewPracticeIdx/questions.length)*100);
+
+    const handleAnswer = (idx) => {
+      if (hebrewPracticeAnswer !== null) return;
+      setHebrewPracticeAnswer(idx);
+      if (currentQ.type === "choice" && idx === currentQ.answer) setHebrewPracticeScore(s => s+1);
+      if (currentQ.type === "identify") setHebrewPracticeScore(s => s+1);
+    };
+    const handleNext = () => {
+      if (isLast) {
+        const finalScore = Math.round((hebrewPracticeScore/questions.length)*100);
+        markHebrewComplete(hebrewLesson.id, finalScore);
+        setHebrewPracticeIdx(questions.length);
+      } else {
+        setHebrewPracticeIdx(i => i+1);
+        setHebrewPracticeAnswer(null);
+      }
+    };
+
+    // Done screen
+    if (isDone) {
+      const finalScore = Math.round((hebrewPracticeScore/questions.length)*100);
+      return (
+        <div style={{ minHeight:"100vh",background:ht2.bg }}>
+          <Header title="Practice Complete!" theme={ht2} onBack={() => nav("hebrew-lesson")}/>
+          <div style={{ maxWidth:520,margin:"0 auto",padding:"40px 20px",textAlign:"center" }}>
+            <div style={{ fontSize:64,marginBottom:16 }}>🎉</div>
+            <div style={{ fontFamily:ht2.heading,fontSize:30,color:ht2.dark,marginBottom:8 }}>Well Done!</div>
+            <div style={{ fontFamily:"'Times New Roman',serif",fontSize:64,color:ht2.accent,direction:"rtl",marginBottom:20,lineHeight:1 }}>{content.letter}</div>
+            <Card t={ht2} style={{ marginBottom:22,textAlign:"center" }}>
+              <div style={{ fontFamily:ht2.ui,fontSize:13,color:ht2.muted,marginBottom:6 }}>Your Score</div>
+              <div style={{ fontFamily:ht2.heading,fontSize:52,fontWeight:800,color:finalScore>=70?"#2E7D5B":ht2.accent }}>{finalScore}%</div>
+              <div style={{ fontFamily:ht2.ui,fontSize:13,color:ht2.muted }}>{hebrewPracticeScore} of {questions.length} correct</div>
+              {finalScore>=70 ? <div style={{ fontFamily:ht2.body,fontSize:13,color:"#2E7D5B",marginTop:8,fontStyle:"italic" }}>Excellent! This lesson is now marked complete.</div>
+                : <div style={{ fontFamily:ht2.body,fontSize:13,color:ht2.muted,marginTop:8,fontStyle:"italic" }}>Try again to strengthen your memory.</div>}
+            </Card>
+            <button onClick={() => nav("hebrew-home")} style={{ width:"100%",padding:"14px",borderRadius:12,border:"none",background:ht2.headerGradient,color:ht2.headerText,fontFamily:ht2.ui,fontSize:15,fontWeight:700,cursor:"pointer",marginBottom:10 }}>
+              Back to Lessons
+            </button>
+            <button onClick={() => { setHebrewPracticeIdx(0); setHebrewPracticeAnswer(null); setHebrewPracticeScore(0); }}
+              style={{ width:"100%",padding:"13px",borderRadius:12,border:`1.5px solid ${ht2.accentBorder}`,background:"transparent",color:ht2.accent,fontFamily:ht2.ui,fontSize:14,fontWeight:700,cursor:"pointer" }}>
+              Try Again
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div style={{ minHeight:"100vh",background:ht2.bg }}>
+        <Header title={`Practice · ${hebrewLesson.title}`} subtitle={`Question ${hebrewPracticeIdx+1} of ${questions.length}`} onBack={() => nav("hebrew-lesson")} theme={ht2}/>
+        <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
+          {/* Progress bar */}
+          <div style={{ background:ht2.divider,borderRadius:6,height:6,marginBottom:22,overflow:"hidden" }}>
+            <div style={{ width:`${pct}%`,height:"100%",background:ht2.accent,borderRadius:6,transition:"width 0.4s ease" }}/>
+          </div>
+          {/* Letter reminder */}
+          <div style={{ textAlign:"center",marginBottom:20 }}>
+            <div style={{ fontFamily:"'Times New Roman',serif",fontSize:72,color:ht2.accent,direction:"rtl",lineHeight:1 }}>{content.letter}</div>
+            <div style={{ fontFamily:ht2.body,fontSize:13,color:ht2.muted,fontStyle:"italic",marginTop:4 }}>{content.name} · {content.transliteration}</div>
+          </div>
+          {/* Question card */}
+          <Card t={ht2} style={{ marginBottom:14 }}>
+            <div style={{ fontFamily:ht2.heading,fontSize:17,color:ht2.dark,lineHeight:1.65,marginBottom:18 }}>{currentQ.question}</div>
+            {currentQ.type === "identify" ? (
+              <div>
+                <div style={{ fontFamily:"'Times New Roman',serif",fontSize:36,color:ht2.dark,direction:"rtl",textAlign:"center",padding:"18px",background:ht2.hebrewBg,borderRadius:10,marginBottom:14,letterSpacing:4 }}>
+                  {currentQ.question.includes(":") ? currentQ.question.split(":").pop().trim() : ""}
+                </div>
+                {hebrewPracticeAnswer === null
+                  ? <button onClick={() => handleAnswer(0)} style={{ width:"100%",padding:"13px",borderRadius:10,border:`1.5px solid ${ht2.accentBorder}`,background:ht2.accentLight,color:ht2.accent,fontFamily:ht2.ui,fontSize:14,fontWeight:700,cursor:"pointer" }}>Reveal Answer</button>
+                  : <div style={{ padding:"14px",background:"#7ED4AD22",borderRadius:10,border:"1px solid #7ED4AD55" }}>
+                      <div style={{ fontFamily:ht2.body,fontSize:14,color:"#2E7D5B",lineHeight:1.7 }}>{currentQ.answer}</div>
+                    </div>
+                }
+              </div>
+            ) : (
+              <div style={{ display:"flex",flexDirection:"column",gap:8 }}>
+                {currentQ.options?.map((opt,i) => {
+                  const isCorrect = i === currentQ.answer;
+                  const isSelected = hebrewPracticeAnswer === i;
+                  const showResult = hebrewPracticeAnswer !== null;
+                  let bg = ht2.bg, border = ht2.divider, color = ht2.text;
+                  if (showResult && isCorrect) { bg="#7ED4AD22"; border="#7ED4AD"; color="#2E7D5B"; }
+                  else if (showResult && isSelected && !isCorrect) { bg="#E8625C11"; border="#E8625C"; color="#E8625C"; }
+                  return (
+                    <button key={i} onClick={() => handleAnswer(i)}
+                      style={{ width:"100%",padding:"13px 16px",borderRadius:10,border:`1.5px solid ${border}`,background:bg,color,fontFamily:ht2.ui,fontSize:14,fontWeight:showResult&&isCorrect?700:500,cursor:hebrewPracticeAnswer===null?"pointer":"default",textAlign:"left",transition:"all 0.2s",display:"flex",justifyContent:"space-between",alignItems:"center" }}>
+                      <span><span style={{ fontWeight:700,marginRight:10 }}>{["A","B","C","D"][i]}.</span>{opt}</span>
+                      {showResult && isCorrect && <span style={{ fontWeight:800 }}>✓</span>}
+                      {showResult && isSelected && !isCorrect && <span>✗</span>}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </Card>
+          {/* Next button */}
+          {hebrewPracticeAnswer !== null && (
+            <button onClick={handleNext} style={{ width:"100%",padding:"15px",borderRadius:12,border:"none",background:ht2.headerGradient,color:ht2.headerText,fontFamily:ht2.ui,fontSize:15,fontWeight:700,cursor:"pointer",boxShadow:"0 4px 15px rgba(46,74,51,0.2)" }}>
+              {isLast ? "Finish & See Score →" : "Next Question →"}
+            </button>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   // ═══ BOTTOM NAV ═══
   const showNav = !["verse","verses"].includes(view);
   const navItems = [
@@ -928,6 +1326,9 @@ export default function StudyBible() {
       {view === "verse" && VerseStudy()}
       {view === "highlights" && Highlights()}
       {view === "account" && Account()}
+      {view === "hebrew-home" && HebrewHome()}
+      {view === "hebrew-lesson" && HebrewLesson()}
+      {view === "hebrew-practice" && HebrewPractice()}
 
       {/* BOTTOM NAV */}
       {showNav && (
