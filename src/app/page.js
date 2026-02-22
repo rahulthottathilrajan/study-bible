@@ -1071,7 +1071,7 @@ export default function StudyBible() {
             const ANCIENT = { "א":"𐤀","ב":"𐤁","ג":"𐤂","ד":"𐤃","ה":"𐤄","ו":"𐤅","ז":"𐤆","ח":"𐤇","ט":"𐤈","י":"𐤉","כ":"𐤊","ל":"𐤋","מ":"𐤌","נ":"𐤍","ס":"𐤎","ע":"𐤏","פ":"𐤐","צ":"𐤑","ק":"𐤒","ר":"𐤓","שׁ":"𐤔","ת":"𐤕" };
             const seededNums = hebrewLessons.map(l => l.lesson_number);
             return (
-              <div style={{ marginTop:20 }}>
+              <div style={{ marginTop:20, display: hebrewCategory === "alphabet" ? "block" : "none" }}>
                 <Label icon="🔡" t={ht2} color={ht2.muted}>All 22 Letters — Quick Reference</Label>
                 <div style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8 }}>
                   {ALL_LETTERS.map(al => {
