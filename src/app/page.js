@@ -974,7 +974,7 @@ export default function StudyBible() {
     const ht2 = THEMES.garden;
     const categories = [
       { id:"alphabet", label:"Alphabet", icon:"א", desc:"All 22 Hebrew letters" },
-      { id:"vocabulary", label:"Vocabulary", icon:"📚", desc:"Key biblical words", soon:true },
+      { id:"vocabulary", label:"Vocabulary", icon:"📚", desc:"Key biblical words" },
       { id:"grammar", label:"Grammar", icon:"📝", desc:"Sentence structure", soon:true },
       { id:"reading", label:"Reading", icon:"📖", desc:"Read biblical texts", soon:true },
     ];
