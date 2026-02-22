@@ -1035,6 +1035,8 @@ export default function StudyBible() {
               { id:"names-of-god", label:"Names of God", icon:"✡️", range:[101,106], color:"#D4A853", desc:"The divine names of the Creator" },
               { id:"creation-covenant", label:"Creation & Covenant", icon:"🌿", range:[107,112], color:"#2E4A33", desc:"Words from the beginning" },
               { id:"family-words", label:"Family Words", icon:"👨‍👩‍👧‍👦", range:[113,116], color:"#C06C3E", desc:"Av, Em, Ben, Bat" },
+              { id:"worship-words", label:"Worship Words", icon:"🙌", range:[117,120], color:"#8B5CF6", desc:"Hallelujah, Amen, Torah, Mitzvah" },
+              { id:"prophecy-words", label:"Prophecy Words", icon:"🔥", range:[121,123], color:"#E8625C", desc:"Mashiach, Navi, Davar" },
             ];
             return (
               <div style={{ display:"flex",flexDirection:"column",gap:10 }}>
