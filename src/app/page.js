@@ -1028,7 +1028,7 @@ export default function StudyBible() {
             ))}
           </div>
           {/* Lessons List */}
-          <Label icon={hebrewCategory === "vocabulary" ? "📚" : "א"} t={ht2} color={ht2.muted}>{hebrewCategory === "vocabulary" ? "Names of God — 6 Lessons" : "The Hebrew Alphabet — 22 Letters"}</Label>
+          <Label icon={hebrewCategory === "vocabulary" ? "📚" : "א"} t={ht2} color={ht2.muted}>{hebrewCategory === "vocabulary" ? `Vocabulary — ${hebrewLessons.length} Lessons` : "The Hebrew Alphabet — 22 Letters"}</Label>
           {hebrewLessons.length === 0 ? <Spinner t={ht2}/> : (
             <div style={{ display:"flex",flexDirection:"column",gap:8 }}>
               {hebrewLessons.map(lesson => {
