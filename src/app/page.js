@@ -1043,13 +1043,47 @@ export default function StudyBible() {
               })}
             </div>
           )}
-          {/* Coming soon letters */}
-          {hebrewLessons.length > 0 && hebrewLessons.length < 22 && (
-            <div style={{ marginTop:12,padding:"16px",borderRadius:12,border:`1px dashed ${ht2.divider}`,textAlign:"center" }}>
-              <div style={{ fontFamily:ht2.ui,fontSize:12,color:ht2.muted,marginBottom:6 }}>✦ {22-hebrewLessons.length} more letters coming soon</div>
-              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:20,color:ht2.light,direction:"rtl",letterSpacing:6,lineHeight:1.8 }}>ו ז ח ט י כ ל מ נ ס ע פ צ ק ר שׁ ת</div>
-            </div>
-          )}
+          {/* Full 22-letter alphabet grid */}
+          {(() => {
+            const ALL_LETTERS = [
+              {letter:"א",name:"Aleph",num:1},{letter:"ב",name:"Bet",num:2},{letter:"ג",name:"Gimel",num:3},
+              {letter:"ד",name:"Dalet",num:4},{letter:"ה",name:"He",num:5},{letter:"ו",name:"Vav",num:6},
+              {letter:"ז",name:"Zayin",num:7},{letter:"ח",name:"Chet",num:8},{letter:"ט",name:"Tet",num:9},
+              {letter:"י",name:"Yod",num:10},{letter:"כ",name:"Kaf",num:11},{letter:"ל",name:"Lamed",num:12},
+              {letter:"מ",name:"Mem",num:13},{letter:"נ",name:"Nun",num:14},{letter:"ס",name:"Samekh",num:15},
+              {letter:"ע",name:"Ayin",num:16},{letter:"פ",name:"Pe",num:17},{letter:"צ",name:"Tsade",num:18},
+              {letter:"ק",name:"Qof",num:19},{letter:"ר",name:"Resh",num:20},{letter:"שׁ",name:"Shin",num:21},
+              {letter:"ת",name:"Tav",num:22},
+            ];
+            const ANCIENT = { "א":"𐤀","ב":"𐤁","ג":"𐤂","ד":"𐤃","ה":"𐤄","ו":"𐤅","ז":"𐤆","ח":"𐤇","ט":"𐤈","י":"𐤉","כ":"𐤊","ל":"𐤋","מ":"𐤌","נ":"𐤍","ס":"𐤎","ע":"𐤏","פ":"𐤐","צ":"𐤑","ק":"𐤒","ר":"𐤓","שׁ":"𐤔","ת":"𐤕" };
+            const seededNums = hebrewLessons.map(l => l.lesson_number);
+            return (
+              <div style={{ marginTop:20 }}>
+                <Label icon="🔡" t={ht2} color={ht2.muted}>All 22 Letters — Quick Reference</Label>
+                <div style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8 }}>
+                  {ALL_LETTERS.map(al => {
+                    const hasLesson = seededNums.includes(al.num);
+                    const lesson = hebrewLessons.find(l => l.lesson_number === al.num);
+                    const isDone = lesson && hebrewProgress[lesson.id]?.completed;
+                    return (
+                      <button key={al.num}
+                        onClick={() => { if (hasLesson && lesson) { setHebrewLesson(lesson); setHebrewAlphabet(null); setHebrewVocab([]); nav("hebrew-lesson"); }}}
+                        style={{ background:isDone?"#7ED4AD22":hasLesson?ht2.card:ht2.bg,border:`1px solid ${isDone?"#7ED4AD55":hasLesson?ht2.accentBorder:ht2.divider}`,borderRadius:12,padding:"12px 6px",textAlign:"center",cursor:hasLesson?"pointer":"default",opacity:hasLesson?1:0.45,transition:"all 0.15s",position:"relative" }}>
+                        {isDone && <div style={{ position:"absolute",top:4,right:6,fontSize:8,color:"#2E7D5B",fontWeight:800 }}>✓</div>}
+                        <div style={{ fontFamily:"'Times New Roman',serif",fontSize:11,color:ht2.light,marginBottom:1 }}>{ANCIENT[al.letter]}</div>
+                        <div style={{ fontFamily:"'Times New Roman',serif",fontSize:28,color:hasLesson?ht2.accent:ht2.light,direction:"rtl",lineHeight:1,marginBottom:4 }}>{al.letter}</div>
+                        <div style={{ fontFamily:ht2.ui,fontSize:9,color:hasLesson?ht2.text:ht2.light,fontWeight:600 }}>{al.name}</div>
+                        {!hasLesson && <div style={{ fontFamily:ht2.ui,fontSize:8,color:ht2.light,marginTop:2 }}>Soon</div>}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div style={{ fontFamily:ht2.ui,fontSize:11,color:ht2.muted,textAlign:"center",marginTop:10 }}>
+                  {seededNums.length} of 22 letters available · More added regularly
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </div>
     );
@@ -1077,19 +1111,35 @@ export default function StudyBible() {
         />
         <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
           {/* Big letter */}
-          <div style={{ background:ht2.headerGradient,borderRadius:20,padding:"36px 20px",marginBottom:18,textAlign:"center",position:"relative",overflow:"hidden" }}>
-            <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.25),transparent 70%)" }}/>
-            <div style={{ position:"relative",zIndex:1 }}>
-              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:108,color:ht2.headerText,direction:"rtl",lineHeight:1,marginBottom:14,textShadow:"0 4px 24px rgba(0,0,0,0.35)" }}>
-                {content.letter || hebrewAlphabet?.hebrew_letter || "א"}
+          {(() => {
+            const ANCIENT = { "א":"𐤀","ב":"𐤁","ג":"𐤂","ד":"𐤃","ה":"𐤄","ו":"𐤅","ז":"𐤆","ח":"𐤇","ט":"𐤈","י":"𐤉","כ":"𐤊","ל":"𐤋","מ":"𐤌","נ":"𐤍","ס":"𐤎","ע":"𐤏","פ":"𐤐","צ":"𐤑","ק":"𐤒","ר":"𐤓","שׁ":"𐤔","ת":"𐤕" };
+            const modernLetter = content.letter || hebrewAlphabet?.hebrew_letter || "א";
+            const ancientSymbol = ANCIENT[modernLetter] || "";
+            return (
+              <div style={{ background:ht2.headerGradient,borderRadius:20,padding:"36px 20px",marginBottom:18,textAlign:"center",position:"relative",overflow:"hidden" }}>
+                <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.25),transparent 70%)" }}/>
+                <div style={{ position:"relative",zIndex:1 }}>
+                  {/* Side by side: Ancient → Modern */}
+                  <div style={{ display:"flex",justifyContent:"center",alignItems:"center",gap:24,marginBottom:14 }}>
+                    <div style={{ textAlign:"center" }}>
+                      <div style={{ fontFamily:"'Times New Roman',serif",fontSize:80,color:`${ht2.headerText}55`,lineHeight:1,textShadow:"0 4px 24px rgba(0,0,0,0.2)" }}>{ancientSymbol}</div>
+                      <div style={{ fontFamily:ht2.ui,fontSize:9,color:`${ht2.headerText}55`,textTransform:"uppercase",letterSpacing:"0.1em",marginTop:4 }}>Ancient</div>
+                    </div>
+                    <div style={{ width:1,height:80,background:`${ht2.headerText}22` }}/>
+                    <div style={{ textAlign:"center" }}>
+                      <div style={{ fontFamily:"'Times New Roman',serif",fontSize:108,color:ht2.headerText,direction:"rtl",lineHeight:1,textShadow:"0 4px 24px rgba(0,0,0,0.35)" }}>{modernLetter}</div>
+                      <div style={{ fontFamily:ht2.ui,fontSize:9,color:`${ht2.headerText}77`,textTransform:"uppercase",letterSpacing:"0.1em",marginTop:4 }}>Modern</div>
+                    </div>
+                  </div>
+                  <div style={{ fontFamily:ht2.heading,fontSize:26,color:ht2.accent,marginBottom:4 }}>{content.name || hebrewAlphabet?.letter_name}</div>
+                  <div style={{ fontFamily:ht2.body,fontSize:15,color:`${ht2.headerText}88`,fontStyle:"italic",marginBottom:10 }}>{content.transliteration || hebrewAlphabet?.transliteration}</div>
+                  <div style={{ display:"inline-block",background:"rgba(192,108,62,0.25)",borderRadius:20,padding:"5px 16px",fontFamily:ht2.ui,fontSize:11,color:ht2.accent,letterSpacing:"0.05em" }}>
+                    Numeric value: {content.numeric_value || hebrewAlphabet?.numeric_value}
+                  </div>
+                </div>
               </div>
-              <div style={{ fontFamily:ht2.heading,fontSize:26,color:ht2.accent,marginBottom:4 }}>{content.name || hebrewAlphabet?.letter_name}</div>
-              <div style={{ fontFamily:ht2.body,fontSize:15,color:`${ht2.headerText}88`,fontStyle:"italic",marginBottom:10 }}>{content.transliteration || hebrewAlphabet?.transliteration}</div>
-              <div style={{ display:"inline-block",background:"rgba(192,108,62,0.25)",borderRadius:20,padding:"5px 16px",fontFamily:ht2.ui,fontSize:11,color:ht2.accent,letterSpacing:"0.05em" }}>
-                Numeric value: {content.numeric_value || hebrewAlphabet?.numeric_value}
-              </div>
-            </div>
-          </div>
+            );
+          })()}
           {/* Pronunciation */}
           <Card t={ht2} style={{ marginBottom:14 }}>
             <Label icon="🔊" t={ht2}>Pronunciation</Label>
