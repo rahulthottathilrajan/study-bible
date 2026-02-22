@@ -336,8 +336,9 @@ export default function StudyBible() {
     setHlLoading(false);
   }, [user]);
 
-  useEffect(() => { if (view === "highlights" && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
-  useEffect(() => { if (view === "account" && user) { loadAllHighlights(); loadPrayers(); } }, [view, user, loadAllHighlights, loadPrayers]);
+  useEffect(() => { if ((view === "highlights" || view === "journal-home") && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
+  useEffect(() => { if ((view === "account" || view === "journal-home") && user) loadPrayers(); }, [view, user, loadPrayers]);
+  useEffect(() => { if (view === "account" && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
 
   // ═══ HEBREW LEARNING ═══
   const loadHebrewLessons = useCallback(async (cat = 'alphabet') => {
@@ -1356,13 +1357,169 @@ export default function StudyBible() {
     );
   };
 
+  // ═══ LEARN HOME ═══
+  const LearnHome = () => {
+    const modules = [
+      { id:"hebrew", icon:"🕎", label:"Learn Hebrew", sub:"Biblical Hebrew · עִבְרִית", color:"#C06C3E", bg:"rgba(192,108,62,0.1)", active:true, action:() => nav("hebrew-home") },
+      { id:"greek", icon:"🏛️", label:"Learn Greek", sub:"Biblical Greek · Ἑλληνική", color:"#1B7A6E", bg:"rgba(27,122,110,0.1)", active:false },
+      { id:"timeline", icon:"📜", label:"Biblical Timeline", sub:"From Creation to Revelation", color:"#D4A853", bg:"rgba(212,168,83,0.1)", active:false },
+      { id:"apologetics", icon:"🛡️", label:"Apologetics", sub:"Defend & understand the faith", color:"#E8625C", bg:"rgba(232,98,92,0.1)", active:false },
+      { id:"reading", icon:"📖", label:"Reading Plans", sub:"Guided Bible reading journeys", color:"#8B5CF6", bg:"rgba(139,92,246,0.1)", active:false },
+    ];
+    return (
+      <div style={{ minHeight:"100vh", background:ht.bg, paddingBottom:80 }}>
+        <Header title="Learn" subtitle="Languages · History · Theology" onBack={() => nav("home")} theme={ht} />
+        <div style={{ padding:"20px 20px 40px", maxWidth:520, margin:"0 auto" }}>
+          {/* Hero */}
+          <div style={{ background:ht.headerGradient, borderRadius:16, padding:"28px 20px", marginBottom:22, textAlign:"center", position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(212,168,83,0.15),transparent 70%)" }}/>
+            <div style={{ position:"relative", zIndex:1 }}>
+              <div style={{ fontSize:42, marginBottom:10 }}>🎓</div>
+              <div style={{ fontFamily:ht.heading, fontSize:24, fontWeight:700, color:ht.headerText, marginBottom:6 }}>Learning Centre</div>
+              <div style={{ fontFamily:ht.body, fontSize:13, color:`${ht.headerText}88`, fontStyle:"italic" }}>Deepen your understanding of God's Word</div>
+            </div>
+          </div>
+          {/* Active modules */}
+          <Label icon="✨" t={ht} color={ht.muted}>Available Now</Label>
+          {modules.filter(m => m.active).map(m => (
+            <button key={m.id} onClick={m.action}
+              style={{ width:"100%", background:ht.card, border:`1px solid ${ht.divider}`, borderRadius:14, padding:"20px 18px", marginBottom:12, cursor:"pointer", textAlign:"left", display:"flex", alignItems:"center", gap:14, boxShadow:"0 2px 8px rgba(0,0,0,0.06)", borderLeft:`4px solid ${m.color}` }}>
+              <div style={{ width:54, height:54, borderRadius:14, background:m.bg, display:"flex", alignItems:"center", justifyContent:"center", fontSize:28, flexShrink:0 }}>{m.icon}</div>
+              <div style={{ flex:1 }}>
+                <div style={{ fontFamily:ht.heading, fontSize:17, fontWeight:700, color:ht.dark }}>{m.label}</div>
+                <div style={{ fontFamily:ht.ui, fontSize:12, color:ht.muted, marginTop:3 }}>{m.sub}</div>
+                <div style={{ marginTop:8, display:"inline-block", background:m.bg, borderRadius:6, padding:"3px 10px", fontFamily:ht.ui, fontSize:9, fontWeight:700, color:m.color, textTransform:"uppercase", letterSpacing:"0.05em" }}>Start Learning →</div>
+              </div>
+              <div style={{ color:ht.light }}><ChevIcon /></div>
+            </button>
+          ))}
+          {/* Coming soon */}
+          <Label icon="🔒" t={ht} color={ht.muted}>Coming Soon</Label>
+          <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+            {modules.filter(m => !m.active).map(m => (
+              <div key={m.id} style={{ background:ht.card, border:`1px solid ${ht.divider}`, borderRadius:14, padding:"16px 18px", display:"flex", alignItems:"center", gap:14, opacity:0.55 }}>
+                <div style={{ width:44, height:44, borderRadius:12, background:m.bg, display:"flex", alignItems:"center", justifyContent:"center", fontSize:22, flexShrink:0 }}>{m.icon}</div>
+                <div style={{ flex:1 }}>
+                  <div style={{ fontFamily:ht.heading, fontSize:15, fontWeight:700, color:ht.dark }}>{m.label}</div>
+                  <div style={{ fontFamily:ht.ui, fontSize:11, color:ht.muted, marginTop:2 }}>{m.sub}</div>
+                </div>
+                <div style={{ fontFamily:ht.ui, fontSize:9, fontWeight:700, color:ht.light, textTransform:"uppercase", letterSpacing:"0.05em", background:ht.accentLight, padding:"3px 8px", borderRadius:4 }}>Soon</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // ═══ JOURNAL HOME ═══
+  const JournalHome = () => {
+    const currentTab = ["highlights","prayers"].includes(tab) ? tab : "highlights";
+    return (
+      <div style={{ minHeight:"100vh", background:ht.bg, paddingBottom:80 }}>
+        <Header title="My Journal" subtitle="Highlights · Prayers · Reflections" theme={ht} />
+        <div style={{ padding:"16px 20px 40px", maxWidth:520, margin:"0 auto" }}>
+          {/* Tab switcher */}
+          <div style={{ display:"flex", background:ht.card, borderRadius:10, padding:3, marginBottom:18, border:`1px solid ${ht.divider}` }}>
+            {[
+              { id:"highlights", label:"✨ Highlights", count:allHighlights.length },
+              { id:"prayers", label:"🙏 Prayers", count:prayers.length }
+            ].map(tb => (
+              <button key={tb.id} onClick={() => setTab(tb.id)}
+                style={{ flex:1, padding:"11px 8px", border:"none", borderRadius:8, background:currentTab===tb.id?ht.tabActive:"transparent", color:currentTab===tb.id?ht.headerText:ht.muted, fontFamily:ht.ui, fontSize:13, fontWeight:700, cursor:"pointer", transition:"all 0.15s" }}>
+                {tb.label}{tb.count > 0 ? ` (${tb.count})` : ""}
+              </button>
+            ))}
+          </div>
+
+          {/* Not signed in */}
+          {!user && (
+            <Card t={ht} style={{ textAlign:"center", padding:30 }}>
+              <div style={{ fontSize:36, marginBottom:12 }}>🔐</div>
+              <div style={{ fontFamily:ht.heading, fontSize:17, color:ht.dark, marginBottom:6 }}>Sign In to See Your Journal</div>
+              <div style={{ fontFamily:ht.ui, fontSize:13, color:ht.muted, marginBottom:14, lineHeight:1.6 }}>Save highlights, bookmarks, and prayers as you study God's Word.</div>
+              <button onClick={() => setAuthModal(true)} style={{ padding:"12px 28px", borderRadius:10, border:"none", background:ht.headerGradient, color:ht.headerText, fontFamily:ht.ui, fontSize:14, fontWeight:700, cursor:"pointer" }}>Sign In / Sign Up</button>
+            </Card>
+          )}
+
+          {/* HIGHLIGHTS TAB */}
+          {user && currentTab === "highlights" && (
+            hlLoading ? <Spinner t={ht} /> :
+            allHighlights.length === 0 ? (
+              <Card t={ht} style={{ textAlign:"center", padding:30 }}>
+                <div style={{ fontSize:42, marginBottom:14 }}>🎨</div>
+                <div style={{ fontFamily:ht.heading, fontSize:18, color:ht.dark, marginBottom:6 }}>No Highlights Yet</div>
+                <div style={{ fontFamily:ht.ui, fontSize:13, color:ht.muted, lineHeight:1.6 }}>Open any verse and tap the coloured dots to highlight. Bookmarked verses appear here too.</div>
+              </Card>
+            ) : (
+              <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+                {allHighlights.map(h => {
+                  const bName = h.verses?.chapters?.books?.name;
+                  const chNum = h.verses?.chapters?.chapter_number;
+                  const vNum = h.verses?.verse_number;
+                  const ref = `${bName} ${chNum}:${vNum}`;
+                  return (
+                    <button key={h.id} onClick={() => nav("verse", { book:bName, chapter:chNum, verse:vNum, tab:"study" })}
+                      style={{ background:ht.card, border:`1px solid ${ht.divider}`, borderRadius:12, padding:"14px 16px", textAlign:"left", cursor:"pointer", display:"flex", gap:12, alignItems:"flex-start", borderLeft:`4px solid ${h.highlight_color || '#FFD700'}`, boxShadow:"0 1px 3px rgba(0,0,0,0.04)" }}>
+                      <div style={{ flex:1 }}>
+                        <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4 }}>
+                          <span style={{ fontFamily:ht.heading, fontSize:14, fontWeight:700, color:ht.dark }}>{ref}</span>
+                          {h.is_bookmarked && <span style={{ fontSize:14 }}>★</span>}
+                        </div>
+                        <div style={{ fontFamily:ht.body, fontSize:13.5, color:ht.text, lineHeight:1.6, display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" }}>{h.verses?.kjv_text}</div>
+                      </div>
+                      <div style={{ color:ht.light, flexShrink:0, alignSelf:"center" }}><ChevIcon /></div>
+                    </button>
+                  );
+                })}
+              </div>
+            )
+          )}
+
+          {/* PRAYERS TAB */}
+          {user && currentTab === "prayers" && (
+            <div>
+              <Card t={ht} style={{ marginBottom:14 }}>
+                <Label icon="✏️" t={ht}>New Prayer</Label>
+                <input value={prayerTitle} onChange={e => setPrayerTitle(e.target.value)} placeholder="Prayer title..." style={{ width:"100%", padding:"10px 0", border:"none", borderBottom:`1px solid ${ht.divider}`, fontFamily:ht.heading, fontSize:15, color:ht.dark, outline:"none", background:"transparent", marginBottom:10, boxSizing:"border-box" }} />
+                <textarea value={prayerText} onChange={e => setPrayerText(e.target.value)} placeholder="Write your prayer..." rows={3} style={{ width:"100%", padding:"8px 0", border:"none", fontFamily:ht.body, fontSize:14, color:ht.text, outline:"none", background:"transparent", resize:"vertical", lineHeight:1.7, boxSizing:"border-box" }} />
+                <button onClick={async () => { await addPrayer(); }} disabled={!prayerText.trim()} style={{ marginTop:10, padding:"10px 20px", borderRadius:8, border:"none", background:prayerText.trim()?ht.accent:ht.divider, color:"#fff", fontFamily:ht.ui, fontSize:13, fontWeight:700, cursor:prayerText.trim()?"pointer":"default" }}>Add Prayer</button>
+              </Card>
+              {prayerLoading ? <Spinner t={ht} /> :
+              prayers.length === 0 ? (
+                <div style={{ textAlign:"center", padding:30, fontFamily:ht.body, fontSize:15, color:ht.muted, fontStyle:"italic" }}>Your prayers will appear here</div>
+              ) : prayers.map(p => (
+                <div key={p.id} style={{ background:ht.card, borderRadius:12, padding:"14px 16px", border:`1px solid ${p.is_answered?"#7ED4AD44":ht.divider}`, marginBottom:8, borderLeft:`3px solid ${p.is_answered?"#7ED4AD":ht.accent}` }}>
+                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontFamily:ht.heading, fontSize:15, fontWeight:600, color:ht.dark }}>{p.title}</div>
+                      {p.book_name && <div style={{ fontFamily:ht.ui, fontSize:11, color:ht.accent, marginTop:2 }}>{p.book_name} {p.chapter_number}:{p.verse_number}</div>}
+                      <div style={{ fontFamily:ht.body, fontSize:13.5, color:ht.text, lineHeight:1.65, marginTop:6 }}>{p.prayer_text}</div>
+                      <div style={{ fontFamily:ht.ui, fontSize:10, color:ht.light, marginTop:6 }}>{new Date(p.created_at).toLocaleDateString()}</div>
+                    </div>
+                    <div style={{ display:"flex", gap:6, flexShrink:0, marginLeft:10 }}>
+                      <button onClick={() => togglePrayerAnswered(p.id, p.is_answered)} style={{ padding:"5px 10px", borderRadius:6, border:`1px solid ${p.is_answered?"#7ED4AD":ht.divider}`, background:p.is_answered?"#7ED4AD22":"transparent", fontFamily:ht.ui, fontSize:10, fontWeight:700, color:p.is_answered?"#2E7D5B":ht.muted, cursor:"pointer" }}>
+                        {p.is_answered ? "✓ Answered" : "Mark Answered"}
+                      </button>
+                      <button onClick={() => deletePrayer(p.id)} style={{ padding:"5px 8px", borderRadius:6, border:`1px solid ${ht.divider}`, background:"transparent", fontFamily:ht.ui, fontSize:10, color:"#E8625C", cursor:"pointer" }}>✕</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   // ═══ BOTTOM NAV ═══
-  const showNav = !["verse","verses"].includes(view);
+  const showNav = !["verse","verses","hebrew-lesson","hebrew-practice"].includes(view);
   const navItems = [
     { id:"home", label:"Home", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
-    { id:"books", label:"Books", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> },
-    { id:"highlights", label:"Highlights", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"/></svg> },
-    { id:"prayer", label:"Prayers", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> },
+    { id:"bible", label:"Bible", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> },
+    { id:"learn", label:"Learn", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> },
+    { id:"journal", label:"Journal", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> },
     { id:"account", label:"Account", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> },
   ];
 
@@ -1376,6 +1533,8 @@ export default function StudyBible() {
       {view === "verse" && VerseStudy()}
       {view === "highlights" && Highlights()}
       {view === "account" && Account()}
+      {view === "learn-home" && LearnHome()}
+      {view === "journal-home" && JournalHome()}
       {view === "hebrew-home" && HebrewHome()}
       {view === "hebrew-lesson" && HebrewLesson()}
       {view === "hebrew-practice" && HebrewPractice()}
@@ -1385,11 +1544,17 @@ export default function StudyBible() {
         <div style={{ position:"fixed",bottom:0,left:0,right:0,zIndex:50,background:ht.card,borderTop:`1px solid ${ht.divider}`,boxShadow:"0 -2px 12px rgba(0,0,0,0.06)" }}>
           <div style={{ maxWidth:640,margin:"0 auto",display:"flex",justifyContent:"space-around",alignItems:"center",padding:"6px 0 10px" }}>
             {navItems.map(item => {
-              const isActive = (item.id === "books" && ["books","chapter"].includes(view)) || (item.id === "prayer" ? false : view === item.id);
+              const isActive =
+                  (item.id === "home" && view === "home") ||
+                  (item.id === "bible" && ["books","chapter","verses","verse"].includes(view)) ||
+                  (item.id === "learn" && ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice"].includes(view)) ||
+                  (item.id === "journal" && ["journal-home","highlights"].includes(view)) ||
+                  (item.id === "account" && view === "account");
               return (
                 <button key={item.id} onClick={() => {
-                  if (item.id === "prayer") { if (user) setPrayerModal(true); else setAuthModal(true); }
-                  else if (item.id === "books") nav("books", { testament: testament || "OT" });
+                  if (item.id === "bible") nav("books", { testament: testament || "OT" });
+                  else if (item.id === "learn") nav("learn-home");
+                  else if (item.id === "journal") { if (user) { setTab("highlights"); nav("journal-home"); } else setAuthModal(true); }
                   else nav(item.id);
                 }} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,background:"none",border:"none",cursor:"pointer",padding:"4px 12px",color:isActive?ht.accent:ht.muted,transition:"all 0.15s",opacity:isActive?1:0.7 }}>
                   <div style={{ transform:isActive?"scale(1.1)":"scale(1)",transition:"transform 0.15s" }}>{item.icon}</div>
