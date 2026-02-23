@@ -78,21 +78,22 @@ const HaloText = ({ x, y, text, fontSize = 3, anchor = "middle", dy = 0, bold = 
 );
 
 const Dot = ({ cx, cy, r = 4, color, selected, onClick, label, side = "right" }) => {
-  const lx = side === "right" ? cx + r + 3 : cx - r - 3;
+  const dr = selected ? r : r * 0.55;
+  const lx = side === "right" ? cx + dr + 3 : cx - dr - 3;
   const anchor = side === "right" ? "start" : "end";
   return (
     <g onClick={onClick} style={{ cursor: "pointer" }}>
-      <circle cx={cx} cy={cy} r={r + 4} fill={color} opacity="0.10" />
-      {selected && <circle cx={cx} cy={cy} r={r + 2} fill={color} opacity="0.3" className="map-pulse" />}
-      <circle cx={cx} cy={cy} r={r} fill={color} stroke="#fff" strokeWidth="1.5" opacity="0.95" />
-      {selected && <circle cx={cx} cy={cy} r={r + 2} fill="none" stroke={color} strokeWidth="1" opacity="0.8" />}
-      {label && (
+      <circle cx={cx} cy={cy} r={dr + 5} fill={color} opacity="0.08" />
+      {selected && <circle cx={cx} cy={cy} r={dr + 3} fill={color} opacity="0.25" className="map-pulse" />}
+      <circle cx={cx} cy={cy} r={dr} fill={color} stroke="#fff" strokeWidth={selected ? 1.5 : 1} opacity="0.95" />
+      {selected && <circle cx={cx} cy={cy} r={dr + 2} fill="none" stroke={color} strokeWidth="1" opacity="0.7" />}
+      {selected && label && (
         <HaloText
           x={lx} y={cy} text={label}
           anchor={anchor} dy="0.35em"
-          fontSize={2.9} bold
-          color={selected ? color : P.ink}
-          opacity={selected ? 1 : 0.9}
+          fontSize={3.2} bold
+          color={color}
+          opacity={1}
         />
       )}
     </g>
@@ -234,7 +235,7 @@ const ExodusMap = ({ onSelectLocation, selectedLocation }) => {
         {locs.map(loc => (
           <Dot
             key={loc.id}
-            cx={loc.x} cy={loc.y} r={4}
+            cx={loc.x} cy={loc.y} r={3}
             color={typeColors[loc.type]}
             selected={selectedLocation?.id === loc.id}
             onClick={() => onSelectLocation(loc)}
@@ -438,7 +439,7 @@ const PaulMap = ({ onSelectLocation, selectedLocation }) => {
           <Dot
             key={city.id}
             cx={city.x} cy={city.y}
-            r={city.journey.length > 1 ? 4 : 3.5}
+            r={city.journey.length > 1 ? 3 : 2.5}
             color={dotColor(city)}
             selected={selectedLocation?.id === city.id}
             onClick={() => onSelectLocation(city)}
@@ -533,7 +534,7 @@ const RomanMap = ({ onSelectLocation, selectedLocation }) => {
           <Dot
             key={loc.id}
             cx={loc.x} cy={loc.y}
-            r={loc.type === "capital" ? 2.8 : 2.2}
+            r={loc.type === "capital" ? 2.5 : 2}
             color={typeColors[loc.type]}
             selected={selectedLocation?.id === loc.id}
             onClick={() => onSelectLocation(loc)}
