@@ -2647,56 +2647,7 @@ export default function StudyBible() {
       </div>
     );
   };
-    if (!timelineEras.length) return null;
-    const valid = timelineEras.filter(e => e.year_from != null && e.year_to != null);
-    const minY = Math.min(...valid.map(e => e.year_from));
-    const maxY = Math.max(...valid.map(e => e.year_to));
-    const total = maxY - minY || 1;
-    return (
-      <div style={{ overflowX:"auto", WebkitOverflowScrolling:"touch" }}>
-        <div style={{ display:"flex", gap:3, padding:"0 0 4px 0", minWidth:"max-content" }}>
-          {timelineEras.map(era => {
-            const span = (era.year_to ?? era.year_from + 100) - (era.year_from ?? 0);
-            const pct = Math.max(span / total, 0.04);
-            const w = Math.round(pct * 560);
-            return (
-              <div
-                key={era.era_key}
-                onClick={() => { setTimelineSelectedEra(era); nav("timeline-era-detail"); }}
-                title={era.title}
-                style={{
-                  width:w, minWidth:36, height:44, flexShrink:0,
-                  background:era.color, borderRadius:8, cursor:"pointer",
-                  display:"flex", flexDirection:"column",
-                  alignItems:"center", justifyContent:"center",
-                  gap:2, padding:"0 3px", transition:"opacity 0.15s",
-                }}
-                onMouseEnter={e => e.currentTarget.style.opacity="0.8"}
-                onMouseLeave={e => e.currentTarget.style.opacity="1"}
-              >
-                <span style={{ fontSize:14 }}>{era.icon}</span>
-                {w >= 52 && (
-                  <span style={{
-                    fontFamily:st.ui, fontSize:8, fontWeight:700,
-                    color:"rgba(255,255,255,0.9)", textAlign:"center",
-                    lineHeight:1.1, overflow:"hidden", maxWidth:"100%",
-                    display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical"
-                  }}>
-                    {era.title.split(" ").slice(0,2).join(" ")}
-                  </span>
-                )}
-              </div>
-            );
-          })}
-        </div>
-        <div style={{ display:"flex", justifyContent:"space-between", paddingTop:4 }}>
-          <span style={{ fontFamily:st.ui, fontSize:9, color:st.muted }}>c. 4000 BC</span>
-          <span style={{ fontFamily:st.ui, fontSize:9, color:st.muted }}>AD 100</span>
-        </div>
-      </div>
-    );
-  };
-
+    
   const TimelineEras = () => {
     return (
       <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
@@ -3125,3 +3076,4 @@ export default function StudyBible() {
       )}
     </div>
   );
+}
