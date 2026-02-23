@@ -1624,6 +1624,14 @@ export default function StudyBible() {
       { id:8, number:208, icon:"בֵּן", title:"The Construct State", subtitle:"Hebrew possession — without the word 'of'", difficulty:"Intermediate", color:"#8B5CF6" },
       { id:9, number:209, icon:"הוּא", title:"Verbless Clauses", subtitle:"Hebrew sentences without a verb", difficulty:"Intermediate", color:"#D4A853" },
       { id:10, number:210, icon:"קטל", title:"Basic Verb Patterns", subtitle:"The Qal stem — Hebrew's foundational verb form", difficulty:"Intermediate", color:"#E8625C" },
+      { id:11, number:211, icon:"טוֹב", title:"Adjectives", subtitle:"Good, holy, great — how Hebrew describes nouns", difficulty:"Intermediate", color:"#2E4A33" },
+      { id:12, number:212, icon:"שֶׁלִּי", title:"Pronominal Suffixes", subtitle:"My, your, his, her — built into the word", difficulty:"Intermediate", color:"#1B7A6E" },
+      { id:13, number:213, icon:"מִי", title:"Interrogatives", subtitle:"Who? What? Where? Why? How? in Hebrew", difficulty:"Intermediate", color:"#D4A853" },
+      { id:14, number:214, icon:"נִפְעַל", title:"The Niphal Stem", subtitle:"Passive and reflexive verbs", difficulty:"Advanced", color:"#8B5CF6" },
+      { id:15, number:215, icon:"פִּעֵל", title:"The Piel Stem", subtitle:"Intensive and declarative verbs", difficulty:"Advanced", color:"#C06C3E" },
+      { id:16, number:216, icon:"מְר", title:"Participles", subtitle:"The hovering verb — active and passive", difficulty:"Advanced", color:"#E8625C" },
+      { id:17, number:217, icon:"לִ", title:"The Infinitive", subtitle:"To do, in doing, when doing", difficulty:"Advanced", color:"#1B7A6E" },
+      { id:18, number:218, icon:"לֹא", title:"Negation", subtitle:"Lo, Al, Ein — three ways to say no", difficulty:"Intermediate", color:"#2E4A33" },
     ];
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
