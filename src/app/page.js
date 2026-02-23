@@ -367,7 +367,28 @@ export default function StudyBible() {
     setHlLoading(false);
   }, [user]);
 
-  useEffect(() => { if ((view === "highlights" || view === "journal-home") && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
+  useEffect(() => {
+  // Set the initial history entry so swipe-back has somewhere to go
+  window.history.replaceState({ view: "home" }, "");
+
+  const handlePopState = (e) => {
+    if (e.state?.view) {
+      setFade(false);
+      setTimeout(() => {
+        setView(e.state.view);
+        if (e.state.testament !== undefined) setTestament(e.state.testament);
+        if (e.state.book !== undefined) setBook(e.state.book);
+        if (e.state.chapter !== undefined) setChapter(e.state.chapter);
+        if (e.state.verse !== undefined) setVerse(e.state.verse);
+        if (e.state.tab !== undefined) setTab(e.state.tab);
+        setFade(true);
+      }, 120);
+    }
+  };
+
+  window.addEventListener("popstate", handlePopState);
+  return () => window.removeEventListener("popstate", handlePopState);
+}, []);
   useEffect(() => { if ((view === "account" || view === "journal-home") && user) loadPrayers(); }, [view, user, loadPrayers]);
   useEffect(() => { if (view === "account" && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
 
@@ -483,6 +504,7 @@ export default function StudyBible() {
   }, []);
 
   const nav = useCallback((v, opts = {}) => {
+    window.history.pushState({ view: v, ...opts }, "");
     setFade(false);
     setTimeout(() => {
       setView(v);
