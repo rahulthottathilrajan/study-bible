@@ -16,6 +16,7 @@ import BabylonianExileMap, { BABYLONIAN_DETAILS      } from "./maps/BabylonianEx
 import ReturnExileMap,     { RETURN_DETAILS          } from "./maps/ReturnExileMap";
 import JesusLifeMap,       { JESUS_DETAILS           } from "./maps/JesusLifeMap";
 import JerusalemMap,       { JERUSALEM_DETAILS       } from "./maps/JerusalemMap";
+import SevenChurchesMap,   { SEVEN_CHURCHES_DETAILS  } from "./maps/SevenChurchesMap";
 
 // ─── ALL 15 MAPS CONFIG ───────────────────────────
 const MAPS = [
@@ -35,7 +36,7 @@ const MAPS = [
   { id:"jerusalem", icon:"🕍", title:"Jerusalem in Jesus' Day",              subtitle:"Temple, Golgotha, Gethsemane",         era:"c. AD 30",      color:"#C06C3E", soon:false },
   { id:"paul",      icon:"⛵", title:"Paul's Missionary Journeys",           subtitle:"Three journeys across the Roman world",era:"c. AD 46–57",   color:"#1B7A6E", soon:false },
   { id:"roman",     icon:"🏟️", title:"The Roman Empire",                     subtitle:"The world at the time of Christ",      era:"c. AD 30",      color:"#8B5CF6", soon:false },
-  { id:"churches",  icon:"📜", title:"The 7 Churches of Revelation",         subtitle:"Letters to Asia Minor",                era:"c. AD 95",      color:"#7A6B8A", soon:true  },
+  { id:"churches",  icon:"📜", title:"The 7 Churches of Revelation",         subtitle:"Letters to Asia Minor",                era:"c. AD 95",      color:"#7A6B8A", soon:false },
 ];
 
 // ─── DETAILS LOOKUP ───────────────────────────────
@@ -54,6 +55,7 @@ const ALL_DETAILS = {
   ...JERUSALEM_DETAILS,
   ...PAUL_DETAILS,
   ...ROMAN_DETAILS,
+  ...SEVEN_CHURCHES_DETAILS,
 };
 
 // ─── MAP RENDERER ─────────────────────────────────
@@ -74,6 +76,7 @@ function MapRenderer({ mapId, onSelectLocation, selectedLocation }) {
     case "jerusalem": return <JerusalemMap       {...props} />;
     case "paul":      return <PaulMap            {...props} />;
     case "roman":     return <RomanMap           {...props} />;
+    case "churches":  return <SevenChurchesMap   {...props} />;
     default:          return null;
   }
 }
@@ -119,10 +122,8 @@ export default function TimelineMaps({ nav }) {
   };
 
   const locationDetail = selectedLocation ? ALL_DETAILS[selectedLocation.id] : null;
-  const otMaps   = MAPS.slice(0, 10);
-  const ntMaps   = MAPS.slice(10);
-  const liveMaps = MAPS.filter(m => !m.soon).length;
-  const soonMaps = MAPS.filter(m =>  m.soon).length;
+  const otMaps = MAPS.slice(0, 10);
+  const ntMaps = MAPS.slice(10);
 
   // ════════════════════════════════════════════
   // GALLERY VIEW
@@ -157,7 +158,7 @@ export default function TimelineMaps({ nav }) {
                 15 maps spanning 6,000 years of biblical history — from Eden to the seven churches of Revelation
               </div>
               <div style={{ display:"flex", justifyContent:"center", gap:20, marginTop:14 }}>
-                {[["15","Maps"],[String(liveMaps),"Live"],[String(soonMaps),"Coming"]].map(([n,l]) => (
+                {[["15","Maps"],["15","Live"],["0","Coming"]].map(([n,l]) => (
                   <div key={l} style={{ textAlign:"center" }}>
                     <div style={{ fontFamily:st.heading, fontSize:20, fontWeight:800, color:st.accent }}>{n}</div>
                     <div style={{ fontFamily:st.ui, fontSize:10, color:`${st.headerText}70`, textTransform:"uppercase", letterSpacing:"0.08em" }}>{l}</div>
