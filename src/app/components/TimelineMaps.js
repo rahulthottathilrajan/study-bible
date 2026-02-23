@@ -238,7 +238,7 @@ const ExodusMap = ({ onSelectLocation, selectedLocation }) => {
         <polygon points="61,86 66,76 71,86" fill={P.mountain} opacity="0.30" />
 
         {/* Vignette */}
-        <rect x="0" y="0" width="120" height="110" fill="url(#vig-ex)" />
+        <rect x="0" y="0" width="120" height="110" fill="url(#vig-ex)" pointerEvents="none" />
 
         {/* Exodus route */}
         <path d={route} fill="none" stroke="#C06C3E" strokeWidth="1.5" strokeDasharray="4,2.5" opacity="0.9" />
@@ -354,7 +354,7 @@ const TribesMap = ({ onSelectLocation, selectedLocation }) => {
         })}
 
         {/* Vignette */}
-        <rect x="0" y="0" width="90" height="110" fill="url(#vig-tribes)" />
+        <rect x="0" y="0" width="90" height="110" fill="url(#vig-tribes)" pointerEvents="none" />
         <Compass x={81} y={9} />
       </svg>
     </MapCard>
@@ -448,7 +448,7 @@ const PaulMap = ({ onSelectLocation, selectedLocation }) => {
           fill="none" stroke={j3} strokeWidth="1.4" strokeDasharray="4.5,2" opacity="0.88" />
 
         {/* Vignette */}
-        <rect x="0" y="0" width="100" height="70" fill="url(#vig-paul)" />
+        <rect x="0" y="0" width="100" height="70" fill="url(#vig-paul)" pointerEvents="none" />
 
         {/* City dots */}
         {cities.map(city => (
@@ -546,7 +546,7 @@ const RomanMap = ({ onSelectLocation, selectedLocation }) => {
         <line x1="36" y1="28" x2="62" y2="28" stroke={P.edge} strokeWidth="0.6" strokeDasharray="1.5,1.5" opacity="0.4" />
 
         {/* Vignette */}
-        <rect x="0" y="0" width="100" height="65" fill="url(#vig-roman)" />
+        <rect x="0" y="0" width="100" height="65" fill="url(#vig-roman)" pointerEvents="none" />
 
         {/* Dots */}
         {locs.map(loc => (
