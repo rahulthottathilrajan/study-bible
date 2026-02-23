@@ -39,17 +39,17 @@ const st = {
 
 // ─── PARCHMENT PALETTE ───────────────────────────
 const P = {
-  bg:          "#F5EDD4",   // warm parchment
-  bgDark:      "#EAD9B2",   // slightly darker parchment (legend bars)
-  edge:        "#C8A86A",   // coastline / border stroke
-  sea:         "#8FBFD8",   // water fill (light)
-  seaDark:     "#6AA0BC",   // water gradient dark end
-  land:        "#D8C898",   // standard land
-  fertile:     "#C4D09C",   // green fertile zones
-  desert:      "#DEC878",   // sandy desert
-  mountain:    "#C4B080",   // elevated terrain hint
-  ink:         "#3A2A14",   // primary text on map
-  inkFaint:    "#7A6040",   // region label text
+  bg:          "#F5EDD4",
+  bgDark:      "#EAD9B2",
+  edge:        "#C8A86A",
+  sea:         "#8FBFD8",
+  seaDark:     "#6AA0BC",
+  land:        "#D8C898",
+  fertile:     "#C4D09C",
+  desert:      "#DEC878",
+  mountain:    "#C4B080",
+  ink:         "#3A2A14",
+  inkFaint:    "#7A6040",
   shadow:      "rgba(60,40,10,0.22)",
 };
 
@@ -63,7 +63,6 @@ const MAPS = [
 
 // ─── HELPERS ─────────────────────────────────────
 
-// Text label with halo (readable on any bg)
 const HaloText = ({ x, y, text, fontSize = 3, anchor = "middle", dy = 0, bold = false, color = P.ink, opacity = 1 }) => (
   <text
     x={x} y={y} dy={dy}
@@ -78,21 +77,15 @@ const HaloText = ({ x, y, text, fontSize = 3, anchor = "middle", dy = 0, bold = 
   >{text}</text>
 );
 
-// Interactive location dot
 const Dot = ({ cx, cy, r = 4, color, selected, onClick, label, side = "right" }) => {
   const lx = side === "right" ? cx + r + 3 : cx - r - 3;
   const anchor = side === "right" ? "start" : "end";
   return (
     <g onClick={onClick} style={{ cursor: "pointer" }}>
-      {/* Glow area */}
       <circle cx={cx} cy={cy} r={r + 4} fill={color} opacity="0.10" />
-      {/* Pulse ring (selected only) */}
       {selected && <circle cx={cx} cy={cy} r={r + 2} fill={color} opacity="0.3" className="map-pulse" />}
-      {/* Main dot */}
       <circle cx={cx} cy={cy} r={r} fill={color} stroke="#fff" strokeWidth="1.5" opacity="0.95" />
-      {/* Active ring */}
       {selected && <circle cx={cx} cy={cy} r={r + 2} fill="none" stroke={color} strokeWidth="1" opacity="0.8" />}
-      {/* Label */}
       {label && (
         <HaloText
           x={lx} y={cy} text={label}
@@ -106,7 +99,6 @@ const Dot = ({ cx, cy, r = 4, color, selected, onClick, label, side = "right" })
   );
 };
 
-// Parchment background + vignette for any map
 const ParchBg = ({ w, h, vigId }) => (
   <>
     <defs>
@@ -120,7 +112,6 @@ const ParchBg = ({ w, h, vigId }) => (
   </>
 );
 
-// Reusable sea gradient defs
 const SeaDef = ({ id }) => (
   <defs>
     <linearGradient id={id} x1="0%" y1="0%" x2="100%" y2="100%">
@@ -130,7 +121,6 @@ const SeaDef = ({ id }) => (
   </defs>
 );
 
-// Compass
 const Compass = ({ x, y }) => (
   <g>
     <text x={x} y={y} fill={P.ink} fontSize="5.5" fontFamily="'Nunito',sans-serif" fontWeight="700" opacity="0.5" textAnchor="middle">N</text>
@@ -138,8 +128,7 @@ const Compass = ({ x, y }) => (
   </g>
 );
 
-// Map card wrapper
-const MapCard = ({ children, legend, color }) => (
+const MapCard = ({ children, legend }) => (
   <div style={{
     borderRadius: 18,
     overflow: "hidden",
@@ -215,13 +204,12 @@ const ExodusMap = ({ onSelectLocation, selectedLocation }) => {
         <polygon points="56,72 67,72 68,110 54,110" fill="url(#sea-ex)" opacity="0.55" />
         <HaloText x={86} y={86} text="RED SEA" fontSize={3} bold opacity={0.6} color={P.inkFaint} />
 
-        {/* Nile Delta (fertile green) */}
+        {/* Nile Delta */}
         <ellipse cx="58" cy="28" rx="16" ry="6" fill={P.fertile} opacity="0.65" />
-        {/* Nile */}
         <path d="M58,6 C59,14 57,20 58,28" fill="none" stroke="#8ABFD0" strokeWidth="1.6" opacity="0.7" />
         <HaloText x={46} y={24} text="Nile Delta" fontSize={2.5} opacity={0.7} color={P.inkFaint} />
 
-        {/* Egypt land mass */}
+        {/* Egypt */}
         <polygon points="44,27 96,27 97,54 90,53 84,50 80,56 76,64 70,72 62,90 52,110 44,110" fill={P.desert} opacity="0.72" />
         <HaloText x={74} y={40} text="EGYPT" fontSize={6} opacity={0.22} color={P.inkFaint} bold />
 
@@ -233,7 +221,7 @@ const ExodusMap = ({ onSelectLocation, selectedLocation }) => {
         <polygon points="22,27 46,27 46,68 42,78 36,82 22,72 20,50 22,36" fill={P.fertile} opacity="0.68" />
         <HaloText x={28} y={46} text="CANAAN" fontSize={4} opacity={0.5} color={P.inkFaint} bold />
 
-        {/* Mountain hints (triangle shapes) */}
+        {/* Mountain hints */}
         <polygon points="57,84 62,72 67,84" fill={P.mountain} opacity="0.35" />
         <polygon points="61,86 66,76 71,86" fill={P.mountain} opacity="0.30" />
 
@@ -243,7 +231,6 @@ const ExodusMap = ({ onSelectLocation, selectedLocation }) => {
         {/* Exodus route */}
         <path d={route} fill="none" stroke="#C06C3E" strokeWidth="1.5" strokeDasharray="4,2.5" opacity="0.9" />
 
-        {/* Location dots */}
         {locs.map(loc => (
           <Dot
             key={loc.id}
@@ -264,11 +251,10 @@ const ExodusMap = ({ onSelectLocation, selectedLocation }) => {
 
 
 // ════════════════════════════════════════════════════
-// 12 TRIBES MAP — territory polygons
+// 12 TRIBES MAP
 // ════════════════════════════════════════════════════
 const TribesMap = ({ onSelectLocation, selectedLocation }) => {
   const tribes = [
-    // West of Jordan
     { id:"dan_north",  label:"Dan",         cx:43, cy:13, color:"#E8625C", points:"36,8  52,8  52,18 48,22 38,22 34,16",                          scripture:"Joshua 19:40-48" },
     { id:"naphtali",   label:"Naphtali",     cx:57, cy:18, color:"#1B7A6E", points:"52,8  64,8  66,14 62,22 58,28 54,24 50,20 52,16",             scripture:"Joshua 19:32-39" },
     { id:"asher",      label:"Asher",        cx:30, cy:28, color:"#D4A853", points:"26,16 36,12 38,20 36,36 30,42 26,38 24,28",                   scripture:"Joshua 19:24-31" },
@@ -280,7 +266,6 @@ const TribesMap = ({ onSelectLocation, selectedLocation }) => {
     { id:"benjamin",   label:"Benjamin",     cx:43, cy:75, color:"#B8860B", points:"36,72 50,70 52,76 48,80 38,80 34,76",                         scripture:"Joshua 18:11-28" },
     { id:"judah",      label:"Judah",        cx:37, cy:86, color:"#7A6B8A", points:"22,78 36,76 38,80 50,78 52,82 50,90 40,96 26,92 20,84",       scripture:"Joshua 15:1-63"  },
     { id:"simeon",     label:"Simeon",       cx:37, cy:92, color:"#E8A87C", points:"30,90 44,88 46,96 36,98 28,96",                               scripture:"Joshua 19:1-9"   },
-    // East of Jordan
     { id:"manasseh_e", label:"Manasseh E",   cx:62, cy:19, color:"#2E4A33", points:"56,10 72,10 74,20 70,28 60,30 56,26 54,18",                   scripture:"Joshua 13:29-31" },
     { id:"gad",        label:"Gad",          cx:62, cy:46, color:"#9B8BA8", points:"56,36 64,32 70,34 72,56 62,58 56,56 54,44",                   scripture:"Joshua 13:24-28" },
     { id:"reuben",     label:"Reuben",       cx:62, cy:67, color:"#5A8A82", points:"54,58 62,56 72,58 72,76 64,80 56,78 54,68",                   scripture:"Joshua 13:15-23" },
@@ -298,7 +283,7 @@ const TribesMap = ({ onSelectLocation, selectedLocation }) => {
         <SeaDef id="sea-tribes" />
         <ParchBg w={90} h={110} vigId="vig-tribes" />
 
-        {/* Mediterranean coast (left strip) */}
+        {/* Mediterranean coast */}
         <polygon points="0,0 26,0 28,14 26,44 24,68 22,86 0,86 0,0" fill="url(#sea-tribes)" opacity="0.82" />
         <text x="2" y="60" fill={P.inkFaint} fontSize="2.8" fontFamily="'Nunito',sans-serif" fontWeight="700"
           opacity="0.6" transform="rotate(-90,2,60)">MEDITERRANEAN SEA</text>
@@ -319,7 +304,7 @@ const TribesMap = ({ onSelectLocation, selectedLocation }) => {
         <ellipse cx="52" cy="72" rx="2.8" ry="6.5" fill="#7EB8D4" opacity="0.78" />
         <HaloText x={56} y={72} text="Dead Sea" fontSize={2.2} opacity={0.7} anchor="start" color={P.inkFaint} />
 
-        {/* Mountain range hint (eastern) */}
+        {/* Mountain hints */}
         <polygon points="74,14 78,8 82,14" fill={P.mountain} opacity="0.28" />
         <polygon points="78,18 82,12 86,18" fill={P.mountain} opacity="0.22" />
 
@@ -337,7 +322,6 @@ const TribesMap = ({ onSelectLocation, selectedLocation }) => {
                 strokeOpacity={isSelected ? 0.9 : 0.55}
               />
               {isSelected && <polygon points={tribe.points} fill="none" stroke={tribe.color} strokeWidth="3" strokeOpacity="0.18" />}
-              {/* Tribe label */}
               <text
                 x={tribe.cx} y={tribe.cy}
                 fill={isSelected ? tribe.color : P.ink}
@@ -414,14 +398,14 @@ const PaulMap = ({ onSelectLocation, selectedLocation }) => {
         <polygon points="20,40 28,38 30,44 24,46 18,44" fill={P.land} opacity="0.85" stroke={P.edge} strokeWidth="0.3" />
         <HaloText x={17} y={22} text="ITALY" fontSize={2.8} bold opacity={0.6} color={P.inkFaint} />
 
-        {/* Sardinia / Corsica hints */}
+        {/* Sardinia */}
         <ellipse cx="18" cy="28" rx="2.5" ry="4" fill={P.land} opacity="0.6" stroke={P.edge} strokeWidth="0.3" />
 
         {/* Greece */}
         <polygon points="30,12 44,10 47,16 46,26 44,36 40,40 36,40 32,34 30,22" fill={P.land} opacity="0.9" stroke={P.edge} strokeWidth="0.4" />
         <HaloText x={33} y={24} text="GREECE" fontSize={2.8} bold opacity={0.55} color={P.inkFaint} />
 
-        {/* Macedonia/Thrace (north of Greece) */}
+        {/* Macedonia */}
         <polygon points="30,8 46,6 48,12 44,12 30,14" fill={P.fertile} opacity="0.65" stroke={P.edge} strokeWidth="0.3" />
 
         {/* Asia Minor */}
@@ -432,10 +416,10 @@ const PaulMap = ({ onSelectLocation, selectedLocation }) => {
         <polygon points="60,26 80,24 82,46 70,52 62,50 58,42" fill={P.land} opacity="0.88" stroke={P.edge} strokeWidth="0.4" />
         <HaloText x={70} y={36} text="SYRIA" fontSize={2.8} bold opacity={0.5} color={P.inkFaint} />
 
-        {/* Cyprus island */}
+        {/* Cyprus */}
         <polygon points="52,33 62,31 63,38 56,40 50,38" fill={P.land} opacity="0.82" stroke={P.edge} strokeWidth="0.3" />
 
-        {/* North Africa coast */}
+        {/* North Africa */}
         <polygon points="0,48 100,48 100,70 0,70" fill={P.desert} opacity="0.72" stroke={P.edge} strokeWidth="0.3" />
         <HaloText x={30} y={60} text="NORTH AFRICA" fontSize={3} bold opacity={0.5} color={P.inkFaint} />
 
@@ -450,7 +434,6 @@ const PaulMap = ({ onSelectLocation, selectedLocation }) => {
         {/* Vignette */}
         <rect x="0" y="0" width="100" height="70" fill="url(#vig-paul)" pointerEvents="none" />
 
-        {/* City dots */}
         {cities.map(city => (
           <Dot
             key={city.id}
@@ -506,14 +489,13 @@ const RomanMap = ({ onSelectLocation, selectedLocation }) => {
         {/* Sea background */}
         <rect x="0" y="0" width="100" height="65" fill="url(#sea-roman)" opacity="0.55" />
 
-        {/* Roman Empire outer boundary (gold stroke) */}
+        {/* Roman Empire boundary */}
         <polygon
           points="6,4 40,3 44,7 80,5 88,10 90,46 80,54 66,56 50,54 32,48 18,46 8,36 6,20"
           fill={P.land} opacity="0.78"
           stroke={P.edge} strokeWidth="0.6" strokeDasharray="1.5,1" strokeOpacity="0.5"
         />
 
-        {/* Sub-regions with slightly different tones */}
         {/* Iberia */}
         <polygon points="6,6 20,4 22,10 20,24 12,28 6,22" fill={P.land} opacity="0.88" stroke={P.edge} strokeWidth="0.3" />
         {/* Gaul */}
@@ -531,16 +513,15 @@ const RomanMap = ({ onSelectLocation, selectedLocation }) => {
         {/* Judea hills */}
         <polygon points="60,32 70,30 72,42 66,46 58,44 58,36" fill={P.mountain} opacity="0.35" />
 
-        {/* Region labels */}
-        <HaloText x={11} y={16} text="GAUL"       fontSize={2.8} bold opacity={0.6} color={P.inkFaint} />
-        <HaloText x={26} y={22} text="ITALY"      fontSize={2.8} bold opacity={0.6} color={P.inkFaint} />
-        <HaloText x={36} y={22} text="GREECE"     fontSize={2.8} bold opacity={0.6} color={P.inkFaint} />
-        <HaloText x={54} y={19} text="ASIA MINOR" fontSize={2.8} bold opacity={0.6} color={P.inkFaint} />
-        <HaloText x={64} y={30} text="JUDEA"      fontSize={2.5} bold opacity={0.5} color={P.inkFaint} />
+        <HaloText x={11} y={16} text="GAUL"         fontSize={2.8} bold opacity={0.6} color={P.inkFaint} />
+        <HaloText x={26} y={22} text="ITALY"        fontSize={2.8} bold opacity={0.6} color={P.inkFaint} />
+        <HaloText x={36} y={22} text="GREECE"       fontSize={2.8} bold opacity={0.6} color={P.inkFaint} />
+        <HaloText x={54} y={19} text="ASIA MINOR"   fontSize={2.8} bold opacity={0.6} color={P.inkFaint} />
+        <HaloText x={64} y={30} text="JUDEA"        fontSize={2.5} bold opacity={0.5} color={P.inkFaint} />
         <HaloText x={32} y={54} text="NORTH AFRICA" fontSize={2.8} bold opacity={0.55} color={P.inkFaint} />
         <HaloText x={14} y={44} text="MEDITERRANEAN SEA" fontSize={3} bold opacity={0.38} color={P.inkFaint} />
 
-        {/* Roman road hints */}
+        {/* Roman roads */}
         <line x1="27" y1="22" x2="62" y2="28" stroke={P.edge} strokeWidth="0.6" strokeDasharray="1.5,1.5" opacity="0.4" />
         <line x1="27" y1="22" x2="36" y2="28" stroke={P.edge} strokeWidth="0.6" strokeDasharray="1.5,1.5" opacity="0.4" />
         <line x1="36" y1="28" x2="62" y2="28" stroke={P.edge} strokeWidth="0.6" strokeDasharray="1.5,1.5" opacity="0.4" />
@@ -548,7 +529,6 @@ const RomanMap = ({ onSelectLocation, selectedLocation }) => {
         {/* Vignette */}
         <rect x="0" y="0" width="100" height="65" fill="url(#vig-roman)" pointerEvents="none" />
 
-        {/* Dots */}
         {locs.map(loc => (
           <Dot
             key={loc.id}
@@ -570,10 +550,9 @@ const RomanMap = ({ onSelectLocation, selectedLocation }) => {
 
 
 // ════════════════════════════════════════════════════
-// LOCATION DETAILS (all content preserved)
+// LOCATION DETAILS
 // ════════════════════════════════════════════════════
 const LOCATION_DETAILS = {
-  // Exodus
   rameses:    { title:"Rameses (Goshen)",        body:"The Israelites lived and laboured in the region of Goshen, in the city of Rameses. This was their starting point after 430 years in Egypt. The pharaoh who refused Moses is believed by many scholars to be Ramesses II.", scripture:"Exodus 12:37 — 'And the children of Israel journeyed from Rameses to Succoth, about six hundred thousand on foot that were men, beside children.'" },
   succoth:    { title:"Succoth",                 body:"The first campsite after leaving Egypt, meaning 'booths' or 'shelters.' Around 600,000 men plus women and children — perhaps 2 million people — began their march to freedom here.", scripture:"Exodus 12:37 — 'And the children of Israel journeyed from Rameses to Succoth...'" },
   etham:      { title:"Etham",                   body:"On the edge of the wilderness, the Israelites camped at Etham. It was here that God first appeared as a pillar of cloud by day and a pillar of fire by night — leading every step of the journey.", scripture:"Exodus 13:20-21 — 'And the LORD went before them by day in a pillar of a cloud...'" },
@@ -584,8 +563,6 @@ const LOCATION_DETAILS = {
   sinai:      { title:"Mount Sinai — The Law Given", body:"The most significant campsite of the entire Exodus. Here God descended in fire and thunder, and gave Moses the Ten Commandments. The covenant between God and Israel was sealed at this mountain. Also called Horeb — the mountain of God.", scripture:"Exodus 19:2-3 — 'There Israel camped before the mount. And Moses went up unto God, and the LORD called unto him out of the mountain.'" },
   kadesh:     { title:"Kadesh Barnea — The Turning Point", body:"From Kadesh, twelve spies were sent into Canaan. Ten returned with a fearful report; only Joshua and Caleb trusted God. Because of their unbelief, Israel was sentenced to 40 years of wilderness wandering — one year for each day the spies were in the land.", scripture:"Numbers 13:26 — 'And they... came to Moses, and to Aaron, and to all the congregation... and shewed them the fruit of the land.'" },
   canaan:     { title:"Canaan — The Promised Land", body:"The destination of the entire Exodus. God had promised this land to Abraham, Isaac, and Jacob — and now, 40 years after leaving Egypt, Joshua led the people across the Jordan into their inheritance. The land flowing with milk and honey.", scripture:"Joshua 1:2 — 'Moses my servant is dead; now therefore arise, go over this Jordan, thou, and all this people, unto the land which I do give to them.'" },
-
-  // Tribes
   dan_north:  { title:"Tribe of Dan (North)",       body:"Dan eventually migrated north after struggling to hold their original southern territory. The city of Dan, at the foot of Mount Hermon, became one of Jeroboam's golden calf worship sites.", scripture:"Joshua 19:40-48" },
   naphtali:   { title:"Tribe of Naphtali",           body:"Naphtali received fertile territory around the Sea of Galilee. Jesus spent much of His ministry in this region — fulfilling Isaiah 9:1 about the land of Naphtali seeing a great light.", scripture:"Joshua 19:32-39; Isaiah 9:1; Matthew 4:13-16" },
   asher:      { title:"Tribe of Asher",              body:"Asher received the fertile coastal strip of northern Canaan. Moses blessed Asher: 'Let him dip his foot in oil' — a promise of agricultural abundance. The prophetess Anna who saw the infant Jesus was from the tribe of Asher.", scripture:"Joshua 19:24-31; Luke 2:36" },
@@ -600,8 +577,6 @@ const LOCATION_DETAILS = {
   reuben:     { title:"Tribe of Reuben",             body:"Reuben, the firstborn of Jacob, chose land east of the Jordan — the plains of Moab. Despite being firstborn, Reuben lost his preeminence due to sin. His tribe settled east of the Jordan and was among the first carried into exile.", scripture:"Joshua 13:15-23; 1 Chronicles 5:1" },
   gad:        { title:"Tribe of Gad",                body:"Gad settled in the fertile region of Gilead east of the Jordan. The Gadites were known as mighty warriors — 'men of war fit for battle, that could handle shield and buckler.' Elijah the prophet was from Gilead.", scripture:"Joshua 13:24-28; 1 Chronicles 12:8" },
   manasseh_e: { title:"Tribe of Manasseh (East)",    body:"The eastern half of Manasseh settled in Bashan, north of Gad, east of the Jordan. This region included the fertile highlands of Gilead. Like Reuben and Gad, the eastern Manassites were among the first tribes exiled by Assyria.", scripture:"Joshua 13:29-31; 2 Kings 15:29" },
-
-  // Paul's cities
   antioch:      { title:"Antioch — The Sending Church",    body:"Antioch of Syria was the launching pad of all three of Paul's missionary journeys. It was here that believers were first called 'Christians.' The Holy Spirit said: 'Separate me Barnabas and Saul for the work whereunto I have called them.'", scripture:"Acts 13:1-3 — 'As they ministered to the Lord, and fasted, the Holy Ghost said, Separate me Barnabas and Saul...'" },
   cyprus:       { title:"Cyprus — First Stop",             body:"Paul's first journey began on the island of Cyprus, homeland of Barnabas. Here the Roman proconsul Sergius Paulus became a believer — the first recorded Roman official to convert — after Paul struck the sorcerer Elymas with blindness.", scripture:"Acts 13:4-12 — 'Then the deputy, when he saw what was done, believed, being astonished at the doctrine of the Lord.'" },
   philippi:     { title:"Philippi — First Church in Europe", body:"At Philippi, Paul received the Macedonian call — a vision of a man saying 'Come over into Macedonia and help us.' The first European convert was Lydia, a seller of purple. Paul and Silas were imprisoned and sang hymns at midnight — until an earthquake opened every door.", scripture:"Acts 16:12-40 — 'And at midnight Paul and Silas prayed, and sang praises unto God...'" },
@@ -615,8 +590,6 @@ const LOCATION_DETAILS = {
   lystra:       { title:"Lystra — Where Paul Was Stoned",  body:"At Lystra, Paul healed a man lame from birth — and the crowd tried to worship Paul and Barnabas as gods. Then Jews from Antioch stirred up the crowd and Paul was stoned and dragged out of the city, left for dead. He rose up and went back in.", scripture:"Acts 14:8-20 — 'Who, having stoned Paul, drew him out of the city, supposing he had been dead.'" },
   perga:        { title:"Perga",                           body:"Perga was where John Mark departed from the first missionary journey and returned to Jerusalem — a decision Paul later felt strongly about, leading to a sharp disagreement with Barnabas on the second journey.", scripture:"Acts 13:13 — 'John departing from them returned to Jerusalem.'" },
   caesarea:     { title:"Caesarea Maritima",               body:"The Roman administrative capital of Judea. Philip the evangelist lived here. It was here that Cornelius, the first Gentile convert, received the Holy Spirit. Paul was imprisoned here for two years before his voyage to Rome.", scripture:"Acts 10:1 — 'There was a certain man in Caesarea called Cornelius, a centurion of the band called the Italian band.'" },
-
-  // Roman Empire
   rome_re:      { title:"Rome — Caput Mundi",              body:"The capital of the empire — 'head of the world.' In Paul's day, Rome had perhaps one million inhabitants. The church at Rome received Paul's greatest theological letter. Tradition holds that both Peter and Paul were martyred here.", scripture:"Romans 1:7 — 'To all that be in Rome, beloved of God, called to be saints.'" },
   jerusalem_re: { title:"Jerusalem — The Holy City",       body:"Under Roman rule since 63 BC, Jerusalem was the spiritual heart of Judaism and the site of Christ's crucifixion and resurrection. In AD 70, Roman general Titus destroyed the city and the Temple — fulfilling Jesus' prophecy in Matthew 24.", scripture:"Luke 21:24 — 'Jerusalem shall be trodden down of the Gentiles, until the times of the Gentiles be fulfilled.'" },
   bethlehem:    { title:"Bethlehem — City of David",       body:"'But thou, Bethlehem Ephratah, though thou be little among the thousands of Judah, yet out of thee shall he come forth unto me that is to be ruler in Israel' — Micah prophesied 700 years before Jesus was born here.", scripture:"Luke 2:4-7 — 'And Joseph also went up from Galilee... unto the city of David, which is called Bethlehem.'" },
@@ -649,7 +622,6 @@ export default function TimelineMaps({ nav }) {
       <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
         <style>{ANIM_STYLE}</style>
 
-        {/* Header */}
         <div style={{ background:st.headerGradient, padding:"14px 20px 18px", position:"sticky", top:0, zIndex:10 }}>
           <div style={{ display:"flex", alignItems:"center", gap:10 }}>
             <button onClick={() => nav("timeline-home")}
@@ -664,7 +636,6 @@ export default function TimelineMaps({ nav }) {
         </div>
 
         <div style={{ padding:"20px 16px 40px", maxWidth:520, margin:"0 auto" }}>
-          {/* Hero */}
           <div style={{ background:st.headerGradient, borderRadius:20, padding:"28px 20px", marginBottom:24, textAlign:"center", position:"relative", overflow:"hidden" }}>
             <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 20%,rgba(232,98,92,0.25),transparent 65%)" }}/>
             <div style={{ position:"relative", zIndex:1 }}>
@@ -676,7 +647,6 @@ export default function TimelineMaps({ nav }) {
             </div>
           </div>
 
-          {/* Map cards */}
           <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
             {MAPS.map(map => (
               <button key={map.id} onClick={() => { setSelectedMap(map); setSelectedLocation(null); }}
@@ -692,7 +662,6 @@ export default function TimelineMaps({ nav }) {
             ))}
           </div>
 
-          {/* Scripture footer */}
           <div style={{ marginTop:24, background:st.headerGradient, borderRadius:16, padding:"20px", position:"relative", overflow:"hidden" }}>
             <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 80% 50%,rgba(232,98,92,0.15),transparent 60%)" }}/>
             <div style={{ position:"relative", zIndex:1 }}>
@@ -712,7 +681,6 @@ export default function TimelineMaps({ nav }) {
     <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
       <style>{ANIM_STYLE}</style>
 
-      {/* Sticky header */}
       <div style={{ background:st.headerGradient, padding:"14px 20px 18px", position:"sticky", top:0, zIndex:10 }}>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
           <button onClick={() => { setSelectedMap(null); setSelectedLocation(null); }}
@@ -728,18 +696,15 @@ export default function TimelineMaps({ nav }) {
 
       <div style={{ padding:"16px 16px 40px", maxWidth:520, margin:"0 auto" }}>
 
-        {/* Subtitle */}
         <div style={{ fontFamily:st.body, fontSize:13.5, color:st.muted, fontStyle:"italic", lineHeight:1.6, marginBottom:14, textAlign:"center" }}>
           {selectedMap.subtitle} — tap any location to learn more
         </div>
 
-        {/* The map */}
         {selectedMap.id === "exodus" && <ExodusMap onSelectLocation={handleSelectLocation} selectedLocation={selectedLocation} />}
         {selectedMap.id === "tribes" && <TribesMap onSelectLocation={handleSelectLocation} selectedLocation={selectedLocation} />}
         {selectedMap.id === "paul"   && <PaulMap   onSelectLocation={handleSelectLocation} selectedLocation={selectedLocation} />}
         {selectedMap.id === "roman"  && <RomanMap  onSelectLocation={handleSelectLocation} selectedLocation={selectedLocation} />}
 
-        {/* Location detail panel */}
         {selectedLocation && locationDetail && (
           <div className="detail-panel" style={{
             marginTop:16,
@@ -765,7 +730,6 @@ export default function TimelineMaps({ nav }) {
           </div>
         )}
 
-        {/* Tap prompt */}
         {!selectedLocation && (
           <div style={{ marginTop:14, textAlign:"center", padding:"16px", background:st.card, borderRadius:14, border:`1px solid ${st.divider}` }}>
             <div style={{ fontFamily:st.ui, fontSize:12.5, color:st.muted }}>
@@ -774,11 +738,10 @@ export default function TimelineMaps({ nav }) {
           </div>
         )}
 
-        {/* Prev / Next navigation */}
         {(() => {
           const idx  = MAPS.findIndex(m => m.id === selectedMap.id);
-          const prev = idx > 0              ? MAPS[idx - 1] : null;
-          const next = idx < MAPS.length-1  ? MAPS[idx + 1] : null;
+          const prev = idx > 0             ? MAPS[idx - 1] : null;
+          const next = idx < MAPS.length-1 ? MAPS[idx + 1] : null;
           return (
             <div style={{ display:"flex", gap:10, marginTop:22, borderTop:`1px solid ${st.divider}`, paddingTop:16 }}>
               {prev ? (
