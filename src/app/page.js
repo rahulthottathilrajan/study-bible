@@ -1620,6 +1620,10 @@ export default function StudyBible() {
       { id:4, number:204, icon:"ז׳", title:"Noun Gender", subtitle:"Every noun is masculine or feminine", difficulty:"Beginner", color:"#1B7A6E" },
       { id:5, number:205, icon:"ים", title:"Plural Endings", subtitle:"How Hebrew makes nouns plural", difficulty:"Beginner", color:"#8B5CF6" },
       { id:6, number:206, icon:"שׁ", title:"The Three-Letter Root", subtitle:"The secret structure of all Hebrew words", difficulty:"Intermediate", color:"#1B7A6E" },
+      { id:7, number:207, icon:"אֲנִי", title:"Personal Pronouns", subtitle:"I, you, he, she, we — in Hebrew", difficulty:"Intermediate", color:"#C06C3E" },
+      { id:8, number:208, icon:"בֵּן", title:"The Construct State", subtitle:"Hebrew possession — without the word 'of'", difficulty:"Intermediate", color:"#8B5CF6" },
+      { id:9, number:209, icon:"הוּא", title:"Verbless Clauses", subtitle:"Hebrew sentences without a verb", difficulty:"Intermediate", color:"#D4A853" },
+      { id:10, number:210, icon:"קטל", title:"Basic Verb Patterns", subtitle:"The Qal stem — Hebrew's foundational verb form", difficulty:"Intermediate", color:"#E8625C" },
     ];
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
