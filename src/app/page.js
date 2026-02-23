@@ -171,6 +171,15 @@ export default function StudyBible() {
   const [vocabGroup, setVocabGroup] = useState(null);
   const [grammarLesson, setGrammarLesson] = useState(null);
   const [grammarLessonIds, setGrammarLessonIds] = useState({});
+  useEffect(() => {
+    supabase.from("hebrew_lessons").select("id, lesson_number").eq("category","grammar").then(({data}) => {
+      if (data) {
+        const map = {};
+        data.forEach(l => { map[l.lesson_number] = l.id; });
+        setGrammarLessonIds(map);
+      }
+    });
+  }, []);
   
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
@@ -1614,15 +1623,6 @@ export default function StudyBible() {
 
   const HebrewGrammarHome = () => {
     const ht2 = THEMES.garden;
-    useEffect(() => {
-      supabase.from("hebrew_lessons").select("id, lesson_number").eq("category","grammar").then(({data}) => {
-        if (data) {
-          const map = {};
-          data.forEach(l => { map[l.lesson_number] = l.id; });
-          setGrammarLessonIds(map);
-        }
-      });
-    }, []);
     const GRAMMAR_LESSONS = [
       { id:1, number:201, icon:"הַ", title:"The Definite Article", subtitle:"How Hebrew says 'the'", difficulty:"Beginner", color:"#C06C3E" },
       { id:2, number:202, icon:"וְ", title:"The Vav Conjunction", subtitle:"And, but, then — the connecting letter", difficulty:"Beginner", color:"#2E4A33" },
