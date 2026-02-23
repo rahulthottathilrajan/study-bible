@@ -1619,6 +1619,7 @@ export default function StudyBible() {
       { id:3, number:203, icon:"בְּ", title:"Prepositions", subtitle:"In, like, to, from — built into words", difficulty:"Beginner", color:"#D4A853" },
       { id:4, number:204, icon:"ז׳", title:"Noun Gender", subtitle:"Every noun is masculine or feminine", difficulty:"Beginner", color:"#1B7A6E" },
       { id:5, number:205, icon:"ים", title:"Plural Endings", subtitle:"How Hebrew makes nouns plural", difficulty:"Beginner", color:"#8B5CF6" },
+      { id:6, number:206, icon:"שׁ", title:"The Three-Letter Root", subtitle:"The secret structure of all Hebrew words", difficulty:"Intermediate", color:"#1B7A6E" },
     ];
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
