@@ -466,10 +466,10 @@ const RomanMap = ({ onSelectLocation, selectedLocation }) => {
     { id:"athens_re",    x:38, y:27, label:"Athens",      type:"city",    side:"right" },
     { id:"ephesus_re",   x:50, y:26, label:"Ephesus",     type:"church",  side:"left"  },
     { id:"antioch_re",   x:66, y:26, label:"Antioch",     type:"church",  side:"right" },
-    { id:"caesarea_re",  x:63, y:34, label:"Caesarea",    type:"city",    side:"right" },
-    { id:"nazareth",     x:62, y:36, label:"Nazareth",    type:"holy",    side:"left"  },
-    { id:"jerusalem_re", x:63, y:40, label:"Jerusalem",   type:"holy",    side:"right" },
-    { id:"bethlehem",    x:62, y:44, label:"Bethlehem",   type:"holy",    side:"left"  },
+    { id:"caesarea_re",  x:63, y:32, label:"Caesarea",    type:"city",    side:"right" },
+    { id:"nazareth",     x:60, y:37, label:"Nazareth",    type:"holy",    side:"left"  },
+    { id:"jerusalem_re", x:65, y:41, label:"Jerusalem",   type:"holy",    side:"right" },
+    { id:"bethlehem",    x:60, y:45, label:"Bethlehem",   type:"holy",    side:"left"  },
     { id:"alexandria",   x:52, y:48, label:"Alexandria",  type:"city",    side:"left"  },
   ];
 
@@ -533,7 +533,7 @@ const RomanMap = ({ onSelectLocation, selectedLocation }) => {
           <Dot
             key={loc.id}
             cx={loc.x} cy={loc.y}
-            r={loc.type === "capital" ? 4.5 : 3.5}
+            r={loc.type === "capital" ? 2.8 : 2.2}
             color={typeColors[loc.type]}
             selected={selectedLocation?.id === loc.id}
             onClick={() => onSelectLocation(loc)}
