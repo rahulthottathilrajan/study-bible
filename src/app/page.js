@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../lib/supabase";
 import TimelineMaps from "./components/TimelineMaps";
+import BibleBookTimeline from "./components/BibleBookTimeline";
 
 // ═══════════════════════════════════════════════════
 // THEME SYSTEM
@@ -2596,18 +2597,18 @@ export default function StudyBible() {
           <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
             {sections.map(s => (
               <button key={s.id}
-                onClick={() => { if (s.id === "timeline-era") nav("timeline-era"); else if (s.id === "timeline-maps") nav("timeline-maps"); }}
-                style={{ width:"100%", background:st.card, border:`1px solid ${st.divider}`, borderRadius:16, padding:"18px 16px", cursor:(s.id==="timeline-era"||s.id==="timeline-maps")?"pointer":"default", textAlign:"left", display:"flex", alignItems:"center", gap:14, boxShadow:"0 2px 8px rgba(0,0,0,0.05)", borderLeft:`4px solid ${s.color}`, opacity:(s.id==="timeline-era"||s.id==="timeline-maps")?1:0.6, transition:"all 0.15s" }}>
+                onClick={() => { if (s.id === "timeline-era") nav("timeline-era"); else if (s.id === "timeline-maps") nav("timeline-maps"); else if (s.id === "timeline-books") nav("timeline-books"); }}
+                style={{ width:"100%", background:st.card, border:`1px solid ${st.divider}`, borderRadius:16, padding:"18px 16px", cursor:(s.id==="timeline-era"||s.id==="timeline-maps"||s.id==="timeline-books")?"pointer":"default", textAlign:"left", display:"flex", alignItems:"center", gap:14, boxShadow:"0 2px 8px rgba(0,0,0,0.05)", borderLeft:`4px solid ${s.color}`, opacity:(s.id==="timeline-era"||s.id==="timeline-maps"||s.id==="timeline-books")?1:0.6, transition:"all 0.15s" }}>
                 <div style={{ width:52, height:52, borderRadius:14, background:`${s.color}18`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:26, flexShrink:0 }}>{s.icon}</div>
                 <div style={{ flex:1 }}>
                   <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:3 }}>
                     <div style={{ fontFamily:st.heading, fontSize:16, fontWeight:700, color:st.dark }}>{s.label}</div>
-                    {(s.id !== "timeline-era" && s.id !== "timeline-maps") && <span style={{ fontFamily:st.ui, fontSize:9, color:st.light, background:st.divider, borderRadius:4, padding:"2px 6px", fontWeight:700, textTransform:"uppercase" }}>Soon</span>}
+                    {(s.id !== "timeline-era" && s.id !== "timeline-maps" && s.id !== "timeline-books") && <span style={{ fontFamily:st.ui, fontSize:9, color:st.light, background:st.divider, borderRadius:4, padding:"2px 6px", fontWeight:700, textTransform:"uppercase" }}>Soon</span>}
                   </div>
                   <div style={{ fontFamily:st.ui, fontSize:12, color:st.muted, marginBottom:4 }}>{s.sub}</div>
                   <div style={{ fontFamily:st.body, fontSize:12, color:st.light, lineHeight:1.5, fontStyle:"italic" }}>{s.desc}</div>
                 </div>
-                {(s.id === "timeline-era" || s.id === "timeline-maps") && <div style={{ color:st.light, flexShrink:0 }}><ChevIcon /></div>}
+                {(s.id === "timeline-era" || s.id === "timeline-maps" || s.id === "timeline-books") && <div style={{ color:st.light, flexShrink:0 }}><ChevIcon /></div>}
               </button>
             ))}
           </div>
@@ -2983,6 +2984,7 @@ export default function StudyBible() {
       {view === "hebrew-reading" && HebrewReading()}
       {view === "timeline-home" && TimelineHome()}
       {view === "timeline-maps" && <TimelineMaps nav={nav} />}
+      {view === "timeline-books" && <BibleBookTimeline nav={nav} />}
       {view === "timeline-era" && TimelineEras()}
       {view === "timeline-era-detail" && TimelineEraDetail()}
 
