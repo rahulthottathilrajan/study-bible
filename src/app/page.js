@@ -1632,6 +1632,15 @@ export default function StudyBible() {
       { id:16, number:216, icon:"מְר", title:"Participles", subtitle:"The hovering verb — active and passive", difficulty:"Advanced", color:"#E8625C" },
       { id:17, number:217, icon:"לִ", title:"The Infinitive", subtitle:"To do, in doing, when doing", difficulty:"Advanced", color:"#1B7A6E" },
       { id:18, number:218, icon:"לֹא", title:"Negation", subtitle:"Lo, Al, Ein — three ways to say no", difficulty:"Intermediate", color:"#2E4A33" },
+      { id:19, number:219, icon:"אֵת", title:"The Direct Object Marker", subtitle:"The untranslatable Aleph-Tav", difficulty:"Intermediate", color:"#D4A853" },
+      { id:20, number:220, icon:"ָ", title:"The Vowel System", subtitle:"Understanding the nikkud — Hebrew vowel points", difficulty:"Intermediate", color:"#1B7A6E" },
+      { id:21, number:221, icon:"VSO", title:"Hebrew Word Order", subtitle:"Why Hebrew puts the verb first", difficulty:"Intermediate", color:"#C06C3E" },
+      { id:22, number:222, icon:"הִפ", title:"The Hiphil Stem", subtitle:"Causative verbs — making something happen", difficulty:"Advanced", color:"#8B5CF6" },
+      { id:23, number:223, icon:"הִת", title:"The Hithpael Stem", subtitle:"Reflexive verbs — acting on oneself", difficulty:"Advanced", color:"#E8625C" },
+      { id:24, number:224, icon:"אֶח", title:"Hebrew Numbers", subtitle:"Cardinal, ordinal, and their quirks", difficulty:"Intermediate", color:"#2E4A33" },
+      { id:25, number:225, icon:"אִם", title:"Conditional Sentences", subtitle:"If/then structures in Hebrew", difficulty:"Advanced", color:"#1B7A6E" },
+      { id:26, number:226, icon:"עַד", title:"Temporal Clauses", subtitle:"When, until, before, after in Hebrew", difficulty:"Advanced", color:"#D4A853" },
+      { id:27, number:227, icon:"שִׁיר", title:"Hebrew Poetry", subtitle:"Parallelism, chiasm, and acrostic structures", difficulty:"Advanced", color:"#C06C3E" },
     ];
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
