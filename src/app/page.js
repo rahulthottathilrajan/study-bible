@@ -428,7 +428,7 @@ export default function StudyBible() {
     setTimelineEventsLoading(false);
   }, []);
 
-  useEffect(() => { if (view === "timeline-home") loadTimelineEras(); }, [view, loadTimelineEras]);
+  useEffect(() => { if (view === "timeline-home" || view === "timeline-era") loadTimelineEras(); }, [view, loadTimelineEras]);
   useEffect(() => { if (view === "timeline-era" && timelineSelectedEra) loadTimelineEvents(timelineSelectedEra.era_key); }, [view, timelineSelectedEra, loadTimelineEvents]);
 
   // ═══ DB & NAVIGATION ═══
@@ -582,12 +582,12 @@ export default function StudyBible() {
 
           <Label icon="🔬" t={ht} color={ht.muted}>Study Tools</Label>
           <div style={{ display:"flex",gap:10,marginBottom:22 }}>
-            <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
-              <div style={{ position:"absolute",top:8,right:8,background:"rgba(212,168,83,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#D4A853",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
+            <button onClick={() => nav("timeline-home")} style={{ flex:1,background:ht.card,border:`1px solid rgba(232,98,92,0.3)`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden",cursor:"pointer" }}>
+              <div style={{ position:"absolute",top:8,right:8,background:"rgba(232,98,92,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#E8625C",textTransform:"uppercase",letterSpacing:"0.05em" }}>New ✦</div>
               <div style={{ fontSize:32,marginBottom:8 }}>📜</div>
               <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Biblical Timeline</div>
               <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>From Creation to Revelation</div>
-            </div>
+            </button>
             <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
               <div style={{ position:"absolute",top:8,right:8,background:"rgba(232,98,92,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#E8625C",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
               <div style={{ fontSize:32,marginBottom:8 }}>🛡️</div>
