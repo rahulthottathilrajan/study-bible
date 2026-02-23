@@ -2618,6 +2618,57 @@ export default function StudyBible() {
     );
   };
 
+  const TimelineBar = () => {
+    if (!timelineEras.length) return null;
+    const valid = timelineEras.filter(e => e.year_from != null && e.year_to != null);
+    const minY = Math.min(...valid.map(e => e.year_from));
+    const maxY = Math.max(...valid.map(e => e.year_to));
+    const total = maxY - minY || 1;
+    return (
+      <div style={{ overflowX:"auto", WebkitOverflowScrolling:"touch" }}>
+        <div style={{ display:"flex", gap:3, padding:"0 0 4px 0", minWidth:"max-content" }}>
+          {timelineEras.map(era => {
+            const span = (era.year_to ?? era.year_from + 100) - (era.year_from ?? 0);
+            const pct = Math.max(span / total, 0.04);
+            const w = Math.round(pct * 560);
+            return (
+              <div
+                key={era.era_key}
+                onClick={() => { setTimelineSelectedEra(era); nav("timeline-era-detail"); }}
+                title={era.title}
+                style={{
+                  width:w, minWidth:36, height:44, flexShrink:0,
+                  background:era.color, borderRadius:8, cursor:"pointer",
+                  display:"flex", flexDirection:"column",
+                  alignItems:"center", justifyContent:"center",
+                  gap:2, padding:"0 3px", transition:"opacity 0.15s",
+                }}
+                onMouseEnter={e => e.currentTarget.style.opacity="0.8"}
+                onMouseLeave={e => e.currentTarget.style.opacity="1"}
+              >
+                <span style={{ fontSize:14 }}>{era.icon}</span>
+                {w >= 52 && (
+                  <span style={{
+                    fontFamily:st.ui, fontSize:8, fontWeight:700,
+                    color:"rgba(255,255,255,0.9)", textAlign:"center",
+                    lineHeight:1.1, overflow:"hidden", maxWidth:"100%",
+                    display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical"
+                  }}>
+                    {era.title.split(" ").slice(0,2).join(" ")}
+                  </span>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        <div style={{ display:"flex", justifyContent:"space-between", paddingTop:4 }}>
+          <span style={{ fontFamily:st.ui, fontSize:9, color:st.muted }}>c. 4000 BC</span>
+          <span style={{ fontFamily:st.ui, fontSize:9, color:st.muted }}>AD 100</span>
+        </div>
+      </div>
+    );
+  };
+
   const TimelineEras = () => {
     return (
       <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
@@ -2632,6 +2683,20 @@ export default function StudyBible() {
             ))}
           </div>
 
+          {/* Visual timeline bar */}
+          {timelineEras.length > 0 && (
+            <div style={{
+              background:st.card, borderRadius:14, padding:"14px 14px 10px",
+              marginBottom:18, border:`1px solid ${st.border}`,
+              boxShadow:"0 2px 8px rgba(0,0,0,0.06)"
+            }}>
+              <div style={{ fontFamily:st.ui, fontSize:10, fontWeight:700, color:st.muted, letterSpacing:1, textTransform:"uppercase", marginBottom:10 }}>
+                ← Tap an era to explore →
+              </div>
+              <TimelineBar />
+            </div>
+          )}
+
           {timelineLoading ? <Spinner t={st} /> : (
             <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
               {timelineEras.map(era => (
@@ -2643,6 +2708,13 @@ export default function StudyBible() {
                     <div style={{ fontFamily:st.heading, fontSize:16, fontWeight:700, color:st.dark, marginBottom:2 }}>{era.title}</div>
                     <div style={{ fontFamily:st.ui, fontSize:11, color:era.color, fontWeight:700, marginBottom:3, textTransform:"uppercase", letterSpacing:"0.04em" }}>{era.year_display}</div>
                     <div style={{ fontFamily:st.body, fontSize:12.5, color:st.muted, lineHeight:1.5, fontStyle:"italic" }}>{era.subtitle}</div>
+                    <div style={{ marginTop:6, display:"flex", alignItems:"center", gap:8 }}>
+                      {era.event_count > 0 && (
+                        <span style={{ fontFamily:st.ui, fontSize:10, fontWeight:700, color:era.color, background:`${era.color}15`, borderRadius:5, padding:"2px 8px" }}>
+                          {era.event_count} event{era.event_count !== 1 ? "s" : ""}
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <div style={{ color:st.light, flexShrink:0 }}><ChevIcon /></div>
                 </button>
@@ -2782,9 +2854,44 @@ export default function StudyBible() {
                 {allEvents.length === 0 && !timelineEventsLoading && (
                   <div style={{ textAlign:"center", padding:30, fontFamily:st.body, fontSize:14, color:st.muted, fontStyle:"italic" }}>Events coming soon for this era.</div>
                 )}
-              </div>
+                            </div>
             )}
           </div>
+
+          {/* Era navigation — prev / next */}
+          {(() => {
+            const idx = timelineEras.findIndex(e => e.era_key === era.era_key);
+            const prev = idx > 0 ? timelineEras[idx - 1] : null;
+            const next = idx < timelineEras.length - 1 ? timelineEras[idx + 1] : null;
+            if (!prev && !next) return null;
+            return (
+              <div style={{ display:"flex", gap:10, padding:"20px 16px 8px", borderTop:`1px solid ${st.divider}`, marginTop:8 }}>
+                {prev ? (
+                  <div
+                    onClick={() => { setTimelineSelectedEra(prev); loadTimelineEvents(prev.era_key); }}
+                    style={{ flex:1, background:st.card, border:`1px solid ${prev.color}40`, borderRadius:12, padding:"12px 14px", cursor:"pointer", borderLeft:`4px solid ${prev.color}` }}
+                  >
+                    <div style={{ fontFamily:st.ui, fontSize:9, fontWeight:700, color:st.muted, textTransform:"uppercase", letterSpacing:1, marginBottom:4 }}>← Previous</div>
+                    <div style={{ fontSize:18, marginBottom:2 }}>{prev.icon}</div>
+                    <div style={{ fontFamily:st.heading, fontSize:13, fontWeight:700, color:st.text, lineHeight:1.3 }}>{prev.title}</div>
+                    <div style={{ fontFamily:st.ui, fontSize:10, color:prev.color, fontWeight:600, marginTop:2 }}>{prev.year_display}</div>
+                  </div>
+                ) : <div style={{ flex:1 }} />}
+                {next ? (
+                  <div
+                    onClick={() => { setTimelineSelectedEra(next); loadTimelineEvents(next.era_key); }}
+                    style={{ flex:1, background:st.card, border:`1px solid ${next.color}40`, borderRadius:12, padding:"12px 14px", cursor:"pointer", textAlign:"right", borderRight:`4px solid ${next.color}` }}
+                  >
+                    <div style={{ fontFamily:st.ui, fontSize:9, fontWeight:700, color:st.muted, textTransform:"uppercase", letterSpacing:1, marginBottom:4 }}>Next →</div>
+                    <div style={{ fontSize:18, marginBottom:2 }}>{next.icon}</div>
+                    <div style={{ fontFamily:st.heading, fontSize:13, fontWeight:700, color:st.text, lineHeight:1.3 }}>{next.title}</div>
+                    <div style={{ fontFamily:st.ui, fontSize:10, color:next.color, fontWeight:600, marginTop:2 }}>{next.year_display}</div>
+                  </div>
+                ) : <div style={{ flex:1 }} />}
+              </div>
+            );
+          })()}
+
         </div>
       </div>
     );
