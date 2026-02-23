@@ -1652,7 +1652,7 @@ export default function StudyBible() {
             <div style={{ position:"relative", zIndex:1 }}>
               <div style={{ fontFamily:"'Times New Roman',serif", fontSize:42, color:ht2.headerText, direction:"rtl", marginBottom:10 }}>בְּרֵאשִׁית</div>
               <div style={{ fontFamily:ht2.body, fontSize:14, color:`${ht2.headerText}88`, fontStyle:"italic", marginBottom:4 }}>Understanding how Hebrew is built</div>
-              <div style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.accent, letterSpacing:"0.1em", textTransform:"uppercase" }}>5 Beginner Lessons</div>
+              <div style={{ fontFamily:ht2.ui, fontSize:11, color:ht2.accent, letterSpacing:"0.1em", textTransform:"uppercase" }}>{GRAMMAR_LESSONS.length} Lessons</div>
             </div>
           </div>
           {/* Beginner warning */}
@@ -1664,7 +1664,7 @@ export default function StudyBible() {
             </div>
           </div>
           {/* Lesson list */}
-          <Label icon="📝" t={ht2} color={ht2.muted}>Grammar Lessons — 5 Lessons</Label>
+          <Label icon="📝" t={ht2} color={ht2.muted}>Grammar Lessons — {GRAMMAR_LESSONS.length} Lessons</Label>
           <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
             {GRAMMAR_LESSONS.map((lesson, idx) => {
               const isDone = hebrewProgress[`grammar-${lesson.number}`]?.completed;
