@@ -2669,7 +2669,7 @@ export default function StudyBible() {
             <div style={{ position:"relative", zIndex:1 }}>
               <div style={{ fontSize:48, marginBottom:8 }}>{era.icon}</div>
               <div style={{ fontFamily:st.heading, fontSize:22, fontWeight:700, color:"#fff", marginBottom:4 }}>{era.title}</div>
-              <div style={{ fontFamily:st.ui, fontSize:13, color:era.color, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:10 }}>{era.year_display}</div>
+              <div style={{ fontFamily:st.ui, fontSize:13, color:"rgba(255,255,255,0.75)", fontWeight:700, textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:10 }}>{era.year_display}</div>
               <div style={{ fontFamily:st.body, fontSize:13, color:"rgba(255,255,255,0.75)", lineHeight:1.7, fontStyle:"italic", maxWidth:360, margin:"0 auto" }}>{era.subtitle}</div>
             </div>
           </div>
