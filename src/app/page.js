@@ -2620,6 +2620,34 @@ export default function StudyBible() {
 
   const TimelineBar = () => {
     if (!timelineEras.length) return null;
+    return (
+      <div style={{ overflowX:"auto", WebkitOverflowScrolling:"touch", margin:"0 -14px", padding:"0 14px" }}>
+        <div style={{ display:"flex", gap:8, paddingBottom:6, minWidth:"max-content" }}>
+          {timelineEras.map(era => (
+            <div
+              key={era.era_key}
+              onClick={() => { setTimelineSelectedEra(era); nav("timeline-era-detail"); }}
+              style={{
+                display:"flex", alignItems:"center", gap:6,
+                background:era.color, borderRadius:50,
+                padding:"7px 14px 7px 10px", cursor:"pointer",
+                boxShadow:`0 2px 8px ${era.color}55`,
+                flexShrink:0, transition:"transform 0.15s, box-shadow 0.15s",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform="scale(1.06)"; e.currentTarget.style.boxShadow=`0 4px 14px ${era.color}88`; }}
+              onMouseLeave={e => { e.currentTarget.style.transform="scale(1)"; e.currentTarget.style.boxShadow=`0 2px 8px ${era.color}55`; }}
+            >
+              <span style={{ fontSize:16, lineHeight:1 }}>{era.icon}</span>
+              <span style={{ fontFamily:st.ui, fontSize:11, fontWeight:800, color:"#fff", letterSpacing:0.2, whiteSpace:"nowrap" }}>
+                {era.title.split(" ").slice(0,2).join(" ")}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+    if (!timelineEras.length) return null;
     const valid = timelineEras.filter(e => e.year_from != null && e.year_to != null);
     const minY = Math.min(...valid.map(e => e.year_from));
     const maxY = Math.max(...valid.map(e => e.year_to));
@@ -3097,4 +3125,4 @@ export default function StudyBible() {
       )}
     </div>
   );
-}
+  
