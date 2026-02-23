@@ -171,6 +171,16 @@ export default function StudyBible() {
   const [vocabGroup, setVocabGroup] = useState(null);
   const [grammarLesson, setGrammarLesson] = useState(null);
   const [grammarLessonIds, setGrammarLessonIds] = useState({});
+
+  // ─── Timeline state ───
+  const [timelineEras, setTimelineEras] = useState([]);
+  const [timelineEvents, setTimelineEvents] = useState([]);
+  const [timelineSelectedEra, setTimelineSelectedEra] = useState(null);
+  const [timelineSelectedEvent, setTimelineSelectedEvent] = useState(null);
+  const [timelineLoading, setTimelineLoading] = useState(false);
+  const [timelineEventsLoading, setTimelineEventsLoading] = useState(false);
+  const [timelineExpandedEvent, setTimelineExpandedEvent] = useState(null);
+
   useEffect(() => {
     supabase.from("hebrew_lessons").select("id, lesson_number").eq("category","grammar").then(({data}) => {
       if (data) {
@@ -402,6 +412,24 @@ export default function StudyBible() {
 
   useEffect(() => { if (view === "hebrew-home") { loadHebrewLessons(hebrewCategory); loadHebrewProgress(); } }, [view, hebrewCategory, loadHebrewLessons, loadHebrewProgress]);
   useEffect(() => { if (view === "hebrew-lesson" && hebrewLesson?.id) loadHebrewLesson(hebrewLesson.id); }, [view]);
+
+  // ═══ TIMELINE LOADERS ═══
+  const loadTimelineEras = useCallback(async () => {
+    setTimelineLoading(true);
+    const { data } = await supabase.from("bible_timeline_eras").select("*").order("sort_order");
+    if (data) setTimelineEras(data);
+    setTimelineLoading(false);
+  }, []);
+
+  const loadTimelineEvents = useCallback(async (eraKey) => {
+    setTimelineEventsLoading(true);
+    const { data } = await supabase.from("bible_timeline_events").select("*").eq("era_key", eraKey).order("sort_order");
+    if (data) setTimelineEvents(data);
+    setTimelineEventsLoading(false);
+  }, []);
+
+  useEffect(() => { if (view === "timeline-home") loadTimelineEras(); }, [view, loadTimelineEras]);
+  useEffect(() => { if (view === "timeline-era" && timelineSelectedEra) loadTimelineEvents(timelineSelectedEra.era_key); }, [view, timelineSelectedEra, loadTimelineEvents]);
 
   // ═══ DB & NAVIGATION ═══
   useEffect(() => {
@@ -1470,7 +1498,7 @@ export default function StudyBible() {
     const modules = [
       { id:"hebrew", icon:"🕎", label:"Learn Hebrew", sub:"Biblical Hebrew · עִבְרִית", color:"#C06C3E", bg:"rgba(192,108,62,0.1)", active:true, action:() => nav("hebrew-home") },
       { id:"greek", icon:"🏛️", label:"Learn Greek", sub:"Biblical Greek · Ἑλληνική", color:"#1B7A6E", bg:"rgba(27,122,110,0.1)", active:false },
-      { id:"timeline", icon:"📜", label:"Biblical Timeline", sub:"From Creation to Revelation", color:"#D4A853", bg:"rgba(212,168,83,0.1)", active:false },
+      { id:"timeline", icon:"📜", label:"Biblical Timeline", sub:"From Creation to Revelation", color:"#E8625C", bg:"rgba(232,98,92,0.1)", active:true, action:() => nav("timeline-home") },
       { id:"apologetics", icon:"🛡️", label:"Apologetics", sub:"Defend & understand the faith", color:"#E8625C", bg:"rgba(232,98,92,0.1)", active:false },
       { id:"reading", icon:"📖", label:"Reading Plans", sub:"Guided Bible reading journeys", color:"#8B5CF6", bg:"rgba(139,92,246,0.1)", active:false },
     ];
@@ -2509,6 +2537,259 @@ export default function StudyBible() {
     );
   };
 
+  // ═══════════════════════════════════════════════════
+  // TIMELINE COMPONENTS
+  // ═══════════════════════════════════════════════════
+  const st = THEMES.sunrise;
+
+  const TimelineHome = () => {
+    const sections = [
+      { id:"timeline-era", icon:"📅", label:"Chronological Timeline", sub:"From Creation to the Early Church", color:"#E8625C", desc:"Explore all 14 biblical eras with key events, dates, and scripture." },
+      { id:"timeline-maps", icon:"🗺️", label:"Historical Maps", sub:"The world of the Bible", color:"#1B7A6E", desc:"Period maps — Exodus route, the twelve tribes, Paul's journeys, and more." },
+      { id:"timeline-books", icon:"📚", label:"Bible Book Timeline", sub:"When each book was written", color:"#D4A853", desc:"See the Bible as a library built over 1,500 years." },
+      { id:"timeline-archaeology", icon:"⛏️", label:"Archaeological Evidence", sub:"Faith confirmed in the ground", color:"#8B5CF6", desc:"Dead Sea Scrolls, Tel Dan inscription, Hezekiah's Tunnel, and more." },
+    ];
+    return (
+      <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
+        <Header title="Bible Timeline" subtitle="From Creation to Revelation" onBack={() => nav("learn-home")} theme={st} />
+        <div style={{ padding:"20px 20px 40px", maxWidth:520, margin:"0 auto" }}>
+
+          {/* Hero */}
+          <div style={{ background:st.headerGradient, borderRadius:20, padding:"32px 20px", marginBottom:24, textAlign:"center", position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 20%,rgba(232,98,92,0.25),transparent 65%)" }}/>
+            <div style={{ position:"relative", zIndex:1 }}>
+              <div style={{ fontSize:52, marginBottom:12 }}>📜</div>
+              <div style={{ fontFamily:st.heading, fontSize:26, fontWeight:700, color:st.headerText, marginBottom:6, lineHeight:1.2 }}>Biblical History</div>
+              <div style={{ fontFamily:st.body, fontSize:13.5, color:`${st.headerText}88`, fontStyle:"italic", lineHeight:1.6, marginBottom:12 }}>
+                6,000 years of redemptive history — from the first word of Genesis to the last verse of Revelation
+              </div>
+              <div style={{ display:"flex", justifyContent:"center", gap:16, flexWrap:"wrap" }}>
+                {[["14","Eras"],["100+","Events"],["9","Maps"],["20+","Discoveries"]].map(([num,lbl]) => (
+                  <div key={lbl} style={{ textAlign:"center" }}>
+                    <div style={{ fontFamily:st.heading, fontSize:22, fontWeight:800, color:st.accent }}>{num}</div>
+                    <div style={{ fontFamily:st.ui, fontSize:10, color:`${st.headerText}70`, textTransform:"uppercase", letterSpacing:"0.08em" }}>{lbl}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Era colour strip teaser */}
+          <div style={{ display:"flex", borderRadius:10, overflow:"hidden", marginBottom:22, height:10 }}>
+            {[["#1B7A6E",2],["#5A7A3E",2],["#D4A853",2],["#C06C3E",2],["#8B5CF6",2],["#6B8A5A",2],["#B8860B",2],["#E8625C",2],["#C06C3E",1],["#2A4A6B",1],["#6BAE75",1],["#7A6B8A",1],["#D4A853",2],["#E8625C",2]].map(([color, weight], i) => (
+              <div key={i} style={{ flex:weight, background:color }}/>
+            ))}
+          </div>
+
+          {/* Section cards */}
+          <Label icon="🗓️" t={st} color={st.muted}>Explore</Label>
+          <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
+            {sections.map(s => (
+              <button key={s.id}
+                onClick={() => s.id === "timeline-era" ? nav("timeline-era") : null}
+                style={{ width:"100%", background:st.card, border:`1px solid ${st.divider}`, borderRadius:16, padding:"18px 16px", cursor:s.id==="timeline-era"?"pointer":"default", textAlign:"left", display:"flex", alignItems:"center", gap:14, boxShadow:"0 2px 8px rgba(0,0,0,0.05)", borderLeft:`4px solid ${s.color}`, opacity:s.id==="timeline-era"?1:0.6, transition:"all 0.15s" }}>
+                <div style={{ width:52, height:52, borderRadius:14, background:`${s.color}18`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:26, flexShrink:0 }}>{s.icon}</div>
+                <div style={{ flex:1 }}>
+                  <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:3 }}>
+                    <div style={{ fontFamily:st.heading, fontSize:16, fontWeight:700, color:st.dark }}>{s.label}</div>
+                    {s.id !== "timeline-era" && <span style={{ fontFamily:st.ui, fontSize:9, color:st.light, background:st.divider, borderRadius:4, padding:"2px 6px", fontWeight:700, textTransform:"uppercase" }}>Soon</span>}
+                  </div>
+                  <div style={{ fontFamily:st.ui, fontSize:12, color:st.muted, marginBottom:4 }}>{s.sub}</div>
+                  <div style={{ fontFamily:st.body, fontSize:12, color:st.light, lineHeight:1.5, fontStyle:"italic" }}>{s.desc}</div>
+                </div>
+                {s.id === "timeline-era" && <div style={{ color:st.light, flexShrink:0 }}><ChevIcon /></div>}
+              </button>
+            ))}
+          </div>
+
+          {/* Featured verse */}
+          <div style={{ marginTop:24, background:st.headerGradient, borderRadius:16, padding:"22px 20px", position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 80% 50%,rgba(232,98,92,0.15),transparent 60%)" }}/>
+            <div style={{ position:"relative", zIndex:1 }}>
+              <div style={{ fontFamily:st.body, fontSize:15, color:st.headerText, fontStyle:"italic", lineHeight:1.8, marginBottom:8 }}>
+                "Known unto God are all his works from the beginning of the world."
+              </div>
+              <div style={{ fontFamily:st.ui, fontSize:11, color:st.accent, fontWeight:700, letterSpacing:"0.05em" }}>Acts 15:18</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    );
+  };
+
+  const TimelineEras = () => {
+    return (
+      <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
+        <Header title="Biblical Eras" subtitle="14 periods of redemptive history" onBack={() => nav("timeline-home")} theme={st} />
+        <div style={{ padding:"16px 16px 40px", maxWidth:520, margin:"0 auto" }}>
+
+          {/* Era colour strip */}
+          <div style={{ display:"flex", borderRadius:10, overflow:"hidden", marginBottom:18, height:8 }}>
+            {timelineEras.map((era, i) => (
+              <div key={i} style={{ flex:1, background:era.color, cursor:"pointer" }}
+                onClick={() => { setTimelineSelectedEra(era); setTimelineExpandedEvent(null); nav("timeline-era-detail"); }}/>
+            ))}
+          </div>
+
+          {timelineLoading ? <Spinner t={st} /> : (
+            <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
+              {timelineEras.map(era => (
+                <button key={era.era_key}
+                  onClick={() => { setTimelineSelectedEra(era); setTimelineExpandedEvent(null); nav("timeline-era-detail"); }}
+                  style={{ width:"100%", background:st.card, border:`1px solid ${st.divider}`, borderRadius:16, padding:"16px", cursor:"pointer", textAlign:"left", display:"flex", alignItems:"center", gap:14, boxShadow:"0 1px 4px rgba(0,0,0,0.04)", borderLeft:`4px solid ${era.color}`, transition:"all 0.15s" }}>
+                  <div style={{ width:50, height:50, borderRadius:13, background:`${era.color}22`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:24, flexShrink:0 }}>{era.icon}</div>
+                  <div style={{ flex:1, minWidth:0 }}>
+                    <div style={{ fontFamily:st.heading, fontSize:16, fontWeight:700, color:st.dark, marginBottom:2 }}>{era.title}</div>
+                    <div style={{ fontFamily:st.ui, fontSize:11, color:era.color, fontWeight:700, marginBottom:3, textTransform:"uppercase", letterSpacing:"0.04em" }}>{era.year_display}</div>
+                    <div style={{ fontFamily:st.body, fontSize:12.5, color:st.muted, lineHeight:1.5, fontStyle:"italic" }}>{era.subtitle}</div>
+                  </div>
+                  <div style={{ color:st.light, flexShrink:0 }}><ChevIcon /></div>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  const TimelineEraDetail = () => {
+    if (!timelineSelectedEra) return null;
+    const era = timelineSelectedEra;
+    const allEvents = timelineEvents;
+    return (
+      <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
+        <Header title={era.title} subtitle={era.year_display} onBack={() => nav("timeline-era")} theme={st} />
+        <div style={{ padding:"0 0 40px", maxWidth:520, margin:"0 auto" }}>
+
+          {/* Era hero banner */}
+          <div style={{ background:`linear-gradient(165deg, #2D1B4E 0%, ${era.color}99 100%)`, padding:"28px 20px", textAlign:"center", position:"relative", overflow:"hidden" }}>
+            <div style={{ position:"absolute", inset:0, background:`radial-gradient(ellipse at 50% 30%, ${era.color}44, transparent 65%)` }}/>
+            <div style={{ position:"relative", zIndex:1 }}>
+              <div style={{ fontSize:48, marginBottom:8 }}>{era.icon}</div>
+              <div style={{ fontFamily:st.heading, fontSize:22, fontWeight:700, color:"#fff", marginBottom:4 }}>{era.title}</div>
+              <div style={{ fontFamily:st.ui, fontSize:13, color:era.color, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:10 }}>{era.year_display}</div>
+              <div style={{ fontFamily:st.body, fontSize:13, color:"rgba(255,255,255,0.75)", lineHeight:1.7, fontStyle:"italic", maxWidth:360, margin:"0 auto" }}>{era.subtitle}</div>
+            </div>
+          </div>
+
+          <div style={{ padding:"16px 16px 0" }}>
+
+            {/* Key verse */}
+            {era.key_verse && (
+              <div style={{ background:`${era.color}11`, border:`1px solid ${era.color}44`, borderRadius:14, padding:"16px 18px", marginBottom:16, borderLeft:`3px solid ${era.color}` }}>
+                <div style={{ fontFamily:st.body, fontSize:14, color:st.text, fontStyle:"italic", lineHeight:1.7, marginBottom:6 }}>"{era.key_verse}"</div>
+                <div style={{ fontFamily:st.ui, fontSize:11, color:era.color, fontWeight:700 }}>{era.key_verse_ref}</div>
+              </div>
+            )}
+
+            {/* Description */}
+            <div style={{ background:st.card, borderRadius:14, padding:"16px 18px", border:`1px solid ${st.divider}`, marginBottom:16 }}>
+              <Label icon="📋" t={st}>Overview</Label>
+              <div style={{ fontFamily:st.body, fontSize:14, color:st.text, lineHeight:1.8 }}>{era.description}</div>
+            </div>
+
+            {/* Key figures */}
+            {era.key_figures?.length > 0 && (
+              <div style={{ marginBottom:16 }}>
+                <Label icon="👤" t={st} color={st.muted}>Key Figures</Label>
+                <div style={{ display:"flex", flexWrap:"wrap", gap:8 }}>
+                  {era.key_figures.map(f => (
+                    <span key={f} style={{ background:`${era.color}18`, color:era.color, fontFamily:st.ui, fontSize:12, fontWeight:700, padding:"5px 12px", borderRadius:20, border:`1px solid ${era.color}33` }}>{f}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Key books */}
+            {era.key_books?.length > 0 && (
+              <div style={{ marginBottom:18 }}>
+                <Label icon="📖" t={st} color={st.muted}>Key Books</Label>
+                <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
+                  {era.key_books.map(b => (
+                    <span key={b} style={{ background:st.accentLight, color:st.accent, fontFamily:st.ui, fontSize:11, fontWeight:600, padding:"4px 10px", borderRadius:6, border:`1px solid ${st.accentBorder}` }}>{b}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Events */}
+            <Label icon="📅" t={st} color={st.muted}>Events in This Era</Label>
+            {timelineEventsLoading ? <Spinner t={st} /> : (
+              <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
+                {allEvents.map(event => {
+                  const isExpanded = timelineExpandedEvent === event.id;
+                  return (
+                    <div key={event.id} style={{ background:st.card, borderRadius:14, border:`1px solid ${isExpanded ? era.color+'66' : st.divider}`, overflow:"hidden", boxShadow:isExpanded?`0 2px 12px ${era.color}22`:"0 1px 3px rgba(0,0,0,0.04)", transition:"all 0.2s" }}>
+
+                      {/* Event header — always visible */}
+                      <button onClick={() => setTimelineExpandedEvent(isExpanded ? null : event.id)}
+                        style={{ width:"100%", background:"transparent", border:"none", padding:"14px 16px", cursor:"pointer", textAlign:"left", display:"flex", alignItems:"flex-start", gap:12 }}>
+                        <div style={{ width:40, height:40, borderRadius:10, background:`${era.color}18`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:20, flexShrink:0, marginTop:2 }}>{event.icon}</div>
+                        <div style={{ flex:1, minWidth:0 }}>
+                          <div style={{ display:"flex", alignItems:"center", gap:6, flexWrap:"wrap", marginBottom:3 }}>
+                            <div style={{ fontFamily:st.heading, fontSize:15, fontWeight:700, color:st.dark }}>{event.title}</div>
+                            {event.is_featured && <span style={{ fontFamily:st.ui, fontSize:8, fontWeight:800, color:"#fff", background:era.color, borderRadius:4, padding:"2px 6px", textTransform:"uppercase", letterSpacing:"0.05em" }}>★ Key Event</span>}
+                          </div>
+                          {event.subtitle && <div style={{ fontFamily:st.body, fontSize:12, color:st.muted, fontStyle:"italic", marginBottom:3 }}>{event.subtitle}</div>}
+                          <div style={{ fontFamily:st.ui, fontSize:11, color:era.color, fontWeight:700 }}>{event.year_display}</div>
+                        </div>
+                        <div style={{ color:isExpanded?era.color:st.light, flexShrink:0, transform:isExpanded?"rotate(90deg)":"rotate(0deg)", transition:"transform 0.2s", marginTop:4 }}><ChevIcon /></div>
+                      </button>
+
+                      {/* Expanded content */}
+                      {isExpanded && (
+                        <div style={{ padding:"0 16px 16px", borderTop:`1px solid ${era.color}22` }}>
+
+                          {event.scripture_primary && (
+                            <div style={{ background:`${era.color}0D`, borderRadius:10, padding:"12px 14px", marginBottom:12, marginTop:12, borderLeft:`3px solid ${era.color}` }}>
+                              <div style={{ fontFamily:st.ui, fontSize:10, fontWeight:700, color:era.color, textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:4 }}>📖 Scripture</div>
+                              <div style={{ fontFamily:st.heading, fontSize:14, fontWeight:700, color:st.dark }}>{event.scripture_primary}</div>
+                            </div>
+                          )}
+
+                          {event.description && (
+                            <div style={{ fontFamily:st.body, fontSize:14, color:st.text, lineHeight:1.8, marginBottom:12 }}>{event.description}</div>
+                          )}
+
+                          {event.historical_context && (
+                            <div style={{ background:st.accentLight, borderRadius:10, padding:"12px 14px", marginBottom:10, border:`1px solid ${st.accentBorder}` }}>
+                              <div style={{ fontFamily:st.ui, fontSize:10, fontWeight:700, color:st.accent, textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:5 }}>🏛️ Historical Context</div>
+                              <div style={{ fontFamily:st.body, fontSize:13, color:st.text, lineHeight:1.7 }}>{event.historical_context}</div>
+                            </div>
+                          )}
+
+                          {event.archaeological_note && (
+                            <div style={{ background:"rgba(27,122,110,0.06)", borderRadius:10, padding:"12px 14px", marginBottom:10, border:"1px solid rgba(27,122,110,0.15)" }}>
+                              <div style={{ fontFamily:st.ui, fontSize:10, fontWeight:700, color:"#1B7A6E", textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:5 }}>⛏️ Archaeological Note</div>
+                              <div style={{ fontFamily:st.body, fontSize:13, color:st.text, lineHeight:1.7 }}>{event.archaeological_note}</div>
+                            </div>
+                          )}
+
+                          {event.significance && (
+                            <div style={{ background:"rgba(212,168,83,0.08)", borderRadius:10, padding:"12px 14px", border:"1px solid rgba(212,168,83,0.2)" }}>
+                              <div style={{ fontFamily:st.ui, fontSize:10, fontWeight:700, color:"#B8860B", textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:5 }}>✨ Why This Matters</div>
+                              <div style={{ fontFamily:st.body, fontSize:13, color:st.text, lineHeight:1.7 }}>{event.significance}</div>
+                            </div>
+                          )}
+
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+                {allEvents.length === 0 && !timelineEventsLoading && (
+                  <div style={{ textAlign:"center", padding:30, fontFamily:st.body, fontSize:14, color:st.muted, fontStyle:"italic" }}>Events coming soon for this era.</div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // ═══ BOTTOM NAV ═══
   const showNav = !["verse","verses","hebrew-lesson","hebrew-practice"].includes(view);
   const navItems = [
@@ -2538,6 +2819,9 @@ export default function StudyBible() {
       {view === "hebrew-practice" && HebrewPractice()}
       {view === "hebrew-reading-home" && HebrewReadingHome()}
       {view === "hebrew-reading" && HebrewReading()}
+      {view === "timeline-home" && TimelineHome()}
+      {view === "timeline-era" && TimelineEras()}
+      {view === "timeline-era-detail" && TimelineEraDetail()}
 
       {/* BOTTOM NAV */}
       {showNav && (
@@ -2547,7 +2831,7 @@ export default function StudyBible() {
               const isActive =
                   (item.id === "home" && view === "home") ||
                   (item.id === "bible" && ["books","chapter","verses","verse"].includes(view)) ||
-                  (item.id === "learn" && ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson"].includes(view)) ||
+                  (item.id === "learn" && ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson","timeline-home","timeline-era","timeline-era-detail"].includes(view)) ||
                   (item.id === "journal" && ["journal-home","highlights"].includes(view)) ||
                   (item.id === "account" && view === "account");
               return (
