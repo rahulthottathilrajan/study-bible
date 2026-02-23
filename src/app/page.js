@@ -170,6 +170,7 @@ export default function StudyBible() {
   const [readingVerse, setReadingVerse] = useState('gen1v1');
   const [vocabGroup, setVocabGroup] = useState(null);
   const [grammarLesson, setGrammarLesson] = useState(null);
+  const [grammarLessonIds, setGrammarLessonIds] = useState({});
   
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
@@ -1613,6 +1614,15 @@ export default function StudyBible() {
 
   const HebrewGrammarHome = () => {
     const ht2 = THEMES.garden;
+    useEffect(() => {
+      supabase.from("hebrew_lessons").select("id, lesson_number").eq("category","grammar").then(({data}) => {
+        if (data) {
+          const map = {};
+          data.forEach(l => { map[l.lesson_number] = l.id; });
+          setGrammarLessonIds(map);
+        }
+      });
+    }, []);
     const GRAMMAR_LESSONS = [
       { id:1, number:201, icon:"הַ", title:"The Definite Article", subtitle:"How Hebrew says 'the'", difficulty:"Beginner", color:"#C06C3E" },
       { id:2, number:202, icon:"וְ", title:"The Vav Conjunction", subtitle:"And, but, then — the connecting letter", difficulty:"Beginner", color:"#2E4A33" },
@@ -1667,7 +1677,7 @@ export default function StudyBible() {
           <Label icon="📝" t={ht2} color={ht2.muted}>Grammar Lessons — {GRAMMAR_LESSONS.length} Lessons</Label>
           <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
             {GRAMMAR_LESSONS.map((lesson, idx) => {
-              const isDone = hebrewProgress[`grammar-${lesson.number}`]?.completed;
+              const isDone = hebrewProgress[grammarLessonIds[lesson.number]]?.completed;
               return (
                 <button key={lesson.id} onClick={async () => {
                   const { data } = await supabase.from("hebrew_lessons").select("*").eq("lesson_number", lesson.number).single();
