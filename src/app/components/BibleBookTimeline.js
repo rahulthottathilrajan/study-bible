@@ -40,14 +40,16 @@ const YEAR_MIN  = -2000;
 const YEAR_MAX  =   100;
 const YEAR_SPAN = YEAR_MAX - YEAR_MIN;  // 2100
 const NAME_W    = 88;                   // sticky name column width
-const TL_W      = 1100;                 // scrollable timeline width
-const ROW_H     = 34;                   // px per book row
+const TL_W      = 1200;                 // scrollable timeline width
+const PAD_L     = 32;                   // left breathing room so 2000 BC label is never clipped
+const ROW_H     = 36;                   // px per book row — slightly taller for visual weight
 const AXIS_H    = 56;                   // axis row height
 const SEP_H     = 26;                   // OT/NT separator height
-const MIN_BAR   = 20;                   // minimum bar width
+const MIN_BAR   = 22;                   // minimum tap-able bar width
 const SCALE     = TL_W / YEAR_SPAN;
 
-const toX = year => (year - YEAR_MIN) * SCALE;
+// PAD_L shifts every bar & label right so the 2000 BC tick clears the name column
+const toX = year => PAD_L + (year - YEAR_MIN) * SCALE;
 const toW = (from, to) => Math.max(MIN_BAR, (to - from) * SCALE);
 
 // ─── AXIS TICKS ──────────────────────────────────────────────────────────────
@@ -178,7 +180,7 @@ export default function BibleBookTimeline({ nav }) {
   );
 
   // ── LAYOUT ────────────────────────────────────────────────────────────────
-  const totalW = NAME_W + TL_W + 16;
+  const totalW = NAME_W + PAD_L + TL_W + 16;
 
   const rows = [];
   filtered.forEach((book, idx) => {
@@ -417,7 +419,9 @@ export default function BibleBookTimeline({ nav }) {
 
               // Show book name inside bar if bar is wide enough
               const barW = toW(book.year_from, book.year_to);
-              const showLabel = barW >= 52;
+              const showLabel = barW >= 44;
+              // Subtle gradient: solid colour → 80% opacity at right edge
+              const barBg = `linear-gradient(90deg, ${book.color} 0%, ${book.color}CC 100%)`;
 
               return (
                 <div key={book.id} style={{
@@ -464,20 +468,19 @@ export default function BibleBookTimeline({ nav }) {
                       style={{
                         position:"absolute",
                         left:   NAME_W + toX(book.year_from),
-                        top:    7,
+                        top:    6,
                         width:  barW,
-                        height: ROW_H - 14,
-                        background: book.color,
-                        borderRadius: 5,
-                        opacity: isSelected ? 1 : 0.72,
+                        height: ROW_H - 12,
+                        background: isSelected ? book.color : barBg,
+                        borderRadius: 6,
+                        opacity: isSelected ? 1 : 0.78,
                         boxShadow: isSelected
-                          ? `0 2px 12px ${book.color}70, 0 0 0 2px ${book.color}55`
-                          : "none",
+                          ? `0 2px 14px ${book.color}70, 0 0 0 2px ${book.color}55`
+                          : `0 1px 4px ${book.color}40`,
                         zIndex: isSelected ? 5 : 2,
                         animationDelay: delay,
-                        // Label inside bar
                         display:"flex", alignItems:"center",
-                        paddingLeft: showLabel ? 6 : 0,
+                        paddingLeft: showLabel ? 7 : 0,
                         overflow:"hidden",
                         boxSizing:"border-box",
                       }}
@@ -485,10 +488,10 @@ export default function BibleBookTimeline({ nav }) {
                       {showLabel && (
                         <span style={{
                           fontFamily:st.ui, fontSize:8, fontWeight:800,
-                          color:"rgba(255,255,255,0.90)",
+                          color:"rgba(255,255,255,0.92)",
                           whiteSpace:"nowrap", overflow:"hidden",
                           textOverflow:"ellipsis", pointerEvents:"none",
-                          letterSpacing:"0.02em",
+                          letterSpacing:"0.02em", textShadow:"0 1px 2px rgba(0,0,0,0.2)",
                         }}>
                           {book.book_name}
                         </span>
@@ -502,6 +505,38 @@ export default function BibleBookTimeline({ nav }) {
             <div style={{ height:12 }} />
           </div>
         </div>
+
+        {/* ══ JUMP BUTTONS ════════════════════════════════════════════════
+            Floating pills to snap the horizontal scroll to key positions.
+        ══════════════════════════════════════════════════════════════════ */}
+        {activeTesta === "All" && (
+          <div style={{ display:"flex", gap:8, padding:"10px 16px 0" }}>
+            <button
+              onClick={() => bodyRef.current?.scrollTo({ left: 0, behavior:"smooth" })}
+              style={{
+                fontFamily:st.ui, fontSize:11, fontWeight:700,
+                padding:"6px 14px", borderRadius:16, border:`1px solid ${st.divider}`,
+                background:st.card, color:st.muted, cursor:"pointer", flexShrink:0,
+              }}>
+              ← 2000 BC
+            </button>
+            <button
+              onClick={() => {
+                // Scroll to show the AD 1 line centred
+                const adX = NAME_W + toX(0);
+                const viewW = bodyRef.current?.clientWidth || 320;
+                bodyRef.current?.scrollTo({ left: Math.max(0, adX - viewW / 2), behavior:"smooth" });
+              }}
+              style={{
+                fontFamily:st.ui, fontSize:11, fontWeight:700,
+                padding:"6px 14px", borderRadius:16, border:`1px solid #1B7A6E44`,
+                background:"rgba(27,122,110,0.08)", color:"#1B7A6E",
+                cursor:"pointer", flexShrink:0,
+              }}>
+              ✝ Jump to NT →
+            </button>
+          </div>
+        )}
 
         {/* ══ DETAIL PANEL ════════════════════════════════════════════════ */}
         <div ref={panelRef}>
