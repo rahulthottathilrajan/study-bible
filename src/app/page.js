@@ -2639,7 +2639,10 @@ export default function StudyBible() {
             >
               <span style={{ fontSize:16, lineHeight:1 }}>{era.icon}</span>
               <span style={{ fontFamily:st.ui, fontSize:11, fontWeight:800, color:"#fff", letterSpacing:0.2, whiteSpace:"nowrap" }}>
-                {era.title.split(" ").slice(0,2).join(" ")}
+                {era.title}
+              </span>
+              <span style={{ fontFamily:st.ui, fontSize:9, fontWeight:500, color:"rgba(255,255,255,0.75)", whiteSpace:"nowrap" }}>
+                {era.year_display}
               </span>
             </div>
           ))}
