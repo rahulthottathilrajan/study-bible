@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../lib/supabase";
+import TimelineMaps from "./components/TimelineMaps";
 
 // ═══════════════════════════════════════════════════
 // THEME SYSTEM
@@ -2981,6 +2982,7 @@ export default function StudyBible() {
       {view === "hebrew-reading-home" && HebrewReadingHome()}
       {view === "hebrew-reading" && HebrewReading()}
       {view === "timeline-home" && TimelineHome()}
+      {view === "timeline-maps" && <TimelineMaps nav={nav} />}
       {view === "timeline-era" && TimelineEras()}
       {view === "timeline-era-detail" && TimelineEraDetail()}
 
