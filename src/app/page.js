@@ -180,6 +180,9 @@ export default function StudyBible() {
   const [timelineLoading, setTimelineLoading] = useState(false);
   const [timelineEventsLoading, setTimelineEventsLoading] = useState(false);
   const [timelineExpandedEvent, setTimelineExpandedEvent] = useState(null);
+  const [timelineSearchQuery, setTimelineSearchQuery] = useState("");
+  const [timelineAllEvents, setTimelineAllEvents] = useState([]);
+  const [timelineSearchActive, setTimelineSearchActive] = useState(false);
 
   useEffect(() => {
     supabase.from("hebrew_lessons").select("id, lesson_number").eq("category","grammar").then(({data}) => {
@@ -420,6 +423,12 @@ export default function StudyBible() {
     if (data) setTimelineEras(data);
     setTimelineLoading(false);
   }, []);
+
+  const loadAllTimelineEvents = useCallback(async () => {
+    if (timelineAllEvents.length > 0) return;
+    const { data } = await supabase.from("bible_timeline_events").select("*").order("sort_order");
+    if (data) setTimelineAllEvents(data);
+  }, [timelineAllEvents.length]);
 
   const loadTimelineEvents = useCallback(async (eraKey) => {
     setTimelineEventsLoading(true);
@@ -2657,6 +2666,69 @@ export default function StudyBible() {
         <Header title="Biblical Eras" subtitle="14 periods of redemptive history" onBack={() => nav("timeline-home")} theme={st} />
         <div style={{ padding:"16px 16px 40px", maxWidth:520, margin:"0 auto" }}>
 
+          {/* Search bar */}
+          <div style={{ position:"relative", marginBottom:16 }}>
+            <input
+              value={timelineSearchQuery}
+              onChange={e => {
+                setTimelineSearchQuery(e.target.value);
+                if (e.target.value.length > 0 && !timelineSearchActive) {
+                  setTimelineSearchActive(true);
+                  loadAllTimelineEvents();
+                }
+                if (e.target.value.length === 0) setTimelineSearchActive(false);
+              }}
+              placeholder="🔍 Search events, figures, books..."
+              style={{ width:"100%", padding:"12px 16px", borderRadius:12, border:`1.5px solid ${timelineSearchActive ? st.accent : st.divider}`, fontFamily:st.ui, fontSize:14, color:st.text, outline:"none", background:st.card, boxSizing:"border-box", transition:"border 0.2s" }}
+            />
+            {timelineSearchQuery.length > 0 && (
+              <button onClick={() => { setTimelineSearchQuery(""); setTimelineSearchActive(false); }}
+                style={{ position:"absolute", right:12, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", cursor:"pointer", color:st.muted, fontSize:16 }}>✕</button>
+            )}
+          </div>
+
+          {/* Search results */}
+          {timelineSearchActive && timelineSearchQuery.length > 0 && (() => {
+            const q = timelineSearchQuery.toLowerCase();
+            const results = timelineAllEvents.filter(ev =>
+              ev.title?.toLowerCase().includes(q) ||
+              ev.subtitle?.toLowerCase().includes(q) ||
+              ev.description?.toLowerCase().includes(q) ||
+              ev.scripture_primary?.toLowerCase().includes(q) ||
+              ev.significance?.toLowerCase().includes(q) ||
+              ev.historical_context?.toLowerCase().includes(q)
+            );
+            const eraMap = {};
+            timelineEras.forEach(e => { eraMap[e.era_key] = e; });
+            return (
+              <div style={{ marginBottom:18 }}>
+                <div style={{ fontFamily:st.ui, fontSize:11, fontWeight:700, color:st.muted, textTransform:"uppercase", letterSpacing:1, marginBottom:10 }}>
+                  {results.length} result{results.length !== 1 ? "s" : ""} for "{timelineSearchQuery}"
+                </div>
+                {results.length === 0 ? (
+                  <div style={{ textAlign:"center", padding:"24px 16px", background:st.card, borderRadius:14, border:`1px solid ${st.divider}`, fontFamily:st.body, fontSize:14, color:st.muted, fontStyle:"italic" }}>
+                    No events found. Try a different word.
+                  </div>
+                ) : results.map(ev => {
+                  const era = eraMap[ev.era_key];
+                  return (
+                    <div key={ev.id}
+                      onClick={() => { if (era) { setTimelineSelectedEra(era); setTimelineExpandedEvent(ev.id); setTimelineSearchQuery(""); setTimelineSearchActive(false); loadTimelineEvents(era.era_key); nav("timeline-era-detail"); } }}
+                      style={{ background:st.card, borderRadius:12, padding:"14px 16px", marginBottom:8, border:`1px solid ${era?.color}33`, borderLeft:`4px solid ${era?.color || st.accent}`, cursor:"pointer", transition:"all 0.15s" }}>
+                      <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4, flexWrap:"wrap" }}>
+                        <span style={{ fontSize:18 }}>{ev.icon}</span>
+                        <span style={{ fontFamily:st.heading, fontSize:14, fontWeight:700, color:st.dark }}>{ev.title}</span>
+                        {ev.is_featured && <span style={{ fontFamily:st.ui, fontSize:8, fontWeight:800, color:"#fff", background:era?.color, borderRadius:4, padding:"2px 6px" }}>★ Key</span>}
+                      </div>
+                      <div style={{ fontFamily:st.ui, fontSize:10, color:era?.color, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.04em", marginBottom:3 }}>{era?.title} · {ev.year_display}</div>
+                      {ev.description && <div style={{ fontFamily:st.body, fontSize:12.5, color:st.muted, fontStyle:"italic", lineHeight:1.5, display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" }}>{ev.description}</div>}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })()}
+
           {/* Era colour strip */}
           <div style={{ display:"flex", borderRadius:10, overflow:"hidden", marginBottom:18, height:8 }}>
             {timelineEras.map((era, i) => (
@@ -2775,7 +2847,7 @@ export default function StudyBible() {
                 {allEvents.map(event => {
                   const isExpanded = timelineExpandedEvent === event.id;
                   return (
-                    <div key={event.id} style={{ background:st.card, borderRadius:14, border:`1px solid ${isExpanded ? era.color+'66' : st.divider}`, overflow:"hidden", boxShadow:isExpanded?`0 2px 12px ${era.color}22`:"0 1px 3px rgba(0,0,0,0.04)", transition:"all 0.2s" }}>
+                    <div key={event.id} style={{ background:event.is_featured ? `${era.color}09` : st.card, borderRadius:14, border:`1px solid ${isExpanded ? era.color+'66' : event.is_featured ? era.color+'44' : st.divider}`, overflow:"hidden", boxShadow:isExpanded?`0 2px 12px ${era.color}22`:event.is_featured?`0 2px 8px ${era.color}22`:"0 1px 3px rgba(0,0,0,0.04)", transition:"all 0.2s" }}>
 
                       {/* Event header — always visible */}
                       <button onClick={() => setTimelineExpandedEvent(isExpanded ? null : event.id)}
@@ -2784,7 +2856,7 @@ export default function StudyBible() {
                         <div style={{ flex:1, minWidth:0 }}>
                           <div style={{ display:"flex", alignItems:"center", gap:6, flexWrap:"wrap", marginBottom:3 }}>
                             <div style={{ fontFamily:st.heading, fontSize:15, fontWeight:700, color:st.dark }}>{event.title}</div>
-                            {event.is_featured && <span style={{ fontFamily:st.ui, fontSize:8, fontWeight:800, color:"#fff", background:era.color, borderRadius:4, padding:"2px 6px", textTransform:"uppercase", letterSpacing:"0.05em" }}>★ Key Event</span>}
+                            {event.is_featured && <span style={{ fontFamily:st.ui, fontSize:9, fontWeight:800, color:"#fff", background:`linear-gradient(135deg, ${era.color}, ${era.color}cc)`, borderRadius:6, padding:"3px 8px", textTransform:"uppercase", letterSpacing:"0.05em", boxShadow:`0 2px 6px ${era.color}55` }}>★ Key Event</span>}
                           </div>
                           {event.subtitle && <div style={{ fontFamily:st.body, fontSize:12, color:st.muted, fontStyle:"italic", marginBottom:3 }}>{event.subtitle}</div>}
                           <div style={{ fontFamily:st.ui, fontSize:11, color:era.color, fontWeight:700 }}>{event.year_display}</div>
