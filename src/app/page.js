@@ -3125,4 +3125,3 @@ export default function StudyBible() {
       )}
     </div>
   );
-  
