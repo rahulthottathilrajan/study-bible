@@ -2,48 +2,79 @@
 import { useState } from "react";
 import { st, ANIM_STYLE } from "./maps/shared";
 
-import ExodusMap,  { EXODUS_DETAILS  } from "./maps/ExodusMap";
-import TribesMap,  { TRIBES_DETAILS  } from "./maps/TribesMap";
-import PaulMap,    { PAUL_DETAILS    } from "./maps/PaulMap";
-import RomanMap,   { ROMAN_DETAILS   } from "./maps/RomanMap";
+import ExodusMap,          { EXODUS_DETAILS          } from "./maps/ExodusMap";
+import TribesMap,          { TRIBES_DETAILS          } from "./maps/TribesMap";
+import PaulMap,            { PAUL_DETAILS            } from "./maps/PaulMap";
+import RomanMap,           { ROMAN_DETAILS           } from "./maps/RomanMap";
+import EdenMap,            { EDEN_DETAILS            } from "./maps/EdenMap";
+import AbrahamMap,         { ABRAHAM_DETAILS         } from "./maps/AbrahamMap";
+import ConquestMap,        { CONQUEST_DETAILS        } from "./maps/ConquestMap";
+import DavidKingdomMap,    { DAVID_DETAILS           } from "./maps/DavidKingdomMap";
+import DividedKingdomMap,  { DIVIDED_DETAILS         } from "./maps/DividedKingdomMap";
+import AssyrianExileMap,   { ASSYRIAN_DETAILS        } from "./maps/AssyrianExileMap";
+import BabylonianExileMap, { BABYLONIAN_DETAILS      } from "./maps/BabylonianExileMap";
+import ReturnExileMap,     { RETURN_DETAILS          } from "./maps/ReturnExileMap";
+import JesusLifeMap,       { JESUS_DETAILS           } from "./maps/JesusLifeMap";
+import JerusalemMap,       { JERUSALEM_DETAILS       } from "./maps/JerusalemMap";
 
 // ─── ALL 15 MAPS CONFIG ───────────────────────────
 const MAPS = [
   // ── Old Testament ──────────────────────────────
-  { id:"eden",     icon:"🌿", title:"Garden of Eden & Early Civilisations", subtitle:"The cradle of humanity",               era:"c. 4000 BC",    color:"#5A7A3E", soon:true  },
-  { id:"abraham",  icon:"⭐", title:"Abraham's Journey",                    subtitle:"From Ur to the Promised Land",         era:"c. 2091 BC",    color:"#D4A853", soon:true  },
-  { id:"exodus",   icon:"🔥", title:"The Exodus Route",                     subtitle:"Moses leads Israel out of Egypt",      era:"c. 1446 BC",    color:"#C06C3E", soon:false },
-  { id:"conquest", icon:"⚔️", title:"Joshua's Conquest of Canaan",          subtitle:"Israel takes the Promised Land",       era:"c. 1406 BC",    color:"#8B5CF6", soon:true  },
-  { id:"tribes",   icon:"🗺️", title:"The 12 Tribes of Israel",              subtitle:"Division of the Promised Land",        era:"c. 1400 BC",    color:"#2E4A33", soon:false },
-  { id:"david",    icon:"👑", title:"The Kingdom of David & Solomon",       subtitle:"Israel at its greatest extent",        era:"c. 1010 BC",    color:"#B8860B", soon:true  },
-  { id:"divided",  icon:"⚡", title:"The Divided Kingdom",                  subtitle:"Israel (North) vs Judah (South)",      era:"c. 930 BC",     color:"#E8625C", soon:true  },
-  { id:"assyrian", icon:"🦁", title:"The Assyrian Exile",                   subtitle:"The northern tribes carried away",     era:"c. 722 BC",     color:"#6B8A5A", soon:true  },
-  { id:"babylon",  icon:"🏛️", title:"The Babylonian Exile",                 subtitle:"Fall of Jerusalem, exile routes",      era:"c. 586 BC",     color:"#2A4A6B", soon:true  },
-  { id:"return",   icon:"🕊️", title:"The Return from Exile",                subtitle:"Ezra & Nehemiah rebuild",              era:"c. 538 BC",     color:"#6BAE75", soon:true  },
+  { id:"eden",      icon:"🌿", title:"Garden of Eden & Early Civilisations", subtitle:"The cradle of humanity",               era:"c. 4000 BC",    color:"#5A7A3E", soon:false },
+  { id:"abraham",   icon:"⭐", title:"Abraham's Journey",                    subtitle:"From Ur to the Promised Land",         era:"c. 2091 BC",    color:"#D4A853", soon:false },
+  { id:"exodus",    icon:"🔥", title:"The Exodus Route",                     subtitle:"Moses leads Israel out of Egypt",      era:"c. 1446 BC",    color:"#C06C3E", soon:false },
+  { id:"conquest",  icon:"⚔️", title:"Joshua's Conquest of Canaan",          subtitle:"Israel takes the Promised Land",       era:"c. 1406 BC",    color:"#8B5CF6", soon:false },
+  { id:"tribes",    icon:"🗺️", title:"The 12 Tribes of Israel",              subtitle:"Division of the Promised Land",        era:"c. 1400 BC",    color:"#2E4A33", soon:false },
+  { id:"david",     icon:"👑", title:"The Kingdom of David & Solomon",       subtitle:"Israel at its greatest extent",        era:"c. 1010 BC",    color:"#B8860B", soon:false },
+  { id:"divided",   icon:"⚡", title:"The Divided Kingdom",                  subtitle:"Israel (North) vs Judah (South)",      era:"c. 930 BC",     color:"#E8625C", soon:false },
+  { id:"assyrian",  icon:"🦁", title:"The Assyrian Exile",                   subtitle:"The northern tribes carried away",     era:"c. 722 BC",     color:"#6B8A5A", soon:false },
+  { id:"babylon",   icon:"🏛️", title:"The Babylonian Exile",                 subtitle:"Fall of Jerusalem, exile routes",      era:"c. 586 BC",     color:"#2A4A6B", soon:false },
+  { id:"return",    icon:"🕊️", title:"The Return from Exile",                subtitle:"Ezra & Nehemiah rebuild",              era:"c. 538 BC",     color:"#6BAE75", soon:false },
   // ── New Testament ──────────────────────────────
-  { id:"jesus",    icon:"✝️", title:"The Life of Jesus",                    subtitle:"Bethlehem to Jerusalem",               era:"c. 4 BC–AD 33", color:"#D4A853", soon:true  },
-  { id:"jerusalem",icon:"🕍", title:"Jerusalem in Jesus' Day",              subtitle:"Temple, Golgotha, Gethsemane",         era:"c. AD 30",      color:"#C06C3E", soon:true  },
-  { id:"paul",     icon:"⛵", title:"Paul's Missionary Journeys",           subtitle:"Three journeys across the Roman world",era:"c. AD 46–57",   color:"#1B7A6E", soon:false },
-  { id:"roman",    icon:"🏟️", title:"The Roman Empire",                     subtitle:"The world at the time of Christ",      era:"c. AD 30",      color:"#8B5CF6", soon:false },
-  { id:"churches", icon:"📜", title:"The 7 Churches of Revelation",         subtitle:"Letters to Asia Minor",                era:"c. AD 95",      color:"#7A6B8A", soon:true  },
+  { id:"jesus",     icon:"✝️", title:"The Life of Jesus",                    subtitle:"Bethlehem to Jerusalem",               era:"c. 4 BC–AD 33", color:"#D4A853", soon:false },
+  { id:"jerusalem", icon:"🕍", title:"Jerusalem in Jesus' Day",              subtitle:"Temple, Golgotha, Gethsemane",         era:"c. AD 30",      color:"#C06C3E", soon:false },
+  { id:"paul",      icon:"⛵", title:"Paul's Missionary Journeys",           subtitle:"Three journeys across the Roman world",era:"c. AD 46–57",   color:"#1B7A6E", soon:false },
+  { id:"roman",     icon:"🏟️", title:"The Roman Empire",                     subtitle:"The world at the time of Christ",      era:"c. AD 30",      color:"#8B5CF6", soon:false },
+  { id:"churches",  icon:"📜", title:"The 7 Churches of Revelation",         subtitle:"Letters to Asia Minor",                era:"c. AD 95",      color:"#7A6B8A", soon:true  },
 ];
 
 // ─── DETAILS LOOKUP ───────────────────────────────
 const ALL_DETAILS = {
+  ...EDEN_DETAILS,
+  ...ABRAHAM_DETAILS,
   ...EXODUS_DETAILS,
+  ...CONQUEST_DETAILS,
   ...TRIBES_DETAILS,
+  ...DAVID_DETAILS,
+  ...DIVIDED_DETAILS,
+  ...ASSYRIAN_DETAILS,
+  ...BABYLONIAN_DETAILS,
+  ...RETURN_DETAILS,
+  ...JESUS_DETAILS,
+  ...JERUSALEM_DETAILS,
   ...PAUL_DETAILS,
   ...ROMAN_DETAILS,
 };
 
 // ─── MAP RENDERER ─────────────────────────────────
 function MapRenderer({ mapId, onSelectLocation, selectedLocation }) {
+  const props = { onSelectLocation, selectedLocation };
   switch (mapId) {
-    case "exodus": return <ExodusMap onSelectLocation={onSelectLocation} selectedLocation={selectedLocation} />;
-    case "tribes": return <TribesMap onSelectLocation={onSelectLocation} selectedLocation={selectedLocation} />;
-    case "paul":   return <PaulMap   onSelectLocation={onSelectLocation} selectedLocation={selectedLocation} />;
-    case "roman":  return <RomanMap  onSelectLocation={onSelectLocation} selectedLocation={selectedLocation} />;
-    default:       return null;
+    case "eden":      return <EdenMap            {...props} />;
+    case "abraham":   return <AbrahamMap         {...props} />;
+    case "exodus":    return <ExodusMap          {...props} />;
+    case "conquest":  return <ConquestMap        {...props} />;
+    case "tribes":    return <TribesMap          {...props} />;
+    case "david":     return <DavidKingdomMap    {...props} />;
+    case "divided":   return <DividedKingdomMap  {...props} />;
+    case "assyrian":  return <AssyrianExileMap   {...props} />;
+    case "babylon":   return <BabylonianExileMap {...props} />;
+    case "return":    return <ReturnExileMap     {...props} />;
+    case "jesus":     return <JesusLifeMap       {...props} />;
+    case "jerusalem": return <JerusalemMap       {...props} />;
+    case "paul":      return <PaulMap            {...props} />;
+    case "roman":     return <RomanMap           {...props} />;
+    default:          return null;
   }
 }
 
@@ -88,8 +119,10 @@ export default function TimelineMaps({ nav }) {
   };
 
   const locationDetail = selectedLocation ? ALL_DETAILS[selectedLocation.id] : null;
-  const otMaps = MAPS.slice(0, 10);
-  const ntMaps = MAPS.slice(10);
+  const otMaps   = MAPS.slice(0, 10);
+  const ntMaps   = MAPS.slice(10);
+  const liveMaps = MAPS.filter(m => !m.soon).length;
+  const soonMaps = MAPS.filter(m =>  m.soon).length;
 
   // ════════════════════════════════════════════
   // GALLERY VIEW
@@ -124,7 +157,7 @@ export default function TimelineMaps({ nav }) {
                 15 maps spanning 6,000 years of biblical history — from Eden to the seven churches of Revelation
               </div>
               <div style={{ display:"flex", justifyContent:"center", gap:20, marginTop:14 }}>
-                {[["15","Maps"],["4","Live"],["11","Coming"]].map(([n,l]) => (
+                {[["15","Maps"],[String(liveMaps),"Live"],[String(soonMaps),"Coming"]].map(([n,l]) => (
                   <div key={l} style={{ textAlign:"center" }}>
                     <div style={{ fontFamily:st.heading, fontSize:20, fontWeight:800, color:st.accent }}>{n}</div>
                     <div style={{ fontFamily:st.ui, fontSize:10, color:`${st.headerText}70`, textTransform:"uppercase", letterSpacing:"0.08em" }}>{l}</div>
