@@ -474,8 +474,9 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
         {/* Unrolled content */}
         {isOpen && (
           <div style={{
-            background: `linear-gradient(180deg, ${P.bgDark} 0%, ${P.bgDeep} 100%)`,
-            borderTop: `1px solid ${P.edge}`,
+            background: "#FFFFFF",
+            borderTop: `2px solid ${P.edge}`,
+            borderBottom: `2px solid ${P.edge}`,
             animation: "unrollDown 0.38s cubic-bezier(0.4,0,0.2,1) forwards",
           }}>
             <div style={{
@@ -483,16 +484,19 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
               padding: "12px 20px 4px",
               animation: "unrollFade 0.4s ease 0.1s both",
             }}>
-              <div style={{ flex: 1, height: 1, background: `${color}44` }} />
+              <div style={{ flex: 1, height: 1, background: `${color}33` }} />
               <div style={{
                 fontFamily: st.ui, fontSize: 10, fontWeight: 700,
                 color, textTransform: "uppercase", letterSpacing: "0.1em",
                 display: "flex", alignItems: "center", gap: 5,
+                background: `${color}12`, borderRadius: 6,
+                padding: "3px 10px",
+                border: `1px solid ${color}22`,
               }}>
                 <span>{CATEGORY_ICONS[prophecy.category]}</span>
                 {CATEGORY_LABELS[prophecy.category] || prophecy.category}
               </div>
-              <div style={{ flex: 1, height: 1, background: `${color}44` }} />
+              <div style={{ flex: 1, height: 1, background: `${color}33` }} />
             </div>
 
             <div style={{
