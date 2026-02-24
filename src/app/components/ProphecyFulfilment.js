@@ -41,11 +41,11 @@ const CATEGORY_COLORS = {
 };
 
 const CATEGORY_ICONS = {
-  "Messianic":   "✡️",
-  "Daniel":      "👁",
+  "Messianic":   "🌟",
+  "Daniel":      "🌙",
   "Revelation":  "📖",
-  "Israel":      "🕍",
-  "Restoration": "🌿",
+  "Israel":      "🏺",
+  "Restoration": "🌱",
 };
 
 const CATEGORY_LABELS = {
