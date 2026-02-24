@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../lib/supabase";
 import TimelineMaps from "./components/TimelineMaps";
 import BibleBookTimeline from "./components/BibleBookTimeline";
+import ProphecyFulfilment from "./components/ProphecyFulfilment";
 import ArchaeologyCards from "./components/ArchaeologyCards";
 
 // ═══════════════════════════════════════════════════
