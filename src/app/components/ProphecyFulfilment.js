@@ -104,9 +104,10 @@ const STYLES = `
 // ─── Wooden roller ────────────────────────────────────────────────────────────
 const Roller = ({ shadow }) => (
   <div style={{
-    height: 16,
+    height: 18,
     background: P.roller,
     position: "relative",
+    borderRadius: shadow ? "8px 8px 0 0" : "0 0 8px 8px",
     boxShadow: shadow
       ? "0 4px 10px rgba(0,0,0,0.45)"
       : "0 -2px 8px rgba(0,0,0,0.35)",
@@ -211,7 +212,7 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
     }}>
       <div style={{
         borderRadius: 10,
-        overflow: "visible",
+        overflow: "hidden",
         boxShadow: isOpen
           ? `0 10px 36px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.14)`
           : `0 4px 14px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.08)`,
