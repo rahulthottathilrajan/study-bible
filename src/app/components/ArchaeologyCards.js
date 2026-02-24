@@ -36,7 +36,7 @@ const STATUS_CONFIG = {
 };
 
 const ALL_CATEGORIES   = ["All", "Manuscript", "Inscription", "Structure", "Artifact", "Seal/Bulla"];
-const ALL_STATUSES     = ["All", "Confirmed", "Probable", "Debated"];
+const ALL_STATUSES     = ["All", "Confirmed", "Probable"];
 
 // ─── Animation keyframes injected once ───────────────────────────────────────
 const STYLES = `
