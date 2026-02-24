@@ -579,53 +579,108 @@ export default function StudyBible() {
             </div>
             <div style={{ color:ht.light }}><ChevIcon /></div>
           </button>
-          <Label icon="📖" t={ht} color={ht.muted}>Browse the Bible</Label>
-          {[
-            { t:"OT",l:"Old Testament",s:"39 Books · Genesis to Malachi",o:"בְּרֵאשִׁית — In the Beginning",thm:"garden" },
-            { t:"NT",l:"New Testament",s:"27 Books · Matthew to Revelation",o:"Ἡ Καινὴ Διαθήκη — The New Covenant",thm:"ocean" },
-          ].map(item => (
-            <button key={item.t} onClick={() => nav("books",{testament:item.t})} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px",marginBottom:10,cursor:"pointer",textAlign:"left",transition:"all 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.04)" }}>
-              <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center" }}>
-                <div>
-                  <div style={{ fontFamily:ht.heading,fontSize:18,fontWeight:700,color:ht.dark }}>{item.l}</div>
-                  <div style={{ fontFamily:ht.ui,fontSize:13,color:ht.muted }}>{item.s}</div>
-                  <div style={{ fontFamily:ht.body,fontSize:12.5,color:ht.light,fontStyle:"italic",marginTop:3 }}>{item.o}</div>
-                </div>
-                <div style={{ width:38,height:38,borderRadius:10,background:THEMES[item.thm].headerGradient,display:"flex",alignItems:"center",justifyContent:"center",color:THEMES[item.thm].headerText }}><ChevIcon /></div>
-              </div>
-            </button>
-          ))}
-          <Label icon="🏫" t={ht} color={ht.muted}>Learn the Original Languages</Label>
-          <div style={{ display:"flex",gap:10,marginBottom:22 }}>
-            <button onClick={() => nav("hebrew-home")} style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",cursor:"pointer",transition:"all 0.2s" }}>
-              <div style={{ fontSize:32,marginBottom:8 }}>🕎</div>
-              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:22,color:ht.dark,direction:"rtl",marginBottom:4 }}>עִבְרִית</div>
-              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Learn Hebrew</div>
-              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>The language of the Old Testament</div>
-              <div style={{ marginTop:8,background:"rgba(192,108,62,0.12)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#C06C3E",textTransform:"uppercase",letterSpacing:"0.05em",display:"inline-block" }}>Start Learning →</div>
-            </button>
-            <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
-              <div style={{ position:"absolute",top:8,right:8,background:"rgba(27,122,110,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#1B7A6E",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
-              <div style={{ fontSize:32,marginBottom:8 }}>🏛️</div>
-              <div style={{ fontFamily:"'Times New Roman',serif",fontSize:22,color:ht.dark,marginBottom:4 }}>Ἑλληνική</div>
-              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Learn Greek</div>
-              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>The language of the New Testament</div>
+          {/* ── THE HOLY SCRIPTURES ── */}
+          <div style={{ marginBottom:6 }}>
+            <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
+              <span>📖</span> The Holy Scriptures
             </div>
+            {[
+              { t:"OT",l:"Old Testament",s:"39 Books · Genesis to Malachi",o:"בְּרֵאשִׁית — In the Beginning",thm:"garden",icon:"📜",desc:"The story of creation, covenant, and promise — from Eden to the eve of Christ." },
+              { t:"NT",l:"New Testament",s:"27 Books · Matthew to Revelation",o:"Ἡ Καινὴ Διαθήκη — The New Covenant",thm:"ocean",icon:"✝️",desc:"The fulfilment of all promises — the life, death, resurrection, and reign of Jesus." },
+            ].map(item => (
+              <button key={item.t} onClick={() => nav("books",{testament:item.t})} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderLeft:`4px solid ${THEMES[item.thm].accent}`,borderRadius:14,padding:"20px 18px",marginBottom:12,cursor:"pointer",textAlign:"left",transition:"all 0.2s",boxShadow:"0 3px 12px rgba(0,0,0,0.07)" }}>
+                <div style={{ display:"flex",alignItems:"center",gap:14 }}>
+                  <div style={{ width:52,height:52,borderRadius:14,background:THEMES[item.thm].headerGradient,display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,flexShrink:0,boxShadow:"0 2px 8px rgba(0,0,0,0.15)" }}>{item.icon}</div>
+                  <div style={{ flex:1 }}>
+                    <div style={{ fontFamily:ht.heading,fontSize:19,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.l}</div>
+                    <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:1,lineHeight:1.6 }}>{item.s}</div>
+                    <div style={{ fontFamily:ht.body,fontSize:12,color:ht.light,fontStyle:"italic",marginTop:3,lineHeight:1.6 }}>{item.o}</div>
+                    <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.text,marginTop:6,lineHeight:1.7,opacity:0.75 }}>{item.desc}</div>
+                  </div>
+                  <div style={{ color:ht.light,flexShrink:0 }}><ChevIcon /></div>
+                </div>
+              </button>
+            ))}
           </div>
 
-          <Label icon="🔬" t={ht} color={ht.muted}>Study Tools</Label>
-          <div style={{ display:"flex",gap:10,marginBottom:22 }}>
-            <button onClick={() => nav("timeline-home")} style={{ flex:1,background:ht.card,border:`1px solid rgba(232,98,92,0.3)`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden",cursor:"pointer" }}>
-              <div style={{ position:"absolute",top:8,right:8,background:"rgba(232,98,92,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#E8625C",textTransform:"uppercase",letterSpacing:"0.05em" }}>New ✦</div>
-              <div style={{ fontSize:32,marginBottom:8 }}>📜</div>
-              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Biblical Timeline</div>
-              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>From Creation to Revelation</div>
-            </button>
-            <div style={{ flex:1,background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"18px 16px",textAlign:"center",boxShadow:"0 1px 3px rgba(0,0,0,0.04)",position:"relative",overflow:"hidden" }}>
-              <div style={{ position:"absolute",top:8,right:8,background:"rgba(232,98,92,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#E8625C",textTransform:"uppercase",letterSpacing:"0.05em" }}>Coming Soon</div>
-              <div style={{ fontSize:32,marginBottom:8 }}>🛡️</div>
-              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Apologetics</div>
-              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:4,lineHeight:1.5 }}>Defend & understand the faith</div>
+          {/* ── HEAR IT AS IT WAS WRITTEN ── */}
+          <div style={{ marginBottom:6,marginTop:10 }}>
+            <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
+              <span>🗣️</span> Hear It As It Was Written
+            </div>
+            {[
+              { label:"Learn Hebrew",sub:"Biblical Hebrew · עִבְרִית",desc:"Read Moses, David & Isaiah in their own tongue. Master the aleph-bet to advanced grammar.",icon:"🕎",action:() => nav("hebrew-home"),badge:null,accentColor:"#C06C3E" },
+              { label:"Learn Greek",sub:"Biblical Greek · Ἑλληνική",desc:"Unlock Paul's letters and John's Gospel in the language they were penned.",icon:"🏛️",action:null,badge:"Coming Soon",accentColor:"#1B7A6E" },
+            ].map((item,i) => (
+              item.action
+                ? <button key={i} onClick={item.action} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"16px 18px",marginBottom:10,cursor:"pointer",textAlign:"left",boxShadow:"0 2px 8px rgba(0,0,0,0.06)",display:"flex",alignItems:"center",gap:14,transition:"all 0.2s" }}>
+                    <div style={{ width:52,height:52,borderRadius:14,background:`linear-gradient(135deg,${item.accentColor}22,${item.accentColor}44)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,flexShrink:0 }}>{item.icon}</div>
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.label}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:11,color:item.accentColor,fontWeight:600,marginTop:1 }}>{item.sub}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>{item.desc}</div>
+                    </div>
+                    <div style={{ color:ht.light,flexShrink:0 }}><ChevIcon /></div>
+                  </button>
+                : <div key={i} style={{ width:"100%",background:`${ht.card}`,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"16px 18px",marginBottom:10,textAlign:"left",boxShadow:"0 2px 8px rgba(0,0,0,0.04)",display:"flex",alignItems:"center",gap:14,opacity:0.7 }}>
+                    <div style={{ width:52,height:52,borderRadius:14,background:`linear-gradient(135deg,${item.accentColor}11,${item.accentColor}22)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,flexShrink:0 }}>{item.icon}</div>
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.label}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:11,color:item.accentColor,fontWeight:600,marginTop:1 }}>{item.sub}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>{item.desc}</div>
+                    </div>
+                    <div style={{ background:"rgba(0,0,0,0.06)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>Soon</div>
+                  </div>
+            ))}
+          </div>
+
+          {/* ── GO DEEPER ── */}
+          <div style={{ marginBottom:6,marginTop:10 }}>
+            <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
+              <span>🔬</span> Go Deeper
+            </div>
+            {[
+              { label:"Biblical Timeline",sub:"From Creation to Revelation",desc:"Trace 6,000 years of redemptive history across eras, empires, and covenants.",icon:"📜",action:() => nav("timeline-home"),badge:"New ✦",accentColor:"#E8625C" },
+              { label:"Prophecy & Fulfilment",sub:"300+ Messianic Predictions",desc:"Explore the ancient prophecies and how scholars across centuries interpret their fulfilment in Christ.",icon:"🔭",action:null,badge:"Coming Soon",accentColor:"#8B5CF6" },
+              { label:"Apologetics",sub:"Defend & understand the faith",desc:"Reasoned answers to the hardest questions — history, science, suffering, and truth.",icon:"🛡️",action:null,badge:"Coming Soon",accentColor:"#1B7A6E" },
+              { label:"Reading Plans",sub:"Guided Bible journeys",desc:"Read through the whole Bible in a year, or follow curated thematic paths through Scripture.",icon:"🗓️",action:null,badge:"Coming Soon",accentColor:"#D4A853" },
+            ].map((item,i) => (
+              item.action
+                ? <button key={i} onClick={item.action} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"16px 18px",marginBottom:10,cursor:"pointer",textAlign:"left",boxShadow:"0 2px 8px rgba(0,0,0,0.06)",display:"flex",alignItems:"center",gap:14,transition:"all 0.2s",position:"relative",overflow:"hidden" }}>
+                    {item.badge && <div style={{ position:"absolute",top:10,right:12,background:"rgba(232,98,92,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#E8625C",textTransform:"uppercase",letterSpacing:"0.05em" }}>{item.badge}</div>}
+                    <div style={{ width:52,height:52,borderRadius:14,background:`linear-gradient(135deg,${item.accentColor}22,${item.accentColor}44)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,flexShrink:0 }}>{item.icon}</div>
+                    <div style={{ flex:1,paddingRight:item.badge?50:0 }}>
+                      <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.label}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:11,color:item.accentColor,fontWeight:600,marginTop:1 }}>{item.sub}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>{item.desc}</div>
+                    </div>
+                    <div style={{ color:ht.light,flexShrink:0 }}><ChevIcon /></div>
+                  </button>
+                : <div key={i} style={{ background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"16px 18px",marginBottom:10,display:"flex",alignItems:"center",gap:14,opacity:0.65,position:"relative",overflow:"hidden" }}>
+                    <div style={{ width:52,height:52,borderRadius:14,background:`linear-gradient(135deg,${item.accentColor}11,${item.accentColor}22)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,flexShrink:0 }}>{item.icon}</div>
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.label}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:11,color:item.accentColor,fontWeight:600,marginTop:1 }}>{item.sub}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>{item.desc}</div>
+                    </div>
+                    <div style={{ background:"rgba(0,0,0,0.06)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>Soon</div>
+                  </div>
+            ))}
+          </div>
+
+          {/* ── LITTLE DISCIPLES ── */}
+          <div style={{ marginBottom:22,marginTop:10 }}>
+            <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
+              <span>🐑</span> Little Disciples
+            </div>
+            <div style={{ background:"linear-gradient(135deg,rgba(212,168,83,0.08),rgba(139,92,246,0.06))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"20px 18px",display:"flex",alignItems:"center",gap:14,opacity:0.75 }}>
+              <div style={{ width:52,height:52,borderRadius:14,background:"linear-gradient(135deg,rgba(212,168,83,0.3),rgba(139,92,246,0.3))",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,flexShrink:0 }}>🐑</div>
+              <div style={{ flex:1 }}>
+                <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>Kids Church Curriculum</div>
+                <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.accent,fontWeight:600,marginTop:1 }}>52-Week Bible Study · Ages 3–12</div>
+                <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>Age-grouped lessons that bring Scripture alive for the next generation — from toddlers to preteens.</div>
+              </div>
+              <div style={{ background:"rgba(0,0,0,0.06)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>Soon</div>
             </div>
           </div>
 
