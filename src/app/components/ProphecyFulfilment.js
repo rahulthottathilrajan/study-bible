@@ -211,7 +211,7 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
     }}>
       <div style={{
         borderRadius: 10,
-        overflow: "hidden",
+        overflow: "visible",
         boxShadow: isOpen
           ? `0 10px 36px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.14)`
           : `0 4px 14px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.08)`,
