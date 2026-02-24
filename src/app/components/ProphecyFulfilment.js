@@ -1,8 +1,8 @@
 "use client";
 // ============================================================
 //  ProphecyFulfilment.js — Phase 6: Prophecy & Fulfilment
-//  Main hub component — imports ProphecyData + ProphecyDetail
-//  Receives single `nav` prop from page.js
+//  Level 2: Scroll-style cards — parchment + wooden rollers
+//  + unroll animation when tapped
 // ============================================================
 
 import { useState, useEffect, useRef } from "react";
@@ -32,6 +32,21 @@ const st = {
   divider: "rgba(232,98,92,0.12)",
 };
 
+// ─── Parchment palette ────────────────────────────────────────────────────────
+const P = {
+  bg:       "#F8F0DC",
+  bgMid:    "#F0E4C0",
+  bgDark:   "#E8D4A0",
+  bgDeep:   "#DFC98A",
+  edge:     "#C8A86A",
+  roller:   "linear-gradient(180deg,#1A0A00 0%,#6B3A16 25%,#9B5C28 50%,#6B3A16 75%,#1A0A00 100%)",
+  ink:      "#2A1A08",
+  inkMid:   "#6B4A28",
+  inkFaint: "#9B7A50",
+  grain:    "rgba(255,255,255,0.055)",
+};
+
+// ─── Category config ──────────────────────────────────────────────────────────
 const CATEGORY_COLORS = {
   "Messianic":   "#8B5CF6",
   "Daniel":      "#D4A853",
@@ -56,10 +71,10 @@ const CATEGORY_LABELS = {
   "Revelation":  "Revelation",
 };
 
-// ─── Animation keyframes ──────────────────────────────────────────────────────
+// ─── Keyframes ────────────────────────────────────────────────────────────────
 const STYLES = `
   @keyframes fadeUp {
-    from { opacity:0; transform:translateY(16px); }
+    from { opacity:0; transform:translateY(18px); }
     to   { opacity:1; transform:translateY(0); }
   }
   @keyframes panelIn {
@@ -67,10 +82,63 @@ const STYLES = `
     to   { opacity:1; transform:translateY(0); }
   }
   @keyframes shimmerPulse {
-    0%,100% { opacity:0.7; }
+    0%,100% { opacity:0.65; }
     50%     { opacity:1; }
   }
+  @keyframes unrollDown {
+    from {
+      clip-path: inset(0 0 100% 0);
+      opacity: 0.6;
+    }
+    to {
+      clip-path: inset(0 0 0% 0);
+      opacity: 1;
+    }
+  }
+  @keyframes unrollFade {
+    from { opacity:0; transform:translateY(-6px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
 `;
+
+// ─── Wooden roller ────────────────────────────────────────────────────────────
+const Roller = ({ shadow }) => (
+  <div style={{
+    height: 16,
+    background: P.roller,
+    position: "relative",
+    boxShadow: shadow
+      ? "0 4px 10px rgba(0,0,0,0.45)"
+      : "0 -2px 8px rgba(0,0,0,0.35)",
+    zIndex: shadow ? 2 : 1,
+  }}>
+    {/* Wood grain lines */}
+    {[12, 28, 48, 65, 80, 91].map(pct => (
+      <div key={pct} style={{
+        position: "absolute", top: 2, bottom: 2,
+        left: `${pct}%`, width: 1,
+        background: P.grain,
+      }} />
+    ))}
+    {/* End caps — dark knobs */}
+    <div style={{
+      position: "absolute", left: 0, top: 0, bottom: 0, width: 10,
+      background: "linear-gradient(90deg,#080200,#3A1A08)",
+      borderRadius: "3px 0 0 3px",
+    }} />
+    <div style={{
+      position: "absolute", right: 0, top: 0, bottom: 0, width: 10,
+      background: "linear-gradient(270deg,#080200,#3A1A08)",
+      borderRadius: "0 3px 3px 0",
+    }} />
+    {/* Highlight sheen */}
+    <div style={{
+      position: "absolute", top: 2, left: 12, right: 12, height: 3,
+      background: "rgba(255,255,255,0.08)",
+      borderRadius: 2,
+    }} />
+  </div>
+);
 
 // ─── Stat tile ────────────────────────────────────────────────────────────────
 const StatTile = ({ icon, value, label }) => (
@@ -81,17 +149,10 @@ const StatTile = ({ icon, value, label }) => (
   }}>
     <span style={{ fontSize: 22 }}>{icon}</span>
     <div>
-      <div style={{
-        fontFamily: st.ui, fontSize: 18, fontWeight: 800,
-        color: st.headerText, lineHeight: 1,
-      }}>
+      <div style={{ fontFamily: st.ui, fontSize: 18, fontWeight: 800, color: st.headerText, lineHeight: 1 }}>
         {value}
       </div>
-      <div style={{
-        fontFamily: st.ui, fontSize: 9,
-        color: "rgba(248,232,208,0.65)",
-        textTransform: "uppercase", letterSpacing: "0.05em",
-      }}>
+      <div style={{ fontFamily: st.ui, fontSize: 9, color: "rgba(248,232,208,0.65)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
         {label}
       </div>
     </div>
@@ -115,177 +176,196 @@ const CategoryPill = ({ cat, active, onClick }) => {
         display: "flex", alignItems: "center", gap: 5,
       }}
     >
-      {cat.id !== "All" && (
-        <span style={{ fontSize: 13 }}>{CATEGORY_ICONS[cat.id]}</span>
-      )}
+      {cat.id !== "All" && <span style={{ fontSize: 13 }}>{CATEGORY_ICONS[cat.id]}</span>}
       {cat.id === "All" ? "All Prophecies" : cat.label}
     </button>
   );
 };
 
 // ─── Status badge ─────────────────────────────────────────────────────────────
-const StatusBadge = ({ status }) => {
+const StatusBadge = ({ status, parchment }) => {
   const cfg = STATUS_CONFIG[status];
   if (!cfg) return null;
   return (
     <span style={{
       fontFamily: st.ui, fontSize: 10, fontWeight: 700,
-      color: cfg.color, background: cfg.bg,
+      color: cfg.color,
+      background: parchment ? `${cfg.color}22` : cfg.bg,
       borderRadius: 5, padding: "2px 7px",
       whiteSpace: "nowrap",
+      border: parchment ? `1px solid ${cfg.color}33` : "none",
     }}>
       {cfg.icon} {status}
     </span>
   );
 };
 
-// ─── Featured card ────────────────────────────────────────────────────────────
-const FeaturedCard = ({ prophecy, onSelect, isOpen, index }) => {
+// ─── Scroll card (unified — handles both featured + standard) ─────────────────
+const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeatured }) => {
   const color = CATEGORY_COLORS[prophecy.category] || st.accent;
-  return (
-    <div style={{ animation: `fadeUp 0.3s ease both`, animationDelay: `${index * 0.07}s` }}>
-      <button
-        onClick={() => onSelect(prophecy)}
-        style={{
-          width: "100%", textAlign: "left", cursor: "pointer",
-          background: isOpen
-            ? `linear-gradient(135deg, ${color}18, ${color}08)`
-            : `linear-gradient(135deg, ${color}12, ${color}05)`,
-          border: `1.5px solid ${isOpen ? color + "55" : color + "28"}`,
-          borderLeft: `5px solid ${color}`,
-          borderRadius: 16, padding: "16px 16px",
-          boxShadow: isOpen
-            ? `0 6px 24px ${color}22`
-            : "0 2px 10px rgba(0,0,0,0.06)",
-          transition: "all 0.2s",
-        }}
-      >
-        {/* Featured label */}
-        <div style={{
-          fontFamily: st.ui, fontSize: 9, fontWeight: 800,
-          color, textTransform: "uppercase", letterSpacing: "0.1em",
-          marginBottom: 8, display: "flex", alignItems: "center", gap: 5,
-        }}>
-          <span style={{ animation: "shimmerPulse 2s infinite" }}>✦</span> Featured
-        </div>
 
-        {/* Title row */}
-        <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+  return (
+    <div style={{
+      animation: `fadeUp 0.32s ease both`,
+      animationDelay: `${index * 0.06}s`,
+    }}>
+      <div style={{
+        borderRadius: 10,
+        overflow: "hidden",
+        boxShadow: isOpen
+          ? `0 10px 36px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.14)`
+          : `0 4px 14px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.08)`,
+        border: `1px solid ${isOpen ? P.edge : "rgba(200,168,106,0.35)"}`,
+        transition: "box-shadow 0.3s ease, border-color 0.3s ease",
+      }}>
+
+        {/* ── Top roller ── */}
+        <Roller shadow={true} />
+
+        {/* ── Parchment card face (tappable) ── */}
+        <button
+          onClick={() => onSelect(prophecy)}
+          style={{
+            width: "100%", textAlign: "left", cursor: "pointer", border: "none",
+            background: isOpen
+              ? `linear-gradient(180deg, ${P.bgMid} 0%, ${P.bgDark} 100%)`
+              : `linear-gradient(180deg, ${P.bg} 0%, ${P.bgMid} 100%)`,
+            padding: isFeatured ? "15px 16px 14px" : "13px 15px",
+            transition: "background 0.3s ease",
+            position: "relative",
+          }}
+        >
+          {/* Category colour ribbon — left edge */}
           <div style={{
-            width: 46, height: 46, borderRadius: 12,
-            background: `${color}22`,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 22, flexShrink: 0,
-          }}>
-            {CATEGORY_ICONS[prophecy.category]}
-          </div>
-          <div style={{ flex: 1, minWidth: 0 }}>
+            position: "absolute", left: 0, top: 0, bottom: 0, width: 4,
+            background: `linear-gradient(180deg, ${color}, ${color}99)`,
+          }} />
+
+          {/* Featured label */}
+          {isFeatured && (
             <div style={{
-              fontFamily: st.heading, fontSize: 17, color: st.dark,
-              lineHeight: 1.2, marginBottom: 3,
+              fontFamily: st.ui, fontSize: 9, fontWeight: 800,
+              color, textTransform: "uppercase", letterSpacing: "0.12em",
+              marginBottom: 9, marginLeft: 8,
+              display: "flex", alignItems: "center", gap: 5,
             }}>
-              {prophecy.title}
+              <span style={{ animation: "shimmerPulse 2.2s infinite" }}>✦</span> Featured
             </div>
+          )}
+
+          {/* Card body row */}
+          <div style={{ display: "flex", alignItems: "flex-start", gap: 12, paddingLeft: 8 }}>
+            {/* Icon seal */}
             <div style={{
-              fontFamily: st.body, fontSize: 12.5, color: st.muted,
-              fontStyle: "italic", lineHeight: 1.5, marginBottom: 8,
+              width: isFeatured ? 46 : 42,
+              height: isFeatured ? 46 : 42,
+              borderRadius: 11,
+              background: `${color}22`,
+              border: `1.5px solid ${color}44`,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: isFeatured ? 22 : 19,
+              flexShrink: 0,
             }}>
-              {prophecy.summary}
+              {CATEGORY_ICONS[prophecy.category]}
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-              <StatusBadge status={prophecy.status} />
-              <span style={{
-                fontFamily: st.ui, fontSize: 10, color: st.light,
-                background: "rgba(0,0,0,0.05)", borderRadius: 5, padding: "2px 7px",
+
+            {/* Text */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{
+                fontFamily: st.heading,
+                fontSize: isFeatured ? 17 : 15,
+                color: P.ink,
+                lineHeight: 1.2, marginBottom: 3,
               }}>
-                {prophecy.otRef}
-              </span>
-              {prophecy.ntRef && (
+                {prophecy.title}
+              </div>
+              <div style={{
+                fontFamily: st.body, fontSize: 12, color: P.inkMid,
+                fontStyle: "italic", lineHeight: 1.5, marginBottom: 7,
+                overflow: "hidden", textOverflow: "ellipsis",
+                display: "-webkit-box", WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+              }}>
+                {prophecy.summary}
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+                <StatusBadge status={prophecy.status} parchment={true} />
                 <span style={{
-                  fontFamily: st.ui, fontSize: 10, color: st.light,
-                  background: "rgba(0,0,0,0.05)", borderRadius: 5, padding: "2px 7px",
+                  fontFamily: st.ui, fontSize: 10, color: P.inkFaint,
+                  background: "rgba(100,60,20,0.1)",
+                  border: "1px solid rgba(100,60,20,0.15)",
+                  borderRadius: 4, padding: "2px 6px",
                 }}>
-                  {prophecy.ntRef}
+                  {prophecy.otRef}
                 </span>
-              )}
+                {isFeatured && prophecy.ntRef && (
+                  <span style={{
+                    fontFamily: st.ui, fontSize: 10, color: P.inkFaint,
+                    background: "rgba(100,60,20,0.1)",
+                    border: "1px solid rgba(100,60,20,0.15)",
+                    borderRadius: 4, padding: "2px 6px",
+                  }}>
+                    {prophecy.ntRef}
+                  </span>
+                )}
+              </div>
             </div>
-          </div>
-          <div style={{
-            color: st.light, flexShrink: 0, fontSize: 20,
-            transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
-            transition: "transform 0.2s",
-          }}>
-            ›
-          </div>
-        </div>
-      </button>
-    </div>
-  );
-};
 
-// ─── Standard prophecy card ───────────────────────────────────────────────────
-const ProphecyCard = ({ prophecy, onSelect, isOpen, index }) => {
-  const color = CATEGORY_COLORS[prophecy.category] || st.accent;
-  return (
-    <div style={{ animation: `fadeUp 0.3s ease both`, animationDelay: `${index * 0.05}s` }}>
-      <button
-        onClick={() => onSelect(prophecy)}
-        style={{
-          width: "100%", textAlign: "left", cursor: "pointer",
-          background: isOpen ? `${color}08` : st.card,
-          border: `1px solid ${isOpen ? color + "44" : st.divider}`,
-          borderLeft: `4px solid ${color}`,
-          borderRadius: 14, padding: "14px 14px",
-          boxShadow: isOpen
-            ? `0 4px 16px ${color}18`
-            : "0 1px 6px rgba(0,0,0,0.05)",
-          transition: "all 0.2s",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{
-            width: 44, height: 44, borderRadius: 11,
-            background: `${color}20`,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 20, flexShrink: 0,
-          }}>
-            {CATEGORY_ICONS[prophecy.category]}
+            {/* Chevron */}
+            <div style={{
+              color: P.inkFaint, flexShrink: 0, fontSize: 22,
+              transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
+              transition: "transform 0.25s ease",
+              marginTop: 2,
+            }}>
+              ›
+            </div>
           </div>
-          <div style={{ flex: 1, minWidth: 0 }}>
+        </button>
+
+        {/* ── Unrolled content ── */}
+        {isOpen && (
+          <div style={{
+            background: `linear-gradient(180deg, ${P.bgDark} 0%, ${P.bgDeep} 100%)`,
+            borderTop: `1px solid ${P.edge}`,
+            animation: "unrollDown 0.38s cubic-bezier(0.4,0,0.2,1) forwards",
+          }}>
+            {/* Decorative divider with category icon */}
             <div style={{
-              fontFamily: st.heading, fontSize: 15, color: st.dark,
-              lineHeight: 1.25, marginBottom: 2,
+              display: "flex", alignItems: "center", gap: 8,
+              padding: "12px 20px 4px",
+              animation: "unrollFade 0.4s ease 0.1s both",
             }}>
-              {prophecy.title}
-            </div>
-            <div style={{
-              fontFamily: st.body, fontSize: 12, color: st.muted,
-              fontStyle: "italic", lineHeight: 1.4, marginBottom: 6,
-              overflow: "hidden", textOverflow: "ellipsis",
-              display: "-webkit-box", WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-            }}>
-              {prophecy.summary}
-            </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
-              <StatusBadge status={prophecy.status} />
-              <span style={{
-                fontFamily: st.ui, fontSize: 10, color: st.light,
-                background: "rgba(0,0,0,0.05)", borderRadius: 5, padding: "2px 7px",
+              <div style={{ flex: 1, height: 1, background: `${color}44` }} />
+              <div style={{
+                fontFamily: st.ui, fontSize: 10, fontWeight: 700,
+                color, textTransform: "uppercase", letterSpacing: "0.1em",
+                display: "flex", alignItems: "center", gap: 5,
               }}>
-                {prophecy.otRef}
-              </span>
+                <span>{CATEGORY_ICONS[prophecy.category]}</span>
+                {CATEGORY_LABELS[prophecy.category] || prophecy.category}
+              </div>
+              <div style={{ flex: 1, height: 1, background: `${color}44` }} />
+            </div>
+
+            {/* ProphecyDetail in scroll mode */}
+            <div style={{
+              padding: "4px 16px 16px",
+              animation: "unrollFade 0.4s ease 0.15s both",
+            }}>
+              <ProphecyDetail
+                prophecy={prophecy}
+                onClose={onClose}
+                nav={nav}
+                scrollMode={true}
+              />
             </div>
           </div>
-          <div style={{
-            color: st.light, flexShrink: 0, fontSize: 20,
-            transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
-            transition: "transform 0.2s",
-          }}>
-            ›
-          </div>
-        </div>
-      </button>
+        )}
+
+        {/* ── Bottom roller ── */}
+        <Roller shadow={false} />
+      </div>
     </div>
   );
 };
@@ -294,7 +374,7 @@ const ProphecyCard = ({ prophecy, onSelect, isOpen, index }) => {
 const SectionDivider = ({ label }) => (
   <div style={{
     display: "flex", alignItems: "center", gap: 10,
-    margin: "20px 0 12px",
+    margin: "20px 0 14px",
   }}>
     <div style={{ flex: 1, height: 1, background: st.divider }} />
     <div style={{
@@ -363,28 +443,25 @@ const CategoryBanner = ({ categoryId }) => {
 export default function ProphecyFulfilment({ nav }) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selected,       setSelected]       = useState(null);
-  const detailRef = useRef(null);
+  const openCardRef = useRef(null);
 
-  // Scroll detail panel into view when opened
+  // Scroll opened card into view
   useEffect(() => {
-    if (selected && detailRef.current) {
+    if (selected && openCardRef.current) {
       setTimeout(() => {
-        detailRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        openCardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 80);
     }
   }, [selected?.id]);
 
-  // Filtered list for current category
-  const filtered      = getPropheciesByCategory(activeCategory);
+  const filtered       = getPropheciesByCategory(activeCategory);
   const featuredInView = filtered.filter(p => p.featured);
   const standardInView = filtered.filter(p => !p.featured);
 
-  // Toggle selection — same card closes
   const handleSelect = (prophecy) => {
-    setSelected(prev => (prev?.id === prophecy?.id ? null : prophecy));
+    setSelected(prev => prev?.id === prophecy?.id ? null : prophecy);
   };
 
-  // Change category — clear selection
   const handleCategory = (catId) => {
     setActiveCategory(catId);
     setSelected(null);
@@ -423,12 +500,10 @@ export default function ProphecyFulfilment({ nav }) {
               fontFamily: st.ui, fontSize: 12,
               color: "rgba(248,232,208,0.70)", marginTop: 2,
             }}>
-              One unbroken thread from Eden to eternity
+              25 prophecies — from Eden to eternity
             </div>
           </div>
         </div>
-
-        {/* Stat tiles */}
         <div style={{ display: "flex", gap: 8 }}>
           <StatTile icon="📜" value={STATS.total}    label="Prophecies" />
           <StatTile icon="✅" value={STATS.fulfilled} label="Fulfilled"  />
@@ -436,10 +511,10 @@ export default function ProphecyFulfilment({ nav }) {
         </div>
       </div>
 
-      {/* ── Intro banner (All view only) ── */}
+      {/* ── Intro banner ── */}
       {activeCategory === "All" && <IntroBanner />}
 
-      {/* ── Category filter pills ── */}
+      {/* ── Category pills ── */}
       <div style={{ padding: "16px 16px 0" }}>
         <div style={{
           fontFamily: st.ui, fontSize: 10, fontWeight: 700,
@@ -476,27 +551,21 @@ export default function ProphecyFulfilment({ nav }) {
           : `${filtered.length} prophecies — ${CATEGORY_LABELS[activeCategory] || activeCategory}`}
       </div>
 
-      {/* ══ Cards ══ */}
-      <div style={{ padding: "8px 16px 0" }}>
+      {/* ══ Scroll cards ══ */}
+      <div style={{ padding: "10px 16px 0", display: "flex", flexDirection: "column", gap: 14 }}>
 
-        {/* Featured cards + inline detail */}
+        {/* Featured */}
         {featuredInView.map((p, i) => (
-          <div key={p.id} style={{ marginBottom: 10 }}>
-            <FeaturedCard
+          <div key={p.id} ref={selected?.id === p.id ? openCardRef : null}>
+            <ScrollCard
               prophecy={p}
-              onSelect={handleSelect}
               isOpen={selected?.id === p.id}
+              onSelect={handleSelect}
+              onClose={() => setSelected(null)}
+              nav={nav}
               index={i}
+              isFeatured={true}
             />
-            {selected?.id === p.id && (
-              <div ref={detailRef} style={{ marginTop: 8 }}>
-                <ProphecyDetail
-                  prophecy={selected}
-                  onClose={() => setSelected(null)}
-                  nav={nav}
-                />
-              </div>
-            )}
           </div>
         ))}
 
@@ -505,28 +574,20 @@ export default function ProphecyFulfilment({ nav }) {
           <SectionDivider label="All Prophecies" />
         )}
 
-        {/* Standard cards + inline detail */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {standardInView.map((p, i) => (
-            <div key={p.id}>
-              <ProphecyCard
-                prophecy={p}
-                onSelect={handleSelect}
-                isOpen={selected?.id === p.id}
-                index={i}
-              />
-              {selected?.id === p.id && (
-                <div ref={detailRef} style={{ marginTop: 8, marginBottom: 4 }}>
-                  <ProphecyDetail
-                    prophecy={selected}
-                    onClose={() => setSelected(null)}
-                    nav={nav}
-                  />
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        {/* Standard */}
+        {standardInView.map((p, i) => (
+          <div key={p.id} ref={selected?.id === p.id ? openCardRef : null}>
+            <ScrollCard
+              prophecy={p}
+              isOpen={selected?.id === p.id}
+              onSelect={handleSelect}
+              onClose={() => setSelected(null)}
+              nav={nav}
+              index={featuredInView.length + i}
+              isFeatured={false}
+            />
+          </div>
+        ))}
 
         {/* Empty state */}
         {filtered.length === 0 && (
