@@ -357,7 +357,7 @@ const HubIntro = () => (
 );
 
 // ─── Scroll card (unified — featured + standard) ──────────────────────────────
-const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeatured }) => {
+const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeatured, isRead, onMarkRead }) => {
   const color = CATEGORY_COLORS[prophecy.category] || st.accent;
 
   return (
@@ -381,8 +381,8 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
           style={{
             width: "100%", textAlign: "left", cursor: "pointer", border: "none",
             background: isOpen
-              ? `linear-gradient(180deg, ${P.bgMid} 0%, ${P.bgDark} 100%)`
-              : `linear-gradient(180deg, ${P.bg} 0%, ${P.bgMid} 100%)`,
+              ? (isRead ? "linear-gradient(180deg,#E0EFDC 0%,#D0E8CB 100%)" : `linear-gradient(180deg, ${P.bgMid} 0%, ${P.bgDark} 100%)`)
+              : (isRead ? "linear-gradient(180deg,#EAF3E6 0%,#DEE9D8 100%)" : `linear-gradient(180deg, ${P.bg} 0%, ${P.bgMid} 100%)`),
             padding: isFeatured ? "15px 16px 14px" : "13px 15px",
             transition: "background 0.3s ease",
             position: "relative",
@@ -439,6 +439,16 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
                 <StatusBadge status={prophecy.status} parchment={true} />
+                {isRead && (
+                  <span style={{
+                    fontFamily: st.ui, fontSize: 10, fontWeight: 700,
+                    color: "#3A7D44", background: "rgba(58,125,68,0.13)",
+                    border: "1px solid rgba(58,125,68,0.28)",
+                    borderRadius: 5, padding: "2px 7px",
+                  }}>
+                    ✓ Read
+                  </span>
+                )}
                 <span style={{
                   fontFamily: st.ui, fontSize: 10, color: P.inkFaint,
                   background: "rgba(100,60,20,0.1)",
@@ -508,6 +518,8 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
                 onClose={onClose}
                 nav={nav}
                 scrollMode={true}
+                isRead={isRead}
+                onMarkRead={onMarkRead}
               />
             </div>
           </div>
@@ -544,6 +556,19 @@ export default function ProphecyFulfilment({ nav }) {
   const [view,     setView]     = useState("hub");
   const [selected, setSelected] = useState(null);
   const openCardRef = useRef(null);
+
+  const [readIds, setReadIds] = useState(() => {
+    if (typeof window === "undefined") return {};
+    try { return JSON.parse(localStorage.getItem("prophecy_read") || "{}"); }
+    catch { return {}; }
+  });
+  const markRead = (id) => {
+    setReadIds(prev => {
+      const updated = { ...prev, [id]: true };
+      try { localStorage.setItem("prophecy_read", JSON.stringify(updated)); } catch {}
+      return updated;
+    });
+  };
 
   // Scroll opened card into view
   useEffect(() => {
@@ -748,6 +773,8 @@ export default function ProphecyFulfilment({ nav }) {
                   nav={nav}
                   index={i}
                   isFeatured={true}
+                  isRead={!!readIds[p.id]}
+                  onMarkRead={markRead}
                 />
               </div>
             ))}
@@ -768,6 +795,8 @@ export default function ProphecyFulfilment({ nav }) {
                   nav={nav}
                   index={featuredInView.length + i}
                   isFeatured={false}
+                  isRead={!!readIds[p.id]}
+                  onMarkRead={markRead}
                 />
               </div>
             ))}

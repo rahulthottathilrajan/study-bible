@@ -609,7 +609,7 @@ const RevelationDetail = ({ prophecy, color, nav, scrollMode }) => (
 // ══════════════════════════════════════════════════════════════════════════════
 //  MAIN EXPORT
 // ══════════════════════════════════════════════════════════════════════════════
-export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = false }) {
+export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = false, isRead = false, onMarkRead }) {
   if (!prophecy) return null;
 
   const color      = CATEGORY_COLORS[prophecy.category] || st.accent;
@@ -632,6 +632,47 @@ export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = fa
         ) : (
           <StandardDetail prophecy={prophecy} color={color} nav={nav} scrollMode={true} />
         )}
+
+        {/* Mark as Read */}
+        <div style={{
+          display: "flex", justifyContent: "center",
+          padding: "18px 16px 8px",
+          borderTop: "1px solid rgba(100,60,20,0.1)",
+          marginTop: 12,
+        }}>
+          {isRead ? (
+            <div style={{
+              display: "flex", alignItems: "center", gap: 7,
+              fontFamily: st.ui, fontSize: 13, fontWeight: 700,
+              color: "#3A7D44",
+            }}>
+              <span style={{
+                width: 26, height: 26, borderRadius: "50%",
+                background: "rgba(58,125,68,0.15)",
+                border: "1.5px solid rgba(58,125,68,0.35)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 13,
+              }}>✓</span>
+              Marked as read
+            </div>
+          ) : (
+            <button
+              onClick={() => onMarkRead && onMarkRead(prophecy.id)}
+              style={{
+                fontFamily: st.ui, fontSize: 13, fontWeight: 700,
+                color: "#3A7D44",
+                background: "rgba(58,125,68,0.10)",
+                border: "1.5px solid rgba(58,125,68,0.30)",
+                borderRadius: 22, padding: "9px 24px",
+                cursor: "pointer",
+                display: "flex", alignItems: "center", gap: 7,
+                transition: "background 0.2s ease",
+              }}
+            >
+              <span>☑</span> Mark as read
+            </button>
+          )}
+        </div>
       </div>
     );
   }
