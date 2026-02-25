@@ -554,6 +554,389 @@ export default function StudyBible() {
     );
   };
 
+  // ═══ CHAPTER GROUPS — Narrative Acts for all 66 Books ═══
+  const CHAPTER_GROUPS = {
+    // ── OLD TESTAMENT ──
+    "Genesis": [
+      { label:"Creation & Eden", icon:"🌿", chapters:[1,2] },
+      { label:"The Fall & Its Consequences", icon:"🍎", chapters:[3,4,5] },
+      { label:"The Flood & New Beginning", icon:"🌊", chapters:[6,7,8,9] },
+      { label:"The Nations Scatter", icon:"🗼", chapters:[10,11] },
+      { label:"Abraham — Father of Faith", icon:"⭐", chapters:[12,13,14,15,16,17,18,19,20,21,22,23,24,25] },
+      { label:"Isaac & Jacob — The Promise Continues", icon:"🏕️", chapters:[26,27,28,29,30,31,32,33,34,35,36] },
+      { label:"Joseph — Providence & Redemption", icon:"👑", chapters:[37,38,39,40,41,42,43,44,45,46,47,48,49,50] },
+    ],
+    "Exodus": [
+      { label:"Israel in Egypt", icon:"⛓️", chapters:[1,2] },
+      { label:"The Call of Moses", icon:"🔥", chapters:[3,4,5,6] },
+      { label:"The Ten Plagues", icon:"🪲", chapters:[7,8,9,10,11,12] },
+      { label:"The Exodus & Wilderness Journey", icon:"🏜️", chapters:[13,14,15,16,17,18] },
+      { label:"The Law at Sinai", icon:"📜", chapters:[19,20,21,22,23,24] },
+      { label:"The Tabernacle — God Dwells Among Us", icon:"🕍", chapters:[25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40] },
+    ],
+    "Leviticus": [
+      { label:"The Offerings & Sacrifices", icon:"🔥", chapters:[1,2,3,4,5,6,7] },
+      { label:"The Consecration of the Priesthood", icon:"✨", chapters:[8,9,10] },
+      { label:"Laws of Purity", icon:"🧼", chapters:[11,12,13,14,15] },
+      { label:"The Day of Atonement", icon:"⚖️", chapters:[16] },
+      { label:"The Holiness Code", icon:"👑", chapters:[17,18,19,20,21,22,23,24,25,26,27] },
+    ],
+    "Numbers": [
+      { label:"The Census & Preparation", icon:"📊", chapters:[1,2,3,4,5,6,7,8,9,10] },
+      { label:"Journey from Sinai — Rebellion & Wandering", icon:"🏜️", chapters:[11,12,13,14,15,16,17,18,19,20,21] },
+      { label:"Balaam & the Plains of Moab", icon:"🐴", chapters:[22,23,24,25] },
+      { label:"Preparation for Canaan", icon:"🗺️", chapters:[26,27,28,29,30,31,32,33,34,35,36] },
+    ],
+    "Deuteronomy": [
+      { label:"First Address — History Recalled", icon:"📖", chapters:[1,2,3,4] },
+      { label:"Second Address — The Law Renewed", icon:"📜", chapters:[5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26] },
+      { label:"Third Address — Covenant Renewal", icon:"✝️", chapters:[27,28,29,30] },
+      { label:"Farewell & the Death of Moses", icon:"🕊️", chapters:[31,32,33,34] },
+    ],
+    "Joshua": [
+      { label:"Preparation & Crossing the Jordan", icon:"🌊", chapters:[1,2,3,4,5] },
+      { label:"The Conquest of Canaan", icon:"⚔️", chapters:[6,7,8,9,10,11,12] },
+      { label:"Division of the Land", icon:"🗺️", chapters:[13,14,15,16,17,18,19,20,21] },
+      { label:"Final Challenges & Covenant Renewal", icon:"🤝", chapters:[22,23,24] },
+    ],
+    "Judges": [
+      { label:"Introduction — A Pattern of Failure", icon:"📉", chapters:[1,2,3] },
+      { label:"The Major Judges", icon:"⚔️", chapters:[4,5,6,7,8,9,10,11,12] },
+      { label:"Samson — Strength & Weakness", icon:"💪", chapters:[13,14,15,16] },
+      { label:"Appendices — The Depths of Depravity", icon:"⚠️", chapters:[17,18,19,20,21] },
+    ],
+    "Ruth": [
+      { label:"Naomi's Loss & Ruth's Loyalty", icon:"💔", chapters:[1] },
+      { label:"Ruth Meets Boaz", icon:"🌾", chapters:[2,3] },
+      { label:"Redemption & Restoration", icon:"💍", chapters:[4] },
+    ],
+    "1 Samuel": [
+      { label:"Samuel — Judge & Prophet", icon:"📯", chapters:[1,2,3,4,5,6,7] },
+      { label:"The King Demanded", icon:"👑", chapters:[8,9,10,11,12] },
+      { label:"Saul's Reign & Rejection", icon:"📉", chapters:[13,14,15] },
+      { label:"David's Rise", icon:"⭐", chapters:[16,17,18,19,20] },
+      { label:"David as Fugitive", icon:"🏃", chapters:[21,22,23,24,25,26,27] },
+      { label:"Saul's End", icon:"🕊️", chapters:[28,29,30,31] },
+    ],
+    "2 Samuel": [
+      { label:"David — King of Judah", icon:"👑", chapters:[1,2,3,4] },
+      { label:"David — King of All Israel", icon:"⭐", chapters:[5,6,7,8,9,10] },
+      { label:"David's Sin & Its Consequences", icon:"⚠️", chapters:[11,12,13,14,15,16,17,18,19,20] },
+      { label:"Appendices", icon:"📋", chapters:[21,22,23,24] },
+    ],
+    "1 Kings": [
+      { label:"Solomon's Golden Reign", icon:"✨", chapters:[1,2,3,4,5,6,7,8,9,10,11] },
+      { label:"The Kingdom Divided", icon:"💔", chapters:[12,13,14,15,16] },
+      { label:"Elijah & the Contest with Baal", icon:"🔥", chapters:[17,18,19,20,21,22] },
+    ],
+    "2 Kings": [
+      { label:"Elisha's Ministry", icon:"✨", chapters:[1,2,3,4,5,6,7,8] },
+      { label:"The Fall of the Northern Kingdom", icon:"📉", chapters:[9,10,11,12,13,14,15,16,17] },
+      { label:"Hezekiah & Josiah — Revival & Reform", icon:"🙏", chapters:[18,19,20,21,22,23] },
+      { label:"The Fall of Jerusalem", icon:"💔", chapters:[24,25] },
+    ],
+    "1 Chronicles": [
+      { label:"Genealogies — The Line of Promise", icon:"📜", chapters:[1,2,3,4,5,6,7,8,9] },
+      { label:"The End of Saul", icon:"⚔️", chapters:[10] },
+      { label:"David's Kingdom & Preparations for the Temple", icon:"👑", chapters:[11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29] },
+    ],
+    "2 Chronicles": [
+      { label:"Solomon & the Temple", icon:"🕍", chapters:[1,2,3,4,5,6,7,8,9] },
+      { label:"The Kings of Judah", icon:"👑", chapters:[10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36] },
+    ],
+    "Ezra": [
+      { label:"Return from Exile", icon:"🏠", chapters:[1,2] },
+      { label:"Rebuilding the Temple", icon:"🕍", chapters:[3,4,5,6] },
+      { label:"Ezra's Return & Reform", icon:"📜", chapters:[7,8,9,10] },
+    ],
+    "Nehemiah": [
+      { label:"Rebuilding the Walls", icon:"🧱", chapters:[1,2,3,4,5,6,7] },
+      { label:"Covenant Renewal & The Law", icon:"📜", chapters:[8,9,10] },
+      { label:"Community Life & Final Reforms", icon:"🏘️", chapters:[11,12,13] },
+    ],
+    "Esther": [
+      { label:"Esther Becomes Queen", icon:"👑", chapters:[1,2] },
+      { label:"Haman's Plot Against the Jews", icon:"⚠️", chapters:[3,4,5] },
+      { label:"The Tables Turn", icon:"⚖️", chapters:[6,7,8] },
+      { label:"Victory & the Feast of Purim", icon:"🎉", chapters:[9,10] },
+    ],
+    "Job": [
+      { label:"Prologue — The Testing Begins", icon:"⚡", chapters:[1,2] },
+      { label:"Job's Lament", icon:"💔", chapters:[3] },
+      { label:"First Cycle of Speeches", icon:"🗣️", chapters:[4,5,6,7,8,9,10,11,12,13,14] },
+      { label:"Second Cycle of Speeches", icon:"🗣️", chapters:[15,16,17,18,19,20,21] },
+      { label:"Third Cycle of Speeches", icon:"🗣️", chapters:[22,23,24,25,26,27,28,29,30,31] },
+      { label:"Elihu Speaks", icon:"💨", chapters:[32,33,34,35,36,37] },
+      { label:"God Answers from the Whirlwind", icon:"🌪️", chapters:[38,39,40,41] },
+      { label:"Epilogue — Restoration", icon:"🌅", chapters:[42] },
+    ],
+    "Psalms": [
+      { label:"Book I — Psalms of David", icon:"🎵", chapters:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41] },
+      { label:"Book II — The Exodus Psalms", icon:"🎵", chapters:[42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72] },
+      { label:"Book III — Psalms of Asaph", icon:"🎵", chapters:[73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89] },
+      { label:"Book IV — Moses & the Wilderness", icon:"🎵", chapters:[90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106] },
+      { label:"Book V — Psalms of Ascent & Praise", icon:"🎵", chapters:[107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150] },
+    ],
+    "Proverbs": [
+      { label:"In Praise of Wisdom", icon:"💡", chapters:[1,2,3,4,5,6,7,8,9] },
+      { label:"Solomon's Proverbs I", icon:"📖", chapters:[10,11,12,13,14,15,16,17,18,19,20,21,22] },
+      { label:"Sayings of the Wise", icon:"🗣️", chapters:[22,23,24] },
+      { label:"Solomon's Proverbs II", icon:"📖", chapters:[25,26,27,28,29] },
+      { label:"Agur & Lemuel — A Mother's Wisdom", icon:"👑", chapters:[30,31] },
+    ],
+    "Ecclesiastes": [
+      { label:"Vanity of All Things", icon:"💨", chapters:[1,2] },
+      { label:"Cycles, Seasons & Injustice", icon:"🔄", chapters:[3,4,5] },
+      { label:"Observations on Life", icon:"👁️", chapters:[6,7,8] },
+      { label:"Youth, Age & the Final Verdict", icon:"⏳", chapters:[9,10,11,12] },
+    ],
+    "Song of Solomon": [
+      { label:"The Beloved's Longing", icon:"🌹", chapters:[1,2] },
+      { label:"Seeking & Finding", icon:"❤️", chapters:[3,4,5] },
+      { label:"Reunion, Beauty & Love's Triumph", icon:"🕊️", chapters:[6,7,8] },
+    ],
+    "Isaiah": [
+      { label:"Book of Judgment — Woe to the Nations", icon:"⚖️", chapters:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39] },
+      { label:"Book of Comfort — The Servant of the Lord", icon:"🕊️", chapters:[40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55] },
+      { label:"Book of Glory — The New Creation", icon:"🌅", chapters:[56,57,58,59,60,61,62,63,64,65,66] },
+    ],
+    "Jeremiah": [
+      { label:"Early Ministry & Call", icon:"📯", chapters:[1,2,3,4,5,6] },
+      { label:"Temple Sermon & Conflict", icon:"🏛️", chapters:[7,8,9,10,11,12,13,14,15,16,17,18,19,20] },
+      { label:"Kings, False Prophets & Exile", icon:"👑", chapters:[21,22,23,24,25,26,27,28,29] },
+      { label:"The Book of Consolation", icon:"🌅", chapters:[30,31,32,33] },
+      { label:"Judah's Last Days", icon:"📉", chapters:[34,35,36,37,38,39,40,41,42,43,44,45] },
+      { label:"Oracles Against the Nations", icon:"⚡", chapters:[46,47,48,49,50,51] },
+      { label:"The Fall of Jerusalem", icon:"💔", chapters:[52] },
+    ],
+    "Lamentations": [
+      { label:"The Desolate City", icon:"💔", chapters:[1] },
+      { label:"The Lord's Anger", icon:"⚡", chapters:[2] },
+      { label:"Hope in the Midst of Suffering", icon:"🌅", chapters:[3] },
+      { label:"Zion's Plea", icon:"🙏", chapters:[4] },
+      { label:"Prayer for Restoration", icon:"🕊️", chapters:[5] },
+    ],
+    "Ezekiel": [
+      { label:"Judgment on Jerusalem", icon:"⚡", chapters:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24] },
+      { label:"Judgment on the Nations", icon:"⚖️", chapters:[25,26,27,28,29,30,31,32] },
+      { label:"Restoration of Israel — Dry Bones", icon:"🦴", chapters:[33,34,35,36,37,38,39] },
+      { label:"The New Temple & New City", icon:"🕍", chapters:[40,41,42,43,44,45,46,47,48] },
+    ],
+    "Daniel": [
+      { label:"Stories at the Babylonian Court", icon:"🦁", chapters:[1,2,3,4,5,6] },
+      { label:"Visions of Empires & the End", icon:"🔭", chapters:[7,8,9,10,11,12] },
+    ],
+    "Hosea": [
+      { label:"Hosea's Marriage — A Living Parable", icon:"💍", chapters:[1,2,3] },
+      { label:"Israel's Unfaithfulness", icon:"💔", chapters:[4,5,6,7,8,9,10] },
+      { label:"God's Persistent Love", icon:"❤️", chapters:[11,12,13,14] },
+    ],
+    "Joel": [
+      { label:"The Locust Plague — A Call to Repentance", icon:"🪲", chapters:[1] },
+      { label:"The Day of the Lord", icon:"⚡", chapters:[2] },
+      { label:"Restoration & the Spirit Poured Out", icon:"🌅", chapters:[3] },
+    ],
+    "Amos": [
+      { label:"Oracles Against the Nations", icon:"⚡", chapters:[1,2] },
+      { label:"Sermons Against Israel", icon:"📯", chapters:[3,4,5,6] },
+      { label:"Five Visions of Judgment & Hope", icon:"👁️", chapters:[7,8,9] },
+    ],
+    "Obadiah": [
+      { label:"Judgment on Edom — Pride Before the Fall", icon:"⚖️", chapters:[1] },
+    ],
+    "Jonah": [
+      { label:"Running from God", icon:"🚢", chapters:[1] },
+      { label:"Prayer from the Belly of the Fish", icon:"🐋", chapters:[2] },
+      { label:"Nineveh Repents", icon:"🙏", chapters:[3] },
+      { label:"Jonah's Anger & God's Compassion", icon:"😤", chapters:[4] },
+    ],
+    "Micah": [
+      { label:"Judgment on Israel & Judah", icon:"⚡", chapters:[1,2,3] },
+      { label:"The Future King from Bethlehem", icon:"⭐", chapters:[4,5] },
+      { label:"The Covenant Lawsuit & God's Mercy", icon:"⚖️", chapters:[6,7] },
+    ],
+    "Nahum": [
+      { label:"God's Majesty & Nineveh's Doom", icon:"⚡", chapters:[1] },
+      { label:"The Fall of Nineveh Described", icon:"🏙️", chapters:[2] },
+      { label:"The Cause of Nineveh's Ruin", icon:"⚖️", chapters:[3] },
+    ],
+    "Habakkuk": [
+      { label:"The Prophet's Complaint & God's Answer", icon:"❓", chapters:[1,2] },
+      { label:"The Prophet's Prayer of Trust", icon:"🙏", chapters:[3] },
+    ],
+    "Zephaniah": [
+      { label:"The Day of the Lord — Universal Judgment", icon:"⚡", chapters:[1,2] },
+      { label:"Woe & the Promise of Restoration", icon:"🌅", chapters:[3] },
+    ],
+    "Haggai": [
+      { label:"Call to Rebuild the Temple", icon:"🕍", chapters:[1] },
+      { label:"The Glory of the New Temple", icon:"✨", chapters:[2] },
+    ],
+    "Zechariah": [
+      { label:"Eight Night Visions", icon:"🌙", chapters:[1,2,3,4,5,6] },
+      { label:"Questions on Fasting & Future Glory", icon:"🙏", chapters:[7,8] },
+      { label:"Two Burdens — The Coming King & His Kingdom", icon:"👑", chapters:[9,10,11,12,13,14] },
+    ],
+    "Malachi": [
+      { label:"God's Love Questioned", icon:"❓", chapters:[1] },
+      { label:"Priests & People Rebuked", icon:"⚠️", chapters:[2] },
+      { label:"Justice, Tithing & the Faithful Remnant", icon:"⚖️", chapters:[3] },
+      { label:"The Coming Day of the Lord", icon:"☀️", chapters:[4] },
+    ],
+    // ── NEW TESTAMENT ──
+    "Matthew": [
+      { label:"Birth, Baptism & Temptation", icon:"⭐", chapters:[1,2,3,4] },
+      { label:"The Sermon on the Mount", icon:"⛰️", chapters:[5,6,7] },
+      { label:"Ministry & Miracles in Galilee", icon:"✨", chapters:[8,9,10,11,12] },
+      { label:"Parables of the Kingdom", icon:"🌱", chapters:[13] },
+      { label:"Growing Opposition", icon:"⚠️", chapters:[14,15,16,17] },
+      { label:"Teaching on the Church & Kingdom", icon:"🏛️", chapters:[18,19,20] },
+      { label:"Jerusalem — Confrontation & Olivet Discourse", icon:"🏙️", chapters:[21,22,23,24,25] },
+      { label:"Passion, Death & Resurrection", icon:"✝️", chapters:[26,27,28] },
+    ],
+    "Mark": [
+      { label:"The Beginning of the Gospel", icon:"🚀", chapters:[1,2,3] },
+      { label:"Teaching, Miracles & Growing Faith", icon:"✨", chapters:[4,5,6,7,8] },
+      { label:"The Road to Jerusalem", icon:"🛤️", chapters:[8,9,10] },
+      { label:"Jerusalem Ministry & Olivet Discourse", icon:"🏙️", chapters:[11,12,13] },
+      { label:"Passion, Death & Resurrection", icon:"✝️", chapters:[14,15,16] },
+    ],
+    "Luke": [
+      { label:"Birth & Preparation", icon:"⭐", chapters:[1,2,3,4] },
+      { label:"Galilean Ministry", icon:"🌊", chapters:[5,6,7,8,9] },
+      { label:"The Journey to Jerusalem", icon:"🛤️", chapters:[10,11,12,13,14,15,16,17,18,19] },
+      { label:"Jerusalem — Teaching & Conflict", icon:"🏙️", chapters:[20,21] },
+      { label:"Passion, Death & Resurrection", icon:"✝️", chapters:[22,23,24] },
+    ],
+    "John": [
+      { label:"The Word Made Flesh & First Signs", icon:"💡", chapters:[1,2,3,4] },
+      { label:"Growing Faith & Deepening Conflict", icon:"⚔️", chapters:[5,6,7,8,9,10] },
+      { label:"The Road to the Cross", icon:"🛤️", chapters:[11,12] },
+      { label:"The Upper Room Discourse", icon:"🍞", chapters:[13,14,15,16,17] },
+      { label:"Passion, Death & Resurrection", icon:"✝️", chapters:[18,19,20,21] },
+    ],
+    "Acts": [
+      { label:"Jerusalem — Pentecost & the Early Church", icon:"🔥", chapters:[1,2,3,4,5,6,7] },
+      { label:"Judea, Samaria & the Gentiles", icon:"🌍", chapters:[8,9,10,11,12] },
+      { label:"Paul's First Missionary Journey", icon:"🚢", chapters:[13,14,15] },
+      { label:"Paul's Second Journey — Europe Reached", icon:"🗺️", chapters:[16,17,18] },
+      { label:"Paul's Third Journey — Ephesus", icon:"🏛️", chapters:[19,20,21] },
+      { label:"Paul's Arrest, Trials & Defence", icon:"⚖️", chapters:[22,23,24,25,26] },
+      { label:"Shipwreck & Arrival in Rome", icon:"🚢", chapters:[27,28] },
+    ],
+    "Romans": [
+      { label:"The Problem — All Have Sinned", icon:"⚠️", chapters:[1,2,3] },
+      { label:"The Solution — Justification by Faith", icon:"✝️", chapters:[4,5] },
+      { label:"Sanctification — Dead to Sin, Alive to God", icon:"🕊️", chapters:[6,7,8] },
+      { label:"Israel & the Mystery of the Gospel", icon:"🔭", chapters:[9,10,11] },
+      { label:"Living the Gospel — Ethics & Love", icon:"❤️", chapters:[12,13,14,15,16] },
+    ],
+    "1 Corinthians": [
+      { label:"Divisions & the Wisdom of the Cross", icon:"✝️", chapters:[1,2,3,4] },
+      { label:"Sexual Ethics & Marriage", icon:"🤝", chapters:[5,6,7] },
+      { label:"Christian Freedom & Worship", icon:"🙏", chapters:[8,9,10,11] },
+      { label:"Spiritual Gifts & the Body of Christ", icon:"✨", chapters:[12,13,14] },
+      { label:"The Resurrection — Everything Hangs on This", icon:"🌅", chapters:[15] },
+      { label:"Closing Instructions", icon:"📝", chapters:[16] },
+    ],
+    "2 Corinthians": [
+      { label:"Paul's Ministry — Suffering & Comfort", icon:"💪", chapters:[1,2,3,4,5,6,7] },
+      { label:"The Collection — Generosity & Grace", icon:"🤲", chapters:[8,9] },
+      { label:"Paul's Defence of His Apostleship", icon:"⚔️", chapters:[10,11,12,13] },
+    ],
+    "Galatians": [
+      { label:"The Gospel Defended — No Other Gospel", icon:"📯", chapters:[1,2] },
+      { label:"Faith vs. Law — Children of Abraham", icon:"⚖️", chapters:[3,4] },
+      { label:"Life in the Spirit — Freedom & Fruit", icon:"🕊️", chapters:[5,6] },
+    ],
+    "Ephesians": [
+      { label:"The Church's Calling — Seated in the Heavenlies", icon:"✨", chapters:[1,2,3] },
+      { label:"The Church's Walk — Unity, Holiness & Armour", icon:"⚔️", chapters:[4,5,6] },
+    ],
+    "Philippians": [
+      { label:"Joy in Chains — Christ is Gain", icon:"🎵", chapters:[1] },
+      { label:"The Mind of Christ — Humility", icon:"🙇", chapters:[2] },
+      { label:"Righteousness by Faith Alone", icon:"✝️", chapters:[3] },
+      { label:"Peace, Contentment & Provision", icon:"🕊️", chapters:[4] },
+    ],
+    "Colossians": [
+      { label:"Christ the Head — Supreme over All", icon:"👑", chapters:[1,2] },
+      { label:"Life in Christ — Old Self & New", icon:"✨", chapters:[3,4] },
+    ],
+    "1 Thessalonians": [
+      { label:"Paul's Thanksgiving & Defence", icon:"🙏", chapters:[1,2,3] },
+      { label:"Holy Living & the Coming of Christ", icon:"⭐", chapters:[4,5] },
+    ],
+    "2 Thessalonians": [
+      { label:"Encouragement in Persecution", icon:"💪", chapters:[1] },
+      { label:"The Man of Lawlessness", icon:"⚠️", chapters:[2] },
+      { label:"Final Instructions", icon:"📝", chapters:[3] },
+    ],
+    "1 Timothy": [
+      { label:"Sound Doctrine & Prayer", icon:"🙏", chapters:[1,2] },
+      { label:"Church Leadership — Overseers & Deacons", icon:"🏛️", chapters:[3] },
+      { label:"Timothy's Charge — Godliness & Contentment", icon:"📯", chapters:[4,5,6] },
+    ],
+    "2 Timothy": [
+      { label:"Unashamed of the Gospel", icon:"🔥", chapters:[1,2] },
+      { label:"The Final Charge — Preach the Word", icon:"📯", chapters:[3,4] },
+    ],
+    "Titus": [
+      { label:"Church Order & Sound Doctrine", icon:"🏛️", chapters:[1,2] },
+      { label:"Grace That Transforms — Good Works", icon:"✨", chapters:[3] },
+    ],
+    "Philemon": [
+      { label:"Appeal for Onesimus — A Picture of Grace", icon:"🤝", chapters:[1] },
+    ],
+    "Hebrews": [
+      { label:"Christ Superior to Angels & Moses", icon:"✨", chapters:[1,2,3,4] },
+      { label:"Christ Our Great High Priest", icon:"🙏", chapters:[5,6,7] },
+      { label:"The New Covenant — Better Promises", icon:"✝️", chapters:[8,9,10] },
+      { label:"The Hall of Faith", icon:"⭐", chapters:[11,12] },
+      { label:"Final Exhortations", icon:"📝", chapters:[13] },
+    ],
+    "James": [
+      { label:"Trials, Wisdom & the Word", icon:"💡", chapters:[1] },
+      { label:"Faith & Works — Show Me Your Faith", icon:"⚖️", chapters:[2] },
+      { label:"Taming the Tongue", icon:"🗣️", chapters:[3] },
+      { label:"Worldliness, Pride & Submission", icon:"🙇", chapters:[4] },
+      { label:"Patience, Prayer & Restoration", icon:"🙏", chapters:[5] },
+    ],
+    "1 Peter": [
+      { label:"Living Hope — A Holy People", icon:"🌅", chapters:[1,2] },
+      { label:"Suffering for Righteousness — Following Christ", icon:"✝️", chapters:[3,4,5] },
+    ],
+    "2 Peter": [
+      { label:"Growth in Grace — Make Your Calling Sure", icon:"🌱", chapters:[1] },
+      { label:"False Teachers — Destructive Heresies", icon:"⚠️", chapters:[2] },
+      { label:"The Day of the Lord — New Heavens & Earth", icon:"🌅", chapters:[3] },
+    ],
+    "1 John": [
+      { label:"Walking in the Light", icon:"💡", chapters:[1,2] },
+      { label:"Children of God — Love One Another", icon:"❤️", chapters:[3,4] },
+      { label:"Faith, Assurance & Eternal Life", icon:"✝️", chapters:[5] },
+    ],
+    "2 John": [
+      { label:"Truth & Love — Walk in His Commands", icon:"❤️", chapters:[1] },
+    ],
+    "3 John": [
+      { label:"Hospitality, Truth & a Warning", icon:"🤝", chapters:[1] },
+    ],
+    "Jude": [
+      { label:"Contend Earnestly for the Faith", icon:"⚔️", chapters:[1] },
+    ],
+    "Revelation": [
+      { label:"Letters to the Seven Churches", icon:"✉️", chapters:[1,2,3] },
+      { label:"The Throne Room of Heaven", icon:"✨", chapters:[4,5] },
+      { label:"The Seven Seals", icon:"📜", chapters:[6,7] },
+      { label:"The Seven Trumpets", icon:"📯", chapters:[8,9,10,11] },
+      { label:"Cosmic War — The Dragon & the Lamb", icon:"🐉", chapters:[12,13,14] },
+      { label:"The Seven Bowls of Wrath", icon:"⚡", chapters:[15,16] },
+      { label:"Babylon Falls — The Wedding Supper", icon:"🎉", chapters:[17,18,19] },
+      { label:"The New Creation — All Things New", icon:"🌅", chapters:[20,21,22] },
+    ],
+  };
+
   // ═══ HOME ═══
   const Home = () => (
     <div style={{ minHeight:"100vh",background:ht.bg }}>
@@ -742,24 +1125,119 @@ export default function StudyBible() {
     const avail = dbChapters[book] || [];
     const availNums = avail.map(a => a.num);
     const getTheme = (ch) => { const found = avail.find(a => a.num === ch); return found?.theme || null; };
+    const groups = CHAPTER_GROUPS[book] || [{ label:"All Chapters", icon:"📖", chapters:Array.from({length:bookInfo.chapters},(_,i)=>i+1) }];
+    const [collapsed, setCollapsed] = useState({});
+    const toggleGroup = (i) => setCollapsed(prev => ({...prev,[i]:!prev[i]}));
+
+    // Progress indicators — derive from existing state
+    const userNoteChapters = new Set(userNotes ? userNotes.map(n => n.chapter_num).filter(Boolean) : []);
+    const userBookmarkChapters = new Set(userBookmarks ? userBookmarks.map(b => b.chapter_num).filter(Boolean) : []);
+
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <Header title={book} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={() => nav("books",{testament:bookInfo.testament})} />
         <div style={{ padding:"18px 16px 40px",maxWidth:520,margin:"0 auto" }}>
-          {bookInfo.author && <Card accent t={t} style={{marginBottom:14}}><div style={{fontFamily:t.ui,fontSize:13.5,color:t.text,lineHeight:1.6}}><strong>Author:</strong> {bookInfo.author} · <strong>Date:</strong> {bookInfo.dateWritten}</div></Card>}
-          <Label icon="📋" t={t} color={t.muted}>{bookInfo.chapters} Chapters</Label>
-          <div style={{ background:t.card,borderRadius:12,border:`1px solid ${t.divider}`,overflow:"hidden" }}>
-            {Array.from({length:bookInfo.chapters},(_,i)=>i+1).map(ch => {
-              const has = availNums.includes(ch);
-              const theme = getTheme(ch);
-              return (
-                <button key={ch} onClick={() => { if (has) nav("verses",{chapter:ch,verse:null}); }} style={{ width:"100%",display:"flex",alignItems:"center",padding:"10px 14px",background:"transparent",border:"none",borderBottom:`1px solid ${t.divider}`,cursor:has?"pointer":"default",opacity:has?1:0.4,textAlign:"left",transition:"all 0.1s",gap:10 }}>
-                  <span style={{ fontFamily:t.heading,fontSize:14,fontWeight:has?700:400,color:has?t.accent:t.light,minWidth:28,textAlign:"center" }}>{ch}</span>
-                  <span style={{ flex:1,fontFamily:t.ui,fontSize:12.5,color:has?t.text:t.light,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{theme || (has ? "Study available" : "—")}</span>
-                  {has && <div style={{ color:t.light,flexShrink:0 }}><ChevIcon /></div>}
+
+          {/* Book info card */}
+          {bookInfo.author && (
+            <div style={{ background:t.card,border:`1px solid ${t.divider}`,borderRadius:14,padding:"14px 16px",marginBottom:18,boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
+              <div style={{ fontFamily:t.ui,fontSize:13,color:t.text,lineHeight:1.8 }}>
+                <span style={{ fontWeight:700,color:t.dark }}>Author: </span>{bookInfo.author}
+                {bookInfo.dateWritten && <><span style={{ color:t.divider }}> · </span><span style={{ fontWeight:700,color:t.dark }}>Date: </span>{bookInfo.dateWritten}</>}
+              </div>
+            </div>
+          )}
+
+          {/* Legend */}
+          <div style={{ display:"flex",gap:16,marginBottom:18,padding:"10px 14px",background:t.accentLight,borderRadius:10 }}>
+            <div style={{ display:"flex",alignItems:"center",gap:5,fontFamily:t.ui,fontSize:11,color:t.muted }}>
+              <span style={{ width:8,height:8,borderRadius:"50%",background:t.accent,display:"inline-block" }}/>Study Ready
+            </div>
+            <div style={{ display:"flex",alignItems:"center",gap:5,fontFamily:t.ui,fontSize:11,color:t.muted }}>
+              <span style={{ fontSize:11 }}>✏️</span> Your Notes
+            </div>
+            <div style={{ display:"flex",alignItems:"center",gap:5,fontFamily:t.ui,fontSize:11,color:t.muted }}>
+              <span style={{ fontSize:11 }}>★</span> Bookmarked
+            </div>
+          </div>
+
+          {/* Grouped chapters */}
+          {groups.map((group, gi) => {
+            const groupHasContent = group.chapters.some(ch => availNums.includes(ch));
+            const isCollapsed = collapsed[gi];
+            return (
+              <div key={gi} style={{ marginBottom:12 }}>
+                {/* Group header */}
+                <button
+                  onClick={() => toggleGroup(gi)}
+                  style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"12px 14px",background:groupHasContent ? `linear-gradient(135deg,${t.accentLight},${t.card})` : t.card,border:`1px solid ${groupHasContent ? t.accentBorder : t.divider}`,borderRadius:isCollapsed ? 12 : "12px 12px 0 0",cursor:"pointer",textAlign:"left",transition:"all 0.2s" }}>
+                  <span style={{ fontSize:18,flexShrink:0 }}>{group.icon}</span>
+                  <div style={{ flex:1 }}>
+                    <div style={{ fontFamily:t.heading,fontSize:15,fontWeight:700,color:groupHasContent ? t.dark : t.muted,lineHeight:1.3 }}>{group.label}</div>
+                    <div style={{ fontFamily:t.ui,fontSize:11,color:t.muted,marginTop:2 }}>
+                      {group.chapters.length === 1 ? `Chapter ${group.chapters[0]}` : `Chapters ${group.chapters[0]}–${group.chapters[group.chapters.length-1]}`}
+                      {groupHasContent && <span style={{ color:t.accent,fontWeight:700 }}> · Study available</span>}
+                    </div>
+                  </div>
+                  <span style={{ fontFamily:t.ui,fontSize:12,color:t.muted,transform:isCollapsed?"rotate(0deg)":"rotate(180deg)",transition:"transform 0.2s" }}>▾</span>
                 </button>
-              );
-            })}
+
+                {/* Chapter rows */}
+                {!isCollapsed && (
+                  <div style={{ border:`1px solid ${groupHasContent ? t.accentBorder : t.divider}`,borderTop:"none",borderRadius:"0 0 12px 12px",overflow:"hidden",background:t.card }}>
+                    {group.chapters.map((ch, ci) => {
+                      const has = availNums.includes(ch);
+                      const theme = getTheme(ch);
+                      const hasNote = userNoteChapters.has(ch);
+                      const hasBookmark = userBookmarkChapters.has(ch);
+                      const isLast = ci === group.chapters.length - 1;
+                      return (
+                        <button key={ch}
+                          onClick={() => { if (has) nav("verses",{chapter:ch,verse:null}); }}
+                          style={{ width:"100%",display:"flex",alignItems:"center",padding:"12px 14px",background:"transparent",border:"none",borderBottom:isLast ? "none" : `1px solid ${t.divider}`,cursor:has?"pointer":"default",opacity:has?1:0.4,textAlign:"left",transition:"background 0.15s",gap:12 }}>
+
+                          {/* Chapter number with dot indicator */}
+                          <div style={{ position:"relative",flexShrink:0,width:32,height:32,display:"flex",alignItems:"center",justifyContent:"center" }}>
+                            <span style={{ fontFamily:t.heading,fontSize:15,fontWeight:has?700:400,color:has?t.accent:t.light }}>{ch}</span>
+                            {has && <span style={{ position:"absolute",top:0,right:0,width:7,height:7,borderRadius:"50%",background:t.accent,boxShadow:`0 0 0 2px ${t.bg}` }}/>}
+                          </div>
+
+                          {/* Title */}
+                          <div style={{ flex:1,minWidth:0 }}>
+                            <div style={{ fontFamily:t.ui,fontSize:13,color:has?t.text:t.light,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",lineHeight:1.5 }}>
+                              {theme || (has ? "Study available" : "Coming soon")}
+                            </div>
+                          </div>
+
+                          {/* Progress badges */}
+                          <div style={{ display:"flex",alignItems:"center",gap:5,flexShrink:0 }}>
+                            {hasNote && <span style={{ fontSize:11,opacity:0.8 }}>✏️</span>}
+                            {hasBookmark && <span style={{ fontSize:11,color:"#FFD700",opacity:0.9 }}>★</span>}
+                            {has && <div style={{ color:t.light }}><ChevIcon /></div>}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          {/* Stats footer */}
+          <div style={{ display:"flex",justifyContent:"center",gap:28,marginTop:10,padding:"14px 0",borderTop:`1px solid ${t.divider}` }}>
+            <div style={{ textAlign:"center" }}>
+              <div style={{ fontFamily:t.heading,fontSize:20,fontWeight:700,color:t.dark }}>{bookInfo.chapters}</div>
+              <div style={{ fontFamily:t.ui,fontSize:10,color:t.muted,textTransform:"uppercase",letterSpacing:"0.1em" }}>Chapters</div>
+            </div>
+            <div style={{ textAlign:"center" }}>
+              <div style={{ fontFamily:t.heading,fontSize:20,fontWeight:700,color:t.accent }}>{availNums.length}</div>
+              <div style={{ fontFamily:t.ui,fontSize:10,color:t.muted,textTransform:"uppercase",letterSpacing:"0.1em" }}>Study Ready</div>
+            </div>
+            <div style={{ textAlign:"center" }}>
+              <div style={{ fontFamily:t.heading,fontSize:20,fontWeight:700,color:t.dark }}>{groups.length}</div>
+              <div style={{ fontFamily:t.ui,fontSize:10,color:t.muted,textTransform:"uppercase",letterSpacing:"0.1em" }}>Acts</div>
+            </div>
           </div>
         </div>
       </div>
