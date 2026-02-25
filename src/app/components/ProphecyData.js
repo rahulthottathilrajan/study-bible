@@ -1154,6 +1154,301 @@ export const PROPHECIES = [
     empires: null,
     watchFor: "The complete fulfilment awaits the salvation of 'all Israel' (Romans 11:26) and the universal knowledge of God described in v.34 — a condition not yet fully realised.",
   },
+  // ══════════════════════════════════════════════════════════════════════
+//  BATCH ADDITIONS — Paste these entries into ProphecyData.js
+//  BEFORE the closing ];  (after the rs05 entry)
+//
+//  New entries:  m19, m20, m21, m22  (Messianic)
+//                d08                 (Daniel)
+//                i10, i11, i12       (Israel)
+//                rs06                (Restoration)
+//                r08                 (Revelation)
+//
+//  Total prophecies after paste: 46 + 10 = 56
+// ══════════════════════════════════════════════════════════════════════
+
+  // ══════════════════════════════════════════════════════════
+  //  MESSIANIC — 4 new additions (m19–m22)
+  // ══════════════════════════════════════════════════════════
+
+  {
+    id: "m19",
+    category: "Messianic",
+    featured: false,
+    status: "Literal Fulfilment",
+    title: "\"My God, My God\" — The Forsaken One",
+    summary: "Psalm 22 opens with the exact cry of dereliction Jesus uttered from the cross",
+    otRef: "Psalm 22:1",
+    otBook: "Psalms",
+    otText: "My God, my God, why hast thou forsaken me? why art thou so far from helping me, and from the words of my roaring?",
+    ntRef: "Matthew 27:46",
+    ntBook: "Matthew",
+    ntText: "And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me?",
+    commentary: "Psalm 22 is a document of prophetic precision so detailed it reads like an eyewitness account of the crucifixion — written by David a thousand years before crucifixion was even invented as a method of execution. The psalm opens with the identical Aramaic cry Jesus uttered from the cross (v.1), then describes the surrounding mockery word for word (vv.7-8 — cf. Matthew 27:39-43), the piercing of hands and feet (v.16), the parting of garments by lot (v.18 — fulfilled in John 19:24), the dislocation of bones (v.14), and the public display of nakedness (v.17). Motyer calls Psalm 22 'the Calvary psalm' — not a description of David's suffering, since David was never crucified, but a Spirit-breathed oracle given through David's experience of abandonment, extended into the ultimate suffering of the greater Son of David. Jesus' quotation of v.1 from the cross was not a cry of despair but a citation — he was publicly identifying his death as the fulfilment of this very psalm. By quoting the opening verse, he was pointing his hearers to the whole poem, which ends not in abandonment but in vindication: 'They shall come, and shall declare his righteousness unto a people that shall be born, that he hath done this' (v.31).",
+    historicalNote: null,
+    interpretations: null,
+    empires: null,
+    watchFor: null,
+  },
+
+  {
+    id: "m20",
+    category: "Messianic",
+    featured: true,
+    status: "Literal Fulfilment",
+    title: "The Names of the Messiah — Isaiah 9:6",
+    summary: "Unto us a child is born — four throne-names that define who the Messiah is",
+    otRef: "Isaiah 9:6",
+    otBook: "Isaiah",
+    otText: "For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
+    ntRef: "Luke 2:11",
+    ntBook: "Luke",
+    ntText: "For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
+    commentary: "Isaiah 9:6 delivers one of the most audacious claims in the Old Testament: the child to be born ('born' — fully human) is simultaneously the son 'given' from God ('given' — a pre-existent divine person entering time), and his throne-names include 'The mighty God' (El Gibbor — used elsewhere in Isaiah only of YHWH himself, cf. 10:21) and 'The everlasting Father' (Father of Eternity — possessor and source of all ages). Walter Kaiser observes that for a Jewish author to apply the title 'El Gibbor' to a human child would be the most extreme blasphemy imaginable — unless the author is making a deliberate theological claim that this child is the divine Son incarnate. The angel's announcement to the shepherds in Luke 2:11 ('Christ the Lord') is the NT echo — 'Lord' (Kyrios) being the Greek word used throughout the LXX to translate the divine name YHWH. Motyer demonstrates that all four compound throne-names are divine attributes: Wonderful Counsellor (his wisdom surpasses all counsel), Mighty God (his power is YHWH's own), Everlasting Father (his authority transcends time), Prince of Peace (his reign establishes shalom — wholeness and reconciliation at every level of creation). The prophecy was given during a period of profound national darkness (Assyrian threat, internal apostasy) — making its sweep from political crisis to cosmic kingship all the more startling.",
+    historicalNote: null,
+    interpretations: null,
+    empires: null,
+    watchFor: null,
+  },
+
+  {
+    id: "m21",
+    category: "Messianic",
+    featured: false,
+    status: "Typological",
+    title: "The Bronze Serpent Lifted Up",
+    summary: "Moses lifting the serpent in the wilderness — a type of Christ lifted up on the cross",
+    otRef: "Numbers 21:8-9",
+    otBook: "Numbers",
+    otText: "And the LORD said unto Moses, Make thee a fiery serpent, and set it upon a pole: and it shall come to pass, that every one that is bitten, when he looketh upon it, shall live. And Moses made a serpent of brass, and put it upon a pole, and it came to pass, that if a serpent had bitten any man, when he beheld the serpent of brass, he lived.",
+    ntRef: "John 3:14-15",
+    ntBook: "John",
+    ntText: "And as Moses lifted up the serpent in the wilderness, even so must the Son of man be lifted up: That whosoever believeth in him should not perish, but have eternal life.",
+    commentary: "The bronze serpent episode is unique in Scripture because Jesus himself provided its interpretation — in one of the most famous passages in the Bible (John 3:14-16). The typological parallels are structurally precise: Israel was dying from a plague they could not cure by their own effort (sin); God provided a remedy they did not deserve; the cure was lifted up on a pole in plain sight; salvation was received entirely by looking — by faith — not by merit or ritual; and the look had to be directed at the very image of the thing that was killing them (a serpent, the symbol of the curse). Jesus identifies himself as the antitype: he must be 'lifted up' (a verb John uses consistently for crucifixion, cf. John 8:28; 12:32) in the same manner. On the cross, Jesus bore the form of the curse (Galatians 3:13 — 'Cursed is every one that hangeth on a tree') so that those who look to him in faith receive life. Edersheim notes that the bronze serpent (Nehushtan) was still in the Temple in Hezekiah's day, being worshipped — a sign that even Israel eventually obscured the type with idolatry. The type's impermanence points to its need of fulfilment. The typological correspondence is so exact that Jesus' use of it in John 3 functions as a hermeneutical key: Scripture's symbolic events are not incidental but are the very grammar in which God wrote the gospel in advance.",
+    historicalNote: null,
+    interpretations: null,
+    empires: null,
+    watchFor: null,
+  },
+
+  {
+    id: "m22",
+    category: "Messianic",
+    featured: false,
+    status: "Literal Fulfilment",
+    title: "Vinegar Offered to Drink — Psalm 69:21",
+    summary: "Gall for his meat and vinegar for his thirst — fulfilled at Golgotha",
+    otRef: "Psalm 69:21",
+    otBook: "Psalms",
+    otText: "They gave me also gall for my meat; and in my thirst they gave me vinegar to drink.",
+    ntRef: "Matthew 27:34,48",
+    ntBook: "Matthew",
+    ntText: "They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink... And straightway one of them ran, and took a spunge, and filled it with vinegar, and put it on a reed, and gave him to drink.",
+    commentary: "Psalm 69 is the second most quoted psalm in the New Testament after Psalm 22 — used by Jesus (John 15:25), Paul (Romans 15:3), and the apostolic community (Acts 1:20). Its sufferer is mocked, alienated from his family, consumed by zeal for God's house (v.9 — quoted in John 2:17 at the Temple cleansing), and given gall and vinegar in the extremity of his suffering. The two-stage fulfilment at the crucifixion is textually precise: first, wine mixed with gall (myrrh — a numbing agent) was offered before the nails were driven, which Jesus refused (he would bear the full weight of suffering unclouded); then, near death, vinegar was held up on a sponge. John 19:28-30 frames this second detail with remarkable theological weight: Jesus, 'knowing that all things were now accomplished, that the scripture might be fulfilled, saith, I thirst.' He was not merely expressing physical anguish — he was consciously fulfilling the prophetic word. Motyer observes that Jesus, who had the power to summon twelve legions of angels, chose thirst so that Psalm 69:21 would be completed. The voluntariness of the fulfilment is itself part of the theological statement: he submitted to every detail.",
+    historicalNote: null,
+    interpretations: null,
+    empires: null,
+    watchFor: null,
+  },
+
+  // ══════════════════════════════════════════════════════════
+  //  DANIEL'S VISIONS — 1 new addition (d08)
+  // ══════════════════════════════════════════════════════════
+
+  {
+    id: "d08",
+    category: "Daniel",
+    featured: false,
+    status: "Partial",
+    title: "The Abomination of Desolation",
+    summary: "Daniel's most contested sign — fulfilled by Antiochus, and awaiting a final fulfilment",
+    otRef: "Daniel 9:27",
+    otBook: "Daniel",
+    otText: "And he shall confirm the covenant with many for one week: and in the midst of the week he shall cause the sacrifice and the oblation to cease, and for the overspreading of abominations he shall make it desolate, even until the consummation, and that determined shall be poured upon the desolate.",
+    ntRef: "Matthew 24:15",
+    ntBook: "Matthew",
+    ntText: "When ye therefore shall see the abomination of desolation, spoken of by Daniel the prophet, stand in the holy place, (whoso readeth, let him understand:) Then let them which be in Judaea flee into the mountains.",
+    commentary: "The 'abomination of desolation' (Hebrew: shiqquts shomem — the desolating horror) is one of the most layered prophetic phrases in Scripture, requiring a double fulfilment: a historical type and a final antitype. The first fulfilment came in 167 BC when Antiochus IV Epiphanes erected an altar to Zeus in the Jerusalem Temple and sacrificed a pig on it — desecrating the Holy of Holies and causing the daily sacrifice to cease for exactly 1,150 days (see Daniel 8:14). This fulfilment is historically confirmed by 1 Maccabees 1:54. A second fulfilment occurred in AD 70 when the Roman general Titus set up military standards (bearing the imperial eagle — Roman idols) in the Temple courts and offered sacrifice to them after the Temple's destruction — as recorded by Josephus (Jewish War VI.6.1). Jesus' warning in Matthew 24:15, spoken after Antiochus but before AD 70, shows he expected a further fulfilment. The majority of conservative scholars (Kaiser, Alford, Thomas) hold that Daniel 9:27 has both a historical and an eschatological reference — with the ultimate 'abomination of desolation' yet future: a final world ruler who will desecrate a rebuilt temple at Jerusalem, an event Paul echoes in 2 Thessalonians 2:3-4. The interpretive debate is genuinely complex, which is why Matthew adds the unusual parenthetical: '(whoso readeth, let him understand)' — a rare direct authorial summons to careful interpretation.",
+    historicalNote: "Antiochus IV Epiphanes desecrated the Jerusalem Temple in December 167 BC (1 Maccabees 1:54). The Maccabean revolt under Judas Maccabaeus resulted in the Temple's reconsecration in 164 BC — still commemorated annually in the Jewish feast of Hanukkah. Roman general Titus completed the second desolation in AD 70, fulfilling Jesus' prophecy in Matthew 24. Both events are confirmed by Josephus (Antiquities XII.5.4; Jewish War VI.6.1) and the book of 1 Maccabees.",
+    interpretations: [
+      {
+        school: "Preterist",
+        color: "#2E7D32",
+        label: "🟢 Preterist",
+        description: "The abomination was fully fulfilled in AD 70 when Roman armies (bearing eagle standards — idols) surrounded and destroyed Jerusalem. Jesus' prophecy in Matthew 24 was addressed entirely to the first-century generation, and all its conditions were met within 40 years of his death.",
+      },
+      {
+        school: "Futurist",
+        color: "#E8625C",
+        label: "🔴 Futurist",
+        description: "Antiochus and AD 70 are types of a final Antichrist who will desecrate a rebuilt Jerusalem temple in the last days (cf. 2 Thessalonians 2:3-4; Revelation 13:14-15). The 'abomination of desolation' awaits its ultimate fulfilment at the end of the age.",
+      },
+      {
+        school: "Historicist",
+        color: "#D4A853",
+        label: "🟡 Historicist",
+        description: "The abomination refers to the papal system's usurpation of Christ's mediatorial role throughout church history — 'sitting in the temple of God, shewing himself that he is God' (2 Thessalonians 2:4) fulfilled in the claims of the medieval papacy. Common in Reformation-era scholarship.",
+      },
+    ],
+    empires: null,
+    watchFor: "A figure of world authority who enters a Jerusalem sanctuary and demands worship (2 Thessalonians 2:3-4); cessation of sacrificial worship if a Third Temple is built; a 3.5-year period of intense persecution (Daniel 12:1; Revelation 12:14).",
+  },
+
+  // ══════════════════════════════════════════════════════════
+  //  NATION OF ISRAEL — 3 new additions (i10–i12)
+  // ══════════════════════════════════════════════════════════
+
+  {
+    id: "i10",
+    category: "Israel",
+    featured: false,
+    status: "Literal Fulfilment",
+    title: "The Scattering Foretold — Deuteronomy 28",
+    summary: "Moses warned of exile among all nations 3,400 years ago — fulfilled in precise detail",
+    otRef: "Deuteronomy 28:64-67",
+    otBook: "Deuteronomy",
+    otText: "And the LORD shall scatter thee among all people, from the one end of the earth even unto the other; and there thou shalt serve other gods, which neither thou nor thy fathers have known, even wood and stone. And among these nations shalt thou find no ease, neither shall the sole of thy foot have rest: but the LORD shall give thee there a trembling heart, and failing of eyes, and sorrow of mind: And thy life shall hang in doubt before thee; and thou shalt fear day and night, and shalt have none assurance of thy life: In the morning thou shalt say, Would God it were even! and at even thou shalt say, Would God it were morning! for the fear of thine heart wherewith thou shalt fear, and for the sight of thine eyes which thou shalt see.",
+    ntRef: "Luke 21:24",
+    ntBook: "Luke",
+    ntText: "And they shall fall by the edge of the sword, and shall be led away captive into all nations: and Jerusalem shall be trodden down of the Gentiles, until the times of the Gentiles be fulfilled.",
+    commentary: "Deuteronomy 28 contains the most remarkable prophetic document in all of ancient literature: a point-by-point description of a nation's future suffering, written before the nation had even entered its land. Moses wrote these words around 1400 BC — a full eight centuries before the Assyrian exile and thirteen centuries before the Roman dispersion. The passage describes scattering 'among all people, from one end of the earth to the other' — and Jewish communities have been found on every inhabited continent. It describes no rest for the foot — Jewish history across 2,500 years has been marked by expulsion after expulsion: Babylon (586 BC), Rome (AD 70, 135), England (1290), France (1306), Spain (1492), Russia (pogroms, 1880s), and Europe (Holocaust, 1933–1945). It describes hearts trembling and lives hanging in doubt — a psychological state that characterized Jewish life through centuries of persecution. Kaiser notes that this passage is not a general description of war and exile that could apply to any conquered nation; its specificity (scattering 'among all people,' not one conquering nation; perpetual insecurity, not temporary captivity) is unique in the ancient world. The survival of the Jewish people through this scattering — maintaining religious and ethnic identity across 70 nations for 1,900 years — is itself a fulfilment of the parallel promise that God would not utterly destroy them (v.63 context; cf. Jeremiah 31:35-37).",
+    historicalNote: "The Assyrian exile of the northern kingdom took place 722 BC; the Babylonian exile of Judah, 586 BC. The Roman destruction of Jerusalem in AD 70 resulted in the dispersion of the Jewish people across the Roman Empire and beyond. By the 20th century, Jewish communities existed on every continent. The Holocaust (1933–1945) killed 6 million Jews — approximately one-third of world Jewry. Moses' prediction of perpetual insecurity, written in approximately 1400 BC, has been confirmed across 3,400 years of recorded history.",
+    interpretations: null,
+    empires: null,
+    watchFor: null,
+  },
+
+  {
+    id: "i11",
+    category: "Israel",
+    featured: false,
+    status: "Literal Fulfilment",
+    title: "Planted and Never Pulled Up — Amos 9",
+    summary: "God promises the restored Israel will never again be uprooted from the land",
+    otRef: "Amos 9:14-15",
+    otBook: "Amos",
+    otText: "And I will bring again the captivity of my people of Israel, and they shall build the waste cities, and inhabit them; and they shall plant vineyards, and drink the wine thereof; they shall also make gardens, and eat the fruit of them. And I will plant them upon their land, and they shall no more be pulled up out of their land which I have given them, saith the LORD thy God.",
+    ntRef: "Acts 15:16-17",
+    ntBook: "Acts",
+    ntText: "After this I will return, and will build again the tabernacle of David, which is fallen down; and I will build again the ruins thereof, and I will set it up: That the residue of men might seek after the Lord, and all the Gentiles, upon whom my name is called, saith the Lord, who doeth all these things.",
+    commentary: "Amos 9:14-15 is one of the most geographically specific and historically verifiable prophecies in Scripture. Written around 760 BC, it promises three things: (1) that Israel's captivity will be reversed; (2) that the people will rebuild ruined cities and cultivate the land; and (3) that after restoration, they will 'no more be pulled up.' The first phase began with the returns from Babylon under Zerubbabel (538 BC), Ezra, and Nehemiah. The second and most dramatic phase is the establishment of the modern State of Israel in 1948. Since 1948, Jews have transformed the landscape of Israel — draining swamps, planting forests, irrigating the Negev desert, and building cities on sites that were ruins for 1,900 years. Tel Aviv, built on sand dunes in 1909, is now a major international city. James, at the Jerusalem Council (Acts 15:16-17), quotes Amos 9 as the prophetic basis for including Gentiles in the covenant community — indicating that the rebuilding of David's tabernacle is connected to the universal mission of the church. The final clause — 'no more be pulled up' — has not been fully tested since 1948, but after 25 centuries of exile, the current reality of a sovereign Jewish state is itself extraordinary. Kaiser notes that the conditional 'shall no more' is stated as a divine guarantee, not a probability: YHWH's character is the surety of the promise.",
+    historicalNote: "The Zionist movement began in earnest in the 1880s with the First Aliyah (wave of immigration). The Balfour Declaration (1917) committed Britain to a Jewish homeland in Palestine. On 14 May 1948, Israel declared independence. Despite five immediate wars (1948, 1956, 1967, 1973, 1982) and ongoing hostility, the State of Israel has survived and grown. The population has grown from 806,000 in 1948 to over 9 million today. Israel is currently the world's largest producer of drip-irrigation technology and one of the most agriculturally productive nations per capita.",
+    interpretations: null,
+    empires: null,
+    watchFor: null,
+  },
+
+  {
+    id: "i12",
+    category: "Israel",
+    featured: false,
+    status: "Partial",
+    title: "Regathering and New Heart — Ezekiel 36",
+    summary: "Israel restored to the land — and given a new heart and new spirit — a two-stage prophecy",
+    otRef: "Ezekiel 36:24-26",
+    otBook: "Ezekiel",
+    otText: "For I will take you from among the heathen, and gather you out of all countries, and will bring you into your own land. Then will I sprinkle clean water upon you, and ye shall be clean: from all your filthiness, and from all your idols, will I cleanse you. A new heart also will I give you, and a new spirit will I put within you: and I will take away the stony heart out of your flesh, and I will give you an heart of flesh.",
+    ntRef: "Romans 11:26-27",
+    ntBook: "Romans",
+    ntText: "And so all Israel shall be saved: as it is written, There shall come out of Sion the Deliverer, and shall turn away ungodliness from Jacob: For this is my covenant unto them, when I shall take away their sins.",
+    commentary: "Ezekiel 36:24-28 is structured as a deliberate two-stage prophecy — and the sequence matters: first, physical regathering to the land (v.24); then, spiritual cleansing and renewal (vv.25-27). The physical phase has been partially fulfilled: since 1948, over 3 million Jews have returned to Israel from over 100 nations. But the spiritual phase — the cleansing, the new heart, the indwelling Spirit — has not yet come to national Israel in the manner Ezekiel describes. Walter Kaiser identifies this passage as one of the foundational Old Testament texts for the New Covenant, connecting it directly to Jeremiah 31:31-34 and the outpouring of the Spirit in Joel 2. The 'new heart' language is not a different covenant for Israel but the same covenant Paul describes in Romans 11 — the grafting back in of natural branches and the coming of 'the Deliverer out of Zion' who will 'turn away ungodliness from Jacob.' Scholars debate whether the spiritual phase is currently being fulfilled through Jewish believers in Jesus (Messianic Jews) who constitute a remnant, or whether there is a future national awakening still coming. The fact that Ezekiel's sequence places territorial return before spiritual renewal matches the observable history: Israel is back in the land, but not yet as a nation that acknowledges Jesus as Messiah. The prophecy is therefore 'partial' — the first clause is accomplished; the second awaits.",
+    historicalNote: "Modern Israel's population is over 75% Jewish, with immigration having brought Yemenite, Ethiopian, Russian, American, French, and many other Jewish communities back to the land. Hebrew has been fully revived as a spoken national language. Yet surveys consistently show the vast majority of Israeli Jews are secular or traditionally observant of Judaism, with Messianic Jewish communities numbering approximately 30,000 within Israel as of 2024.",
+    interpretations: null,
+    empires: null,
+    watchFor: "A national spiritual awakening in Israel, particularly connected to acknowledgment of Jesus as Messiah (Zechariah 12:10; Romans 11:26); a rapid growth in Messianic Jewish believers; and a turning away from ungodliness described in Romans 11:26-27.",
+  },
+
+  // ══════════════════════════════════════════════════════════
+  //  RESTORATION — 1 new addition (rs06)
+  // ══════════════════════════════════════════════════════════
+
+  {
+    id: "rs06",
+    category: "Restoration",
+    featured: false,
+    status: "Awaiting",
+    title: "Swords into Plowshares — Isaiah 2",
+    summary: "Universal peace and the law going forth from Zion — a world yet to come",
+    otRef: "Isaiah 2:2-4",
+    otBook: "Isaiah",
+    otText: "And it shall come to pass in the last days, that the mountain of the LORD's house shall be established in the top of the mountains, and shall be exalted above the hills; and all nations shall flow unto it. And many people shall go and say, Come ye, and let us go up to the mountain of the LORD, to the house of the God of Jacob; and he will teach us of his ways, and we will walk in his paths: for out of Zion shall go forth the law, and the word of the LORD from Jerusalem. And he shall judge among the nations, and shall rebuke many people: and they shall beat their swords into plowshares, and their spears into pruninghooks: nation shall not lift up sword against nation, neither shall they learn war any more.",
+    ntRef: "Revelation 21:24",
+    ntBook: "Revelation",
+    ntText: "And the nations of them which are saved shall walk in the light of it: and the kings of the earth do bring their glory and honour into it.",
+    commentary: "Isaiah 2:2-4 is one of the most quoted prophetic passages in Western culture — the phrase 'beat their swords into plowshares' has been adopted by peace movements, engraved on a United Nations monument, and used by diplomats for over a century. The irony is that the very passage they quote describes a condition that no human political programme has ever come close to achieving — and that Isaiah explicitly locates in 'the last days' and attributes entirely to the direct reign of God from Zion. The prophecy contains three interlocking elements: (1) the elevation of Jerusalem as the spiritual centre of all nations; (2) the universal desire of all peoples to learn God's law; and (3) the cessation of war as a result of divine arbitration — not human negotiation. Motyer notes that the structural parallel in Micah 4:1-3 (nearly word-for-word identical) indicates this was a well-known prophetic oracle rather than an isolated text, and that both prophets place it in the context of universal judgment and renewal. The UN engraving is a cautionary parable: the world wants the fruit (peace) without the root (the reign of the Messiah from Jerusalem). The passage is linked to the Millennium of Revelation 20 by most premillennial scholars, and to the eternal state of Revelation 21-22 by amillennial interpreters. Either way, it is a prophecy whose full conditions — universal peace, universal knowledge of God, and governance by God himself — remain entirely future.",
+    historicalNote: null,
+    interpretations: [
+      {
+        school: "Premillennial",
+        color: "#8B5CF6",
+        label: "🔵 Premillennial",
+        description: "This refers to the literal Millennial Kingdom — the 1,000-year reign of Christ on earth (Revelation 20). Jerusalem will be the capital of the world. Christ will govern with a rod of iron, wars will cease, and the law will go forth literally from Zion. This global peace is possible only under direct Messianic rule, not through human governance.",
+      },
+      {
+        school: "Amillennial / Eternal State",
+        color: "#1B7A6E",
+        label: "🟢 Amillennial / Eternal State",
+        description: "The passage describes the eternal state of the New Creation (Revelation 21-22), when the New Jerusalem descends and God dwells with his people forever. The 'nations' are the redeemed of all ages. Universal peace is the final condition of the renewed cosmos, not a transitional earthly reign.",
+      },
+      {
+        school: "Postmillennial",
+        color: "#D4A853",
+        label: "🟡 Postmillennial",
+        description: "The gospel will progressively Christianise the nations, producing an era of peace and righteousness before Christ returns. The 'swords into plowshares' describes a future golden age brought about by the church's faithful proclamation — a gradual fulfilment through history rather than a sudden eschatological event.",
+      },
+    ],
+    empires: null,
+    watchFor: "The return of Christ to reign from Jerusalem; universal recognition of God's authority by all nations; an end to war and the re-orientation of human industry from destruction to cultivation; the global knowledge of God described in Habakkuk 2:14 — 'the earth shall be filled with the knowledge of the glory of the LORD, as the waters cover the sea.'",
+  },
+
+  // ══════════════════════════════════════════════════════════
+  //  REVELATION — 1 new addition (r08)
+  // ══════════════════════════════════════════════════════════
+
+  {
+    id: "r08",
+    category: "Revelation",
+    featured: true,
+    status: "Awaiting",
+    title: "The Beast — The Antichrist of Revelation 13",
+    summary: "A global ruler demanding worship — the most-debated figure in prophetic literature",
+    otRef: "Daniel 7:23-25",
+    otBook: "Daniel",
+    otText: "Thus he said, The fourth beast shall be the fourth kingdom upon earth, which shall be diverse from all kingdoms, and shall devour the whole earth, and shall tread it down, and break it in pieces. And the ten horns out of this kingdom are ten kings that shall arise: and another shall rise after them; and he shall be diverse from the first, and he shall subdue three kings. And he shall speak great words against the most High, and shall wear out the saints of the most High, and think to change times and laws: and they shall be given into his hand until a time and times and the dividing of time.",
+    ntRef: "Revelation 13:4-8",
+    ntBook: "Revelation",
+    ntText: "And they worshipped the dragon which gave power unto the beast: and they worshipped the beast, saying, Who is like unto the beast? who is able to make war with him? And there was given unto him a mouth speaking great things and blasphemies; and power was given unto him to continue forty and two months... And it was given unto him to make war with the saints, and to overcome them: and power was given him over all kindreds, and tongues, and nations. And all that dwell upon the earth shall worship him, whose names are not written in the book of life of the Lamb slain from the foundation of the world.",
+    commentary: "The figure described in Revelation 13 is the convergence point of a prophetic thread running from Genesis 3:15 through Daniel's four beasts to Paul's 'man of sin' in 2 Thessalonians 2 — a final human ruler energised by Satan who will unite global political and religious authority in himself. John's beast in Revelation 13 is a composite of all four of Daniel's beasts (lion, bear, leopard, ten horns) — suggesting he represents the culmination of all world empire. He rules for 42 months (3.5 years — the same 'time, times and half a time' of Daniel 12), demands universal worship, makes war against believers, and is apparently enabled by a miraculous survival from a fatal wound (a Satanic counterfeit of the resurrection). The 'number of the beast' (666) is given as a cipher for human identification — 'the number of a man' — with the curious instruction that it requires 'wisdom' to calculate, suggesting the identification is not immediately obvious. Alford and many conservative commentators hold the passage describes a yet-future individual, not merely a system or institution. The global scope — 'all kindreds, and tongues, and nations' — implies a degree of political and economic integration that simply did not exist in the ancient world, lending futurist interpretations a contemporary plausibility they did not always have. Yet the identity of the Beast remains the single most contested question in prophetic interpretation, with candidates proposed from Nero (preterist) to the papacy (historicist) to a coming world leader (futurist).",
+    historicalNote: null,
+    interpretations: [
+      {
+        school: "Preterist",
+        color: "#2E7D32",
+        label: "🟢 Preterist",
+        description: "The Beast was the Emperor Nero (reigned 54–68 AD) — 'Neron Caesar' in Hebrew gematria equals 666. The 42 months corresponds to the period of Roman persecution of Christians. Revelation was written to encourage first-century believers that the beast (Rome) would be judged. All conditions were fulfilled before AD 70.",
+      },
+      {
+        school: "Futurist",
+        color: "#E8625C",
+        label: "🔴 Futurist",
+        description: "A literal future world ruler — the Antichrist — will arise in the last days, brokering a peace deal with Israel, later demanding global worship, and persecuting believers for 3.5 years (the Great Tribulation). The global authority described requires a future fulfilment no ancient ruler achieved. Associated with Darby, LaHaye, and most popular prophecy teaching.",
+      },
+      {
+        school: "Historicist",
+        color: "#D4A853",
+        label: "🟡 Historicist",
+        description: "The Beast represents a succession of anti-Christian powers throughout church history — particularly the medieval papacy, which claimed both spiritual and temporal authority over all nations, demanded allegiance, and persecuted dissenters. The 42 months = 1,260 prophetic years (AD 538–1798, from Justinian's decree to Napoleon's imprisonment of the Pope). This was the dominant Protestant view from the Reformation until the 19th century.",
+      },
+      {
+        school: "Idealist",
+        color: "#8B5CF6",
+        label: "🔵 Idealist",
+        description: "The Beast is a symbolic representation of any and all political power that sets itself against God and demands absolute allegiance — Rome in John's day, totalitarian regimes throughout history, and whatever form state idolatry takes in any era. The number 666 represents human pretension to divine status (seven being divine perfection; six falling short). No single historical or future figure is intended.",
+      },
+    ],
+    empires: null,
+    watchFor: "A world leader who brokers a major covenant with Israel; desecration of a Jerusalem sanctuary (2 Thessalonians 2:4); a global system requiring a mark or identifier for commerce (Revelation 13:16-17); blasphemous claims to divine authority; systematic persecution of believers on a global scale; a coalition of ten regional powers ceding authority to a single ruler (Daniel 7:24; Revelation 17:12-13).",
+  },
 ];
 
 // ── Helper exports ────────────────────────────────────────────────────────────
