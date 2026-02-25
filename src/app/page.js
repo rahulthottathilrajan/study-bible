@@ -124,6 +124,7 @@ export default function StudyBible() {
 
   // ─── Bible data ───
   const [dbChapters, setDbChapters] = useState({});
+  const [collapsed, setCollapsed] = useState({});
   const [chapterMeta, setChapterMeta] = useState(null);
   const [verses, setVerses] = useState([]);
   const [wordStudies, setWordStudies] = useState({});
@@ -1126,7 +1127,6 @@ export default function StudyBible() {
     const availNums = avail.map(a => a.num);
     const getTheme = (ch) => { const found = avail.find(a => a.num === ch); return found?.theme || null; };
     const groups = CHAPTER_GROUPS[book] || [{ label:"All Chapters", icon:"📖", chapters:Array.from({length:bookInfo.chapters},(_,i)=>i+1) }];
-    const [collapsed, setCollapsed] = useState({});
     const toggleGroup = (i) => setCollapsed(prev => ({...prev,[i]:!prev[i]}));
 
     // Progress indicators — derive from existing state
