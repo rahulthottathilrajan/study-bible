@@ -1026,7 +1026,7 @@ export default function StudyBible() {
             {[
               { label:"Biblical Timeline",sub:"From Creation to Revelation",desc:"Trace 6,000 years of redemptive history across eras, empires, and covenants.",icon:"📜",action:() => nav("timeline-home"),badge:"New ✦",accentColor:"#E8625C" },
               { label:"Prophecy & Fulfilment",sub:"300+ Messianic Predictions",desc:"Explore the ancient prophecies and how scholars across centuries interpret their fulfilment in Christ.",icon:"🔭",action:() => nav("prophecy-home"),badge:"New ✦",accentColor:"#8B5CF6" },
-              { label:"Apologetics",sub:"Defend & understand the faith",desc:"Reasoned answers to the hardest questions — history, science, suffering, and truth.",icon:"🛡️",action:null,badge:"Coming Soon",accentColor:"#1B7A6E" },
+              { label:"Apologetics",sub:"Defend & understand the faith",desc:"Reasoned answers to the hardest questions — history, science, suffering, and truth.",icon:"🛡️",action:() => nav("apologetics-home"),badge:"New ✦",accentColor:"#1B7A6E" },
               { label:"Reading Plans",sub:"Guided Bible journeys",desc:"Read through the whole Bible in a year, or follow curated thematic paths through Scripture.",icon:"🗓️",action:null,badge:"Coming Soon",accentColor:"#D4A853" },
             ].map((item,i) => (
               item.action
