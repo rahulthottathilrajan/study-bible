@@ -6,6 +6,7 @@ import BibleBookTimeline from "./components/BibleBookTimeline";
 import ProphecyFulfilment from "./components/ProphecyFulfilment";
 import ArchaeologyCards from "./components/ArchaeologyCards";
 import Apologetics from "./components/Apologetics";
+import ReadingPlans from "./components/ReadingPlans";
 
 // ═══════════════════════════════════════════════════
 // THEME SYSTEM
@@ -1074,7 +1075,7 @@ export default function StudyBible() {
               { label:"Biblical Timeline",sub:"From Creation to Revelation",desc:"Trace 6,000 years of redemptive history across eras, empires, and covenants.",icon:"📜",action:() => nav("timeline-home"),badge:"New ✦",accentColor:"#E8625C" },
               { label:"Prophecy & Fulfilment",sub:"300+ Messianic Predictions",desc:"Explore the ancient prophecies and how scholars across centuries interpret their fulfilment in Christ.",icon:"🔭",action:() => nav("prophecy-home"),badge:"New ✦",accentColor:"#8B5CF6" },
               { label:"Apologetics",sub:"Defend & understand the faith",desc:"Reasoned answers to the hardest questions — history, science, suffering, and truth.",icon:"🛡️",action:() => nav("apologetics-home"),badge:"New ✦",accentColor:"#1B7A6E" },
-              { label:"Reading Plans",sub:"Guided Bible journeys",desc:"Read through the whole Bible in a year, or follow curated thematic paths through Scripture.",icon:"🗓️",action:null,badge:"Coming Soon",accentColor:"#D4A853" },
+              { label:"Reading Plans",sub:"Guided Bible journeys",desc:"Read through the whole Bible in a year, or follow curated thematic paths through Scripture.",icon:"🗓️",action:() => nav("reading-plans-home"),badge:"New ✦",accentColor:"#D4A853" },
             ].map((item,i) => (
               item.action
                 ? <button key={i} onClick={item.action} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"16px 18px",marginBottom:10,cursor:"pointer",textAlign:"left",boxShadow:"0 2px 8px rgba(0,0,0,0.06)",display:"flex",alignItems:"center",gap:14,transition:"all 0.2s",position:"relative",overflow:"hidden" }}>
@@ -3605,6 +3606,7 @@ export default function StudyBible() {
       {view === "prophecy-home" && <ProphecyFulfilment nav={nav} />}
       {view === "timeline-archaeology" && <ArchaeologyCards nav={nav} />}
       {view === "apologetics-home" && <Apologetics nav={nav} />}
+      {view === "reading-plans-home" && <ReadingPlans nav={nav} />}
       {view === "timeline-era" && TimelineEras()}
       {view === "timeline-era-detail" && TimelineEraDetail()}
 
