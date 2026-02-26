@@ -95,7 +95,23 @@ const HIGHLIGHT_COLORS = ["#FFD700","#FF9B71","#7ED4AD","#82B1FF","#CE93D8","#F4
 // ─── Icons ───
 const BackIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="15 18 9 12 15 6"/></svg>;
 const ChevIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>;
-const CrossIcon = () => <svg width="34" height="34" viewBox="0 0 28 28" fill="none"><rect x="11" y="2" width="6" height="24" rx="1" fill="currentColor" opacity="0.85"/><rect x="3" y="8" width="22" height="6" rx="1" fill="currentColor" opacity="0.85"/></svg>;
+const CrossIcon = () => (
+  <svg width="38" height="38" viewBox="0 0 28 28" fill="none">
+    <defs>
+      <linearGradient id="crossGold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#F5D485"/>
+        <stop offset="50%" stopColor="#D4A853"/>
+        <stop offset="100%" stopColor="#A87820"/>
+      </linearGradient>
+      <filter id="crossGlow">
+        <feGaussianBlur stdDeviation="1.2" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <rect x="11" y="2" width="6" height="24" rx="1.5" fill="url(#crossGold)" filter="url(#crossGlow)"/>
+    <rect x="3" y="8" width="22" height="6" rx="1.5" fill="url(#crossGold)" filter="url(#crossGlow)"/>
+  </svg>
+);
 const UserIcon = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>;
 const PrayerIcon = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M12 2L12 6M12 18L12 22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93"/></svg>;
 const CloseIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
@@ -940,22 +956,24 @@ export default function StudyBible() {
   const Home = () => (
     <div style={{ minHeight:"100vh",background:ht.bg }}>
       <div style={{ background:ht.headerGradient,padding:"38px 24px 34px",textAlign:"center",position:"relative",overflow:"hidden" }}>
-        <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 0%,rgba(212,168,83,0.15) 0%,transparent 70%)" }}/>
+        <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 0%,rgba(212,168,83,0.28) 0%,transparent 65%)" }}/>
         <div style={{ position:"relative",zIndex:1 }}>
-          <div style={{ color:ht.accent,marginBottom:10 }}><CrossIcon /></div>
-          <h1 style={{ fontFamily:ht.heading,fontSize:"clamp(28px,8vw,38px)",fontWeight:800,color:ht.headerText,margin:"0 0 6px" }}>Study Bible</h1>
-          <div style={{ fontFamily:ht.ui,fontSize:"clamp(11px,3vw,14px)",color:ht.accent,letterSpacing:"0.15em",textTransform:"uppercase",marginBottom:8 }}>King James Version</div>
-          <div style={{ fontFamily:ht.body,fontSize:"clamp(11px,3vw,13px)",color:`${ht.headerText}60`,fontStyle:"italic" }}>Hebrew & Greek · Word Studies · Cross-References · Notes</div>
-          <div style={{ display:"flex",gap:8,justifyContent:"center",marginTop:16,alignItems:"center",flexWrap:"wrap" }}>
+          <div style={{ color:ht.accent,marginBottom:14,filter:"drop-shadow(0 0 12px rgba(212,168,83,0.5))" }}><CrossIcon /></div>
+          <h1 style={{ fontFamily:ht.heading,fontSize:"clamp(28px,8vw,38px)",fontWeight:800,color:ht.headerText,margin:"0 0 4px",textShadow:"0 2px 16px rgba(212,168,83,0.2)" }}>Study Bible</h1>
+          <div style={{ fontFamily:ht.ui,fontSize:"clamp(11px,3vw,12px)",color:ht.accent,letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:10,opacity:0.9 }}>King James Version</div>
+          <div style={{ width:40,height:1,background:`linear-gradient(90deg,transparent,${ht.accent},transparent)`,margin:"0 auto 10px" }}/>
+          <div style={{ fontFamily:ht.body,fontSize:"clamp(11px,3vw,12.5px)",color:`${ht.headerText}55`,fontStyle:"italic" }}>Hebrew & Greek · Word Studies · Cross-References · Notes</div>
+          <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:6,marginTop:14 }}>
             <DBBadge live={dbLive} t={ht} />
-            {!user && <button onClick={() => setAuthModal(true)} style={{ background:"rgba(212,168,83,0.35)",border:"1px solid rgba(212,168,83,0.5)",borderRadius:8,padding:"8px 18px",fontFamily:ht.ui,fontSize:12,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>✏️ Sign In to Save Notes</button>}
-            {user && <span style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.8)",fontWeight:700 }}>✓ Signed in as {profile?.display_name || "Reader"}</span>}
+            {!user && <button onClick={() => setAuthModal(true)} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:8,padding:"8px 20px",fontFamily:ht.ui,fontSize:12,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>✏️ Sign In to Save Notes</button>}
+            {user && <span style={{ fontFamily:ht.ui,fontSize:11,color:"rgba(125,212,173,0.9)",fontWeight:700,letterSpacing:"0.02em" }}>✓ {profile?.display_name || "Reader"}</span>}
           </div>
         </div>
       </div>
       <div style={{ padding:"22px 20px 40px" }}>
         <div style={{ maxWidth:520,margin:"0 auto" }}>
-          <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.1),rgba(212,168,83,0.05))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"14px 16px",marginBottom:18,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
+          <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.18),rgba(184,134,11,0.08))",border:"1px solid rgba(212,168,83,0.35)",borderRadius:14,padding:"14px 16px",marginBottom:18,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,boxShadow:"0 2px 8px rgba(212,168,83,0.12)",position:"relative",overflow:"hidden" }}>
+            <div style={{ position:"absolute",top:0,left:0,right:0,height:2,background:"linear-gradient(90deg,transparent,rgba(212,168,83,0.6),transparent)" }}/>
             <div style={{ width:44,height:44,borderRadius:12,background:"linear-gradient(135deg,#4A90D9,#1A5C8A)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0,boxShadow:"0 2px 8px rgba(74,144,217,0.35)" }}>🕊️</div>
             <div style={{ flex:1 }}>
               <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Support the Ministry</div>
