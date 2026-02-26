@@ -155,7 +155,6 @@ export default function StudyBible() {
   const [prayerLoading, setPrayerLoading] = useState(false);
   const [allHighlights, setAllHighlights] = useState([]);
   const [hlLoading, setHlLoading] = useState(false);
-  const [subscription, setSubscription] = useState(null);
   const [donateModal, setDonateModal] = useState(false);
   const noteRef = useRef(null);
 
@@ -226,9 +225,6 @@ export default function StudyBible() {
   const loadProfile = async (uid) => {
     const { data } = await supabase.from("user_profiles").select("*").eq("id", uid).single();
     if (data) setProfile(data);
-    const { data: sub } = await supabase.from("subscriptions").select("*").eq("user_id", uid).single();
-    if (sub) setSubscription(sub);
-    else setSubscription({ plan: "free", status: "active" });
   };
 
   const handleAuth = async () => {
