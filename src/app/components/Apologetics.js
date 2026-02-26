@@ -416,10 +416,10 @@ export default function Apologetics({ nav }) {
               <>
                 {/* Modal header */}
                 <div style={{
-                  background:`linear-gradient(135deg, ${topic.color}18, ${topic.color}06)`,
+                  background:"#FFFFFF",
                   borderBottom:"1px solid #F3F4F6",
                   padding:"20px 20px 16px", position:"sticky", top:0,
-                  borderRadius:"22px 22px 0 0", zIndex:1,
+                  borderRadius:"22px 22px 0 0", zIndex:10,
                 }}>
                   <div style={{ width:36, height:4, background:"#E5E7EB", borderRadius:2, margin:"0 auto 14px" }} />
                   <div style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
