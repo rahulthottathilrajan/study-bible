@@ -1007,30 +1007,44 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🗣️</span> Hear It As It Was Written
             </div>
-            {[
-              { label:"Learn Hebrew",sub:"Biblical Hebrew · עִבְרִית",desc:"Read Moses, David & Isaiah in their own tongue. Master the aleph-bet to advanced grammar.",icon:"🕎",action:() => nav("hebrew-home"),badge:null,accentColor:"#C06C3E" },
-              { label:"Learn Greek",sub:"Biblical Greek · Ἑλληνική",desc:"Unlock Paul's letters and John's Gospel in the language they were penned.",icon:"🏛️",action:null,badge:"Coming Soon",accentColor:"#1B7A6E" },
-            ].map((item,i) => (
-              item.action
-                ? <button key={i} onClick={item.action} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"16px 18px",marginBottom:10,cursor:"pointer",textAlign:"left",boxShadow:"0 2px 8px rgba(0,0,0,0.06)",display:"flex",alignItems:"center",gap:14,transition:"all 0.2s" }}>
-                    <div style={{ width:52,height:52,borderRadius:14,background:`linear-gradient(135deg,${item.accentColor}22,${item.accentColor}44)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,flexShrink:0 }}>{item.icon}</div>
-                    <div style={{ flex:1 }}>
-                      <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.label}</div>
-                      <div style={{ fontFamily:ht.ui,fontSize:11,color:item.accentColor,fontWeight:600,marginTop:1 }}>{item.sub}</div>
-                      <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>{item.desc}</div>
-                    </div>
-                    <div style={{ color:ht.light,flexShrink:0 }}><ChevIcon /></div>
-                  </button>
-                : <div key={i} style={{ width:"100%",background:`${ht.card}`,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"16px 18px",marginBottom:10,textAlign:"left",boxShadow:"0 2px 8px rgba(0,0,0,0.04)",display:"flex",alignItems:"center",gap:14,opacity:0.7 }}>
-                    <div style={{ width:52,height:52,borderRadius:14,background:`linear-gradient(135deg,${item.accentColor}11,${item.accentColor}22)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,flexShrink:0 }}>{item.icon}</div>
-                    <div style={{ flex:1 }}>
-                      <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.label}</div>
-                      <div style={{ fontFamily:ht.ui,fontSize:11,color:item.accentColor,fontWeight:600,marginTop:1 }}>{item.sub}</div>
-                      <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>{item.desc}</div>
-                    </div>
-                    <div style={{ background:"rgba(0,0,0,0.06)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>Soon</div>
+            <div style={{ display:"flex",gap:12,marginBottom:16 }}>
+              {/* Hebrew Card */}
+              <button onClick={() => nav("hebrew-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 4px 12px rgba(192,108,62,0.2))" }}>
+                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column" }}>
+                  <div style={{ background:"linear-gradient(135deg,#1C2B1F,#2E4A33)",padding:"14px 10px 10px",textAlign:"center",position:"relative" }}>
+                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Times New Roman',serif",fontSize:52,color:"rgba(192,108,62,0.12)",direction:"rtl",fontWeight:700,userSelect:"none",lineHeight:1 }}>א</div>
+                    <div style={{ position:"relative",zIndex:1,fontSize:28,marginBottom:4 }}>🖋️</div>
+                    <div style={{ fontFamily:"'Times New Roman',serif",fontSize:18,color:"#C06C3E",direction:"rtl",lineHeight:1 }}>עִבְרִית</div>
                   </div>
-            ))}
+                  <div style={{ background:"linear-gradient(180deg,#FEF3D8,#FAE8BB)",padding:"14px 10px",textAlign:"center",flex:1,borderLeft:"1px solid rgba(192,108,62,0.25)",borderRight:"1px solid rgba(192,108,62,0.25)",borderBottom:"1px solid rgba(192,108,62,0.25)",borderRadius:"0 0 14px 14px" }}>
+                    <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#1C2B1F",marginBottom:4 }}>Learn Hebrew</div>
+                    <div style={{ width:24,height:2,background:"#C06C3E",borderRadius:2,margin:"0 auto 8px" }}/>
+                    <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#8B7355",lineHeight:1.6,marginBottom:10 }}>Moses · David · Isaiah in their own tongue</div>
+                    <div style={{ display:"inline-block",padding:"5px 10px",borderRadius:6,background:"rgba(192,108,62,0.15)",border:"1px solid rgba(192,108,62,0.3)" }}>
+                      <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#C06C3E",textTransform:"uppercase",letterSpacing:"0.07em" }}>Start Learning →</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              {/* Greek Card */}
+              <div style={{ flex:1,opacity:0.82,filter:"drop-shadow(0 4px 12px rgba(27,122,110,0.15))" }}>
+                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column" }}>
+                  <div style={{ background:"linear-gradient(135deg,#1A2F4B,#1B5E5A)",padding:"14px 10px 10px",textAlign:"center",position:"relative" }}>
+                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"serif",fontSize:52,color:"rgba(27,122,110,0.15)",fontWeight:700,userSelect:"none",lineHeight:1 }}>Α</div>
+                    <div style={{ position:"relative",zIndex:1,fontSize:28,marginBottom:4 }}>📜</div>
+                    <div style={{ fontFamily:"serif",fontSize:18,color:"#7ED4C8",lineHeight:1 }}>Ἑλληνική</div>
+                  </div>
+                  <div style={{ background:"linear-gradient(180deg,#E8F4F2,#D4EBE8)",padding:"14px 10px",textAlign:"center",flex:1,borderLeft:"1px solid rgba(27,122,110,0.2)",borderRight:"1px solid rgba(27,122,110,0.2)",borderBottom:"1px solid rgba(27,122,110,0.2)",borderRadius:"0 0 14px 14px" }}>
+                    <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#1A2F4B",marginBottom:4 }}>Learn Greek</div>
+                    <div style={{ width:24,height:2,background:"#1B7A6E",borderRadius:2,margin:"0 auto 8px" }}/>
+                    <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#5A8A82",lineHeight:1.6,marginBottom:10 }}>Paul · John · Luke in Koine Greek</div>
+                    <div style={{ display:"inline-block",padding:"5px 10px",borderRadius:6,background:"rgba(27,122,110,0.1)",border:"1px solid rgba(27,122,110,0.25)" }}>
+                      <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#1B7A6E",textTransform:"uppercase",letterSpacing:"0.07em" }}>Coming Soon</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* ── GO DEEPER ── */}
