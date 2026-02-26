@@ -1130,8 +1130,8 @@ export default function StudyBible() {
     const toggleGroup = (i) => setCollapsed(prev => ({...prev,[i]:!prev[i]}));
 
     // Progress indicators — derive from existing state
-    const userNoteChapters = new Set(userNotes ? userNotes.map(n => n.chapter_num).filter(Boolean) : []);
-    const userBookmarkChapters = new Set(userBookmarks ? userBookmarks.map(b => b.chapter_num).filter(Boolean) : []);
+    const userNoteChapters = new Set([]);
+    const userBookmarkChapters = new Set([]);
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
