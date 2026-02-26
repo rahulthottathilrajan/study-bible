@@ -6,6 +6,9 @@ const CATEGORY_COLORS = {
   "The Person of Christ": { bg: "#FEF3C7", text: "#92400E", border: "#F59E0B" },
   "Scripture":            { bg: "#FEF9C3", text: "#713F12", border: "#CA8A04" },
   "The Cross":            { bg: "#FFE4E6", text: "#9F1239", border: "#FB7185" },
+  "History & Evidence":   { bg: "#E0F2FE", text: "#075985", border: "#38BDF8" },
+  "Suffering & God":      { bg: "#F0FDF4", text: "#166534", border: "#4ADE80" },
+  "Reason & Philosophy":  { bg: "#F5F3FF", text: "#4C1D95", border: "#A78BFA" },
 };
 
 const APOLOGETICS_TOPICS = [
@@ -98,6 +101,96 @@ const APOLOGETICS_TOPICS = [
     answer: `John 1:18 contains its own answer: "No man hath seen God at any time; the only begotten Son, which is in the bosom of the Father, he hath declared him." The one who appeared in the Old Testament theophanies was the pre-incarnate Son — the visible, approachable member of the Trinity — making God known to humanity.\n\nIsaiah 6 records the prophet seeing "the LORD" — and John 12:41 explicitly identifies this: "These things said Esaias, when he saw his [Christ's] glory, and spake of him." When Jacob wrestled with "a man" who turned out to be God (Genesis 32:24-30), that was the pre-incarnate Christ.\n\nThe Father — in his full divine essence — no human can see and live (Exodus 33:20). But the Son has always been the one through whom God makes himself visible.\n\nThe incarnation was not the first time the Son appeared to humanity — it was the fullest and final form of what he had been doing throughout all of history.`,
     keyVerse: { ref: "John 12:41", text: "These things said Esaias, when he saw his glory, and spake of him." },
     category: "Scripture", color: "#B45309",
+  },
+  {
+    id: 11, icon: "🌅",
+    title: "The Resurrection",
+    question: "The disciples stole the body — or Jesus never really died.",
+    objection: "The resurrection is a legend. There are natural explanations.",
+    answer: `Historian N.T. Wright, in his 800-page academic work The Resurrection of the Son of God (2003), concluded after examining every alternative theory that the bodily resurrection remains the only historically adequate explanation for the data.\n\nScholars across theological traditions — including sceptics — accept four facts as historically established: (1) Jesus died by Roman crucifixion; (2) the tomb was found empty on the third day; (3) multiple individuals and groups reported post-resurrection appearances; (4) the disciples underwent a transformation from terrified fugitives to people willing to die for this claim.\n\nThe "stolen body" theory was the first alternative proposed (Matthew 28:13) — and it fails immediately: Roman soldiers faced execution for sleeping on watch. The "swoon theory" (he survived) was demolished by medical scholars — Roman executioners were professionals, and a spear to the side (John 19:34) confirmed death. Historian Gary Habermas has documented over 1,200 scholarly works affirming the historicity of the empty tomb.\n\nAs C.S. Lewis observed: the disciples did not die for a vision or a symbol — they died insisting on a bodily, physical event they personally witnessed.`,
+    keyVerse: { ref: "1 Corinthians 15:6", text: "he was seen of above five hundred brethren at once; of whom the greater part remain unto this present" },
+    category: "History & Evidence", color: "#0369A1",
+  },
+  {
+    id: 12, icon: "👶",
+    title: "The Virgin Birth",
+    question: "A virgin birth is biologically impossible — this is mythology.",
+    objection: "Matthew and Luke copied the idea from pagan myths about gods and mortal women.",
+    answer: `The claim that the virgin birth was borrowed from pagan mythology was popularised in the 19th century but is rejected by mainstream classical scholars today. The supposed parallels — Zeus fathering Hercules, etc. — involve physical unions between gods and women, not virginal conception. They are categorically different. Classicist Ronald Nash, in The Gospel and the Greeks (2003), systematically dismantled these parallels.\n\nMore significantly, the Jewish context of Matthew and Luke makes a pagan borrowing implausible. The virgin birth would have been scandalous — not appealing — to a Jewish audience. The authors recorded it precisely because it was unexpected and historically attested, not because it was culturally flattering.\n\nThe Hebrew of Isaiah 7:14 uses "almah" — a young woman of marriageable age, understood in its Septuagint (Greek) translation as "parthenos" (virgin) — which Matthew cites directly. Geneticist and Christian Francis Collins notes that while the event is outside ordinary biology, a God capable of creating the cosmos is not constrained by it.\n\nThe virgin birth is not an embarrassment — it is the mechanism of the incarnation: the eternal Son entering human nature without inheriting Adamic sin (Romans 5:12-19).`,
+    keyVerse: { ref: "Isaiah 7:14", text: "Behold, a virgin shall conceive, and bear a son, and shall call his name Immanuel." },
+    category: "History & Evidence", color: "#0369A1",
+  },
+  {
+    id: 13, icon: "🪞",
+    title: "Is Jesus the Only Way?",
+    question: "Isn't it arrogant to say Christianity is the only true religion?",
+    objection: "All religions lead to God. Claiming exclusivity is intolerant.",
+    answer: `C.S. Lewis addressed this directly in Mere Christianity: the question is not whether exclusivity is polite, but whether it is true. Every major worldview — not just Christianity — makes exclusive truth claims. Buddhism says the self is an illusion; Islam says Jesus was not divine; secular humanism says there is no God. The claim "all religions are equally true" is itself an exclusive claim that contradicts most of what those religions actually teach.\n\nTim Keller, in The Reason for God (2008), notes that Jesus' claim in John 14:6 is unique in a specific way: he does not say "follow my teachings and you will find God" — he says "I am the way." The path is a person, not a system of rules. This is not the logic of religion — it is the logic of rescue.\n\nThe charge of arrogance misreads the claim. Christianity does not say "we are better people." It says "we received a gift we did not deserve and could not earn." The exclusive claim is grounded not in superiority but in a historical event — the resurrection — which either happened or did not. If it happened, the implications follow necessarily.\n\nAs Keller puts it: if you were sick and a doctor said "this specific medicine will cure you," you would not call him arrogant. You would ask whether it was true.`,
+    keyVerse: { ref: "John 14:6", text: "I am the way, the truth, and the life: no man cometh unto the Father, but by me." },
+    category: "Reason & Philosophy", color: "#6D28D9",
+  },
+  {
+    id: 14, icon: "🦕",
+    title: "Genesis & Science",
+    question: "The Bible says the earth is 6,000 years old — science says billions. Who is right?",
+    objection: "Genesis contradicts modern science and therefore cannot be trusted.",
+    answer: `This objection assumes all Christians interpret Genesis as a precise scientific chronology — but this is not, and has never been, the only serious reading of the text.\n\nOxford mathematician and Christian John Lennox, in Seven Days That Divide the World (2011), demonstrates that the Hebrew word "yom" (day) is used in Genesis itself in non-literal ways (Genesis 2:4 refers to all six days as a single "yom"). The early church father Origen and Augustine both warned against reading Genesis as a scientific document in their own centuries — long before Darwin.\n\nFrancis Collins, former director of the Human Genome Project and founder of BioLogos, is an evangelical Christian who accepts an ancient universe and common descent. He argues these are questions of how God created — not whether he did.\n\nThe core theological claims of Genesis 1-2 are: God created everything from nothing (ex nihilo); creation is good; humanity bears the image of God (imago Dei); we are morally accountable to our Creator. None of these claims are threatened by the age of the universe. Hebrews 11:3 says "the worlds were framed by the word of God" — the mechanism is secondary to the Author.`,
+    keyVerse: { ref: "Hebrews 11:3", text: "the worlds were framed by the word of God, so that things which are seen were not made of things which do appear." },
+    category: "Reason & Philosophy", color: "#6D28D9",
+  },
+  {
+    id: 15, icon: "📖",
+    title: "Who Decided the Canon?",
+    question: "The books of the Bible were chosen by powerful men at councils — other gospels were suppressed.",
+    objection: "The canon is a political decision, not a divine one.",
+    answer: `This narrative was popularised by The Da Vinci Code (2003) and is rejected by virtually all serious historians — Christian and secular. F.F. Bruce's The Canon of Scripture (1988) and Michael Kruger's Canon Revisited (2012) are the standard academic responses.\n\nThe facts: the four Gospels — Matthew, Mark, Luke, John — were universally cited and accepted by Christian communities from the late first and early second centuries, long before any council. Ignatius of Antioch (died ~107 AD) quotes multiple New Testament letters. The Muratorian Fragment (~170 AD) lists most of the New Testament as already accepted.\n\nThe Council of Nicaea (325 AD) did not vote on the canon — this is a popular myth with no historical basis. The canon was formally ratified at councils in Hippo (393 AD) and Carthage (397 AD) — but these councils recognised what was already in widespread use, they did not create it.\n\nThe "suppressed gospels" (Gospel of Thomas, Gospel of Judas, etc.) date from the second and third centuries — generations after the apostles. They were not suppressed; they were simply late, anonymous, and inconsistent with first-century apostolic testimony. Gnostic texts were well-known and widely discussed — they were not hidden.`,
+    keyVerse: { ref: "2 Peter 1:21", text: "holy men of God spake as they were moved by the Holy Ghost." },
+    category: "Scripture", color: "#B45309",
+  },
+  {
+    id: 16, icon: "🏛️",
+    title: "Were the Gospels Written Too Late?",
+    question: "The Gospels were written centuries after Jesus — they can't be eyewitness accounts.",
+    objection: "Legends developed over generations. The Gospels are theological fiction.",
+    answer: `This objection rests on a chronology that most New Testament scholars — across the theological spectrum — do not accept. The majority date the Gospels to within one generation of the events: Mark ~65-70 AD, Matthew and Luke ~80 AD, John ~90 AD. Paul's letters — which contain detailed resurrection accounts — are dated to the 50s AD, within 20 years of the crucifixion.\n\nRichard Bauckham's Jesus and the Eyewitnesses (2006), described by reviewers as one of the most important New Testament studies in decades, demonstrates that the Gospels bear the literary marks of eyewitness testimony. He identifies named individuals in the Gospels (Simon of Cyrene, Bartimaeus, etc.) as the living sources the early communities could verify or challenge.\n\nCraig Blomberg's The Historical Reliability of the Gospels (1987, updated 2007) surveys the archaeological and textual evidence comprehensively. Archaeologist William Albright wrote: "We can already say emphatically that there is no long interval between the Gospel of John and the period of the Apostles."\n\nFor legend to develop to the scale proposed by sceptics, you need centuries and geographic distance — not 20-40 years, in the same city, with living witnesses still present.`,
+    keyVerse: { ref: "Luke 1:2", text: "Even as they delivered them unto us, which from the beginning were eyewitnesses, and ministers of the word" },
+    category: "History & Evidence", color: "#0369A1",
+  },
+  {
+    id: 17, icon: "😔",
+    title: "The Problem of Evil",
+    question: "If God is all-powerful and good, why does suffering exist?",
+    objection: "Evil and suffering prove God is either not good or not powerful — or does not exist.",
+    answer: `This is the most serious objection to theism and deserves a serious answer. Philosopher Alvin Plantinga, whose work is acknowledged even by atheist philosophers, demonstrated in God, Freedom and Evil (1974) that the existence of evil is logically compatible with an omnipotent, benevolent God — specifically through the Free Will Defense: a world with genuine freedom, capable of love, necessarily permits the possibility of its misuse.\n\nC.S. Lewis in The Problem of Pain (1940) adds: "God whispers to us in our pleasures, speaks in our conscience, but shouts in our pains: it is his megaphone to rouse a deaf world." Suffering, while terrible, is not purposeless in the Christian framework — it is the environment in which character, perseverance, and compassion are forged (Romans 5:3-4).\n\nThe strongest version of the objection — the emotional problem of evil — is that suffering makes it psychologically difficult to believe. Lewis's A Grief Observed (1961) is the most honest wrestling with this that exists. His conclusion: suffering does not disprove God; it reveals our need for him.\n\nCrucially, the Christian God is not a distant observer of suffering — he entered it. The cross is God's answer to the problem of evil, not his absence from it.`,
+    keyVerse: { ref: "Romans 8:18", text: "the sufferings of this present time are not worthy to be compared with the glory which shall be revealed in us." },
+    category: "Suffering & God", color: "#059669",
+  },
+  {
+    id: 18, icon: "⛓️",
+    title: "Hell & a Loving God",
+    question: "A loving God wouldn't send people to hell. It's disproportionate and cruel.",
+    objection: "Eternal punishment for finite sins cannot be just.",
+    answer: `C.S. Lewis offers the most widely cited reframe in The Great Divorce (1945): "There are only two kinds of people in the end: those who say to God, 'Thy will be done,' and those to whom God says, 'Thy will be done.' All that are in Hell, choose it."\n\nThe biblical picture of hell is not God chasing people down and throwing them in against their will — it is God honouring the persistent, final choice of people who refused him. Tim Keller in The Reason for God (2008) notes: "All God does in the end with people is give them what they most wanted, including freedom from himself."\n\nOn proportionality: the severity of an offence is measured partly by the dignity of the one offended. Rebellion against the eternal, holy God is not a small thing — and those who resist it until death are not reformable by more time, but only by a change of will they have permanently refused.\n\nAlso: the same Bible that speaks of hell speaks of God's longing that none should perish (2 Peter 3:9) and of Christ dying for all (1 Timothy 2:6). Hell is not God's preferred outcome — it is the ultimate cost of real freedom. A God who eliminates hell by eliminating human freedom is not more loving — he is less.`,
+    keyVerse: { ref: "2 Peter 3:9", text: "not willing that any should perish, but that all should come to repentance." },
+    category: "Suffering & God", color: "#059669",
+  },
+  {
+    id: 19, icon: "⚖️",
+    title: "The Moral Argument",
+    question: "You don't need God to be a good person. Morality is just common sense.",
+    objection: "Atheists can be moral. God is not needed for ethics.",
+    answer: `The moral argument does not claim that atheists cannot behave morally. It asks a more precise question: if there is no God, on what foundation does objective moral law rest?\n\nC.S. Lewis opens Mere Christianity with this argument: we all appeal to a standard of fairness and justice when we quarrel — even people who deny that such a standard exists. That standard is not invented by cultures (cultures have justified slavery, genocide, and torture). It transcends cultures, which is why we can judge them.\n\nWilliam Lane Craig formulates it: (1) If God does not exist, objective moral values do not exist. (2) Objective moral values do exist. (3) Therefore, God exists. Philosopher Derek Parfit — an atheist — admitted that grounding objective morality without God is "the hardest problem in philosophy."\n\nNietzsche understood the stakes more clearly than most: if God is dead, objective morality goes with him. "Beyond good and evil" was his logical conclusion. The atheist who insists that torturing children for fun is genuinely, objectively wrong — not merely unfashionable — is quietly borrowing from a theistic framework.\n\nThe point is not that you need to believe in God to be good. It is that you need God to exist for "good" to mean anything beyond personal preference.`,
+    keyVerse: { ref: "Romans 2:15", text: "the work of the law written in their hearts, their conscience also bearing witness" },
+    category: "Reason & Philosophy", color: "#6D28D9",
+  },
+  {
+    id: 20, icon: "🌌",
+    title: "The Cosmological Argument",
+    question: "The universe could have come from nothing. God is an unnecessary hypothesis.",
+    objection: "Science explains origins without needing a Creator.",
+    answer: `The Kalam Cosmological Argument, championed by philosopher William Lane Craig and rooted in medieval scholarship (Al-Ghazali, 11th century), runs: (1) Everything that begins to exist has a cause. (2) The universe began to exist. (3) Therefore, the universe has a cause.\n\nThe second premise is now supported by mainstream cosmology. The Big Bang (Friedmann, Lemaître, confirmed by Hubble in 1929) established that the universe — all matter, energy, space, and time — had an absolute beginning. Stephen Hawking wrote: "Almost everyone now believes that the universe, and time itself, had a beginning at the Big Bang." The Borde-Guth-Vilenkin theorem (2003) extends this even to proposed multiverse models — any expanding universe requires a beginning.\n\nThe response "the universe came from nothing" is not a scientific answer — it is a philosophical one, and it violates the most basic principle of reason: ex nihilo nihil fit (from nothing, nothing comes). Lawrence Krauss's "nothing" in A Universe from Nothing (2012) was shown by philosophers — including atheist philosopher David Albert — to actually be a quantum vacuum, which is emphatically not nothing.\n\nThe cause of the universe must be outside space and time (since it created them), immensely powerful, and — to choose to create — personal. Anthony Flew, the most prominent atheist philosopher of the 20th century, announced his conversion to theism in 2004 citing precisely this argument.`,
+    keyVerse: { ref: "Genesis 1:1", text: "In the beginning God created the heaven and the earth." },
+    category: "Reason & Philosophy", color: "#6D28D9",
   },
 ];
 
@@ -193,7 +286,7 @@ export default function Apologetics({ nav }) {
               }} />
             </div>
             <span style={{ fontSize:11, color:"rgba(255,255,255,0.85)", fontFamily:"'Georgia', serif" }}>
-              {studiedCount}/{APOLOGETICS_TOPICS.length} studied
+              {studiedCount} / {APOLOGETICS_TOPICS.length} studied
             </span>
           </div>
         </div>
