@@ -5,6 +5,7 @@ import TimelineMaps from "./components/TimelineMaps";
 import BibleBookTimeline from "./components/BibleBookTimeline";
 import ProphecyFulfilment from "./components/ProphecyFulfilment";
 import ArchaeologyCards from "./components/ArchaeologyCards";
+import Apologetics from "./components/Apologetics";
 
 // ═══════════════════════════════════════════════════
 // THEME SYSTEM
@@ -3556,6 +3557,7 @@ export default function StudyBible() {
       {view === "timeline-books" && <BibleBookTimeline nav={nav} />}
       {view === "prophecy-home" && <ProphecyFulfilment nav={nav} />}
       {view === "timeline-archaeology" && <ArchaeologyCards nav={nav} />}
+      {view === "apologetics-home" && <Apologetics nav={nav} />}
       {view === "timeline-era" && TimelineEras()}
       {view === "timeline-era-detail" && TimelineEraDetail()}
 
