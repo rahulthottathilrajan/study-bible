@@ -1341,8 +1341,8 @@ export default function StudyBible() {
               )}
             </div>
           )}
-          
-  const [overviewOpen, setOverviewOpen] = useState(false);
+
+  
 
           {/* KJV Text Card */}
           <Card t={t} style={{ margin:"12px 0 14px",position:"relative",background:highlight?.highlight_color ? `${highlight.highlight_color}15` : t.card,borderColor:highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider }}>
