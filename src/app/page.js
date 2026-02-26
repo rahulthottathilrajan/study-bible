@@ -125,6 +125,7 @@ export default function StudyBible() {
   // ─── Bible data ───
   const [dbChapters, setDbChapters] = useState({});
   const [collapsed, setCollapsed] = useState({});
+  const [overviewOpen, setOverviewOpen] = useState(false);
   const [chapterMeta, setChapterMeta] = useState(null);
   const [verses, setVerses] = useState([]);
   const [wordStudies, setWordStudies] = useState({});
@@ -1318,15 +1319,30 @@ export default function StudyBible() {
           </>}
         />
         <div style={{ maxWidth:620,margin:"0 auto",padding:"0 16px 40px" }}>
-          {/* Chapter Overview */}
+          const [collapsed, setCollapsed] = useState({});{/* Chapter Overview — collapsible pill */}
           {chapterMeta?.overview && (
-            <Card accent t={t} style={{margin:"14px 0"}}>
-              <Label icon="📋" t={t}>Chapter {chapter} Overview</Label>
-              <div style={{fontFamily:t.body,fontSize:14.5,color:t.text,lineHeight:1.65}}>{chapterMeta.overview}</div>
-              {chapterMeta.key_word_original && <div style={{marginTop:10,padding:"8px 12px",background:"rgba(255,255,255,0.6)",borderRadius:8,display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}><Badge t={t}>Key Word</Badge><span style={{fontFamily:t.body,fontSize:14,color:t.dark,fontStyle:"italic"}}>{chapterMeta.key_word_original}</span><span style={{fontFamily:t.ui,fontSize:12,color:t.muted}}>— {chapterMeta.key_word_meaning}</span></div>}
-              {outline.length > 0 && <div style={{marginTop:12}}><div style={{fontFamily:t.ui,fontSize:10,fontWeight:700,color:t.accent,textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:6}}>Outline</div>{outline.map((o,i) => <div key={i} style={{fontFamily:t.ui,fontSize:13,color:t.text,lineHeight:1.7,paddingLeft:12,borderLeft:`2px solid ${t.accentBorder}`,marginBottom:4}}>{o}</div>)}</div>}
-            </Card>
+            <div style={{margin:"14px 0"}}>
+              <button
+                onClick={() => setOverviewOpen(o => !o)}
+                style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"11px 16px",background:overviewOpen?t.accentLight:t.card,border:`1px solid ${overviewOpen?t.accentBorder:t.divider}`,borderRadius:overviewOpen?"12px 12px 0 0":12,cursor:"pointer",textAlign:"left",transition:"all 0.2s" }}>
+                <span style={{fontSize:16,flexShrink:0}}>📋</span>
+                <div style={{flex:1}}>
+                  <span style={{fontFamily:t.heading,fontSize:14,fontWeight:700,color:t.dark}}>Chapter {chapter} Overview</span>
+                  {!overviewOpen && chapterMeta.key_word_original && <span style={{fontFamily:t.ui,fontSize:11,color:t.muted,marginLeft:8}}>· {chapterMeta.key_word_original}</span>}
+                </div>
+                <span style={{fontFamily:t.ui,fontSize:12,color:t.muted,transform:overviewOpen?"rotate(180deg)":"rotate(0deg)",transition:"transform 0.2s"}}>▾</span>
+              </button>
+              {overviewOpen && (
+                <div style={{background:t.accentLight,border:`1px solid ${t.accentBorder}`,borderTop:"none",borderRadius:"0 0 12px 12px",padding:"14px 16px"}}>
+                  <div style={{fontFamily:t.body,fontSize:14.5,color:t.text,lineHeight:1.65,marginBottom:chapterMeta.key_word_original||outline.length?12:0}}>{chapterMeta.overview}</div>
+                  {chapterMeta.key_word_original && <div style={{padding:"8px 12px",background:"rgba(255,255,255,0.6)",borderRadius:8,display:"flex",alignItems:"center",gap:8,flexWrap:"wrap",marginBottom:outline.length?10:0}}><Badge t={t}>Key Word</Badge><span style={{fontFamily:t.body,fontSize:14,color:t.dark,fontStyle:"italic"}}>{chapterMeta.key_word_original}</span><span style={{fontFamily:t.ui,fontSize:12,color:t.muted}}>— {chapterMeta.key_word_meaning}</span></div>}
+                  {outline.length > 0 && <div><div style={{fontFamily:t.ui,fontSize:10,fontWeight:700,color:t.accent,textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:6}}>Outline</div>{outline.map((o,i) => <div key={i} style={{fontFamily:t.ui,fontSize:13,color:t.text,lineHeight:1.7,paddingLeft:12,borderLeft:`2px solid ${t.accentBorder}`,marginBottom:4}}>{o}</div>)}</div>}
+                </div>
+              )}
+            </div>
           )}
+          
+  const [overviewOpen, setOverviewOpen] = useState(false);
 
           {/* KJV Text Card */}
           <Card t={t} style={{ margin:"12px 0 14px",position:"relative",background:highlight?.highlight_color ? `${highlight.highlight_color}15` : t.card,borderColor:highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider }}>
