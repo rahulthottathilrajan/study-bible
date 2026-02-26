@@ -515,7 +515,7 @@ export default function StudyBible() {
       if (opts.verse !== undefined) setVerse(opts.verse);
       if (opts.tab !== undefined) setTab(opts.tab);
       setFade(true);
-    }, 120);
+    }, 80);
   }, []);
 
   useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
@@ -531,13 +531,13 @@ export default function StudyBible() {
   const Header = ({ title, subtitle, onBack, right, theme }) => {
     const th = theme || t;
     return (
-      <div style={{ background:th.headerGradient,padding:"14px 20px 18px",position:"sticky",top:0,zIndex:10 }}>
+      <div style={{ background:th.headerGradient,padding:"12px 16px 14px",position:"sticky",top:0,zIndex:10 }}>
         <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between" }}>
-          <div style={{ display:"flex",alignItems:"center",gap:10,flex:1,minWidth:0 }}>
-            {onBack && <Btn onClick={onBack} style={{color:th.headerText}}><BackIcon /></Btn>}
+          <div style={{ display:"flex",alignItems:"center",gap:8,flex:1,minWidth:0 }}>
+            {onBack && <Btn onClick={onBack} style={{color:th.headerText,padding:"6px 10px 6px 6px",borderRadius:8,background:"rgba(255,255,255,0.08)"}}><BackIcon /></Btn>}
             <div style={{ minWidth:0 }}>
-              <h2 style={{ fontFamily:th.heading,fontSize:19,fontWeight:700,color:th.headerText,margin:0,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{title}</h2>
-              {subtitle && <div style={{ fontFamily:th.ui,fontSize:12,color:`${th.headerText}99`,marginTop:1 }}>{subtitle}</div>}
+              <h2 style={{ fontFamily:th.heading,fontSize:17,fontWeight:700,color:th.headerText,margin:0,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{title}</h2>
+              {subtitle && <div style={{ fontFamily:th.ui,fontSize:11,color:`${th.headerText}99`,marginTop:1 }}>{subtitle}</div>}
             </div>
           </div>
           <div style={{ display:"flex",alignItems:"center",gap:6,flexShrink:0 }}>
@@ -939,14 +939,14 @@ export default function StudyBible() {
   // ═══ HOME ═══
   const Home = () => (
     <div style={{ minHeight:"100vh",background:ht.bg }}>
-      <div style={{ background:ht.headerGradient,padding:"50px 24px 42px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+      <div style={{ background:ht.headerGradient,padding:"38px 24px 34px",textAlign:"center",position:"relative",overflow:"hidden" }}>
         <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 0%,rgba(212,168,83,0.15) 0%,transparent 70%)" }}/>
         <div style={{ position:"relative",zIndex:1 }}>
-          <div style={{ color:ht.accent,marginBottom:12 }}><CrossIcon /></div>
-          <h1 style={{ fontFamily:ht.heading,fontSize:38,fontWeight:800,color:ht.headerText,margin:"0 0 6px" }}>Study Bible</h1>
-          <div style={{ fontFamily:ht.ui,fontSize:14,color:ht.accent,letterSpacing:"0.15em",textTransform:"uppercase",marginBottom:8 }}>King James Version</div>
-          <div style={{ fontFamily:ht.body,fontSize:13,color:`${ht.headerText}60`,fontStyle:"italic" }}>Hebrew & Greek · Word Studies · Cross-References · Notes</div>
-          <div style={{ display:"flex",gap:8,justifyContent:"center",marginTop:12,alignItems:"center" }}>
+          <div style={{ color:ht.accent,marginBottom:10 }}><CrossIcon /></div>
+          <h1 style={{ fontFamily:ht.heading,fontSize:"clamp(28px,8vw,38px)",fontWeight:800,color:ht.headerText,margin:"0 0 6px" }}>Study Bible</h1>
+          <div style={{ fontFamily:ht.ui,fontSize:"clamp(11px,3vw,14px)",color:ht.accent,letterSpacing:"0.15em",textTransform:"uppercase",marginBottom:8 }}>King James Version</div>
+          <div style={{ fontFamily:ht.body,fontSize:"clamp(11px,3vw,13px)",color:`${ht.headerText}60`,fontStyle:"italic" }}>Hebrew & Greek · Word Studies · Cross-References · Notes</div>
+          <div style={{ display:"flex",gap:8,justifyContent:"center",marginTop:16,alignItems:"center",flexWrap:"wrap" }}>
             <DBBadge live={dbLive} t={ht} />
             {!user && <button onClick={() => setAuthModal(true)} style={{ background:"rgba(212,168,83,0.35)",border:"1px solid rgba(212,168,83,0.5)",borderRadius:8,padding:"8px 18px",fontFamily:ht.ui,fontSize:12,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>✏️ Sign In to Save Notes</button>}
             {user && <span style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.8)",fontWeight:700 }}>✓ Signed in as {profile?.display_name || "Reader"}</span>}
@@ -955,7 +955,7 @@ export default function StudyBible() {
       </div>
       <div style={{ padding:"22px 20px 40px" }}>
         <div style={{ maxWidth:520,margin:"0 auto" }}>
-          <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.1),rgba(212,168,83,0.05))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"16px 18px",marginBottom:22,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:14,boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
+          <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.1),rgba(212,168,83,0.05))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"14px 16px",marginBottom:18,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
             <div style={{ width:44,height:44,borderRadius:12,background:"linear-gradient(135deg,#D4A853,#B8860B)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0 }}>❤️</div>
             <div style={{ flex:1 }}>
               <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Support the Ministry</div>
@@ -1346,7 +1346,7 @@ export default function StudyBible() {
             <div style={{position:"absolute",top:-1,left:30,right:30,height:3,background:`linear-gradient(90deg,transparent,${t.accent},transparent)`,borderRadius:"0 0 2px 2px"}}/>
             <Label icon="📖" t={t}>KJV Text</Label>
             <div style={{fontFamily:t.body,fontSize:19.5,color:t.dark,lineHeight:1.7}}>
-              <span style={{fontSize:38,fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:8,marginTop:4,fontFamily:t.heading}}>{verse}</span>
+              <span style={{fontSize:"clamp(28px,9vw,38px)",fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:6,marginTop:4,fontFamily:t.heading}}>{verse}</span>
               {currentVerse.kjv_text}
             </div>
             {/* Highlight colors */}
@@ -1358,14 +1358,14 @@ export default function StudyBible() {
           </Card>
 
           {/* Tabs */}
-          <div style={{ display:"flex",background:t.card,borderRadius:10,padding:3,marginBottom:14,border:`1px solid ${t.divider}` }}>
+          <div style={{ display:"flex",background:t.card,borderRadius:10,padding:3,marginBottom:14,border:`1px solid ${t.divider}`,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none" }}>
             {[
               {id:"study",label:"Study Notes"},
               {id:"original",label:isOT?"Hebrew":"Greek"},
               {id:"cross",label:`Cross-Refs${vRefs.length?` (${vRefs.length})`:""}`},
               ...(user ? [{id:"my",label:"My Notes"}] : [])
             ].map(tb => (
-              <button key={tb.id} onClick={() => setTab(tb.id)} style={{ flex:1,padding:"10px 4px",border:"none",borderRadius:8,background:tab===tb.id?t.tabActive:"transparent",color:tab===tb.id?t.headerText:t.muted,fontFamily:t.ui,fontSize:12,fontWeight:700,cursor:"pointer",transition:"all 0.15s" }}>{tb.label}</button>
+              <button key={tb.id} onClick={() => setTab(tb.id)} style={{ flex:"0 0 auto",minWidth:80,padding:"10px 8px",border:"none",borderRadius:8,background:tab===tb.id?t.tabActive:"transparent",color:tab===tb.id?t.headerText:t.muted,fontFamily:t.ui,fontSize:12,fontWeight:700,cursor:"pointer",transition:"all 0.15s",whiteSpace:"nowrap" }}>{tb.label}</button>
             ))}
           </div>
 
