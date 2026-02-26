@@ -956,7 +956,7 @@ export default function StudyBible() {
       <div style={{ padding:"22px 20px 40px" }}>
         <div style={{ maxWidth:520,margin:"0 auto" }}>
           <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.1),rgba(212,168,83,0.05))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"14px 16px",marginBottom:18,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
-            <div style={{ width:44,height:44,borderRadius:12,background:"linear-gradient(135deg,#D4A853,#B8860B)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0 }}>❤️</div>
+            <div style={{ width:44,height:44,borderRadius:12,background:"linear-gradient(135deg,#4A90D9,#1A5C8A)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0,boxShadow:"0 2px 8px rgba(74,144,217,0.35)" }}>🕊️</div>
             <div style={{ flex:1 }}>
               <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Support the Ministry</div>
               <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,lineHeight:1.5,marginTop:2 }}>Every feature is free. Your generosity keeps it that way.</div>
@@ -968,23 +968,38 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>📖</span> The Holy Scriptures
             </div>
-            {[
-              { t:"OT",l:"Old Testament",s:"39 Books · Genesis to Malachi",o:"בְּרֵאשִׁית — In the Beginning",thm:"garden",icon:"📜",desc:"The story of creation, covenant, and promise — from Eden to the eve of Christ." },
-              { t:"NT",l:"New Testament",s:"27 Books · Matthew to Revelation",o:"Ἡ Καινὴ Διαθήκη — The New Covenant",thm:"ocean",icon:"✝️",desc:"The fulfilment of all promises — the life, death, resurrection, and reign of Jesus." },
-            ].map(item => (
-              <button key={item.t} onClick={() => nav("books",{testament:item.t})} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderLeft:`4px solid ${THEMES[item.thm].accent}`,borderRadius:14,padding:"20px 18px",marginBottom:12,cursor:"pointer",textAlign:"left",transition:"all 0.2s",boxShadow:"0 3px 12px rgba(0,0,0,0.07)" }}>
-                <div style={{ display:"flex",alignItems:"center",gap:14 }}>
-                  <div style={{ width:52,height:52,borderRadius:14,background:THEMES[item.thm].headerGradient,display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,flexShrink:0,boxShadow:"0 2px 8px rgba(0,0,0,0.15)" }}>{item.icon}</div>
-                  <div style={{ flex:1 }}>
-                    <div style={{ fontFamily:ht.heading,fontSize:19,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.l}</div>
-                    <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:1,lineHeight:1.6 }}>{item.s}</div>
-                    <div style={{ fontFamily:ht.body,fontSize:12,color:ht.light,fontStyle:"italic",marginTop:3,lineHeight:1.6 }}>{item.o}</div>
-                    <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.text,marginTop:6,lineHeight:1.7,opacity:0.75 }}>{item.desc}</div>
+            <div style={{ display:"flex", gap:12, marginBottom:16 }}>
+              {[
+                { t:"OT", l:"Old Testament", s:"39 Books", sub:"Genesis — Malachi", o:"בְּרֵאשִׁית", om:"In the Beginning", thm:"garden", icon:"📜" },
+                { t:"NT", l:"New Testament", s:"27 Books", sub:"Matthew — Revelation", o:"Καινὴ Διαθήκη", om:"The New Covenant", thm:"ocean", icon:"✝️" },
+              ].map(item => (
+                <button key={item.t} onClick={() => nav("books",{testament:item.t})}
+                  style={{ flex:1, cursor:"pointer", border:"none", background:"transparent", padding:0, display:"flex", flexDirection:"column", filter:"drop-shadow(0 4px 12px rgba(0,0,0,0.15))" }}>
+                  {/* Top roll */}
+                  <div style={{ height:22, background:THEMES[item.thm].headerGradient, borderRadius:"12px 12px 0 0", position:"relative", overflow:"hidden" }}>
+                    <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"55%", height:8, background:"rgba(255,255,255,0.12)", borderRadius:10 }}/>
+                    <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"30%", height:4, background:"rgba(255,255,255,0.08)", borderRadius:10 }}/>
                   </div>
-                  <div style={{ color:ht.light,flexShrink:0 }}><ChevIcon /></div>
-                </div>
-              </button>
-            ))}
+                  {/* Parchment body */}
+                  <div style={{ background:"linear-gradient(180deg,#FEF3D8 0%,#FAE8BB 40%,#FEF3D8 100%)", padding:"18px 10px 16px", borderLeft:`1px solid rgba(180,140,60,0.3)`, borderRight:`1px solid rgba(180,140,60,0.3)`, textAlign:"center", flex:1 }}>
+                    <div style={{ fontSize:30, marginBottom:10, filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.2))" }}>{item.icon}</div>
+                    <div style={{ fontFamily:ht.heading, fontSize:15, fontWeight:700, color:THEMES[item.thm].dark, lineHeight:1.3, marginBottom:6 }}>{item.l}</div>
+                    <div style={{ width:28, height:2, background:THEMES[item.thm].accent, borderRadius:2, margin:"0 auto 8px" }}/>
+                    <div style={{ fontFamily:ht.ui, fontSize:11, color:THEMES[item.thm].muted, marginBottom:10, letterSpacing:"0.02em" }}>{item.s}</div>
+                    <div style={{ fontFamily:"'Times New Roman',serif", fontSize:item.t==="OT"?17:13, color:THEMES[item.thm].accent, fontWeight:700, marginBottom:4, direction:item.t==="OT"?"rtl":"ltr", lineHeight:1.4 }}>{item.o}</div>
+                    <div style={{ fontFamily:ht.body, fontSize:10.5, color:THEMES[item.thm].muted, fontStyle:"italic", lineHeight:1.5 }}>{item.om}</div>
+                    <div style={{ marginTop:12, padding:"5px 10px", borderRadius:6, background:`${THEMES[item.thm].accent}18`, border:`1px solid ${THEMES[item.thm].accentBorder}`, display:"inline-block" }}>
+                      <span style={{ fontFamily:ht.ui, fontSize:10, fontWeight:700, color:THEMES[item.thm].accent, textTransform:"uppercase", letterSpacing:"0.08em" }}>{item.sub}</span>
+                    </div>
+                  </div>
+                  {/* Bottom roll */}
+                  <div style={{ height:22, background:THEMES[item.thm].headerGradient, borderRadius:"0 0 12px 12px", position:"relative", overflow:"hidden" }}>
+                    <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"55%", height:8, background:"rgba(255,255,255,0.12)", borderRadius:10 }}/>
+                    <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"30%", height:4, background:"rgba(255,255,255,0.08)", borderRadius:10 }}/>
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* ── HEAR IT AS IT WAS WRITTEN ── */}
