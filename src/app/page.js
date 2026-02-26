@@ -266,7 +266,7 @@ export default function StudyBible() {
       const { data: hl } = await supabase.from("user_highlights").select("*").eq("user_id", user.id).eq("verse_id", currentVerse.id).maybeSingle();
       setHighlight(hl);
       // Load community notes
-      const { data: cn } = await supabase.from("user_notes").select("*, user_profiles(display_name)").eq("verse_id", currentVerse.id).eq("is_public", true).neq("user_id", user.id);
+      const { data: cn } = await supabase.from("user_notes").select("*").eq("verse_id", currentVerse.id).eq("is_public", true).neq("user_id", user.id);
       setCommunityNotes(cn || []);
     })();
   }, [user, currentVerse]);
