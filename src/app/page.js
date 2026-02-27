@@ -400,7 +400,8 @@ export default function StudyBible() {
         if (e.state.verse !== undefined) setVerse(e.state.verse);
         if (e.state.tab !== undefined) setTab(e.state.tab);
         setFade(true);
-      }, 120);
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }, 80);
     }
   };
 
@@ -521,6 +522,10 @@ export default function StudyBible() {
     setLoading(false);
   }, []);
 
+  const goBack = useCallback(() => {
+    window.history.back();
+  }, []);
+
   const nav = useCallback((v, opts = {}) => {
     window.history.pushState({ view: v, ...opts }, "");
     setFade(false);
@@ -532,6 +537,7 @@ export default function StudyBible() {
       if (opts.verse !== undefined) setVerse(opts.verse);
       if (opts.tab !== undefined) setTab(opts.tab);
       setFade(true);
+      window.scrollTo({ top: 0, behavior: "instant" });
     }, 80);
   }, []);
 
@@ -1135,7 +1141,7 @@ export default function StudyBible() {
     const cats = {}; books.forEach(b => { if (!cats[b.category]) cats[b.category] = []; cats[b.category].push(b); });
     return (
       <div style={{ minHeight:"100vh",background:ht.bg }}>
-        <Header title={testament === "OT" ? "Old Testament" : "New Testament"} subtitle={`${books.length} Books`} onBack={() => nav("home")} theme={ht} />
+        <Header title={testament === "OT" ? "Old Testament" : "New Testament"} subtitle={`${books.length} Books`} onBack={goBack} theme={ht} />
         <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
           {Object.entries(cats).map(([cat, catBooks]) => {
             const ct = THEMES[CATEGORY_THEME[cat] || "home"];
@@ -1181,7 +1187,7 @@ export default function StudyBible() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={book} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={() => nav("books",{testament:bookInfo.testament})} />
+        <Header title={book} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={goBack} />
         <div style={{ padding:"18px 16px 40px",maxWidth:520,margin:"0 auto" }}>
 
           {/* Book info card */}
@@ -1292,12 +1298,12 @@ export default function StudyBible() {
 
   // ═══ VERSE LIST ═══
   const VerseList = () => {
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} subtitle="Loading verses..." onBack={() => nav("chapter",{book})} /><Spinner t={t} /></div>;
-    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={() => nav("chapter",{book})} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} subtitle="Loading verses..." onBack={goBack} /><Spinner t={t} /></div>;
+    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={`${book} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={() => nav("chapter",{book})} />
+        <Header title={`${book} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} />
         <div style={{ maxWidth:620,margin:"0 auto",padding:"16px 16px 40px" }}>
 
           {/* Chapter Illustration */}
@@ -1347,8 +1353,8 @@ export default function StudyBible() {
 
   // ═══ VERSE STUDY ═══
   const VerseStudy = () => {
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={() => nav("verses",{book, chapter})} /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
-    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={() => nav("verses",{book, chapter})} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>{dbLive?"Loading...":"Connect to Supabase"}</div></div></div>;
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={goBack} /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
+    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>{dbLive?"Loading...":"Connect to Supabase"}</div></div></div>;
 
     const ref = `${book} ${chapter}:${verse}`;
     const vWords = wordStudies[currentVerse.id] || [];
@@ -1357,7 +1363,7 @@ export default function StudyBible() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={ref} subtitle={chapterMeta?.theme} onBack={() => nav("verses",{book,chapter})}
+        <Header title={ref} subtitle={chapterMeta?.theme} onBack={goBack}
           right={<>
             <DBBadge live={dbLive} t={t} />
             {user && <Btn onClick={toggleBookmarkHL} style={{color:highlight?.is_bookmarked?"#ffd700":t.headerText,fontSize:18,padding:"7px 10px",background:highlight?.is_bookmarked?"rgba(255,215,0,0.2)":"rgba(255,255,255,0.1)"}}>{highlight?.is_bookmarked?"★":"☆"}</Btn>}
@@ -1656,7 +1662,7 @@ export default function StudyBible() {
     const totalLessons = hebrewLessons.length;
     return (
       <div style={{ minHeight:"100vh",background:ht2.bg,paddingBottom:80 }}>
-        <Header title="Learn Hebrew" subtitle="Biblical Hebrew · עִבְרִית" onBack={() => nav("home")} theme={ht2} />
+        <Header title="Learn Hebrew" subtitle="Biblical Hebrew · עִבְרִית" onBack={goBack} theme={ht2} />
         <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient,borderRadius:16,padding:"28px 20px",marginBottom:20,textAlign:"center",position:"relative",overflow:"hidden" }}>
@@ -1849,7 +1855,7 @@ export default function StudyBible() {
     const ht2 = THEMES.garden;
     if (!hebrewLesson) return (
       <div style={{ minHeight:"100vh",background:ht2.bg }}>
-        <Header title="Hebrew Lesson" onBack={() => nav("hebrew-home")} theme={ht2}/>
+        <Header title="Hebrew Lesson" onBack={goBack} theme={ht2}/>
         <Spinner t={ht2}/>
       </div>
     );
@@ -1861,7 +1867,7 @@ export default function StudyBible() {
     const nextLesson = currentIdx < hebrewLessons.length-1 ? hebrewLessons[currentIdx+1] : null;
     return (
       <div style={{ minHeight:"100vh",background:ht2.bg }}>
-        <Header title={hebrewLesson.title} subtitle={hebrewLesson.subtitle} onBack={() => nav("hebrew-home")} theme={ht2}
+        <Header title={hebrewLesson.title} subtitle={hebrewLesson.subtitle} onBack={goBack} theme={ht2}
           right={isDone && <span style={{ fontFamily:ht2.ui,fontSize:11,color:"#7ED4AD",fontWeight:700,background:"#7ED4AD22",padding:"4px 10px",borderRadius:6 }}>✓ Complete</span>}
         />
         <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
@@ -2004,7 +2010,7 @@ export default function StudyBible() {
     const questions = content.practice || [];
     if (questions.length === 0) return (
       <div style={{ minHeight:"100vh",background:ht2.bg }}>
-        <Header title="Practice" onBack={() => nav("hebrew-lesson")} theme={ht2}/>
+        <Header title="Practice" onBack={goBack} theme={ht2}/>
         <div style={{ textAlign:"center",padding:40 }}>
           <div style={{ fontSize:48,marginBottom:16 }}>✍️</div>
           <div style={{ fontFamily:ht2.heading,fontSize:18,color:ht2.dark }}>No practice questions yet</div>
@@ -2064,7 +2070,7 @@ export default function StudyBible() {
 
     return (
       <div style={{ minHeight:"100vh",background:ht2.bg }}>
-        <Header title={`Practice · ${hebrewLesson.title}`} subtitle={`Question ${hebrewPracticeIdx+1} of ${questions.length}`} onBack={() => nav("hebrew-lesson")} theme={ht2}/>
+        <Header title={`Practice · ${hebrewLesson.title}`} subtitle={`Question ${hebrewPracticeIdx+1} of ${questions.length}`} onBack={goBack} theme={ht2}/>
         <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
           {/* Progress bar */}
           <div style={{ background:ht2.divider,borderRadius:6,height:6,marginBottom:22,overflow:"hidden" }}>
@@ -2133,7 +2139,7 @@ export default function StudyBible() {
     ];
     return (
       <div style={{ minHeight:"100vh", background:ht.bg, paddingBottom:80 }}>
-        <Header title="Learn" subtitle="Languages · History · Theology" onBack={() => nav("home")} theme={ht} />
+        <Header title="Learn" subtitle="Languages · History · Theology" onBack={goBack} theme={ht} />
         <div style={{ padding:"20px 20px 40px", maxWidth:520, margin:"0 auto" }}>
           {/* Hero */}
           <div style={{ background:ht.headerGradient, borderRadius:16, padding:"28px 20px", marginBottom:22, textAlign:"center", position:"relative", overflow:"hidden" }}>
@@ -2311,7 +2317,7 @@ export default function StudyBible() {
     ];
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
-        <Header title="Hebrew Grammar" subtitle="How the language works" onBack={() => nav("hebrew-home")} theme={ht2} />
+        <Header title="Hebrew Grammar" subtitle="How the language works" onBack={goBack} theme={ht2} />
         <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient, borderRadius:16, padding:"28px 20px", marginBottom:20, textAlign:"center", position:"relative", overflow:"hidden" }}>
@@ -2367,7 +2373,7 @@ export default function StudyBible() {
     const ht2 = THEMES.garden;
     if (!grammarLesson) return (
       <div style={{ minHeight:"100vh", background:ht2.bg }}>
-        <Header title="Grammar" onBack={() => nav("hebrew-grammar-home")} theme={ht2}/>
+        <Header title="Grammar" onBack={goBack} theme={ht2}/>
         <Spinner t={ht2}/>
       </div>
     );
@@ -2380,7 +2386,7 @@ export default function StudyBible() {
 
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg }}>
-        <Header title={grammarLesson.title} subtitle={grammarLesson.subtitle} onBack={() => nav("hebrew-grammar-home")} theme={ht2}
+        <Header title={grammarLesson.title} subtitle={grammarLesson.subtitle} onBack={goBack} theme={ht2}
           right={isDone && <span style={{ fontFamily:ht2.ui, fontSize:11, color:"#7ED4AD", fontWeight:700, background:"#7ED4AD22", padding:"4px 10px", borderRadius:6 }}>✓ Complete</span>}
         />
         <div style={{ maxWidth:520, margin:"0 auto", padding:"16px 16px 40px" }}>
@@ -2574,7 +2580,7 @@ export default function StudyBible() {
     ];
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
-        <Header title="Reading" subtitle="Read Scripture in Hebrew" onBack={() => nav("hebrew-home")} theme={ht2} />
+        <Header title="Reading" subtitle="Read Scripture in Hebrew" onBack={goBack} theme={ht2} />
         <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient, borderRadius:16, padding:"24px 20px", marginBottom:22, textAlign:"center", position:"relative", overflow:"hidden" }}>
@@ -3011,7 +3017,7 @@ export default function StudyBible() {
     // Intro screen
     if (readingStep === 0) return (
       <div style={{ minHeight:"100vh", background:ht2.bg }}>
-        <Header title={`Read ${VERSE.ref}`} subtitle="Word by Word · Letter by Letter" onBack={() => nav("hebrew-reading-home")} theme={ht2} />
+        <Header title={`Read ${VERSE.ref}`} subtitle="Word by Word · Letter by Letter" onBack={goBack} theme={ht2} />
         <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient, borderRadius:20, padding:"32px 20px", marginBottom:22, textAlign:"center", position:"relative", overflow:"hidden" }}>
@@ -3180,7 +3186,7 @@ export default function StudyBible() {
     ];
     return (
       <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
-        <Header title="Bible Timeline" subtitle="From Creation to Revelation" onBack={() => nav("learn-home")} theme={st} />
+        <Header title="Bible Timeline" subtitle="From Creation to Revelation" onBack={goBack} theme={st} />
         <div style={{ padding:"20px 20px 40px", maxWidth:520, margin:"0 auto" }}>
 
           {/* Hero */}
@@ -3283,7 +3289,7 @@ export default function StudyBible() {
   const TimelineEras = () => {
     return (
       <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
-        <Header title="Biblical Eras" subtitle="14 periods of redemptive history" onBack={() => nav("timeline-home")} theme={st} />
+        <Header title="Biblical Eras" subtitle="14 periods of redemptive history" onBack={goBack} theme={st} />
         <div style={{ padding:"16px 16px 40px", maxWidth:520, margin:"0 auto" }}>
 
           {/* Search bar */}
@@ -3406,7 +3412,7 @@ export default function StudyBible() {
     const allEvents = timelineEvents;
     return (
       <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
-        <Header title={era.title} subtitle={era.year_display} onBack={() => nav("timeline-era")} theme={st} />
+        <Header title={era.title} subtitle={era.year_display} onBack={goBack} theme={st} />
         <div style={{ padding:"0 0 40px", maxWidth:520, margin:"0 auto" }}>
 
           {/* Era hero banner */}
