@@ -1033,38 +1033,50 @@ export default function StudyBible() {
               <span>🗣️</span> Hear It As It Was Written
             </div>
             <div style={{ display:"flex",gap:12,marginBottom:16 }}>
-              {/* Hebrew Card */}
-              <button onClick={() => nav("hebrew-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 4px 12px rgba(192,108,62,0.2))" }}>
-                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column" }}>
-                  <div style={{ background:"linear-gradient(135deg,#1C2B1F,#2E4A33)",padding:"14px 10px 10px",textAlign:"center",position:"relative" }}>
-                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Times New Roman',serif",fontSize:52,color:"rgba(192,108,62,0.12)",direction:"rtl",fontWeight:700,userSelect:"none",lineHeight:1 }}>א</div>
-                    <div style={{ position:"relative",zIndex:1,fontSize:28,marginBottom:4 }}>🖋️</div>
-                    <div style={{ fontFamily:"'Times New Roman',serif",fontSize:18,color:"#C06C3E",direction:"rtl",lineHeight:1 }}>עִבְרִית</div>
+              {/* Hebrew Card — Jerusalem Limestone */}
+              <button onClick={() => nav("hebrew-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 6px 16px rgba(0,0,0,0.25))" }}>
+                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #8B6B3D",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.15)" }}>
+                  {/* Stone header */}
+                  <div style={{ background:"linear-gradient(160deg,#4A3420 0%,#6B4A28 50%,#3D2810 100%)",padding:"16px 10px 12px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+                    <div style={{ position:"absolute",inset:0,backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px),repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(255,255,255,0.02) 5px,rgba(255,255,255,0.02) 6px)" }}/>
+                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Times New Roman',serif",fontSize:56,color:"rgba(255,200,100,0.08)",direction:"rtl",fontWeight:700,userSelect:"none",lineHeight:1 }}>א</div>
+                    <div style={{ position:"relative",zIndex:1,fontSize:26,marginBottom:6,filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}>🪨</div>
+                    <div style={{ fontFamily:"'Times New Roman',serif",fontSize:19,color:"#D4A853",direction:"rtl",lineHeight:1,textShadow:"0 1px 4px rgba(0,0,0,0.5)" }}>עִבְרִית</div>
                   </div>
-                  <div style={{ background:"linear-gradient(180deg,#FEF3D8,#FAE8BB)",padding:"14px 10px",textAlign:"center",flex:1,borderLeft:"1px solid rgba(192,108,62,0.25)",borderRight:"1px solid rgba(192,108,62,0.25)",borderBottom:"1px solid rgba(192,108,62,0.25)",borderRadius:"0 0 14px 14px" }}>
-                    <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#1C2B1F",marginBottom:4 }}>Learn Hebrew</div>
-                    <div style={{ width:24,height:2,background:"#C06C3E",borderRadius:2,margin:"0 auto 8px" }}/>
-                    <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#8B7355",lineHeight:1.6,marginBottom:10 }}>Moses · David · Isaiah in their own tongue</div>
-                    <div style={{ display:"inline-block",padding:"5px 10px",borderRadius:6,background:"rgba(192,108,62,0.15)",border:"1px solid rgba(192,108,62,0.3)" }}>
-                      <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#C06C3E",textTransform:"uppercase",letterSpacing:"0.07em" }}>Start Learning →</span>
+                  {/* Limestone body */}
+                  <div style={{ background:"linear-gradient(180deg,#D6C9A8 0%,#C8B88A 50%,#BEA878 100%)",padding:"14px 10px",textAlign:"center",flex:1,borderTop:"1px solid #8B6B3D",boxShadow:"inset 0 2px 6px rgba(0,0,0,0.12)" }}>
+                    <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#2A1A08",marginBottom:4 }}>Learn Hebrew</div>
+                    <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#8B6B3D,transparent)",borderRadius:2,margin:"0 auto 8px" }}/>
+                    <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#5C4420",lineHeight:1.6,marginBottom:10 }}>Moses · David · Isaiah in their own tongue</div>
+                    <div style={{ display:"inline-block",padding:"5px 12px",borderRadius:4,background:"rgba(74,52,32,0.15)",border:"1px solid rgba(139,107,61,0.5)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.1)" }}>
+                      <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#4A3420",textTransform:"uppercase",letterSpacing:"0.07em" }}>Start Learning →</span>
                     </div>
                   </div>
                 </div>
               </button>
-              {/* Greek Card */}
-              <div style={{ flex:1,opacity:0.82,filter:"drop-shadow(0 4px 12px rgba(27,122,110,0.15))" }}>
-                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column" }}>
-                  <div style={{ background:"linear-gradient(135deg,#1A2F4B,#1B5E5A)",padding:"14px 10px 10px",textAlign:"center",position:"relative" }}>
-                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"serif",fontSize:52,color:"rgba(27,122,110,0.15)",fontWeight:700,userSelect:"none",lineHeight:1 }}>Α</div>
-                    <div style={{ position:"relative",zIndex:1,fontSize:28,marginBottom:4 }}>📜</div>
-                    <div style={{ fontFamily:"serif",fontSize:18,color:"#7ED4C8",lineHeight:1 }}>Ἑλληνική</div>
+              {/* Greek Card — Pentelic Marble */}
+              <div style={{ flex:1,opacity:0.85,filter:"drop-shadow(0 6px 16px rgba(0,0,0,0.22))" }}>
+                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #8A8FA8",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.2)" }}>
+                  {/* Marble header */}
+                  <div style={{ background:"linear-gradient(160deg,#2A2A3E 0%,#3E3E56 50%,#22222E 100%)",padding:"16px 10px 12px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+                    <div style={{ position:"absolute",inset:0,backgroundImage:"repeating-linear-gradient(125deg,transparent,transparent 8px,rgba(255,255,255,0.015) 8px,rgba(255,255,255,0.015) 9px)" }}/>
+                    <div style={{ position:"absolute",top:"20%",left:"-10%",width:"120%",height:"1px",background:"rgba(180,180,220,0.08)",transform:"rotate(-15deg)" }}/>
+                    <div style={{ position:"absolute",top:"55%",left:"-10%",width:"120%",height:"1px",background:"rgba(180,180,220,0.06)",transform:"rotate(-15deg)" }}/>
+                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"serif",fontSize:56,color:"rgba(180,180,255,0.07)",fontWeight:700,userSelect:"none",lineHeight:1 }}>Α</div>
+                    <div style={{ position:"relative",zIndex:1,fontSize:26,marginBottom:6,filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}>🏛️</div>
+                    <div style={{ fontFamily:"serif",fontSize:19,color:"#B8C4D8",lineHeight:1,textShadow:"0 1px 4px rgba(0,0,0,0.5)" }}>Ἑλληνική</div>
                   </div>
-                  <div style={{ background:"linear-gradient(180deg,#E8F4F2,#D4EBE8)",padding:"14px 10px",textAlign:"center",flex:1,borderLeft:"1px solid rgba(27,122,110,0.2)",borderRight:"1px solid rgba(27,122,110,0.2)",borderBottom:"1px solid rgba(27,122,110,0.2)",borderRadius:"0 0 14px 14px" }}>
-                    <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#1A2F4B",marginBottom:4 }}>Learn Greek</div>
-                    <div style={{ width:24,height:2,background:"#1B7A6E",borderRadius:2,margin:"0 auto 8px" }}/>
-                    <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#5A8A82",lineHeight:1.6,marginBottom:10 }}>Paul · John · Luke in Koine Greek</div>
-                    <div style={{ display:"inline-block",padding:"5px 10px",borderRadius:6,background:"rgba(27,122,110,0.1)",border:"1px solid rgba(27,122,110,0.25)" }}>
-                      <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#1B7A6E",textTransform:"uppercase",letterSpacing:"0.07em" }}>Coming Soon</span>
+                  {/* Marble body */}
+                  <div style={{ background:"linear-gradient(180deg,#E8E8F0 0%,#D8D8E8 50%,#CCCCDC 100%)",padding:"14px 10px",textAlign:"center",flex:1,borderTop:"1px solid #8A8FA8",boxShadow:"inset 0 2px 6px rgba(0,0,0,0.08)",position:"relative",overflow:"hidden" }}>
+                    <div style={{ position:"absolute",top:"15%",left:"-5%",width:"110%",height:"1px",background:"rgba(100,100,160,0.08)",transform:"rotate(-8deg)" }}/>
+                    <div style={{ position:"absolute",top:"60%",left:"-5%",width:"110%",height:"1px",background:"rgba(100,100,160,0.06)",transform:"rotate(-8deg)" }}/>
+                    <div style={{ position:"relative",zIndex:1 }}>
+                      <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#1A1A2E",marginBottom:4 }}>Learn Greek</div>
+                      <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#6A6A8A,transparent)",borderRadius:2,margin:"0 auto 8px" }}/>
+                      <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#3A3A5A",lineHeight:1.6,marginBottom:10 }}>Paul · John · Luke in Koine Greek</div>
+                      <div style={{ display:"inline-block",padding:"5px 12px",borderRadius:4,background:"rgba(42,42,62,0.12)",border:"1px solid rgba(138,143,168,0.5)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.08)" }}>
+                        <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#2A2A4A",textTransform:"uppercase",letterSpacing:"0.07em" }}>Coming Soon</span>
+                      </div>
                     </div>
                   </div>
                 </div>
