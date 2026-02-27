@@ -2148,7 +2148,7 @@ export default function StudyBible() {
       { id:"timeline", icon:"📜", label:"Biblical Timeline", sub:"From Creation to Revelation", color:"#E8625C", bg:"rgba(232,98,92,0.1)", active:true, action:() => nav("timeline-home") },
       { id:"apologetics", icon:"🛡️", label:"Apologetics", sub:"Defend & understand the faith", color:"#1B7A6E", bg:"rgba(27,122,110,0.1)", active:true, action:() => nav("apologetics-home") },
       { id:"prophecy", icon:"🔭", label:"Prophecy & Fulfilment", sub:"300+ Messianic Predictions", color:"#8B5CF6", bg:"rgba(139,92,246,0.1)", active:true, action:() => nav("prophecy-home") },
-      { id:"reading", icon:"🗓️", label:"Reading Plans", sub:"Guided Bible journeys", color:"#D4A853", bg:"rgba(212,168,83,0.1)", active:false },
+      { id:"reading", icon:"🗓️", label:"Reading Plans", sub:"Guided Bible journeys", color:"#D4A853", bg:"rgba(212,168,83,0.1)", active:true, action:() => nav("reading-plans-home") },
     ];
     return (
       <div style={{ minHeight:"100vh", background:ht.bg, paddingBottom:80 }}>
