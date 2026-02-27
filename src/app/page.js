@@ -143,6 +143,7 @@ export default function StudyBible() {
   // ─── Bible data ───
   const [dbChapters, setDbChapters] = useState({});
   const [collapsed, setCollapsed] = useState({});
+  const [booksCollapsed, setBooksCollapsed] = useState({});
   const [overviewOpen, setOverviewOpen] = useState(false);
   const [chapterMeta, setChapterMeta] = useState(null);
   const [verses, setVerses] = useState([]);
@@ -1159,12 +1160,13 @@ export default function StudyBible() {
             const ct = THEMES[CATEGORY_THEME[cat] || "home"];
             return (
               <div key={cat} style={{ marginBottom:22 }}>
-                <div style={{ display:"flex",alignItems:"center",gap:7,marginBottom:9 }}>
+                <button onClick={() => setBooksCollapsed(prev => ({...prev,[cat]:!prev[cat]}))} style={{ width:"100%",display:"flex",alignItems:"center",gap:7,marginBottom:booksCollapsed[cat]?0:9,background:"none",border:"none",cursor:"pointer",padding:"4px 0",textAlign:"left" }}>
                   <span style={{ fontSize:15 }}>{CAT_ICONS[cat]}</span>
                   <span style={{ fontFamily:ct.ui,fontSize:12,fontWeight:700,color:ct.accent,textTransform:"uppercase",letterSpacing:"0.1em" }}>{cat}</span>
                   <div style={{ flex:1,height:1,background:ct.accentBorder }}/>
-                </div>
-                {catBooks.map(b => (
+                  <span style={{ fontFamily:ct.ui,fontSize:13,color:ct.accent,marginLeft:4,transform:booksCollapsed[cat]?"rotate(-90deg)":"rotate(0deg)",transition:"transform 0.2s",display:"inline-block" }}>▾</span>
+                </button>
+                {!booksCollapsed[cat] && catBooks.map(b => (
                   <button key={b.name} onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:12,padding:"11px 14px",marginBottom:5,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,borderLeft:`3px solid ${ct.accent}`,boxShadow:"0 1px 2px rgba(0,0,0,0.03)",transition:"all 0.15s" }}>
                     <div style={{ flex:1 }}>
                       <div style={{ display:"flex",alignItems:"center",gap:7 }}>
@@ -1382,7 +1384,6 @@ export default function StudyBible() {
           </>}
         />
         <div style={{ maxWidth:620,margin:"0 auto",padding:"0 16px 40px" }}>
-          const [collapsed, setCollapsed] = useState({});{/* Chapter Overview — collapsible pill */}
           {chapterMeta?.overview && (
             <div style={{margin:"14px 0"}}>
               <button
