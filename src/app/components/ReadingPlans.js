@@ -1,851 +1,1213 @@
 "use client";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { supabase } from "../lib/supabase";
 
-const RP_THEME = {
-  bg:      "#FFFBF0",
-  card:    "#FFFFFF",
-  hero:    "linear-gradient(135deg, #B8860B 0%, #D4A853 40%, #92400E 100%)",
-  accent:  "#B8860B",
-  text:    "#1F2937",
-  muted:   "#6B7280",
-  divider: "#E5E7EB",
-  font:    "'Georgia', serif",
+// ─── Theme ────────────────────────────────────────────────────────────────────
+const T = {
+  bg:       "#F5EDD6",
+  wall:     "#EDE0C4",
+  wood:     "linear-gradient(180deg, #C8974E 0%, #A0733A 50%, #8B5E2A 100%)",
+  woodEdge: "#6B4423",
+  text:     "#2C1A0E",
+  muted:    "#8B6239",
+  cream:    "#FEF6E4",
+  font:     "'Georgia', serif",
 };
 
-const DIFFICULTY_STYLE = {
+const DIFF = {
   "Beginner":   { bg: "#D1FAE5", color: "#065F46" },
   "Accessible": { bg: "#CCFBF1", color: "#0F766E" },
   "Moderate":   { bg: "#FEF3C7", color: "#92400E" },
   "Advanced":   { bg: "#FFE4E6", color: "#9F1239" },
 };
 
+function lightenHex(hex, amount = 30) {
+  const num = parseInt(hex.replace("#",""), 16);
+  const r = Math.min(255, (num >> 16) + amount);
+  const g = Math.min(255, ((num >> 8) & 0xff) + amount);
+  const b = Math.min(255, (num & 0xff) + amount);
+  return "#" + ((r << 16) | (g << 8) | b).toString(16).padStart(6, "0");
+}
+
+// ─── Plans Data ───────────────────────────────────────────────────────────────
 const READING_PLANS = [
   {
-    id: "bible-in-a-year",
-    title: "Bible in a Year",
-    subtitle: "From Genesis to Revelation in 365 days",
-    duration: "365 days",
-    dailyTime: "~15 min/day",
-    difficulty: "Moderate",
-    description: "Read through the entire KJV Bible in one year. Each day combines Old Testament narrative, Psalms/Proverbs, and New Testament — so you always have variety and never get stuck in one section for weeks.",
-    structure: "3 readings per day: OT passage + Psalm/Proverb + NT passage",
-    color: "#B8860B",
-    icon: "📅",
-    category: "Full Bible",
-    chapters: 1189,
-    chapsPerDay: "~3.25",
-    whatYoullRead: [
-      "Old Testament: Genesis → Malachi",
-      "New Testament: Matthew → Revelation",
-      "A Psalm or Proverb woven in each day",
-      "You finish the entire Word of God in 12 months",
-    ],
+    id:"bible-in-a-year", title:"Bible in a Year",
+    subtitle:"From Genesis to Revelation in 365 days",
+    duration:"365 days", dailyTime:"~15 min/day", difficulty:"Moderate",
+    description:"Read through the entire KJV Bible in one year. Each day combines Old Testament narrative, Psalms/Proverbs, and New Testament — so you always have variety and never get stuck in one section for weeks.",
+    structure:"3 readings per day: OT passage + Psalm/Proverb + NT passage",
+    color:"#B8860B", icon:"📅", shelf:"full", chapters:1189,
+    whatYoullRead:["Old Testament: Genesis → Malachi","New Testament: Matthew → Revelation","A Psalm or Proverb woven in each day","You finish the entire Word of God in 12 months"],
   },
   {
-    id: "nt-90",
-    title: "New Testament in 90 Days",
-    subtitle: "The Gospels, letters, and Revelation — one season",
-    duration: "90 days",
-    dailyTime: "~10 min/day",
-    difficulty: "Accessible",
-    description: "A focused, achievable journey through the 27 books of the New Testament. Perfect for new believers, or anyone wanting to ground themselves in the life of Christ and the early church before tackling the full Bible.",
-    structure: "~3 chapters/day through Matthew → Revelation",
-    color: "#1B7A6E",
-    icon: "📖",
-    category: "New Testament",
-    chapters: 260,
-    chapsPerDay: "~2.9",
-    whatYoullRead: [
-      "The four Gospels: Matthew, Mark, Luke, John",
-      "Acts — the birth of the church",
-      "Paul's letters: Romans → Philemon",
-      "General Epistles: Hebrews → Jude",
-      "Revelation",
-    ],
+    id:"chronological", title:"Chronological Bible",
+    subtitle:"Scripture in the order events happened",
+    duration:"365 days", dailyTime:"~15 min/day", difficulty:"Moderate",
+    description:"Instead of Genesis to Revelation, this plan rearranges the Bible in historical sequence. Job appears alongside Genesis, the Psalms are read during David's reign, and the Prophets sit inside the history they were speaking into.",
+    structure:"~3 chapters/day, historically sequenced across all 66 books",
+    color:"#7C5C2E", icon:"📆", shelf:"full", chapters:1189,
+    whatYoullRead:["Creation & Patriarchs: Genesis, Job woven together","The Exodus: Exodus through Deuteronomy","Conquest & Judges: Joshua, Judges, Ruth","United Kingdom: Samuel, Kings, Psalms of David, Proverbs","Divided Kingdom & Exile: Isaiah, Jeremiah, the Prophets","New Testament in historical order"],
   },
   {
-    id: "life-of-jesus",
-    title: "The Life of Jesus",
-    subtitle: "30 days through all four Gospels",
-    duration: "30 days",
-    dailyTime: "~8 min/day",
-    difficulty: "Beginner",
-    description: "Walk through the life of Christ in a single month — from the eternal Word of John 1, through the Sermon on the Mount, the miracles, the upper room, the cross, and the resurrection. Each day is a focused passage, not a marathon.",
-    structure: "Harmonised daily passages from Matthew, Mark, Luke, John",
-    color: "#7C3AED",
-    icon: "🕊️",
-    category: "Gospels",
-    chapters: 89,
-    chapsPerDay: "~3",
-    whatYoullRead: [
-      "Day 1–5: The birth and early ministry of Christ",
-      "Day 6–12: The Sermon on the Mount and miracles",
-      "Day 13–20: Parables and confrontations in Jerusalem",
-      "Day 21–26: The upper room and the cross",
-      "Day 27–30: Resurrection appearances and the Great Commission",
-    ],
+    id:"mcheyne", title:"M'Cheyne Plan",
+    subtitle:"4 chapters a day — the classic Scottish devotional",
+    duration:"365 days", dailyTime:"~20 min/day", difficulty:"Advanced",
+    description:"Designed by Robert Murray M'Cheyne in 1842, this plan reads through the New Testament and Psalms twice, and the Old Testament once, in a year. Four readings each day — morning and evening, family and personal. Generations of believers have been formed by it.",
+    structure:"4 readings/day: 2 OT + 2 NT/Psalms passages",
+    color:"#4B3F72", icon:"🔢", shelf:"full", chapters:1189,
+    whatYoullRead:["Old Testament once: Genesis to Malachi","New Testament twice: Matthew to Revelation","Psalms twice — all 150","Family track: OT narrative + Gospels","Personal track: Psalms + Epistles"],
   },
   {
-    id: "psalms-proverbs",
-    title: "Psalms & Proverbs",
-    subtitle: "Worship and wisdom for every season of life",
-    duration: "60 days",
-    dailyTime: "~7 min/day",
-    difficulty: "Beginner",
-    description: "The two great wisdom books of the Old Testament. Psalms teaches us how to pray — in joy, grief, fear, and praise. Proverbs teaches us how to live — with integrity, diligence, and the fear of the LORD. Read together, they cover every human emotion and every practical situation.",
-    structure: "2–3 Psalms per day + 1 Proverbs chapter",
-    color: "#D97706",
-    icon: "📜",
-    category: "Wisdom",
-    chapters: 181,
-    chapsPerDay: "~3",
-    whatYoullRead: [
-      "All 150 Psalms — lament, praise, trust, and triumph",
-      "All 31 chapters of Proverbs",
-      "Morning Psalms for worship, evening Proverbs for reflection",
-      "A complete picture of the devotional life of Israel",
-    ],
+    id:"nt-90", title:"New Testament in 90 Days",
+    subtitle:"The Gospels, letters, and Revelation",
+    duration:"90 days", dailyTime:"~10 min/day", difficulty:"Accessible",
+    description:"A focused, achievable journey through the 27 books of the New Testament. Perfect for new believers, or anyone wanting to ground themselves in the life of Christ and the early church before tackling the full Bible.",
+    structure:"~3 chapters/day through Matthew → Revelation",
+    color:"#1B7A6E", icon:"📖", shelf:"nt", chapters:260,
+    whatYoullRead:["The four Gospels: Matthew, Mark, Luke, John","Acts — the birth of the church","Paul's letters: Romans → Philemon","General Epistles: Hebrews → Jude","Revelation"],
   },
   {
-    id: "epistles",
-    title: "Paul's Letters & the General Epistles",
-    subtitle: "Doctrine and discipleship for everyday life",
-    duration: "45 days",
-    dailyTime: "~10 min/day",
-    difficulty: "Moderate",
-    description: "Romans through Jude — the letters that built the church. Paul, Peter, James, John, and Jude wrote to real communities facing real struggles. Their words are as urgent today. This plan moves thematically: justification (Romans), freedom (Galatians), unity (Ephesians), suffering (1 Peter), love (1 John).",
-    structure: "1–2 letters per week, chapter-by-chapter",
-    color: "#0369A1",
-    icon: "✝️",
-    category: "Epistles",
-    chapters: 87,
-    chapsPerDay: "~2",
-    whatYoullRead: [
-      "Week 1–2: Romans & Galatians — justification by faith",
-      "Week 3: Ephesians, Philippians, Colossians — the body of Christ",
-      "Week 4: Thessalonians, Timothy, Titus — the church and the end",
-      "Week 5–6: Hebrews, James, Peter, John, Jude — faith in trial",
-    ],
+    id:"life-of-jesus", title:"The Life of Jesus",
+    subtitle:"30 days through all four Gospels",
+    duration:"30 days", dailyTime:"~8 min/day", difficulty:"Beginner",
+    description:"Walk through the life of Christ in a single month — from the eternal Word of John 1, through the Sermon on the Mount, the miracles, the upper room, the cross, and the resurrection. Each day is a focused passage, not a marathon.",
+    structure:"Harmonised daily passages from Matthew, Mark, Luke, John",
+    color:"#7C3AED", icon:"🕊️", shelf:"nt", chapters:89,
+    whatYoullRead:["Day 1–5: Birth and early ministry","Day 6–12: Sermon on the Mount and miracles","Day 13–20: Parables and Jerusalem","Day 21–26: The upper room and the cross","Day 27–30: Resurrection and Great Commission"],
   },
   {
-    id: "prophets",
-    title: "The Prophets",
-    subtitle: "Isaiah to Malachi — the voice of God to his people",
-    duration: "90 days",
-    dailyTime: "~12 min/day",
-    difficulty: "Advanced",
-    description: "The 17 prophetic books are the most underread section of the Bible — and the most quoted by Jesus and the New Testament. This plan pairs major prophets (Isaiah, Jeremiah, Ezekiel, Daniel) with minor prophets (Hosea, Amos, Micah, Malachi), providing context for each book before you begin.",
-    structure: "Major prophet + paired minor prophet per week",
-    color: "#9F1239",
-    icon: "🔥",
-    category: "Prophets",
-    chapters: 250,
-    chapsPerDay: "~2.8",
-    whatYoullRead: [
-      "Isaiah — the gospel before the gospel",
-      "Jeremiah & Lamentations — weeping with the prophet",
-      "Ezekiel — visions, judgment, and the dry bones",
-      "Daniel — the sovereignty of God over empires",
-      "The Twelve: Hosea, Joel, Amos, Obadiah, Jonah, Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah, Malachi",
-    ],
+    id:"holy-week", title:"Holy Week",
+    subtitle:"The Passion across all four Gospels",
+    duration:"7 days", dailyTime:"~15 min/day", difficulty:"Accessible",
+    description:"Seven days. Four Gospels. One week that changed everything. From the triumphal entry into Jerusalem to the empty tomb, day by day — his words, his silences, his death, and his resurrection.",
+    structure:"Daily harmonised readings from Matthew, Mark, Luke, and John",
+    color:"#991B1B", icon:"✝️", shelf:"nt", chapters:28,
+    whatYoullRead:["Day 1 — Palm Sunday: The triumphal entry","Day 2–3: Temple teaching, Olivet discourse","Day 4: The anointing at Bethany","Day 5 — Thursday: Last Supper, Gethsemane (John 13–17)","Day 6 — Good Friday: Trials, crucifixion, burial","Day 7 — Easter: The empty tomb"],
   },
   {
-    id: "storyline",
-    title: "The Bible Storyline",
-    subtitle: "The one story of Scripture in 21 days",
-    duration: "21 days",
-    dailyTime: "~12 min/day",
-    difficulty: "Accessible",
-    description: "Not every chapter — the spine of the whole story. From creation to fall, Abraham to Moses, David to exile, exile to Christ, cross to resurrection, church to new creation. This plan gives you the narrative skeleton so every other reading makes sense.",
-    structure: "3 passages per day — one OT narrative, one Psalm, one NT echo",
-    color: "#065F46",
-    icon: "🌿",
-    category: "Overview",
-    chapters: 63,
-    chapsPerDay: "~3",
-    whatYoullRead: [
-      "Day 1–3: Creation, Fall, Flood, and the call of Abraham",
-      "Day 4–7: The Exodus, the Law, and the Promised Land",
-      "Day 8–11: David, Solomon, and the divided kingdom",
-      "Day 12–14: Exile and the cry for return",
-      "Day 15–18: The Gospels — the long-awaited King arrives",
-      "Day 19–21: The church, the letters, and the new creation",
-    ],
-  },
-
-  // ── 9 NEW PLANS ─────────────────────────────────────────────────────────
-
-  {
-    id: "chronological",
-    title: "Chronological Bible in a Year",
-    subtitle: "Scripture in the order events actually happened",
-    duration: "365 days",
-    dailyTime: "~15 min/day",
-    difficulty: "Moderate",
-    description: "Instead of reading Genesis to Revelation, this plan rearranges the Bible in historical sequence. Job appears alongside Genesis, the Psalms are read during David's reign, and the Prophets sit inside the history they were speaking into. The result is a living, breathing narrative of redemption — the Bible as a unified story unfolding in real time.",
-    structure: "~3 chapters/day, historically sequenced across all 66 books",
-    color: "#7C5C2E",
-    icon: "📆",
-    category: "Chronological",
-    chapters: 1189,
-    chapsPerDay: "~3.25",
-    whatYoullRead: [
-      "Creation & Patriarchs: Genesis, Job (woven together)",
-      "The Exodus: Exodus, Leviticus, Numbers, Deuteronomy",
-      "Conquest & Judges: Joshua, Judges, Ruth",
-      "United Kingdom: 1–2 Samuel, 1 Kings 1–11, Psalms of David, Proverbs, Ecclesiastes, Song of Solomon",
-      "Divided Kingdom: 1 Kings 12 – 2 Kings 25, Isaiah, Jeremiah, the Minor Prophets",
-      "Exile & Return: Ezekiel, Daniel, Ezra, Nehemiah, Esther",
-      "New Testament: Matthew – Revelation in historical order",
-    ],
+    id:"torah", title:"The Torah — 40 Days",
+    subtitle:"Five books of Moses: the foundation",
+    duration:"40 days", dailyTime:"~12 min/day", difficulty:"Moderate",
+    description:"Genesis through Deuteronomy — the Torah is the root of the entire Bible. Every covenant, every type and shadow, every story of redemption in the New Testament has its seeds here.",
+    structure:"~4 chapters/day, Genesis through Deuteronomy",
+    color:"#B45309", icon:"📜", shelf:"ot", chapters:187,
+    whatYoullRead:["Genesis: Creation, Fall, Flood, the Patriarchs","Exodus: Passover, Sinai, the Tabernacle","Leviticus: Holiness, sacrifice, the priesthood","Numbers: Wilderness, rebellion, God's faithfulness","Deuteronomy: Moses' farewell — the covenant renewed"],
   },
   {
-    id: "mcheyne",
-    title: "M'Cheyne Bible Reading Plan",
-    subtitle: "4 chapters a day — the classic Scottish devotional plan",
-    duration: "365 days",
-    dailyTime: "~20 min/day",
-    difficulty: "Advanced",
-    description: "Designed by Robert Murray M'Cheyne in 1842 for his congregation in Dundee, this plan reads through the New Testament and Psalms twice, and the Old Testament once, in a year. Each day has four readings from four different parts of Scripture — morning family devotion, evening family devotion, morning personal, evening personal. Generations of believers have been formed by it.",
-    structure: "4 readings/day across 2 OT passages + 2 NT/Psalms passages",
-    color: "#4B3F72",
-    icon: "🔢",
-    category: "Chronological",
-    chapters: 1189,
-    chapsPerDay: "~4",
-    whatYoullRead: [
-      "Old Testament once through: Genesis to Malachi",
-      "New Testament twice through: Matthew to Revelation",
-      "Psalms twice through: all 150 Psalms",
-      "Family track: OT narrative + Gospels/Acts/Revelation",
-      "Personal track: Psalms/Proverbs + Epistles",
-    ],
+    id:"historical-books", title:"The Historical Books",
+    subtitle:"Joshua to Esther: Israel in the land",
+    duration:"60 days", dailyTime:"~10 min/day", difficulty:"Moderate",
+    description:"From the conquest of Canaan to the courts of Persia, the Historical Books trace Israel's rise, glory, collapse, and survival. The story of a God who keeps his promises even when his people do not.",
+    structure:"~3 chapters/day through Joshua to Esther",
+    color:"#92400E", icon:"⚔️", shelf:"ot", chapters:249,
+    whatYoullRead:["Joshua: The Promised Land entered","Judges & Ruth: Sin, judgment, redemption","1–2 Samuel: Saul, David, and the kingdom","1–2 Kings: Solomon, division, exile","Ezra, Nehemiah, Esther: Return and rebuilding"],
   },
   {
-    id: "torah",
-    title: "The Torah — 40 Days",
-    subtitle: "The five books of Moses: the foundation of everything",
-    duration: "40 days",
-    dailyTime: "~12 min/day",
-    difficulty: "Moderate",
-    description: "Genesis through Deuteronomy — the Torah is the root of the entire Bible. Every covenant, every type and shadow, every story of redemption in the New Testament has its seeds here. This plan reads the Pentateuch slowly and carefully, letting creation, the fall, the flood, the patriarchs, the Exodus, and the Law shape your understanding of everything that follows.",
-    structure: "~4 chapters/day, Genesis through Deuteronomy",
-    color: "#B45309",
-    icon: "📜",
-    category: "Old Testament",
-    chapters: 187,
-    chapsPerDay: "~4.7",
-    whatYoullRead: [
-      "Genesis: Creation, Fall, Flood, Babel, Abraham, Isaac, Jacob, Joseph",
-      "Exodus: Slavery, plagues, Passover, the Red Sea, Sinai, the Law, the Tabernacle",
-      "Leviticus: Holiness, sacrifice, the priesthood",
-      "Numbers: Wilderness, rebellion, and God's faithfulness",
-      "Deuteronomy: Moses' farewell — the covenant renewed on the plains of Moab",
-    ],
+    id:"psalms-proverbs", title:"Psalms & Proverbs",
+    subtitle:"Worship and wisdom for every season",
+    duration:"60 days", dailyTime:"~7 min/day", difficulty:"Beginner",
+    description:"The two great wisdom books of the Old Testament. Psalms teaches us how to pray — in joy, grief, fear, and praise. Proverbs teaches us how to live — with integrity, diligence, and the fear of the LORD.",
+    structure:"2–3 Psalms per day + 1 Proverbs chapter",
+    color:"#D97706", icon:"🌟", shelf:"ot", chapters:181,
+    whatYoullRead:["All 150 Psalms — lament, praise, trust, triumph","All 31 chapters of Proverbs","Morning Psalms for worship, evening Proverbs for reflection","A complete picture of Israel's devotional life"],
   },
   {
-    id: "historical-books",
-    title: "The Historical Books — 60 Days",
-    subtitle: "Joshua to Esther: Israel in the land",
-    duration: "60 days",
-    dailyTime: "~10 min/day",
-    difficulty: "Moderate",
-    description: "From the conquest of Canaan to the courts of Persia, the Historical Books trace Israel's rise, glory, collapse, and survival. These are not merely ancient records — they are the story of a God who keeps his promises even when his people do not. Warriors, judges, kings, prophets, exiles, and returners — all in 60 days.",
-    structure: "~3 chapters/day through Joshua, Judges, Ruth, 1–2 Samuel, 1–2 Kings, 1–2 Chronicles, Ezra, Nehemiah, Esther",
-    color: "#92400E",
-    icon: "⚔️",
-    category: "Old Testament",
-    chapters: 249,
-    chapsPerDay: "~4.2",
-    whatYoullRead: [
-      "Joshua: The Promised Land entered and divided",
-      "Judges & Ruth: The cycle of sin, judgment, and redemption",
-      "1–2 Samuel: Saul, David, and the birth of the kingdom",
-      "1–2 Kings: Solomon's glory, the divided kingdom, exile",
-      "1–2 Chronicles: The same story — told from the temple's perspective",
-      "Ezra, Nehemiah, Esther: Return, rebuilding, and Providence in exile",
-    ],
+    id:"epistles", title:"The Epistles",
+    subtitle:"Paul's letters and the General Epistles",
+    duration:"45 days", dailyTime:"~10 min/day", difficulty:"Moderate",
+    description:"Romans through Jude — the letters that built the church. Paul, Peter, James, John, and Jude wrote to real communities facing real struggles. Their words are as urgent today.",
+    structure:"1–2 letters per week, chapter-by-chapter",
+    color:"#0369A1", icon:"✉️", shelf:"ep", chapters:87,
+    whatYoullRead:["Week 1–2: Romans & Galatians — justification by faith","Week 3: Ephesians, Philippians, Colossians","Week 4: Thessalonians, Timothy, Titus","Week 5–6: Hebrews, James, Peter, John, Jude"],
   },
   {
-    id: "advent",
-    title: "Advent — 25 Days",
-    subtitle: "From the first promise to the manger",
-    duration: "25 days",
-    dailyTime: "~8 min/day",
-    difficulty: "Beginner",
-    description: "A journey through the great Messianic promises of the Old Testament and their fulfilment in the birth of Christ. Each day moves from prophecy to Gospel — from Isaiah 7 to Luke 1, from Micah 5 to Matthew 2. A plan for any time of year, but especially rich in the weeks before Christmas.",
-    structure: "Daily OT prophecy + NT fulfilment passage",
-    color: "#6D28D9",
-    icon: "🕯️",
-    category: "Seasonal",
-    chapters: 50,
-    chapsPerDay: "~2",
-    whatYoullRead: [
-      "Day 1–5: The promises — Genesis 3:15, Isaiah 9, Isaiah 11, Micah 5, Jeremiah 31",
-      "Day 6–10: The lineage — Ruth, 1 Samuel 16, 2 Samuel 7, the Psalms of the King",
-      "Day 11–15: The prophecies — Isaiah 40, 42, 53, 61; Zechariah 9",
-      "Day 16–20: The annunciations — Luke 1, Matthew 1, the Magnificat",
-      "Day 21–25: The nativity — Luke 2, Matthew 2, John 1:1–18",
-    ],
+    id:"prophets", title:"The Prophets",
+    subtitle:"Isaiah to Malachi — the voice of God",
+    duration:"90 days", dailyTime:"~12 min/day", difficulty:"Advanced",
+    description:"The 17 prophetic books are the most underread section of the Bible — and the most quoted by Jesus and the New Testament. Major and minor prophets paired week by week.",
+    structure:"Major prophet + paired minor prophet per week",
+    color:"#9F1239", icon:"🔥", shelf:"ep", chapters:250,
+    whatYoullRead:["Isaiah — the gospel before the gospel","Jeremiah & Lamentations — weeping with the prophet","Ezekiel — visions, judgment, the dry bones","Daniel — God's sovereignty over empires","The Twelve: Hosea through Malachi"],
   },
   {
-    id: "holy-week",
-    title: "Holy Week — 7 Days",
-    subtitle: "The Passion of Christ across all four Gospels",
-    duration: "7 days",
-    dailyTime: "~15 min/day",
-    difficulty: "Accessible",
-    description: "Seven days. Four Gospels. One week that changed everything. From the triumphal entry into Jerusalem to the empty tomb, this plan walks through the final days of Jesus day by day. Each reading draws from multiple Gospel accounts to give the fullest possible picture of the Passion — his words, his silences, his death, and his resurrection.",
-    structure: "Daily harmonised readings from Matthew, Mark, Luke, and John",
-    color: "#991B1B",
-    icon: "✝️",
-    category: "Seasonal",
-    chapters: 28,
-    chapsPerDay: "~4",
-    whatYoullRead: [
-      "Day 1 — Palm Sunday: The triumphal entry (Matthew 21, John 12)",
-      "Day 2 — Monday: Cleansing the Temple, fig tree, authority questioned",
-      "Day 3 — Tuesday: The great discourses — Olivet, parables of judgment",
-      "Day 4 — Wednesday: The anointing at Bethany, Judas' betrayal arranged",
-      "Day 5 — Thursday: The Last Supper, Gethsemane, arrest (John 13–17)",
-      "Day 6 — Good Friday: Trials, crucifixion, death, and burial",
-      "Day 7 — Easter: The empty tomb, resurrection appearances",
-    ],
+    id:"storyline", title:"The Bible Storyline",
+    subtitle:"The one story of Scripture in 21 days",
+    duration:"21 days", dailyTime:"~12 min/day", difficulty:"Accessible",
+    description:"Not every chapter — the spine of the whole story. From creation to fall, Abraham to Moses, David to exile, exile to Christ, cross to resurrection, church to new creation.",
+    structure:"3 passages/day — OT narrative, Psalm, NT echo",
+    color:"#065F46", icon:"🌿", shelf:"thematic", chapters:63,
+    whatYoullRead:["Day 1–3: Creation, Fall, Flood, Abraham","Day 4–7: Exodus, Law, Promised Land","Day 8–11: David, Solomon, the divided kingdom","Day 12–14: Exile and the cry for return","Day 15–18: The Gospels — the King arrives","Day 19–21: Church, letters, new creation"],
   },
   {
-    id: "sermon-on-the-mount",
-    title: "Sermon on the Mount — 7 Days",
-    subtitle: "Matthew 5–7: the manifesto of the Kingdom",
-    duration: "7 days",
-    dailyTime: "~10 min/day",
-    difficulty: "Beginner",
-    description: "The Sermon on the Mount is the greatest sermon ever preached — and one of the most misunderstood. In seven days, read it slowly, section by section, with time to sit and reflect. The Beatitudes, the Lord's Prayer, the Golden Rule, the narrow gate — these words are meant to be lived, not just admired.",
-    structure: "Matthew 5–7 across 7 days, one section per day",
-    color: "#0284C7",
-    icon: "🌅",
-    category: "Thematic",
-    chapters: 3,
-    chapsPerDay: "~0.5",
-    whatYoullRead: [
-      "Day 1: The Beatitudes — the character of the Kingdom (5:1–12)",
-      "Day 2: Salt, light, and the Law fulfilled (5:13–48)",
-      "Day 3: Giving, prayer, and the Lord's Prayer (6:1–15)",
-      "Day 4: Fasting, treasure, and the eye as a lamp (6:16–34)",
-      "Day 5: Judging, asking, and the Golden Rule (7:1–12)",
-      "Day 6: The narrow gate and false prophets (7:13–23)",
-      "Day 7: The two builders — hearing and doing (7:24–29)",
-    ],
+    id:"sermon-on-the-mount", title:"Sermon on the Mount",
+    subtitle:"Matthew 5–7: manifesto of the Kingdom",
+    duration:"7 days", dailyTime:"~10 min/day", difficulty:"Beginner",
+    description:"The greatest sermon ever preached. In seven days, read it slowly — the Beatitudes, the Lord's Prayer, the Golden Rule, the narrow gate. These words are meant to be lived, not just admired.",
+    structure:"Matthew 5–7, one section per day",
+    color:"#0284C7", icon:"🌅", shelf:"thematic", chapters:3,
+    whatYoullRead:["Day 1: The Beatitudes","Day 2: Salt, light, and the Law fulfilled","Day 3: Giving, prayer, the Lord's Prayer","Day 4: Fasting, treasure, the eye as lamp","Day 5–6: Judging, the Golden Rule, the narrow gate","Day 7: The two builders"],
   },
   {
-    id: "prophecy-fulfilment",
-    title: "Prophecy & Fulfilment — 30 Days",
-    subtitle: "The Messianic thread from Eden to the empty tomb",
-    duration: "30 days",
-    dailyTime: "~10 min/day",
-    difficulty: "Accessible",
-    description: "The Bible is not a collection of disconnected books — it is one unified story with one hero. This plan traces the scarlet thread of Messianic prophecy from Genesis 3:15 to Revelation 22. Each day pairs an Old Testament prophecy with its New Testament fulfilment, showing that Jesus did not appear by accident — he was the one who was always coming.",
-    structure: "Daily OT prophecy + NT fulfilment, with brief context",
-    color: "#B91C1C",
-    icon: "🔮",
-    category: "Thematic",
-    chapters: 60,
-    chapsPerDay: "~2",
-    whatYoullRead: [
-      "Week 1: The seed of the woman, the blessing of Abraham, the sceptre of Judah",
-      "Week 2: The Prophet like Moses, the suffering servant of Isaiah 53",
-      "Week 3: The Son of David, the eternal kingdom, the new covenant (Jeremiah 31)",
-      "Week 4: The triumphal entry, the betrayal for 30 pieces of silver (Zechariah)",
-      "The Psalms of the cross: Psalm 22, 69 alongside the crucifixion narratives",
-    ],
+    id:"prophecy-fulfilment", title:"Prophecy & Fulfilment",
+    subtitle:"The Messianic thread: Eden to the tomb",
+    duration:"30 days", dailyTime:"~10 min/day", difficulty:"Accessible",
+    description:"One unified story, one hero. Each day pairs an Old Testament prophecy with its New Testament fulfilment — showing that Jesus did not appear by accident but was always the one who was coming.",
+    structure:"Daily OT prophecy + NT fulfilment passage",
+    color:"#B91C1C", icon:"🔮", shelf:"thematic", chapters:60,
+    whatYoullRead:["Week 1: The seed of woman, Abraham's blessing, Judah's sceptre","Week 2: The Prophet like Moses, Isaiah's suffering servant","Week 3: Son of David, the new covenant (Jeremiah 31)","Week 4: Triumphal entry, betrayal for 30 pieces of silver","Psalms of the cross: Psalm 22 & 69 alongside the crucifixion"],
   },
   {
-    id: "prayers-of-the-bible",
-    title: "Prayers of the Bible — 21 Days",
-    subtitle: "Learn to pray by praying with the saints",
-    duration: "21 days",
-    dailyTime: "~8 min/day",
-    difficulty: "Beginner",
-    description: "The Bible is full of people who prayed — and the Holy Spirit preserved their prayers for us. This plan moves through 21 of the great prayers of Scripture: Abraham interceding for Sodom, Moses at the burning bush, Hannah's song, David's confession, Solomon's dedication of the Temple, Daniel on his knees, and the prayers of Jesus himself. Each one is a school of prayer.",
-    structure: "One great biblical prayer per day, with its context",
-    color: "#047857",
-    icon: "🙏",
-    category: "Thematic",
-    chapters: 21,
-    chapsPerDay: "~1",
-    whatYoullRead: [
-      "Old Testament: Abraham, Moses, Hannah, Solomon, Elijah, Jonah, Hezekiah, Daniel, Nehemiah",
-      "The Psalms as prayer: Psalm 22 (lament), Psalm 51 (confession), Psalm 103 (praise)",
-      "Jesus praying: Gethsemane, the High Priestly Prayer (John 17), the Lord's Prayer",
-      "Apostolic prayers: Paul's prayer for the Ephesians, the church's prayer in Acts 4",
-      "The final prayer: 'Even so, come, Lord Jesus' — Revelation 22:20",
-    ],
+    id:"prayers-of-the-bible", title:"Prayers of the Bible",
+    subtitle:"Learn to pray with the saints",
+    duration:"21 days", dailyTime:"~8 min/day", difficulty:"Beginner",
+    description:"The Bible is full of people who prayed — and the Holy Spirit preserved their prayers for us. Abraham, Moses, Hannah, David, Daniel, Jesus, Paul — each one a school of prayer.",
+    structure:"One great biblical prayer per day, with its context",
+    color:"#047857", icon:"🙏", shelf:"thematic", chapters:21,
+    whatYoullRead:["OT saints: Abraham, Moses, Hannah, Solomon, Daniel, Nehemiah","Psalms as prayer: lament (22), confession (51), praise (103)","Jesus praying: Gethsemane, the High Priestly Prayer (John 17)","Apostolic prayers: Paul for Ephesians, the church in Acts 4","The final prayer: 'Even so, come, Lord Jesus' (Rev 22:20)"],
+  },
+  {
+    id:"advent", title:"Advent — 25 Days",
+    subtitle:"From the first promise to the manger",
+    duration:"25 days", dailyTime:"~8 min/day", difficulty:"Beginner",
+    description:"A journey through the great Messianic promises of the Old Testament and their fulfilment in the birth of Christ. From Isaiah 7 to Luke 1, from Micah 5 to Matthew 2. Beautiful any time of year.",
+    structure:"Daily OT prophecy + NT fulfilment passage",
+    color:"#6D28D9", icon:"🕯️", shelf:"thematic", chapters:50,
+    whatYoullRead:["Day 1–5: Genesis 3:15, Isaiah 9 & 11, Micah 5","Day 6–10: Ruth, Samuel, the Psalms of the King","Day 11–15: Isaiah 40, 42, 53, 61; Zechariah 9","Day 16–20: Luke 1, Matthew 1, the Magnificat","Day 21–25: Luke 2, Matthew 2, John 1:1–18"],
   },
 ];
 
-const ALL_CATEGORIES = ["All", "Full Bible", "Chronological", "New Testament", "Gospels", "Old Testament", "Wisdom", "Epistles", "Prophets", "Thematic", "Seasonal", "Overview"];
+// ─── Readings Data Layer ─────────────────────────────────────────────────────
+// All 66 books with chapter counts — used to auto-generate sequential plans
+const BOOK_CHAPTERS = [
+  // Old Testament
+  { book:"Genesis",chapters:50 },{ book:"Exodus",chapters:40 },
+  { book:"Leviticus",chapters:27 },{ book:"Numbers",chapters:36 },
+  { book:"Deuteronomy",chapters:34 },{ book:"Joshua",chapters:24 },
+  { book:"Judges",chapters:21 },{ book:"Ruth",chapters:4 },
+  { book:"1 Samuel",chapters:31 },{ book:"2 Samuel",chapters:24 },
+  { book:"1 Kings",chapters:22 },{ book:"2 Kings",chapters:25 },
+  { book:"1 Chronicles",chapters:29 },{ book:"2 Chronicles",chapters:36 },
+  { book:"Ezra",chapters:10 },{ book:"Nehemiah",chapters:13 },
+  { book:"Esther",chapters:10 },{ book:"Job",chapters:42 },
+  { book:"Psalms",chapters:150 },{ book:"Proverbs",chapters:31 },
+  { book:"Ecclesiastes",chapters:12 },{ book:"Song of Solomon",chapters:8 },
+  { book:"Isaiah",chapters:66 },{ book:"Jeremiah",chapters:52 },
+  { book:"Lamentations",chapters:5 },{ book:"Ezekiel",chapters:48 },
+  { book:"Daniel",chapters:12 },{ book:"Hosea",chapters:14 },
+  { book:"Joel",chapters:3 },{ book:"Amos",chapters:9 },
+  { book:"Obadiah",chapters:1 },{ book:"Jonah",chapters:4 },
+  { book:"Micah",chapters:7 },{ book:"Nahum",chapters:3 },
+  { book:"Habakkuk",chapters:3 },{ book:"Zephaniah",chapters:3 },
+  { book:"Haggai",chapters:2 },{ book:"Zechariah",chapters:14 },
+  { book:"Malachi",chapters:4 },
+  // New Testament
+  { book:"Matthew",chapters:28 },{ book:"Mark",chapters:16 },
+  { book:"Luke",chapters:24 },{ book:"John",chapters:21 },
+  { book:"Acts",chapters:28 },{ book:"Romans",chapters:16 },
+  { book:"1 Corinthians",chapters:16 },{ book:"2 Corinthians",chapters:13 },
+  { book:"Galatians",chapters:6 },{ book:"Ephesians",chapters:6 },
+  { book:"Philippians",chapters:4 },{ book:"Colossians",chapters:4 },
+  { book:"1 Thessalonians",chapters:5 },{ book:"2 Thessalonians",chapters:3 },
+  { book:"1 Timothy",chapters:6 },{ book:"2 Timothy",chapters:4 },
+  { book:"Titus",chapters:3 },{ book:"Philemon",chapters:1 },
+  { book:"Hebrews",chapters:13 },{ book:"James",chapters:5 },
+  { book:"1 Peter",chapters:5 },{ book:"2 Peter",chapters:3 },
+  { book:"1 John",chapters:5 },{ book:"2 John",chapters:1 },
+  { book:"3 John",chapters:1 },{ book:"Jude",chapters:1 },
+  { book:"Revelation",chapters:22 },
+];
 
+// Generates day-by-day readings from a book sequence at a given chapters/day rate
+// Returns: [{ day, label, passages: [{ book, chapter }] }]
+function generateSequentialReadings(bookSequence, chapsPerDay) {
+  // Flatten the sequence into a single ordered list of { book, chapter }
+  const allPassages = [];
+  for (const { book, chapters } of bookSequence) {
+    for (let ch = 1; ch <= chapters; ch++) {
+      allPassages.push({ book, chapter: ch });
+    }
+  }
+  const readings = [];
+  let day = 1;
+  for (let i = 0; i < allPassages.length; i += chapsPerDay) {
+    readings.push({
+      day,
+      label: `Day ${day}`,
+      passages: allPassages.slice(i, i + chapsPerDay),
+    });
+    day++;
+  }
+  return readings;
+}
+
+// ── Sequential plan sequences ──────────────────────────────────────────────
+
+const OT_BOOKS    = BOOK_CHAPTERS.slice(0, 39);
+const NT_BOOKS    = BOOK_CHAPTERS.slice(39);
+const PSALM_BOOKS = [{ book:"Psalms", chapters:150 }];
+const PROV_BOOKS  = [{ book:"Proverbs", chapters:31 }];
+
+// Bible in a Year: interleaved OT + Psalms/Proverbs + NT (3 chapters/day)
+// We generate it as a flat OT sequence for simplicity — full interleaving
+// would require a custom builder, so we use the sequential version here
+const BIBLE_YEAR_READINGS = generateSequentialReadings(BOOK_CHAPTERS, 3);
+
+// Chronological order (key resequencing — Job with Genesis, Psalms with David, etc.)
+const CHRON_SEQUENCE = [
+  { book:"Genesis",chapters:11 },{ book:"Job",chapters:42 },
+  { book:"Genesis",chapters:39 },  // Gen 12–50 after Job
+  { book:"Exodus",chapters:40 },{ book:"Leviticus",chapters:27 },
+  { book:"Numbers",chapters:36 },{ book:"Deuteronomy",chapters:34 },
+  { book:"Joshua",chapters:24 },{ book:"Judges",chapters:21 },
+  { book:"Ruth",chapters:4 },{ book:"1 Samuel",chapters:31 },
+  { book:"Psalms",chapters:41 },  // Psalms 1–41 (early Davidic)
+  { book:"2 Samuel",chapters:24 },
+  { book:"Psalms",chapters:31 },  // Psalms 42–72
+  { book:"Proverbs",chapters:31 },{ book:"Ecclesiastes",chapters:12 },
+  { book:"Song of Solomon",chapters:8 },
+  { book:"1 Kings",chapters:11 },
+  { book:"Psalms",chapters:48 },  // Psalms 73–119 (Asaph + wisdom)
+  { book:"1 Kings",chapters:11 },{ book:"2 Kings",chapters:25 },
+  { book:"1 Chronicles",chapters:29 },{ book:"2 Chronicles",chapters:36 },
+  { book:"Psalms",chapters:30 },  // Psalms 120–150
+  { book:"Isaiah",chapters:66 },{ book:"Jeremiah",chapters:52 },
+  { book:"Lamentations",chapters:5 },{ book:"Ezekiel",chapters:48 },
+  { book:"Daniel",chapters:12 },{ book:"Hosea",chapters:14 },
+  { book:"Joel",chapters:3 },{ book:"Amos",chapters:9 },
+  { book:"Obadiah",chapters:1 },{ book:"Jonah",chapters:4 },
+  { book:"Micah",chapters:7 },{ book:"Nahum",chapters:3 },
+  { book:"Habakkuk",chapters:3 },{ book:"Zephaniah",chapters:3 },
+  { book:"Ezra",chapters:10 },{ book:"Nehemiah",chapters:13 },
+  { book:"Esther",chapters:10 },{ book:"Haggai",chapters:2 },
+  { book:"Zechariah",chapters:14 },{ book:"Malachi",chapters:4 },
+  ...NT_BOOKS,
+];
+const CHRON_READINGS = generateSequentialReadings(CHRON_SEQUENCE, 3);
+
+// M'Cheyne: 4 chapters/day (OT + NT + Psalms interleaved — simplified as sequential)
+const MCHEYNE_READINGS = generateSequentialReadings(BOOK_CHAPTERS, 4);
+
+// NT in 90 days: ~3 chapters/day through NT only
+const NT_90_READINGS = generateSequentialReadings(NT_BOOKS, 3);
+
+// Torah: 4–5 chapters/day through the Pentateuch
+const TORAH_READINGS = generateSequentialReadings(
+  BOOK_CHAPTERS.slice(0, 5), 5
+);
+
+// Historical Books: 4 chapters/day through Joshua → Esther
+const HISTORICAL_READINGS = generateSequentialReadings(
+  BOOK_CHAPTERS.slice(5, 17), 4
+);
+
+// Psalms & Proverbs: 3 chapters/day
+const PSALMS_PROV_READINGS = generateSequentialReadings(
+  [{ book:"Psalms", chapters:150 }, { book:"Proverbs", chapters:31 }], 3
+);
+
+// The Prophets: 3 chapters/day through all 17 prophetic books
+const PROPHETS_READINGS = generateSequentialReadings(
+  BOOK_CHAPTERS.slice(22, 39), 3
+);
+
+// The Epistles: 2 chapters/day through Romans → Jude
+const EPISTLES_READINGS = generateSequentialReadings(
+  BOOK_CHAPTERS.slice(45, 65), 2
+);
+
+// ── Curated / handcrafted plan readings ───────────────────────────────────
+
+const LIFE_OF_JESUS_READINGS = [
+  { day:1,  label:"Day 1",  passages:[{ book:"John", chapter:1 },{ book:"Luke", chapter:1 }] },
+  { day:2,  label:"Day 2",  passages:[{ book:"Luke", chapter:2 },{ book:"Matthew", chapter:2 }] },
+  { day:3,  label:"Day 3",  passages:[{ book:"Luke", chapter:3 },{ book:"Matthew", chapter:3 }] },
+  { day:4,  label:"Day 4",  passages:[{ book:"Matthew", chapter:4 },{ book:"Luke", chapter:4 }] },
+  { day:5,  label:"Day 5",  passages:[{ book:"John", chapter:2 },{ book:"John", chapter:3 }] },
+  { day:6,  label:"Day 6",  passages:[{ book:"Matthew", chapter:5 }] },
+  { day:7,  label:"Day 7",  passages:[{ book:"Matthew", chapter:6 }] },
+  { day:8,  label:"Day 8",  passages:[{ book:"Matthew", chapter:7 },{ book:"Luke", chapter:7 }] },
+  { day:9,  label:"Day 9",  passages:[{ book:"Mark", chapter:4 },{ book:"Matthew", chapter:13 }] },
+  { day:10, label:"Day 10", passages:[{ book:"Mark", chapter:5 },{ book:"Luke", chapter:8 }] },
+  { day:11, label:"Day 11", passages:[{ book:"Mark", chapter:6 },{ book:"John", chapter:6 }] },
+  { day:12, label:"Day 12", passages:[{ book:"Matthew", chapter:14 },{ book:"Mark", chapter:7 }] },
+  { day:13, label:"Day 13", passages:[{ book:"Luke", chapter:10 },{ book:"Luke", chapter:11 }] },
+  { day:14, label:"Day 14", passages:[{ book:"John", chapter:10 },{ book:"Luke", chapter:15 }] },
+  { day:15, label:"Day 15", passages:[{ book:"Luke", chapter:16 },{ book:"John", chapter:11 }] },
+  { day:16, label:"Day 16", passages:[{ book:"Matthew", chapter:19 },{ book:"Luke", chapter:18 }] },
+  { day:17, label:"Day 17", passages:[{ book:"Luke", chapter:19 },{ book:"Matthew", chapter:21 }] },
+  { day:18, label:"Day 18", passages:[{ book:"Matthew", chapter:22 },{ book:"Mark", chapter:12 }] },
+  { day:19, label:"Day 19", passages:[{ book:"Matthew", chapter:24 },{ book:"Matthew", chapter:25 }] },
+  { day:20, label:"Day 20", passages:[{ book:"John", chapter:12 },{ book:"Mark", chapter:14 }] },
+  { day:21, label:"Day 21", passages:[{ book:"John", chapter:13 },{ book:"John", chapter:14 }] },
+  { day:22, label:"Day 22", passages:[{ book:"John", chapter:15 },{ book:"John", chapter:16 }] },
+  { day:23, label:"Day 23", passages:[{ book:"John", chapter:17 },{ book:"Matthew", chapter:26 }] },
+  { day:24, label:"Day 24", passages:[{ book:"Luke", chapter:22 },{ book:"John", chapter:18 }] },
+  { day:25, label:"Day 25", passages:[{ book:"Matthew", chapter:27 },{ book:"Mark", chapter:15 }] },
+  { day:26, label:"Day 26", passages:[{ book:"Luke", chapter:23 },{ book:"John", chapter:19 }] },
+  { day:27, label:"Day 27", passages:[{ book:"Matthew", chapter:28 },{ book:"Mark", chapter:16 }] },
+  { day:28, label:"Day 28", passages:[{ book:"Luke", chapter:24 },{ book:"John", chapter:20 }] },
+  { day:29, label:"Day 29", passages:[{ book:"John", chapter:21 },{ book:"Acts", chapter:1 }] },
+  { day:30, label:"Day 30", passages:[{ book:"Acts", chapter:2 },{ book:"Revelation", chapter:1 }] },
+];
+
+const HOLY_WEEK_READINGS = [
+  { day:1, label:"Palm Sunday",  passages:[{ book:"Matthew", chapter:21 },{ book:"John", chapter:12 }] },
+  { day:2, label:"Monday",       passages:[{ book:"Mark", chapter:11 },{ book:"Matthew", chapter:21 }] },
+  { day:3, label:"Tuesday",      passages:[{ book:"Matthew", chapter:24 },{ book:"Matthew", chapter:25 }] },
+  { day:4, label:"Wednesday",    passages:[{ book:"Matthew", chapter:26 },{ book:"Mark", chapter:14 }] },
+  { day:5, label:"Thursday",     passages:[{ book:"John", chapter:13 },{ book:"John", chapter:14 },{ book:"John", chapter:17 }] },
+  { day:6, label:"Good Friday",  passages:[{ book:"John", chapter:18 },{ book:"John", chapter:19 }] },
+  { day:7, label:"Easter",       passages:[{ book:"John", chapter:20 },{ book:"Luke", chapter:24 }] },
+];
+
+const SERMON_READINGS = [
+  { day:1, label:"The Beatitudes",        passages:[{ book:"Matthew", chapter:5 }] },
+  { day:2, label:"Salt, Light & the Law", passages:[{ book:"Matthew", chapter:5 }] },
+  { day:3, label:"Prayer & Fasting",      passages:[{ book:"Matthew", chapter:6 }] },
+  { day:4, label:"Treasure & Anxiety",    passages:[{ book:"Matthew", chapter:6 }] },
+  { day:5, label:"Judging & Asking",      passages:[{ book:"Matthew", chapter:7 }] },
+  { day:6, label:"The Narrow Gate",       passages:[{ book:"Matthew", chapter:7 }] },
+  { day:7, label:"The Two Builders",      passages:[{ book:"Matthew", chapter:7 }] },
+];
+
+const STORYLINE_READINGS = [
+  { day:1,  label:"Creation",           passages:[{ book:"Genesis", chapter:1 },{ book:"Genesis", chapter:2 }] },
+  { day:2,  label:"The Fall",           passages:[{ book:"Genesis", chapter:3 },{ book:"Psalms", chapter:8 }] },
+  { day:3,  label:"Flood & Babel",      passages:[{ book:"Genesis", chapter:6 },{ book:"Genesis", chapter:11 }] },
+  { day:4,  label:"Call of Abraham",    passages:[{ book:"Genesis", chapter:12 },{ book:"Genesis", chapter:15 }] },
+  { day:5,  label:"The Promise",        passages:[{ book:"Genesis", chapter:17 },{ book:"Genesis", chapter:22 }] },
+  { day:6,  label:"Jacob & Joseph",     passages:[{ book:"Genesis", chapter:28 },{ book:"Genesis", chapter:37 }] },
+  { day:7,  label:"The Exodus",         passages:[{ book:"Exodus", chapter:3 },{ book:"Exodus", chapter:12 }] },
+  { day:8,  label:"Sinai & the Law",    passages:[{ book:"Exodus", chapter:19 },{ book:"Exodus", chapter:20 }] },
+  { day:9,  label:"The Tabernacle",     passages:[{ book:"Exodus", chapter:25 },{ book:"Exodus", chapter:40 }] },
+  { day:10, label:"Into the Land",      passages:[{ book:"Joshua", chapter:1 },{ book:"Joshua", chapter:6 }] },
+  { day:11, label:"King David",         passages:[{ book:"2 Samuel", chapter:7 },{ book:"Psalms", chapter:23 }] },
+  { day:12, label:"Solomon's Temple",   passages:[{ book:"1 Kings", chapter:8 },{ book:"Proverbs", chapter:1 }] },
+  { day:13, label:"Division & Decline", passages:[{ book:"1 Kings", chapter:12 },{ book:"Amos", chapter:5 }] },
+  { day:14, label:"Exile",              passages:[{ book:"2 Kings", chapter:25 },{ book:"Psalms", chapter:137 }] },
+  { day:15, label:"Isaiah's Hope",      passages:[{ book:"Isaiah", chapter:40 },{ book:"Isaiah", chapter:53 }] },
+  { day:16, label:"New Covenant",       passages:[{ book:"Jeremiah", chapter:31 },{ book:"Ezekiel", chapter:37 }] },
+  { day:17, label:"Return",             passages:[{ book:"Ezra", chapter:1 },{ book:"Nehemiah", chapter:8 }] },
+  { day:18, label:"The King Arrives",   passages:[{ book:"Luke", chapter:1 },{ book:"John", chapter:1 }] },
+  { day:19, label:"Kingdom Teachings",  passages:[{ book:"Matthew", chapter:5 },{ book:"Luke", chapter:15 }] },
+  { day:20, label:"Cross & Risen",      passages:[{ book:"John", chapter:19 },{ book:"John", chapter:20 }] },
+  { day:21, label:"New Creation",       passages:[{ book:"Romans", chapter:8 },{ book:"Revelation", chapter:21 }] },
+];
+
+const PROPHECY_READINGS = [
+  { day:1,  label:"The First Promise",      passages:[{ book:"Genesis", chapter:3 }] },
+  { day:2,  label:"Abraham's Blessing",     passages:[{ book:"Genesis", chapter:12 },{ book:"Galatians", chapter:3 }] },
+  { day:3,  label:"The Sceptre of Judah",   passages:[{ book:"Genesis", chapter:49 },{ book:"Revelation", chapter:5 }] },
+  { day:4,  label:"The Passover Lamb",      passages:[{ book:"Exodus", chapter:12 },{ book:"John", chapter:1 }] },
+  { day:5,  label:"The Prophet like Moses", passages:[{ book:"Deuteronomy", chapter:18 },{ book:"Acts", chapter:3 }] },
+  { day:6,  label:"The Lord's Anointed",    passages:[{ book:"Psalms", chapter:2 },{ book:"Acts", chapter:13 }] },
+  { day:7,  label:"Psalm 22 — The Cross",   passages:[{ book:"Psalms", chapter:22 },{ book:"Matthew", chapter:27 }] },
+  { day:8,  label:"The Eternal King",       passages:[{ book:"2 Samuel", chapter:7 },{ book:"Luke", chapter:1 }] },
+  { day:9,  label:"Isaiah's Immanuel",      passages:[{ book:"Isaiah", chapter:7 },{ book:"Matthew", chapter:1 }] },
+  { day:10, label:"A Child is Born",        passages:[{ book:"Isaiah", chapter:9 },{ book:"Luke", chapter:2 }] },
+  { day:11, label:"The Root of Jesse",      passages:[{ book:"Isaiah", chapter:11 },{ book:"Romans", chapter:15 }] },
+  { day:12, label:"The Servant's Call",     passages:[{ book:"Isaiah", chapter:42 },{ book:"Matthew", chapter:12 }] },
+  { day:13, label:"Isaiah 53",             passages:[{ book:"Isaiah", chapter:53 },{ book:"1 Peter", chapter:2 }] },
+  { day:14, label:"The Year of Jubilee",    passages:[{ book:"Isaiah", chapter:61 },{ book:"Luke", chapter:4 }] },
+  { day:15, label:"The New Covenant",       passages:[{ book:"Jeremiah", chapter:31 },{ book:"Hebrews", chapter:8 }] },
+  { day:16, label:"The Dry Bones",          passages:[{ book:"Ezekiel", chapter:37 },{ book:"Romans", chapter:6 }] },
+  { day:17, label:"Son of Man",             passages:[{ book:"Daniel", chapter:7 },{ book:"Matthew", chapter:26 }] },
+  { day:18, label:"The Faithful Lover",     passages:[{ book:"Hosea", chapter:11 },{ book:"Matthew", chapter:2 }] },
+  { day:19, label:"Pentecost Foretold",     passages:[{ book:"Joel", chapter:2 },{ book:"Acts", chapter:2 }] },
+  { day:20, label:"The Shepherd Struck",    passages:[{ book:"Zechariah", chapter:9 },{ book:"Matthew", chapter:21 }] },
+  { day:21, label:"Thirty Pieces of Silver",passages:[{ book:"Zechariah", chapter:11 },{ book:"Matthew", chapter:26 }] },
+  { day:22, label:"They Shall Look",        passages:[{ book:"Zechariah", chapter:12 },{ book:"John", chapter:19 }] },
+  { day:23, label:"The Messenger",          passages:[{ book:"Malachi", chapter:3 },{ book:"Luke", chapter:3 }] },
+  { day:24, label:"Psalm 69",              passages:[{ book:"Psalms", chapter:69 },{ book:"John", chapter:2 }] },
+  { day:25, label:"The Triumphal Entry",    passages:[{ book:"Zechariah", chapter:9 },{ book:"Matthew", chapter:21 }] },
+  { day:26, label:"The Good Shepherd",      passages:[{ book:"Ezekiel", chapter:34 },{ book:"John", chapter:10 }] },
+  { day:27, label:"The Stone Rejected",     passages:[{ book:"Psalms", chapter:118 },{ book:"Matthew", chapter:21 }] },
+  { day:28, label:"Resurrection Hope",      passages:[{ book:"Psalms", chapter:16 },{ book:"Acts", chapter:2 }] },
+  { day:29, label:"Exalted on High",        passages:[{ book:"Psalms", chapter:110 },{ book:"Hebrews", chapter:1 }] },
+  { day:30, label:"All Things New",         passages:[{ book:"Isaiah", chapter:65 },{ book:"Revelation", chapter:21 }] },
+];
+
+const PRAYERS_READINGS = [
+  { day:1,  label:"Abraham Intercedes",   passages:[{ book:"Genesis", chapter:18 }] },
+  { day:2,  label:"Jacob Wrestles",       passages:[{ book:"Genesis", chapter:32 }] },
+  { day:3,  label:"Moses at the Bush",    passages:[{ book:"Exodus", chapter:3 }] },
+  { day:4,  label:"The Song of Moses",    passages:[{ book:"Exodus", chapter:15 }] },
+  { day:5,  label:"Hannah's Vow",         passages:[{ book:"1 Samuel", chapter:1 }] },
+  { day:6,  label:"Hannah's Song",        passages:[{ book:"1 Samuel", chapter:2 }] },
+  { day:7,  label:"David's Lament",       passages:[{ book:"Psalms", chapter:22 }] },
+  { day:8,  label:"David's Confession",   passages:[{ book:"Psalms", chapter:51 }] },
+  { day:9,  label:"Praise of the Soul",   passages:[{ book:"Psalms", chapter:103 }] },
+  { day:10, label:"Solomon's Dedication", passages:[{ book:"1 Kings", chapter:8 }] },
+  { day:11, label:"Elijah's Prayer",      passages:[{ book:"1 Kings", chapter:18 }] },
+  { day:12, label:"Hezekiah's Prayer",    passages:[{ book:"2 Kings", chapter:19 }] },
+  { day:13, label:"Jonah's Prayer",       passages:[{ book:"Jonah", chapter:2 }] },
+  { day:14, label:"Daniel's Confession",  passages:[{ book:"Daniel", chapter:9 }] },
+  { day:15, label:"Nehemiah's Prayer",    passages:[{ book:"Nehemiah", chapter:1 }] },
+  { day:16, label:"The Lord's Prayer",    passages:[{ book:"Matthew", chapter:6 }] },
+  { day:17, label:"Gethsemane",          passages:[{ book:"Matthew", chapter:26 }] },
+  { day:18, label:"The High Priestly Prayer",passages:[{ book:"John", chapter:17 }] },
+  { day:19, label:"The Church Prays",     passages:[{ book:"Acts", chapter:4 }] },
+  { day:20, label:"Paul for the Ephesians",passages:[{ book:"Ephesians", chapter:3 }] },
+  { day:21, label:"Even So, Come",        passages:[{ book:"Revelation", chapter:22 }] },
+];
+
+const ADVENT_READINGS = [
+  { day:1,  label:"The First Promise",    passages:[{ book:"Genesis", chapter:3 }] },
+  { day:2,  label:"A Child is Born",      passages:[{ book:"Isaiah", chapter:9 }] },
+  { day:3,  label:"The Root of Jesse",    passages:[{ book:"Isaiah", chapter:11 }] },
+  { day:4,  label:"A King from Bethlehem",passages:[{ book:"Micah", chapter:5 }] },
+  { day:5,  label:"The New Covenant",     passages:[{ book:"Jeremiah", chapter:31 }] },
+  { day:6,  label:"Ruth & Redemption",    passages:[{ book:"Ruth", chapter:4 }] },
+  { day:7,  label:"David Anointed",       passages:[{ book:"1 Samuel", chapter:16 }] },
+  { day:8,  label:"The Eternal Throne",   passages:[{ book:"2 Samuel", chapter:7 }] },
+  { day:9,  label:"The King's Psalm",     passages:[{ book:"Psalms", chapter:72 }] },
+  { day:10, label:"Psalms of the King",   passages:[{ book:"Psalms", chapter:89 }] },
+  { day:11, label:"Comfort My People",    passages:[{ book:"Isaiah", chapter:40 }] },
+  { day:12, label:"The Chosen Servant",   passages:[{ book:"Isaiah", chapter:42 }] },
+  { day:13, label:"The Suffering Servant",passages:[{ book:"Isaiah", chapter:53 }] },
+  { day:14, label:"The Year of Jubilee",  passages:[{ book:"Isaiah", chapter:61 }] },
+  { day:15, label:"The Triumphal Entry",  passages:[{ book:"Zechariah", chapter:9 }] },
+  { day:16, label:"The Annunciation",     passages:[{ book:"Luke", chapter:1 }] },
+  { day:17, label:"The Magnificat",       passages:[{ book:"Luke", chapter:1 }] },
+  { day:18, label:"Joseph's Dream",       passages:[{ book:"Matthew", chapter:1 }] },
+  { day:19, label:"The Genealogy of Grace",passages:[{ book:"Matthew", chapter:1 }] },
+  { day:20, label:"Zechariah's Song",     passages:[{ book:"Luke", chapter:1 }] },
+  { day:21, label:"The Birth of Jesus",   passages:[{ book:"Luke", chapter:2 }] },
+  { day:22, label:"The Shepherds",        passages:[{ book:"Luke", chapter:2 }] },
+  { day:23, label:"The Magi",             passages:[{ book:"Matthew", chapter:2 }] },
+  { day:24, label:"Simeon & Anna",        passages:[{ book:"Luke", chapter:2 }] },
+  { day:25, label:"The Word Made Flesh",  passages:[{ book:"John", chapter:1 }] },
+];
+
+// Master lookup: planId → readings array
+const PLAN_READINGS = {
+  "bible-in-a-year":     BIBLE_YEAR_READINGS,
+  "chronological":       CHRON_READINGS,
+  "mcheyne":             MCHEYNE_READINGS,
+  "nt-90":               NT_90_READINGS,
+  "life-of-jesus":       LIFE_OF_JESUS_READINGS,
+  "holy-week":           HOLY_WEEK_READINGS,
+  "torah":               TORAH_READINGS,
+  "historical-books":    HISTORICAL_READINGS,
+  "psalms-proverbs":     PSALMS_PROV_READINGS,
+  "epistles":            EPISTLES_READINGS,
+  "prophets":            PROPHETS_READINGS,
+  "storyline":           STORYLINE_READINGS,
+  "sermon-on-the-mount": SERMON_READINGS,
+  "prophecy-fulfilment": PROPHECY_READINGS,
+  "prayers-of-the-bible":PRAYERS_READINGS,
+  "advent":              ADVENT_READINGS,
+};
+
+// Helper: get today's reading entry for a plan given days completed
+function getTodaysReading(planId, daysDone) {
+  const readings = PLAN_READINGS[planId];
+  if (!readings) return null;
+  const idx = Math.min(daysDone, readings.length - 1);
+  return readings[idx] || null;
+}
+
+// ─── Shelf definitions ────────────────────────────────────────────────────────
+const SHELVES = [
+  { id:"full",     label:"Full Bible & Chronological",  emoji:"📚" },
+  { id:"nt",       label:"New Testament & Gospels",     emoji:"✨" },
+  { id:"ot",       label:"Old Testament & Wisdom",      emoji:"🏛️" },
+  { id:"ep",       label:"Epistles & Prophets",         emoji:"📜" },
+  { id:"thematic", label:"Thematic & Seasonal",         emoji:"🌿" },
+];
+
+// ─── Main Component ───────────────────────────────────────────────────────────
 export default function ReadingPlans({ nav }) {
-  const [activeTab, setActiveTab] = useState("plans");
-  const [selectedPlan, setSelectedPlan] = useState(null);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [animIn, setAnimIn] = useState(false);
-  const [categoryFilter, setCategoryFilter] = useState("All");
-  const [activePlans, setActivePlans] = useState({}); // { planId: { startedAt, daysCounted } }
-  const [completedDays, setCompletedDays] = useState({}); // { planId: number }
+  const [selectedPlan,  setSelectedPlan]  = useState(null);
+  const [detailOpen,    setDetailOpen]    = useState(false);
+  const [animIn,        setAnimIn]        = useState(false);
+  const [activeTab,     setActiveTab]     = useState("library");
+  const [activePlans,   setActivePlans]   = useState({});
+  const [completedDays, setCompletedDays] = useState({});
+  const [hoveredId,     setHoveredId]     = useState(null);
 
-  const openModal = (plan) => {
+  // ── Supabase chapter availability check ──────────────────────────────────
+  // Cache results so we never query the same chapter twice in a session
+  // Key: "Book|chapter" → true (seeded) | false (not seeded) | "loading"
+  const [seededCache, setSeededCache] = useState({});
+
+  const checkChapterSeeded = useCallback(async (book, chapter) => {
+    const key = `${book}|${chapter}`;
+    // Already know the answer
+    if (seededCache[key] === true || seededCache[key] === false) return seededCache[key];
+    // Mark as loading so we don't fire duplicate queries
+    setSeededCache(prev => ({ ...prev, [key]: "loading" }));
+    try {
+      const { data, error } = await supabase
+        .from("verses")
+        .select("id")
+        .eq("book_name", book)
+        .eq("chapter_num", chapter)
+        .limit(1);
+      const isSeeded = !error && data && data.length > 0;
+      setSeededCache(prev => ({ ...prev, [key]: isSeeded }));
+      return isSeeded;
+    } catch {
+      setSeededCache(prev => ({ ...prev, [key]: false }));
+      return false;
+    }
+  }, [seededCache]);
+
+  // Pre-check all passages for a given day's reading so the UI can render
+  // immediately with correct states rather than showing loaders per-passage
+  const primePassageCache = useCallback(async (planId, daysDone) => {
+    const entry = getTodaysReading(planId, daysDone);
+    if (!entry) return;
+    for (const { book, chapter } of entry.passages) {
+      const key = `${book}|${chapter}`;
+      if (seededCache[key] === undefined) {
+        checkChapterSeeded(book, chapter);
+      }
+    }
+  }, [seededCache, checkChapterSeeded]);
+
+  const openDetail = (plan) => {
     setSelectedPlan(plan);
-    setModalOpen(true);
+    setDetailOpen(true);
     setTimeout(() => setAnimIn(true), 10);
   };
 
-  const closeModal = () => {
+  const closeDetail = () => {
     setAnimIn(false);
-    setTimeout(() => { setModalOpen(false); setSelectedPlan(null); }, 300);
+    setTimeout(() => { setDetailOpen(false); setSelectedPlan(null); }, 350);
   };
 
   const startPlan = (plan) => {
-    setActivePlans(prev => ({
-      ...prev,
-      [plan.id]: { startedAt: new Date().toISOString() }
-    }));
-    setCompletedDays(prev => ({ ...prev, [plan.id]: prev[plan.id] || 0 }));
-    closeModal();
-    setActiveTab("active");
+    const currentDays = completedDays[plan.id] || 0;
+    setActivePlans(prev => ({ ...prev, [plan.id]: { startedAt: new Date().toISOString() } }));
+    setCompletedDays(prev => ({ ...prev, [plan.id]: currentDays }));
+    // Prime the Supabase cache for today's passages immediately
+    primePassageCache(plan.id, currentDays);
+    closeDetail();
+    setTimeout(() => setActiveTab("myPlans"), 360);
   };
 
   const markDayDone = (planId) => {
-    const plan = READING_PLANS.find(p => p.id === planId);
-    const totalDays = parseInt(plan.duration);
-    setCompletedDays(prev => {
-      const current = prev[planId] || 0;
-      return { ...prev, [planId]: Math.min(current + 1, totalDays) };
-    });
+    const total = parseInt(READING_PLANS.find(p => p.id === planId).duration);
+    const nextDay = Math.min((completedDays[planId] || 0) + 1, total);
+    setCompletedDays(prev => ({ ...prev, [planId]: nextDay }));
+    // Pre-check tomorrow's passages while user is still on the screen
+    primePassageCache(planId, nextDay);
   };
-
-  const filteredPlans = categoryFilter === "All"
-    ? READING_PLANS
-    : READING_PLANS.filter(p => p.category === categoryFilter);
 
   const myActivePlans = READING_PLANS.filter(p => activePlans[p.id]);
 
   return (
-    <div style={{ minHeight: "100vh", background: RP_THEME.bg, fontFamily: RP_THEME.font }}>
+    <div style={{ minHeight: "100vh", background: T.wall, fontFamily: T.font }}>
 
       {/* ── HERO ── */}
-      <div style={{ background: RP_THEME.hero, padding: "0 0 24px" }}>
-        {/* Back button */}
-        <div style={{ padding: "16px 20px 0" }}>
-          <button
-            onClick={() => nav("learn-home")}
-            style={{ background: "rgba(255,255,255,0.2)", border: "none", borderRadius: 20,
-              color: "#fff", padding: "6px 14px", fontSize: 14, cursor: "pointer",
-              display: "flex", alignItems: "center", gap: 6 }}
-          >
-            ← Back
-          </button>
+      <div style={{
+        background: "linear-gradient(160deg, #1A0E06 0%, #4A2410 60%, #2A1208 100%)",
+        padding: "0 0 28px", position: "relative", overflow: "hidden",
+      }}>
+        {/* Subtle wood-grain streaks */}
+        {[8,22,38,55,70,85].map(top => (
+          <div key={top} style={{
+            position:"absolute", left:0, right:0, top:`${top}%`,
+            height:1, background:"rgba(255,255,255,0.025)",
+          }} />
+        ))}
+
+        <div style={{ padding:"16px 20px 0", position:"relative" }}>
+          <button onClick={() => nav("learn-home")} style={{
+            background:"rgba(255,255,255,0.1)", border:"1px solid rgba(245,222,179,0.3)",
+            borderRadius:20, color:"#F5DEB3", padding:"6px 14px",
+            fontSize:13, cursor:"pointer", fontFamily:T.font,
+          }}>← Back</button>
         </div>
 
-        {/* Hero content */}
-        <div style={{ textAlign: "center", padding: "20px 24px 0" }}>
-          <div style={{ fontSize: 48, marginBottom: 8 }}>🗓️</div>
-          <h1 style={{ color: "#fff", fontSize: 28, fontWeight: 700, margin: "0 0 6px",
-            textShadow: "0 1px 4px rgba(0,0,0,0.3)" }}>
-            Reading Plans
-          </h1>
-          <p style={{ color: "rgba(255,255,255,0.88)", fontSize: 15, margin: "0 0 20px" }}>
-            Guided journeys through the Word
+        <div style={{ textAlign:"center", padding:"16px 24px 0", position:"relative" }}>
+          <div style={{ fontSize:52, marginBottom:8 }}>📚</div>
+          <h1 style={{
+            color:"#F5DEB3", fontSize:28, fontWeight:700, margin:"0 0 6px",
+            textShadow:"0 2px 12px rgba(0,0,0,0.6)", letterSpacing:"0.5px",
+          }}>The Reading Room</h1>
+          <p style={{ color:"rgba(245,222,179,0.7)", fontSize:14, margin:"0 0 20px" }}>
+            16 guided journeys through the Word of God
           </p>
 
-          {/* Stats row */}
-          <div style={{ display: "flex", justifyContent: "center", gap: 24 }}>
+          <div style={{ display:"flex", justifyContent:"center", gap:28 }}>
             {[
-              { label: "Plans", value: READING_PLANS.length },
-              { label: "Active", value: myActivePlans.length },
-              { label: "Shortest", value: "7 days" },
+              { label:"Plans",  value:"16" },
+              { label:"Active", value: myActivePlans.length },
+              { label:"Shelves",value:"5" },
             ].map(s => (
-              <div key={s.label} style={{ textAlign: "center" }}>
-                <div style={{ color: "#fff", fontSize: 22, fontWeight: 700 }}>{s.value}</div>
-                <div style={{ color: "rgba(255,255,255,0.75)", fontSize: 12 }}>{s.label}</div>
+              <div key={s.label} style={{ textAlign:"center" }}>
+                <div style={{ color:"#F5DEB3", fontSize:22, fontWeight:700 }}>{s.value}</div>
+                <div style={{ color:"rgba(245,222,179,0.55)", fontSize:11 }}>{s.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Tab switcher */}
-        <div style={{ display: "flex", gap: 8, padding: "20px 20px 0", justifyContent: "center" }}>
-          {[{ key: "plans", label: "All Plans" }, { key: "active", label: `My Plans${myActivePlans.length ? ` (${myActivePlans.length})` : ""}` }].map(t => (
-            <button key={t.key}
-              onClick={() => setActiveTab(t.key)}
-              style={{
-                padding: "8px 22px", borderRadius: 20, border: "2px solid rgba(255,255,255,0.6)",
-                background: activeTab === t.key ? "#fff" : "transparent",
-                color: activeTab === t.key ? RP_THEME.accent : "#fff",
-                fontWeight: 600, fontSize: 14, cursor: "pointer", transition: "all 0.2s"
-              }}
-            >{t.label}</button>
+        <div style={{ display:"flex", justifyContent:"center", gap:8, padding:"18px 20px 0" }}>
+          {[
+            { key:"library", label:"📚 Library" },
+            { key:"myPlans", label:`🔖 My Plans${myActivePlans.length ? ` (${myActivePlans.length})` : ""}` },
+          ].map(t => (
+            <button key={t.key} onClick={() => setActiveTab(t.key)} style={{
+              padding:"8px 20px", borderRadius:20,
+              border:`1.5px solid ${activeTab===t.key ? "#F5DEB3" : "rgba(245,222,179,0.3)"}`,
+              background: activeTab===t.key ? "#F5DEB3" : "transparent",
+              color: activeTab===t.key ? "#2C1A0E" : "#F5DEB3",
+              fontWeight:600, fontSize:14, cursor:"pointer", fontFamily:T.font,
+              transition:"all 0.2s",
+            }}>{t.label}</button>
           ))}
         </div>
       </div>
 
-      {/* ── MAIN CONTENT ── */}
-      <div style={{ padding: "20px 16px 40px", maxWidth: 900, margin: "0 auto" }}>
+      {/* ── LIBRARY ── */}
+      {activeTab === "library" && (
+        <div style={{ padding:"28px 0 60px" }}>
 
-        {/* ── ALL PLANS TAB ── */}
-        {activeTab === "plans" && (
-          <>
-            {/* Category filter */}
-            <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 12,
-              marginBottom: 20, scrollbarWidth: "none" }}>
-              {ALL_CATEGORIES.map(cat => (
-                <button key={cat}
-                  onClick={() => setCategoryFilter(cat)}
-                  style={{
-                    flexShrink: 0, padding: "6px 14px", borderRadius: 16,
-                    border: `1.5px solid ${categoryFilter === cat ? RP_THEME.accent : RP_THEME.divider}`,
-                    background: categoryFilter === cat ? RP_THEME.accent : "#fff",
-                    color: categoryFilter === cat ? "#fff" : RP_THEME.muted,
-                    fontSize: 13, fontWeight: 500, cursor: "pointer", whiteSpace: "nowrap"
-                  }}
-                >{cat}</button>
-              ))}
-            </div>
+          {SHELVES.map(shelf => {
+            const plans = READING_PLANS.filter(p => p.shelf === shelf.id);
+            return (
+              <div key={shelf.id} style={{ marginBottom:44 }}>
 
-            {/* Encouragement */}
-            <p style={{ textAlign: "center", color: RP_THEME.muted, fontSize: 14,
-              fontStyle: "italic", marginBottom: 20 }}>
-              Even 5 minutes in the Word today is faithfulness.
-            </p>
+                {/* Shelf label */}
+                <div style={{ padding:"0 22px 12px", display:"flex", alignItems:"center", gap:8 }}>
+                  <span style={{ fontSize:16 }}>{shelf.emoji}</span>
+                  <span style={{
+                    fontSize:11, fontWeight:700, color:T.muted,
+                    textTransform:"uppercase", letterSpacing:"2px",
+                  }}>{shelf.label}</span>
+                  <div style={{ flex:1, height:1, background:"#C9A96E", opacity:0.35, marginLeft:6 }} />
+                </div>
 
-            {/* Card grid */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 16 }}>
-              {filteredPlans.map(plan => {
-                const isActive = !!activePlans[plan.id];
-                const done = completedDays[plan.id] || 0;
-                const totalDays = parseInt(plan.duration);
-                const pct = isActive ? Math.round((done / totalDays) * 100) : 0;
-                const diff = DIFFICULTY_STYLE[plan.difficulty];
+                {/* Books */}
+                <div style={{ padding:"8px 22px 0", display:"flex", gap:8, flexWrap:"wrap" }}>
+                  {plans.map(plan => {
+                    const isHovered = hoveredId === plan.id;
+                    const isActive  = !!activePlans[plan.id];
+                    const done      = completedDays[plan.id] || 0;
+                    const total     = parseInt(plan.duration);
+                    const pct       = isActive ? (done / total) : 0;
+                    const light     = lightenHex(plan.color, 45);
 
-                return (
-                  <div key={plan.id}
-                    onClick={() => openModal(plan)}
-                    style={{
-                      background: RP_THEME.card, borderRadius: 16, overflow: "hidden",
-                      boxShadow: "0 2px 12px rgba(0,0,0,0.07)",
-                      borderLeft: `4px solid ${plan.color}`,
-                      cursor: "pointer", transition: "transform 0.15s, box-shadow 0.15s",
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.12)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.07)"; }}
-                  >
-                    <div style={{ padding: "18px 16px 14px" }}>
-                      {/* Icon + badges row */}
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
-                        <span style={{ fontSize: 32 }}>{plan.icon}</span>
-                        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
-                          <span style={{ background: diff.bg, color: diff.color, fontSize: 11,
-                            fontWeight: 600, padding: "2px 8px", borderRadius: 10 }}>
-                            {plan.difficulty}
-                          </span>
-                          {isActive && (
-                            <span style={{ background: "#D1FAE5", color: "#065F46", fontSize: 11,
-                              fontWeight: 600, padding: "2px 8px", borderRadius: 10 }}>
-                              ✓ Active
-                            </span>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Title */}
-                      <h3 style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 700, color: RP_THEME.text }}>
-                        {plan.title}
-                      </h3>
-                      <p style={{ margin: "0 0 12px", fontSize: 13, color: RP_THEME.muted, lineHeight: 1.4 }}>
-                        {plan.subtitle}
-                      </p>
-
-                      {/* Info pills */}
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
-                        {[
-                          { label: "⏱ " + plan.dailyTime },
-                          { label: "📆 " + plan.duration },
-                          { label: plan.category },
-                        ].map(p => (
-                          <span key={p.label} style={{ background: "#F3F4F6", color: RP_THEME.muted,
-                            fontSize: 11, padding: "3px 8px", borderRadius: 8, fontWeight: 500 }}>
-                            {p.label}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Progress bar (if active) */}
-                      {isActive && (
-                        <div style={{ marginBottom: 12 }}>
-                          <div style={{ display: "flex", justifyContent: "space-between",
-                            fontSize: 12, color: RP_THEME.muted, marginBottom: 4 }}>
-                            <span>Day {done} of {totalDays}</span>
-                            <span>{pct}% complete</span>
-                          </div>
-                          <div style={{ height: 6, background: "#E5E7EB", borderRadius: 4, overflow: "hidden" }}>
-                            <div style={{ height: "100%", width: `${pct}%`,
-                              background: `linear-gradient(90deg, ${plan.color}, ${plan.color}cc)`,
-                              borderRadius: 4, transition: "width 0.4s ease" }} />
-                          </div>
-                        </div>
-                      )}
-
-                      {/* CTA */}
-                      <button
-                        onClick={e => { e.stopPropagation(); openModal(plan); }}
+                    return (
+                      <div
+                        key={plan.id}
+                        onClick={() => openDetail(plan)}
+                        onMouseEnter={() => setHoveredId(plan.id)}
+                        onMouseLeave={() => setHoveredId(null)}
                         style={{
-                          width: "100%", padding: "10px", borderRadius: 10, border: "none",
-                          background: `linear-gradient(135deg, ${plan.color}, ${plan.color}bb)`,
-                          color: "#fff", fontWeight: 600, fontSize: 14, cursor: "pointer",
-                          fontFamily: RP_THEME.font,
+                          width:62, display:"flex", flexDirection:"column",
+                          cursor:"pointer",
+                          transform: isHovered ? "translateY(-16px)" : "translateY(0)",
+                          transition:"transform 0.28s cubic-bezier(0.34,1.56,0.64,1)",
+                          filter: isHovered
+                            ? "drop-shadow(0 16px 20px rgba(0,0,0,0.5))"
+                            : "drop-shadow(0 3px 5px rgba(0,0,0,0.28))",
                         }}
                       >
-                        {isActive ? "Continue Plan →" : "View Plan →"}
-                      </button>
+                        {/* Top edge (pages) */}
+                        <div style={{
+                          height:5, borderRadius:"3px 3px 0 0",
+                          background:`linear-gradient(90deg, #f0e8d8, #e8dcc8, #f0e8d8)`,
+                          borderTop:"1px solid #d4c4a0",
+                        }} />
+
+                        {/* Spine */}
+                        <div style={{
+                          minHeight:175,
+                          background:`linear-gradient(90deg, ${plan.color}cc 0%, ${plan.color} 25%, ${light} 48%, ${plan.color} 72%, ${plan.color}aa 100%)`,
+                          display:"flex", flexDirection:"column",
+                          alignItems:"center", justifyContent:"space-between",
+                          padding:"10px 0", position:"relative", overflow:"hidden",
+                        }}>
+                          {/* Highlight crease */}
+                          <div style={{
+                            position:"absolute", left:7, top:0, bottom:0, width:2,
+                            background:"rgba(255,255,255,0.22)", borderRadius:1,
+                          }} />
+                          {/* Shadow crease */}
+                          <div style={{
+                            position:"absolute", right:5, top:0, bottom:0, width:1,
+                            background:"rgba(0,0,0,0.15)",
+                          }} />
+
+                          {/* Progress fill from bottom */}
+                          {isActive && (
+                            <div style={{
+                              position:"absolute", bottom:0, left:0, right:0,
+                              height:`${pct*100}%`,
+                              background:"rgba(255,255,255,0.18)",
+                              transition:"height 0.5s ease",
+                            }} />
+                          )}
+
+                          {/* Icon */}
+                          <span style={{ fontSize:18, position:"relative",
+                            filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.5))" }}>
+                            {plan.icon}
+                          </span>
+
+                          {/* Rotated title */}
+                          <div style={{
+                            writingMode:"vertical-rl",
+                            transform:"rotate(180deg)",
+                            color:"#fff",
+                            fontSize:10.5,
+                            fontWeight:700,
+                            fontFamily:T.font,
+                            textShadow:"0 1px 4px rgba(0,0,0,0.6)",
+                            lineHeight:1.25,
+                            maxHeight:115,
+                            overflow:"hidden",
+                            textAlign:"center",
+                            letterSpacing:"0.4px",
+                            position:"relative",
+                          }}>
+                            {plan.title}
+                          </div>
+
+                          {/* Duration */}
+                          <div style={{
+                            writingMode:"vertical-rl",
+                            transform:"rotate(180deg)",
+                            background:"rgba(0,0,0,0.28)",
+                            borderRadius:3, padding:"3px 3px",
+                            fontSize:8, color:"rgba(255,255,255,0.9)",
+                            fontWeight:600, letterSpacing:"0.5px",
+                            position:"relative",
+                          }}>
+                            {plan.duration}
+                          </div>
+                        </div>
+
+                        {/* Bottom edge */}
+                        <div style={{
+                          height:7, borderRadius:"0 0 2px 2px",
+                          background:`linear-gradient(180deg, ${plan.color}bb, ${plan.color}66)`,
+                          borderBottom:"1px solid rgba(0,0,0,0.2)",
+                        }} />
+
+                        {/* Active indicator */}
+                        {isActive && (
+                          <div style={{
+                            width:8, height:8, borderRadius:"50%",
+                            background:"#4ADE80", margin:"5px auto 0",
+                            boxShadow:"0 0 8px #4ADE80, 0 0 2px #fff",
+                          }} />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Wood shelf plank */}
+                <div style={{ margin:"16px 14px 0" }}>
+                  <div style={{
+                    height:16, borderRadius:"2px 2px 4px 4px",
+                    background:T.wood,
+                    boxShadow:"0 5px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.1)",
+                  }} />
+                  <div style={{
+                    height:6, marginTop:-1,
+                    background:"linear-gradient(180deg, rgba(80,40,10,0.6), transparent)",
+                    borderRadius:"0 0 4px 4px",
+                  }} />
+                </div>
+
+              </div>
+            );
+          })}
+
+          {/* Floor verse */}
+          <p style={{
+            textAlign:"center", color:T.muted, fontSize:13,
+            fontStyle:"italic", padding:"8px 32px 0",
+          }}>
+            "Thy word is a lamp unto my feet, and a light unto my path." — Psalm 119:105
+          </p>
+        </div>
+      )}
+
+      {/* ── MY PLANS ── */}
+      {activeTab === "myPlans" && (
+        <div style={{ padding:"24px 16px 60px", maxWidth:600, margin:"0 auto" }}>
+          {myActivePlans.length === 0 ? (
+            <div style={{ textAlign:"center", padding:"60px 24px" }}>
+              <div style={{ fontSize:56, marginBottom:16 }}>📖</div>
+              <h3 style={{ color:T.text, fontSize:20, margin:"0 0 10px" }}>Your shelf is empty</h3>
+              <p style={{ color:T.muted, fontSize:15, marginBottom:24, lineHeight:1.6 }}>
+                Pull a book from the library to begin your journey.
+              </p>
+              <button onClick={() => setActiveTab("library")} style={{
+                background:"linear-gradient(135deg, #4A2410, #1A0E06)",
+                color:"#F5DEB3", border:"none", borderRadius:12,
+                padding:"13px 28px", fontSize:15, fontWeight:600,
+                cursor:"pointer", fontFamily:T.font,
+              }}>Browse the Library</button>
+            </div>
+          ) : (
+            <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
+              {myActivePlans.map(plan => {
+                const done    = completedDays[plan.id] || 0;
+                const total   = parseInt(plan.duration);
+                const pct     = Math.round((done / total) * 100);
+                const diff    = DIFF[plan.difficulty];
+                const todayEntry = getTodaysReading(plan.id, done);
+
+                return (
+                  <div key={plan.id} style={{
+                    background:T.cream, borderRadius:16, overflow:"hidden",
+                    boxShadow:"0 2px 12px rgba(0,0,0,0.1)",
+                    borderLeft:`5px solid ${plan.color}`,
+                  }}>
+                    <div style={{ padding:"18px 18px 16px" }}>
+
+                      {/* ── Plan header ── */}
+                      <div style={{ display:"flex", gap:12, alignItems:"center", marginBottom:14 }}>
+                        <span style={{ fontSize:32 }}>{plan.icon}</span>
+                        <div style={{ flex:1 }}>
+                          <h3 style={{ margin:0, fontSize:16, fontWeight:700, color:T.text }}>{plan.title}</h3>
+                          <p style={{ margin:0, fontSize:12, color:T.muted }}>{plan.subtitle}</p>
+                        </div>
+                        <span style={{ background:diff.bg, color:diff.color,
+                          fontSize:11, fontWeight:600, padding:"3px 10px", borderRadius:10 }}>
+                          {plan.difficulty}
+                        </span>
+                      </div>
+
+                      {/* ── Progress bar ── */}
+                      <div style={{ marginBottom:16 }}>
+                        <div style={{ display:"flex", justifyContent:"space-between",
+                          fontSize:13, fontWeight:600, color:T.text, marginBottom:6 }}>
+                          <span>Day {done} of {total}</span>
+                          <span style={{ color:plan.color }}>{pct}%</span>
+                        </div>
+                        <div style={{ height:8, background:"#E5E7EB", borderRadius:6, overflow:"hidden" }}>
+                          <div style={{
+                            height:"100%", width:`${pct}%`,
+                            background:`linear-gradient(90deg, ${plan.color}, ${lightenHex(plan.color,30)})`,
+                            borderRadius:6, transition:"width 0.5s ease",
+                          }} />
+                        </div>
+                      </div>
+
+                      {done >= total ? (
+                        /* ── Complete state ── */
+                        <div style={{ background:"#D1FAE5", borderRadius:12,
+                          padding:"14px", marginBottom:14, textAlign:"center" }}>
+                          <p style={{ margin:0, fontSize:15, color:"#065F46", fontWeight:700 }}>
+                            🎉 Plan Complete — Well done!
+                          </p>
+                          <p style={{ margin:"4px 0 0", fontSize:12, color:"#047857" }}>
+                            You've finished the entire plan.
+                          </p>
+                        </div>
+                      ) : todayEntry ? (
+                        /* ── Today's reading passages ── */
+                        <div style={{
+                          background:"#fff",
+                          border:`1px solid ${plan.color}33`,
+                          borderRadius:12, marginBottom:14, overflow:"hidden",
+                        }}>
+                          {/* Header row */}
+                          <div style={{
+                            background:`${plan.color}11`,
+                            borderBottom:`1px solid ${plan.color}22`,
+                            padding:"10px 14px",
+                            display:"flex", alignItems:"center", gap:8,
+                          }}>
+                            <span style={{ fontSize:15 }}>📅</span>
+                            <span style={{ fontSize:13, fontWeight:700, color:T.text }}>
+                              {todayEntry.label}
+                              {todayEntry.label !== `Day ${done + 1}` ? ` — Day ${done + 1}` : ""}
+                            </span>
+                          </div>
+
+                          {/* Passage buttons */}
+                          <div style={{ padding:"10px 12px", display:"flex", flexDirection:"column", gap:8 }}>
+                            {todayEntry.passages.map(({ book, chapter }) => {
+                              const cacheKey = `${book}|${chapter}`;
+                              const cacheVal = seededCache[cacheKey];
+                              const isSeeded   = cacheVal === true;
+                              const isLoading  = cacheVal === "loading" || cacheVal === undefined;
+                              const isUnseeded = cacheVal === false;
+
+                              // Fire the check if not yet cached
+                              if (cacheVal === undefined) {
+                                checkChapterSeeded(book, chapter);
+                              }
+
+                              return (
+                                <div key={cacheKey} style={{
+                                  display:"flex", alignItems:"center",
+                                  justifyContent:"space-between", gap:10,
+                                  padding:"10px 12px", borderRadius:10,
+                                  background: isSeeded ? `${plan.color}0D` : "#F9FAFB",
+                                  border: `1px solid ${isSeeded ? plan.color + "33" : "#E5E7EB"}`,
+                                }}>
+                                  {/* Passage label */}
+                                  <div style={{ display:"flex", alignItems:"center", gap:8 }}>
+                                    <span style={{ fontSize:16 }}>
+                                      {isSeeded ? "📖" : isLoading ? "⏳" : "🔒"}
+                                    </span>
+                                    <div>
+                                      <p style={{
+                                        margin:0, fontSize:14, fontWeight:700,
+                                        color: isSeeded ? T.text : T.muted,
+                                      }}>
+                                        {book} {chapter}
+                                      </p>
+                                      <p style={{ margin:0, fontSize:11, color:T.muted }}>
+                                        {isSeeded ? "Ready to read"
+                                          : isLoading ? "Checking..."
+                                          : "Coming soon"}
+                                      </p>
+                                    </div>
+                                  </div>
+
+                                  {/* Action button */}
+                                  {isSeeded ? (
+                                    <button
+                                      onClick={() => nav("verses", { book, chapter })}
+                                      style={{
+                                        background:`linear-gradient(135deg, ${plan.color}, ${lightenHex(plan.color,20)})`,
+                                        color:"#fff", border:"none", borderRadius:8,
+                                        padding:"7px 14px", fontSize:13, fontWeight:700,
+                                        cursor:"pointer", fontFamily:T.font,
+                                        whiteSpace:"nowrap", flexShrink:0,
+                                      }}
+                                    >
+                                      Read →
+                                    </button>
+                                  ) : isUnseeded ? (
+                                    <span style={{
+                                      background:"#F3F4F6", color:T.muted,
+                                      borderRadius:8, padding:"7px 12px",
+                                      fontSize:11, fontWeight:600, flexShrink:0,
+                                    }}>
+                                      Coming soon
+                                    </span>
+                                  ) : (
+                                    <span style={{
+                                      background:"#F3F4F6", color:T.muted,
+                                      borderRadius:8, padding:"7px 12px",
+                                      fontSize:11, flexShrink:0,
+                                    }}>
+                                      …
+                                    </span>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ) : null}
+
+                      {/* ── Mark as read button ── */}
+                      {done < total && (
+                        <button
+                          onClick={() => markDayDone(plan.id)}
+                          style={{
+                            width:"100%", padding:"12px", borderRadius:10, border:"none",
+                            background:`linear-gradient(135deg, ${plan.color}, ${lightenHex(plan.color,20)})`,
+                            color:"#fff", fontWeight:700, fontSize:14,
+                            cursor:"pointer", fontFamily:T.font,
+                          }}
+                        >
+                          ✓ Mark Day {done + 1} as Read
+                        </button>
+                      )}
+
                     </div>
                   </div>
                 );
               })}
             </div>
-          </>
-        )}
+          )}
+        </div>
+      )}
 
-        {/* ── MY PLANS TAB ── */}
-        {activeTab === "active" && (
-          <>
-            {myActivePlans.length === 0 ? (
-              <div style={{ textAlign: "center", padding: "60px 24px" }}>
-                <div style={{ fontSize: 52, marginBottom: 16 }}>📖</div>
-                <h3 style={{ color: RP_THEME.text, fontSize: 20, marginBottom: 8 }}>No active plans yet</h3>
-                <p style={{ color: RP_THEME.muted, fontSize: 15, marginBottom: 24 }}>
-                  Start a plan and your progress will appear here.
-                </p>
-                <button onClick={() => setActiveTab("plans")}
-                  style={{ background: RP_THEME.hero, color: "#fff", border: "none",
-                    borderRadius: 12, padding: "12px 28px", fontSize: 15, fontWeight: 600,
-                    cursor: "pointer", fontFamily: RP_THEME.font }}>
-                  Browse Plans
-                </button>
-              </div>
-            ) : (
-              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                {myActivePlans.map(plan => {
-                  const done = completedDays[plan.id] || 0;
-                  const totalDays = parseInt(plan.duration);
-                  const pct = Math.round((done / totalDays) * 100);
-                  const diff = DIFFICULTY_STYLE[plan.difficulty];
+      {/* ── FULL-SCREEN DETAIL ── */}
+      {detailOpen && selectedPlan && (
+        <div style={{
+          position:"fixed", inset:0, zIndex:3000,
+          opacity: animIn ? 1 : 0,
+          transition:"opacity 0.3s ease",
+          pointerEvents: animIn ? "auto" : "none",
+        }}>
+          {/* Backdrop */}
+          <div onClick={closeDetail} style={{
+            position:"absolute", inset:0,
+            background:"rgba(10,5,2,0.6)",
+          }} />
 
-                  return (
-                    <div key={plan.id}
-                      style={{ background: RP_THEME.card, borderRadius: 16, overflow: "hidden",
-                        boxShadow: "0 2px 12px rgba(0,0,0,0.07)", borderLeft: `5px solid ${plan.color}` }}>
-                      <div style={{ padding: "20px 20px 16px" }}>
-                        {/* Header */}
-                        <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
-                          <span style={{ fontSize: 36 }}>{plan.icon}</span>
-                          <div style={{ flex: 1 }}>
-                            <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, color: RP_THEME.text }}>
-                              {plan.title}
-                            </h3>
-                            <p style={{ margin: 0, fontSize: 13, color: RP_THEME.muted }}>{plan.subtitle}</p>
-                          </div>
-                          <span style={{ background: diff.bg, color: diff.color, fontSize: 11,
-                            fontWeight: 600, padding: "3px 10px", borderRadius: 10 }}>
-                            {plan.difficulty}
-                          </span>
-                        </div>
+          {/* Book page panel */}
+          <div style={{
+            position:"absolute", inset:0,
+            background: T.bg,
+            transform: animIn ? "translateX(0)" : "translateX(100%)",
+            transition:"transform 0.35s cubic-bezier(0.32,0.72,0,1)",
+            display:"flex", flexDirection:"column",
+            overflowY:"auto",
+          }}>
 
-                        {/* Progress */}
-                        <div style={{ marginBottom: 16 }}>
-                          <div style={{ display: "flex", justifyContent: "space-between",
-                            fontSize: 13, fontWeight: 600, color: RP_THEME.text, marginBottom: 6 }}>
-                            <span>Day {done} of {totalDays}</span>
-                            <span style={{ color: plan.color }}>{pct}% complete</span>
-                          </div>
-                          <div style={{ height: 8, background: "#E5E7EB", borderRadius: 6, overflow: "hidden" }}>
-                            <div style={{ height: "100%", width: `${pct}%`,
-                              background: `linear-gradient(90deg, ${plan.color}, ${plan.color}99)`,
-                              borderRadius: 6, transition: "width 0.5s ease" }} />
-                          </div>
-                        </div>
-
-                        {/* Today's reading hint */}
-                        {done < totalDays && (
-                          <div style={{ background: "#FFFBF0", border: `1px solid ${plan.color}44`,
-                            borderRadius: 10, padding: "12px 14px", marginBottom: 14 }}>
-                            <p style={{ margin: 0, fontSize: 13, color: RP_THEME.text, fontWeight: 600 }}>
-                              📅 Today — Day {done + 1}
-                            </p>
-                            <p style={{ margin: "4px 0 0", fontSize: 13, color: RP_THEME.muted }}>
-                              {plan.structure}
-                            </p>
-                          </div>
-                        )}
-
-                        {done >= totalDays && (
-                          <div style={{ background: "#D1FAE5", borderRadius: 10, padding: "12px 14px",
-                            marginBottom: 14, textAlign: "center" }}>
-                            <p style={{ margin: 0, fontSize: 14, color: "#065F46", fontWeight: 700 }}>
-                              🎉 Plan Complete! Well done.
-                            </p>
-                          </div>
-                        )}
-
-                        {/* Mark day done button */}
-                        <button
-                          onClick={() => markDayDone(plan.id)}
-                          disabled={done >= totalDays}
-                          style={{
-                            width: "100%", padding: "11px", borderRadius: 10, border: "none",
-                            background: done >= totalDays
-                              ? "#E5E7EB"
-                              : `linear-gradient(135deg, ${plan.color}, ${plan.color}cc)`,
-                            color: done >= totalDays ? RP_THEME.muted : "#fff",
-                            fontWeight: 600, fontSize: 14, cursor: done >= totalDays ? "default" : "pointer",
-                            fontFamily: RP_THEME.font,
-                          }}
-                        >
-                          {done >= totalDays ? "✓ Complete" : "✓ Mark Today as Read"}
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </>
-        )}
-      </div>
-
-      {/* ── MODAL ── */}
-      {modalOpen && selectedPlan && (
-        <div
-          onClick={closeModal}
-          style={{
-            position: "fixed", inset: 0, background: "rgba(0,0,0,0.55)",
-            zIndex: 1000, display: "flex", alignItems: "flex-end",
-            transition: "opacity 0.3s", opacity: animIn ? 1 : 0,
-          }}
-        >
-          <div
-            onClick={e => e.stopPropagation()}
-            style={{
-              width: "100%", maxWidth: 640, margin: "0 auto",
-              background: RP_THEME.bg, borderRadius: "24px 24px 0 0",
-              maxHeight: "90vh", display: "flex", flexDirection: "column",
-              transform: animIn ? "translateY(0)" : "translateY(100%)",
-              transition: "transform 0.3s cubic-bezier(0.32,0.72,0,1)",
-              overflow: "hidden",
-            }}
-          >
-            {/* Sticky header */}
+            {/* Cover strip */}
             <div style={{
-              background: `linear-gradient(135deg, ${selectedPlan.color}, ${selectedPlan.color}bb)`,
-              padding: "20px 20px 24px", flexShrink: 0,
-              position: "sticky", top: 0, zIndex: 10,
+              background:`linear-gradient(150deg, ${selectedPlan.color} 0%, ${lightenHex(selectedPlan.color,25)} 55%, ${selectedPlan.color}cc 100%)`,
+              padding:"0 0 32px", flexShrink:0, position:"relative", overflow:"hidden",
             }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-                <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
-                  <span style={{ fontSize: 40 }}>{selectedPlan.icon}</span>
-                  <div>
-                    <h2 style={{ margin: 0, color: "#fff", fontSize: 20, fontWeight: 700 }}>
-                      {selectedPlan.title}
-                    </h2>
-                    <p style={{ margin: 0, color: "rgba(255,255,255,0.85)", fontSize: 13 }}>
-                      {selectedPlan.subtitle}
-                    </p>
-                  </div>
+              {/* Spine decoration */}
+              <div style={{
+                position:"absolute", left:18, top:0, bottom:0, width:3,
+                background:"rgba(255,255,255,0.22)", borderRadius:2,
+              }} />
+
+              <div style={{ padding:"16px 20px", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+                <button onClick={closeDetail} style={{
+                  background:"rgba(0,0,0,0.2)", border:"none", borderRadius:20,
+                  color:"#fff", padding:"6px 14px", fontSize:13,
+                  cursor:"pointer", fontFamily:T.font,
+                }}>← Library</button>
+                <button onClick={closeDetail} style={{
+                  background:"rgba(0,0,0,0.2)", border:"none", borderRadius:"50%",
+                  width:34, height:34, color:"#fff", fontSize:20, cursor:"pointer",
+                  display:"flex", alignItems:"center", justifyContent:"center",
+                }}>×</button>
+              </div>
+
+              <div style={{ textAlign:"center", padding:"4px 28px 0" }}>
+                <div style={{ fontSize:56, marginBottom:10,
+                  filter:"drop-shadow(0 4px 10px rgba(0,0,0,0.3))" }}>
+                  {selectedPlan.icon}
                 </div>
-                <button onClick={closeModal}
-                  style={{ background: "rgba(255,255,255,0.2)", border: "none", borderRadius: "50%",
-                    width: 32, height: 32, color: "#fff", fontSize: 18, cursor: "pointer",
-                    display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  ×
-                </button>
+                <h1 style={{
+                  color:"#fff", fontSize:24, fontWeight:700, margin:"0 0 8px",
+                  textShadow:"0 2px 10px rgba(0,0,0,0.3)", lineHeight:1.25,
+                }}>{selectedPlan.title}</h1>
+                <p style={{ color:"rgba(255,255,255,0.82)", fontSize:14, margin:"0 0 18px" }}>
+                  {selectedPlan.subtitle}
+                </p>
+
+                <div style={{ display:"flex", gap:6, justifyContent:"center", flexWrap:"wrap" }}>
+                  {[selectedPlan.duration, selectedPlan.dailyTime,
+                    `${selectedPlan.chapters.toLocaleString()} chapters`].map(s => (
+                    <span key={s} style={{
+                      background:"rgba(0,0,0,0.22)", borderRadius:20,
+                      padding:"5px 12px", color:"#fff", fontSize:12, fontWeight:600,
+                    }}>{s}</span>
+                  ))}
+                  <span style={{
+                    background:DIFF[selectedPlan.difficulty].bg,
+                    color:DIFF[selectedPlan.difficulty].color,
+                    borderRadius:20, padding:"5px 12px", fontSize:12, fontWeight:600,
+                  }}>{selectedPlan.difficulty}</span>
+                </div>
               </div>
             </div>
 
-            {/* Scrollable body */}
-            <div style={{ overflowY: "auto", padding: "20px 20px 32px", flex: 1 }}>
-              {/* Stats row */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 8, marginBottom: 20 }}>
-                {[
-                  { label: "Duration", value: selectedPlan.duration },
-                  { label: "Daily", value: selectedPlan.dailyTime },
-                  { label: "Chapters", value: selectedPlan.chapters.toLocaleString() },
-                  { label: "Difficulty", value: selectedPlan.difficulty },
-                ].map(s => (
-                  <div key={s.label} style={{ background: "#fff", borderRadius: 10,
-                    padding: "10px 8px", textAlign: "center",
-                    boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
-                    <div style={{ fontSize: 15, fontWeight: 700, color: selectedPlan.color }}>
-                      {s.value}
+            {/* Page body */}
+            <div style={{ flex:1, padding:"26px 22px 48px", maxWidth:640, margin:"0 auto", width:"100%" }}>
+
+              {/* Active progress */}
+              {activePlans[selectedPlan.id] && (() => {
+                const done  = completedDays[selectedPlan.id] || 0;
+                const total = parseInt(selectedPlan.duration);
+                const pct   = Math.round((done/total)*100);
+                return (
+                  <div style={{
+                    background:"#fff", borderRadius:14, padding:"14px 16px",
+                    marginBottom:18, boxShadow:"0 2px 8px rgba(0,0,0,0.06)",
+                    border:`1px solid ${selectedPlan.color}33`,
+                  }}>
+                    <div style={{ display:"flex", justifyContent:"space-between",
+                      fontSize:13, fontWeight:700, color:T.text, marginBottom:7 }}>
+                      <span>Your Progress</span>
+                      <span style={{ color:selectedPlan.color }}>Day {done} / {total} — {pct}%</span>
                     </div>
-                    <div style={{ fontSize: 11, color: RP_THEME.muted, marginTop: 2 }}>{s.label}</div>
+                    <div style={{ height:7, background:"#E5E7EB", borderRadius:6, overflow:"hidden" }}>
+                      <div style={{
+                        height:"100%", width:`${pct}%`,
+                        background:`linear-gradient(90deg, ${selectedPlan.color}, ${lightenHex(selectedPlan.color,30)})`,
+                        borderRadius:6,
+                      }} />
+                    </div>
                   </div>
-                ))}
-              </div>
+                );
+              })()}
 
               {/* Description */}
-              <p style={{ fontSize: 15, color: RP_THEME.text, lineHeight: 1.65,
-                marginBottom: 20, background: "#fff", borderRadius: 12,
-                padding: "14px 16px", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
-                {selectedPlan.description}
-              </p>
-
-              {/* What you'll read */}
-              <div style={{ background: "#fff", borderRadius: 12, padding: "16px",
-                marginBottom: 20, boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
-                <h4 style={{ margin: "0 0 12px", color: RP_THEME.text, fontSize: 15, fontWeight: 700 }}>
-                  📚 What you'll read
-                </h4>
-                {selectedPlan.whatYoullRead.map((item, i) => (
-                  <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start",
-                    padding: "8px 0", borderTop: i > 0 ? `1px solid ${RP_THEME.divider}` : "none" }}>
-                    <span style={{ color: selectedPlan.color, fontWeight: 700, fontSize: 13,
-                      flexShrink: 0, marginTop: 1 }}>→</span>
-                    <span style={{ fontSize: 14, color: RP_THEME.text, lineHeight: 1.5 }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Structure note */}
-              <div style={{ background: "#FFFBF0", border: `1px solid ${selectedPlan.color}33`,
-                borderRadius: 10, padding: "12px 14px", marginBottom: 24 }}>
-                <p style={{ margin: 0, fontSize: 13, color: RP_THEME.muted, fontStyle: "italic" }}>
-                  📋 Structure: {selectedPlan.structure}
+              <div style={{
+                background:"#fff", borderRadius:14, padding:"18px",
+                marginBottom:18, boxShadow:"0 2px 8px rgba(0,0,0,0.05)",
+              }}>
+                <p style={{ margin:0, fontSize:15, color:T.text, lineHeight:1.8, fontStyle:"italic" }}>
+                  {selectedPlan.description}
                 </p>
               </div>
 
-              {/* Start button */}
-              {activePlans[selectedPlan.id] ? (
-                <div style={{ textAlign: "center" }}>
-                  <div style={{ background: "#D1FAE5", borderRadius: 10, padding: "12px",
-                    marginBottom: 14, color: "#065F46", fontWeight: 600, fontSize: 14 }}>
-                    ✓ You've already started this plan — Day {completedDays[selectedPlan.id] || 0} of {parseInt(selectedPlan.duration)}
-                  </div>
-                  <button onClick={closeModal}
-                    style={{ width: "100%", padding: "14px", borderRadius: 12, border: "none",
-                      background: `linear-gradient(135deg, ${selectedPlan.color}, ${selectedPlan.color}cc)`,
-                      color: "#fff", fontWeight: 700, fontSize: 16, cursor: "pointer",
-                      fontFamily: RP_THEME.font }}>
-                    Continue Reading →
-                  </button>
-                </div>
-              ) : (
-                <button onClick={() => startPlan(selectedPlan)}
-                  style={{
-                    width: "100%", padding: "16px", borderRadius: 12, border: "none",
-                    background: "linear-gradient(135deg, #B8860B 0%, #D4A853 50%, #92400E 100%)",
-                    color: "#fff", fontWeight: 700, fontSize: 17, cursor: "pointer",
-                    fontFamily: RP_THEME.font, boxShadow: "0 4px 16px rgba(184,134,11,0.4)",
-                    letterSpacing: "0.3px",
+              {/* What you'll read */}
+              <div style={{
+                background:"#fff", borderRadius:14, padding:"18px",
+                marginBottom:18, boxShadow:"0 2px 8px rgba(0,0,0,0.05)",
+              }}>
+                <h3 style={{ margin:"0 0 12px", fontSize:14, fontWeight:700, color:T.text,
+                  textTransform:"uppercase", letterSpacing:"1px",
+                  display:"flex", alignItems:"center", gap:8 }}>
+                  <span style={{ color:selectedPlan.color, fontSize:16 }}>◆</span>
+                  What You'll Read
+                </h3>
+                {selectedPlan.whatYoullRead.map((item,i) => (
+                  <div key={i} style={{
+                    display:"flex", gap:10, alignItems:"flex-start",
+                    padding:"8px 0", borderTop: i>0 ? `1px solid ${T.wall}` : "none",
                   }}>
-                  Start this Plan →
+                    <span style={{ color:selectedPlan.color, fontWeight:700, fontSize:13,
+                      flexShrink:0, marginTop:2 }}>→</span>
+                    <span style={{ fontSize:14, color:T.text, lineHeight:1.6 }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Structure */}
+              <div style={{
+                background:`${selectedPlan.color}0F`,
+                border:`1px solid ${selectedPlan.color}30`,
+                borderRadius:12, padding:"13px 16px", marginBottom:26,
+              }}>
+                <p style={{ margin:0, fontSize:13, color:T.muted, fontStyle:"italic" }}>
+                  📋 <strong style={{ color:T.text }}>Structure:</strong> {selectedPlan.structure}
+                </p>
+              </div>
+
+              {/* CTA */}
+              {activePlans[selectedPlan.id] ? (
+                <>
+                  <div style={{
+                    background:"#D1FAE5", borderRadius:12, padding:"13px",
+                    textAlign:"center", marginBottom:12,
+                    color:"#065F46", fontWeight:600, fontSize:14,
+                  }}>
+                    ✓ Day {completedDays[selectedPlan.id] || 0} of {parseInt(selectedPlan.duration)} complete
+                  </div>
+                  <button onClick={closeDetail} style={{
+                    width:"100%", padding:"16px", borderRadius:14, border:"none",
+                    background:`linear-gradient(135deg, ${selectedPlan.color}, ${lightenHex(selectedPlan.color,20)})`,
+                    color:"#fff", fontWeight:700, fontSize:17, cursor:"pointer",
+                    fontFamily:T.font, boxShadow:`0 4px 16px ${selectedPlan.color}55`,
+                  }}>Continue Reading →</button>
+                </>
+              ) : (
+                <button onClick={() => startPlan(selectedPlan)} style={{
+                  width:"100%", padding:"17px", borderRadius:14, border:"none",
+                  background:"linear-gradient(135deg, #1A0E06 0%, #4A2410 50%, #2A1208 100%)",
+                  color:"#F5DEB3", fontWeight:700, fontSize:18, cursor:"pointer",
+                  fontFamily:T.font, letterSpacing:"0.5px",
+                  boxShadow:"0 6px 24px rgba(26,14,6,0.5)",
+                }}>
+                  Begin Reading →
                 </button>
               )}
             </div>
