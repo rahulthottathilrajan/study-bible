@@ -1158,26 +1158,36 @@ export default function StudyBible() {
         <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
           {Object.entries(cats).map(([cat, catBooks]) => {
             const ct = THEMES[CATEGORY_THEME[cat] || "home"];
+            const isOpen = booksCollapsed[cat] === true;
             return (
-              <div key={cat} style={{ marginBottom:22 }}>
-                <button onClick={() => setBooksCollapsed(prev => ({...prev,[cat]:!prev[cat]}))} style={{ width:"100%",display:"flex",alignItems:"center",gap:7,marginBottom:booksCollapsed[cat]?0:9,background:"none",border:"none",cursor:"pointer",padding:"4px 0",textAlign:"left" }}>
-                  <span style={{ fontSize:15 }}>{CAT_ICONS[cat]}</span>
-                  <span style={{ fontFamily:ct.ui,fontSize:12,fontWeight:700,color:ct.accent,textTransform:"uppercase",letterSpacing:"0.1em" }}>{cat}</span>
-                  <div style={{ flex:1,height:1,background:ct.accentBorder }}/>
-                  <span style={{ fontFamily:ct.ui,fontSize:13,color:ct.accent,marginLeft:4,transform:booksCollapsed[cat]?"rotate(-90deg)":"rotate(0deg)",transition:"transform 0.2s",display:"inline-block" }}>▾</span>
+              <div key={cat} style={{ marginBottom:14 }}>
+                {/* Stone Tablet Header */}
+                <button onClick={() => setBooksCollapsed(prev => ({...prev,[cat]:!prev[cat]}))}
+                  style={{ width:"100%",display:"flex",alignItems:"center",gap:12,padding:"14px 16px",background:"linear-gradient(135deg,#EDE6D6 0%,#DDD4BE 100%)",border:`1px solid rgba(180,160,120,0.35)`,borderLeft:`4px solid ${ct.accent}`,borderRadius:isOpen?"12px 12px 0 0":12,cursor:"pointer",textAlign:"left",boxShadow:"0 3px 8px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.65)",transition:"all 0.2s" }}>
+                  <span style={{ fontSize:22,flexShrink:0 }}>{CAT_ICONS[cat]}</span>
+                  <div style={{ flex:1 }}>
+                    <div style={{ fontFamily:ct.ui,fontSize:13,fontWeight:700,color:"#3A2E1C",textTransform:"uppercase",letterSpacing:"0.1em" }}>{cat}</div>
+                    <div style={{ fontFamily:ct.ui,fontSize:11,color:"#7A6B55",marginTop:2 }}>{catBooks.length} books · tap to {isOpen?"collapse":"explore"}</div>
+                  </div>
+                  <span style={{ fontSize:16,color:ct.accent,transform:isOpen?"rotate(0deg)":"rotate(-90deg)",transition:"transform 0.25s",display:"inline-block",flexShrink:0 }}>▾</span>
                 </button>
-                {!booksCollapsed[cat] && catBooks.map(b => (
-                  <button key={b.name} onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:12,padding:"11px 14px",marginBottom:5,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,borderLeft:`3px solid ${ct.accent}`,boxShadow:"0 1px 2px rgba(0,0,0,0.03)",transition:"all 0.15s" }}>
-                    <div style={{ flex:1 }}>
-                      <div style={{ display:"flex",alignItems:"center",gap:7 }}>
-                        <span style={{ fontFamily:ct.heading,fontSize:14.5,fontWeight:600,color:ht.dark }}>{b.name}</span>
-                        {(dbChapters[b.name]?.length > 0) && <Badge t={ct}>Study Notes</Badge>}
-                      </div>
-                      <div style={{ fontFamily:ct.ui,fontSize:12,color:ht.muted,marginTop:2 }}><span style={{ fontStyle:"italic",color:ht.light }}>{b.original}</span> — {b.meaning} · {b.chapters} ch.</div>
-                    </div>
-                    <div style={{ color:ht.light }}><ChevIcon /></div>
-                  </button>
-                ))}
+                {/* Books Drawer */}
+                {isOpen && (
+                  <div style={{ border:`1px solid rgba(180,160,120,0.3)`,borderTop:"none",borderRadius:"0 0 12px 12px",overflow:"hidden",background:ht.card,boxShadow:"0 4px 10px rgba(0,0,0,0.06)" }}>
+                    {catBooks.map((b, bi) => (
+                      <button key={b.name} onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<catBooks.length-1?`1px solid ${ht.divider}`:"none",padding:"11px 14px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,borderLeft:`3px solid ${ct.accent}`,transition:"background 0.15s" }}>
+                        <div style={{ flex:1 }}>
+                          <div style={{ display:"flex",alignItems:"center",gap:7 }}>
+                            <span style={{ fontFamily:ct.heading,fontSize:14.5,fontWeight:600,color:ht.dark }}>{b.name}</span>
+                            {(dbChapters[b.name]?.length > 0) && <Badge t={ct}>Study Notes</Badge>}
+                          </div>
+                          <div style={{ fontFamily:ct.ui,fontSize:12,color:ht.muted,marginTop:2 }}><span style={{ fontStyle:"italic",color:ht.light }}>{b.original}</span> — {b.meaning} · {b.chapters} ch.</div>
+                        </div>
+                        <div style={{ color:ht.light }}><ChevIcon /></div>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}
