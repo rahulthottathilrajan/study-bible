@@ -1163,11 +1163,11 @@ export default function StudyBible() {
               <div key={cat} style={{ marginBottom:14 }}>
                 {/* Stone Tablet Header */}
                 <button onClick={() => setBooksCollapsed(prev => ({...prev,[cat]:!prev[cat]}))}
-                  style={{ width:"100%",display:"flex",alignItems:"center",gap:12,padding:"14px 16px",background:"linear-gradient(135deg,#EDE6D6 0%,#DDD4BE 100%)",border:`1px solid rgba(180,160,120,0.35)`,borderLeft:`4px solid ${ct.accent}`,borderRadius:isOpen?"12px 12px 0 0":12,cursor:"pointer",textAlign:"left",boxShadow:"0 3px 8px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.65)",transition:"all 0.2s" }}>
+                  style={{ width:"100%",display:"flex",alignItems:"center",gap:12,padding:"14px 16px",background:`linear-gradient(135deg,${ct.accentLight},${ct.card})`,border:`1px solid ${ct.accentBorder}`,borderLeft:`4px solid ${ct.accent}`,borderRadius:isOpen?"12px 12px 0 0":12,cursor:"pointer",textAlign:"left",boxShadow:`0 3px 8px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.7)`,transition:"all 0.2s" }}>
                   <span style={{ fontSize:22,flexShrink:0 }}>{CAT_ICONS[cat]}</span>
                   <div style={{ flex:1 }}>
-                    <div style={{ fontFamily:ct.ui,fontSize:13,fontWeight:700,color:"#3A2E1C",textTransform:"uppercase",letterSpacing:"0.1em" }}>{cat}</div>
-                    <div style={{ fontFamily:ct.ui,fontSize:11,color:"#7A6B55",marginTop:2 }}>{catBooks.length} books · tap to {isOpen?"collapse":"explore"}</div>
+                    <div style={{ fontFamily:ct.ui,fontSize:13,fontWeight:700,color:ct.dark,textTransform:"uppercase",letterSpacing:"0.1em" }}>{cat}</div>
+                    <div style={{ fontFamily:ct.ui,fontSize:11,color:ct.muted,marginTop:2 }}>{catBooks.length} books · tap to {isOpen?"collapse":"explore"}</div>
                   </div>
                   <span style={{ fontSize:16,color:ct.accent,transform:isOpen?"rotate(0deg)":"rotate(-90deg)",transition:"transform 0.25s",display:"inline-block",flexShrink:0 }}>▾</span>
                 </button>
