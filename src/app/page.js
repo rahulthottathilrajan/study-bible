@@ -2044,7 +2044,7 @@ export default function StudyBible() {
       const finalScore = Math.round((hebrewPracticeScore/questions.length)*100);
       return (
         <div style={{ minHeight:"100vh",background:ht2.bg }}>
-          <Header title="Practice Complete!" theme={ht2} onBack={() => nav("hebrew-lesson")}/>
+          <Header title="Practice Complete!" theme={ht2} onBack={goBack}/>
           <div style={{ maxWidth:520,margin:"0 auto",padding:"40px 20px",textAlign:"center" }}>
             <div style={{ fontSize:64,marginBottom:16 }}>🎉</div>
             <div style={{ fontFamily:ht2.heading,fontSize:30,color:ht2.dark,marginBottom:8 }}>Well Done!</div>
