@@ -7,6 +7,7 @@ import ProphecyFulfilment from "./components/ProphecyFulfilment";
 import ArchaeologyCards from "./components/ArchaeologyCards";
 import Apologetics from "./components/Apologetics";
 import ReadingPlans from "./components/ReadingPlans";
+import KidsCurriculum from "./components/KidsCurriculum";
 
 // ═══════════════════════════════════════════════════
 // THEME SYSTEM
@@ -1124,14 +1125,14 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🐑</span> Little Disciples
             </div>
-            <div style={{ background:"linear-gradient(135deg,rgba(212,168,83,0.08),rgba(139,92,246,0.06))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"20px 18px",display:"flex",alignItems:"center",gap:14,opacity:0.75 }}>
+            <div onClick={() => nav("kids-curriculum-home")} style={{ background:"linear-gradient(135deg,rgba(212,168,83,0.08),rgba(139,92,246,0.06))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"20px 18px",display:"flex",alignItems:"center",gap:14,cursor:"pointer" }}>
               <div style={{ width:52,height:52,borderRadius:14,background:"linear-gradient(135deg,rgba(212,168,83,0.3),rgba(139,92,246,0.3))",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,flexShrink:0 }}>🐑</div>
               <div style={{ flex:1 }}>
                 <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>Kids Church Curriculum</div>
                 <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.accent,fontWeight:600,marginTop:1 }}>52-Week Bible Study · Ages 3–12</div>
                 <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>Age-grouped lessons that bring Scripture alive for the next generation — from toddlers to preteens.</div>
               </div>
-              <div style={{ background:"rgba(0,0,0,0.06)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>Soon</div>
+              <div style={{ background:"rgba(16,185,129,0.12)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>New ✦</div>
             </div>
           </div>
 
@@ -3637,6 +3638,7 @@ export default function StudyBible() {
       {view === "timeline-archaeology" && <ArchaeologyCards nav={nav} />}
       {view === "apologetics-home" && <Apologetics nav={nav} />}
       {view === "reading-plans-home" && <ReadingPlans nav={nav} />}
+      {view === "kids-curriculum-home" && <KidsCurriculum nav={nav} />}
       {view === "timeline-era" && TimelineEras()}
       {view === "timeline-era-detail" && TimelineEraDetail()}
 
