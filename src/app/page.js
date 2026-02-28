@@ -3656,7 +3656,7 @@ export default function StudyBible() {
               const isActive =
                   (item.id === "home" && view === "home") ||
                   (item.id === "bible" && ["books","chapter","verses","verse"].includes(view)) ||
-                  (item.id === "learn" && ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson","timeline-home","timeline-era","timeline-era-detail"].includes(view)) ||
+                  (item.id === "learn" && ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson","timeline-home","timeline-era","timeline-era-detail","timeline-maps","timeline-books","timeline-archaeology","prophecy-home","apologetics-home","reading-plans-home"].includes(view)) ||
                   (item.id === "journal" && ["journal-home","highlights"].includes(view)) ||
                   (item.id === "account" && view === "account");
               return (
