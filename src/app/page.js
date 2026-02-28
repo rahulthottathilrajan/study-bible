@@ -190,6 +190,7 @@ export default function StudyBible() {
   const [hebrewPracticeAnswer, setHebrewPracticeAnswer] = useState(null);
   const [hebrewPracticeScore, setHebrewPracticeScore] = useState(0);
   const hebrewCache = useRef({});
+  const navStack = useRef([{ view: "home" }]);
   const [readingStep, setReadingStep] = useState(0);
   const [showLetters, setShowLetters] = useState(false);
   const [readingVerse, setReadingVerse] = useState('gen1v1');
@@ -388,19 +389,20 @@ export default function StudyBible() {
   }, [user]);
 
   useEffect(() => {
-  // Set the initial history entry so swipe-back has somewhere to go
-  window.history.replaceState({ view: "home" }, "");
+  window.history.replaceState({ _nav: 0 }, "");
 
-  const handlePopState = (e) => {
-    if (e.state?.view) {
+  const handlePopState = () => {
+    if (navStack.current.length > 1) {
+      navStack.current.pop();
+      const prev = navStack.current[navStack.current.length - 1];
       setFade(false);
       setTimeout(() => {
-        setView(e.state.view);
-        if (e.state.testament !== undefined) setTestament(e.state.testament);
-        if (e.state.book !== undefined) setBook(e.state.book);
-        if (e.state.chapter !== undefined) setChapter(e.state.chapter);
-        if (e.state.verse !== undefined) setVerse(e.state.verse);
-        if (e.state.tab !== undefined) setTab(e.state.tab);
+        setView(prev.view);
+        if (prev.testament !== undefined) setTestament(prev.testament);
+        if (prev.book !== undefined) setBook(prev.book);
+        if (prev.chapter !== undefined) setChapter(prev.chapter);
+        if (prev.verse !== undefined) setVerse(prev.verse);
+        if (prev.tab !== undefined) setTab(prev.tab);
         setFade(true);
         window.scrollTo({ top: 0, behavior: "instant" });
       }, 80);
@@ -525,11 +527,15 @@ export default function StudyBible() {
   }, []);
 
   const goBack = useCallback(() => {
-    window.history.back();
+    if (navStack.current.length > 1) {
+      window.history.back();
+    }
   }, []);
 
   const nav = useCallback((v, opts = {}) => {
-    window.history.pushState({ view: v, ...opts }, "");
+    const snapshot = { view: v, testament, book, chapter, verse, tab, ...opts };
+    navStack.current.push(snapshot);
+    window.history.pushState({ _nav: navStack.current.length - 1 }, "");
     setFade(false);
     setTimeout(() => {
       setView(v);
@@ -541,7 +547,7 @@ export default function StudyBible() {
       setFade(true);
       window.scrollTo({ top: 0, behavior: "instant" });
     }, 80);
-  }, []);
+  }, [testament, book, chapter, verse, tab]);
 
   useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
   useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) setVerse(verseNums[0]); }, [view, verse, verseNums]);
