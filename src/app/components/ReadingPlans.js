@@ -534,18 +534,32 @@ export default function ReadingPlans({ nav }) {
 
   const checkChapterSeeded = useCallback(async (book, chapter) => {
     const key = `${book}|${chapter}`;
-    // Already know the answer
     if (seededCache[key] === true || seededCache[key] === false) return seededCache[key];
-    // Mark as loading so we don't fire duplicate queries
     setSeededCache(prev => ({ ...prev, [key]: "loading" }));
     try {
-      const { data, error } = await supabase
-        .from("verses")
-        .select("id")
-        .eq("book_name", book)
-        .eq("chapter_num", chapter)
+      // Step 1: get book id
+      const { data: bookData, error: bookError } = await supabase
+        .from("books").select("id").eq("name", book).single();
+      if (bookError || !bookData) {
+        setSeededCache(prev => ({ ...prev, [key]: false }));
+        return false;
+      }
+      // Step 2: get chapter id
+      const { data: chData, error: chError } = await supabase
+        .from("chapters").select("id")
+        .eq("book_id", bookData.id)
+        .eq("chapter_number", chapter)
+        .single();
+      if (chError || !chData) {
+        setSeededCache(prev => ({ ...prev, [key]: false }));
+        return false;
+      }
+      // Step 3: check if any verses exist for this chapter
+      const { data: vData, error: vError } = await supabase
+        .from("verses").select("id")
+        .eq("chapter_id", chData.id)
         .limit(1);
-      const isSeeded = !error && data && data.length > 0;
+      const isSeeded = !vError && vData && vData.length > 0;
       setSeededCache(prev => ({ ...prev, [key]: isSeeded }));
       return isSeeded;
     } catch {
