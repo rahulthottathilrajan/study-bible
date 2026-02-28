@@ -81,7 +81,7 @@ const LESSONS = [
     activities: {
       "3-5": "🎨 Draw and colour the 7 days of creation — one picture for each day! What is your favourite thing God made? Tell someone!\n\n🌍 Paper Bag Earth: Paint or colour a paper bag blue and green to look like the Earth. Write 'God Made Everything' on the back.",
       "6-8": "🎨 Make a Creation Wheel — draw a big circle, divide it into 7 segments, and draw one thing from each day of creation in each segment. Decorate it beautifully!\n\n📖 Look up Genesis 1 and list every time it says 'And God saw that it was good.' How many times does it appear?",
-      "9-12": "📖 Read through Genesis 1 carefully. List everything God called 'good.' Now read John 1:1–3 — who was present at creation? What does this tell us about Jesus?\n\n✍️ Write a short poem or paragraph praising God as Creator. Use at least 3 specific things from Genesis 1 in your writing."
+      "9-12": "🎨 Create an illustrated 'Seven Days of Creation' journal page — draw or paint each day with its key creation, and write the matching verse underneath each one. Make it beautiful enough to frame!\n\n✍️ Write a poem or hymn praising God as Creator. Include at least 5 specific things from Genesis 1. Decorate the border of your poem with drawings of creation."
     },
 
     supplies: "Paper bag, blue & green paint or crayons, markers, large white paper, scissors, glue stick",
@@ -131,7 +131,7 @@ const LESSONS = [
     activities: {
       "3-5": "🎨 Draw the Garden of Eden — with lots of trees, flowers, and animals. What fruit would you grow there?\n\n🐍 Make a paper serpent with a zigzag paper strip. Write 'God keeps His promises' on it.",
       "6-8": "🌳 Make a 'choices tree' — on one side draw good choices and their results, on the other side draw bad choices and their consequences.\n\n📖 Find three kind things God does in Genesis 3 even though Adam and Eve sinned. Write them down.",
-      "9-12": "📖 Read Genesis 3:15 carefully. This is called the 'Protoevangelium' — the first gospel promise. Who is the 'seed of the woman' who would crush the serpent's head? (Hint: Galatians 4:4)\n\n✍️ Compare how the serpent tempts Eve with how Satan tempts Jesus in Matthew 4:1–11. What is different about how Jesus responds?"
+      "9-12": "📖 Make a 'Scarlet Thread' bookmark: cut a long red ribbon or paper strip. Write Genesis 3:15 at the top — the first promise of a rescuer. You'll add more verses to this bookmark as the year goes on, tracing God's rescue plan through the whole Bible.\n\n✍️ Write a diary entry from Eve's perspective on the day of the Fall. What did she see, feel, and think? End with what she might have felt when God made the promise in Genesis 3:15."
     },
 
     supplies: "Coloured paper, scissors, markers, paper strips for serpent craft, glue, brown paper bags",
@@ -181,7 +181,7 @@ const LESSONS = [
     activities: {
       "3-5": "🎨 Draw Noah's ark with animals going in two by two! How many animals can you draw?\n\n🌈 Make a rainbow mobile — cut strips of coloured paper (red, orange, yellow, green, blue, purple) and hang them from a cotton wool cloud.",
       "6-8": "🏗️ Build a model ark from cardboard or craft sticks. Label the three decks. How big was the real ark? (Hint: Genesis 6:15 — about 450 feet long!)\n\n📖 Find every covenant God makes in the Bible that you can. Start a 'Covenant List' — you'll add to it all year!",
-      "9-12": "📖 Read 1 Peter 3:20–21. Peter says the flood is a picture of baptism. What do the waters represent? What does the ark represent? How does this help us understand what baptism means?\n\n✍️ The word 'grace' appears for the first time in Genesis 6:8. Write your own definition of grace based on Noah's story. How is God's grace different from fairness?"
+      "9-12": "📖 Design an illustrated 'Covenant Poster' — draw the ark, the rainbow, and write out Genesis 9:13. Around the border, list every covenant you can find in the Bible so far. Leave space to add more as the year continues!\n\n✍️ The word 'grace' appears for the first time in Genesis 6:8. Create a hand-lettered artwork of the word GRACE with your own definition written inside or around the letters. Decorate it with images from Noah's story."
     },
 
     supplies: "Coloured paper strips, cotton wool, string, cardboard, craft sticks, glue, scissors, markers, thread for mobile",
@@ -231,7 +231,7 @@ const LESSONS = [
     activities: {
       "3-5": "🧱 Build a tower with blocks or LEGO as high as you can! What happened when it fell? Talk about why God didn't like the people's plan.\n\n🎨 Draw the Tower of Babel — make it very tall! Around the bottom draw people looking confused, speaking different languages.",
       "6-8": "🌍 Learn to say 'God loves you' in 3 different languages! Why does God love ALL people from EVERY language? (Try: French — 'Dieu t'aime', Spanish — 'Dios te ama', Zulu — 'UNkulunkulu uyakuthanda')\n\n📖 Read Acts 2:1–12. At Babel God divided languages. At Pentecost, what did God do? Draw a 'before and after' comparison.",
-      "9-12": "📖 Compare Genesis 11:4 ('let us make a name for ourselves') with Philippians 2:9–11 ('God gave Him a name above every name'). What is the difference between seeking your own glory and receiving glory from God?\n\n✍️ Design your own tower on paper. On each floor write something people today try to use to 'make a name' for themselves. Then write above the tower what God says matters instead."
+      "9-12": "🎨 Create a side-by-side poster: BABEL on the left, PENTECOST on the right. Illustrate both scenes — the tower and confused people vs. the flames and united people. Write the key verse for each and draw arrows showing how God reversed what happened at Babel.\n\n✍️ Design your own tower on paper. On each floor write something people today try to use to 'make a name' for themselves. Then write above the tower what God says matters instead. Make it into a poster you could show your class."
     },
 
     supplies: "Building blocks or LEGO, large paper, markers, coloured pencils",
@@ -281,7 +281,7 @@ const LESSONS = [
     activities: {
       "3-5": "⭐ Count as many stars as you can on a dark piece of paper with white dots or stickers. God told Abraham his family would be that big!\n\n🎨 Draw Abraham looking up at a sky FULL of stars. Write 'God keeps His promises' at the top.",
       "6-8": "🗺️ Make a map showing Abraham's journey from Ur to Haran to Canaan. How far did he travel? (Hint: about 1,000 miles!)\n\n📖 God made 3 promises to Abraham: land, family, and blessing. Can you find where each one comes true in the Bible?",
-      "9-12": "📖 Read Romans 4:1–5. Paul calls Abraham 'the father of all who believe.' What does faith mean if it's not about following rules? Why does God count faith as righteousness?\n\n✍️ Abraham left everything familiar behind because he trusted God. Write about a time you had to trust God (or someone else) without knowing the outcome. What happened?"
+      "9-12": "🗺️ Create a detailed illustrated map of Abraham's journey from Ur to Haran to Canaan. Mark each stop, add drawings of key events (the call, the stars, the covenant ceremony), and write the matching Bible verse at each location.\n\n✍️ Write a letter from Abraham to his family back in Ur, explaining why he left everything behind. What would he say about God's promises? Make it feel real — include details about the journey, his feelings, and his faith."
     },
 
     supplies: "Dark paper (black or navy), white crayons or star stickers, glue, markers, large paper for map drawing",
@@ -331,7 +331,7 @@ const LESSONS = [
     activities: {
       "3-5": "🐑 Draw the ram caught in the bush. Write 'God always provides!' underneath. What has God given your family?\n\n🎨 Make a paper ram from cotton wool and card. Glue cotton balls onto a sheep shape and write 'The LORD Will Provide' at the bottom.",
       "6-8": "📖 Make a timeline showing how God's plan unfolds: Abraham's test (Genesis 22) → Passover lamb (Exodus 12) → John the Baptist says 'Behold the Lamb of God' (John 1:29) → The cross. Draw a picture for each step.\n\n🐑 Make a cotton wool lamb and write Genesis 22:8 on it.",
-      "9-12": "📖 Read Hebrews 11:17–19. The writer says Abraham believed God could raise Isaac from the dead. What does this tell us about Abraham's faith? How does this story prepare us to understand the gospel?\n\n✍️ List every parallel you can find between Genesis 22 and the crucifixion of Jesus: the son, the wood, the mountain, the substitute, the three days. How many can you find?"
+      "9-12": "🎨 Create an illustrated two-column comparison poster: 'MOUNT MORIAH → MOUNT CALVARY.' On the left draw Genesis 22, on the right draw the crucifixion. Draw lines connecting every parallel: the beloved son, the wood carried on the back, the three-day journey, the substitute, the mountain. Make it a teaching tool you could show someone.\n\n✍️ Write a short story from Isaac's perspective. He's walking up the mountain carrying the wood. What is he thinking? What does he feel when he sees the altar? When the ram appears? Try to capture the emotion of that moment."
     },
 
     supplies: "Cotton wool or cotton balls, card/cardboard, glue, scissors, markers, brown paper for ram shape",
@@ -381,7 +381,7 @@ const LESSONS = [
     activities: {
       "3-5": "🪜 Draw Jacob's dream ladder reaching up to heaven. Who is at the top? Draw angels going up and down the steps!\n\n🎨 Make a ladder from craft sticks and string. Hang a paper angel on it.",
       "6-8": "🎭 Make a 'heel-grabber' hand puppet for Jacob and a hairy Esau puppet from a paper bag. Act out the story of the birthright and the blessing.\n\n📖 Jacob saw angels going up and down the ladder. In John 1:51, Jesus says HE is the ladder. Draw a picture showing how Jesus connects heaven and earth.",
-      "9-12": "📖 God chose Jacob before he was born (Romans 9:10–13). This is grace, not favouritism. Why? What does it teach us about how God saves people — based on what they do, or based on His choice?\n\n✍️ Compare the tower at Babel (Genesis 11) with the ladder at Bethel (Genesis 28). Both connect earth and heaven — but what is different? Who is doing the reaching?"
+      "9-12": "🪜 Build a Jacob's Ladder craft — use cardboard strips and ribbon to make a real Jacob's ladder toy (look up instructions). On each rung, write one of God's promises to Jacob. At the top write John 1:51 — Jesus is the true ladder.\n\n🎨 Create a 'BABEL vs. BETHEL' contrast poster. Draw the tower on one side and the ladder on the other. Label who is reaching in each scene. At Babel, humans reach UP. At Bethel, God reaches DOWN. Write a sentence explaining why this matters."
     },
 
     supplies: "Craft sticks, string, paper bags, cotton wool (for Esau's hair), markers, large paper, glue",
@@ -431,7 +431,7 @@ const LESSONS = [
     activities: {
       "3-5": "🎨 Make a multi-coloured coat from strips of coloured paper glued onto a coat shape. Just like Joseph's special coat! Write 'God is with me' on the back.\n\n🌈 Draw Joseph in his beautiful coat, then draw Joseph as a ruler in Egypt. God turned the sad story into a happy one!",
       "6-8": "🗺️ Make a story map: Coat → Pit → Potiphar's house → Prison → Palace. Write what Joseph learned at each stage. How was God working at each point?\n\n📖 Joseph forgave his brothers even though they were very cruel. Write a letter of forgiveness to someone (you don't have to send it — it's between you and God).",
-      "9-12": "📖 Compare Joseph's story to Jesus: both were beloved sons, both were betrayed, both suffered innocently, both ended up saving their people. How many parallels can you find? Make a two-column list.\n\n✍️ Genesis 50:20 says God uses evil for good. Romans 8:28 says all things work together for good. Write about a hard time in your life. Can you see any way God might have been working in it?"
+      "9-12": "🎨 Create a 'Joseph → Jesus' illustrated parallel poster with two columns. Draw a scene from Joseph's life on the left and the matching scene from Jesus' life on the right: betrayed by brothers / betrayed by Judas, sold for silver / sold for silver, pit & prison / tomb, raised to the throne / raised from the dead. Make it colourful and detailed.\n\n✍️ Create a woven 'coat of many colours' from strips of coloured paper. On each strip, write one of God's promises from Genesis. Weave them together to show how God's plan holds together even through suffering."
     },
 
     supplies: "Strips of coloured paper, coat template (large paper cut in coat shape), glue, scissors, markers, crayons",
@@ -481,7 +481,7 @@ const LESSONS = [
     activities: {
       "3-5": "🔥 Make a burning bush from torn orange and red tissue paper screwed up and glued to a brown paper tree shape. It's on fire — but not burning up!\n\n👣 Draw around your feet on paper. Write 'Holy Ground' on it — just like God told Moses!",
       "6-8": "📖 Make a 'Staff of Moses' from a stick and paper. When God gave Moses his staff, what miracles did it perform later? Research and list them.\n\n🔥 Make a diorama of the burning bush scene in a shoebox. Include Moses, the bush, and his sandals on the ground.",
-      "9-12": "📖 'I AM THAT I AM' is God's covenant name. Jesus uses 'I AM' 7 times in John's Gospel. Find all 7 and list them. What does each one tell us about who Jesus claims to be?\n\n✍️ Moses made lots of excuses: 'Who am I?', 'What if they don't believe me?', 'I can't speak well.' What excuses do we make when God calls us to do hard things? Write down your excuses — then write God's answer to each one."
+      "9-12": "🎨 Create an 'I AM' poster — write 'I AM THAT I AM' in large letters at the centre. Around it, illustrate all 7 'I AM' statements Jesus makes in John's Gospel (bread, light, door, shepherd, resurrection, way, vine). Draw a symbol for each one and write the verse reference.\n\n✍️ Write a diary entry from Moses at the burning bush. Describe what he sees, hears, and feels. Include his excuses and God's replies. End with the moment he takes off his sandals — what does holy ground feel like?"
     },
 
     supplies: "Orange and red tissue paper, brown paper, glue, shoebox, sticks, large paper for feet tracing, markers",
@@ -531,7 +531,7 @@ const LESSONS = [
     activities: {
       "3-5": "✋ Make a red handprint on paper — the blood on the doorpost! Talk about how the lamb kept the family safe. Write 'God protects me' under your handprint.\n\n🐑 Draw a little white lamb. This lamb saved the family — just like Jesus saves us.",
       "6-8": "🍽️ Set a Passover table: a picture of a lamb, bitter herbs (something green), bread without yeast (a cracker), and a cup. Look up what each item means and label them.\n\n📖 Match the Passover elements to Jesus: the lamb = ?, the blood = ?, the unleavened bread = ?, the hyssop = ? Use the New Testament to find your answers.",
-      "9-12": "📖 Paul says 'Christ our Passover is sacrificed for us' (1 Cor 5:7). Make a detailed comparison chart matching every element of the Passover to Jesus: the lamb without blemish, the blood on the door, the unleavened bread, the hyssop, the unbroken bones, the meal eaten in readiness.\n\n✍️ The blood didn't protect the families because they were good people — it protected them because they trusted God's word and applied the blood. How is this like how Jesus saves us? Write your answer in your own words."
+      "9-12": "🎨 Design an illustrated 'Passover → Cross' infographic on a large sheet of paper. Draw each Passover element on the left (lamb, blood, hyssop, unleavened bread, unbroken bones) and its New Testament fulfilment on the right. Use arrows, colour coding, and verse references. Make it clear enough to teach someone else.\n\n🍽️ Create a paper Passover Seder plate — draw a large circle, divide it into sections, and in each section illustrate and label one element of the meal. Write the matching New Testament verse beside each one."
     },
 
     supplies: "Red paint or red paper, white paper, crackers, green herbs (for display), cup, paper plate, markers",
@@ -581,7 +581,7 @@ const LESSONS = [
     activities: {
       "3-5": "🌊 Make a split-sea craft: fold blue paper in half, cut wavy shapes along the fold so the 'sea' opens up. Draw stick people walking through on dry ground!\n\n🎶 Sing a praise song together! The Israelites sang after God saved them — what song can you sing to thank God?",
       "6-8": "📖 Learn the first 3 verses of the Song of Moses (Exodus 15:1–3). It's the oldest song in the Bible! Can you put it to a tune?\n\n🌊 Create a diorama: blue paper walls for the sea, sand at the bottom, tiny figures walking through. Show Pharaoh's army behind them.",
-      "9-12": "📖 Paul says the Red Sea crossing was a 'baptism' (1 Corinthians 10:1–2). What does water symbolise in both events — the Red Sea and Christian baptism? What does it mean to 'pass through' death with God?\n\n✍️ The Song of Moses (Exodus 15) reappears in Revelation 15:3. Read both passages. What does it mean that the redeemed in heaven are STILL singing Moses' song? What does this tell us about how the Bible holds together?"
+      "9-12": "🎶 Write your own 'Song of Praise' inspired by the Song of Moses (Exodus 15). It can be a poem, a rap, or a hymn — at least 8 lines. Include at least 3 things God has done that you want to praise Him for. Illustrate the border with waves and dry ground.\n\n🎨 Create a split-scene diorama or poster: the Red Sea on one side (Exodus 14) and a baptism scene on the other (Romans 6). Draw visual connections showing how the water in both events represents dying to the old life and rising to the new."
     },
 
     supplies: "Blue paper, scissors, sand or yellow paper, small figures or drawings, tape, glue, markers",
@@ -631,7 +631,7 @@ const LESSONS = [
     activities: {
       "3-5": "📜 Make two stone tablets from grey card. Draw 5 simple pictures on each — one for each commandment. Can you remember all ten?\n\n🎨 Draw a big heart. Inside write 'Love God' and 'Love People' — that's what all the commandments are really about!",
       "6-8": "📖 Sort the 10 commandments into two groups: love for God (1–4) and love for people (5–10). Jesus said ALL the law hangs on these two loves. Make a poster showing this.\n\n📜 Make stone tablets from grey foam or cardboard. Write the commandment numbers on each and decorate them.",
-      "9-12": "📖 Read Romans 3:20 and Galatians 3:24. The Law shows us our sin and points us to Christ. If the law can't save us, why did God give it? Write out the three purposes of the law in your own words.\n\n✍️ Which commandment do you find hardest to keep? Be honest! Now read Matthew 5:21–28 — Jesus shows that the commandments go deeper than actions to the heart. How does this change your understanding?"
+      "9-12": "📜 Design your own set of illustrated stone tablets. Draw two tablet shapes on thick card, write the 10 commandments (abbreviated), and add a small illustration for each one. On the back, write Jesus' summary (Matthew 22:37–40) in large decorated letters.\n\n🎨 Create an infographic poster titled 'What the Law Does.' Illustrate the three purposes: (1) a mirror — showing us our sin, (2) a guardrail — protecting society, (3) a signpost — pointing us to Christ. Use Romans 3:20 and Galatians 3:24 as your key verses."
     },
 
     supplies: "Grey card or foam, markers, scissors, large paper for poster, coloured pencils",
@@ -681,7 +681,7 @@ const LESSONS = [
     activities: {
       "3-5": "⛺ Build a mini Tabernacle from a shoebox and fabric. Put a gold star inside to represent God's presence. Talk about how amazing it is that God wanted to live close to His people!\n\n🎨 Draw the Tabernacle and colour it gold, blue, and purple — the colours God chose.",
       "6-8": "📐 Make a labelled diagram of the Tabernacle: outer court, bronze altar, laver, Holy Place, lampstand, table of bread, altar of incense, curtain, Ark of the Covenant. What did each item teach the people about God?\n\n📦 Make a miniature Ark of the Covenant from a small gold-painted box with two craft-stick angels on top.",
-      "9-12": "📖 Read Hebrews 9:1–14. The whole Tabernacle is a shadow of heaven itself, with Jesus as the High Priest. Match each item: the altar = Jesus' sacrifice, the lampstand = Jesus the Light of the World, the bread = Jesus the Bread of Life. What other connections can you find?\n\n✍️ John 1:14 says Jesus 'dwelt' (tabernacled) among us. The Tabernacle was temporary and movable — so was Jesus' time on earth. Now God dwells in His people by the Holy Spirit (1 Corinthians 6:19). Trace the journey: Tabernacle → Temple → Jesus → You. Write about what it means that God wants to dwell WITH His people."
+      "9-12": "🏗️ Build a detailed model or labelled diorama of the Tabernacle using a shoebox, card, and craft materials. Label every item (altar, laver, lampstand, bread table, incense altar, curtain, ark) and attach a small tag to each one explaining what it points to in Jesus.\n\n🎨 Create an illustrated timeline poster: 'Where God Dwells.' Draw four scenes in order: the Tabernacle (Exodus 25:8) → Solomon's Temple (1 Kings 8:10–11) → Jesus in the flesh (John 1:14) → The believer (1 Corinthians 6:19). Write the verse under each scene. Title it: 'God Has Always Wanted to Live With His People.'"
     },
 
     supplies: "Shoebox, fabric scraps, gold paint or foil, craft sticks, small box, glue, scissors, markers, large paper for diagram",
@@ -731,7 +731,7 @@ const LESSONS = [
     activities: {
       "3-5": "🧱 Build walls from blocks or boxes — then march around them 7 times, shout, and knock them down! Just like Joshua!\n\n🎺 Make a trumpet from a rolled-up paper cone. March around the room and blow your trumpet!",
       "6-8": "🗺️ Draw a map of Joshua's campaign: the Jordan crossing, Jericho, Ai, and the division of the land among the 12 tribes.\n\n📖 Read Hebrews 11:30. The walls fell 'by faith.' What does it mean to fight a battle by faith instead of by strength?",
-      "9-12": "📖 Joshua and Jesus share the same name ('Yahweh saves'). List the parallels: both lead God's people into an inheritance, both cross through water, both conquer enemies. What does this tell us about how the Old Testament points to Christ?\n\n✍️ Rahab was an outsider — a Canaanite prostitute — yet she's in the genealogy of Jesus (Matthew 1:5). What does her story teach us about grace?"
+      "9-12": "🗺️ Design a 'Battle of Jericho' strategy poster. Draw the city walls, the marching route (7 days), the positions of the priests and ark, and the moment the walls fall. Include a key explaining each element. Add Joshua 6:20 and Hebrews 11:30 at the bottom.\n\n✍️ Create a one-page 'teaching card' about Rahab to explain her story to a younger child. Draw her picture, write a simple version of her story, and explain why she matters — she's in the family tree of Jesus! (Matthew 1:5). Make it colourful and clear."
     },
 
     supplies: "Building blocks or boxes, paper cones for trumpets, large paper for maps, markers, tape",
@@ -781,7 +781,7 @@ const LESSONS = [
     activities: {
       "3-5": "👩‍⚖️ Draw a picture of brave Deborah under her palm tree, helping people. Write 'Be Brave for God' at the top.\n\n⚡ Act out the story! One person is Deborah, one is Barak, and everyone else is the army. March and shout when Deborah gives the command!",
       "6-8": "📖 Read Judges 4 and make a comic strip with 6 panels telling the story: Deborah under the palm tree → Barak summoned → The battle → The storm → Victory → The song of praise.\n\n✍️ Deborah was brave when others were afraid. Write about a time you were brave for God or for what was right.",
-      "9-12": "📖 The judges cycle repeats throughout the book: sin → suffering → crying out → salvation → rest → sin again. Draw this cycle and give examples from Judges. What does it teach us about human nature? About God's patience?\n\n✍️ Deborah led in a culture that didn't expect women to lead. What does her story tell us about how God chooses and uses people? Does God care more about gender or about faithfulness?"
+      "9-12": "🎨 Draw a large illustrated 'Judges Cycle' diagram — a circular arrow chart with 5 stages: Sin → Oppression → Crying Out → Deliverance → Rest. At each stage, draw a small scene and write an example from the book of Judges. In the centre, write: 'They needed a permanent Saviour.'\n\n✍️ Design a 'Courage Award' certificate for Deborah. Include her name, title (prophetess, judge, leader), her key actions, her key quote (Judges 4:14), and an illustration. Make it look like a real award — borders, seal, and all."
     },
 
     supplies: "Paper, markers, coloured pencils, optional props for acting out the story (scarves, toy swords)",
@@ -831,7 +831,7 @@ const LESSONS = [
     activities: {
       "3-5": "🏺 Make a 'Gideon torch' from a paper cup (the jar) with a yellow paper flame inside. At the count of 3, lift the cup to reveal the light!\n\n🎺 March around the room with your torch and a noisemaker. Shout 'The sword of the LORD!' at the signal.",
       "6-8": "📖 Do the maths: 32,000 → 10,000 → 300. What percentage of the army was left? Why did God want such a small number? Write your answer.\n\n🏺 Make clay pot lanterns from paper cups. Put a battery tea light inside, cover with the cup, then 'smash' (lift) the cup to reveal the light. Connect to 2 Corinthians 4:7 — we are the jars, God's light is inside!",
-      "9-12": "📖 Read 2 Corinthians 4:7 and 12:9. Paul says we are 'earthen vessels' carrying God's treasure, and that God's 'strength is made perfect in weakness.' How does Gideon's story illustrate these verses? Write a paragraph connecting them.\n\n✍️ Gideon was hiding, scared, and from the weakest family. Yet God called him 'mighty man of valour.' Has God ever seen something in you that you don't see in yourself? Write about it."
+      "9-12": "🏺 Make your own 'clay jar lantern' — decorate a paper cup or small pot to look like an earthen vessel. Write 2 Corinthians 4:7 on it. Place a battery tea light inside. When you lift the jar, the light shines out — just like God's power shining through our weakness.\n\n🎨 Design a 'God Uses Weakness' infographic. Draw Gideon's army shrinking: 32,000 → 10,000 → 300. Illustrate the trumpets, jars, and torches. Write the key principle at the bottom: 'Not by might, nor by power, but by my Spirit' (Zechariah 4:6). Make it poster-sized and colourful."
     },
 
     supplies: "Paper cups, battery tea lights or yellow paper, tape, noisemakers, markers",
@@ -881,7 +881,7 @@ const LESSONS = [
     activities: {
       "3-5": "💪 Have a 'strength contest' — who can hold a book with an outstretched arm the longest? Now talk about it: real strength comes from God, not from muscles!\n\n🎨 Draw Samson at two moments: strong and proud, then blind and praying. Which picture shows more faith?",
       "6-8": "📖 Make a 'Samson timeline' showing his highs and lows: birth → lion → victories → Delilah → capture → prayer → final act. At each point, was Samson close to God or far from God?\n\n✍️ Write a journal entry as if you were Samson in prison. What would you say to God?",
-      "9-12": "📖 Samson broke all three Nazirite vows (Numbers 6): no wine, no dead bodies, no haircut. Find where he broke each one in Judges 14–16. What does this pattern of compromise teach us?\n\n✍️ Judges 16:20 says Samson 'knew not that the LORD was departed from him.' How can someone drift from God without realising it? What warning signs should we watch for in our own lives?"
+      "9-12": "📖 Create a 'Samson: Rise & Fall' comic strip with at least 8 panels. Show the key moments: birth announcement → lion → victories → Delilah → haircut → capture → blindness → final prayer. Use colour to show when he's close to God (bright) vs. far from God (dark).\n\n✍️ Write a diary entry as Samson in prison. He's blind, chained, and grinding grain. What does he think about? What does he regret? What does he say to God? End with his final prayer from Judges 16:28."
     },
 
     supplies: "Paper, markers, books (for strength contest), coloured pencils, journal paper",
