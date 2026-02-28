@@ -1,6 +1,6 @@
 "use client";
 import { useState, useCallback } from "react";
-import { supabase } from "@/app/lib/supabase";
+import { supabase } from "../../lib/supabase";
 
 // ─── Theme ────────────────────────────────────────────────────────────────────
 const T = {
