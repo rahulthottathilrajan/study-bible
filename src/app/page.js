@@ -1111,30 +1111,79 @@ export default function StudyBible() {
             </div>
           </div>
 
-          {/* ── GO DEEPER ── */}
+          {/* ── GO DEEPER — Altar of Incense (diamond layout) ── */}
           <div style={{ marginBottom:6,marginTop:10 }}>
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
-              <span>🔬</span> Go Deeper
+              <span>🔥</span> Go Deeper
             </div>
-          <div style={{ display:"flex",gap:12,overflowX:"auto",paddingBottom:8,scrollSnapType:"x mandatory",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",msOverflowStyle:"none" }}>
-              {[
-                { label:"Timeline",sub:"6,000 years of history",letter:"⌛",action:() => nav("timeline-home"),bg:"linear-gradient(135deg,#1C2B1F 0%,#2E4A33 100%)",seal:"#8B2020",sealLight:"#C44040" },
-                { label:"Prophecy",sub:"300+ predictions fulfilled",letter:"✦",action:() => nav("prophecy-home"),bg:"linear-gradient(135deg,#2D1B4E 0%,#4A2D6B 100%)",seal:"#4A2D8E",sealLight:"#7B52D4" },
-                { label:"Apologetics",sub:"Defend the faith",letter:"✝",action:() => nav("apologetics-home"),bg:"linear-gradient(135deg,#1A2F4B 0%,#1B5E5A 100%)",seal:"#1B5E4A",sealLight:"#2D8E6E" },
-                { label:"Reading Plans",sub:"Guided Bible journeys",letter:"☩",action:() => nav("reading-plans-home"),bg:"linear-gradient(135deg,#3E2A1A 0%,#2E1E12 100%)",seal:"#8B6914",sealLight:"#C4961E" },
-              ].map((item,i) => (
-                <button key={i} onClick={item.action} className="pressable" style={{ flex:"0 0 72%",scrollSnapAlign:"start",background:item.bg,border:"none",borderRadius:16,padding:"20px 20px 18px",cursor:"pointer",display:"flex",alignItems:"center",gap:16,boxShadow:"0 4px 16px rgba(0,0,0,0.2)",transition:"all 0.2s",position:"relative",overflow:"hidden" }}>
-                  <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 20% 20%,rgba(255,255,255,0.08),transparent 60%)",pointerEvents:"none" }}/>
-                  <div style={{ width:48,height:48,borderRadius:"50%",background:`radial-gradient(circle at 35% 35%,${item.sealLight},${item.seal} 60%)`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 0 0 3px rgba(255,255,255,0.85),0 4px 12px rgba(0,0,0,0.35)",position:"relative",zIndex:2,flexShrink:0 }}>
-                    <span style={{ fontSize:20,color:"rgba(255,255,255,0.9)",textShadow:"0 1px 2px rgba(0,0,0,0.3)" }}>{item.letter}</span>
+            <div style={{ background:"linear-gradient(160deg,#1C1612 0%,#2D1B4E 50%,#1A2F4B 100%)",borderRadius:20,padding:"28px 16px 24px",position:"relative",overflow:"hidden",boxShadow:"0 6px 24px rgba(0,0,0,0.3)" }}>
+              {/* Stone texture */}
+              <div style={{ position:"absolute",inset:0,opacity:0.3,pointerEvents:"none",backgroundImage:`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E")` }}/>
+              {/* Radial glow from center */}
+              <div style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:200,height:200,background:"radial-gradient(circle,rgba(212,168,83,0.15) 0%,transparent 70%)",pointerEvents:"none" }}/>
+              {/* Golden connecting lines — X pattern */}
+              <svg style={{ position:"absolute",top:0,left:0,width:"100%",height:"100%",pointerEvents:"none",zIndex:0 }} viewBox="0 0 400 320" preserveAspectRatio="none">
+                <line x1="200" y1="60" x2="95" y2="160" stroke="rgba(212,168,83,0.15)" strokeWidth="1"/>
+                <line x1="200" y1="60" x2="305" y2="160" stroke="rgba(212,168,83,0.15)" strokeWidth="1"/>
+                <line x1="95" y1="160" x2="200" y2="260" stroke="rgba(212,168,83,0.15)" strokeWidth="1"/>
+                <line x1="305" y1="160" x2="200" y2="260" stroke="rgba(212,168,83,0.15)" strokeWidth="1"/>
+              </svg>
+              {/* Diamond grid */}
+              <div style={{ position:"relative",zIndex:1,display:"flex",flexDirection:"column",alignItems:"center",gap:6 }}>
+                {/* Top — Timeline */}
+                {(() => { const s = { label:"Timeline",sub:"6,000 years",letter:"⌛",action:() => nav("timeline-home"),seal:"#8B2020",sealLight:"#C44040" }; return (
+                  <button onClick={s.action} className="pressable" style={{ background:"none",border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:6,padding:8 }}>
+                    <div style={{ width:56,height:56,borderRadius:"50%",background:`radial-gradient(circle at 35% 35%,${s.sealLight},${s.seal} 60%)`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 0 0 3px rgba(255,255,255,0.85),0 0 20px rgba(212,168,83,0.2),0 4px 12px rgba(0,0,0,0.35)" }}>
+                      <span style={{ fontSize:22,color:"rgba(255,255,255,0.9)",textShadow:"0 1px 2px rgba(0,0,0,0.3)" }}>{s.letter}</span>
+                    </div>
+                    <div style={{ textAlign:"center" }}>
+                      <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:"#FFFFFFDD",textShadow:"0 1px 3px rgba(0,0,0,0.4)" }}>{s.label}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:9.5,color:"rgba(255,255,255,0.45)",marginTop:1 }}>{s.sub}</div>
+                    </div>
+                  </button>
+                ); })()}
+                {/* Middle row — Prophecy + Center Flame + Apologetics */}
+                <div style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:0,width:"100%" }}>
+                  {(() => { const s = { label:"Prophecy",sub:"300+ fulfilled",letter:"✦",action:() => nav("prophecy-home"),seal:"#4A2D8E",sealLight:"#7B52D4" }; return (
+                    <button onClick={s.action} className="pressable" style={{ background:"none",border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:6,padding:8,flex:1 }}>
+                      <div style={{ width:56,height:56,borderRadius:"50%",background:`radial-gradient(circle at 35% 35%,${s.sealLight},${s.seal} 60%)`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 0 0 3px rgba(255,255,255,0.85),0 0 20px rgba(139,92,246,0.15),0 4px 12px rgba(0,0,0,0.35)" }}>
+                        <span style={{ fontSize:22,color:"rgba(255,255,255,0.9)",textShadow:"0 1px 2px rgba(0,0,0,0.3)" }}>{s.letter}</span>
+                      </div>
+                      <div style={{ textAlign:"center" }}>
+                        <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:"#FFFFFFDD",textShadow:"0 1px 3px rgba(0,0,0,0.4)" }}>{s.label}</div>
+                        <div style={{ fontFamily:ht.ui,fontSize:9.5,color:"rgba(255,255,255,0.45)",marginTop:1 }}>{s.sub}</div>
+                      </div>
+                    </button>
+                  ); })()}
+                  {/* Center altar flame */}
+                  <div style={{ width:48,height:48,borderRadius:"50%",background:"radial-gradient(circle at 50% 40%,#D4A853,#8B6914 70%)",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 0 0 2px rgba(212,168,83,0.5),0 0 30px rgba(212,168,83,0.25),0 0 60px rgba(212,168,83,0.1)",flexShrink:0 }}>
+                    <span style={{ fontSize:22,filter:"drop-shadow(0 0 6px rgba(255,180,50,0.6))" }}>🔥</span>
                   </div>
-                  <div style={{ position:"relative",zIndex:2 }}>
-                    <div style={{ fontFamily:ht.heading,fontSize:16,fontWeight:700,color:"#FFFFFFEE",textShadow:"0 1px 3px rgba(0,0,0,0.4)",letterSpacing:"0.02em" }}>{item.label}</div>
-                    <div style={{ fontFamily:ht.ui,fontSize:11,color:"rgba(255,255,255,0.6)",marginTop:3 }}>{item.sub}</div>
-                  </div>
-                  <div style={{ marginLeft:"auto",color:"rgba(255,255,255,0.4)",flexShrink:0,position:"relative",zIndex:2 }}><ChevIcon /></div>
-                </button>
-              ))}
+                  {(() => { const s = { label:"Apologetics",sub:"Defend the faith",letter:"🛡️",action:() => nav("apologetics-home"),seal:"#1B5E4A",sealLight:"#2D8E6E" }; return (
+                    <button onClick={s.action} className="pressable" style={{ background:"none",border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:6,padding:8,flex:1 }}>
+                      <div style={{ width:56,height:56,borderRadius:"50%",background:`radial-gradient(circle at 35% 35%,${s.sealLight},${s.seal} 60%)`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 0 0 3px rgba(255,255,255,0.85),0 0 20px rgba(27,122,110,0.15),0 4px 12px rgba(0,0,0,0.35)" }}>
+                        <span style={{ fontSize:22,color:"rgba(255,255,255,0.9)",textShadow:"0 1px 2px rgba(0,0,0,0.3)" }}>{s.letter}</span>
+                      </div>
+                      <div style={{ textAlign:"center" }}>
+                        <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:"#FFFFFFDD",textShadow:"0 1px 3px rgba(0,0,0,0.4)" }}>{s.label}</div>
+                        <div style={{ fontFamily:ht.ui,fontSize:9.5,color:"rgba(255,255,255,0.45)",marginTop:1 }}>{s.sub}</div>
+                      </div>
+                    </button>
+                  ); })()}
+                </div>
+                {/* Bottom — Reading Plans */}
+                {(() => { const s = { label:"Reading Plans",sub:"Guided journeys",letter:"☩",action:() => nav("reading-plans-home"),seal:"#8B6914",sealLight:"#C4961E" }; return (
+                  <button onClick={s.action} className="pressable" style={{ background:"none",border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:6,padding:8 }}>
+                    <div style={{ width:56,height:56,borderRadius:"50%",background:`radial-gradient(circle at 35% 35%,${s.sealLight},${s.seal} 60%)`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 0 0 3px rgba(255,255,255,0.85),0 0 20px rgba(212,168,83,0.15),0 4px 12px rgba(0,0,0,0.35)" }}>
+                      <span style={{ fontSize:22,color:"rgba(255,255,255,0.9)",textShadow:"0 1px 2px rgba(0,0,0,0.3)" }}>{s.letter}</span>
+                    </div>
+                    <div style={{ textAlign:"center" }}>
+                      <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:"#FFFFFFDD",textShadow:"0 1px 3px rgba(0,0,0,0.4)" }}>{s.label}</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:9.5,color:"rgba(255,255,255,0.45)",marginTop:1 }}>{s.sub}</div>
+                    </div>
+                  </button>
+                ); })()}
+              </div>
             </div>
           </div>
 
