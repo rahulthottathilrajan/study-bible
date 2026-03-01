@@ -528,42 +528,25 @@ export default function StudyBible() {
   }, []);
 
   const goingBack = useRef(false);
-  const viewRef = useRef(view);
-  const testamentRef = useRef(testament);
-  const bookRef = useRef(book);
-  const chapterRef = useRef(chapter);
-  useEffect(() => { viewRef.current = view; testamentRef.current = testament; bookRef.current = book; chapterRef.current = chapter; }, [view, testament, book, chapter]);
-  const goBack = useCallback(() => {
-    const v = viewRef.current, ts = testamentRef.current, bk = bookRef.current, ch = chapterRef.current;
-    let targetView = "home", opts = {};
-
-    // Bible reading flow
-    if (v === "verse") { targetView = "verses"; opts = { testament: ts, book: bk, chapter: ch, verse: null }; }
-    else if (v === "verses") { targetView = "chapter"; opts = { testament: ts, book: bk }; }
-    else if (v === "chapter") { targetView = "books"; opts = { testament: ts }; }
-    else if (v === "books") { targetView = "home"; }
-
-    // Hebrew sub-views
-    else if (v === "hebrew-lesson" || v === "hebrew-practice") { targetView = "hebrew-home"; }
-    else if (v === "hebrew-reading") { targetView = "hebrew-reading-home"; }
-    else if (v === "hebrew-grammar-lesson") { targetView = "hebrew-grammar-home"; }
-    else if (["hebrew-home","hebrew-reading-home","hebrew-grammar-home"].includes(v)) { targetView = "learn-home"; }
-
-    // Timeline sub-views
-    else if (v === "timeline-era-detail") { targetView = "timeline-era"; }
-    else if (v === "timeline-era") { targetView = "timeline-home"; }
-    else if (["timeline-home","timeline-maps","timeline-books","prophecy-home","timeline-archaeology","apologetics-home","reading-plans-home","kids-curriculum-home"].includes(v)) { targetView = "learn-home"; }
-
-    // Other views
-    else if (["learn-home","journal-home","account","highlights"].includes(v)) { targetView = "home"; }
-
-    // Pop navStack + sync browser history
+  const goBack = () => {
+    let target = "home", opts = {};
+    if (view === "verse") { target = "verses"; opts = { testament, book, chapter, verse: null }; }
+    else if (view === "verses") { target = "chapter"; opts = { testament, book }; }
+    else if (view === "chapter") { target = "books"; opts = { testament }; }
+    else if (view === "books") { target = "home"; }
+    else if (view === "hebrew-lesson" || view === "hebrew-practice") { target = "hebrew-home"; }
+    else if (view === "hebrew-reading") { target = "hebrew-reading-home"; }
+    else if (view === "hebrew-grammar-lesson") { target = "hebrew-grammar-home"; }
+    else if (["hebrew-home","hebrew-reading-home","hebrew-grammar-home"].includes(view)) { target = "learn-home"; }
+    else if (view === "timeline-era-detail") { target = "timeline-era"; }
+    else if (view === "timeline-era") { target = "timeline-home"; }
+    else if (["timeline-home","timeline-maps","timeline-books","prophecy-home","timeline-archaeology","apologetics-home","reading-plans-home","kids-curriculum-home"].includes(view)) { target = "learn-home"; }
+    else if (["learn-home","journal-home","account","highlights"].includes(view)) { target = "home"; }
     if (navStack.current.length > 1) navStack.current.pop();
     goingBack.current = true;
-
     setFade(false);
     setTimeout(() => {
-      setView(targetView);
+      setView(target);
       if (opts.testament !== undefined) setTestament(opts.testament);
       if (opts.book !== undefined) setBook(opts.book);
       if (opts.chapter !== undefined) setChapter(opts.chapter);
@@ -573,7 +556,7 @@ export default function StudyBible() {
       window.scrollTo({ top: 0, behavior: "instant" });
     }, 80);
     window.history.back();
-  }, [view, testament, book, chapter]);
+  };
 
   const nav = useCallback((v, opts = {}) => {
     const snapshot = { view: v, testament, book, chapter, verse, tab, ...opts };
