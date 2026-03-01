@@ -1097,10 +1097,10 @@ export default function StudyBible() {
             </div>
             <div style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,position:"relative" }}>
               {[
-                { label:"Timeline",letter:"⌛",action:() => nav("timeline-home"),stone:"linear-gradient(170deg,#A8D4CC 0%,#7DBFB4 25%,#5A9E92 60%,#3D7A70 100%)",textColor:"#1A3530",seal:"#8B2020",sealLight:"#C44040" },
-                { label:"Prophecy",letter:"✦",action:() => nav("prophecy-home"),stone:"linear-gradient(170deg,#8EC4BE 0%,#6BADA5 25%,#4A918A 60%,#2D6E68 100%)",textColor:"#122E2B",seal:"#4A2D8E",sealLight:"#7B52D4" },
-                { label:"Apologetics",letter:"✝",action:() => nav("apologetics-home"),stone:"linear-gradient(170deg,#B5DDD6 0%,#8DC8BF 25%,#68AEA4 60%,#488E84 100%)",textColor:"#163530",seal:"#1B5E4A",sealLight:"#2D8E6E" },
-                { label:"Reading\nPlans",letter:"☩",action:() => nav("reading-plans-home"),stone:"linear-gradient(170deg,#9BD0C8 0%,#72B8AE 25%,#529C92 60%,#357D72 100%)",textColor:"#142D28",seal:"#8B6914",sealLight:"#C4961E" },
+                { label:"Timeline",letter:"⌛",action:() => nav("timeline-home"),stone:"linear-gradient(170deg,#2D4A3E 0%,#1E3830 25%,#152A22 60%,#0E1E18 100%)",textColor:"#C8DDD4",seal:"#8B2020",sealLight:"#C44040" },
+                { label:"Prophecy",letter:"✦",action:() => nav("prophecy-home"),stone:"linear-gradient(170deg,#4A2038 0%,#3A1628 25%,#2C101E 60%,#1E0A14 100%)",textColor:"#E0C4D4",seal:"#4A2D8E",sealLight:"#7B52D4" },
+                { label:"Apologetics",letter:"✝",action:() => nav("apologetics-home"),stone:"linear-gradient(170deg,#2A2A40 0%,#1E1E32 25%,#161628 60%,#0E0E1C 100%)",textColor:"#C8C8E0",seal:"#1B5E4A",sealLight:"#2D8E6E" },
+                { label:"Reading\nPlans",letter:"☩",action:() => nav("reading-plans-home"),stone:"linear-gradient(170deg,#3E2A1A 0%,#2E1E12 25%,#221610 60%,#180E08 100%)",textColor:"#DDD0C0",seal:"#8B6914",sealLight:"#C4961E" },
               ].map((item,i) => (
                 <button key={i} onClick={item.action} className="pressable" style={{ background:item.stone,border:"none",borderRadius:12,padding:"18px 4px 14px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:6,boxShadow:"inset 0 2px 3px rgba(255,255,255,0.2),inset 0 -3px 6px rgba(0,0,0,0.2),0 4px 12px rgba(0,0,0,0.15),0 1px 3px rgba(0,0,0,0.1)",transition:"all 0.2s",position:"relative",overflow:"hidden",aspectRatio:"1/1.1" }}>
                   <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 25% 15%,rgba(255,255,255,0.15),transparent 55%),radial-gradient(ellipse at 75% 85%,rgba(0,0,0,0.1),transparent 50%)",pointerEvents:"none" }}/>
