@@ -1095,19 +1095,21 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🔬</span> Go Deeper
             </div>
-            <div style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8 }}>
+            <div style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,position:"relative" }}>
               {[
-                { label:"Timeline",icon:"📜",action:() => nav("timeline-home"),stone:"linear-gradient(170deg,#D4B896 0%,#C4A476 25%,#A8884E 60%,#8B6F3A 100%)",textColor:"#3E2E18" },
-                { label:"Prophecy",icon:"🔭",action:() => nav("prophecy-home"),stone:"linear-gradient(170deg,#B8C4D0 0%,#95A5B5 25%,#6E8494 60%,#4A6475 100%)",textColor:"#1E3040" },
-                { label:"Apologetics",icon:"🛡️",action:() => nav("apologetics-home"),stone:"linear-gradient(170deg,#C2C8CE 0%,#A8B0BA 25%,#8E9AA6 60%,#748290 100%)",textColor:"#1E2A36" },
-                { label:"Reading\nPlans",icon:"🗓️",action:() => nav("reading-plans-home"),stone:"linear-gradient(170deg,#D4A89A 0%,#BE8E7E 25%,#9E7060 60%,#7A5445 100%)",textColor:"#2E1810" },
+                { label:"Timeline",letter:"⌛",action:() => nav("timeline-home"),stone:"linear-gradient(170deg,#D4B896 0%,#C4A476 25%,#A8884E 60%,#8B6F3A 100%)",textColor:"#3E2E18",seal:"#8B2020",sealLight:"#C44040" },
+                { label:"Prophecy",letter:"✦",action:() => nav("prophecy-home"),stone:"linear-gradient(170deg,#B8C4D0 0%,#95A5B5 25%,#6E8494 60%,#4A6475 100%)",textColor:"#1E3040",seal:"#4A2D8E",sealLight:"#7B52D4" },
+                { label:"Apologetics",letter:"✝",action:() => nav("apologetics-home"),stone:"linear-gradient(170deg,#C2C8CE 0%,#A8B0BA 25%,#8E9AA6 60%,#748290 100%)",textColor:"#1E2A36",seal:"#1B5E4A",sealLight:"#2D8E6E" },
+                { label:"Reading\nPlans",letter:"☩",action:() => nav("reading-plans-home"),stone:"linear-gradient(170deg,#D4A89A 0%,#BE8E7E 25%,#9E7060 60%,#7A5445 100%)",textColor:"#2E1810",seal:"#8B6914",sealLight:"#C4961E" },
               ].map((item,i) => (
-                <button key={i} onClick={item.action} className="pressable" style={{ background:item.stone,border:"none",borderRadius:12,padding:"16px 4px 14px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:8,boxShadow:"inset 0 2px 3px rgba(255,255,255,0.2),inset 0 -3px 6px rgba(0,0,0,0.2),0 4px 12px rgba(0,0,0,0.15),0 1px 3px rgba(0,0,0,0.1)",transition:"all 0.2s",position:"relative",overflow:"hidden",aspectRatio:"1/1.1" }}>
+                <button key={i} onClick={item.action} className="pressable" style={{ background:item.stone,border:"none",borderRadius:12,padding:"18px 4px 14px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:6,boxShadow:"inset 0 2px 3px rgba(255,255,255,0.2),inset 0 -3px 6px rgba(0,0,0,0.2),0 4px 12px rgba(0,0,0,0.15),0 1px 3px rgba(0,0,0,0.1)",transition:"all 0.2s",position:"relative",overflow:"hidden",aspectRatio:"1/1.1" }}>
                   <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 25% 15%,rgba(255,255,255,0.15),transparent 55%),radial-gradient(ellipse at 75% 85%,rgba(0,0,0,0.1),transparent 50%)",pointerEvents:"none" }}/>
-                  <div style={{ position:"absolute",inset:0,opacity:0.08,backgroundImage:"url('data:image/svg+xml,%3Csvg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"n\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.65\" numOctaves=\"6\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"200\" height=\"200\" filter=\"url(%23n)\"/%3E%3C/svg%3E')",backgroundSize:"200px 200px",pointerEvents:"none",mixBlendMode:"overlay" }}/>
-                  <div style={{ position:"absolute",inset:0,opacity:0.06,backgroundImage:"url('data:image/svg+xml,%3Csvg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"c\"%3E%3CfeTurbulence type=\"turbulence\" baseFrequency=\"0.03\" numOctaves=\"3\"/%3E%3C/filter%3E%3Crect width=\"100\" height=\"100\" filter=\"url(%23c)\"/%3E%3C/svg%3E')",backgroundSize:"100px 100px",pointerEvents:"none",mixBlendMode:"multiply" }}/>
-                  <div style={{ fontSize:26,filter:"drop-shadow(0 2px 3px rgba(0,0,0,0.25))",position:"relative",zIndex:1 }}>{item.icon}</div>
-                  <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:item.textColor,textAlign:"center",lineHeight:1.25,textShadow:`0 -1px 1px rgba(0,0,0,0.15),0 1px 0 rgba(255,255,255,0.12)`,letterSpacing:"0.03em",position:"relative",zIndex:1,whiteSpace:"pre-line" }}>{item.label}</div>
+                  <div style={{ position:"absolute",inset:0,opacity:0.07,backgroundImage:"url('data:image/svg+xml,%3Csvg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"n\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.65\" numOctaves=\"6\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"200\" height=\"200\" filter=\"url(%23n)\"/%3E%3C/svg%3E')",backgroundSize:"200px 200px",pointerEvents:"none",mixBlendMode:"overlay" }}/>
+                  <div style={{ position:"absolute",inset:0,background:"linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.12) 45%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.12) 55%,transparent 65%)",backgroundSize:"250% 100%",animation:"stoneShimmer 4s ease-in-out infinite",pointerEvents:"none",zIndex:1 }}/>
+                  <div style={{ width:40,height:40,borderRadius:"50%",background:`radial-gradient(circle at 35% 35%,${item.sealLight},${item.seal} 60%,${item.seal}DD 100%)`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:`inset 0 2px 4px rgba(255,255,255,0.3),inset 0 -2px 4px rgba(0,0,0,0.3),0 3px 8px rgba(0,0,0,0.25)`,position:"relative",zIndex:2,border:"1px solid rgba(0,0,0,0.1)" }}>
+                    <span style={{ fontSize:18,color:"rgba(255,255,255,0.85)",textShadow:"0 1px 2px rgba(0,0,0,0.3)",lineHeight:1 }}>{item.letter}</span>
+                  </div>
+                  <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:item.textColor,textAlign:"center",lineHeight:1.25,textShadow:"0 -1px 1px rgba(0,0,0,0.12),0 1px 0 rgba(255,255,255,0.15)",letterSpacing:"0.03em",position:"relative",zIndex:2,whiteSpace:"pre-line" }}>{item.label}</div>
                 </button>
               ))}
             </div>
@@ -3618,7 +3620,7 @@ export default function StudyBible() {
   // ═══ RENDER ═══
   return (
     <div style={{ maxWidth:640,margin:"0 auto",transition:"opacity 0.12s ease",opacity:fade?1:0,minHeight:"100vh",paddingBottom:showNav?68:0 }}>
-      <style>{`.pressable{transition:background 0.15s,transform 0.1s!important}.pressable:hover{background:rgba(0,0,0,0.03)!important}.pressable:active{background:rgba(0,0,0,0.07)!important;transform:scale(0.985)}`}</style>
+      <style>{`.pressable{transition:background 0.15s,transform 0.1s!important}.pressable:hover{background:rgba(0,0,0,0.03)!important}.pressable:active{background:rgba(0,0,0,0.07)!important;transform:scale(0.985)}@keyframes stoneShimmer{0%{background-position:250% 0}50%{background-position:-50% 0}100%{background-position:250% 0}}`}</style>
       {view === "home" && Home()}
       {view === "books" && Books()}
       {view === "chapter" && Chapters()}
