@@ -1095,16 +1095,17 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🔬</span> Go Deeper
             </div>
-            <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }}>
+            <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10 }}>
               {[
-                { label:"Timeline",icon:"📜",color:"#E8625C",action:() => nav("timeline-home") },
-                { label:"Prophecy",icon:"🔭",color:"#8B5CF6",action:() => nav("prophecy-home") },
-                { label:"Apologetics",icon:"🛡️",color:"#1B7A6E",action:() => nav("apologetics-home") },
-                { label:"Reading Plans",icon:"🗓️",color:"#D4A853",action:() => nav("reading-plans-home") },
+                { label:"Timeline",icon:"📜",action:() => nav("timeline-home"),stone:"linear-gradient(160deg,#C4B59A 0%,#A89478 40%,#8B7A5E 100%)" },
+                { label:"Prophecy",icon:"🔭",action:() => nav("prophecy-home"),stone:"linear-gradient(160deg,#B8A88E 0%,#9C8B6F 40%,#7D6E55 100%)" },
+                { label:"Apologetics",icon:"🛡️",action:() => nav("apologetics-home"),stone:"linear-gradient(160deg,#BCA98D 0%,#A08E72 40%,#867558 100%)" },
+                { label:"Reading Plans",icon:"🗓️",action:() => nav("reading-plans-home"),stone:"linear-gradient(160deg,#C0AD92 0%,#A69680 40%,#8A7B63 100%)" },
               ].map((item,i) => (
-                <button key={i} onClick={item.action} className="pressable" style={{ background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:16,padding:"20px 10px 16px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:10,boxShadow:"0 2px 8px rgba(0,0,0,0.05)",transition:"all 0.2s",position:"relative" }}>
-                  <div style={{ width:56,height:56,borderRadius:16,background:`linear-gradient(145deg,${item.color}20,${item.color}45)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,boxShadow:`0 4px 12px ${item.color}25` }}>{item.icon}</div>
-                  <div style={{ fontFamily:ht.ui,fontSize:12,fontWeight:700,color:ht.dark,textAlign:"center",lineHeight:1.3 }}>{item.label}</div>
+                <button key={i} onClick={item.action} className="pressable" style={{ background:item.stone,border:"none",borderRadius:14,padding:"22px 10px 18px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:10,boxShadow:"inset 0 2px 4px rgba(255,255,255,0.25),inset 0 -2px 6px rgba(0,0,0,0.15),0 3px 10px rgba(0,0,0,0.12)",transition:"all 0.2s",position:"relative",overflow:"hidden" }}>
+                  <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 30% 20%,rgba(255,255,255,0.12),transparent 60%)",pointerEvents:"none" }}/>
+                  <div style={{ fontSize:30,filter:"drop-shadow(0 2px 3px rgba(0,0,0,0.2))",position:"relative",zIndex:1 }}>{item.icon}</div>
+                  <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:"#F5EDE0",textAlign:"center",lineHeight:1.3,textShadow:"0 -1px 1px rgba(0,0,0,0.4),0 1px 0 rgba(255,255,255,0.15)",letterSpacing:"0.04em",position:"relative",zIndex:1 }}>{item.label}</div>
                 </button>
               ))}
             </div>
