@@ -1244,6 +1244,15 @@ export default function StudyBible() {
             </div>
           </div>
 
+          {/* Empty state banner */}
+          {availNums.length === 0 && (
+            <div style={{ padding:"16px 18px",marginBottom:18,background:`linear-gradient(135deg,${t.accentLight},${t.card})`,border:`1px solid ${t.accentBorder}`,borderRadius:14,textAlign:"center" }}>
+              <div style={{ fontSize:22,marginBottom:6 }}>📜</div>
+              <div style={{ fontFamily:t.heading,fontSize:15,fontWeight:700,color:t.dark,marginBottom:4 }}>Study notes coming soon</div>
+              <div style={{ fontFamily:t.ui,fontSize:12,color:t.muted,lineHeight:1.5 }}>Genesis is fully seeded with verse-by-verse study notes, Hebrew text, and cross-references. More books are being prepared.</div>
+            </div>
+          )}
+
           {/* Grouped chapters */}
           {groups.map((group, gi) => {
             const groupHasContent = group.chapters.some(ch => availNums.includes(ch));
