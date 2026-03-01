@@ -1095,17 +1095,18 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🔬</span> Go Deeper
             </div>
-            <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10 }}>
+            <div style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8 }}>
               {[
-                { label:"Timeline",icon:"📜",action:() => nav("timeline-home"),stone:"linear-gradient(160deg,#C4B59A 0%,#A89478 40%,#8B7A5E 100%)" },
-                { label:"Prophecy",icon:"🔭",action:() => nav("prophecy-home"),stone:"linear-gradient(160deg,#B8A88E 0%,#9C8B6F 40%,#7D6E55 100%)" },
-                { label:"Apologetics",icon:"🛡️",action:() => nav("apologetics-home"),stone:"linear-gradient(160deg,#BCA98D 0%,#A08E72 40%,#867558 100%)" },
-                { label:"Reading Plans",icon:"🗓️",action:() => nav("reading-plans-home"),stone:"linear-gradient(160deg,#C0AD92 0%,#A69680 40%,#8A7B63 100%)" },
+                { label:"Timeline",icon:"📜",action:() => nav("timeline-home"),stone:"linear-gradient(170deg,#D4B896 0%,#C4A476 25%,#A8884E 60%,#8B6F3A 100%)",textColor:"#3E2E18" },
+                { label:"Prophecy",icon:"🔭",action:() => nav("prophecy-home"),stone:"linear-gradient(170deg,#B8C4D0 0%,#95A5B5 25%,#6E8494 60%,#4A6475 100%)",textColor:"#1E3040" },
+                { label:"Apologetics",icon:"🛡️",action:() => nav("apologetics-home"),stone:"linear-gradient(170deg,#8A8A8A 0%,#6B6B6B 25%,#4A4A4A 60%,#333333 100%)",textColor:"#E8E0D8" },
+                { label:"Reading\nPlans",icon:"🗓️",action:() => nav("reading-plans-home"),stone:"linear-gradient(170deg,#D4A89A 0%,#BE8E7E 25%,#9E7060 60%,#7A5445 100%)",textColor:"#2E1810" },
               ].map((item,i) => (
-                <button key={i} onClick={item.action} className="pressable" style={{ background:item.stone,border:"none",borderRadius:14,padding:"22px 10px 18px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:10,boxShadow:"inset 0 2px 4px rgba(255,255,255,0.25),inset 0 -2px 6px rgba(0,0,0,0.15),0 3px 10px rgba(0,0,0,0.12)",transition:"all 0.2s",position:"relative",overflow:"hidden" }}>
-                  <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 30% 20%,rgba(255,255,255,0.12),transparent 60%)",pointerEvents:"none" }}/>
-                  <div style={{ fontSize:30,filter:"drop-shadow(0 2px 3px rgba(0,0,0,0.2))",position:"relative",zIndex:1 }}>{item.icon}</div>
-                  <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:"#F5EDE0",textAlign:"center",lineHeight:1.3,textShadow:"0 -1px 1px rgba(0,0,0,0.4),0 1px 0 rgba(255,255,255,0.15)",letterSpacing:"0.04em",position:"relative",zIndex:1 }}>{item.label}</div>
+                <button key={i} onClick={item.action} className="pressable" style={{ background:item.stone,border:"none",borderRadius:12,padding:"16px 4px 14px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:8,boxShadow:"inset 0 2px 3px rgba(255,255,255,0.2),inset 0 -3px 6px rgba(0,0,0,0.2),0 4px 12px rgba(0,0,0,0.15),0 1px 3px rgba(0,0,0,0.1)",transition:"all 0.2s",position:"relative",overflow:"hidden",aspectRatio:"1/1.1" }}>
+                  <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 25% 15%,rgba(255,255,255,0.15),transparent 55%),radial-gradient(ellipse at 75% 85%,rgba(0,0,0,0.1),transparent 50%)",pointerEvents:"none" }}/>
+                  <div style={{ position:"absolute",inset:0,opacity:0.04,backgroundImage:"url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"n\"%3E%3CfeTurbulence baseFrequency=\"0.9\" numOctaves=\"4\"/%3E%3C/filter%3E%3Crect width=\"40\" height=\"40\" filter=\"url(%23n)\"/%3E%3C/svg%3E')",backgroundSize:"40px 40px",pointerEvents:"none" }}/>
+                  <div style={{ fontSize:26,filter:"drop-shadow(0 2px 3px rgba(0,0,0,0.25))",position:"relative",zIndex:1 }}>{item.icon}</div>
+                  <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:item.textColor,textAlign:"center",lineHeight:1.25,textShadow:`0 -1px 1px rgba(0,0,0,0.15),0 1px 0 rgba(255,255,255,0.12)`,letterSpacing:"0.03em",position:"relative",zIndex:1,whiteSpace:"pre-line" }}>{item.label}</div>
                 </button>
               ))}
             </div>
