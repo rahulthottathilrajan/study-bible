@@ -528,52 +528,15 @@ export default function StudyBible() {
   }, []);
 
   const goingBack = useRef(false);
+  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "journal-home":"home", "account":"home", "highlights":"home" };
   const goBack = () => {
-    let target = "home", opts = {};
-    if (view === "verse") { target = "verses"; opts = { testament, book, chapter, verse: null }; }
-    else if (view === "verses") { target = "chapter"; opts = { testament, book }; }
-    else if (view === "chapter") { target = "books"; opts = { testament }; }
-    else if (view === "books") { target = "home"; }
-    else if (view === "hebrew-lesson" || view === "hebrew-practice") { target = "hebrew-home"; }
-    else if (view === "hebrew-reading") { target = "hebrew-reading-home"; }
-    else if (view === "hebrew-grammar-lesson") { target = "hebrew-grammar-home"; }
-    else if (["hebrew-home","hebrew-reading-home","hebrew-grammar-home"].includes(view)) { target = "learn-home"; }
-    else if (view === "timeline-era-detail") { target = "timeline-era"; }
-    else if (view === "timeline-era") { target = "timeline-home"; }
-    else if (["timeline-home","timeline-maps","timeline-books","prophecy-home","timeline-archaeology","apologetics-home","reading-plans-home","kids-curriculum-home"].includes(view)) { target = "learn-home"; }
-    else if (["learn-home","journal-home","account","highlights"].includes(view)) { target = "home"; }
+    const target = BACK_MAP[view] || "home";
     if (navStack.current.length > 1) navStack.current.pop();
     goingBack.current = true;
     setFade(false);
-    setTimeout(() => {
-      setView(target);
-      if (opts.testament !== undefined) setTestament(opts.testament);
-      if (opts.book !== undefined) setBook(opts.book);
-      if (opts.chapter !== undefined) setChapter(opts.chapter);
-      if (opts.verse !== undefined) setVerse(opts.verse);
-      if (opts.tab !== undefined) setTab(opts.tab);
-      setFade(true);
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }, 80);
+    setTimeout(() => { setView(target); setFade(true); window.scrollTo({ top: 0, behavior: "instant" }); }, 80);
     window.history.back();
   };
-
-  const nav = useCallback((v, opts = {}) => {
-    const snapshot = { view: v, testament, book, chapter, verse, tab, ...opts };
-    navStack.current.push(snapshot);
-    window.history.pushState({ _nav: navStack.current.length - 1 }, "");
-    setFade(false);
-    setTimeout(() => {
-      setView(v);
-      if (opts.testament !== undefined) setTestament(opts.testament);
-      if (opts.book !== undefined) setBook(opts.book);
-      if (opts.chapter !== undefined) setChapter(opts.chapter);
-      if (opts.verse !== undefined) setVerse(opts.verse);
-      if (opts.tab !== undefined) setTab(opts.tab);
-      setFade(true);
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }, 80);
-  }, [testament, book, chapter, verse, tab]);
 
   useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
   useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) setVerse(verseNums[0]); }, [view, verse, verseNums]);
