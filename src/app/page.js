@@ -8,6 +8,7 @@ import ArchaeologyCards from "./components/ArchaeologyCards";
 import Apologetics from "./components/Apologetics";
 import ReadingPlans from "./components/ReadingPlans";
 import KidsCurriculum from "./components/KidsCurriculum";
+import ContinueReading from "./components/ContinueReading";
 
 // ═══════════════════════════════════════════════════
 // THEME SYSTEM
@@ -532,10 +533,15 @@ export default function StudyBible() {
   useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
   useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) setVerse(verseNums[0]); }, [view, verse, verseNums]);
 
-  // Save last-read position
+  // Save last-read position (cr_ot / cr_nt + legacy lastRead)
   useEffect(() => {
     if (view === "verse" && book && chapter && verse) {
-      try { localStorage.setItem("lastRead", JSON.stringify({ book, chapter, verse, testament })); } catch {}
+      const key = testament === "NT" ? "cr_nt" : "cr_ot";
+      const entry = { book, chapter, verse };
+      try {
+        localStorage.setItem(key, JSON.stringify(entry));
+        localStorage.setItem("lastRead", JSON.stringify({ book, chapter, verse, testament }));
+      } catch {}
     }
   }, [view, book, chapter, verse, testament]);
 
@@ -984,16 +990,8 @@ export default function StudyBible() {
             <div style={{ color:ht.light }}><ChevIcon /></div>
           </button>
           {/* ── CONTINUE READING ── */}
-          {(() => { try { const lr = JSON.parse(localStorage.getItem("lastRead")); if (!lr?.book || !lr?.chapter || !lr?.verse) return null; return (
-            <button onClick={() => nav("verse",{ testament:lr.testament, book:lr.book, chapter:lr.chapter, verse:lr.verse })} style={{ width:"100%",background:`linear-gradient(135deg,${ht.accentLight},${ht.card})`,border:`1px solid ${ht.accentBorder||"rgba(212,168,83,0.3)"}`,borderRadius:14,padding:"14px 16px",marginBottom:18,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,transition:"transform 0.15s" }}>
-              <div style={{ width:44,height:44,borderRadius:12,background:`linear-gradient(135deg,${ht.accent},${ht.accentDark||ht.accent})`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,flexShrink:0,boxShadow:`0 2px 8px ${ht.accent}40` }}>📖</div>
-              <div style={{ flex:1 }}>
-                <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Continue Reading</div>
-                <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,lineHeight:1.5,marginTop:2 }}>{lr.book} {lr.chapter}:{lr.verse}</div>
-              </div>
-              <div style={{ color:ht.accent }}><ChevIcon /></div>
-            </button>
-          ); } catch { return null; } })()}
+          <ContinueReading nav={nav} ht={ht} />
+
           {/* ── THE HOLY SCRIPTURES ── */}
           <div style={{ marginBottom:6 }}>
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
