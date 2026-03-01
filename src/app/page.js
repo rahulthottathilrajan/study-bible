@@ -392,6 +392,7 @@ export default function StudyBible() {
   window.history.replaceState({ _nav: 0 }, "");
 
   const handlePopState = () => {
+    if (goingBack.current) { goingBack.current = false; return; }
     if (navStack.current.length > 1) {
       navStack.current.pop();
       const prev = navStack.current[navStack.current.length - 1];
@@ -526,8 +527,23 @@ export default function StudyBible() {
     setLoading(false);
   }, []);
 
+  const goingBack = useRef(false);
   const goBack = useCallback(() => {
     if (navStack.current.length > 1) {
+      navStack.current.pop();
+      const prev = navStack.current[navStack.current.length - 1];
+      goingBack.current = true;
+      setFade(false);
+      setTimeout(() => {
+        setView(prev.view);
+        if (prev.testament !== undefined) setTestament(prev.testament);
+        if (prev.book !== undefined) setBook(prev.book);
+        if (prev.chapter !== undefined) setChapter(prev.chapter);
+        if (prev.verse !== undefined) setVerse(prev.verse);
+        if (prev.tab !== undefined) setTab(prev.tab);
+        setFade(true);
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }, 80);
       window.history.back();
     }
   }, []);
