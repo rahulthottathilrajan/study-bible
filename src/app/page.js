@@ -545,6 +545,29 @@ export default function StudyBible() {
     }
   }, [view, book, chapter, verse, testament]);
 
+  // Save section positions for Continue Reading strip
+  useEffect(() => {
+    try {
+      if (view === "hebrew-home" || view === "hebrew-lesson" || view === "hebrew-practice") {
+        const name = hebrewLesson?.title || hebrewCategory || "Hebrew";
+        localStorage.setItem("cr_hebrew", JSON.stringify({ lessonName: name, view }));
+      }
+      if (view === "timeline-home" || view === "timeline-era") {
+        const name = timelineSelectedEra?.era_name || "Timeline";
+        localStorage.setItem("cr_timeline", JSON.stringify({ eraName: name, view }));
+      }
+      if (view === "prophecy-home") {
+        localStorage.setItem("cr_prophecy", JSON.stringify({ topicName: "Prophecy & Fulfilment" }));
+      }
+      if (view === "apologetics-home") {
+        localStorage.setItem("cr_apologetics", JSON.stringify({ topicName: "Apologetics" }));
+      }
+      if (view === "reading-plans-home") {
+        localStorage.setItem("cr_readingplans", JSON.stringify({ planName: "Reading Plans" }));
+      }
+    } catch {}
+  }, [view, hebrewLesson, hebrewCategory, timelineSelectedEra]);
+
   // Auth modal rendered inline below in return
 
   // Prayer modal rendered inline below in return
