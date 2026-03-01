@@ -1095,21 +1095,23 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🔬</span> Go Deeper
             </div>
-            <div style={{ display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,position:"relative" }}>
+          <div style={{ display:"flex",gap:12,overflowX:"auto",paddingBottom:8,scrollSnapType:"x mandatory",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",msOverflowStyle:"none" }}>
               {[
-                { label:"Timeline",letter:"⌛",action:() => nav("timeline-home"),stone:"linear-gradient(170deg,#2D4A3E 0%,#1E3830 25%,#152A22 60%,#0E1E18 100%)",textColor:"#C8DDD4",seal:"#8B2020",sealLight:"#C44040" },
-                { label:"Prophecy",letter:"✦",action:() => nav("prophecy-home"),stone:"linear-gradient(170deg,#4A2038 0%,#3A1628 25%,#2C101E 60%,#1E0A14 100%)",textColor:"#E0C4D4",seal:"#4A2D8E",sealLight:"#7B52D4" },
-                { label:"Apologetics",letter:"✝",action:() => nav("apologetics-home"),stone:"linear-gradient(170deg,#2A2A40 0%,#1E1E32 25%,#161628 60%,#0E0E1C 100%)",textColor:"#C8C8E0",seal:"#1B5E4A",sealLight:"#2D8E6E" },
-                { label:"Reading Plans",letter:"☩",action:() => nav("reading-plans-home"),stone:"linear-gradient(170deg,#3E2A1A 0%,#2E1E12 25%,#221610 60%,#180E08 100%)",textColor:"#DDD0C0",seal:"#8B6914",sealLight:"#C4961E" },
+                { label:"Timeline",sub:"6,000 years of history",letter:"⌛",action:() => nav("timeline-home"),bg:"linear-gradient(135deg,#1C2B1F 0%,#2E4A33 100%)",seal:"#8B2020",sealLight:"#C44040" },
+                { label:"Prophecy",sub:"300+ predictions fulfilled",letter:"✦",action:() => nav("prophecy-home"),bg:"linear-gradient(135deg,#2D1B4E 0%,#4A2D6B 100%)",seal:"#4A2D8E",sealLight:"#7B52D4" },
+                { label:"Apologetics",sub:"Defend the faith",letter:"✝",action:() => nav("apologetics-home"),bg:"linear-gradient(135deg,#1A2F4B 0%,#1B5E5A 100%)",seal:"#1B5E4A",sealLight:"#2D8E6E" },
+                { label:"Reading Plans",sub:"Guided Bible journeys",letter:"☩",action:() => nav("reading-plans-home"),bg:"linear-gradient(135deg,#3E2A1A 0%,#2E1E12 100%)",seal:"#8B6914",sealLight:"#C4961E" },
               ].map((item,i) => (
-                <button key={i} onClick={item.action} className="pressable" style={{ background:item.stone,border:"none",borderRadius:12,padding:"18px 4px 14px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:12,boxShadow:"inset 0 2px 3px rgba(255,255,255,0.2),inset 0 -3px 6px rgba(0,0,0,0.2),0 4px 12px rgba(0,0,0,0.15),0 1px 3px rgba(0,0,0,0.1)",transition:"all 0.2s",position:"relative",overflow:"hidden",aspectRatio:"1/1.1" }}>
-                  <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 25% 15%,rgba(255,255,255,0.15),transparent 55%),radial-gradient(ellipse at 75% 85%,rgba(0,0,0,0.1),transparent 50%)",pointerEvents:"none" }}/>
-                  <div style={{ position:"absolute",inset:0,opacity:0.07,backgroundImage:"url('data:image/svg+xml,%3Csvg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"n\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.65\" numOctaves=\"6\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"200\" height=\"200\" filter=\"url(%23n)\"/%3E%3C/svg%3E')",backgroundSize:"200px 200px",pointerEvents:"none",mixBlendMode:"overlay" }}/>
-                  <div style={{ position:"absolute",inset:0,background:"linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.12) 45%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.12) 55%,transparent 65%)",backgroundSize:"250% 100%",animation:"stoneShimmer 4s ease-in-out infinite",pointerEvents:"none",zIndex:1 }}/>
-                  <div style={{ width:42,height:42,borderRadius:"50%",background:`radial-gradient(circle at 35% 35%,${item.sealLight},${item.seal} 60%,${item.seal}DD 100%)`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"inset 0 2px 4px rgba(255,255,255,0.3),inset 0 -2px 4px rgba(0,0,0,0.3),0 0 0 3px rgba(255,255,255,0.85),0 0 0 4px rgba(0,0,0,0.08),0 4px 14px rgba(0,0,0,0.4)",position:"relative",zIndex:2,border:"none" }}>
-                    <span style={{ fontSize:18,color:"rgba(255,255,255,0.85)",textShadow:"0 1px 2px rgba(0,0,0,0.3)",lineHeight:1 }}>{item.letter}</span>
+                <button key={i} onClick={item.action} className="pressable" style={{ flex:"0 0 72%",scrollSnapAlign:"start",background:item.bg,border:"none",borderRadius:16,padding:"20px 20px 18px",cursor:"pointer",display:"flex",alignItems:"center",gap:16,boxShadow:"0 4px 16px rgba(0,0,0,0.2)",transition:"all 0.2s",position:"relative",overflow:"hidden" }}>
+                  <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 20% 20%,rgba(255,255,255,0.08),transparent 60%)",pointerEvents:"none" }}/>
+                  <div style={{ width:48,height:48,borderRadius:"50%",background:`radial-gradient(circle at 35% 35%,${item.sealLight},${item.seal} 60%)`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 0 0 3px rgba(255,255,255,0.85),0 4px 12px rgba(0,0,0,0.35)",position:"relative",zIndex:2,flexShrink:0 }}>
+                    <span style={{ fontSize:20,color:"rgba(255,255,255,0.9)",textShadow:"0 1px 2px rgba(0,0,0,0.3)" }}>{item.letter}</span>
                   </div>
-                  <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:"#FFFFFFEE",textAlign:"center",lineHeight:1.25,textShadow:"0 1px 3px rgba(0,0,0,0.5),0 0 8px rgba(0,0,0,0.2)",letterSpacing:"0.05em",position:"relative",zIndex:2,whiteSpace:"pre-line" }}>{item.label}</div>
+                  <div style={{ position:"relative",zIndex:2 }}>
+                    <div style={{ fontFamily:ht.heading,fontSize:16,fontWeight:700,color:"#FFFFFFEE",textShadow:"0 1px 3px rgba(0,0,0,0.4)",letterSpacing:"0.02em" }}>{item.label}</div>
+                    <div style={{ fontFamily:ht.ui,fontSize:11,color:"rgba(255,255,255,0.6)",marginTop:3 }}>{item.sub}</div>
+                  </div>
+                  <div style={{ marginLeft:"auto",color:"rgba(255,255,255,0.4)",flexShrink:0,position:"relative",zIndex:2 }}><ChevIcon /></div>
                 </button>
               ))}
             </div>
