@@ -538,6 +538,23 @@ export default function StudyBible() {
     window.history.back();
   };
 
+  const nav = useCallback((v, opts = {}) => {
+    const snapshot = { view: v, testament, book, chapter, verse, tab, ...opts };
+    navStack.current.push(snapshot);
+    window.history.pushState({ _nav: navStack.current.length - 1 }, "");
+    setFade(false);
+    setTimeout(() => {
+      setView(v);
+      if (opts.testament !== undefined) setTestament(opts.testament);
+      if (opts.book !== undefined) setBook(opts.book);
+      if (opts.chapter !== undefined) setChapter(opts.chapter);
+      if (opts.verse !== undefined) setVerse(opts.verse);
+      if (opts.tab !== undefined) setTab(opts.tab);
+      setFade(true);
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }, 80);
+  }, [testament, book, chapter, verse, tab]);
+
   useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
   useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) setVerse(verseNums[0]); }, [view, verse, verseNums]);
 
