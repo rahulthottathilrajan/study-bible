@@ -1080,8 +1080,8 @@ export default function StudyBible() {
                   </div>
                 </div>
               </button>
-              {/* Greek Card — Pentelic Marble */}
-              <div style={{ flex:1,opacity:0.85,filter:"drop-shadow(0 6px 16px rgba(0,0,0,0.22))" }}>
+              {/* Greek Card — Pentelic Marble (disabled) */}
+              <div style={{ flex:1,opacity:0.55,filter:"grayscale(0.6) drop-shadow(0 6px 16px rgba(0,0,0,0.22))",pointerEvents:"none",position:"relative" }}>
                 <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #8A8FA8",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.2)" }}>
                   {/* Marble header */}
                   <div style={{ background:"linear-gradient(160deg,#2A2A3E 0%,#3E3E56 50%,#22222E 100%)",padding:"16px 10px 12px",textAlign:"center",position:"relative",overflow:"hidden" }}>
