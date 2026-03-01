@@ -1095,7 +1095,7 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🔬</span> Go Deeper
             </div>
-            <div style={{ display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,position:"relative" }}>
+            <div style={{ display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,position:"relative" }}>
               {[
                 { label:"Timeline",letter:"⌛",action:() => nav("timeline-home"),stone:"linear-gradient(170deg,#2D4A3E 0%,#1E3830 25%,#152A22 60%,#0E1E18 100%)",textColor:"#C8DDD4",seal:"#8B2020",sealLight:"#C44040" },
                 { label:"Prophecy",letter:"✦",action:() => nav("prophecy-home"),stone:"linear-gradient(170deg,#4A2038 0%,#3A1628 25%,#2C101E 60%,#1E0A14 100%)",textColor:"#E0C4D4",seal:"#4A2D8E",sealLight:"#7B52D4" },
