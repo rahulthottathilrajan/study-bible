@@ -529,24 +529,46 @@ export default function StudyBible() {
 
   const goingBack = useRef(false);
   const goBack = useCallback(() => {
-    if (navStack.current.length > 1) {
-      navStack.current.pop();
-      const prev = navStack.current[navStack.current.length - 1];
-      goingBack.current = true;
-      setFade(false);
-      setTimeout(() => {
-        setView(prev.view);
-        if (prev.testament !== undefined) setTestament(prev.testament);
-        if (prev.book !== undefined) setBook(prev.book);
-        if (prev.chapter !== undefined) setChapter(prev.chapter);
-        if (prev.verse !== undefined) setVerse(prev.verse);
-        if (prev.tab !== undefined) setTab(prev.tab);
-        setFade(true);
-        window.scrollTo({ top: 0, behavior: "instant" });
-      }, 80);
-      window.history.back();
-    }
-  }, []);
+    // Deterministic back — knows exactly where to go based on current view
+    let targetView = "home", opts = {};
+
+    // Bible reading flow
+    if (view === "verse") { targetView = "verses"; opts = { testament, book, chapter, verse: null }; }
+    else if (view === "verses") { targetView = "chapter"; opts = { testament, book }; }
+    else if (view === "chapter") { targetView = "books"; opts = { testament }; }
+    else if (view === "books") { targetView = "home"; }
+
+    // Hebrew sub-views
+    else if (view === "hebrew-lesson" || view === "hebrew-practice") { targetView = "hebrew-home"; }
+    else if (view === "hebrew-reading") { targetView = "hebrew-reading-home"; }
+    else if (view === "hebrew-grammar-lesson") { targetView = "hebrew-grammar-home"; }
+    else if (["hebrew-home","hebrew-reading-home","hebrew-grammar-home"].includes(view)) { targetView = "learn-home"; }
+
+    // Timeline sub-views
+    else if (view === "timeline-era-detail") { targetView = "timeline-era"; }
+    else if (view === "timeline-era") { targetView = "timeline-home"; }
+    else if (["timeline-home","timeline-maps","timeline-books","prophecy-home","timeline-archaeology","apologetics-home","reading-plans-home","kids-curriculum-home"].includes(view)) { targetView = "learn-home"; }
+
+    // Other views
+    else if (view === "learn-home" || view === "journal-home" || view === "account" || view === "highlights") { targetView = "home"; }
+
+    // Pop navStack + sync browser history
+    if (navStack.current.length > 1) navStack.current.pop();
+    goingBack.current = true;
+
+    setFade(false);
+    setTimeout(() => {
+      setView(targetView);
+      if (opts.testament !== undefined) setTestament(opts.testament);
+      if (opts.book !== undefined) setBook(opts.book);
+      if (opts.chapter !== undefined) setChapter(opts.chapter);
+      if (opts.verse !== undefined) setVerse(opts.verse);
+      if (opts.tab !== undefined) setTab(opts.tab);
+      setFade(true);
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }, 80);
+    window.history.back();
+  }, [view, testament, book, chapter]);
 
   const nav = useCallback((v, opts = {}) => {
     const snapshot = { view: v, testament, book, chapter, verse, tab, ...opts };
