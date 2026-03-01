@@ -1200,7 +1200,7 @@ export default function StudyBible() {
                 {isOpen && (
                   <div style={{ border:`1px solid rgba(180,160,120,0.3)`,borderTop:"none",borderRadius:"0 0 12px 12px",overflow:"hidden",background:ht.card,boxShadow:"0 4px 10px rgba(0,0,0,0.06)" }}>
                     {catBooks.map((b, bi) => (
-                      <button key={b.name} onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<catBooks.length-1?`1px solid ${ht.divider}`:"none",padding:"11px 14px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,borderLeft:`3px solid ${ct.accent}`,transition:"background 0.15s" }}>
+                      <button key={b.name} className="pressable" onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<catBooks.length-1?`1px solid ${ht.divider}`:"none",padding:"11px 14px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,borderLeft:`3px solid ${ct.accent}`,transition:"background 0.15s" }}>
                         <div style={{ flex:1 }}>
                           <div style={{ display:"flex",alignItems:"center",gap:7 }}>
                             <span style={{ fontFamily:ct.heading,fontSize:14.5,fontWeight:600,color:ht.dark }}>{b.name}</span>
@@ -1303,6 +1303,7 @@ export default function StudyBible() {
                       const isLast = ci === group.chapters.length - 1;
                       return (
                         <button key={ch}
+                          className={has?"pressable":""}
                           onClick={() => { if (has) nav("verses",{chapter:ch,verse:null}); }}
                           style={{ width:"100%",display:"flex",alignItems:"center",padding:"12px 14px",background:"transparent",border:"none",borderBottom:isLast ? "none" : `1px solid ${t.divider}`,cursor:has?"pointer":"default",opacity:has?1:0.4,textAlign:"left",transition:"background 0.15s",gap:12 }}>
 
@@ -3648,6 +3649,7 @@ export default function StudyBible() {
   // ═══ RENDER ═══
   return (
     <div style={{ maxWidth:640,margin:"0 auto",transition:"opacity 0.12s ease",opacity:fade?1:0,minHeight:"100vh",paddingBottom:showNav?68:0 }}>
+      <style>{`.pressable{transition:background 0.15s,transform 0.1s!important}.pressable:hover{background:rgba(0,0,0,0.03)!important}.pressable:active{background:rgba(0,0,0,0.07)!important;transform:scale(0.985)}`}</style>
       {view === "home" && Home()}
       {view === "books" && Books()}
       {view === "chapter" && Chapters()}
