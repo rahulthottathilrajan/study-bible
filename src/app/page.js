@@ -1099,7 +1099,7 @@ export default function StudyBible() {
               {[
                 { label:"Timeline",icon:"📜",action:() => nav("timeline-home"),stone:"linear-gradient(170deg,#D4B896 0%,#C4A476 25%,#A8884E 60%,#8B6F3A 100%)",textColor:"#3E2E18" },
                 { label:"Prophecy",icon:"🔭",action:() => nav("prophecy-home"),stone:"linear-gradient(170deg,#B8C4D0 0%,#95A5B5 25%,#6E8494 60%,#4A6475 100%)",textColor:"#1E3040" },
-                { label:"Apologetics",icon:"🛡️",action:() => nav("apologetics-home"),stone:"linear-gradient(170deg,#7A7A7A 0%,#5E5E5E 25%,#434343 60%,#2E2E2E 100%)",textColor:"#F0E8DE" },
+                { label:"Apologetics",icon:"🛡️",action:() => nav("apologetics-home"),stone:"linear-gradient(170deg,#C2C8CE 0%,#A8B0BA 25%,#8E9AA6 60%,#748290 100%)",textColor:"#1E2A36" },
                 { label:"Reading\nPlans",icon:"🗓️",action:() => nav("reading-plans-home"),stone:"linear-gradient(170deg,#D4A89A 0%,#BE8E7E 25%,#9E7060 60%,#7A5445 100%)",textColor:"#2E1810" },
               ].map((item,i) => (
                 <button key={i} onClick={item.action} className="pressable" style={{ background:item.stone,border:"none",borderRadius:12,padding:"16px 4px 14px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:8,boxShadow:"inset 0 2px 3px rgba(255,255,255,0.2),inset 0 -3px 6px rgba(0,0,0,0.2),0 4px 12px rgba(0,0,0,0.15),0 1px 3px rgba(0,0,0,0.1)",transition:"all 0.2s",position:"relative",overflow:"hidden",aspectRatio:"1/1.1" }}>
