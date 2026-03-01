@@ -3690,7 +3690,7 @@ export default function StudyBible() {
                   (item.id === "account" && view === "account");
               return (
                 <button key={item.id} onClick={() => {
-                  if (item.id === "bible") nav("books", { testament: testament || "OT" });
+                  if (item.id === "bible") { const bibleViews = ["books","chapter","verses","verse"]; if (bibleViews.includes(view)) { nav("books", { testament: testament || "OT" }); } else { try { const lr = JSON.parse(localStorage.getItem("lastRead")); if (lr?.book && lr?.chapter && lr?.verse) { nav("verse", { testament:lr.testament, book:lr.book, chapter:lr.chapter, verse:lr.verse }); } else { nav("books", { testament: testament || "OT" }); } } catch { nav("books", { testament: testament || "OT" }); } } }
                   else if (item.id === "learn") nav("learn-home");
                   else if (item.id === "journal") { if (user) { setTab("highlights"); nav("journal-home"); } else setAuthModal(true); }
                   else nav(item.id);
