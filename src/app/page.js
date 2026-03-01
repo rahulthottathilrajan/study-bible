@@ -1095,33 +1095,19 @@ export default function StudyBible() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🔬</span> Go Deeper
             </div>
-            {[
-              { label:"Biblical Timeline",sub:"From Creation to Revelation",desc:"Trace 6,000 years of redemptive history across eras, empires, and covenants.",icon:"📜",action:() => nav("timeline-home"),badge:"New ✦",accentColor:"#E8625C" },
-              { label:"Prophecy & Fulfilment",sub:"300+ Messianic Predictions",desc:"Explore the ancient prophecies and how scholars across centuries interpret their fulfilment in Christ.",icon:"🔭",action:() => nav("prophecy-home"),badge:"New ✦",accentColor:"#8B5CF6" },
-              { label:"Apologetics",sub:"Defend & understand the faith",desc:"Reasoned answers to the hardest questions — history, science, suffering, and truth.",icon:"🛡️",action:() => nav("apologetics-home"),badge:"New ✦",accentColor:"#1B7A6E" },
-              { label:"Reading Plans",sub:"Guided Bible journeys",desc:"Read through the whole Bible in a year, or follow curated thematic paths through Scripture.",icon:"🗓️",action:() => nav("reading-plans-home"),badge:"New ✦",accentColor:"#D4A853" },
-            ].map((item,i) => (
-              item.action
-                ? <button key={i} onClick={item.action} style={{ width:"100%",background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"16px 18px",marginBottom:10,cursor:"pointer",textAlign:"left",boxShadow:"0 2px 8px rgba(0,0,0,0.06)",display:"flex",alignItems:"center",gap:14,transition:"all 0.2s",position:"relative",overflow:"hidden" }}>
-                    {item.badge && <div style={{ position:"absolute",top:10,right:12,background:"rgba(232,98,92,0.12)",borderRadius:6,padding:"2px 8px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#E8625C",textTransform:"uppercase",letterSpacing:"0.05em" }}>{item.badge}</div>}
-                    <div style={{ width:52,height:52,borderRadius:14,background:`linear-gradient(135deg,${item.accentColor}22,${item.accentColor}44)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,flexShrink:0 }}>{item.icon}</div>
-                    <div style={{ flex:1,paddingRight:item.badge?50:0 }}>
-                      <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.label}</div>
-                      <div style={{ fontFamily:ht.ui,fontSize:11,color:item.accentColor,fontWeight:600,marginTop:1 }}>{item.sub}</div>
-                      <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>{item.desc}</div>
-                    </div>
-                    <div style={{ color:ht.light,flexShrink:0 }}><ChevIcon /></div>
-                  </button>
-                : <div key={i} style={{ background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:14,padding:"16px 18px",marginBottom:10,display:"flex",alignItems:"center",gap:14,opacity:0.65,position:"relative",overflow:"hidden" }}>
-                    <div style={{ width:52,height:52,borderRadius:14,background:`linear-gradient(135deg,${item.accentColor}11,${item.accentColor}22)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,flexShrink:0 }}>{item.icon}</div>
-                    <div style={{ flex:1 }}>
-                      <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>{item.label}</div>
-                      <div style={{ fontFamily:ht.ui,fontSize:11,color:item.accentColor,fontWeight:600,marginTop:1 }}>{item.sub}</div>
-                      <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>{item.desc}</div>
-                    </div>
-                    <div style={{ background:"rgba(0,0,0,0.06)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>Soon</div>
-                  </div>
-            ))}
+            <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }}>
+              {[
+                { label:"Timeline",icon:"📜",color:"#E8625C",action:() => nav("timeline-home") },
+                { label:"Prophecy",icon:"🔭",color:"#8B5CF6",action:() => nav("prophecy-home") },
+                { label:"Apologetics",icon:"🛡️",color:"#1B7A6E",action:() => nav("apologetics-home") },
+                { label:"Reading Plans",icon:"🗓️",color:"#D4A853",action:() => nav("reading-plans-home") },
+              ].map((item,i) => (
+                <button key={i} onClick={item.action} className="pressable" style={{ background:ht.card,border:`1px solid ${ht.divider}`,borderRadius:16,padding:"20px 10px 16px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:10,boxShadow:"0 2px 8px rgba(0,0,0,0.05)",transition:"all 0.2s",position:"relative" }}>
+                  <div style={{ width:56,height:56,borderRadius:16,background:`linear-gradient(145deg,${item.color}20,${item.color}45)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,boxShadow:`0 4px 12px ${item.color}25` }}>{item.icon}</div>
+                  <div style={{ fontFamily:ht.ui,fontSize:12,fontWeight:700,color:ht.dark,textAlign:"center",lineHeight:1.3 }}>{item.label}</div>
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* ── LITTLE DISCIPLES ── */}
