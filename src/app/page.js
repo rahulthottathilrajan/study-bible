@@ -3665,10 +3665,11 @@ export default function StudyBible() {
                   else if (item.id === "learn") nav("learn-home");
                   else if (item.id === "journal") { if (user) { setTab("highlights"); nav("journal-home"); } else setAuthModal(true); }
                   else nav(item.id);
-                }} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,background:"none",border:"none",cursor:"pointer",padding:"4px 12px",color:isActive?ht.accent:ht.muted,transition:"all 0.15s",opacity:isActive?1:0.7 }}>
-                  <div style={{ transform:isActive?"scale(1.1)":"scale(1)",transition:"transform 0.15s" }}>{item.icon}</div>
+                }} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:1,background:"none",border:"none",cursor:"pointer",padding:"4px 6px",color:isActive?ht.accent:ht.muted,transition:"all 0.18s ease",opacity:isActive?1:0.65 }}>
+                  <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 14px 3px",borderRadius:20,background:isActive?`${ht.accent}18`:"transparent",transition:"background 0.18s ease" }}>
+                    <div style={{ transform:isActive?"scale(1.08)":"scale(1)",transition:"transform 0.15s" }}>{item.icon}</div>
+                  </div>
                   <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:isActive?700:500,letterSpacing:"0.02em" }}>{item.label}</span>
-                  {isActive && <div style={{ width:4,height:4,borderRadius:"50%",background:ht.accent,marginTop:-1 }}/>}
                 </button>
               );
             })}
