@@ -533,40 +533,64 @@ export default function StudyBible() {
   useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
   useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) setVerse(verseNums[0]); }, [view, verse, verseNums]);
 
+  // ═══ SUPABASE READING POSITION SYNC ═══
+  const savePositionToSupabase = useCallback(async (sectionKey, positionData) => {
+    if (!user) return;
+    try {
+      await supabase.from("user_reading_position").upsert({
+        user_id: user.id,
+        section_key: sectionKey,
+        position_data: positionData,
+        updated_at: new Date().toISOString(),
+      }, { onConflict: "user_id,section_key" });
+    } catch (e) { console.error("Position sync error:", e); }
+  }, [user]);
+
   // Save last-read position (cr_ot / cr_nt + legacy lastRead)
   useEffect(() => {
     if (view === "verse" && book && chapter && verse) {
-      const key = testament === "NT" ? "cr_nt" : "cr_ot";
+      const sectionKey = testament === "NT" ? "nt" : "ot";
       const entry = { book, chapter, verse };
       try {
-        localStorage.setItem(key, JSON.stringify(entry));
+        localStorage.setItem(`cr_${sectionKey}`, JSON.stringify(entry));
         localStorage.setItem("lastRead", JSON.stringify({ book, chapter, verse, testament }));
       } catch {}
+      savePositionToSupabase(sectionKey, entry);
     }
-  }, [view, book, chapter, verse, testament]);
+  }, [view, book, chapter, verse, testament, savePositionToSupabase]);
 
   // Save section positions for Continue Reading strip
   useEffect(() => {
     try {
       if (view === "hebrew-home" || view === "hebrew-lesson" || view === "hebrew-practice") {
         const name = hebrewLesson?.title || hebrewCategory || "Hebrew";
-        localStorage.setItem("cr_hebrew", JSON.stringify({ lessonName: name, view }));
+        const data = { lessonName: name, view };
+        localStorage.setItem("cr_hebrew", JSON.stringify(data));
+        savePositionToSupabase("hebrew", data);
       }
       if (view === "timeline-home" || view === "timeline-era") {
         const name = timelineSelectedEra?.era_name || "Timeline";
-        localStorage.setItem("cr_timeline", JSON.stringify({ eraName: name, view }));
+        const data = { eraName: name, view };
+        localStorage.setItem("cr_timeline", JSON.stringify(data));
+        savePositionToSupabase("timeline", data);
       }
       if (view === "prophecy-home") {
-        localStorage.setItem("cr_prophecy", JSON.stringify({ topicName: "Prophecy & Fulfilment" }));
+        const data = { topicName: "Prophecy & Fulfilment" };
+        localStorage.setItem("cr_prophecy", JSON.stringify(data));
+        savePositionToSupabase("prophecy", data);
       }
       if (view === "apologetics-home") {
-        localStorage.setItem("cr_apologetics", JSON.stringify({ topicName: "Apologetics" }));
+        const data = { topicName: "Apologetics" };
+        localStorage.setItem("cr_apologetics", JSON.stringify(data));
+        savePositionToSupabase("apologetics", data);
       }
       if (view === "reading-plans-home") {
-        localStorage.setItem("cr_readingplans", JSON.stringify({ planName: "Reading Plans" }));
+        const data = { planName: "Reading Plans" };
+        localStorage.setItem("cr_readingplans", JSON.stringify(data));
+        savePositionToSupabase("readingplans", data);
       }
     } catch {}
-  }, [view, hebrewLesson, hebrewCategory, timelineSelectedEra]);
+  }, [view, hebrewLesson, hebrewCategory, timelineSelectedEra, savePositionToSupabase]);
 
   // Auth modal rendered inline below in return
 
@@ -1013,7 +1037,7 @@ export default function StudyBible() {
             <div style={{ color:ht.light }}><ChevIcon /></div>
           </button>
           {/* ── CONTINUE READING ── */}
-          <ContinueReading nav={nav} ht={ht} />
+          <ContinueReading nav={nav} ht={ht} user={user} />
 
           {/* ── THE HOLY SCRIPTURES ── */}
           <div style={{ marginBottom:6 }}>

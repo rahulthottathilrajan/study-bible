@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { supabase } from "../lib/supabase";
 
 // ═══════════════════════════════════════════════════
 // CONTINUE READING — Multi-Section Horizontal Strip
@@ -120,15 +121,15 @@ const Chev = () => (
   </svg>
 );
 
-export default function ContinueReading({ nav, ht }) {
+export default function ContinueReading({ nav, ht, user }) {
   const [positions, setPositions] = useState({});
   const scrollRef = useRef(null);
 
-  // ─── Load all section positions from localStorage ───
+  // ─── Load positions: localStorage first, then Supabase merge ───
   useEffect(() => {
     const loaded = {};
 
-    // Read section-specific keys
+    // Read section-specific keys from localStorage (instant)
     SECTIONS.forEach(s => {
       if (s.disabled) return;
       try {
@@ -157,7 +158,38 @@ export default function ContinueReading({ nav, ht }) {
     }
 
     setPositions(loaded);
-  }, []);
+
+    // ─── Supabase merge: fetch cloud positions, update if newer ───
+    if (!user) return;
+    (async () => {
+      try {
+        const { data } = await supabase
+          .from("user_reading_position")
+          .select("section_key, position_data, updated_at")
+          .eq("user_id", user.id);
+        if (!data || data.length === 0) return;
+
+        setPositions(prev => {
+          const merged = { ...prev };
+          data.forEach(row => {
+            const section = SECTIONS.find(s => s.id === row.section_key);
+            if (!section || section.disabled) return;
+            // If localStorage had nothing for this section, use Supabase data
+            // Also backfill localStorage so next load is instant
+            if (!merged[row.section_key]) {
+              merged[row.section_key] = row.position_data;
+              try { localStorage.setItem(section.key, JSON.stringify(row.position_data)); } catch {}
+            } else {
+              // Both exist — Supabase wins (it has the cross-device data)
+              merged[row.section_key] = row.position_data;
+              try { localStorage.setItem(section.key, JSON.stringify(row.position_data)); } catch {}
+            }
+          });
+          return merged;
+        });
+      } catch (e) { console.error("Position fetch error:", e); }
+    })();
+  }, [user]);
 
   // ─── Filter to only visited sections ───
   const active = SECTIONS.filter(s => !s.disabled && positions[s.id]);
