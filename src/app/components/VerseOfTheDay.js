@@ -159,10 +159,10 @@ export default function VerseOfTheDay({ nav, ht }) {
   };
 
   return (
-    <div style={{ marginBottom: 18 }}>
+    <div style={{ marginBottom: 20 }}>
       <div style={{
-        fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted,
-        textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 10,
+        fontFamily: ht.ui, fontSize: 11, fontWeight: 700, color: ht.accent,
+        textTransform: "uppercase", letterSpacing: "0.14em", marginBottom: 12,
         display: "flex", alignItems: "center", gap: 8,
       }}>
         <span>✨</span> Verse of the Day
@@ -173,10 +173,10 @@ export default function VerseOfTheDay({ nav, ht }) {
         style={{
           cursor: "pointer",
           background: `linear-gradient(135deg, ${ht.card} 0%, ${ht.accentLight || ht.card} 100%)`,
-          borderRadius: 16,
-          padding: "20px 20px 16px",
+          borderRadius: 18,
+          padding: "28px 24px 22px",
           border: `1.5px solid ${ht.accentBorder || ht.divider}`,
-          boxShadow: `0 2px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.1)`,
+          boxShadow: `0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.1)`,
           position: "relative",
           overflow: "hidden",
           animation: "fadeIn 0.4s ease",
@@ -184,25 +184,25 @@ export default function VerseOfTheDay({ nav, ht }) {
       >
         {/* Decorative accent line */}
         <div style={{
-          position: "absolute", top: 0, left: 0, right: 0, height: 3,
+          position: "absolute", top: 0, left: 0, right: 0, height: 4,
           background: `linear-gradient(90deg, transparent, ${ht.accent}, transparent)`,
         }} />
 
         {/* Opening quote mark */}
         <div style={{
           fontFamily: "Georgia, 'Times New Roman', serif",
-          fontSize: 48, lineHeight: 1, color: `${ht.accent}30`,
-          position: "absolute", top: 10, left: 14, userSelect: "none",
-        }}>"</div>
+          fontSize: 64, lineHeight: 1, color: `${ht.accent}25`,
+          position: "absolute", top: 8, left: 16, userSelect: "none",
+        }}>{"\u201C"}</div>
 
         {/* Verse text */}
         <div style={{
           fontFamily: ht.body,
-          fontSize: 15,
+          fontSize: "clamp(17px, 4.5vw, 21px)",
           color: ht.dark || ht.text,
-          lineHeight: 1.8,
+          lineHeight: 1.9,
           fontStyle: "italic",
-          padding: "4px 0 12px 18px",
+          padding: "8px 0 16px 22px",
         }}>
           {verse.text}
         </div>
@@ -210,11 +210,11 @@ export default function VerseOfTheDay({ nav, ht }) {
         {/* Reference + refresh */}
         <div style={{
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          paddingLeft: 18,
+          paddingLeft: 22,
         }}>
           <div style={{
             fontFamily: ht.heading,
-            fontSize: 13, fontWeight: 700,
+            fontSize: 15, fontWeight: 700,
             color: ht.accent,
             letterSpacing: "0.02em",
           }}>
@@ -228,17 +228,17 @@ export default function VerseOfTheDay({ nav, ht }) {
               background: `${ht.accent}15`,
               border: `1px solid ${ht.accent}30`,
               borderRadius: 8,
-              padding: "5px 10px",
+              padding: "6px 12px",
               cursor: "pointer",
-              display: "flex", alignItems: "center", gap: 4,
+              display: "flex", alignItems: "center", gap: 5,
               transition: "background 0.2s",
             }}
           >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2.5" strokeLinecap="round">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2.5" strokeLinecap="round">
               <path d="M23 4v6h-6"/><path d="M1 20v-6h6"/>
               <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
             </svg>
-            <span style={{ fontFamily: ht.ui, fontSize: 9, fontWeight: 700, color: ht.accent, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+            <span style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.accent, textTransform: "uppercase", letterSpacing: "0.05em" }}>
               Another
             </span>
           </button>
@@ -246,8 +246,8 @@ export default function VerseOfTheDay({ nav, ht }) {
 
         {/* Tap hint */}
         <div style={{
-          fontFamily: ht.ui, fontSize: 9.5, color: ht.light || ht.muted,
-          textAlign: "center", marginTop: 10, opacity: 0.7,
+          fontFamily: ht.ui, fontSize: 10, color: ht.light || ht.muted,
+          textAlign: "center", marginTop: 12, opacity: 0.6,
         }}>
           Tap to read in context
         </div>

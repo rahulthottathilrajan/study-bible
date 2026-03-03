@@ -535,24 +535,29 @@ export default function StudyBible() {
   // ═══ HOME ═══
   const Home = () => (
     <div style={{ minHeight:"100vh",background:ht.bg }}>
-      <div style={{ background:ht.headerGradient,padding:"38px 24px 34px",textAlign:"center",position:"relative",overflow:"hidden" }}>
-        <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 0%,rgba(212,168,83,0.28) 0%,transparent 65%)" }}/>
-        <div style={{ position:"relative",zIndex:1 }}>
-          <div style={{ color:ht.accent,marginBottom:14,filter:"drop-shadow(0 0 12px rgba(212,168,83,0.5))" }}><CrossIcon /></div>
-          <h1 style={{ fontFamily:ht.heading,fontSize:"clamp(28px,8vw,38px)",fontWeight:800,color:ht.headerText,margin:"0 0 4px",textShadow:"0 2px 16px rgba(212,168,83,0.2)" }}>Study Bible</h1>
-          <div style={{ fontFamily:ht.ui,fontSize:"clamp(11px,3vw,12px)",color:ht.accent,letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:10,opacity:0.9 }}>King James Version</div>
-          <div style={{ width:40,height:1,background:`linear-gradient(90deg,transparent,${ht.accent},transparent)`,margin:"0 auto 10px" }}/>
-          <div style={{ fontFamily:ht.body,fontSize:"clamp(11px,3vw,12.5px)",color:`${ht.headerText}55`,fontStyle:"italic" }}>Hebrew & Greek · Word Studies · Cross-References · Notes</div>
-          <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:6,marginTop:14 }}>
-            <div style={{ display:"flex",alignItems:"center",gap:10 }}>
-              <DBBadge live={dbLive} t={ht} />
-              <button onClick={() => setDarkMode(!darkMode)} style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:8,padding:"4px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:5,transition:"background 0.2s" }} title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}>
-                <span style={{ fontSize:13 }}>{darkMode ? "☀️" : "🌙"}</span>
-                <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:600,color:"rgba(255,255,255,0.7)" }}>{darkMode ? "Light" : "Dark"}</span>
-              </button>
-            </div>
-            {!user && <button onClick={() => setAuthModal(true)} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:8,padding:"8px 20px",fontFamily:ht.ui,fontSize:12,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>✏️ Sign In to Save Notes</button>}
-            {user && <span style={{ fontFamily:ht.ui,fontSize:11,color:"rgba(125,212,173,0.9)",fontWeight:700,letterSpacing:"0.02em" }}>✓ {profile?.display_name || "Reader"}</span>}
+      {/* ── MINIMAL TOP BAR ── */}
+      <div style={{ background:ht.headerGradient,padding:"10px 16px",position:"sticky",top:0,zIndex:10 }}>
+        <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between" }}>
+          <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+            <svg width="22" height="22" viewBox="0 0 28 28" fill="none" style={{ filter:"drop-shadow(0 0 6px rgba(212,168,83,0.3))" }}>
+              <defs><linearGradient id="crossGoldSm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#F5D485"/><stop offset="50%" stopColor="#D4A853"/><stop offset="100%" stopColor="#A87820"/></linearGradient></defs>
+              <rect x="11" y="2" width="6" height="24" rx="1.5" fill="url(#crossGoldSm)"/><rect x="3" y="8" width="22" height="6" rx="1.5" fill="url(#crossGoldSm)"/>
+            </svg>
+            <h1 style={{ fontFamily:ht.heading,fontSize:18,fontWeight:800,color:ht.headerText,margin:0 }}>Study Bible</h1>
+          </div>
+          <button onClick={() => setDarkMode(!darkMode)} style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:8,padding:"4px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:5,transition:"background 0.2s" }} title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}>
+            <span style={{ fontSize:13 }}>{darkMode ? "☀️" : "🌙"}</span>
+            <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:600,color:"rgba(255,255,255,0.7)" }}>{darkMode ? "Light" : "Dark"}</span>
+          </button>
+        </div>
+        <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6 }}>
+          <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+            <span style={{ fontFamily:ht.ui,fontSize:10,color:ht.accent,letterSpacing:"0.15em",textTransform:"uppercase",fontWeight:700,opacity:0.9 }}>KJV</span>
+            <DBBadge live={dbLive} t={ht} />
+          </div>
+          <div>
+            {!user && <button onClick={() => setAuthModal(true)} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:8,padding:"4px 12px",fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>Sign In</button>}
+            {user && <span style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.9)",fontWeight:700 }}>✓ {profile?.display_name?.split(' ')[0] || "Reader"}</span>}
           </div>
         </div>
       </div>
