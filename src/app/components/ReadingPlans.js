@@ -518,7 +518,7 @@ const SHELVES = [
 ];
 
 // ─── Main Component ───────────────────────────────────────────────────────────
-export default function ReadingPlans({ nav }) {
+export default function ReadingPlans({ nav, onPositionSave }) {
   const [selectedPlan,  setSelectedPlan]  = useState(null);
   const [detailOpen,    setDetailOpen]    = useState(false);
   const [animIn,        setAnimIn]        = useState(false);
@@ -585,6 +585,7 @@ export default function ReadingPlans({ nav }) {
     setSelectedPlan(plan);
     setDetailOpen(true);
     setTimeout(() => setAnimIn(true), 10);
+    if (onPositionSave) onPositionSave("readingplans", { planName: plan.title });
   };
 
   const closeDetail = () => {
