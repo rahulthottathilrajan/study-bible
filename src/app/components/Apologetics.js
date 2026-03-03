@@ -10,6 +10,15 @@ const CATEGORY_COLORS = {
   "Suffering & God":      { bg: "#F0FDF4", text: "#166534", border: "#4ADE80" },
   "Reason & Philosophy":  { bg: "#F5F3FF", text: "#4C1D95", border: "#A78BFA" },
 };
+const DARK_CATEGORY_COLORS = {
+  "The Godhead":          { bg: "rgba(107,33,168,0.15)", text: "#C084FC", border: "#6B21A880" },
+  "The Person of Christ": { bg: "rgba(245,158,11,0.12)", text: "#F59E0B", border: "#92400E80" },
+  "Scripture":            { bg: "rgba(202,138,4,0.12)", text: "#CA8A04", border: "#713F1280" },
+  "The Cross":            { bg: "rgba(251,113,133,0.12)", text: "#FB7185", border: "#9F123980" },
+  "History & Evidence":   { bg: "rgba(56,189,248,0.12)", text: "#38BDF8", border: "#07598580" },
+  "Suffering & God":      { bg: "rgba(74,222,128,0.12)", text: "#4ADE80", border: "#16653480" },
+  "Reason & Philosophy":  { bg: "rgba(167,139,250,0.12)", text: "#A78BFA", border: "#4C1D9580" },
+};
 
 const APOLOGETICS_TOPICS = [
   {
@@ -194,7 +203,8 @@ const APOLOGETICS_TOPICS = [
   },
 ];
 
-export default function Apologetics({ nav, onPositionSave }) {
+export default function Apologetics({ nav, onPositionSave, darkMode }) {
+  const catColors = darkMode ? DARK_CATEGORY_COLORS : CATEGORY_COLORS;
   const [selected, setSelected]   = useState(null);
   const [revealed, setRevealed]   = useState(false);
   const [studied, setStudied]     = useState({});
@@ -233,7 +243,7 @@ export default function Apologetics({ nav, onPositionSave }) {
   }, [selected]);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#F8F5F0", fontFamily: "'Georgia', serif" }}>
+    <div style={{ minHeight: "100vh", background: darkMode ? "#161210" : "#F8F5F0", fontFamily: "'Georgia', serif" }}>
 
       {/* ── HERO ── */}
       <div style={{
@@ -316,24 +326,24 @@ export default function Apologetics({ nav, onPositionSave }) {
 
       {/* ── GRID ── */}
       <div style={{ padding:"20px 14px 48px", maxWidth:720, margin:"0 auto" }}>
-        <p style={{ fontFamily:"'Georgia', serif", fontSize:12, color:"#9CA3AF", margin:"0 0 14px", fontStyle:"italic" }}>
+        <p style={{ fontFamily:"'Georgia', serif", fontSize:12, color: darkMode ? "#6A5840" : "#9CA3AF", margin:"0 0 14px", fontStyle:"italic" }}>
           {visible.length} defense{visible.length !== 1 ? "s" : ""} · tap a card to be challenged
         </p>
 
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12 }}>
           {visible.map(t => {
-            const cat = CATEGORY_COLORS[t.category];
+            const cat = catColors[t.category];
             const done = studied[t.id];
             return (
               <button
                 key={t.id}
                 onClick={() => openTopic(t.id)}
                 style={{
-                  background: done ? "#F0FDF4" : "#FFFFFF",
-                  border: done ? "1.5px solid #86EFAC" : "1.5px solid #E5E7EB",
+                  background: done ? (darkMode ? "rgba(5,150,105,0.08)" : "#F0FDF4") : (darkMode ? "#201A16" : "#FFFFFF"),
+                  border: done ? "1.5px solid #86EFAC" : (darkMode ? "1.5px solid rgba(255,255,255,0.08)" : "1.5px solid #E5E7EB"),
                   borderRadius:14, padding:"14px 13px",
                   textAlign:"left", cursor:"pointer",
-                  boxShadow:"0 2px 8px rgba(0,0,0,0.06)",
+                  boxShadow: darkMode ? "0 2px 8px rgba(0,0,0,0.3)" : "0 2px 8px rgba(0,0,0,0.06)",
                   transition:"all 0.18s", position:"relative",
                   display:"flex", flexDirection:"column", gap:8,
                 }}
@@ -358,7 +368,7 @@ export default function Apologetics({ nav, onPositionSave }) {
 
                 <div style={{
                   fontFamily:"'Georgia', serif", fontSize:"clamp(12px,3vw,13px)",
-                  fontWeight:700, color:"#1F2937", lineHeight:1.25,
+                  fontWeight:700, color: darkMode ? "#D0B898" : "#1F2937", lineHeight:1.25,
                 }}>
                   {t.title}
                 </div>
@@ -374,7 +384,7 @@ export default function Apologetics({ nav, onPositionSave }) {
 
                 <p style={{
                   fontFamily:"'Georgia', serif", fontSize:"clamp(11px,2.5vw,12px)",
-                  color:"#6B7280", fontStyle:"italic", margin:0, lineHeight:1.45,
+                  color: darkMode ? "#9A7A5A" : "#6B7280", fontStyle:"italic", margin:0, lineHeight:1.45,
                   display:"-webkit-box", WebkitLineClamp:3,
                   WebkitBoxOrient:"vertical", overflow:"hidden",
                 }}>
@@ -408,7 +418,7 @@ export default function Apologetics({ nav, onPositionSave }) {
             onClick={e => e.stopPropagation()}
             style={{
               width:"100%", maxWidth:680, margin:"0 auto",
-              background:"#FFFFFF", borderRadius:"22px 22px 0 0",
+              background: darkMode ? "#1E1C18" : "#FFFFFF", borderRadius:"22px 22px 0 0",
               maxHeight:"88vh", overflowY:"auto",
               transform: animIn ? "translateY(0)" : "translateY(100%)",
               transition:"transform 0.3s cubic-bezier(0.32,0.72,0,1)",
@@ -418,12 +428,12 @@ export default function Apologetics({ nav, onPositionSave }) {
               <>
                 {/* Modal header */}
                 <div style={{
-                  background:"#FFFFFF",
-                  borderBottom:"1px solid #F3F4F6",
+                  background: darkMode ? "#1E1C18" : "#FFFFFF",
+                  borderBottom: darkMode ? "1px solid rgba(255,255,255,0.06)" : "1px solid #F3F4F6",
                   padding:"20px 20px 16px", position:"sticky", top:0,
                   borderRadius:"22px 22px 0 0", zIndex:10,
                 }}>
-                  <div style={{ width:36, height:4, background:"#E5E7EB", borderRadius:2, margin:"0 auto 14px" }} />
+                  <div style={{ width:36, height:4, background: darkMode ? "#4A4030" : "#E5E7EB", borderRadius:2, margin:"0 auto 14px" }} />
                   <div style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
                     <div style={{
                       width:48, height:48, borderRadius:12, flexShrink:0,
@@ -435,13 +445,13 @@ export default function Apologetics({ nav, onPositionSave }) {
                     <div style={{ flex:1 }}>
                       <h2 style={{
                         fontFamily:"'Georgia', serif", fontSize:"clamp(16px,4vw,20px)",
-                        fontWeight:700, color:"#111827", margin:"0 0 4px", lineHeight:1.2,
+                        fontWeight:700, color: darkMode ? "#F0E8D8" : "#111827", margin:"0 0 4px", lineHeight:1.2,
                       }}>
                         {topic.title}
                       </h2>
                       <span style={{
-                        background: CATEGORY_COLORS[topic.category].bg,
-                        color: CATEGORY_COLORS[topic.category].text,
+                        background: catColors[topic.category].bg,
+                        color: catColors[topic.category].text,
                         borderRadius:20, fontSize:10, padding:"2px 9px",
                         fontFamily:"'Georgia', serif",
                       }}>
@@ -449,7 +459,7 @@ export default function Apologetics({ nav, onPositionSave }) {
                       </span>
                     </div>
                     <button onClick={closeModal} style={{
-                      background:"#F3F4F6", border:"none", borderRadius:"50%",
+                      background: darkMode ? "rgba(255,255,255,0.08)" : "#F3F4F6", border:"none", borderRadius:"50%",
                       width:32, height:32, cursor:"pointer", fontSize:16,
                       display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0,
                     }}>×</button>
@@ -460,20 +470,20 @@ export default function Apologetics({ nav, onPositionSave }) {
 
                   {/* The Objection */}
                   <div style={{
-                    background:"#FFF7ED", border:"1.5px solid #FED7AA",
+                    background: darkMode ? "rgba(249,115,22,0.08)" : "#FFF7ED", border: darkMode ? "1.5px solid rgba(249,115,22,0.25)" : "1.5px solid #FED7AA",
                     borderLeft:"4px solid #F97316",
                     borderRadius:"0 10px 10px 0",
                     padding:"14px 16px", marginBottom:20,
                   }}>
                     <div style={{
-                      fontSize:10, fontFamily:"'Georgia', serif", color:"#C2410C",
+                      fontSize:10, fontFamily:"'Georgia', serif", color: darkMode ? "#F97316" : "#C2410C",
                       textTransform:"uppercase", letterSpacing:"1px", marginBottom:6, fontWeight:700,
                     }}>
                       ⚠️ The Challenge
                     </div>
                     <p style={{
                       fontFamily:"'Georgia', serif", fontSize:14,
-                      color:"#7C2D12", fontStyle:"italic", margin:0, lineHeight:1.6,
+                      color: darkMode ? "#FDBA74" : "#7C2D12", fontStyle:"italic", margin:0, lineHeight:1.6,
                     }}>
                       "{topic.objection}"
                     </p>
@@ -484,7 +494,7 @@ export default function Apologetics({ nav, onPositionSave }) {
                     <div style={{ textAlign:"center", padding:"24px 0" }}>
                       <p style={{
                         fontFamily:"'Georgia', serif", fontSize:13,
-                        color:"#9CA3AF", fontStyle:"italic", marginBottom:16,
+                        color: darkMode ? "#6A5840" : "#9CA3AF", fontStyle:"italic", marginBottom:16,
                       }}>
                         How would you answer this? Think for a moment…
                       </p>
@@ -516,7 +526,7 @@ export default function Apologetics({ nav, onPositionSave }) {
                         <p key={i} style={{
                           fontFamily:"'Georgia', serif",
                           fontSize:"clamp(14px,3vw,15px)",
-                          color:"#374151", lineHeight:1.8, margin:"0 0 14px",
+                          color: darkMode ? "#D0B898" : "#374151", lineHeight:1.8, margin:"0 0 14px",
                         }}>
                           {para}
                         </p>
@@ -524,8 +534,8 @@ export default function Apologetics({ nav, onPositionSave }) {
 
                       {/* Key Verse */}
                       <div style={{
-                        background:"linear-gradient(135deg, #FFFBEB, #F0FDF4)",
-                        border:"1.5px solid #D4A853",
+                        background: darkMode ? "linear-gradient(135deg, rgba(212,168,83,0.08), rgba(5,150,105,0.06))" : "linear-gradient(135deg, #FFFBEB, #F0FDF4)",
+                        border: darkMode ? "1.5px solid rgba(212,168,83,0.35)" : "1.5px solid #D4A853",
                         borderRadius:12, padding:"16px 18px", marginTop:8,
                       }}>
                         <div style={{
@@ -537,7 +547,7 @@ export default function Apologetics({ nav, onPositionSave }) {
                         </div>
                         <p style={{
                           fontFamily:"'Georgia', serif", fontStyle:"italic",
-                          fontSize:"clamp(14px,3.5vw,16px)", color:"#1F2937",
+                          fontSize:"clamp(14px,3.5vw,16px)", color: darkMode ? "#D0B898" : "#1F2937",
                           margin:"0 0 8px", lineHeight:1.55,
                         }}>
                           "{topic.keyVerse.text}"
@@ -555,7 +565,7 @@ export default function Apologetics({ nav, onPositionSave }) {
                         onClick={() => { markStudied(topic.id); closeModal(); }}
                         style={{
                           width:"100%", marginTop:20,
-                          background: studied[topic.id] ? "#F0FDF4" : "linear-gradient(135deg,#B8860B,#DAA520)",
+                          background: studied[topic.id] ? (darkMode ? "rgba(5,150,105,0.1)" : "#F0FDF4") : "linear-gradient(135deg,#B8860B,#DAA520)",
                           border: studied[topic.id] ? "1.5px solid #86EFAC" : "none",
                           borderRadius:12,
                           color: studied[topic.id] ? "#166534" : "#fff",

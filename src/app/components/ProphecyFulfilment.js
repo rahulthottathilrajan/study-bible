@@ -16,7 +16,7 @@ import {
 } from "./ProphecyData";
 
 // ─── Sunrise theme ────────────────────────────────────────────────────────────
-const st = {
+const stLight = {
   heading: "'DM Serif Display',serif",
   body:    "'Lora',serif",
   ui:      "'Nunito',sans-serif",
@@ -31,6 +31,18 @@ const st = {
   light:   "#C0A888",
   divider: "rgba(232,98,92,0.12)",
 };
+const stDark = {
+  ...stLight,
+  bg:      "#161210",
+  card:    "#201A16",
+  dark:    "#F8E8D0",
+  text:    "#D0B898",
+  muted:   "#9A7A5A",
+  light:   "#6A5840",
+  divider: "rgba(232,98,92,0.15)",
+};
+// Alias for helper components that reference fonts only
+const st = stLight;
 
 // ─── Parchment palette ────────────────────────────────────────────────────────
 const P = {
@@ -297,7 +309,7 @@ const HubCard = ({ categoryId, onClick, index }) => {
 };
 
 // ─── "All Prophecies" hub entry ───────────────────────────────────────────────
-const AllPropheciesCard = ({ onClick }) => (
+const AllPropheciesCard = ({ onClick, t }) => (
   <button
     onClick={onClick}
     style={{
@@ -307,14 +319,14 @@ const AllPropheciesCard = ({ onClick }) => (
     }}
   >
     <div style={{
-      background: `linear-gradient(135deg, #2D1B4E08, #4A2D6B0A)`,
-      border: "1.5px dashed rgba(45,27,78,0.2)",
+      background: `linear-gradient(135deg, ${t.dark}08, ${t.dark}0A)`,
+      border: `1.5px dashed ${t.light}55`,
       borderRadius: 12, padding: "14px 18px",
       display: "flex", alignItems: "center", gap: 14,
     }}>
       <div style={{
         width: 44, height: 44, borderRadius: 12,
-        background: "rgba(45,27,78,0.08)",
+        background: `${t.dark}14`,
         display: "flex", alignItems: "center", justifyContent: "center",
         fontSize: 22, flexShrink: 0,
       }}>
@@ -322,31 +334,31 @@ const AllPropheciesCard = ({ onClick }) => (
       </div>
       <div style={{ flex: 1 }}>
         <div style={{
-          fontFamily: st.heading, fontSize: 16, color: st.dark, marginBottom: 2,
+          fontFamily: st.heading, fontSize: 16, color: t.dark, marginBottom: 2,
         }}>
           All Prophecies
         </div>
         <div style={{
-          fontFamily: st.ui, fontSize: 11, color: st.muted,
+          fontFamily: st.ui, fontSize: 11, color: t.muted,
         }}>
           Browse all {STATS.total} prophecies together
         </div>
       </div>
-      <div style={{ color: st.light, fontSize: 22 }}>›</div>
+      <div style={{ color: t.light, fontSize: 22 }}>›</div>
     </div>
   </button>
 );
 
 // ─── Hub intro quote ─────────────────────────────────────────────────────────
-const HubIntro = () => (
+const HubIntro = ({ t }) => (
   <div style={{
     margin: "20px 16px 0",
-    background: "linear-gradient(135deg,#2D1B4E0E,#8B5CF608)",
+    background: `linear-gradient(135deg,${t.dark}0E,${t.accent}08)`,
     border: "1px solid rgba(139,92,246,0.15)",
     borderRadius: 14, padding: "14px 16px",
   }}>
     <p style={{
-      fontFamily: st.body, fontSize: 13, color: st.muted,
+      fontFamily: st.body, fontSize: 13, color: t.muted,
       lineHeight: 1.75, margin: 0, fontStyle: "italic",
     }}>
       "Known unto God are all his works from the beginning of the world." — Acts 15:18.
@@ -357,7 +369,7 @@ const HubIntro = () => (
 );
 
 // ─── Scroll card (unified — featured + standard) ──────────────────────────────
-const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeatured, isRead, onMarkRead }) => {
+const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeatured, isRead, onMarkRead, darkMode }) => {
   const color = CATEGORY_COLORS[prophecy.category] || st.accent;
 
   return (
@@ -520,6 +532,7 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
                 scrollMode={true}
                 isRead={isRead}
                 onMarkRead={onMarkRead}
+                darkMode={darkMode}
               />
             </div>
           </div>
@@ -532,26 +545,27 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
 };
 
 // ─── Section divider ─────────────────────────────────────────────────────────
-const SectionDivider = ({ label }) => (
+const SectionDivider = ({ label, t }) => (
   <div style={{
     display: "flex", alignItems: "center", gap: 10,
     margin: "20px 0 14px",
   }}>
-    <div style={{ flex: 1, height: 1, background: st.divider }} />
+    <div style={{ flex: 1, height: 1, background: t.divider }} />
     <div style={{
       fontFamily: st.ui, fontSize: 10, fontWeight: 700,
-      color: st.light, textTransform: "uppercase", letterSpacing: "0.08em",
+      color: t.light, textTransform: "uppercase", letterSpacing: "0.08em",
     }}>
       {label}
     </div>
-    <div style={{ flex: 1, height: 1, background: st.divider }} />
+    <div style={{ flex: 1, height: 1, background: t.divider }} />
   </div>
 );
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  MAIN COMPONENT
 // ══════════════════════════════════════════════════════════════════════════════
-export default function ProphecyFulfilment({ nav, onPositionSave }) {
+export default function ProphecyFulfilment({ nav, onPositionSave, darkMode }) {
+  const t = darkMode ? stDark : stLight;
   // "hub" = category landing | category id = prophecy list for that category
   const [view,     setView]     = useState("hub");
   const [selected, setSelected] = useState(null);
@@ -610,7 +624,7 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
     : `${filtered.length} ${filtered.length === 1 ? "prophecy" : "prophecies"}${view !== "All" ? ` · ${CATEGORY_LABELS[view] || view}` : ""}`;
 
   return (
-    <div style={{ minHeight: "100vh", background: st.bg, paddingBottom: 48 }}>
+    <div style={{ minHeight: "100vh", background: t.bg, paddingBottom: 48 }}>
       <style>{STYLES}</style>
 
       {/* ── Sticky Header ── */}
@@ -680,7 +694,7 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
       ══════════════════════════════════════════════ */}
       {isHub && (
         <>
-          <HubIntro />
+          <HubIntro t={t} />
 
           <div style={{ padding: "20px 16px 0", display: "flex", flexDirection: "column", gap: 14 }}>
 
@@ -695,20 +709,20 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
             ))}
 
             {/* Divider */}
-            <SectionDivider label="or" />
+            <SectionDivider label="or" t={t} />
 
             {/* All prophecies shortcut */}
-            <AllPropheciesCard onClick={() => goToCategory("All")} />
+            <AllPropheciesCard onClick={() => goToCategory("All")} t={t} />
           </div>
 
           {/* Hub footer */}
           <div style={{
             margin: "28px 16px 0",
-            background: "rgba(0,0,0,0.03)",
+            background: darkMode ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
             borderRadius: 12, padding: "14px 16px",
           }}>
             <p style={{
-              fontFamily: st.ui, fontSize: 11, color: st.light,
+              fontFamily: st.ui, fontSize: 11, color: t.light,
               lineHeight: 1.65, margin: 0, textAlign: "center",
             }}>
               ✅ Literal Fulfilment &nbsp;·&nbsp;
@@ -718,7 +732,7 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
               ⏳ Awaiting
             </p>
             <p style={{
-              fontFamily: st.ui, fontSize: 10, color: st.light,
+              fontFamily: st.ui, fontSize: 10, color: t.light,
               margin: "8px 0 0", textAlign: "center", opacity: 0.7,
             }}>
               Commentary: Edersheim · Kaiser · Motyer · Alford · Anderson
@@ -742,7 +756,7 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
               borderRadius: 12, padding: "11px 14px",
             }}>
               <p style={{
-                fontFamily: st.body, fontSize: 13, color: st.text,
+                fontFamily: st.body, fontSize: 13, color: t.text,
                 lineHeight: 1.7, margin: 0, fontStyle: "italic",
               }}>
                 {CATEGORY_DESCRIPTIONS[view]}
@@ -753,7 +767,7 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
           {/* Result count */}
           <div style={{
             padding: "10px 16px 2px",
-            fontFamily: st.ui, fontSize: 12, color: st.light,
+            fontFamily: st.ui, fontSize: 12, color: t.light,
           }}>
             {filtered.length === PROPHECIES.length
               ? `All ${PROPHECIES.length} prophecies`
@@ -776,13 +790,14 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
                   isFeatured={true}
                   isRead={!!readIds[p.id]}
                   onMarkRead={markRead}
+                  darkMode={darkMode}
                 />
               </div>
             ))}
 
             {/* Featured → Standard divider */}
             {featuredInView.length > 0 && standardInView.length > 0 && (
-              <SectionDivider label="All Prophecies" />
+              <SectionDivider label="All Prophecies" t={t} />
             )}
 
             {/* Standard */}
@@ -798,6 +813,7 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
                   isFeatured={false}
                   isRead={!!readIds[p.id]}
                   onMarkRead={markRead}
+                  darkMode={darkMode}
                 />
               </div>
             ))}
@@ -807,7 +823,7 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
               <div style={{
                 textAlign: "center", padding: "48px 24px",
                 fontFamily: st.body, fontSize: 15,
-                color: st.light, fontStyle: "italic",
+                color: t.light, fontStyle: "italic",
               }}>
                 No prophecies in this category yet.
               </div>
@@ -818,11 +834,11 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
           {filtered.length > 0 && (
             <div style={{
               margin: "24px 16px 0",
-              background: "rgba(0,0,0,0.03)",
+              background: darkMode ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
               borderRadius: 12, padding: "14px 16px",
             }}>
               <p style={{
-                fontFamily: st.ui, fontSize: 11, color: st.light,
+                fontFamily: st.ui, fontSize: 11, color: t.light,
                 lineHeight: 1.65, margin: 0, textAlign: "center",
               }}>
                 ✅ Literal Fulfilment &nbsp;·&nbsp;
@@ -832,7 +848,7 @@ export default function ProphecyFulfilment({ nav, onPositionSave }) {
                 ⏳ Awaiting
               </p>
               <p style={{
-                fontFamily: st.ui, fontSize: 10, color: st.light,
+                fontFamily: st.ui, fontSize: 10, color: t.light,
                 margin: "8px 0 0", textAlign: "center", opacity: 0.7,
               }}>
                 Commentary: Edersheim · Kaiser · Motyer · Alford · Anderson

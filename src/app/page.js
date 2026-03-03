@@ -3303,13 +3303,13 @@ export default function StudyBible() {
       {view === "hebrew-reading-home" && HebrewReadingHome()}
       {view === "hebrew-reading" && HebrewReading()}
       {view === "timeline-home" && TimelineHome()}
-      {view === "timeline-maps" && <TimelineMaps nav={nav} />}
-      {view === "timeline-books" && <BibleBookTimeline nav={nav} />}
-      {view === "prophecy-home" && <ProphecyFulfilment nav={nav} onPositionSave={updateSectionPosition} />}
-      {view === "timeline-archaeology" && <ArchaeologyCards nav={nav} />}
-      {view === "apologetics-home" && <Apologetics nav={nav} onPositionSave={updateSectionPosition} />}
-      {view === "reading-plans-home" && <ReadingPlans nav={nav} onPositionSave={updateSectionPosition} />}
-      {view === "kids-curriculum-home" && <KidsCurriculum nav={nav} />}
+      {view === "timeline-maps" && <TimelineMaps nav={nav} darkMode={darkMode} />}
+      {view === "timeline-books" && <BibleBookTimeline nav={nav} darkMode={darkMode} />}
+      {view === "prophecy-home" && <ProphecyFulfilment nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} />}
+      {view === "timeline-archaeology" && <ArchaeologyCards nav={nav} darkMode={darkMode} />}
+      {view === "apologetics-home" && <Apologetics nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} />}
+      {view === "reading-plans-home" && <ReadingPlans nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} />}
+      {view === "kids-curriculum-home" && <KidsCurriculum nav={nav} darkMode={darkMode} />}
       {view === "timeline-era" && TimelineEras()}
       {view === "timeline-era-detail" && TimelineEraDetail()}
 

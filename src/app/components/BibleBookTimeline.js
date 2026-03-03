@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { supabase } from "../../lib/supabase";
 
 // ─── THEME ────────────────────────────────────────────────────────────────────
-const st = {
+const LIGHT = {
   heading: "'DM Serif Display',serif",
   body:    "'Lora',serif",
   ui:      "'Nunito',sans-serif",
@@ -17,6 +17,20 @@ const st = {
   muted:   "#8B6B4F",
   light:   "#C0A888",
   divider: "rgba(232,98,92,0.12)",
+  rowAlt:  "rgba(0,0,0,0.022)",
+  nameAlt: "#FFF3E8",
+};
+const DARK = {
+  ...LIGHT,
+  bg:      "#161210",
+  card:    "#201A16",
+  dark:    "#F8E8D0",
+  text:    "#D0B898",
+  muted:   "#9A7A5A",
+  light:   "#6A5840",
+  divider: "rgba(232,98,92,0.15)",
+  rowAlt:  "rgba(255,255,255,0.03)",
+  nameAlt: "#1C1814",
 };
 
 // ─── GENRE CONFIG ─────────────────────────────────────────────────────────────
@@ -99,7 +113,8 @@ const CSS = `
 `;
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
-export default function BibleBookTimeline({ nav }) {
+export default function BibleBookTimeline({ nav, darkMode }) {
+  const st = darkMode ? DARK : LIGHT;
   const [books,       setBooks]       = useState([]);
   const [loading,     setLoading]     = useState(true);
   const [activeGenre, setActiveGenre] = useState("All");
@@ -289,7 +304,7 @@ export default function BibleBookTimeline({ nav }) {
           background: st.bg,
           borderTop:`1px solid ${st.divider}`,
           borderBottom:`2px solid ${st.divider}`,
-          boxShadow:"0 2px 8px rgba(0,0,0,0.07)",
+          boxShadow: darkMode ? "0 2px 8px rgba(0,0,0,0.3)" : "0 2px 8px rgba(0,0,0,0.07)",
         }}>
           {/* axis-mirror: overflow hidden, scrolled by JS */}
           <div ref={axisRef} className="axis-mirror" style={{ width:"100%" }}>
@@ -428,8 +443,8 @@ export default function BibleBookTimeline({ nav }) {
                   position:"relative", height:ROW_H,
                   background: isSelected
                     ? `${book.color}14`
-                    : isEven ? st.bg : "rgba(0,0,0,0.022)",
-                  borderBottom:`1px solid rgba(0,0,0,0.04)`,
+                    : isEven ? st.bg : st.rowAlt,
+                  borderBottom:`1px solid ${st.divider}`,
                   transition:"background 0.15s",
                   zIndex:3,
                 }}>
@@ -441,7 +456,7 @@ export default function BibleBookTimeline({ nav }) {
                       width:NAME_W, height:ROW_H,
                       background: isSelected
                         ? `${book.color}22`
-                        : isEven ? st.bg : "#FFF3E8",
+                        : isEven ? st.bg : st.nameAlt,
                       display:"flex", alignItems:"center",
                       paddingLeft:8, paddingRight:5,
                       zIndex:8, cursor:"pointer",

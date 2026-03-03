@@ -1,6 +1,17 @@
 "use client";
 import { useState } from "react";
-import { st, ANIM_STYLE } from "./maps/shared";
+import { st as stLight, ANIM_STYLE } from "./maps/shared";
+
+const stDark = {
+  ...stLight,
+  bg:      "#161210",
+  card:    "#201A16",
+  dark:    "#F8E8D0",
+  text:    "#D0B898",
+  muted:   "#9A7A5A",
+  light:   "#6A5840",
+  divider: "rgba(232,98,92,0.15)",
+};
 
 import ExodusMap,          { EXODUS_DETAILS          } from "./maps/ExodusMap";
 import TribesMap,          { TRIBES_DETAILS          } from "./maps/TribesMap";
@@ -82,12 +93,12 @@ function MapRenderer({ mapId, onSelectLocation, selectedLocation }) {
 }
 
 // ─── GALLERY CARD ─────────────────────────────────
-function GalleryCard({ map, onSelect }) {
+function GalleryCard({ map, onSelect, st }) {
   return (
     <button
       onClick={() => !map.soon && onSelect()}
       style={{
-        width:"100%", background: map.soon ? "#fafafa" : st.card,
+        width:"100%", background: st.card,
         border:`1px solid ${map.color}33`, borderRadius:16,
         padding:"16px 14px", cursor: map.soon ? "default" : "pointer",
         textAlign:"left", display:"flex", alignItems:"center", gap:12,
@@ -113,7 +124,8 @@ function GalleryCard({ map, onSelect }) {
 }
 
 // ─── MAIN EXPORT ─────────────────────────────────
-export default function TimelineMaps({ nav }) {
+export default function TimelineMaps({ nav, darkMode }) {
+  const st = darkMode ? stDark : stLight;
   const [selectedMap,      setSelectedMap]      = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
 
@@ -174,7 +186,7 @@ export default function TimelineMaps({ nav }) {
           </div>
           <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:22 }}>
             {otMaps.map(map => (
-              <GalleryCard key={map.id} map={map} onSelect={() => { setSelectedMap(map); setSelectedLocation(null); }} />
+              <GalleryCard key={map.id} map={map} st={st} onSelect={() => { setSelectedMap(map); setSelectedLocation(null); }} />
             ))}
           </div>
 
@@ -184,7 +196,7 @@ export default function TimelineMaps({ nav }) {
           </div>
           <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:24 }}>
             {ntMaps.map(map => (
-              <GalleryCard key={map.id} map={map} onSelect={() => { setSelectedMap(map); setSelectedLocation(null); }} />
+              <GalleryCard key={map.id} map={map} st={st} onSelect={() => { setSelectedMap(map); setSelectedLocation(null); }} />
             ))}
           </div>
 

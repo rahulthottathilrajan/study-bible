@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { supabase } from "../../lib/supabase";
 
 // ─── Sunrise theme (matches all timeline components) ─────────────────────────
-const st = {
+const LIGHT = {
   heading: "'DM Serif Display',serif",
   body:    "'Lora',serif",
   ui:      "'Nunito',sans-serif",
@@ -17,6 +17,16 @@ const st = {
   muted:   "#8B6B4F",
   light:   "#C0A888",
   divider: "rgba(232,98,92,0.12)",
+};
+const DARK_ST = {
+  ...LIGHT,
+  bg:      "#161210",
+  card:    "#201A16",
+  dark:    "#F8E8D0",
+  text:    "#D0B898",
+  muted:   "#9A7A5A",
+  light:   "#6A5840",
+  divider: "rgba(232,98,92,0.15)",
 };
 
 // ─── Category colour palette (matches skills.md) ──────────────────────────────
@@ -54,7 +64,8 @@ const STYLES = `
   }
 `;
 
-export default function ArchaeologyCards({ nav }) {
+export default function ArchaeologyCards({ nav, darkMode }) {
+  const st = darkMode ? DARK_ST : LIGHT;
   const [discoveries, setDiscoveries] = useState([]);
   const [loading,     setLoading]     = useState(true);
   const [catFilter,   setCatFilter]   = useState("All");
@@ -99,8 +110,8 @@ export default function ArchaeologyCards({ nav }) {
         fontSize: 12,
         fontWeight: active ? 700 : 500,
         color:  active ? "#fff" : (color || st.muted),
-        background: active ? (color || st.dark) : "rgba(0,0,0,0.04)",
-        border: `1.5px solid ${active ? (color || st.dark) : "rgba(0,0,0,0.08)"}`,
+        background: active ? (color || st.dark) : (darkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"),
+        border: `1.5px solid ${active ? (color || st.dark) : (darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)")}`,
         borderRadius: 20,
         padding: "5px 13px",
         cursor: "pointer",
@@ -118,7 +129,7 @@ export default function ArchaeologyCards({ nav }) {
       {[1,2,3,4].map(i => (
         <div key={i} style={{
           height: 110, borderRadius: 14, marginBottom: 12,
-          background: "linear-gradient(90deg,#f0e8df 25%,#f8f0e8 50%,#f0e8df 75%)",
+          background: darkMode ? "linear-gradient(90deg,#1E1C18 25%,#2A2620 50%,#1E1C18 75%)" : "linear-gradient(90deg,#f0e8df 25%,#f8f0e8 50%,#f0e8df 75%)",
           backgroundSize: "800px 100%",
           animation: "shimmer 1.4s infinite",
         }} />
@@ -184,7 +195,7 @@ export default function ArchaeologyCards({ nav }) {
             <button
               onClick={() => setSelected(null)}
               style={{
-                background: "rgba(0,0,0,0.06)", border: "none",
+                background: darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.06)", border: "none",
                 borderRadius: "50%", width: 30, height: 30,
                 cursor: "pointer", fontSize: 16, color: st.muted,
                 display:"flex", alignItems:"center", justifyContent:"center",
@@ -209,7 +220,7 @@ export default function ArchaeologyCards({ nav }) {
             {d.discovered_year && (
               <span style={{
                 fontFamily: st.ui, fontSize: 11, color: st.muted,
-                background: "rgba(0,0,0,0.05)", borderRadius: 6, padding: "3px 8px",
+                background: darkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)", borderRadius: 6, padding: "3px 8px",
               }}>
                 🗓 Discovered {d.discovered_year}
               </span>
@@ -217,7 +228,7 @@ export default function ArchaeologyCards({ nav }) {
             {d.location && (
               <span style={{
                 fontFamily: st.ui, fontSize: 11, color: st.muted,
-                background: "rgba(0,0,0,0.05)", borderRadius: 6, padding: "3px 8px",
+                background: darkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)", borderRadius: 6, padding: "3px 8px",
               }}>
                 📍 {d.location}
               </span>
@@ -259,7 +270,7 @@ export default function ArchaeologyCards({ nav }) {
           {/* KJV Scripture */}
           {d.scripture_text && (
             <div style={{
-              background: "linear-gradient(135deg,#FFF8F0,#FFF3E8)",
+              background: darkMode ? "linear-gradient(135deg,#201A16,#1E1C18)" : "linear-gradient(135deg,#FFF8F0,#FFF3E8)",
               border: `1px solid ${st.divider}`,
               borderLeft: `3px solid ${st.accent}`,
               borderRadius: 10, padding: "12px 14px", marginBottom: 16,
@@ -293,7 +304,7 @@ export default function ArchaeologyCards({ nav }) {
             }}>
               {d.discovered_by && (
                 <div style={{
-                  background:"rgba(0,0,0,0.03)", borderRadius:8, padding:"10px 12px",
+                  background: darkMode ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)", borderRadius:8, padding:"10px 12px",
                 }}>
                   <div style={{ fontFamily:st.ui, fontSize:9, fontWeight:700, color:st.light, textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:3 }}>
                     Discovered By
@@ -305,7 +316,7 @@ export default function ArchaeologyCards({ nav }) {
               )}
               {d.current_location && (
                 <div style={{
-                  background:"rgba(0,0,0,0.03)", borderRadius:8, padding:"10px 12px",
+                  background: darkMode ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)", borderRadius:8, padding:"10px 12px",
                 }}>
                   <div style={{ fontFamily:st.ui, fontSize:9, fontWeight:700, color:st.light, textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:3 }}>
                     Now Held At
@@ -366,7 +377,7 @@ export default function ArchaeologyCards({ nav }) {
             display: "flex",
             alignItems: "center",
             gap: 14,
-            boxShadow: isOpen ? `0 4px 16px ${color}22` : "0 2px 8px rgba(0,0,0,0.05)",
+            boxShadow: isOpen ? `0 4px 16px ${color}22` : (darkMode ? "0 2px 8px rgba(0,0,0,0.3)" : "0 2px 8px rgba(0,0,0,0.05)"),
             transition: "all 0.2s",
             marginBottom: isOpen ? 0 : 0,
           }}
@@ -630,7 +641,7 @@ export default function ArchaeologyCards({ nav }) {
       {!loading && filtered.length > 0 && (
         <div style={{
           margin:"24px 16px 0",
-          background:"rgba(0,0,0,0.03)", borderRadius:12, padding:"14px 16px",
+          background: darkMode ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)", borderRadius:12, padding:"14px 16px",
         }}>
           <p style={{
             fontFamily:st.ui, fontSize:11, color:st.light,

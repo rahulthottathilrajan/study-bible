@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 // ═══════════════════════════════════════════════════
 // THEME
 // ═══════════════════════════════════════════════════
-const KC = {
+const KC_LIGHT = {
   bg:      "#F0FDF4",
   card:    "#FFFFFF",
   hero:    "linear-gradient(135deg, #059669 0%, #10B981 50%, #047857 100%)",
@@ -16,6 +16,15 @@ const KC = {
   heading: "'Georgia', 'DM Serif Display', serif",
   body:    "'Georgia', serif",
   ui:      "'Outfit', 'Segoe UI', sans-serif",
+};
+const KC_DARK = {
+  ...KC_LIGHT,
+  bg:      "#0E1610",
+  card:    "#162016",
+  accentLight: "rgba(5,150,105,0.15)",
+  text:    "#C8E0D0",
+  muted:   "#7AA088",
+  divider: "rgba(5,150,105,0.2)",
 };
 
 const AGE_BADGES = {
@@ -2706,7 +2715,8 @@ const LESSONS = [
 // ═══════════════════════════════════════════════════
 // COMPONENT
 // ═══════════════════════════════════════════════════
-export default function KidsCurriculum({ nav }) {
+export default function KidsCurriculum({ nav, darkMode }) {
+  const KC = darkMode ? KC_DARK : KC_LIGHT;
 
   // ── State ────────────────────────────────────
   const [activeTab, setActiveTab]             = useState("lessons");
@@ -2776,10 +2786,10 @@ export default function KidsCurriculum({ nav }) {
         border: `1px solid ${KC.divider}`, borderLeft: `4px solid ${lesson.color}`,
         cursor: "pointer", position: "relative", overflow: "hidden",
         transition: "transform 0.15s, box-shadow 0.15s",
-        boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+        boxShadow: darkMode ? "0 1px 4px rgba(0,0,0,0.2)" : "0 1px 4px rgba(0,0,0,0.04)",
       }}
-        onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)"; }}
-        onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = "0 1px 4px rgba(0,0,0,0.04)"; }}
+        onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = darkMode ? "0 4px 12px rgba(0,0,0,0.3)" : "0 4px 12px rgba(0,0,0,0.08)"; }}
+        onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = darkMode ? "0 1px 4px rgba(0,0,0,0.2)" : "0 1px 4px rgba(0,0,0,0.04)"; }}
       >
         {done && <div style={{ position: "absolute", top: 8, right: 8, width: 22, height: 22, borderRadius: "50%", background: "#059669", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, color: "#fff" }}>✓</div>}
         <div style={{ padding: "14px 14px 12px" }}>
@@ -2815,7 +2825,7 @@ export default function KidsCurriculum({ nav }) {
     <div style={{ marginBottom: 0 }}>
       <div onClick={onToggle} style={{
         display: "flex", alignItems: "center", gap: 10, padding: "14px 20px",
-        background: altBg || "#fff",
+        background: altBg || (darkMode ? KC.card : "#fff"),
         cursor: onToggle ? "pointer" : "default",
         borderBottom: `1px solid ${KC.divider}`,
       }}>
@@ -2832,9 +2842,9 @@ export default function KidsCurriculum({ nav }) {
 
   const ScriptureBlock = ({ text }) => (
     <div style={{
-      background: "#FFFBEB", border: "1px solid #FDE68A", borderLeft: "3px solid #D97706",
+      background: darkMode ? "rgba(217,119,6,0.1)" : "#FFFBEB", border: darkMode ? "1px solid rgba(217,119,6,0.25)" : "1px solid #FDE68A", borderLeft: "3px solid #D97706",
       borderRadius: 10, padding: "16px 18px",
-      fontFamily: KC.body, fontSize: 14, color: "#78350F", lineHeight: 1.75, fontStyle: "italic",
+      fontFamily: KC.body, fontSize: 14, color: darkMode ? "#FDE68A" : "#78350F", lineHeight: 1.75, fontStyle: "italic",
       whiteSpace: "pre-line",
     }}>
       {text}
@@ -2888,7 +2898,7 @@ export default function KidsCurriculum({ nav }) {
 
           {/* ── Age Toggle ────────────────────── */}
           <div style={{
-            display: "flex", gap: 6, padding: "10px 20px", background: "#fff",
+            display: "flex", gap: 6, padding: "10px 20px", background: darkMode ? KC.card : "#fff",
             borderBottom: `1px solid ${KC.divider}`, flexShrink: 0,
           }}>
             {["3-5","6-8","9-12"].map(ag => {
@@ -2897,7 +2907,7 @@ export default function KidsCurriculum({ nav }) {
               return (
                 <button key={ag} onClick={() => setAgeFilter(ag)} style={{
                   flex: 1, padding: "7px 0", borderRadius: 8, border: "none",
-                  background: active ? ab.bg : "#F3F4F6",
+                  background: active ? ab.bg : (darkMode ? "rgba(255,255,255,0.06)" : "#F3F4F6"),
                   color: active ? ab.color : KC.muted,
                   fontFamily: KC.ui, fontSize: 12, fontWeight: active ? 700 : 500,
                   cursor: "pointer", transition: "all 0.15s",
@@ -3088,7 +3098,7 @@ export default function KidsCurriculum({ nav }) {
 
       {/* ── Tabs ──────────────────────────────── */}
       <div style={{
-        display: "flex", background: "#fff", borderBottom: `1px solid ${KC.divider}`,
+        display: "flex", background: darkMode ? KC.card : "#fff", borderBottom: `1px solid ${KC.divider}`,
         position: "sticky", top: 0, zIndex: 100,
       }}>
         {["lessons", "progress"].map(tab => (
@@ -3117,7 +3127,7 @@ export default function KidsCurriculum({ nav }) {
               return (
                 <button key={t} onClick={() => { setTermFilter(t); setMonthFilter("All"); }} style={{
                   padding: "6px 12px", borderRadius: 20, border: "none",
-                  background: active ? (t === "All" ? KC.accent : tb.bg) : "#F3F4F6",
+                  background: active ? (t === "All" ? KC.accent : tb.bg) : (darkMode ? "rgba(255,255,255,0.06)" : "#F3F4F6"),
                   color: active ? (t === "All" ? "#fff" : tb.color) : KC.muted,
                   fontFamily: KC.ui, fontSize: 11, fontWeight: active ? 700 : 500,
                   cursor: "pointer", transition: "all 0.15s",
@@ -3155,7 +3165,7 @@ export default function KidsCurriculum({ nav }) {
               return (
                 <button key={ag} onClick={() => setAgeFilter(ag)} style={{
                   padding: "5px 12px", borderRadius: 16, border: "none",
-                  background: active ? ab.bg : "#F3F4F6",
+                  background: active ? ab.bg : (darkMode ? "rgba(255,255,255,0.06)" : "#F3F4F6"),
                   color: active ? ab.color : KC.muted,
                   fontFamily: KC.ui, fontSize: 11, fontWeight: active ? 700 : 500,
                   cursor: "pointer", transition: "all 0.15s",
@@ -3188,7 +3198,7 @@ export default function KidsCurriculum({ nav }) {
       {activeTab === "progress" && (
         <div style={{ padding: "20px 16px 40px" }}>
           <div style={{
-            background: "#fff", borderRadius: 14, padding: 20,
+            background: darkMode ? KC.card : "#fff", borderRadius: 14, padding: 20,
             border: `1px solid ${KC.divider}`, marginBottom: 16, textAlign: "center",
           }}>
             <div style={{ fontFamily: KC.heading, fontSize: 36, fontWeight: 700, color: KC.accent }}>{completedCount}</div>
@@ -3211,7 +3221,7 @@ export default function KidsCurriculum({ nav }) {
               {LESSONS.filter(l => completedLessons.includes(l.week)).map(l => (
                 <div key={l.week} onClick={() => openLesson(l)} style={{
                   display: "flex", alignItems: "center", gap: 12,
-                  background: "#fff", borderRadius: 10, padding: "12px 14px",
+                  background: darkMode ? KC.card : "#fff", borderRadius: 10, padding: "12px 14px",
                   border: `1px solid ${KC.divider}`, marginBottom: 8, cursor: "pointer",
                   borderLeft: `4px solid ${l.color}`,
                 }}>

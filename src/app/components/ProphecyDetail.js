@@ -17,7 +17,7 @@
 import { STATUS_CONFIG } from "./ProphecyData";
 
 // ─── Sunrise theme ────────────────────────────────────────────────────────────
-const st = {
+const stLight = {
   heading: "'DM Serif Display',serif",
   body:    "'Lora',serif",
   ui:      "'Nunito',sans-serif",
@@ -30,6 +30,18 @@ const st = {
   light:   "#C0A888",
   divider: "rgba(232,98,92,0.12)",
 };
+const stDark = {
+  ...stLight,
+  bg:      "#161210",
+  card:    "#201A16",
+  dark:    "#F8E8D0",
+  text:    "#D0B898",
+  muted:   "#9A7A5A",
+  light:   "#6A5840",
+  divider: "rgba(232,98,92,0.15)",
+};
+// Alias for helper components (font references only)
+const st = stLight;
 
 // ─── Parchment palette (used in scrollMode) ───────────────────────────────────
 const P = {
@@ -609,9 +621,10 @@ const RevelationDetail = ({ prophecy, color, nav, scrollMode }) => (
 // ══════════════════════════════════════════════════════════════════════════════
 //  MAIN EXPORT
 // ══════════════════════════════════════════════════════════════════════════════
-export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = false, isRead = false, onMarkRead }) {
+export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = false, isRead = false, onMarkRead, darkMode }) {
   if (!prophecy) return null;
 
+  const t = darkMode ? stDark : stLight;
   const color      = CATEGORY_COLORS[prophecy.category] || st.accent;
   const status     = STATUS_CONFIG[prophecy.status];
   const isRevelation = prophecy.category === "Revelation";
@@ -684,7 +697,7 @@ export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = fa
       border: `1px solid ${color}33`,
       borderTop: `4px solid ${color}`,
       boxShadow: "0 6px 32px rgba(0,0,0,0.11)",
-      background: st.card,
+      background: t.card,
       animation: "panelIn 0.28s ease",
       overflow: "hidden",
     }}>
@@ -709,13 +722,13 @@ export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = fa
                prophecy.category}
             </div>
             <h3 style={{
-              fontFamily: st.heading, fontSize: 20, color: st.dark,
+              fontFamily: st.heading, fontSize: 20, color: t.dark,
               margin: "0 0 4px", lineHeight: 1.2,
             }}>
               {prophecy.title}
             </h3>
             <p style={{
-              fontFamily: st.body, fontSize: 13, color: st.muted,
+              fontFamily: st.body, fontSize: 13, color: t.muted,
               margin: "0 0 10px", fontStyle: "italic", lineHeight: 1.5,
             }}>
               {prophecy.summary}
@@ -731,15 +744,15 @@ export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = fa
                 </span>
               )}
               <span style={{
-                fontFamily: st.ui, fontSize: 11, color: st.muted,
-                background: "rgba(0,0,0,0.05)", borderRadius: 6, padding: "3px 9px",
+                fontFamily: st.ui, fontSize: 11, color: t.muted,
+                background: darkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)", borderRadius: 6, padding: "3px 9px",
               }}>
                 {prophecy.otRef}
               </span>
               {prophecy.ntRef && (
                 <span style={{
-                  fontFamily: st.ui, fontSize: 11, color: st.muted,
-                  background: "rgba(0,0,0,0.05)", borderRadius: 6, padding: "3px 9px",
+                  fontFamily: st.ui, fontSize: 11, color: t.muted,
+                  background: darkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)", borderRadius: 6, padding: "3px 9px",
                 }}>
                   {prophecy.ntRef}
                 </span>
@@ -749,9 +762,9 @@ export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = fa
           <button
             onClick={onClose}
             style={{
-              background: "rgba(0,0,0,0.07)", border: "none",
+              background: darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.07)", border: "none",
               borderRadius: "50%", width: 32, height: 32,
-              cursor: "pointer", fontSize: 17, color: st.muted,
+              cursor: "pointer", fontSize: 17, color: t.muted,
               display: "flex", alignItems: "center", justifyContent: "center",
               flexShrink: 0,
             }}

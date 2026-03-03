@@ -3,7 +3,7 @@ import { useState, useCallback } from "react";
 import { supabase } from "../../lib/supabase";
 
 // ─── Theme ────────────────────────────────────────────────────────────────────
-const T = {
+const T_LIGHT = {
   bg:       "#F5EDD6",
   wall:     "#EDE0C4",
   wood:     "linear-gradient(180deg, #C8974E 0%, #A0733A 50%, #8B5E2A 100%)",
@@ -12,6 +12,14 @@ const T = {
   muted:    "#8B6239",
   cream:    "#FEF6E4",
   font:     "'Georgia', serif",
+};
+const T_DARK = {
+  ...T_LIGHT,
+  bg:       "#161210",
+  wall:     "#1A1714",
+  text:     "#D0B898",
+  muted:    "#9A7A5A",
+  cream:    "#201A16",
 };
 
 const DIFF = {
@@ -518,7 +526,9 @@ const SHELVES = [
 ];
 
 // ─── Main Component ───────────────────────────────────────────────────────────
-export default function ReadingPlans({ nav, onPositionSave }) {
+export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
+  const T = darkMode ? T_DARK : T_LIGHT;
+
   const [selectedPlan,  setSelectedPlan]  = useState(null);
   const [detailOpen,    setDetailOpen]    = useState(false);
   const [animIn,        setAnimIn]        = useState(false);
@@ -726,8 +736,8 @@ export default function ReadingPlans({ nav, onPositionSave }) {
                         {/* Top edge (pages) */}
                         <div style={{
                           height:5, borderRadius:"3px 3px 0 0",
-                          background:`linear-gradient(90deg, #f0e8d8, #e8dcc8, #f0e8d8)`,
-                          borderTop:"1px solid #d4c4a0",
+                          background: darkMode ? "linear-gradient(90deg, #3A3028, #2E2620, #3A3028)" : "linear-gradient(90deg, #f0e8d8, #e8dcc8, #f0e8d8)",
+                          borderTop: darkMode ? "1px solid #4A3C2E" : "1px solid #d4c4a0",
                         }} />
 
                         {/* Spine */}
@@ -900,7 +910,7 @@ export default function ReadingPlans({ nav, onPositionSave }) {
                           <span>Day {done} of {total}</span>
                           <span style={{ color:plan.color }}>{pct}%</span>
                         </div>
-                        <div style={{ height:8, background:"#E5E7EB", borderRadius:6, overflow:"hidden" }}>
+                        <div style={{ height:8, background: darkMode ? "#3A3028" : "#E5E7EB", borderRadius:6, overflow:"hidden" }}>
                           <div style={{
                             height:"100%", width:`${pct}%`,
                             background:`linear-gradient(90deg, ${plan.color}, ${lightenHex(plan.color,30)})`,
@@ -911,19 +921,19 @@ export default function ReadingPlans({ nav, onPositionSave }) {
 
                       {done >= total ? (
                         /* ── Complete state ── */
-                        <div style={{ background:"#D1FAE5", borderRadius:12,
+                        <div style={{ background: darkMode ? "rgba(5,150,105,0.12)" : "#D1FAE5", borderRadius:12,
                           padding:"14px", marginBottom:14, textAlign:"center" }}>
-                          <p style={{ margin:0, fontSize:15, color:"#065F46", fontWeight:700 }}>
+                          <p style={{ margin:0, fontSize:15, color: darkMode ? "#4ADE80" : "#065F46", fontWeight:700 }}>
                             🎉 Plan Complete — Well done!
                           </p>
-                          <p style={{ margin:"4px 0 0", fontSize:12, color:"#047857" }}>
+                          <p style={{ margin:"4px 0 0", fontSize:12, color: darkMode ? "#6EE7B7" : "#047857" }}>
                             You've finished the entire plan.
                           </p>
                         </div>
                       ) : todayEntry ? (
                         /* ── Today's reading passages ── */
                         <div style={{
-                          background:"#fff",
+                          background: darkMode ? "#201A16" : "#fff",
                           border:`1px solid ${plan.color}33`,
                           borderRadius:12, marginBottom:14, overflow:"hidden",
                         }}>
@@ -960,8 +970,8 @@ export default function ReadingPlans({ nav, onPositionSave }) {
                                   display:"flex", alignItems:"center",
                                   justifyContent:"space-between", gap:10,
                                   padding:"10px 12px", borderRadius:10,
-                                  background: isSeeded ? `${plan.color}0D` : "#F9FAFB",
-                                  border: `1px solid ${isSeeded ? plan.color + "33" : "#E5E7EB"}`,
+                                  background: isSeeded ? `${plan.color}0D` : (darkMode ? "rgba(255,255,255,0.03)" : "#F9FAFB"),
+                                  border: `1px solid ${isSeeded ? plan.color + "33" : (darkMode ? "rgba(255,255,255,0.08)" : "#E5E7EB")}`,
                                 }}>
                                   {/* Passage label */}
                                   <div style={{ display:"flex", alignItems:"center", gap:8 }}>
@@ -999,7 +1009,7 @@ export default function ReadingPlans({ nav, onPositionSave }) {
                                     </button>
                                   ) : isUnseeded ? (
                                     <span style={{
-                                      background:"#F3F4F6", color:T.muted,
+                                      background: darkMode ? "rgba(255,255,255,0.06)" : "#F3F4F6", color:T.muted,
                                       borderRadius:8, padding:"7px 12px",
                                       fontSize:11, fontWeight:600, flexShrink:0,
                                     }}>
@@ -1007,7 +1017,7 @@ export default function ReadingPlans({ nav, onPositionSave }) {
                                     </span>
                                   ) : (
                                     <span style={{
-                                      background:"#F3F4F6", color:T.muted,
+                                      background: darkMode ? "rgba(255,255,255,0.06)" : "#F3F4F6", color:T.muted,
                                       borderRadius:8, padding:"7px 12px",
                                       fontSize:11, flexShrink:0,
                                     }}>
@@ -1133,7 +1143,7 @@ export default function ReadingPlans({ nav, onPositionSave }) {
                 const pct   = Math.round((done/total)*100);
                 return (
                   <div style={{
-                    background:"#fff", borderRadius:14, padding:"14px 16px",
+                    background: darkMode ? "#201A16" : "#fff", borderRadius:14, padding:"14px 16px",
                     marginBottom:18, boxShadow:"0 2px 8px rgba(0,0,0,0.06)",
                     border:`1px solid ${selectedPlan.color}33`,
                   }}>
@@ -1142,7 +1152,7 @@ export default function ReadingPlans({ nav, onPositionSave }) {
                       <span>Your Progress</span>
                       <span style={{ color:selectedPlan.color }}>Day {done} / {total} — {pct}%</span>
                     </div>
-                    <div style={{ height:7, background:"#E5E7EB", borderRadius:6, overflow:"hidden" }}>
+                    <div style={{ height:7, background: darkMode ? "#3A3028" : "#E5E7EB", borderRadius:6, overflow:"hidden" }}>
                       <div style={{
                         height:"100%", width:`${pct}%`,
                         background:`linear-gradient(90deg, ${selectedPlan.color}, ${lightenHex(selectedPlan.color,30)})`,
@@ -1155,7 +1165,7 @@ export default function ReadingPlans({ nav, onPositionSave }) {
 
               {/* Description */}
               <div style={{
-                background:"#fff", borderRadius:14, padding:"18px",
+                background: darkMode ? "#201A16" : "#fff", borderRadius:14, padding:"18px",
                 marginBottom:18, boxShadow:"0 2px 8px rgba(0,0,0,0.05)",
               }}>
                 <p style={{ margin:0, fontSize:15, color:T.text, lineHeight:1.8, fontStyle:"italic" }}>
@@ -1165,7 +1175,7 @@ export default function ReadingPlans({ nav, onPositionSave }) {
 
               {/* What you'll read */}
               <div style={{
-                background:"#fff", borderRadius:14, padding:"18px",
+                background: darkMode ? "#201A16" : "#fff", borderRadius:14, padding:"18px",
                 marginBottom:18, boxShadow:"0 2px 8px rgba(0,0,0,0.05)",
               }}>
                 <h3 style={{ margin:"0 0 12px", fontSize:14, fontWeight:700, color:T.text,
@@ -1201,9 +1211,9 @@ export default function ReadingPlans({ nav, onPositionSave }) {
               {activePlans[selectedPlan.id] ? (
                 <>
                   <div style={{
-                    background:"#D1FAE5", borderRadius:12, padding:"13px",
+                    background: darkMode ? "rgba(5,150,105,0.12)" : "#D1FAE5", borderRadius:12, padding:"13px",
                     textAlign:"center", marginBottom:12,
-                    color:"#065F46", fontWeight:600, fontSize:14,
+                    color: darkMode ? "#4ADE80" : "#065F46", fontWeight:600, fontSize:14,
                   }}>
                     ✓ Day {completedDays[selectedPlan.id] || 0} of {parseInt(selectedPlan.duration)} complete
                   </div>
