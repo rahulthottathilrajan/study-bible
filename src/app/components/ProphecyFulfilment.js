@@ -551,7 +551,7 @@ const SectionDivider = ({ label }) => (
 // ══════════════════════════════════════════════════════════════════════════════
 //  MAIN COMPONENT
 // ══════════════════════════════════════════════════════════════════════════════
-export default function ProphecyFulfilment({ nav }) {
+export default function ProphecyFulfilment({ nav, onPositionSave }) {
   // "hub" = category landing | category id = prophecy list for that category
   const [view,     setView]     = useState("hub");
   const [selected, setSelected] = useState(null);
@@ -586,6 +586,7 @@ export default function ProphecyFulfilment({ nav }) {
 
   const handleSelect = (prophecy) => {
     setSelected(prev => prev?.id === prophecy?.id ? null : prophecy);
+    if (prophecy && onPositionSave) onPositionSave("prophecy", { topicName: prophecy.title });
   };
 
   const goToCategory = (catId) => {
