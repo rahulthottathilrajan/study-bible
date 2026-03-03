@@ -3754,10 +3754,10 @@ export default function StudyBible() {
       {view === "timeline-home" && TimelineHome()}
       {view === "timeline-maps" && <TimelineMaps nav={nav} />}
       {view === "timeline-books" && <BibleBookTimeline nav={nav} />}
-      {view === "prophecy-home" && <ProphecyFulfilment nav={nav} />}
+      {view === "prophecy-home" && <ProphecyFulfilment nav={nav} onPositionSave={updateSectionPosition} />}
       {view === "timeline-archaeology" && <ArchaeologyCards nav={nav} />}
-      {view === "apologetics-home" && <Apologetics nav={nav} />}
-      {view === "reading-plans-home" && <ReadingPlans nav={nav} />}
+      {view === "apologetics-home" && <Apologetics nav={nav} onPositionSave={updateSectionPosition} />}
+      {view === "reading-plans-home" && <ReadingPlans nav={nav} onPositionSave={updateSectionPosition} />}
       {view === "kids-curriculum-home" && <KidsCurriculum nav={nav} />}
       {view === "timeline-era" && TimelineEras()}
       {view === "timeline-era-detail" && TimelineEraDetail()}

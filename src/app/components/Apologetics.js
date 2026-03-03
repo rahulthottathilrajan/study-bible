@@ -194,7 +194,7 @@ const APOLOGETICS_TOPICS = [
   },
 ];
 
-export default function Apologetics({ nav }) {
+export default function Apologetics({ nav, onPositionSave }) {
   const [selected, setSelected]   = useState(null);
   const [revealed, setRevealed]   = useState(false);
   const [studied, setStudied]     = useState({});
@@ -211,6 +211,8 @@ export default function Apologetics({ nav }) {
     setSelected(id);
     setRevealed(false);
     setTimeout(() => setAnimIn(true), 10);
+    const t = APOLOGETICS_TOPICS.find(t => t.id === id);
+    if (t && onPositionSave) onPositionSave("apologetics", { topicName: t.title });
   };
 
   const closeModal = () => {
