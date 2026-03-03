@@ -546,6 +546,13 @@ export default function StudyBible() {
     } catch (e) { console.error("Position sync error:", e); }
   }, [user]);
 
+  // ─── Callback for child components to save richer subtitles ───
+  const updateSectionPosition = useCallback((sectionKey, positionData) => {
+    const lsKey = `cr_${sectionKey}`;
+    try { localStorage.setItem(lsKey, JSON.stringify(positionData)); } catch {}
+    savePositionToSupabase(sectionKey, positionData);
+  }, [savePositionToSupabase]);
+
   // Save last-read position (cr_ot / cr_nt + legacy lastRead)
   useEffect(() => {
     if (view === "verse" && book && chapter && verse) {
