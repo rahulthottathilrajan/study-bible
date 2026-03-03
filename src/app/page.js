@@ -12,6 +12,7 @@ import ReadingPlans from "./components/ReadingPlans";
 import KidsCurriculum from "./components/KidsCurriculum";
 import ContinueReading from "./components/ContinueReading";
 import BibleSearch from "./components/BibleSearch";
+import VerseOfTheDay from "./components/VerseOfTheDay";
 
 
 
@@ -562,6 +563,8 @@ export default function StudyBible() {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={ht.muted} strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <span style={{ fontFamily:ht.ui,fontSize:14,color:ht.light,fontWeight:500 }}>Search the Scriptures...</span>
           </button>
+          {/* ── VERSE OF THE DAY ── */}
+          <VerseOfTheDay nav={nav} ht={ht} />
           <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.18),rgba(184,134,11,0.08))",border:"1px solid rgba(212,168,83,0.35)",borderRadius:14,padding:"14px 16px",marginBottom:18,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,boxShadow:"0 2px 8px rgba(212,168,83,0.12)",position:"relative",overflow:"hidden" }}>
             <div style={{ position:"absolute",top:0,left:0,right:0,height:2,background:"linear-gradient(90deg,transparent,rgba(212,168,83,0.6),transparent)" }}/>
             <div style={{ width:44,height:44,borderRadius:12,background:"linear-gradient(135deg,#4A90D9,#1A5C8A)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0,boxShadow:"0 2px 8px rgba(74,144,217,0.35)" }}>🕊️</div>
