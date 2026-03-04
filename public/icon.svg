@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="90" fill="#1a1a2e"/>
+  <!-- Subtle radial glow -->
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#4c1d95" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#1a1a2e" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="512" height="512" rx="90" fill="url(#glow)"/>
+
+  <!-- Gold gradient definition -->
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5D485"/>
+      <stop offset="50%" stop-color="#D4A853"/>
+      <stop offset="100%" stop-color="#A87820"/>
+    </linearGradient>
+    <linearGradient id="goldLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FAE8A0"/>
+      <stop offset="100%" stop-color="#D4A853"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left page of open Bible -->
+  <rect x="80" y="148" width="162" height="216" rx="6" fill="url(#gold)" opacity="0.92"/>
+  <!-- Right page -->
+  <rect x="270" y="148" width="162" height="216" rx="6" fill="url(#gold)" opacity="0.92"/>
+  <!-- Spine / binding shadow -->
+  <rect x="238" y="140" width="36" height="232" rx="10" fill="#A87820"/>
+  <rect x="246" y="140" width="20" height="232" rx="8" fill="#C49535"/>
+
+  <!-- Text lines on left page -->
+  <rect x="100" y="185" width="122" height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+  <rect x="100" y="204" width="100" height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+  <rect x="100" y="223" width="114" height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+  <rect x="100" y="242" width="88"  height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+  <rect x="100" y="261" width="106" height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+
+  <!-- Text lines on right page -->
+  <rect x="290" y="185" width="122" height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+  <rect x="290" y="204" width="100" height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+  <rect x="290" y="223" width="114" height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+  <rect x="290" y="242" width="88"  height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+  <rect x="290" y="261" width="106" height="7" rx="3.5" fill="#1a1a2e" opacity="0.28"/>
+
+  <!-- Cross on right page (accent) -->
+  <rect x="338" y="288" width="10" height="52" rx="4" fill="#1a1a2e" opacity="0.55"/>
+  <rect x="320" y="306" width="46" height="10" rx="4" fill="#1a1a2e" opacity="0.55"/>
+
+  <!-- Bottom ribbon / bookmark on left page -->
+  <rect x="138" y="364" width="10" height="28" rx="3" fill="url(#goldLight)" opacity="0.7"/>
+</svg>

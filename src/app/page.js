@@ -46,6 +46,25 @@ export default function StudyBible() {
     try { localStorage.setItem("fontSize", fontSize); } catch {}
   }, [fontSize]);
 
+  // ─── Service worker registration + install prompt ───
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js").catch(() => {});
+    }
+    const onPrompt = (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+      try { if (!localStorage.getItem("pwa-dismissed")) setShowInstall(true); } catch {}
+    };
+    const onInstalled = () => setShowInstall(false);
+    window.addEventListener("beforeinstallprompt", onPrompt);
+    window.addEventListener("appinstalled", onInstalled);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", onPrompt);
+      window.removeEventListener("appinstalled", onInstalled);
+    };
+  }, []);
+
   // ─── Font size lookup ───
   const FS = { small:{list:13,detail:17}, medium:{list:14.5,detail:19.5}, large:{list:17,detail:23}, xlarge:{list:20.5,detail:27} };
 
@@ -60,6 +79,10 @@ export default function StudyBible() {
   const [crossRefs, setCrossRefs] = useState({});
 
   // ─── Auth state ───
+  // ─── PWA install prompt ───
+  const [installPrompt, setInstallPrompt] = useState(null);
+  const [showInstall, setShowInstall] = useState(false);
+
   const [user, setUser] = useState(null);
   const [authMode, setAuthMode] = useState("login");
   const [authEmail, setAuthEmail] = useState("");
@@ -803,6 +826,23 @@ export default function StudyBible() {
           </div>
         </div>
       </div>
+      {/* ── PWA INSTALL BANNER ── */}
+      {showInstall && (
+        <div style={{ background:darkMode?"#1c1917":"#f5f3ff",borderBottom:`1px solid ${ht.divider}`,padding:"10px 16px",display:"flex",alignItems:"center",gap:10 }}>
+          <span style={{ fontSize:18 }}>📲</span>
+          <span style={{ flex:1,fontFamily:ht.ui,fontSize:13,color:ht.text }}>Add to Home Screen for offline reading</span>
+          <button
+            onClick={() => { installPrompt?.prompt(); setShowInstall(false); }}
+            style={{ background:ht.accent,color:"#fff",border:"none",borderRadius:8,padding:"5px 12px",fontSize:12,fontWeight:600,cursor:"pointer" }}>
+            Install
+          </button>
+          <button
+            onClick={() => { setShowInstall(false); try { localStorage.setItem("pwa-dismissed","1"); } catch {} }}
+            style={{ background:"transparent",border:"none",color:ht.muted,fontSize:16,cursor:"pointer",padding:"0 4px" }}>
+            ✕
+          </button>
+        </div>
+      )}
       <div style={{ padding:"22px 20px 40px" }}>
         <div style={{ maxWidth:520,margin:"0 auto" }}>
           {/* ── SEARCH BAR ── */}
