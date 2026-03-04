@@ -11,7 +11,7 @@ export default function AccountView() {
     authForgot, setAuthForgot, authForgotSent,
     allHighlights, prayers,
     handleAuth, handleLogout, handleForgotPassword, handleGoogleSignIn,
-    nav, setPrayerModal, setDonateModal,
+    nav, setDonateModal,
   } = useApp();
 
   return (
@@ -185,7 +185,7 @@ export default function AccountView() {
               <Label icon="⚡" t={ht} color={ht.muted}>Quick Actions</Label>
               {[
                 {label:"My Highlights",icon:"🎨",action:()=>nav("highlights")},
-                {label:"Prayer Journal",icon:"🙏",action:()=>setPrayerModal(true)},
+                {label:"Prayer Community",icon:"🙏",action:()=>nav("prayer-home")},
               ].map((a,i) => (
                 <button key={i} onClick={a.action} style={{width:"100%",display:"flex",alignItems:"center",gap:12,padding:"12px 14px",background:"transparent",border:`1px solid ${ht.divider}`,borderRadius:10,cursor:"pointer",marginBottom:6,textAlign:"left"}}>
                   <span style={{fontSize:18}}>{a.icon}</span>

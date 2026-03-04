@@ -18,6 +18,7 @@ import HebrewView from "./views/HebrewView";
 import GreekView from "./views/GreekView";
 import BibleView from "./views/BibleView";
 import JournalView from "./views/JournalView";
+import PrayerView from "./views/PrayerView";
 import LearnView from "./views/LearnView";
 
 // ═══════════════════════════════════════════════════
@@ -34,7 +35,8 @@ function StudyBibleContent() {
       {view === "home" && <ErrorBoundary theme={ht} label="Home"><HomeView /></ErrorBoundary>}
       {view === "search" && <ErrorBoundary theme={ht} label="Search"><BibleSearch nav={nav} ht={ht} /></ErrorBoundary>}
       {(view === "books" || view === "chapter" || view === "verses" || view === "verse") && <ErrorBoundary theme={ht} label="Bible"><BibleView /></ErrorBoundary>}
-      {(view === "highlights" || view === "journal-home") && <ErrorBoundary theme={ht} label="Journal"><JournalView /></ErrorBoundary>}
+      {view === "highlights" && <ErrorBoundary theme={ht} label="Highlights"><JournalView /></ErrorBoundary>}
+      {view.startsWith("prayer-") && <ErrorBoundary theme={ht} label="Prayer"><PrayerView /></ErrorBoundary>}
       {view === "account" && <ErrorBoundary theme={ht} label="Account"><AccountView /></ErrorBoundary>}
       {(view === "learn-home" || view === "timeline-home" || view === "timeline-era" || view === "timeline-era-detail") && <ErrorBoundary theme={ht} label="Learn"><LearnView /></ErrorBoundary>}
       {view.startsWith("hebrew-") && <ErrorBoundary theme={ht} label="Hebrew"><HebrewView /></ErrorBoundary>}

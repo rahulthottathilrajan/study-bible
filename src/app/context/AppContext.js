@@ -97,6 +97,21 @@ export function AppProvider({ children }) {
   const [allHighlights, setAllHighlights] = useState([]);
   const [hlLoading, setHlLoading] = useState(false);
   const [donateModal, setDonateModal] = useState(false);
+  const [prayerTab, setPrayerTab] = useState("community");
+
+  // ─── Community Prayer state ───
+  const [communityPrayers, setCommunityPrayers] = useState([]);
+  const [communityPrayersLoading, setCommunityPrayersLoading] = useState(false);
+  const [communityPrayerCategory, setCommunityPrayerCategory] = useState("all");
+  const [userReactions, setUserReactions] = useState({});
+
+  const [expiringPrayers, setExpiringPrayers] = useState([]);
+
+  // ─── Prayer Clock state ───
+  const [slotCoverage, setSlotCoverage] = useState([]);
+  const [mySlots, setMySlots] = useState([]);
+  const [slotsLoading, setSlotsLoading] = useState(false);
+
   const noteRef = useRef(null);
 
   // ─── Hebrew Learning state ───
@@ -469,8 +484,178 @@ export function AppProvider({ children }) {
     setHlLoading(false);
   }, [user]);
 
-  useEffect(() => { if ((view === "account" || view === "journal-home") && user) loadPrayers(); }, [view, user, loadPrayers]);
-  useEffect(() => { if (view === "account" && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
+  useEffect(() => { if ((view === "account" || view === "prayer-home") && user) loadPrayers(); }, [view, user, loadPrayers]);
+  useEffect(() => { if ((view === "account" || view === "highlights") && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
+
+  // ═══ COMMUNITY PRAYER ═══
+  const loadCommunityPrayers = useCallback(async () => {
+    setCommunityPrayersLoading(true);
+    let query = supabase.from("community_prayers").select("*").order("created_at", { ascending: false });
+    if (communityPrayerCategory !== "all") query = query.eq("category", communityPrayerCategory);
+    const { data } = await query;
+    if (!data) { setCommunityPrayers([]); setCommunityPrayersLoading(false); return; }
+
+    // Fetch display names for non-anonymous prayers
+    const userIds = [...new Set(data.filter(p => !p.is_anonymous).map(p => p.user_id))];
+    let nameMap = {};
+    if (userIds.length > 0) {
+      const { data: profiles } = await supabase.from("user_profiles").select("id, display_name").in("id", userIds);
+      if (profiles) profiles.forEach(p => { nameMap[p.id] = p.display_name; });
+    }
+
+    // Fetch reaction counts
+    const prayerIds = data.map(p => p.id);
+    let reactionMap = {};
+    if (prayerIds.length > 0) {
+      const { data: reactions } = await supabase.from("prayer_reactions").select("prayer_id, reaction_type").in("prayer_id", prayerIds);
+      if (reactions) {
+        reactions.forEach(r => {
+          if (!reactionMap[r.prayer_id]) reactionMap[r.prayer_id] = { praying: 0, heart: 0, amen: 0 };
+          reactionMap[r.prayer_id][r.reaction_type]++;
+        });
+      }
+    }
+
+    // Fetch user's own reactions
+    let myReactMap = {};
+    if (user && prayerIds.length > 0) {
+      const { data: myReacts } = await supabase.from("prayer_reactions").select("prayer_id, reaction_type").eq("user_id", user.id).in("prayer_id", prayerIds);
+      if (myReacts) {
+        myReacts.forEach(r => {
+          if (!myReactMap[r.prayer_id]) myReactMap[r.prayer_id] = {};
+          myReactMap[r.prayer_id][r.reaction_type] = true;
+        });
+      }
+    }
+    setUserReactions(myReactMap);
+
+    const enriched = data.map(p => ({
+      ...p,
+      user_display_name: nameMap[p.user_id] || null,
+      reaction_counts: reactionMap[p.id] || { praying: 0, heart: 0, amen: 0 },
+    }));
+    setCommunityPrayers(enriched);
+    setCommunityPrayersLoading(false);
+  }, [communityPrayerCategory, user]);
+
+  useEffect(() => { if (view === "prayer-home") loadCommunityPrayers(); }, [view, loadCommunityPrayers]);
+
+  const addCommunityPrayer = async ({ title, body, category, isAnonymous }) => {
+    if (!user || !body.trim()) return;
+    await supabase.from("community_prayers").insert({
+      user_id: user.id, title, body, category, is_anonymous: isAnonymous,
+    });
+    loadCommunityPrayers();
+  };
+
+  const deleteCommunityPrayer = async (id) => {
+    await supabase.from("community_prayers").delete().eq("id", id);
+    loadCommunityPrayers();
+  };
+
+  const markCommunityPrayerAnswered = async (id) => {
+    await supabase.from("community_prayers").update({
+      is_answered: true, answered_at: new Date().toISOString(), updated_at: new Date().toISOString(),
+    }).eq("id", id);
+    loadCommunityPrayers();
+  };
+
+  const checkPrayerExpiry = useCallback(async () => {
+    if (!user) return;
+    const now = new Date().toISOString();
+    // Find user's prayers that are expired but not yet prompted
+    const { data: expired } = await supabase.from("community_prayers")
+      .select("*").eq("user_id", user.id).eq("is_answered", false)
+      .lt("expires_at", now).eq("expiry_prompted", false);
+    if (expired && expired.length > 0) {
+      setExpiringPrayers(expired);
+      // Mark them as prompted
+      const ids = expired.map(p => p.id);
+      await supabase.from("community_prayers").update({
+        expiry_prompted: true, expiry_prompted_at: now, updated_at: now,
+      }).in("id", ids);
+    }
+    // Auto-delete prayers where prompt was sent 48h ago with no response
+    const cutoff = new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString();
+    await supabase.from("community_prayers").delete()
+      .eq("user_id", user.id).eq("is_answered", false)
+      .eq("expiry_prompted", true).lt("expiry_prompted_at", cutoff);
+  }, [user]);
+
+  useEffect(() => { if (view === "prayer-home" && user) checkPrayerExpiry(); }, [view, user, checkPrayerExpiry]);
+
+  const keepCommunityPrayer = async (id) => {
+    // Reset expiry for another 60 days
+    const newExpiry = new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString();
+    await supabase.from("community_prayers").update({
+      expires_at: newExpiry, expiry_prompted: false, expiry_prompted_at: null,
+      updated_at: new Date().toISOString(),
+    }).eq("id", id);
+    setExpiringPrayers(prev => prev.filter(p => p.id !== id));
+    loadCommunityPrayers();
+  };
+
+  const toggleReaction = async (prayerId, reactionType) => {
+    if (!user) return;
+    const existing = userReactions[prayerId]?.[reactionType];
+    if (existing) {
+      await supabase.from("prayer_reactions").delete().eq("prayer_id", prayerId).eq("user_id", user.id).eq("reaction_type", reactionType);
+    } else {
+      await supabase.from("prayer_reactions").insert({ prayer_id: prayerId, user_id: user.id, reaction_type: reactionType });
+    }
+    // Optimistic update
+    setUserReactions(prev => {
+      const updated = { ...prev };
+      if (!updated[prayerId]) updated[prayerId] = {};
+      if (existing) { delete updated[prayerId][reactionType]; }
+      else { updated[prayerId][reactionType] = true; }
+      return updated;
+    });
+    setCommunityPrayers(prev => prev.map(p => {
+      if (p.id !== prayerId) return p;
+      const counts = { ...p.reaction_counts };
+      counts[reactionType] = (counts[reactionType] || 0) + (existing ? -1 : 1);
+      return { ...p, reaction_counts: counts };
+    }));
+  };
+
+  // ═══ PRAYER CLOCK ═══
+  const loadSlotCoverage = useCallback(async () => {
+    const dayOfWeek = new Date().getDay();
+    const { data } = await supabase.rpc("get_prayer_coverage", { target_day: dayOfWeek });
+    setSlotCoverage(data || []);
+  }, []);
+
+  const loadMySlots = useCallback(async () => {
+    if (!user) return;
+    setSlotsLoading(true);
+    const { data } = await supabase.from("prayer_slots").select("*").eq("user_id", user.id).eq("is_active", true).order("slot_hour");
+    setMySlots(data || []);
+    setSlotsLoading(false);
+  }, [user]);
+
+  useEffect(() => {
+    if (view === "prayer-home" && prayerTab === "clock") {
+      loadSlotCoverage();
+      if (user) loadMySlots();
+    }
+  }, [view, prayerTab, user, loadSlotCoverage, loadMySlots]);
+
+  const addPrayerSlot = async ({ hour, minute, duration, frequency, customDays }) => {
+    if (!user) return;
+    await supabase.from("prayer_slots").insert({
+      user_id: user.id, slot_hour: hour, slot_minute: minute,
+      duration_minutes: duration, frequency, custom_days: customDays || [],
+    });
+    loadMySlots();
+    loadSlotCoverage();
+  };
+
+  const deletePrayerSlot = async (id) => {
+    await supabase.from("prayer_slots").delete().eq("id", id);
+    loadMySlots();
+    loadSlotCoverage();
+  };
 
   // ═══ HEBREW LEARNING ═══
   const loadHebrewLessons = useCallback(async (cat = 'alphabet') => {
@@ -630,7 +815,7 @@ export function AppProvider({ children }) {
   }, []);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "journal-home":"home", "account":"home", "highlights":"home" };
+  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account" };
   const goBack = () => {
     const target = BACK_MAP[view] || "home";
     if (navStack.current.length > 1) navStack.current.pop();
@@ -746,7 +931,7 @@ export function AppProvider({ children }) {
     userNote, setUserNote, savedNote, setSavedNote, noteLoading, highlight,
     shareCopied, communityNotes, prayerModal, setPrayerModal, prayers, prayerTitle,
     setPrayerTitle, prayerText, setPrayerText, prayerLoading, allHighlights, hlLoading,
-    donateModal, setDonateModal, noteRef,
+    donateModal, setDonateModal, prayerTab, setPrayerTab, noteRef,
     // Hebrew
     hebrewLessons, hebrewLesson, setHebrewLesson, hebrewAlphabet, setHebrewAlphabet, hebrewVocab, setHebrewVocab,
     hebrewCategory, setHebrewCategory, hebrewProgress, hebrewPracticeMode, setHebrewPracticeMode,
@@ -774,6 +959,14 @@ export function AppProvider({ children }) {
     copyVerseText, shareVerseImage,
     // Prayer handlers
     loadPrayers, addPrayer, togglePrayerAnswered, deletePrayer,
+    // Community prayer
+    communityPrayers, communityPrayersLoading, communityPrayerCategory,
+    setCommunityPrayerCategory, addCommunityPrayer, deleteCommunityPrayer,
+    markCommunityPrayerAnswered, userReactions, toggleReaction,
+    loadCommunityPrayers, expiringPrayers, keepCommunityPrayer,
+    // Prayer clock
+    slotCoverage, mySlots, slotsLoading,
+    loadSlotCoverage, loadMySlots, addPrayerSlot, deletePrayerSlot,
     // Highlights
     loadAllHighlights,
     // Hebrew handlers

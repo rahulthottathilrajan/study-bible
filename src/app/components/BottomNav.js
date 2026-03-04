@@ -5,17 +5,17 @@ const NAV_ITEMS = [
   { id:"home", label:"Home", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
   { id:"bible", label:"Bible", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> },
   { id:"learn", label:"Learn", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> },
-  { id:"journal", label:"Journal", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> },
+  { id:"pray", label:"Pray", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s-4-2.5-4-6c0-1.5.5-2.5 1.5-3.5L12 10l2.5 2.5c1 1 1.5 2 1.5 3.5 0 3.5-4 6-4 6z"/><path d="M12 10V2"/><path d="M8 6l4-4 4 4"/></svg> },
   { id:"account", label:"Account", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> },
 ];
 
 const HIDDEN_VIEWS = ["verse","verses","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice"];
 const BIBLE_VIEWS = ["books","chapter","verses","verse"];
 const LEARN_VIEWS = ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson","greek-home","greek-lesson","greek-practice","greek-reading-home","greek-reading","greek-grammar-home","greek-grammar-lesson","timeline-home","timeline-era","timeline-era-detail","timeline-maps","timeline-books","timeline-archaeology","prophecy-home","apologetics-home","reading-plans-home"];
-const JOURNAL_VIEWS = ["journal-home","highlights"];
+const PRAYER_VIEWS = ["prayer-home","prayer-community","prayer-clock","prayer-journal","prayer-testimony","prayer-slot-active"];
 
 export default function BottomNav() {
-  const { view, nav, testament, user, setTab, ht } = useApp();
+  const { view, nav, testament, user, ht } = useApp();
 
   if (HIDDEN_VIEWS.includes(view)) return null;
 
@@ -27,13 +27,13 @@ export default function BottomNav() {
             (item.id === "home" && view === "home") ||
             (item.id === "bible" && BIBLE_VIEWS.includes(view)) ||
             (item.id === "learn" && LEARN_VIEWS.includes(view)) ||
-            (item.id === "journal" && JOURNAL_VIEWS.includes(view)) ||
+            (item.id === "pray" && PRAYER_VIEWS.includes(view)) ||
             (item.id === "account" && view === "account");
           return (
             <button key={item.id} onClick={() => {
               if (item.id === "bible") { if (BIBLE_VIEWS.includes(view)) { nav("books", { testament: testament || "OT" }); } else { try { const lr = JSON.parse(localStorage.getItem("lastRead")); if (lr?.book && lr?.chapter && lr?.verse) { nav("verse", { testament:lr.testament, book:lr.book, chapter:lr.chapter, verse:lr.verse }); } else { nav("books", { testament: testament || "OT" }); } } catch { nav("books", { testament: testament || "OT" }); } } }
               else if (item.id === "learn") nav("learn-home");
-              else if (item.id === "journal") { if (user) { setTab("highlights"); nav("journal-home"); } else nav("account"); }
+              else if (item.id === "pray") { nav("prayer-home"); }
               else nav(item.id);
             }} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:1,background:"none",border:"none",cursor:"pointer",padding:"4px 6px",color:isActive?ht.accent:ht.muted,transition:"all 0.18s ease",opacity:isActive?1:0.65 }}>
               <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 14px 3px",borderRadius:20,background:isActive?`${ht.accent}18`:"transparent",transition:"background 0.18s ease" }}>
