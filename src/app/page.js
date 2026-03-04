@@ -726,8 +726,8 @@ export default function StudyBible() {
                   </div>
                 </div>
               </button>
-              {/* Greek Card — Pentelic Marble (disabled) */}
-              <div style={{ flex:1,opacity:0.55,filter:"grayscale(0.6) drop-shadow(0 6px 16px rgba(0,0,0,0.22))",pointerEvents:"none",position:"relative" }}>
+              {/* Greek Card — Pentelic Marble */}
+              <button onClick={() => nav("greek-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 6px 16px rgba(0,0,0,0.22))",position:"relative" }}>
                 <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #8A8FA8",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.2)" }}>
                   {/* Marble header */}
                   <div style={{ background:"linear-gradient(160deg,#2A2A3E 0%,#3E3E56 50%,#22222E 100%)",padding:"16px 10px 12px",textAlign:"center",position:"relative",overflow:"hidden" }}>
@@ -747,12 +747,12 @@ export default function StudyBible() {
                       <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#6A6A8A,transparent)",borderRadius:2,margin:"0 auto 8px" }}/>
                       <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#3A3A5A",lineHeight:1.6,marginBottom:10 }}>Paul · John · Luke in Koine Greek</div>
                       <div style={{ display:"inline-block",padding:"5px 12px",borderRadius:4,background:"rgba(42,42,62,0.12)",border:"1px solid rgba(138,143,168,0.5)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.08)" }}>
-                        <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#2A2A4A",textTransform:"uppercase",letterSpacing:"0.07em" }}>Coming Soon</span>
+                        <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#2A2A4A",textTransform:"uppercase",letterSpacing:"0.07em" }}>Start Learning →</span>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
 
