@@ -12,9 +12,15 @@ export default function LearnView() {
     timelineSearchQuery, setTimelineSearchQuery, timelineAllEvents,
     timelineSearchActive, setTimelineSearchActive,
     loadAllTimelineEvents, loadTimelineEvents,
+    trackLearnExploration,
   } = useApp();
 
   const st = darkMode ? DARK_THEMES.sunrise : THEMES.sunrise;
+
+  // Track era exploration for badges
+  if (view === "timeline-era-detail" && timelineSelectedEra?.era_key) {
+    trackLearnExploration("erasExplored", timelineSelectedEra.era_key);
+  }
 
   // ═══ LEARN HOME ═══
   const LearnHome = () => {

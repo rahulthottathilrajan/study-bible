@@ -460,3 +460,46 @@ export const CHAPTER_GROUPS = {
     { label:"The New Creation — All Things New", icon:"🌅", chapters:[20,21,22] },
   ],
 };
+
+// ═══════════════════════════════════════════════════
+// GAMIFICATION — BADGES
+// ═══════════════════════════════════════════════════
+export const BADGE_CATEGORIES = [
+  { id:"bible",  label:"Bible",  icon:"📖" },
+  { id:"hebrew", label:"Hebrew", icon:"📜" },
+  { id:"greek",  label:"Greek",  icon:"📘" },
+  { id:"learn",  label:"Learn",  icon:"📚" },
+  { id:"prayer", label:"Prayer", icon:"🙏" },
+];
+
+export const BADGES = [
+  // Bible (8)
+  { id:"first_light",   category:"bible",  name:"First Light",       icon:"🕯️", description:"Read your first chapter" },
+  { id:"bookworm",      category:"bible",  name:"Bookworm",          icon:"📚", description:"Read 10 chapters" },
+  { id:"scholar",       category:"bible",  name:"Scholar",           icon:"🎓", description:"Read 50 chapters" },
+  { id:"highlighter",   category:"bible",  name:"Highlighter",       icon:"🖍️", description:"Highlight 10 verses" },
+  { id:"color_palette", category:"bible",  name:"Color Palette",     icon:"🎨", description:"Use all 5 highlight colors" },
+  { id:"scribe",        category:"bible",  name:"Scribe",            icon:"✍️", description:"Write 10 notes" },
+  { id:"bookmarker",    category:"bible",  name:"Bookmarker",        icon:"🔖", description:"Bookmark 25 verses" },
+  { id:"devoted",       category:"bible",  name:"Devoted",           icon:"🔥", description:"30-day reading streak" },
+  // Hebrew (4)
+  { id:"aleph",          category:"hebrew", name:"Aleph",             icon:"א",  description:"Complete your first Hebrew lesson" },
+  { id:"aleph_bet",      category:"hebrew", name:"Aleph-Bet Master",  icon:"📜", description:"Complete all alphabet lessons" },
+  { id:"hebrew_scholar", category:"hebrew", name:"Hebrew Scholar",    icon:"🕎", description:"Complete all Hebrew lessons" },
+  { id:"perfect_hebrew", category:"hebrew", name:"Perfect Hebrew",    icon:"💯", description:"Score 100% on a Hebrew practice" },
+  // Greek (4)
+  { id:"alpha",          category:"greek",  name:"Alpha",             icon:"A",  description:"Complete your first Greek lesson" },
+  { id:"alpha_omega",    category:"greek",  name:"Alpha-Omega Master",icon:"🏛️", description:"Complete all alphabet lessons" },
+  { id:"greek_scholar",  category:"greek",  name:"Greek Scholar",     icon:"📘", description:"Complete all Greek lessons" },
+  { id:"perfect_greek",  category:"greek",  name:"Perfect Greek",     icon:"💯", description:"Score 100% on a Greek practice" },
+  // Learn (4)
+  { id:"time_traveler",  category:"learn",  name:"Time Traveler",     icon:"⏳", description:"Explore your first timeline era" },
+  { id:"historian",      category:"learn",  name:"Historian",         icon:"📅", description:"Explore all 14 timeline eras" },
+  { id:"prophet",        category:"learn",  name:"Prophet",           icon:"🔭", description:"Read 10 prophecies" },
+  { id:"archaeologist",  category:"learn",  name:"Archaeologist",     icon:"⛏️", description:"View 5 archaeology cards" },
+  // Prayer (4)
+  { id:"intercessor",       category:"prayer", name:"Intercessor",       icon:"🙏", description:"React to 10 community prayers" },
+  { id:"prayer_warrior",    category:"prayer", name:"Prayer Warrior",    icon:"⚔️", description:"Complete 5 prayer slots" },
+  { id:"testimony",         category:"prayer", name:"Testimony",         icon:"✝️", description:"Share your first testimony" },
+  { id:"community_builder", category:"prayer", name:"Community Builder", icon:"🤝", description:"Post 5 prayer requests" },
+];

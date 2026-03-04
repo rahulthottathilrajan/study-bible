@@ -15,6 +15,7 @@ export default function BibleView() {
     isOT, currentVerse, verseNums, curIdx, t, ht, bookInfo,
     saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage, nav, goBack,
+    chapterReads, markChapterRead,
   } = useApp();
 
   // ═══ BOOKS ═══
@@ -166,6 +167,7 @@ export default function BibleView() {
 
                           {/* Progress badges */}
                           <div style={{ display:"flex",alignItems:"center",gap:5,flexShrink:0 }}>
+                            {chapterReads.some(r => r.book_name === book && r.chapter_number === ch) && <span style={{ fontSize:11,color:"#22c55e",fontWeight:700 }}>✓</span>}
                             {hasNote && <span style={{ fontSize:11,opacity:0.8 }}>✏️</span>}
                             {hasBookmark && <span style={{ fontSize:11,color:"#FFD700",opacity:0.9 }}>★</span>}
                             {has && <div style={{ color:t.light }}><ChevIcon /></div>}
@@ -243,6 +245,25 @@ export default function BibleView() {
               ))}
             </div>
           </div>
+          {user && (
+            (() => {
+              const isRead = chapterReads.some(r => r.book_name === book && r.chapter_number === chapter);
+              return (
+                <button onClick={() => { if (!isRead) markChapterRead(book, chapter); }}
+                  style={{
+                    width:"100%",padding:"10px 14px",borderRadius:10,marginBottom:10,
+                    border:`1px solid ${isRead ? "#22c55e" : t.accentBorder}`,
+                    background:isRead ? "rgba(34,197,94,0.08)" : t.accentLight,
+                    fontFamily:t.ui,fontSize:13,fontWeight:700,cursor:isRead?"default":"pointer",
+                    color:isRead ? "#22c55e" : t.accent,
+                    display:"flex",alignItems:"center",justifyContent:"center",gap:8,
+                    transition:"all 0.2s",
+                  }}>
+                  {isRead ? "✓ Chapter Read" : "📖 Mark Chapter as Read"}
+                </button>
+              );
+            })()
+          )}
           <div style={{display:"flex",flexDirection:"column",gap:6}}>
             {verses.map(v => (
               <button key={v.verse_number} onClick={() => nav("verse",{verse:v.verse_number,tab:"study"})}

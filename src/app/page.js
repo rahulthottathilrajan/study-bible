@@ -12,6 +12,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import BottomNav from "./components/BottomNav";
 import DonateModal from "./components/DonateModal";
 import PrayerModal from "./components/PrayerModal";
+import BadgeToast from "./components/BadgeToast";
 import HomeView from "./views/HomeView";
 import AccountView from "./views/AccountView";
 import HebrewView from "./views/HebrewView";
@@ -25,7 +26,7 @@ import LearnView from "./views/LearnView";
 // MAIN APP
 // ═══════════════════════════════════════════════════
 function StudyBibleContent() {
-  const { view, fade, darkMode, nav, ht, updateSectionPosition } = useApp();
+  const { view, fade, darkMode, nav, ht, updateSectionPosition, trackLearnExploration } = useApp();
 
   const showNav = !["verse","verses","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice"].includes(view);
 
@@ -43,12 +44,13 @@ function StudyBibleContent() {
       {view.startsWith("greek-") && <ErrorBoundary theme={ht} label="Greek"><GreekView /></ErrorBoundary>}
       {view === "timeline-maps" && <ErrorBoundary theme={ht} label="Maps"><TimelineMaps nav={nav} darkMode={darkMode} /></ErrorBoundary>}
       {view === "timeline-books" && <ErrorBoundary theme={ht} label="Timeline"><BibleBookTimeline nav={nav} darkMode={darkMode} /></ErrorBoundary>}
-      {view === "prophecy-home" && <ErrorBoundary theme={ht} label="Prophecy"><ProphecyFulfilment nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} /></ErrorBoundary>}
-      {view === "timeline-archaeology" && <ErrorBoundary theme={ht} label="Archaeology"><ArchaeologyCards nav={nav} darkMode={darkMode} /></ErrorBoundary>}
+      {view === "prophecy-home" && <ErrorBoundary theme={ht} label="Prophecy"><ProphecyFulfilment nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} trackLearnExploration={trackLearnExploration} /></ErrorBoundary>}
+      {view === "timeline-archaeology" && <ErrorBoundary theme={ht} label="Archaeology"><ArchaeologyCards nav={nav} darkMode={darkMode} trackLearnExploration={trackLearnExploration} /></ErrorBoundary>}
       {view === "apologetics-home" && <ErrorBoundary theme={ht} label="Apologetics"><Apologetics nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} /></ErrorBoundary>}
       {view === "reading-plans-home" && <ErrorBoundary theme={ht} label="Reading Plans"><ReadingPlans nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} /></ErrorBoundary>}
       {view === "kids-curriculum-home" && <ErrorBoundary theme={ht} label="Kids Curriculum"><KidsCurriculum nav={nav} darkMode={darkMode} /></ErrorBoundary>}
 
+      <BadgeToast />
       <BottomNav />
       <DonateModal />
       <PrayerModal />

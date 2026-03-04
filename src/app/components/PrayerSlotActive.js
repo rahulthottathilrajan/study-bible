@@ -16,6 +16,16 @@ export default function PrayerSlotActive() {
   const [timeLeft, setTimeLeft] = useState("");
   const [complete, setComplete] = useState(false);
 
+  // Track slot completion for badges
+  useEffect(() => {
+    if (complete) {
+      try {
+        const count = parseInt(localStorage.getItem("prayerSlotsCompleted") || "0", 10);
+        localStorage.setItem("prayerSlotsCompleted", String(count + 1));
+      } catch {}
+    }
+  }, [complete]);
+
   // Find the active slot
   const activeSlot = useMemo(() => {
     if (!mySlots || mySlots.length === 0) return null;

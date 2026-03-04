@@ -1,6 +1,6 @@
 "use client";
 import { useApp } from "../context/AppContext";
-import { THEMES } from "../constants";
+import { THEMES, BADGES } from "../constants";
 import { DBBadge, ChevIcon } from "../components/ui";
 import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
@@ -8,7 +8,7 @@ import VerseOfTheDay from "../components/VerseOfTheDay";
 export default function HomeView() {
   const {
     ht, darkMode, setDarkMode, dbLive,
-    user, profile, streak,
+    user, profile, streak, earnedBadges,
     showInstall, setShowInstall, installPrompt,
     setDonateModal, nav,
   } = useApp();
@@ -36,6 +36,12 @@ export default function HomeView() {
             <DBBadge live={dbLive} t={ht} />
           </div>
           <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+            {user && Object.keys(earnedBadges).length > 0 && (
+              <div onClick={() => nav("account")} title="View Achievements" style={{ display:"flex",alignItems:"center",gap:4,background:darkMode?"#1e3a5f":"#dbeafe",border:"1px solid #3b82f6",borderRadius:20,padding:"3px 10px",cursor:"pointer" }}>
+                <span style={{ fontSize:12 }}>🏆</span>
+                <span style={{ fontFamily:ht.ui,fontSize:11,fontWeight:700,color:"#3b82f6" }}>{Object.keys(earnedBadges).length}/{BADGES.length}</span>
+              </div>
+            )}
             {user && streak?.current_streak >= 1 && (
               <div title={`Best: ${streak.longest_streak} days`} style={{ display:"flex",alignItems:"center",gap:4,background:darkMode?"#78350f":"#fef3c7",border:"1px solid #d97706",borderRadius:20,padding:"3px 10px",cursor:"default" }}>
                 <span style={{ fontSize:12 }}>🔥</span>

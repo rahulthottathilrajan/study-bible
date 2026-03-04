@@ -564,7 +564,7 @@ const SectionDivider = ({ label, t }) => (
 // ══════════════════════════════════════════════════════════════════════════════
 //  MAIN COMPONENT
 // ══════════════════════════════════════════════════════════════════════════════
-export default function ProphecyFulfilment({ nav, onPositionSave, darkMode }) {
+export default function ProphecyFulfilment({ nav, onPositionSave, darkMode, trackLearnExploration }) {
   const t = darkMode ? stDark : stLight;
   // "hub" = category landing | category id = prophecy list for that category
   const [view,     setView]     = useState("hub");
@@ -601,6 +601,7 @@ export default function ProphecyFulfilment({ nav, onPositionSave, darkMode }) {
   const handleSelect = (prophecy) => {
     setSelected(prev => prev?.id === prophecy?.id ? null : prophecy);
     if (prophecy && onPositionSave) onPositionSave("prophecy", { topicName: prophecy.title });
+    if (prophecy && trackLearnExploration) trackLearnExploration("propheciesRead", prophecy.id);
   };
 
   const goToCategory = (catId) => {

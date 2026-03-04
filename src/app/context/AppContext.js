@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../../lib/supabase";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES } from "../constants";
 
 const AppContext = createContext(null);
 
@@ -163,6 +163,24 @@ export function AppProvider({ children }) {
   const [timelineAllEvents, setTimelineAllEvents] = useState([]);
   const [timelineSearchActive, setTimelineSearchActive] = useState(false);
 
+  // ─── Gamification state ───
+  const [earnedBadges, setEarnedBadges] = useState({});
+  const [chapterReads, setChapterReads] = useState([]);
+  const [badgeToast, setBadgeToast] = useState(null);
+  const [learnExploration, setLearnExploration] = useState({ erasExplored: [], propheciesRead: [], archaeologyViewed: [] });
+  const [notesCount, setNotesCount] = useState(0);
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem("learnExploration") || "{}");
+      setLearnExploration({
+        erasExplored: saved.erasExplored || [],
+        propheciesRead: saved.propheciesRead || [],
+        archaeologyViewed: saved.archaeologyViewed || [],
+      });
+    } catch {}
+  }, []);
+
   useEffect(() => {
     supabase.from("hebrew_lessons").select("id, lesson_number").eq("category","grammar").then(({data}) => {
       if (data) {
@@ -197,12 +215,12 @@ export function AppProvider({ children }) {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
-      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); }
+      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); }
     });
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
-      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); }
-      else { setProfile(null); setStreak(null); }
+      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); }
+      else { setProfile(null); setStreak(null); setEarnedBadges({}); setChapterReads([]); setNotesCount(0); }
     });
     return () => subscription.unsubscribe();
   }, []);
@@ -657,6 +675,135 @@ export function AppProvider({ children }) {
     loadSlotCoverage();
   };
 
+  // ═══ GAMIFICATION ═══
+  const loadEarnedBadges = useCallback(async () => {
+    if (!user) return;
+    const { data } = await supabase.from("user_badges").select("badge_id, earned_at").eq("user_id", user.id);
+    if (data) {
+      const map = {};
+      data.forEach(b => { map[b.badge_id] = { earned_at: b.earned_at }; });
+      setEarnedBadges(map);
+    }
+  }, [user]);
+
+  const loadChapterReads = useCallback(async () => {
+    if (!user) return;
+    const { data } = await supabase.from("user_chapter_reads").select("book_name, chapter_number").eq("user_id", user.id);
+    setChapterReads(data || []);
+  }, [user]);
+
+  const loadNotesCount = useCallback(async () => {
+    if (!user) return;
+    const { count } = await supabase.from("user_notes").select("id", { count: "exact", head: true }).eq("user_id", user.id);
+    setNotesCount(count || 0);
+  }, [user]);
+
+  const markChapterRead = useCallback(async (bookName, chapterNum) => {
+    if (!user) return;
+    const exists = chapterReads.some(r => r.book_name === bookName && r.chapter_number === chapterNum);
+    if (exists) return;
+    await supabase.from("user_chapter_reads").upsert(
+      { user_id: user.id, book_name: bookName, chapter_number: chapterNum },
+      { onConflict: "user_id,book_name,chapter_number" }
+    );
+    setChapterReads(prev => [...prev, { book_name: bookName, chapter_number: chapterNum }]);
+  }, [user, chapterReads]);
+
+  const trackLearnExploration = useCallback((type, id) => {
+    setLearnExploration(prev => {
+      const arr = prev[type] || [];
+      if (arr.includes(id)) return prev;
+      const updated = { ...prev, [type]: [...arr, id] };
+      try { localStorage.setItem("learnExploration", JSON.stringify(updated)); } catch {}
+      return updated;
+    });
+  }, []);
+
+  const badgeAwardRef = useRef(earnedBadges);
+  useEffect(() => { badgeAwardRef.current = earnedBadges; }, [earnedBadges]);
+
+  const awardBadge = useCallback(async (badgeId) => {
+    if (!user || badgeAwardRef.current[badgeId]) return;
+    // Optimistic: mark as earned immediately to prevent duplicate calls
+    setEarnedBadges(prev => {
+      if (prev[badgeId]) return prev;
+      return { ...prev, [badgeId]: { earned_at: new Date().toISOString() } };
+    });
+    badgeAwardRef.current = { ...badgeAwardRef.current, [badgeId]: { earned_at: new Date().toISOString() } };
+    await supabase.from("user_badges").upsert(
+      { user_id: user.id, badge_id: badgeId },
+      { onConflict: "user_id,badge_id" }
+    );
+    const badge = BADGES.find(b => b.id === badgeId);
+    if (badge) setBadgeToast(badge);
+  }, [user]);
+
+  const checkBadges = useCallback(() => {
+    if (!user) return;
+    const earned = badgeAwardRef.current;
+
+    // Bible badges
+    const readCount = chapterReads.length;
+    if (readCount >= 1 && !earned.first_light) awardBadge("first_light");
+    if (readCount >= 10 && !earned.bookworm) awardBadge("bookworm");
+    if (readCount >= 50 && !earned.scholar) awardBadge("scholar");
+
+    const hlCount = allHighlights.length;
+    if (hlCount >= 10 && !earned.highlighter) awardBadge("highlighter");
+
+    const uniqueColors = new Set(allHighlights.map(h => h.highlight_color).filter(Boolean));
+    if (uniqueColors.size >= 5 && !earned.color_palette) awardBadge("color_palette");
+
+    if (notesCount >= 10 && !earned.scribe) awardBadge("scribe");
+
+    const bookmarkCount = allHighlights.filter(h => h.is_bookmarked).length;
+    if (bookmarkCount >= 25 && !earned.bookmarker) awardBadge("bookmarker");
+
+    if ((streak?.current_streak >= 30 || streak?.longest_streak >= 30) && !earned.devoted) awardBadge("devoted");
+
+    // Hebrew badges
+    const hebCompleted = Object.values(hebrewProgress).filter(p => p.completed);
+    if (hebCompleted.length >= 1 && !earned.aleph) awardBadge("aleph");
+    const hebAlphabetTotal = Object.keys(hebrewProgress).length > 0 ? hebrewLessons.filter(l => l.category === "alphabet").length : 0;
+    const hebAlphabetDone = hebCompleted.filter(p => {
+      const lesson = hebrewLessons.find(l => l.id === Number(Object.keys(hebrewProgress).find(k => hebrewProgress[k] === p)));
+      return lesson?.category === "alphabet";
+    }).length;
+    if (hebAlphabetTotal > 0 && hebAlphabetDone >= hebAlphabetTotal && !earned.aleph_bet) awardBadge("aleph_bet");
+    if (hebCompleted.length >= 22 && !earned.hebrew_scholar) awardBadge("hebrew_scholar");
+    if (hebCompleted.some(p => p.score >= 100) && !earned.perfect_hebrew) awardBadge("perfect_hebrew");
+
+    // Greek badges
+    const greekCompleted = Object.values(greekProgress).filter(p => p.completed);
+    if (greekCompleted.length >= 1 && !earned.alpha) awardBadge("alpha");
+    if (greekCompleted.length >= 24 && !earned.alpha_omega) awardBadge("alpha_omega");
+    if (greekCompleted.length >= 50 && !earned.greek_scholar) awardBadge("greek_scholar");
+    if (greekCompleted.some(p => p.score >= 100) && !earned.perfect_greek) awardBadge("perfect_greek");
+
+    // Learn badges
+    const erasCount = learnExploration.erasExplored?.length || 0;
+    if (erasCount >= 1 && !earned.time_traveler) awardBadge("time_traveler");
+    if (erasCount >= 14 && !earned.historian) awardBadge("historian");
+    const prophecyCount = learnExploration.propheciesRead?.length || 0;
+    if (prophecyCount >= 10 && !earned.prophet) awardBadge("prophet");
+    const archCount = learnExploration.archaeologyViewed?.length || 0;
+    if (archCount >= 5 && !earned.archaeologist) awardBadge("archaeologist");
+
+    // Prayer badges
+    const totalReactions = Object.values(userReactions).reduce((sum, r) => sum + Object.keys(r).length, 0);
+    if (totalReactions >= 10 && !earned.intercessor) awardBadge("intercessor");
+    try {
+      const slotsCompleted = parseInt(localStorage.getItem("prayerSlotsCompleted") || "0", 10);
+      if (slotsCompleted >= 5 && !earned.prayer_warrior) awardBadge("prayer_warrior");
+    } catch {}
+    const myPrayers = communityPrayers.filter(p => p.user_id === user.id);
+    if (myPrayers.some(p => p.is_answered && p.testimony_text) && !earned.testimony) awardBadge("testimony");
+    if (myPrayers.length >= 5 && !earned.community_builder) awardBadge("community_builder");
+  }, [user, chapterReads, allHighlights, notesCount, streak, hebrewProgress, hebrewLessons,
+      greekProgress, learnExploration, userReactions, communityPrayers, awardBadge]);
+
+  useEffect(() => { checkBadges(); }, [checkBadges]);
+
   // ═══ HEBREW LEARNING ═══
   const loadHebrewLessons = useCallback(async (cat = 'alphabet') => {
     const cacheKey = `lessons-${cat}`;
@@ -978,6 +1125,9 @@ export function AppProvider({ children }) {
     // Navigation
     loadChapter, goBack, nav, savePositionToSupabase, updateSectionPosition,
     updateStreak,
+    // Gamification
+    earnedBadges, chapterReads, badgeToast, setBadgeToast,
+    markChapterRead, trackLearnExploration, notesCount,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

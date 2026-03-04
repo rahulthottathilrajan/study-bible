@@ -2,6 +2,7 @@
 import { useApp } from "../context/AppContext";
 import Header from "../components/Header";
 import { Card, Label, CrossIcon, ChevIcon } from "../components/ui";
+import { BADGES, BADGE_CATEGORIES } from "../constants";
 
 export default function AccountView() {
   const {
@@ -9,7 +10,7 @@ export default function AccountView() {
     authMode, setAuthMode, authEmail, setAuthEmail, authPass, setAuthPass,
     authName, setAuthName, authError, authLoading, authShowPass, setAuthShowPass,
     authForgot, setAuthForgot, authForgotSent,
-    allHighlights, prayers,
+    allHighlights, prayers, earnedBadges,
     handleAuth, handleLogout, handleForgotPassword, handleGoogleSignIn,
     nav, setDonateModal,
   } = useApp();
@@ -147,6 +148,47 @@ export default function AccountView() {
                   <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted }}>🔥 Open a verse to start your reading streak!</div>
                 </div>
               )}
+            </Card>
+
+            {/* Achievements */}
+            <Card t={ht}>
+              <Label icon="🏆" t={ht} color={ht.muted}>Achievements ({Object.keys(earnedBadges).length}/{BADGES.length})</Label>
+              {BADGE_CATEGORIES.map(cat => {
+                const catBadges = BADGES.filter(b => b.category === cat.id);
+                const earnedCount = catBadges.filter(b => earnedBadges[b.id]).length;
+                return (
+                  <div key={cat.id} style={{ marginBottom: 16 }}>
+                    <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:6 }}>
+                      <span style={{ fontFamily:ht.ui,fontSize:12,fontWeight:700,color:ht.dark }}>{cat.icon} {cat.label}</span>
+                      <span style={{ fontFamily:ht.ui,fontSize:10,color:ht.muted }}>{earnedCount}/{catBadges.length}</span>
+                    </div>
+                    <div style={{ height:4,borderRadius:2,background:ht.divider,marginBottom:10 }}>
+                      <div style={{ height:"100%",borderRadius:2,background:ht.accent,width:`${catBadges.length > 0 ? (earnedCount/catBadges.length)*100 : 0}%`,transition:"width 0.3s" }} />
+                    </div>
+                    <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:8 }}>
+                      {catBadges.map(badge => {
+                        const earned = !!earnedBadges[badge.id];
+                        return (
+                          <div key={badge.id} style={{
+                            padding:"10px 12px",borderRadius:10,
+                            border:`1px ${earned?"solid":"dashed"} ${earned?ht.accent:ht.divider}`,
+                            background:earned?ht.accentLight:"transparent",
+                            opacity:earned?1:0.45,
+                            display:"flex",alignItems:"center",gap:8,
+                          }}>
+                            <span style={{ fontSize:20 }}>{badge.icon}</span>
+                            <div style={{ minWidth:0 }}>
+                              <div style={{ fontFamily:ht.ui,fontSize:12,fontWeight:700,color:ht.dark }}>{badge.name}</div>
+                              <div style={{ fontFamily:ht.ui,fontSize:10,color:ht.muted,lineHeight:1.4 }}>{badge.description}</div>
+                              {earned && <div style={{ fontFamily:ht.ui,fontSize:9,color:ht.accent,marginTop:2 }}>Earned {new Date(earnedBadges[badge.id].earned_at).toLocaleDateString()}</div>}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
             </Card>
 
             {/* Settings */}

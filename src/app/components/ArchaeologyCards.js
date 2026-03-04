@@ -64,7 +64,7 @@ const STYLES = `
   }
 `;
 
-export default function ArchaeologyCards({ nav, darkMode }) {
+export default function ArchaeologyCards({ nav, darkMode, trackLearnExploration }) {
   const st = darkMode ? DARK_ST : LIGHT;
   const [discoveries, setDiscoveries] = useState([]);
   const [loading,     setLoading]     = useState(true);
@@ -364,7 +364,7 @@ export default function ArchaeologyCards({ nav, darkMode }) {
     return (
       <div style={{ animation: `fadeUp 0.32s ease both`, animationDelay: `${index * 0.06}s` }}>
         <button
-          onClick={() => setSelected(isOpen ? null : d)}
+          onClick={() => { setSelected(isOpen ? null : d); if (!isOpen && d && trackLearnExploration) trackLearnExploration("archaeologyViewed", d.id); }}
           style={{
             width: "100%",
             background: isOpen ? `${color}0A` : st.card,
