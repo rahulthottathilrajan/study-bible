@@ -748,14 +748,14 @@ export function AppProvider({ children }) {
     setPrayerTitle, prayerText, setPrayerText, prayerLoading, allHighlights, hlLoading,
     donateModal, setDonateModal, noteRef,
     // Hebrew
-    hebrewLessons, hebrewLesson, setHebrewLesson, hebrewAlphabet, hebrewVocab,
+    hebrewLessons, hebrewLesson, setHebrewLesson, hebrewAlphabet, setHebrewAlphabet, hebrewVocab, setHebrewVocab,
     hebrewCategory, setHebrewCategory, hebrewProgress, hebrewPracticeMode, setHebrewPracticeMode,
     hebrewPracticeIdx, setHebrewPracticeIdx, hebrewPracticeAnswer, setHebrewPracticeAnswer,
     hebrewPracticeScore, setHebrewPracticeScore, readingStep, setReadingStep,
     showLetters, setShowLetters, readingVerse, setReadingVerse,
     vocabGroup, setVocabGroup, grammarLesson, setGrammarLesson, grammarLessonIds,
     // Greek
-    greekLessons, greekLesson, setGreekLesson, greekAlphabet, greekVocab,
+    greekLessons, greekLesson, setGreekLesson, greekAlphabet, setGreekAlphabet, greekVocab, setGreekVocab,
     greekCategory, setGreekCategory, greekProgress, greekPracticeIdx, setGreekPracticeIdx,
     greekPracticeAnswer, setGreekPracticeAnswer, greekPracticeScore, setGreekPracticeScore,
     greekVocabGroup, setGreekVocabGroup, greekGrammarLesson, setGreekGrammarLesson,
