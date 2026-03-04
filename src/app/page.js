@@ -77,6 +77,7 @@ export default function StudyBible() {
   const [savedNote, setSavedNote] = useState(null);
   const [noteLoading, setNoteLoading] = useState(false);
   const [highlight, setHighlight] = useState(null);
+  const [shareCopied, setShareCopied] = useState(false);
   const [communityNotes, setCommunityNotes] = useState([]);
   const [prayerModal, setPrayerModal] = useState(false);
   const [prayers, setPrayers] = useState([]);
@@ -287,6 +288,106 @@ export default function StudyBible() {
       const { data } = await supabase.from("user_highlights").insert({ user_id: user.id, verse_id: currentVerse.id, is_bookmarked: true, highlight_color: "#FFD700" }).select().single();
       if (data) setHighlight(data);
     }
+  };
+
+  const copyVerseText = async () => {
+    if (!currentVerse) return;
+    const text = `${currentVerse.kjv_text} — ${book} ${chapter}:${verse} (KJV)`;
+    try {
+      await navigator.clipboard.writeText(text);
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2000);
+    } catch (e) { console.error(e); }
+  };
+
+  const shareVerseImage = () => {
+    if (!currentVerse) return;
+    const W = 1080, H = 1080;
+    const canvas = document.createElement("canvas");
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext("2d");
+    const ref = `${book} ${chapter}:${verse}`;
+    const verseText = currentVerse.kjv_text;
+
+    // Background
+    ctx.fillStyle = "#0f1728";
+    ctx.fillRect(0, 0, W, H);
+
+    // Top gradient bar
+    const barGrad = ctx.createLinearGradient(0, 0, W, 0);
+    barGrad.addColorStop(0, "transparent");
+    barGrad.addColorStop(0.3, t.accent);
+    barGrad.addColorStop(0.7, t.accent);
+    barGrad.addColorStop(1, "transparent");
+    ctx.fillStyle = barGrad;
+    ctx.fillRect(0, 0, W, 6);
+
+    // App name
+    ctx.fillStyle = t.accent;
+    ctx.font = "700 32px Georgia,serif";
+    ctx.fillText("KJV Study Bible", 80, 88);
+
+    // Decorative quote mark
+    ctx.globalAlpha = 0.12;
+    ctx.fillStyle = t.accent;
+    ctx.font = "italic 260px Georgia,serif";
+    ctx.fillText("\u201C", 36, 400);
+    ctx.globalAlpha = 1;
+
+    // Word-wrap verse text
+    const maxWidth = W - 160;
+    const tryWrap = (fontSize) => {
+      ctx.font = `italic ${fontSize}px Georgia,serif`;
+      const words = verseText.split(" ");
+      let line = "", lines = [];
+      for (const w of words) {
+        const test = line + w + " ";
+        if (ctx.measureText(test).width > maxWidth && line) { lines.push(line.trim()); line = w + " "; }
+        else line = test;
+      }
+      if (line) lines.push(line.trim());
+      return lines;
+    };
+    let fontSize = 54;
+    let lines = tryWrap(fontSize);
+    if (lines.length > 9) { fontSize = 44; lines = tryWrap(fontSize); }
+    if (lines.length > 12) { fontSize = 36; lines = tryWrap(fontSize); }
+    const lineH = Math.round(fontSize * 1.45);
+    const startY = 290;
+    ctx.fillStyle = "#f0ece4";
+    ctx.font = `italic ${fontSize}px Georgia,serif`;
+    lines.forEach((l, i) => ctx.fillText(l, 80, startY + i * lineH));
+
+    // Reference
+    const refY = startY + lines.length * lineH + 44;
+    ctx.fillStyle = t.accent;
+    ctx.font = "700 40px Georgia,serif";
+    ctx.fillText(`\u2014 ${ref} (KJV)`, 80, refY);
+
+    // Bottom divider
+    ctx.globalAlpha = 0.35;
+    ctx.fillStyle = t.accent;
+    ctx.fillRect(80, H - 90, W - 160, 1);
+    ctx.globalAlpha = 1;
+
+    // Bottom branding
+    ctx.fillStyle = "#555e6e";
+    ctx.font = "400 26px Georgia,serif";
+    ctx.fillText("study-bible-two.vercel.app", 80, H - 52);
+
+    canvas.toBlob(async (blob) => {
+      const fileName = `${ref.replace(/[:\s]/g, "_")}.png`;
+      const file = new File([blob], fileName, { type: "image/png" });
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        try { await navigator.share({ files: [file], title: ref, text: `${verseText} — ${ref} (KJV)` }); }
+        catch (e) { if (e.name !== "AbortError") console.error(e); }
+      } else {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url; a.download = fileName; a.click();
+        URL.revokeObjectURL(url);
+      }
+    }, "image/png");
   };
 
   // ═══ PRAYER JOURNAL ═══
@@ -1198,6 +1299,11 @@ export default function StudyBible() {
               {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} style={{width:24,height:24,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?`3px solid ${t.dark}`:`2px solid ${c}66`,cursor:"pointer",transition:"all 0.15s"}} />)}
               {highlight?.highlight_color && <button onClick={() => toggleHighlight(highlight.highlight_color)} style={{fontFamily:t.ui,fontSize:10,color:t.muted,background:"none",border:"none",cursor:"pointer",textDecoration:"underline"}}>Clear</button>}
             </div>}
+            {/* Share row */}
+            <div style={{display:"flex",gap:8,marginTop:10,paddingTop:10,borderTop:`1px solid ${t.divider}`}}>
+              <button onClick={copyVerseText} style={{padding:"6px 14px",borderRadius:20,border:`1px solid ${shareCopied?"#22c55e":t.divider}`,background:shareCopied?"#22c55e18":"transparent",color:shareCopied?"#22c55e":t.muted,fontFamily:t.ui,fontSize:12,fontWeight:600,cursor:"pointer",transition:"all 0.2s"}}>{shareCopied?"✓ Copied!":"Copy text"}</button>
+              <button onClick={shareVerseImage} style={{padding:"6px 14px",borderRadius:20,border:`1px solid ${t.divider}`,background:"transparent",color:t.muted,fontFamily:t.ui,fontSize:12,fontWeight:600,cursor:"pointer"}}>Share image</button>
+            </div>
           </Card>
 
           {/* Tabs */}
