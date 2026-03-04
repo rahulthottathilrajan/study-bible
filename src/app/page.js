@@ -31,15 +31,23 @@ export default function StudyBible() {
   const [loading, setLoading] = useState(false);
   const [dbLive, setDbLive] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [fontSize, setFontSize] = useState("medium"); // small | medium | large | xlarge
 
-  // ─── Load dark mode preference ───
+  // ─── Load dark mode + font size preferences ───
   useEffect(() => {
     try { const dm = localStorage.getItem("darkMode"); if (dm === "true") setDarkMode(true); } catch {}
+    try { const fs = localStorage.getItem("fontSize"); if (fs) setFontSize(fs); } catch {}
   }, []);
   useEffect(() => {
     try { localStorage.setItem("darkMode", darkMode ? "true" : "false"); } catch {}
     document.body.style.background = darkMode ? "#141210" : "#f7f2e8";
   }, [darkMode]);
+  useEffect(() => {
+    try { localStorage.setItem("fontSize", fontSize); } catch {}
+  }, [fontSize]);
+
+  // ─── Font size lookup ───
+  const FS = { small:{list:13,detail:17}, medium:{list:14.5,detail:19.5}, large:{list:17,detail:23}, xlarge:{list:20.5,detail:27} };
 
   // ─── Bible data ───
   const [dbChapters, setDbChapters] = useState({});
@@ -1090,9 +1098,23 @@ export default function StudyBible() {
           )}
 
           {/* All Verses */}
-          <div style={{padding:"10px 14px",background:t.accentLight,borderRadius:8,marginBottom:10,display:"flex",alignItems:"center",gap:8}}>
-            <span style={{fontSize:14}}>✨</span>
-            <span style={{fontFamily:t.ui,fontSize:12,color:t.muted}}>Tap any verse to explore study notes, {isOT ? "Hebrew" : "Greek"} text & cross-references</span>
+          <div style={{padding:"8px 12px",background:t.accentLight,borderRadius:8,marginBottom:10,display:"flex",alignItems:"center",justifyContent:"space-between",gap:8}}>
+            <div style={{display:"flex",alignItems:"center",gap:8}}>
+              <span style={{fontSize:14}}>✨</span>
+              <span style={{fontFamily:t.ui,fontSize:12,color:t.muted}}>Tap any verse to explore study notes, {isOT ? "Hebrew" : "Greek"} text & cross-references</span>
+            </div>
+            <div style={{display:"flex",alignItems:"center",gap:3,flexShrink:0}}>
+              {["small","medium","large","xlarge"].map((s,i) => (
+                <button key={s} onClick={() => setFontSize(s)} style={{
+                  fontFamily:t.ui,fontWeight:700,border:"none",cursor:"pointer",borderRadius:6,
+                  padding:"2px 6px",lineHeight:1,
+                  fontSize:[10,12,14,17][i],
+                  background:fontSize===s ? t.accent : "transparent",
+                  color:fontSize===s ? "#fff" : t.muted,
+                  transition:"all 0.15s"
+                }}>A</button>
+              ))}
+            </div>
           </div>
           <div style={{display:"flex",flexDirection:"column",gap:6}}>
             {verses.map(v => (
@@ -1108,7 +1130,7 @@ export default function StudyBible() {
                   minWidth:28,textAlign:"center",lineHeight:1.4
                 }}>{v.verse_number}</span>
                 <div style={{flex:1,minWidth:0}}>
-                  <div style={{fontFamily:t.body,fontSize:14.5,color:t.text,lineHeight:1.65}}>{v.kjv_text}</div>
+                  <div style={{fontFamily:t.body,fontSize:FS[fontSize].list,color:t.text,lineHeight:1.65}}>{v.kjv_text}</div>
                 </div>
                 <div style={{color:t.light,flexShrink:0,alignSelf:"center"}}><ChevIcon /></div>
               </button>
@@ -1166,7 +1188,7 @@ export default function StudyBible() {
           <Card t={t} style={{ margin:"12px 0 14px",position:"relative",background:highlight?.highlight_color ? `${highlight.highlight_color}15` : t.card,borderColor:highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider }}>
             <div style={{position:"absolute",top:-1,left:30,right:30,height:3,background:`linear-gradient(90deg,transparent,${t.accent},transparent)`,borderRadius:"0 0 2px 2px"}}/>
             <Label icon="📖" t={t}>KJV Text</Label>
-            <div style={{fontFamily:t.body,fontSize:19.5,color:t.dark,lineHeight:1.7}}>
+            <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.7}}>
               <span style={{fontSize:"clamp(28px,9vw,38px)",fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:6,marginTop:4,fontFamily:t.heading}}>{verse}</span>
               {currentVerse.kjv_text}
             </div>
@@ -1453,6 +1475,23 @@ export default function StudyBible() {
                 <button onClick={() => setDarkMode(!darkMode)} style={{width:48,height:26,borderRadius:13,border:"none",cursor:"pointer",position:"relative",background:darkMode ? ht.accent : ht.divider,transition:"background 0.25s",padding:0}}>
                   <div style={{width:22,height:22,borderRadius:11,background:"#fff",position:"absolute",top:2,left:darkMode?24:2,transition:"left 0.25s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)"}}/>
                 </button>
+              </div>
+              <div style={{padding:"12px 14px",border:`1px solid ${ht.divider}`,borderRadius:10,marginBottom:6}}>
+                <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:10}}>
+                  <span style={{fontSize:18}}>Aa</span>
+                  <span style={{fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark}}>Reading Size</span>
+                </div>
+                <div style={{display:"flex",gap:6}}>
+                  {[{id:"small",label:"S"},{id:"medium",label:"M"},{id:"large",label:"L"},{id:"xlarge",label:"XL"}].map(({id,label}) => (
+                    <button key={id} onClick={() => setFontSize(id)} style={{
+                      flex:1,padding:"8px 0",borderRadius:8,border:`1.5px solid ${fontSize===id ? ht.accent : ht.divider}`,
+                      background:fontSize===id ? ht.accent : "transparent",
+                      color:fontSize===id ? "#fff" : ht.muted,
+                      fontFamily:ht.ui,fontSize:13,fontWeight:700,cursor:"pointer",
+                      transition:"all 0.15s"
+                    }}>{label}</button>
+                  ))}
+                </div>
               </div>
             </Card>
 
