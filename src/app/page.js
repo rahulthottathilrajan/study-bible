@@ -71,6 +71,7 @@ export default function StudyBible() {
   const [authForgot, setAuthForgot] = useState(false);
   const [authForgotSent, setAuthForgotSent] = useState(false);
   const [profile, setProfile] = useState(null);
+  const [streak, setStreak] = useState(null);
 
   // ─── User features state ───
   const [userNote, setUserNote] = useState("");
@@ -173,12 +174,12 @@ export default function StudyBible() {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
-      if (session?.user) loadProfile(session.user.id);
+      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); }
     });
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
-      if (session?.user) loadProfile(session.user.id);
-      else setProfile(null);
+      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); }
+      else { setProfile(null); setStreak(null); }
     });
     return () => subscription.unsubscribe();
   }, []);
@@ -187,6 +188,43 @@ export default function StudyBible() {
     const { data } = await supabase.from("user_profiles").select("*").eq("id", uid).single();
     setProfile(data || null);
   };
+
+  const loadStreak = async (uid) => {
+    const { data } = await supabase
+      .from("user_reading_streaks")
+      .select("current_streak, longest_streak, last_read_date")
+      .eq("user_id", uid)
+      .maybeSingle();
+    setStreak(data || null);
+  };
+
+  const updateStreak = useCallback(async () => {
+    if (!user) return;
+    const todayDate = new Date().toISOString().split("T")[0];
+    if (streak?.last_read_date === todayDate) return;
+    if (!streak) {
+      const { data } = await supabase
+        .from("user_reading_streaks")
+        .upsert({ user_id: user.id, current_streak: 1, longest_streak: 1,
+                  last_read_date: todayDate, updated_at: new Date().toISOString() },
+                 { onConflict: "user_id" })
+        .select().single();
+      if (data) setStreak(data);
+      return;
+    }
+    const last = new Date(streak.last_read_date + "T00:00:00");
+    const today = new Date(todayDate + "T00:00:00");
+    const diffDays = Math.round((today - last) / 86400000);
+    const newCurrent = diffDays === 1 ? streak.current_streak + 1 : 1;
+    const newLongest = Math.max(newCurrent, streak.longest_streak);
+    const { data } = await supabase
+      .from("user_reading_streaks")
+      .upsert({ user_id: user.id, current_streak: newCurrent, longest_streak: newLongest,
+                last_read_date: todayDate, updated_at: new Date().toISOString() },
+               { onConflict: "user_id" })
+      .select().single();
+    if (data) setStreak(data);
+  }, [user, streak]);
 
   const handleAuth = async () => {
     setAuthError(""); setAuthLoading(true);
@@ -656,8 +694,9 @@ export default function StudyBible() {
         localStorage.setItem("lastRead", JSON.stringify({ book, chapter, verse, testament }));
       } catch {}
       savePositionToSupabase(sectionKey, entry);
+      updateStreak();
     }
-  }, [view, book, chapter, verse, testament, savePositionToSupabase]);
+  }, [view, book, chapter, verse, testament, savePositionToSupabase, updateStreak]);
 
   // Save section positions for Continue Reading strip
   useEffect(() => {
@@ -752,7 +791,13 @@ export default function StudyBible() {
             <span style={{ fontFamily:ht.ui,fontSize:10,color:ht.accent,letterSpacing:"0.15em",textTransform:"uppercase",fontWeight:700,opacity:0.9 }}>KJV</span>
             <DBBadge live={dbLive} t={ht} />
           </div>
-          <div>
+          <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+            {user && streak?.current_streak >= 1 && (
+              <div title={`Best: ${streak.longest_streak} days`} style={{ display:"flex",alignItems:"center",gap:4,background:darkMode?"#78350f":"#fef3c7",border:"1px solid #d97706",borderRadius:20,padding:"3px 10px",cursor:"default" }}>
+                <span style={{ fontSize:12 }}>🔥</span>
+                <span style={{ fontFamily:ht.ui,fontSize:11,fontWeight:700,color:"#d97706" }}>{streak.current_streak}</span>
+              </div>
+            )}
             {!user && <button onClick={() => nav("account")} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:8,padding:"4px 12px",fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>Sign In</button>}
             {user && <span style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.9)",fontWeight:700 }}>✓ {(profile?.display_name || user?.user_metadata?.display_name || "Reader")?.split(' ')[0]}</span>}
           </div>
@@ -1568,6 +1613,26 @@ export default function StudyBible() {
                   </div>
                 ))}
               </div>
+              {streak && streak.current_streak >= 1 && (
+                <div style={{ marginTop:10,background:darkMode?"#78350f":"#fef3c7",borderRadius:10,padding:"14px 18px",border:"1px solid #d97706",display:"flex",alignItems:"center",justifyContent:"space-between" }}>
+                  <div style={{ display:"flex",alignItems:"center",gap:10 }}>
+                    <span style={{ fontSize:22 }}>🔥</span>
+                    <div>
+                      <div style={{ fontFamily:ht.heading,fontSize:20,fontWeight:700,color:darkMode?"#fef3c7":"#92400e" }}>{streak.current_streak}-day streak</div>
+                      <div style={{ fontFamily:ht.ui,fontSize:11,color:darkMode?"#d97706":"#b45309",marginTop:2 }}>Keep reading daily to maintain it</div>
+                    </div>
+                  </div>
+                  <div style={{ textAlign:"right" }}>
+                    <div style={{ fontFamily:ht.ui,fontSize:10,color:darkMode?"#d97706":"#b45309",textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:2 }}>Best</div>
+                    <div style={{ fontFamily:ht.heading,fontSize:18,fontWeight:700,color:darkMode?"#fef3c7":"#92400e" }}>{streak.longest_streak}</div>
+                  </div>
+                </div>
+              )}
+              {user && !streak && (
+                <div style={{ marginTop:10,background:ht.accentLight,borderRadius:10,padding:"12px 16px",border:`1px solid ${ht.accentBorder}`,textAlign:"center" }}>
+                  <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted }}>🔥 Open a verse to start your reading streak!</div>
+                </div>
+              )}
             </Card>
 
             {/* Settings */}
