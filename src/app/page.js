@@ -53,13 +53,15 @@ export default function StudyBible() {
 
   // ─── Auth state ───
   const [user, setUser] = useState(null);
-  const [authModal, setAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState("login");
   const [authEmail, setAuthEmail] = useState("");
   const [authPass, setAuthPass] = useState("");
   const [authName, setAuthName] = useState("");
   const [authError, setAuthError] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
+  const [authShowPass, setAuthShowPass] = useState(false);
+  const [authForgot, setAuthForgot] = useState(false);
+  const [authForgotSent, setAuthForgotSent] = useState(false);
   const [profile, setProfile] = useState(null);
 
   // ─── User features state ───
@@ -174,7 +176,7 @@ export default function StudyBible() {
 
   const loadProfile = async (uid) => {
     const { data } = await supabase.from("user_profiles").select("*").eq("id", uid).single();
-    if (data) setProfile(data);
+    setProfile(data || null);
   };
 
   const handleAuth = async () => {
@@ -190,12 +192,20 @@ export default function StudyBible() {
         });
         if (error) throw error;
       }
-      setAuthModal(false); setAuthEmail(""); setAuthPass(""); setAuthName("");
+      setAuthEmail(""); setAuthPass(""); setAuthName("");
     } catch (e) { setAuthError(e.message); }
     setAuthLoading(false);
   };
 
   const handleLogout = async () => { await supabase.auth.signOut(); setProfile(null); };
+
+  const handleForgotPassword = async () => {
+    setAuthLoading(true); setAuthError("");
+    const { error } = await supabase.auth.resetPasswordForEmail(authEmail, { redirectTo: window.location.origin });
+    if (error) setAuthError(error.message);
+    else setAuthForgotSent(true);
+    setAuthLoading(false);
+  };
 
   const handleGoogleSignIn = async () => {
     await supabase.auth.signInWithOAuth({
@@ -601,9 +611,9 @@ export default function StudyBible() {
           <div style={{ display:"flex",alignItems:"center",gap:6,flexShrink:0 }}>
             {right}
             {user && <Btn onClick={() => setPrayerModal(true)} style={{color:th.headerText}} title="Prayer Journal"><PrayerIcon /></Btn>}
-            <Btn onClick={() => user ? handleLogout() : setAuthModal(true)} style={{ color:th.headerText,background:user?"rgba(125,212,173,0.2)":"rgba(255,255,255,0.1)",padding:"6px 10px",borderRadius:8 }}>
+            <Btn onClick={() => user ? handleLogout() : nav("account")} style={{ color:th.headerText,background:user?"rgba(125,212,173,0.2)":"rgba(255,255,255,0.1)",padding:"6px 10px",borderRadius:8 }}>
               <UserIcon />
-              {user && <span style={{ fontFamily:th.ui,fontSize:10,marginLeft:4,fontWeight:600 }}>{profile?.display_name?.split(' ')[0] || '•'}</span>}
+              {user && <span style={{ fontFamily:th.ui,fontSize:10,marginLeft:4,fontWeight:600 }}>{(profile?.display_name || user?.user_metadata?.display_name || '')?.split(' ')[0] || '•'}</span>}
             </Btn>
           </div>
         </div>
@@ -634,8 +644,8 @@ export default function StudyBible() {
             <DBBadge live={dbLive} t={ht} />
           </div>
           <div>
-            {!user && <button onClick={() => setAuthModal(true)} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:8,padding:"4px 12px",fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>Sign In</button>}
-            {user && <span style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.9)",fontWeight:700 }}>✓ {profile?.display_name?.split(' ')[0] || "Reader"}</span>}
+            {!user && <button onClick={() => nav("account")} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:8,padding:"4px 12px",fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>Sign In</button>}
+            {user && <span style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.9)",fontWeight:700 }}>✓ {(profile?.display_name || user?.user_metadata?.display_name || "Reader")?.split(' ')[0]}</span>}
           </div>
         </div>
       </div>
@@ -1246,7 +1256,7 @@ export default function StudyBible() {
               <div style={{fontSize:36,marginBottom:12}}>🔐</div>
               <div style={{fontFamily:t.heading,fontSize:17,color:t.dark,marginBottom:6}}>Sign In to Add Notes</div>
               <div style={{fontFamily:t.ui,fontSize:13,color:t.muted,marginBottom:14}}>Save personal notes, highlight verses, and keep a prayer journal.</div>
-              <button onClick={() => setAuthModal(true)} style={{padding:"12px 28px",borderRadius:10,border:"none",background:t.tabActive,color:t.headerText,fontFamily:t.ui,fontSize:14,fontWeight:700,cursor:"pointer"}}>Sign In / Sign Up</button>
+              <button onClick={() => nav("account")} style={{padding:"12px 28px",borderRadius:10,border:"none",background:t.tabActive,color:t.headerText,fontFamily:t.ui,fontSize:14,fontWeight:700,cursor:"pointer"}}>Sign In / Sign Up</button>
             </div>
           </Card>}
 
@@ -1279,7 +1289,7 @@ export default function StudyBible() {
             <div style={{fontSize:36,marginBottom:12}}>🔐</div>
             <div style={{fontFamily:ht.heading,fontSize:17,color:ht.dark,marginBottom:6}}>Sign In to See Highlights</div>
             <div style={{fontFamily:ht.ui,fontSize:13,color:ht.muted,marginBottom:14}}>Highlight verses while reading and find them all here.</div>
-            <button onClick={() => setAuthModal(true)} style={{padding:"12px 28px",borderRadius:10,border:"none",background:ht.headerGradient,color:ht.headerText,fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer"}}>Sign In / Sign Up</button>
+            <button onClick={() => nav("account")} style={{padding:"12px 28px",borderRadius:10,border:"none",background:ht.headerGradient,color:ht.headerText,fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer"}}>Sign In / Sign Up</button>
           </Card>
         ) : hlLoading ? <Spinner t={ht} /> : allHighlights.length === 0 ? (
           <Card t={ht} style={{textAlign:"center",padding:30}}>
@@ -1322,19 +1332,80 @@ export default function StudyBible() {
       <Header title="My Account" theme={ht} />
       <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
         {!user ? (
-          <div style={{textAlign:"center",padding:"40px 20px"}}>
-            <div style={{color:ht.accent,marginBottom:16}}><CrossIcon /></div>
-            <h3 style={{fontFamily:ht.heading,fontSize:24,color:ht.dark,marginBottom:8}}>Welcome to Study Bible</h3>
-            <div style={{fontFamily:ht.ui,fontSize:14,color:ht.muted,lineHeight:1.6,marginBottom:24}}>Sign in to save your notes, highlights, bookmarks, and prayer journal across all your devices.</div>
-            <button onClick={() => { setAuthMode("signup"); setAuthModal(true); }} style={{width:"100%",padding:"14px",borderRadius:12,border:"none",background:ht.headerGradient,color:ht.headerText,fontFamily:ht.ui,fontSize:16,fontWeight:700,cursor:"pointer",marginBottom:10}}>Create Account</button>
-            <button onClick={() => { setAuthMode("login"); setAuthModal(true); }} style={{width:"100%",padding:"14px",borderRadius:12,border:`1.5px solid ${ht.accent}`,background:"transparent",color:ht.accent,fontFamily:ht.ui,fontSize:16,fontWeight:700,cursor:"pointer",marginBottom:14}}>Sign In with Email</button>
-            <div style={{ display:"flex",alignItems:"center",gap:12,marginBottom:14 }}>
-              <div style={{flex:1,height:1,background:ht.divider}}/><span style={{fontFamily:ht.ui,fontSize:12,color:ht.light}}>or</span><div style={{flex:1,height:1,background:ht.divider}}/>
+          <div style={{maxWidth:400,margin:"0 auto",paddingTop:8}}>
+            {/* Hero */}
+            <div style={{textAlign:"center",padding:"28px 0 20px"}}>
+              <div style={{color:ht.accent,marginBottom:10,display:"flex",justifyContent:"center"}}><CrossIcon /></div>
+              <div style={{fontFamily:ht.heading,fontSize:26,fontWeight:700,color:ht.dark,marginBottom:6}}>
+                {authForgot ? "Reset Password" : authMode === "login" ? "Welcome Back" : "Join the Study"}
+              </div>
+              <div style={{fontFamily:ht.ui,fontSize:13,color:ht.muted,lineHeight:1.6}}>
+                {authForgot ? "Enter your email and we'll send a reset link" : authMode === "login" ? "Sign in to access your notes, highlights & journal" : "Create a free account to save your study across devices"}
+              </div>
             </div>
-            <button onClick={handleGoogleSignIn} style={{ width:"100%",padding:"14px",borderRadius:12,border:`1.5px solid ${ht.divider}`,background:ht.card,fontFamily:ht.ui,fontSize:16,fontWeight:600,color:ht.dark,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:10 }}>
-              <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-              Continue with Google
-            </button>
+
+            {/* Mode toggle (only for login/signup, not forgot) */}
+            {!authForgot && (
+              <div style={{display:"flex",background:ht.card,borderRadius:10,padding:3,marginBottom:20,border:`1px solid ${ht.divider}`}}>
+                {[{id:"login",label:"Sign In"},{id:"signup",label:"Create Account"}].map(m => (
+                  <button key={m.id} onClick={() => { setAuthMode(m.id); setAuthError(""); }} style={{flex:1,padding:"10px 8px",border:"none",borderRadius:8,background:authMode===m.id?ht.headerGradient:"transparent",color:authMode===m.id?ht.headerText:ht.muted,fontFamily:ht.ui,fontSize:13,fontWeight:700,cursor:"pointer",transition:"all 0.15s"}}>
+                    {m.label}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Form */}
+            <div style={{display:"flex",flexDirection:"column",gap:10}}>
+              {!authForgot && authMode === "signup" && (
+                <input value={authName} onChange={e => setAuthName(e.target.value)} placeholder="Display Name" style={{width:"100%",padding:"13px 14px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box"}} />
+              )}
+              <input type="email" value={authEmail} onChange={e => setAuthEmail(e.target.value)} placeholder="Email address" style={{width:"100%",padding:"13px 14px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box"}} />
+              {!authForgot && (
+                <div style={{position:"relative"}}>
+                  <input type={authShowPass?"text":"password"} value={authPass} onChange={e => setAuthPass(e.target.value)} placeholder="Password" onKeyDown={e => e.key === "Enter" && handleAuth()} style={{width:"100%",padding:"13px 44px 13px 14px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box"}} />
+                  <button onClick={() => setAuthShowPass(v => !v)} style={{position:"absolute",right:12,top:"50%",transform:"translateY(-50%)",background:"none",border:"none",cursor:"pointer",color:ht.muted,fontSize:16,padding:4}}>
+                    {authShowPass ? "🙈" : "👁"}
+                  </button>
+                </div>
+              )}
+              {authError && <div style={{fontFamily:ht.ui,fontSize:12,color:"#E8625C",textAlign:"center",padding:"6px 0"}}>{authError}</div>}
+
+              <button onClick={authForgot ? handleForgotPassword : handleAuth} disabled={authLoading} style={{width:"100%",padding:"14px",borderRadius:10,border:"none",background:ht.headerGradient,color:ht.headerText||"#fff",fontFamily:ht.ui,fontSize:15,fontWeight:700,cursor:"pointer",marginTop:2,opacity:authLoading?0.7:1}}>
+                {authLoading ? "..." : authForgot ? "Send Reset Link" : authMode === "login" ? "Sign In" : "Create Account"}
+              </button>
+
+              {authForgotSent && (
+                <div style={{fontFamily:ht.ui,fontSize:13,color:"#34A853",textAlign:"center",padding:"6px 0"}}>
+                  ✓ Reset link sent — check your email
+                </div>
+              )}
+
+              {!authForgot && authMode === "login" && (
+                <button onClick={() => { setAuthForgot(true); setAuthError(""); setAuthForgotSent(false); }} style={{background:"none",border:"none",cursor:"pointer",fontFamily:ht.ui,fontSize:13,color:ht.muted,textAlign:"center",padding:"2px 0"}}>
+                  Forgot password?
+                </button>
+              )}
+
+              {authForgot && (
+                <button onClick={() => { setAuthForgot(false); setAuthForgotSent(false); setAuthError(""); }} style={{background:"none",border:"none",cursor:"pointer",fontFamily:ht.ui,fontSize:13,color:ht.accent,textAlign:"center",padding:"2px 0",fontWeight:600}}>
+                  ← Back to Sign In
+                </button>
+              )}
+            </div>
+
+            {/* Divider + Google (not on forgot screen) */}
+            {!authForgot && (
+              <>
+                <div style={{display:"flex",alignItems:"center",gap:12,margin:"18px 0"}}>
+                  <div style={{flex:1,height:1,background:ht.divider}}/><span style={{fontFamily:ht.ui,fontSize:12,color:ht.light}}>or</span><div style={{flex:1,height:1,background:ht.divider}}/>
+                </div>
+                <button onClick={handleGoogleSignIn} style={{width:"100%",padding:"13px",borderRadius:10,border:`1.5px solid ${ht.divider}`,background:ht.card,fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:10}}>
+                  <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                  Continue with Google
+                </button>
+              </>
+            )}
           </div>
         ) : (
           <div style={{display:"flex",flexDirection:"column",gap:12}}>
@@ -1342,10 +1413,10 @@ export default function StudyBible() {
             <Card t={ht}>
               <div style={{display:"flex",alignItems:"center",gap:14}}>
                 <div style={{width:52,height:52,borderRadius:"50%",background:ht.headerGradient,display:"flex",alignItems:"center",justifyContent:"center",color:ht.headerText,fontFamily:ht.heading,fontSize:22,fontWeight:700}}>
-                  {(profile?.display_name || "R")[0].toUpperCase()}
+                  {(profile?.display_name || user?.user_metadata?.display_name || "R")[0].toUpperCase()}
                 </div>
                 <div>
-                  <div style={{fontFamily:ht.heading,fontSize:18,fontWeight:700,color:ht.dark}}>{profile?.display_name || "Reader"}</div>
+                  <div style={{fontFamily:ht.heading,fontSize:18,fontWeight:700,color:ht.dark}}>{profile?.display_name || user?.user_metadata?.display_name || "Reader"}</div>
                   <div style={{fontFamily:ht.ui,fontSize:12,color:ht.muted}}>{user.email}</div>
                   <div style={{fontFamily:ht.ui,fontSize:10,color:ht.light,marginTop:2}}>Joined {new Date(user.created_at).toLocaleDateString()}</div>
                 </div>
@@ -2816,7 +2887,7 @@ export default function StudyBible() {
               <div style={{ fontSize:36, marginBottom:12 }}>🔐</div>
               <div style={{ fontFamily:ht.heading, fontSize:17, color:ht.dark, marginBottom:6 }}>Sign In to See Your Journal</div>
               <div style={{ fontFamily:ht.ui, fontSize:13, color:ht.muted, marginBottom:14, lineHeight:1.6 }}>Save highlights, bookmarks, and prayers as you study God's Word.</div>
-              <button onClick={() => setAuthModal(true)} style={{ padding:"12px 28px", borderRadius:10, border:"none", background:ht.headerGradient, color:ht.headerText, fontFamily:ht.ui, fontSize:14, fontWeight:700, cursor:"pointer" }}>Sign In / Sign Up</button>
+              <button onClick={() => nav("account")} style={{ padding:"12px 28px", borderRadius:10, border:"none", background:ht.headerGradient, color:ht.headerText, fontFamily:ht.ui, fontSize:14, fontWeight:700, cursor:"pointer" }}>Sign In / Sign Up</button>
             </Card>
           )}
 
@@ -4248,7 +4319,7 @@ export default function StudyBible() {
                 <button key={item.id} onClick={() => {
                   if (item.id === "bible") { const bibleViews = ["books","chapter","verses","verse"]; if (bibleViews.includes(view)) { nav("books", { testament: testament || "OT" }); } else { try { const lr = JSON.parse(localStorage.getItem("lastRead")); if (lr?.book && lr?.chapter && lr?.verse) { nav("verse", { testament:lr.testament, book:lr.book, chapter:lr.chapter, verse:lr.verse }); } else { nav("books", { testament: testament || "OT" }); } } catch { nav("books", { testament: testament || "OT" }); } } }
                   else if (item.id === "learn") nav("learn-home");
-                  else if (item.id === "journal") { if (user) { setTab("highlights"); nav("journal-home"); } else setAuthModal(true); }
+                  else if (item.id === "journal") { if (user) { setTab("highlights"); nav("journal-home"); } else nav("account"); }
                   else nav(item.id);
                 }} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:1,background:"none",border:"none",cursor:"pointer",padding:"4px 6px",color:isActive?ht.accent:ht.muted,transition:"all 0.18s ease",opacity:isActive?1:0.65 }}>
                   <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 14px 3px",borderRadius:20,background:isActive?`${ht.accent}18`:"transparent",transition:"background 0.18s ease" }}>
@@ -4258,41 +4329,6 @@ export default function StudyBible() {
                 </button>
               );
             })}
-          </div>
-        </div>
-      )}
-      {/* AUTH MODAL */}
-      {authModal && (
-        <div style={{ position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center",padding:20 }}>
-          <div style={{ background:ht.card,borderRadius:20,padding:"28px 24px",width:"100%",maxWidth:380,position:"relative" }}>
-            <button onClick={() => setAuthModal(false)} style={{ position:"absolute",top:14,right:14,background:"none",border:"none",cursor:"pointer",color:ht.muted }}><CloseIcon /></button>
-            <div style={{ textAlign:"center",marginBottom:20 }}>
-              <div style={{ color:ht.accent,marginBottom:8 }}><CrossIcon /></div>
-              <h3 style={{ fontFamily:ht.heading,fontSize:22,color:ht.dark,margin:0 }}>{authMode === "login" ? "Welcome Back" : "Join the Study"}</h3>
-              <p style={{ fontFamily:ht.ui,fontSize:13,color:ht.muted,margin:"6px 0 0" }}>{authMode === "login" ? "Sign in to access your notes & journal" : "Create an account to save your study"}</p>
-            </div>
-            {authMode === "signup" && (
-              <input key="auth-name" value={authName} onChange={e => setAuthName(e.target.value)} placeholder="Display Name" style={{ width:"100%",padding:"12px 14px",borderRadius:10,border:`1px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,marginBottom:10,outline:"none",background:ht.bg,boxSizing:"border-box" }} />
-            )}
-            <input key="auth-email" type="email" value={authEmail} onChange={e => setAuthEmail(e.target.value)} placeholder="Email" style={{ width:"100%",padding:"12px 14px",borderRadius:10,border:`1px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,marginBottom:10,outline:"none",background:ht.bg,boxSizing:"border-box" }} />
-            <input key="auth-pass" type="password" value={authPass} onChange={e => setAuthPass(e.target.value)} placeholder="Password" onKeyDown={e => e.key === "Enter" && handleAuth()} style={{ width:"100%",padding:"12px 14px",borderRadius:10,border:`1px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,marginBottom:10,outline:"none",background:ht.bg,boxSizing:"border-box" }} />
-            {authError && <div style={{ fontFamily:ht.ui,fontSize:12,color:"#E8625C",marginBottom:10,textAlign:"center" }}>{authError}</div>}
-            <button onClick={handleAuth} disabled={authLoading} style={{ width:"100%",padding:"13px",borderRadius:10,border:"none",background:ht.headerGradient,color:ht.headerText||"#fff",fontFamily:ht.ui,fontSize:15,fontWeight:700,cursor:"pointer",marginBottom:12 }}>
-              {authLoading ? "..." : authMode === "login" ? "Sign In" : "Create Account"}
-            </button>
-            <div style={{ display:"flex",alignItems:"center",gap:12,marginBottom:12 }}>
-              <div style={{flex:1,height:1,background:ht.divider}}/><span style={{fontFamily:ht.ui,fontSize:12,color:ht.light}}>or</span><div style={{flex:1,height:1,background:ht.divider}}/>
-            </div>
-            <button onClick={handleGoogleSignIn} style={{ width:"100%",padding:"12px",borderRadius:10,border:`1.5px solid ${ht.divider}`,background:ht.card,fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:10,marginBottom:14 }}>
-              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-              Continue with Google
-            </button>
-            <div style={{ textAlign:"center",fontFamily:ht.ui,fontSize:13,color:ht.muted }}>
-              {authMode === "login" ? "New here? " : "Already have an account? "}
-              <span onClick={() => { setAuthMode(authMode === "login" ? "signup" : "login"); setAuthError(""); }} style={{ color:ht.accent,cursor:"pointer",fontWeight:600 }}>
-                {authMode === "login" ? "Create Account" : "Sign In"}
-              </span>
-            </div>
           </div>
         </div>
       )}
