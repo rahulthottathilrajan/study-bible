@@ -25,6 +25,7 @@ export default function QuizView() {
   const [revealed, setRevealed] = useState(false);
   const [answers, setAnswers] = useState([]);
   const [saved, setSaved] = useState(false);
+  const [shuffledOptions, setShuffledOptions] = useState([]);
   const [availableDifficulties, setAvailableDifficulties] = useState({});
   const [checkingAvailability, setCheckingAvailability] = useState(true);
 
@@ -58,8 +59,26 @@ export default function QuizView() {
       setRevealed(false);
       setAnswers([]);
       setSaved(false);
+      setShuffledOptions([]);
     }
   }, [view]);
+
+  // Shuffle options when question changes (so correct answer isn't always in the same position)
+  useEffect(() => {
+    if (view !== "quiz-active" || !quizQuestions.length || !quizQuestions[currentQ]) return;
+    const q = quizQuestions[currentQ];
+    const opts = [
+      { key: "a", text: q.option_a },
+      { key: "b", text: q.option_b },
+      { key: "c", text: q.option_c },
+      { key: "d", text: q.option_d },
+    ];
+    for (let i = opts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [opts[i], opts[j]] = [opts[j], opts[i]];
+    }
+    setShuffledOptions(opts);
+  }, [view, currentQ, quizQuestions]);
 
   const bestScore = useCallback((diff) => {
     const diffScores = scores.filter(s => s.difficulty === diff);
@@ -231,12 +250,7 @@ export default function QuizView() {
     );
 
     const q = quizQuestions[currentQ];
-    const options = [
-      { key: "a", text: q.option_a },
-      { key: "b", text: q.option_b },
-      { key: "c", text: q.option_c },
-      { key: "d", text: q.option_d },
-    ];
+    const displayLabels = ["A", "B", "C", "D"];
     const progress = ((currentQ + 1) / quizQuestions.length) * 100;
 
     return (
@@ -257,7 +271,7 @@ export default function QuizView() {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {options.map(o => {
+              {shuffledOptions.map((o, i) => {
                 const isCorrect = o.key === q.correct_answer;
                 const isSelected = selected === o.key;
                 let bg = t.bg;
@@ -279,7 +293,7 @@ export default function QuizView() {
                       minWidth: 24, height: 24, display: "flex", alignItems: "center", justifyContent: "center",
                       borderRadius: 6, background: revealed && isCorrect ? "rgba(34,197,94,0.15)" : t.accentLight,
                     }}>
-                      {revealed && isCorrect ? "✓" : revealed && isSelected ? "✗" : o.key.toUpperCase()}
+                      {revealed && isCorrect ? "✓" : revealed && isSelected ? "✗" : displayLabels[i]}
                     </span>
                     <span style={{ fontFamily: t.body, fontSize: 15, color: textColor, lineHeight: 1.5, flex: 1 }}>
                       {o.text}
@@ -391,7 +405,7 @@ export default function QuizView() {
                         </div>
                         {!a.isCorrect && (
                           <div style={{ fontFamily: t.ui, fontSize: 12, color: "#22c55e", marginTop: 4 }}>
-                            Correct: {q.correct_answer.toUpperCase()}. {correctText}
+                            Correct: {correctText}
                           </div>
                         )}
                         {q.explanation && (
