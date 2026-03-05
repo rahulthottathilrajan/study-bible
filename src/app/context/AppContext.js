@@ -169,6 +169,10 @@ export function AppProvider({ children }) {
   const [badgeToast, setBadgeToast] = useState(null);
   const [learnExploration, setLearnExploration] = useState({ erasExplored: [], propheciesRead: [], archaeologyViewed: [] });
   const [notesCount, setNotesCount] = useState(0);
+  // ─── Quiz state ───
+  const [quizScores, setQuizScores] = useState({});
+  const [quizQuestions, setQuizQuestions] = useState([]);
+  const [quizLoading, setQuizLoading] = useState(false);
 
   useEffect(() => {
     try {
@@ -215,12 +219,12 @@ export function AppProvider({ children }) {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
-      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); }
+      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); loadQuizScores(); }
     });
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
-      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); }
-      else { setProfile(null); setStreak(null); setEarnedBadges({}); setChapterReads([]); setNotesCount(0); }
+      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); loadQuizScores(); }
+      else { setProfile(null); setStreak(null); setEarnedBadges({}); setChapterReads([]); setNotesCount(0); setQuizScores({}); }
     });
     return () => subscription.unsubscribe();
   }, []);
@@ -709,6 +713,46 @@ export function AppProvider({ children }) {
     setChapterReads(prev => [...prev, { book_name: bookName, chapter_number: chapterNum }]);
   }, [user, chapterReads]);
 
+  // ─── Quiz functions ───
+  const loadQuizScores = useCallback(async () => {
+    if (!user) return;
+    const { data } = await supabase.from("user_quiz_scores")
+      .select("book_name, chapter_number, difficulty, score, total_questions, percentage, attempted_at")
+      .eq("user_id", user.id).order("attempted_at", { ascending: false });
+    if (data) {
+      const map = {};
+      data.forEach(q => {
+        const key = `${q.book_name}-${q.chapter_number}`;
+        if (!map[key]) map[key] = [];
+        map[key].push(q);
+      });
+      setQuizScores(map);
+    }
+  }, [user]);
+
+  const loadQuizQuestions = useCallback(async (bookName, chNum, difficulty) => {
+    setQuizLoading(true);
+    const { data } = await supabase.from("chapter_quizzes")
+      .select("*").eq("book_name", bookName).eq("chapter_number", chNum)
+      .eq("difficulty", difficulty).order("question_number");
+    setQuizQuestions(data || []);
+    setQuizLoading(false);
+  }, []);
+
+  const submitQuizScore = useCallback(async (bookName, chNum, difficulty, score, total) => {
+    if (!user) return;
+    const percentage = Math.round((score / total) * 100);
+    await supabase.from("user_quiz_scores").insert({
+      user_id: user.id, book_name: bookName, chapter_number: chNum,
+      difficulty, score, total_questions: total, percentage,
+    });
+    setQuizScores(prev => {
+      const key = `${bookName}-${chNum}`;
+      const entry = { book_name: bookName, chapter_number: chNum, difficulty, score, total_questions: total, percentage, attempted_at: new Date().toISOString() };
+      return { ...prev, [key]: [entry, ...(prev[key] || [])] };
+    });
+  }, [user]);
+
   const trackLearnExploration = useCallback((type, id) => {
     setLearnExploration(prev => {
       const arr = prev[type] || [];
@@ -799,8 +843,15 @@ export function AppProvider({ children }) {
     const myPrayers = communityPrayers.filter(p => p.user_id === user.id);
     if (myPrayers.some(p => p.is_answered && p.testimony_text) && !earned.testimony) awardBadge("testimony");
     if (myPrayers.length >= 5 && !earned.community_builder) awardBadge("community_builder");
+
+    // Quiz badges
+    const allScores = Object.values(quizScores).flat();
+    if (allScores.length >= 1 && !earned.quiz_starter) awardBadge("quiz_starter");
+    if (allScores.length >= 10 && !earned.quiz_whiz) awardBadge("quiz_whiz");
+    if (allScores.length >= 50 && !earned.quiz_master) awardBadge("quiz_master");
+    if (allScores.some(s => s.percentage >= 100) && !earned.perfect_score) awardBadge("perfect_score");
   }, [user, chapterReads, allHighlights, notesCount, streak, hebrewProgress, hebrewLessons,
-      greekProgress, learnExploration, userReactions, communityPrayers, awardBadge]);
+      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, awardBadge]);
 
   useEffect(() => { checkBadges(); }, [checkBadges]);
 
@@ -962,7 +1013,7 @@ export function AppProvider({ children }) {
   }, []);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account" };
+  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account" };
   const goBack = () => {
     const target = BACK_MAP[view] || "home";
     if (navStack.current.length > 1) navStack.current.pop();
@@ -1128,6 +1179,9 @@ export function AppProvider({ children }) {
     // Gamification
     earnedBadges, chapterReads, badgeToast, setBadgeToast,
     markChapterRead, trackLearnExploration, notesCount,
+    // Quiz
+    quizScores, quizQuestions, quizLoading,
+    loadQuizQuestions, submitQuizScore,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

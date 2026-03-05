@@ -15,7 +15,7 @@ export default function BibleView() {
     isOT, currentVerse, verseNums, curIdx, t, ht, bookInfo,
     saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage, nav, goBack,
-    chapterReads, markChapterRead,
+    chapterReads, markChapterRead, quizScores,
   } = useApp();
 
   // ═══ BOOKS ═══
@@ -248,19 +248,45 @@ export default function BibleView() {
           {user && (
             (() => {
               const isRead = chapterReads.some(r => r.book_name === book && r.chapter_number === chapter);
+              const chapterKey = `${book}-${chapter}`;
+              const qScores = quizScores[chapterKey] || [];
+              const bestPct = qScores.length > 0 ? Math.max(...qScores.map(s => s.percentage)) : null;
               return (
-                <button onClick={() => { if (!isRead) markChapterRead(book, chapter); }}
-                  style={{
-                    width:"100%",padding:"10px 14px",borderRadius:10,marginBottom:10,
-                    border:`1px solid ${isRead ? "#22c55e" : t.accentBorder}`,
-                    background:isRead ? "rgba(34,197,94,0.08)" : t.accentLight,
-                    fontFamily:t.ui,fontSize:13,fontWeight:700,cursor:isRead?"default":"pointer",
-                    color:isRead ? "#22c55e" : t.accent,
-                    display:"flex",alignItems:"center",justifyContent:"center",gap:8,
-                    transition:"all 0.2s",
-                  }}>
-                  {isRead ? "✓ Chapter Read" : "📖 Mark Chapter as Read"}
-                </button>
+                <>
+                  <button onClick={() => { if (!isRead) markChapterRead(book, chapter); }}
+                    style={{
+                      width:"100%",padding:"10px 14px",borderRadius:10,marginBottom:10,
+                      border:`1px solid ${isRead ? "#22c55e" : t.accentBorder}`,
+                      background:isRead ? "rgba(34,197,94,0.08)" : t.accentLight,
+                      fontFamily:t.ui,fontSize:13,fontWeight:700,cursor:isRead?"default":"pointer",
+                      color:isRead ? "#22c55e" : t.accent,
+                      display:"flex",alignItems:"center",justifyContent:"center",gap:8,
+                      transition:"all 0.2s",
+                    }}>
+                    {isRead ? "✓ Chapter Read" : "📖 Mark Chapter as Read"}
+                  </button>
+                  <button onClick={() => nav("quiz-intro", { book, chapter })}
+                    style={{
+                      width:"100%",padding:"10px 14px",borderRadius:10,marginBottom:10,
+                      border:`1px solid ${t.accentBorder}`,
+                      background:t.accentLight,
+                      fontFamily:t.ui,fontSize:13,fontWeight:700,cursor:"pointer",
+                      color:t.accent,
+                      display:"flex",alignItems:"center",justifyContent:"center",gap:8,
+                      transition:"all 0.2s",
+                    }}>
+                    📝 Take Quiz
+                    {bestPct !== null && (
+                      <span style={{
+                        fontSize:11,padding:"2px 7px",borderRadius:6,marginLeft:4,
+                        background:bestPct >= 70 ? "rgba(34,197,94,0.12)" : "rgba(239,68,68,0.1)",
+                        color:bestPct >= 70 ? "#22c55e" : "#ef4444",
+                      }}>
+                        Best: {bestPct}%
+                      </span>
+                    )}
+                  </button>
+                </>
               );
             })()
           )}

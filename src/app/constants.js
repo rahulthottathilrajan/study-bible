@@ -473,7 +473,7 @@ export const BADGE_CATEGORIES = [
 ];
 
 export const BADGES = [
-  // Bible (8)
+  // Bible (12)
   { id:"first_light",   category:"bible",  name:"First Light",       icon:"🕯️", description:"Read your first chapter" },
   { id:"bookworm",      category:"bible",  name:"Bookworm",          icon:"📚", description:"Read 10 chapters" },
   { id:"scholar",       category:"bible",  name:"Scholar",           icon:"🎓", description:"Read 50 chapters" },
@@ -482,6 +482,10 @@ export const BADGES = [
   { id:"scribe",        category:"bible",  name:"Scribe",            icon:"✍️", description:"Write 10 notes" },
   { id:"bookmarker",    category:"bible",  name:"Bookmarker",        icon:"🔖", description:"Bookmark 25 verses" },
   { id:"devoted",       category:"bible",  name:"Devoted",           icon:"🔥", description:"30-day reading streak" },
+  { id:"quiz_starter",  category:"bible",  name:"Quiz Starter",      icon:"📝", description:"Complete your first chapter quiz" },
+  { id:"quiz_whiz",     category:"bible",  name:"Quiz Whiz",         icon:"🧠", description:"Complete 10 chapter quizzes" },
+  { id:"perfect_score", category:"bible",  name:"Perfect Score",     icon:"💯", description:"Get 100% on a chapter quiz" },
+  { id:"quiz_master",   category:"bible",  name:"Quiz Master",       icon:"🏆", description:"Complete 50 chapter quizzes" },
   // Hebrew (4)
   { id:"aleph",          category:"hebrew", name:"Aleph",             icon:"א",  description:"Complete your first Hebrew lesson" },
   { id:"aleph_bet",      category:"hebrew", name:"Aleph-Bet Master",  icon:"📜", description:"Complete all alphabet lessons" },
