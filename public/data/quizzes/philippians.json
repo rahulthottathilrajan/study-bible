@@ -1,0 +1,674 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote the letter to the Philippians?",
+        "option_a": "Paul and Timothy",
+        "option_b": "Peter and John",
+        "option_c": "James and Jude",
+        "option_d": "Luke and Mark",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:1 — \"Paul and Timotheus, the servants of Jesus Christ, to all the saints in Christ Jesus which are at Philippi.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Where was Paul when he wrote this letter?",
+        "option_a": "In prison",
+        "option_b": "At home",
+        "option_c": "On a boat",
+        "option_d": "In the temple",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:13 — \"my bonds in Christ are manifest in all the palace.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say is better than living?",
+        "option_a": "To depart and be with Christ",
+        "option_b": "To be rich",
+        "option_c": "To be famous",
+        "option_d": "To travel the world",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:23 — \"having a desire to depart, and to be with Christ; which is far better.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about the good work God began in the Philippians?",
+        "option_a": "He who began it will perform (complete) it until the day of Jesus Christ",
+        "option_b": "He started it but they must finish it",
+        "option_c": "He might abandon it if they don't cooperate",
+        "option_d": "He only started it in some of them",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:6 — \"he which hath begun a good work in you will perform it until the day of Jesus Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What happened because of Paul's imprisonment?",
+        "option_a": "The gospel spread even further — his bonds became known throughout the palace and others were emboldened to preach",
+        "option_b": "The church fell apart",
+        "option_c": "Everyone stopped preaching",
+        "option_d": "The Romans became Christians",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:12-14 — \"the things which happened unto me have fallen out rather unto the furtherance of the gospel.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about those who preach Christ out of envy?",
+        "option_a": "Whether in pretence or truth, Christ is preached — and he rejoices in that",
+        "option_b": "They should be silenced immediately",
+        "option_c": "They will be punished by God",
+        "option_d": "Their preaching is ineffective",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:18 — \"whether in pretence, or in truth, Christ is preached; and I therein do rejoice.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say is given to believers on behalf of Christ?",
+        "option_a": "Not only to believe on Him but also to suffer for His sake",
+        "option_b": "Only to believe and be happy",
+        "option_c": "To rule over the nations",
+        "option_d": "To accumulate earthly treasures",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:29 — \"unto you it is given in the behalf of Christ, not only to believe on him, but also to suffer for his sake.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What famous statement does Paul make about living and dying?",
+        "option_a": "\"For to me to live is Christ, and to die is gain\"",
+        "option_b": "\"I will live forever in this body\"",
+        "option_c": "\"Death is the end of everything\"",
+        "option_d": "\"Life is meaningless without wealth\"",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:21 — \"For to me to live is Christ, and to die is gain.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul pray the Philippians' love would do?",
+        "option_a": "Abound yet more and more in knowledge and in all judgment (discernment)",
+        "option_b": "Simply increase in emotion",
+        "option_c": "Focus exclusively on fellow believers",
+        "option_d": "Lead them to abandon critical thinking",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:9 — \"that your love may abound yet more and more in knowledge and in all judgment.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul pray they would be until the day of Christ?",
+        "option_a": "Sincere and without offence, filled with the fruits of righteousness by Jesus Christ",
+        "option_b": "Wealthy and influential",
+        "option_c": "Free from all persecution",
+        "option_d": "Leaders of the Roman Empire",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:10-11 — \"that ye may be sincere and without offence till the day of Christ; Being filled with the fruits of righteousness.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is Paul's dilemma between living and dying?",
+        "option_a": "He is in a strait betwixt two — desiring to depart and be with Christ (far better) but knowing it is more needful for the Philippians that he remain in the flesh",
+        "option_b": "He fears death and wants to live longer",
+        "option_c": "He is tired of life and wants to die",
+        "option_d": "He is indifferent to both options",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:23-24 — \"I am in a strait betwixt two, having a desire to depart, and to be with Christ; which is far better: Nevertheless to abide in the flesh is more needful for you.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul exhort the Philippians to do regarding their conversation (conduct)?",
+        "option_a": "Let it be as it becometh the gospel of Christ — standing fast in one spirit, striving together for the faith of the gospel",
+        "option_b": "Follow Roman customs to avoid persecution",
+        "option_c": "Keep their faith private and hidden",
+        "option_d": "Separate into smaller house churches",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:27 — \"let your conversation be as it becometh the gospel of Christ.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about the adversaries of the Philippians?",
+        "option_a": "Their unity and fearlessness is to them an evident token of perdition, but to the Philippians of salvation, from God",
+        "option_b": "They will soon be converted",
+        "option_c": "They are secretly on the Philippians' side",
+        "option_d": "They are powerless against believers",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:28 — \"in nothing terrified by your adversaries: which is to them an evident token of perdition, but to you of salvation, and that of God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "How does Paul describe his affection for the Philippians?",
+        "option_a": "He longs after them all in the bowels (deep affection) of Jesus Christ",
+        "option_b": "He remembers them occasionally in prayer",
+        "option_c": "He is grateful for their financial support only",
+        "option_d": "He considers them one of many churches",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:8 — \"God is my record, how greatly I long after you all in the bowels of Jesus Christ.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What do the words \"the praetorium\" and \"Caesar's household\" tell us about Paul's imprisonment?",
+        "option_a": "He was imprisoned in Rome, and the gospel had reached even the imperial guard and household of Caesar",
+        "option_b": "He was in a local Philippian jail",
+        "option_c": "He was under house arrest in Corinth",
+        "option_d": "He was in a provincial prison in Greece",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:13 — \"my bonds in Christ are manifest in all the palace (praetorium).\" Also 4:22 mentions Caesar's household."
+      },
+      {
+        "question_number": 8,
+        "question": "What two motives does Paul identify among those who preach Christ?",
+        "option_a": "Some preach out of love knowing Paul is set for the defence of the gospel; others out of contention/envy, supposing to add affliction to Paul's bonds",
+        "option_b": "All preach from pure motives",
+        "option_c": "Some preach for money, others for fame",
+        "option_d": "Some preach from the Old Testament, others from the New",
+        "correct_answer": "a",
+        "explanation": "Philippians 1:15-17 — \"Some indeed preach Christ even of envy and strife; and some also of good will… The one preach Christ of contention… the other of love.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who does Paul say we should think of as more important than ourselves?",
+        "option_a": "Others",
+        "option_b": "Only ourselves",
+        "option_c": "Only rich people",
+        "option_d": "Only pastors",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:3 — \"let each esteem other better than themselves.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus do even though He was God?",
+        "option_a": "He became a servant and humbled Himself",
+        "option_b": "He demanded to be treated as a king",
+        "option_c": "He refused to help anyone",
+        "option_d": "He stayed in heaven",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:7 — \"made himself of no reputation, and took upon him the form of a servant.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What will every knee do and every tongue confess?",
+        "option_a": "Every knee shall bow and every tongue confess that Jesus Christ is Lord",
+        "option_b": "Every person will sing a song",
+        "option_c": "Every nation will build a church",
+        "option_d": "Every child will learn to read",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:10-11 — \"at the name of Jesus every knee should bow… and every tongue should confess that Jesus Christ is Lord.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What mind should believers have?",
+        "option_a": "The same mind that was in Christ Jesus",
+        "option_b": "The mind of a philosopher",
+        "option_c": "The mind of a wealthy businessman",
+        "option_d": "The mind of a Roman senator",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:5 — \"Let this mind be in you, which was also in Christ Jesus.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about doing things without murmuring?",
+        "option_a": "Do all things without murmurings and disputings, that ye may be blameless and harmless",
+        "option_b": "Some complaining is acceptable",
+        "option_c": "Only leaders need to avoid murmuring",
+        "option_d": "Murmuring is a sign of passion",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:14-15 — \"Do all things without murmurings and disputings: That ye may be blameless and harmless, the sons of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How far did Jesus humble Himself?",
+        "option_a": "He became obedient unto death, even the death of the cross",
+        "option_b": "He humbled Himself only for a short time",
+        "option_c": "He humbled Himself only in appearance",
+        "option_d": "He humbled Himself only before the disciples",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:8 — \"he humbled himself, and became obedient unto death, even the death of the cross.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Who does Paul send to the Philippians and call a fellow worker?",
+        "option_a": "Timothy and Epaphroditus",
+        "option_b": "Barnabas and Silas",
+        "option_c": "Peter and John",
+        "option_d": "Apollos and Titus",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:19,25 — Paul plans to send Timothy and sends Epaphroditus back."
+      },
+      {
+        "question_number": 5,
+        "question": "What happened to Epaphroditus that caused concern?",
+        "option_a": "He was sick, nigh unto death, but God had mercy on him",
+        "option_b": "He was arrested by the Romans",
+        "option_c": "He lost his faith temporarily",
+        "option_d": "He was robbed on the road",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:27 — \"he was sick nigh unto death: but God had mercy on him.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does the Greek word \"kenosis\" (from verse 7) mean in the Christological hymn?",
+        "option_a": "Christ \"emptied himself\" (made himself of no reputation) — not by losing deity but by adding humanity, taking the form of a servant",
+        "option_b": "Christ temporarily ceased being God",
+        "option_c": "Christ lost His divine attributes",
+        "option_d": "Christ gave up His throne permanently",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:7 — \"made himself of no reputation (ekenōsen)\" — He emptied Himself by taking servant form, not by losing divine nature."
+      },
+      {
+        "question_number": 2,
+        "question": "What does \"being in the form of God\" establish about Christ's pre-existence?",
+        "option_a": "The word \"morphe\" (form) indicates the essential nature/being of God — Christ existed in the very nature of God before the incarnation",
+        "option_b": "It means He looked like God but wasn't actually God",
+        "option_c": "It refers only to His appearance after baptism",
+        "option_d": "It means He was created in God's image like Adam",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:6 — \"Who, being in the form (morphe) of God, thought it not robbery to be equal with God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the result of Christ's exaltation?",
+        "option_a": "God highly exalted Him and gave Him a name above every name, that at His name every knee should bow in heaven, earth, and under the earth",
+        "option_b": "He returned to His previous state unchanged",
+        "option_c": "He became a powerful angel",
+        "option_d": "He received a new divine attribute",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:9-10 — \"God also hath highly exalted him, and given him a name which is above every name.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about working out salvation?",
+        "option_a": "\"Work out your own salvation with fear and trembling, for it is God which worketh in you both to will and to do of his good pleasure\"",
+        "option_b": "\"Work to earn your salvation through obedience\"",
+        "option_c": "\"Your salvation depends entirely on your efforts\"",
+        "option_d": "\"Once saved, no effort is needed\"",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:12-13 — \"work out your own salvation with fear and trembling. For it is God which worketh in you both to will and to do of his good pleasure.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What imagery does Paul use about the Philippians shining?",
+        "option_a": "They should shine as lights in the world, holding forth the word of life, in the midst of a crooked and perverse nation",
+        "option_b": "They should hide their faith like a candle under a bushel",
+        "option_c": "They should only share their light with fellow believers",
+        "option_d": "They should wait until the world improves to show their light",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:15-16 — \"ye shine as lights in the world; Holding forth the word of life.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What sacrificial language does Paul use about his ministry?",
+        "option_a": "He says even if he is \"poured out as a drink offering\" upon the sacrifice and service of their faith, he rejoices",
+        "option_b": "He compares himself to the high priest",
+        "option_c": "He describes his work as building a temple",
+        "option_d": "He likens his ministry to farming",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:17 — \"if I be offered upon the sacrifice and service of your faith, I joy, and rejoice with you all.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul say about Timothy compared to others?",
+        "option_a": "He has no one like-minded who will naturally care for their state — all others seek their own things, not the things of Jesus Christ",
+        "option_b": "Timothy is the youngest and least experienced",
+        "option_c": "Timothy is equal to all others in devotion",
+        "option_d": "Timothy needs more training before he can serve",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:20-21 — \"I have no man likeminded, who will naturally care for your state. For all seek their own, not the things which are Jesus Christ's.\""
+      },
+      {
+        "question_number": 8,
+        "question": "Why does Paul send Epaphroditus back to Philippi?",
+        "option_a": "Because Epaphroditus longed for them and was full of heaviness because they heard he was sick — Paul sends him so they may rejoice and he may be less sorrowful",
+        "option_b": "Because Epaphroditus was disobedient",
+        "option_c": "Because Paul didn't need him anymore",
+        "option_d": "Because the Philippians demanded his return",
+        "correct_answer": "a",
+        "explanation": "Philippians 2:26-28 — \"he longed after you all, and was full of heaviness, because that ye had heard that he had been sick… I sent him therefore the more carefully, that, when ye see him again, ye may rejoice.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say he counts as loss compared to knowing Christ?",
+        "option_a": "All things",
+        "option_b": "Only his money",
+        "option_c": "Only his old clothes",
+        "option_d": "Only his house",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:8 — \"I count all things but loss for the excellency of the knowledge of Christ Jesus my Lord.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Where is the citizenship of believers?",
+        "option_a": "In heaven",
+        "option_b": "In Rome",
+        "option_c": "In Jerusalem",
+        "option_d": "In Greece",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:20 — \"our conversation (citizenship) is in heaven.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say he does — forgetting the past and reaching forward?",
+        "option_a": "He presses toward the mark for the prize of the high calling of God in Christ",
+        "option_b": "He runs backward",
+        "option_c": "He stands still",
+        "option_d": "He gives up",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:14 — \"I press toward the mark for the prize of the high calling of God in Christ Jesus.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What credentials did Paul list that he counted as loss?",
+        "option_a": "Circumcised the eighth day, of Israel, tribe of Benjamin, a Hebrew of Hebrews, a Pharisee, blameless in the law",
+        "option_b": "Roman citizenship and military rank",
+        "option_c": "Wealth, land, and slaves",
+        "option_d": "A degree from the university and published writings",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:5-6 — \"Circumcised the eighth day, of the stock of Israel, of the tribe of Benjamin, an Hebrew of the Hebrews; as touching the law, a Pharisee.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul want to gain instead of his own righteousness?",
+        "option_a": "The righteousness which is of God by faith in Christ",
+        "option_b": "The admiration of other apostles",
+        "option_c": "A high position in the church",
+        "option_d": "Legal approval from Rome",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:9 — \"not having mine own righteousness, which is of the law, but that which is through the faith of Christ, the righteousness which is of God by faith.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul want to know about Christ?",
+        "option_a": "The power of His resurrection and the fellowship of His sufferings",
+        "option_b": "How to perform more miracles",
+        "option_c": "When Christ will return",
+        "option_d": "How to build bigger churches",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:10 — \"That I may know him, and the power of his resurrection, and the fellowship of his sufferings.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Has Paul already reached perfection?",
+        "option_a": "No — he says he has not already attained or been made perfect, but he presses on",
+        "option_b": "Yes, he reached perfection years ago",
+        "option_c": "He claims to be close to perfection",
+        "option_d": "He says perfection is impossible",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:12 — \"Not as though I had already attained, either were already perfect: but I follow after.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who does Paul warn about as enemies of the cross?",
+        "option_a": "Those whose god is their belly, whose glory is in their shame, who mind earthly things",
+        "option_b": "Roman soldiers who persecute Christians",
+        "option_c": "Jewish priests in the temple",
+        "option_d": "Philosophers in Athens",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:18-19 — \"many walk, of whom I have told you often… that they are the enemies of the cross of Christ: Whose end is destruction, whose God is their belly, and whose glory is in their shame, who mind earthly things.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul mean by \"the concision\" versus \"the circumcision\"?",
+        "option_a": "He uses \"concision\" (cutting/mutilation) dismissively for those who demand circumcision, saying believers are the true circumcision who worship God in the spirit",
+        "option_b": "He distinguishes between two types of surgical procedures",
+        "option_c": "He refers to a geographical division between churches",
+        "option_d": "He describes a doctrinal debate about fasting",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:2-3 — \"Beware of the concision. For we are the circumcision, which worship God in the spirit, and rejoice in Christ Jesus, and have no confidence in the flesh.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul call his former religious accomplishments?",
+        "option_a": "Dung (refuse/rubbish) — that he may win Christ and be found in Him",
+        "option_b": "A good foundation that Christ built upon",
+        "option_c": "Stepping stones toward salvation",
+        "option_d": "Valuable experiences he treasures",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:8 — \"I count all things but loss… and do count them but dung, that I may win Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does \"being made conformable unto his death\" mean?",
+        "option_a": "Paul desires to be so identified with Christ that he shares in Christ's pattern of suffering and death — dying to self and the world",
+        "option_b": "Paul wants to die on a cross literally",
+        "option_c": "Paul wants to experience physical death soon",
+        "option_d": "Paul plans to fast until death",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:10 — \"being made conformable unto his death.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does \"if by any means I might attain unto the resurrection of the dead\" express?",
+        "option_a": "Not doubt about salvation but Paul's earnest desire and determined pursuit of the full experience of resurrection glory",
+        "option_b": "Uncertainty about whether he is truly saved",
+        "option_c": "A conditional statement about earning resurrection",
+        "option_d": "Doubt about the doctrine of resurrection",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:11 — \"If by any means I might attain unto the resurrection of the dead.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What athletic metaphor does Paul use for the Christian life?",
+        "option_a": "Forgetting the things behind and reaching forward, pressing toward the mark (goal line) for the prize of the high calling",
+        "option_b": "Swimming across a wide river",
+        "option_c": "Climbing a tall mountain",
+        "option_d": "Wrestling with an opponent",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:13-14 — \"forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say about those who are \"otherwise minded\"?",
+        "option_a": "God shall reveal even this unto them — showing confidence that God will correct their thinking",
+        "option_b": "They should be excommunicated",
+        "option_c": "They are lost and beyond hope",
+        "option_d": "They should start their own church",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:15 — \"if in any thing ye be otherwise minded, God shall reveal even this unto you.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul say the Saviour will do to believers' bodies?",
+        "option_a": "He shall change our vile body, that it may be fashioned like unto His glorious body, according to the working whereby He is able to subdue all things",
+        "option_b": "He will preserve them from all sickness",
+        "option_c": "He will make them invisible to enemies",
+        "option_d": "He will translate them immediately to heaven",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:21 — \"Who shall change our vile body, that it may be fashioned like unto his glorious body, according to the working whereby he is able even to subdue all things unto himself.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What rule does Paul give for spiritual progress in verse 16?",
+        "option_a": "\"Whereto we have already attained, let us walk by the same rule, let us mind the same thing\" — maintain unity and consistency in what has been achieved",
+        "option_b": "\"Run as fast as possible to the goal\"",
+        "option_c": "\"Compete with one another for the highest prize\"",
+        "option_d": "\"Start over from the beginning with each new revelation\"",
+        "correct_answer": "a",
+        "explanation": "Philippians 3:16 — \"whereto we have already attained, let us walk by the same rule, let us mind the same thing.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say we should do instead of worrying?",
+        "option_a": "Pray and give thanks to God",
+        "option_b": "Worry more",
+        "option_c": "Complain to friends",
+        "option_d": "Hide under the bed",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:6 — \"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say he can do through Christ?",
+        "option_a": "All things",
+        "option_b": "Only easy things",
+        "option_c": "Nothing at all",
+        "option_d": "Only a few things",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:13 — \"I can do all things through Christ which strengtheneth me.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should we think about?",
+        "option_a": "Things that are true, honest, just, pure, lovely, and of good report",
+        "option_b": "Scary stories",
+        "option_c": "Mean thoughts about others",
+        "option_d": "How to get more toys",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:8 — \"whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report… think on these things.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say the peace of God does?",
+        "option_a": "It passes all understanding and shall keep your hearts and minds through Christ Jesus",
+        "option_b": "It makes all problems disappear",
+        "option_c": "It comes only after all trials end",
+        "option_d": "It is available only to church leaders",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:7 — \"the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What has Paul learned in whatever state he is in?",
+        "option_a": "To be content — he knows how to be abased and how to abound",
+        "option_b": "To always seek better circumstances",
+        "option_c": "To complain until things improve",
+        "option_d": "To demand what he deserves",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:11-12 — \"I have learned, in whatsoever state I am, therewith to be content.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say God will supply?",
+        "option_a": "All your need according to His riches in glory by Christ Jesus",
+        "option_b": "Only your spiritual needs",
+        "option_c": "Only food and clothing",
+        "option_d": "Whatever you want",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:19 — \"my God shall supply all your need according to his riches in glory by Christ Jesus.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Who does Paul ask to help Euodias and Syntyche?",
+        "option_a": "His true yokefellow (companion), to help them be of the same mind in the Lord",
+        "option_b": "Timothy",
+        "option_c": "The Roman governor",
+        "option_d": "The high priest",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:2-3 — \"I beseech Euodias, and beseech Syntyche, that they be of the same mind in the Lord. And I intreat thee also, true yokefellow, help those women.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about the Philippians' giving?",
+        "option_a": "No other church communicated with him concerning giving and receiving except the Philippians",
+        "option_b": "Every church gave generously",
+        "option_c": "Only the wealthy churches gave",
+        "option_d": "He never accepted gifts from any church",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:15 — \"no church communicated with me as concerning giving and receiving, but ye only.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does \"Be careful for nothing\" mean in Philippians 4:6?",
+        "option_a": "Be anxious about nothing — instead bring everything to God in prayer with thanksgiving",
+        "option_b": "Don't be careful about anything",
+        "option_c": "Don't worry about making mistakes",
+        "option_d": "Don't care about anything at all",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:6 — \"Be careful (anxious) for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What six virtues does Paul list for the Philippians to think on?",
+        "option_a": "Things true, honest, just, pure, lovely, and of good report — plus virtue and praise",
+        "option_b": "Faith, hope, love, mercy, grace, and peace",
+        "option_c": "Strength, courage, wisdom, knowledge, power, and glory",
+        "option_d": "Prayer, fasting, giving, preaching, teaching, and healing",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:8 — \"whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report; if there be any virtue, and if there be any praise, think on these things.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the \"secret\" Paul has learned?",
+        "option_a": "\"I know both how to be abased, and I know how to abound: every where and in all things I am instructed both to be full and to be hungry, both to abound and to suffer need\"",
+        "option_b": "A hidden mystery about the end times",
+        "option_c": "A special prayer technique",
+        "option_d": "The location of a hidden treasure",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:12 — \"I know both how to be abased, and I know how to abound: every where and in all things I am instructed.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does \"I can do all things through Christ\" mean in context?",
+        "option_a": "Through Christ, Paul can endure any circumstance — abundance or need, fullness or hunger — it's about contentment in all conditions, not unlimited ability",
+        "option_b": "Believers can do literally anything they wish",
+        "option_c": "Christ gives supernatural powers to all believers",
+        "option_d": "It applies only to miracle-working apostles",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:13 in context of 4:11-12 — \"I can do all things through Christ which strengtheneth me\" refers to contentment in all circumstances."
+      },
+      {
+        "question_number": 5,
+        "question": "What sacrificial language does Paul use for the Philippians' gift?",
+        "option_a": "\"An odour of a sweet smell, a sacrifice acceptable, wellpleasing to God\" — using Old Testament sacrificial terminology for their financial gift",
+        "option_b": "A tithe according to the law of Moses",
+        "option_c": "A tax paid to the Roman government",
+        "option_d": "A simple donation without spiritual significance",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:18 — \"an odour of a sweet smell, a sacrifice acceptable, wellpleasing to God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul mean by \"the God of peace shall be with you\"?",
+        "option_a": "If they practice what Paul taught, God's presence (not just His peace, but He Himself) will be with them",
+        "option_b": "They will never face any conflict",
+        "option_c": "They will achieve inner tranquility through meditation",
+        "option_d": "Peace is guaranteed regardless of their behavior",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:9 — \"Those things, which ye have both learned, and received, and heard, and seen in me, do: and the God of peace shall be with you.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Philippians 4:19 promise and on what basis?",
+        "option_a": "God will supply all their need according to HIS riches in glory — not out of their resources but out of God's inexhaustible heavenly wealth, in response to their generous giving",
+        "option_b": "God will make them rich",
+        "option_c": "They will never lack anything material",
+        "option_d": "All prayers will be answered exactly as requested",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:19 — \"my God shall supply all your need according to his riches in glory by Christ Jesus.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What final greeting does Paul include that reveals the reach of the gospel?",
+        "option_a": "\"All the saints salute you, chiefly they that are of Caesar's household\" — the gospel had penetrated even the Roman imperial household",
+        "option_b": "All the saints in Jerusalem send greetings",
+        "option_c": "All the churches in Asia greet them",
+        "option_d": "Only Jewish believers send their regards",
+        "correct_answer": "a",
+        "explanation": "Philippians 4:22 — \"All the saints salute you, chiefly they that are of Caesar's household.\""
+      }
+    ]
+  }
+}

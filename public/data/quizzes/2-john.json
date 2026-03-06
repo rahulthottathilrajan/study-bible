@@ -1,0 +1,170 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote the letter of 2 John?",
+        "option_a": "The elder (John)",
+        "option_b": "Paul",
+        "option_c": "Peter",
+        "option_d": "James",
+        "correct_answer": "a",
+        "explanation": "2 John 1:1 — \"The elder unto the elect lady and her children.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What commandment does John say we should follow?",
+        "option_a": "That we love one another",
+        "option_b": "That we be rich",
+        "option_c": "That we build big churches",
+        "option_d": "That we travel far",
+        "correct_answer": "a",
+        "explanation": "2 John 1:5 — \"that we love one another.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did John say about people who deny Jesus came in the flesh?",
+        "option_a": "They are deceivers",
+        "option_b": "They are wise teachers",
+        "option_c": "They are friends",
+        "option_d": "They are angels",
+        "correct_answer": "a",
+        "explanation": "2 John 1:7 — \"many deceivers are entered into the world, who confess not that Jesus Christ is come in the flesh. This is a deceiver and an antichrist.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "To whom is the letter of 2 John addressed?",
+        "option_a": "The elect lady and her children",
+        "option_b": "The church at Ephesus",
+        "option_c": "Timothy",
+        "option_d": "The twelve apostles",
+        "correct_answer": "a",
+        "explanation": "2 John 1:1 — \"The elder unto the elect lady and her children, whom I love in the truth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does John say about the commandment to love one another?",
+        "option_a": "It is not a new commandment but one we had from the beginning",
+        "option_b": "It was just given by Jesus at the Last Supper",
+        "option_c": "It replaces the Ten Commandments",
+        "option_d": "It only applies to church leaders",
+        "correct_answer": "a",
+        "explanation": "2 John 1:5 — \"not as though I wrote a new commandment unto thee, but that which we had from the beginning.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does John say walking in love means?",
+        "option_a": "Walking after His commandments",
+        "option_b": "Feeling happy all the time",
+        "option_c": "Never disagreeing with anyone",
+        "option_d": "Giving away all possessions",
+        "correct_answer": "a",
+        "explanation": "2 John 1:6 — \"this is love, that we walk after his commandments.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does John warn about those who go beyond the doctrine of Christ?",
+        "option_a": "They do not have God; he that abides in the doctrine has both the Father and the Son",
+        "option_b": "They are the most advanced Christians",
+        "option_c": "They have special revelation",
+        "option_d": "They should be made leaders",
+        "correct_answer": "a",
+        "explanation": "2 John 1:9 — \"Whosoever transgresseth, and abideth not in the doctrine of Christ, hath not God.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does John say to do with someone who does not bring the doctrine of Christ?",
+        "option_a": "Do not receive him into your house or bid him God speed",
+        "option_b": "Welcome him warmly and debate him",
+        "option_c": "Ignore him completely",
+        "option_d": "Report him to the Romans",
+        "correct_answer": "a",
+        "explanation": "2 John 1:10 — \"If there come any unto you, and bring not this doctrine, receive him not into your house, neither bid him God speed.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What is the significance of John calling himself \"the elder\" rather than \"the apostle\"?",
+        "option_a": "It emphasizes his pastoral authority and relationship rather than apostolic rank, suggesting a letter of personal care to a specific community",
+        "option_b": "He had lost his apostolic status",
+        "option_c": "He was too old to be called an apostle",
+        "option_d": "It was a required title for all church leaders",
+        "correct_answer": "a",
+        "explanation": "2 John 1:1 — \"The elder\" — John uses this intimate title showing pastoral relationship."
+      },
+      {
+        "question_number": 2,
+        "question": "What does John mean when he says he loves the elect lady \"in the truth\"?",
+        "option_a": "His love is grounded in and motivated by divine truth — not merely human affection but love rooted in the gospel",
+        "option_b": "He is being legally truthful",
+        "option_c": "He loves her more than others",
+        "option_d": "He is writing a formal legal document",
+        "correct_answer": "a",
+        "explanation": "2 John 1:1 — \"whom I love in the truth; and not I only, but also all they that have known the truth.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What specific heresy does John identify in verse 7?",
+        "option_a": "Denying that Jesus Christ is come in the flesh — an early form of Docetism or Gnostic teaching",
+        "option_b": "Denying the resurrection of the dead",
+        "option_c": "Teaching that there are many gods",
+        "option_d": "Rejecting the Old Testament entirely",
+        "correct_answer": "a",
+        "explanation": "2 John 1:7 — \"many deceivers… who confess not that Jesus Christ is come in the flesh. This is a deceiver and an antichrist.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does John say believers should \"look to\" regarding their work?",
+        "option_a": "\"Look to yourselves, that we lose not those things which we have wrought, but that we receive a full reward\"",
+        "option_b": "\"Look to the heavens for signs of His coming\"",
+        "option_c": "\"Look to the poor and needy around you\"",
+        "option_d": "\"Look to the elders for guidance in all things\"",
+        "correct_answer": "a",
+        "explanation": "2 John 1:8 — \"Look to yourselves, that we lose not those things which we have wrought, but that we receive a full reward.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is the doctrinal test John gives for distinguishing true from false teachers?",
+        "option_a": "Whether they abide in the doctrine of Christ — those who transgress and do not abide in it have not God",
+        "option_b": "Whether they can perform miracles",
+        "option_c": "Whether they were trained by the apostles",
+        "option_d": "Whether they have large followings",
+        "correct_answer": "a",
+        "explanation": "2 John 1:9 — \"Whosoever transgresseth, and abideth not in the doctrine of Christ, hath not God. He that abideth in the doctrine of Christ, he hath both the Father and the Son.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does \"bid him God speed\" mean in the context of verse 10, and why is it prohibited?",
+        "option_a": "Greeting a false teacher with blessing makes one a partaker of his evil deeds — it implies endorsement of his teaching",
+        "option_b": "It means wishing someone a safe journey",
+        "option_c": "It is a form of financial support",
+        "option_d": "It means praying for their conversion",
+        "correct_answer": "a",
+        "explanation": "2 John 1:11 — \"he that biddeth him God speed is partaker of his evil deeds.\""
+      },
+      {
+        "question_number": 7,
+        "question": "Why does John say he chose not to write with paper and ink?",
+        "option_a": "He hopes to come and speak face to face, that their joy may be full",
+        "option_b": "He ran out of writing materials",
+        "option_c": "The subject was too sensitive for a letter",
+        "option_d": "He wanted Timothy to deliver the message verbally",
+        "correct_answer": "a",
+        "explanation": "2 John 1:12 — \"I would not write with paper and ink: but I trust to come unto you, and speak face to face, that our joy may be full.\""
+      },
+      {
+        "question_number": 8,
+        "question": "Who sends greetings at the close of the letter?",
+        "option_a": "The children of the elect lady's sister",
+        "option_b": "The church at Jerusalem",
+        "option_c": "Paul and Timothy",
+        "option_d": "The seven churches of Asia",
+        "correct_answer": "a",
+        "explanation": "2 John 1:13 — \"The children of thy elect sister greet thee.\""
+      }
+    ]
+  }
+}

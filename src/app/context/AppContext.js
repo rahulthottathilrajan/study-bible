@@ -3,6 +3,14 @@ import { createContext, useContext, useState, useEffect, useCallback, useMemo, u
 import { supabase } from "../../lib/supabase";
 import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES } from "../constants";
 
+// ─── Derive dbChapters from BIBLE_BOOKS (synchronous, no Supabase needed) ───
+const initDbChapters = {};
+BIBLE_BOOKS.forEach(b => {
+  initDbChapters[b.name] = Array.from({ length: b.chapters }, (_, i) => ({
+    num: i + 1, theme: CATEGORY_THEME[b.category]
+  }));
+});
+
 const AppContext = createContext(null);
 
 export function AppProvider({ children }) {
@@ -54,7 +62,7 @@ export function AppProvider({ children }) {
   const FS = { small:{list:13,detail:15}, medium:{list:14.5,detail:17}, large:{list:17,detail:20}, xlarge:{list:20.5,detail:24} };
 
   // ─── Bible data ───
-  const [dbChapters, setDbChapters] = useState({});
+  const [dbChapters] = useState(initDbChapters);
   const [collapsed, setCollapsed] = useState({});
   const [booksCollapsed, setBooksCollapsed] = useState({});
   const [overviewOpen, setOverviewOpen] = useState(false);
@@ -88,6 +96,9 @@ export function AppProvider({ children }) {
   const [highlight, setHighlight] = useState(null);
   const [shareCopied, setShareCopied] = useState(false);
   const [communityNotes, setCommunityNotes] = useState([]);
+  const [chapterHighlights, setChapterHighlights] = useState({});       // { verseNum: hlObj }
+  const [chapterNotes, setChapterNotes] = useState({});                 // { verseNum: noteObj }
+  const [chapterCommunityNotes, setChapterCommunityNotes] = useState({}); // { verseNum: [noteObj] }
   const [prayerModal, setPrayerModal] = useState(false);
   const [prayers, setPrayers] = useState([]);
   const [prayerTitle, setPrayerTitle] = useState("");
@@ -112,6 +123,8 @@ export function AppProvider({ children }) {
   const [slotsLoading, setSlotsLoading] = useState(false);
 
   const noteRef = useRef(null);
+  const bookCache = useRef({}); // { "genesis": fullBookJSON, ... } — cached static JSON
+  const verseIdMap = useRef({}); // { verseNumber: supabaseUUID } — for user data writes
 
   // ─── Wrapped verse setter — clears stale per-verse user data in same render batch ───
   const changeVerse = useCallback((v) => {
@@ -316,37 +329,91 @@ export function AppProvider({ children }) {
   };
 
   // ═══ USER FEATURES ═══
+  // Batch-load user data for the entire chapter (1 serial + 3 parallel queries)
+  const loadUserChapterData = useCallback(async (bookName, chNum) => {
+    if (!user || !dbLive) return;
+    try {
+      // 1. Get verse IDs for this chapter (1 query with join)
+      const { data: rows } = await supabase.from("verses")
+        .select("id, verse_number, chapters!inner(chapter_number, books!inner(name))")
+        .eq("chapters.chapter_number", chNum)
+        .eq("chapters.books.name", bookName);
+      const idMap = {};
+      rows?.forEach(v => { idMap[v.verse_number] = v.id; });
+      verseIdMap.current = idMap;
+
+      if (!Object.keys(idMap).length) {
+        // Non-seeded book — no verse records in Supabase
+        setChapterHighlights({}); setChapterNotes({}); setChapterCommunityNotes({});
+        return;
+      }
+
+      // 2. Batch user data (3 parallel queries)
+      const vIds = Object.values(idMap);
+      const [hlRes, ntRes, cnRes] = await Promise.all([
+        supabase.from("user_highlights").select("*").eq("user_id", user.id).in("verse_id", vIds),
+        supabase.from("user_notes").select("*").eq("user_id", user.id).in("verse_id", vIds),
+        supabase.from("user_notes").select("*").eq("is_public", true).neq("user_id", user.id).in("verse_id", vIds),
+      ]);
+
+      // 3. Build maps keyed by verse_number
+      const rev = {};
+      Object.entries(idMap).forEach(([vn, id]) => { rev[id] = Number(vn); });
+
+      const hlMap = {};
+      (hlRes.data || []).forEach(h => { const vn = rev[h.verse_id]; if (vn) hlMap[vn] = h; });
+      setChapterHighlights(hlMap);
+
+      const ntMap = {};
+      (ntRes.data || []).forEach(n => { const vn = rev[n.verse_id]; if (vn) ntMap[vn] = n; });
+      setChapterNotes(ntMap);
+
+      const cnMap = {};
+      (cnRes.data || []).forEach(n => { const vn = rev[n.verse_id]; if (vn) { if (!cnMap[vn]) cnMap[vn] = []; cnMap[vn].push(n); } });
+      setChapterCommunityNotes(cnMap);
+    } catch (e) {
+      console.error('loadUserChapterData error:', e);
+    }
+  }, [user, dbLive]);
+
+  // Trigger chapter-level user data load when chapter changes
   useEffect(() => {
-    if (!user || !currentVerse) return;
-    let stale = false;
-    (async () => {
-      const { data: note } = await supabase.from("user_notes").select("*").eq("user_id", user.id).eq("verse_id", currentVerse.id).maybeSingle();
-      if (stale) return;
-      if (note) { setSavedNote(note); setUserNote(note.note_text); if (noteRef.current) noteRef.current.value = note.note_text; } else { setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = ""; }
-      const { data: hl } = await supabase.from("user_highlights").select("*").eq("user_id", user.id).eq("verse_id", currentVerse.id).maybeSingle();
-      if (stale) return;
-      setHighlight(hl);
-      const { data: cn } = await supabase.from("user_notes").select("*").eq("verse_id", currentVerse.id).eq("is_public", true).neq("user_id", user.id);
-      if (stale) return;
-      setCommunityNotes(cn || []);
-    })();
-    return () => { stale = true; };
-  }, [user, currentVerse]);
+    if (!user || !dbLive) return;
+    if ((view === "verse" || view === "verses") && book && chapter) {
+      loadUserChapterData(book, chapter);
+    }
+  }, [user, dbLive, view, book, chapter, loadUserChapterData]);
+
+  // Synchronous per-verse lookup from chapter maps (zero network calls)
+  useEffect(() => {
+    if (!verse) return;
+    setHighlight(chapterHighlights[verse] || null);
+    const note = chapterNotes[verse];
+    if (note) { setSavedNote(note); setUserNote(note.note_text); if (noteRef.current) noteRef.current.value = note.note_text; }
+    else { setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = ""; }
+    setCommunityNotes(chapterCommunityNotes[verse] || []);
+  }, [verse, chapterHighlights, chapterNotes, chapterCommunityNotes]);
 
   useEffect(() => {
-    if (!user) { setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = ""; setHighlight(null); setCommunityNotes([]); }
+    if (!user) {
+      setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = "";
+      setHighlight(null); setCommunityNotes([]);
+      setChapterHighlights({}); setChapterNotes({}); setChapterCommunityNotes({});
+      verseIdMap.current = {};
+    }
   }, [user]);
 
   const saveNote = async () => {
     const noteText = noteRef.current?.value || "";
-    if (!user || !currentVerse || !noteText.trim()) return;
+    const vId = verseIdMap.current[verse];
+    if (!user || !verse || !vId || !noteText.trim()) return;
     setNoteLoading(true);
     if (savedNote) {
       const { data } = await supabase.from("user_notes").update({ note_text: noteText, updated_at: new Date().toISOString() }).eq("id", savedNote.id).select().single();
-      if (data) setSavedNote(data);
+      if (data) { setSavedNote(data); setChapterNotes(prev => ({ ...prev, [verse]: data })); }
     } else {
-      const { data } = await supabase.from("user_notes").insert({ user_id: user.id, verse_id: currentVerse.id, note_text: noteText }).select().single();
-      if (data) setSavedNote(data);
+      const { data } = await supabase.from("user_notes").insert({ user_id: user.id, verse_id: vId, note_text: noteText }).select().single();
+      if (data) { setSavedNote(data); setChapterNotes(prev => ({ ...prev, [verse]: data })); }
     }
     setNoteLoading(false);
   };
@@ -354,31 +421,34 @@ export function AppProvider({ children }) {
   const toggleNotePublic = async () => {
     if (!savedNote) return;
     const { data } = await supabase.from("user_notes").update({ is_public: !savedNote.is_public }).eq("id", savedNote.id).select().single();
-    if (data) setSavedNote(data);
+    if (data) { setSavedNote(data); setChapterNotes(prev => ({ ...prev, [verse]: data })); }
   };
 
   const toggleHighlight = async (color) => {
-    if (!user || !currentVerse) return;
+    const vId = verseIdMap.current[verse];
+    if (!user || !verse || !vId) return;
     if (highlight?.highlight_color === color) {
       await supabase.from("user_highlights").delete().eq("id", highlight.id);
       setHighlight(null);
+      setChapterHighlights(prev => { const next = { ...prev }; delete next[verse]; return next; });
     } else if (highlight) {
       const { data } = await supabase.from("user_highlights").update({ highlight_color: color }).eq("id", highlight.id).select().single();
-      if (data) setHighlight(data);
+      if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
     } else {
-      const { data } = await supabase.from("user_highlights").insert({ user_id: user.id, verse_id: currentVerse.id, highlight_color: color }).select().single();
-      if (data) setHighlight(data);
+      const { data } = await supabase.from("user_highlights").insert({ user_id: user.id, verse_id: vId, highlight_color: color }).select().single();
+      if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
     }
   };
 
   const toggleBookmarkHL = async () => {
-    if (!user || !currentVerse) return;
+    const vId = verseIdMap.current[verse];
+    if (!user || !verse || !vId) return;
     if (highlight) {
       const { data } = await supabase.from("user_highlights").update({ is_bookmarked: !highlight.is_bookmarked }).eq("id", highlight.id).select().single();
-      if (data) setHighlight(data);
+      if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
     } else {
-      const { data } = await supabase.from("user_highlights").insert({ user_id: user.id, verse_id: currentVerse.id, is_bookmarked: true, highlight_color: "#FFD700" }).select().single();
-      if (data) setHighlight(data);
+      const { data } = await supabase.from("user_highlights").insert({ user_id: user.id, verse_id: vId, is_bookmarked: true, highlight_color: "#FFD700" }).select().single();
+      if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
     }
   };
 
@@ -489,7 +559,7 @@ export function AppProvider({ children }) {
     if (!user || !prayerText.trim()) return;
     const entry = {
       user_id: user.id, title: prayerTitle || "Prayer", prayer_text: prayerText,
-      verse_id: currentVerse?.id || null,
+      verse_id: verseIdMap.current[verse] || null,
       book_name: book || null, chapter_number: chapter || null, verse_number: verse || null,
     };
     await supabase.from("prayer_journal").insert(entry);
@@ -744,8 +814,23 @@ export function AppProvider({ children }) {
     }
   }, [user]);
 
+  const quizCache = useRef({});
   const loadQuizQuestions = useCallback(async (bookName, chNum, difficulty) => {
     setQuizLoading(true);
+    try {
+      const slug = bookName.toLowerCase().replace(/\s+/g, '-');
+      let quizData = quizCache.current[slug];
+      if (!quizData) {
+        const res = await fetch(`/data/quizzes/${slug}.json`);
+        if (res.ok) { quizData = await res.json(); quizCache.current[slug] = quizData; }
+      }
+      if (quizData) {
+        setQuizQuestions(quizData[String(chNum)]?.[difficulty] || []);
+        setQuizLoading(false);
+        return;
+      }
+    } catch {}
+    // Fallback to Supabase
     const { data } = await supabase.from("chapter_quizzes")
       .select("*").eq("book_name", bookName).eq("chapter_number", chNum)
       .eq("difficulty", difficulty).order("question_number");
@@ -986,20 +1071,12 @@ export function AppProvider({ children }) {
   useEffect(() => { if (view === "timeline-home" || view === "timeline-era") loadTimelineEras(); }, [view, loadTimelineEras]);
   useEffect(() => { if (view === "timeline-era" && timelineSelectedEra) loadTimelineEvents(timelineSelectedEra.era_key); }, [view, timelineSelectedEra, loadTimelineEvents]);
 
-  // ═══ DB & NAVIGATION ═══
+  // ═══ DB CONNECTIVITY CHECK (user data only — content served from static JSON) ═══
   useEffect(() => {
     (async () => {
       try {
         const { data, error } = await supabase.from("books").select("name").limit(1);
-        if (data?.length > 0 && !error) {
-          setDbLive(true);
-          const { data: chapData } = await supabase.from("chapters").select("book_id, chapter_number, theme, books(name)").order("chapter_number");
-          if (chapData) {
-            const chMap = {};
-            chapData.forEach(c => { const n = c.books?.name; if (n) { if (!chMap[n]) chMap[n] = []; chMap[n].push({ num: c.chapter_number, theme: c.theme }); } });
-            setDbChapters(chMap);
-          }
-        }
+        if (data?.length > 0 && !error) setDbLive(true);
       } catch { setDbLive(false); }
     })();
   }, []);
@@ -1007,9 +1084,40 @@ export function AppProvider({ children }) {
   const loadChapter = useCallback(async (bookName, chNum) => {
     setLoading(true);
     try {
-      const { data: bookData } = await supabase.from("books").select("id").eq("name", bookName).single();
-      if (!bookData) { setLoading(false); return; }
-      const { data: chData } = await supabase.from("chapters").select("*").eq("book_id", bookData.id).eq("chapter_number", chNum).single();
+      const slug = bookName.toLowerCase().replace(/\s+/g, '-');
+
+      // Check in-memory cache first (entire book cached on first load)
+      let bookData = bookCache.current[slug];
+      if (!bookData) {
+        const res = await fetch(`/data/${slug}.json`);
+        if (res.ok) {
+          bookData = await res.json();
+          bookCache.current[slug] = bookData;
+        }
+      }
+
+      if (bookData) {
+        const ch = bookData.chapters[String(chNum)];
+        if (ch) {
+          setChapterMeta(ch.meta ? {
+            overview: ch.meta.overview || null,
+            theme: ch.meta.theme || null,
+            key_word_original: ch.meta.keyWordOriginal || null,
+            key_word_meaning: ch.meta.keyWordMeaning || null,
+            outline: ch.meta.outline ? JSON.stringify(ch.meta.outline) : null,
+          } : null);
+          setVerses(ch.verses || []);
+          setWordStudies(ch.wordStudies || {});
+          setCrossRefs(ch.crossRefs || {});
+          setLoading(false);
+          return;
+        }
+      }
+
+      // Fallback to Supabase if static JSON unavailable
+      const { data: bkData } = await supabase.from("books").select("id").eq("name", bookName).single();
+      if (!bkData) { setLoading(false); return; }
+      const { data: chData } = await supabase.from("chapters").select("*").eq("book_id", bkData.id).eq("chapter_number", chNum).single();
       if (!chData) { setLoading(false); return; }
       setChapterMeta(chData);
       const { data: vData } = await supabase.from("verses").select("*").eq("chapter_id", chData.id).order("verse_number");
@@ -1022,7 +1130,7 @@ export function AppProvider({ children }) {
       const { data: cr } = await supabase.from("cross_references").select("*").in("verse_id", vIds).order("ref_order");
       const crMap = {}; if (cr) cr.forEach(r => { if (!crMap[r.verse_id]) crMap[r.verse_id] = []; crMap[r.verse_id].push(r); });
       setCrossRefs(crMap);
-    } catch (e) { console.error(e); }
+    } catch (e) { console.error('loadChapter error:', e); }
     setLoading(false);
   }, []);
 
@@ -1048,7 +1156,7 @@ export function AppProvider({ children }) {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [testament, book, chapter, verse, tab, changeVerse]);
 
-  useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
+  useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter) loadChapter(book, chapter); }, [view, book, chapter, loadChapter]);
   useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) changeVerse(verseNums[0]); }, [view, verse, verseNums, changeVerse]);
 
   // ═══ SUPABASE READING POSITION SYNC ═══

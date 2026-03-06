@@ -1,0 +1,506 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote 2 Thessalonians?",
+        "option_a": "Paul, Silvanus, and Timothy",
+        "option_b": "Peter and John",
+        "option_c": "James and Jude",
+        "option_d": "Luke and Mark",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:1 — \"Paul, and Silvanus, and Timotheus, unto the church of the Thessalonians.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul say was growing in the Thessalonians?",
+        "option_a": "Their faith",
+        "option_b": "Their money",
+        "option_c": "Their buildings",
+        "option_d": "Their animals",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:3 — \"your faith groweth exceedingly.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who will Jesus punish when He comes back?",
+        "option_a": "Those who do not obey the gospel",
+        "option_b": "Only the Roman soldiers",
+        "option_c": "All animals",
+        "option_d": "The angels",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:8 — \"taking vengeance on them that know not God, and that obey not the gospel of our Lord Jesus Christ.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What two things does Paul thank God for regarding the Thessalonians?",
+        "option_a": "Their growing faith and abounding love toward each other",
+        "option_b": "Their wealth and influence",
+        "option_c": "Their building program and membership growth",
+        "option_d": "Their obedience to Jewish law and temple attendance",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:3 — \"your faith groweth exceedingly, and the charity of every one of you all toward each other aboundeth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say is evidence that God's judgment is righteous?",
+        "option_a": "The Thessalonians' patient endurance of persecutions and tribulations shows they are counted worthy of the kingdom",
+        "option_b": "Their financial prosperity proves God's favor",
+        "option_c": "Their large church proves they are righteous",
+        "option_d": "Their lack of problems proves God's blessing",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:4-5 — \"your patience and faith in all your persecutions and tribulations… a manifest token of the righteous judgment of God, that ye may be counted worthy of the kingdom.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How will Jesus be revealed from heaven?",
+        "option_a": "With His mighty angels in flaming fire",
+        "option_b": "On a white horse with a sword",
+        "option_c": "Quietly and secretly",
+        "option_d": "Through a prophet's announcement",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:7 — \"the Lord Jesus shall be revealed from heaven with his mighty angels, In flaming fire.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What punishment awaits those who do not obey the gospel?",
+        "option_a": "Everlasting destruction from the presence of the Lord and the glory of His power",
+        "option_b": "Temporary suffering followed by restoration",
+        "option_c": "Simply ceasing to exist",
+        "option_d": "Being sent to a different planet",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:9 — \"Who shall be punished with everlasting destruction from the presence of the Lord, and from the glory of his power.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul pray will be glorified in the Thessalonians?",
+        "option_a": "The name of our Lord Jesus Christ, and they in Him",
+        "option_b": "Their own reputations and achievements",
+        "option_c": "The name of their city",
+        "option_d": "The fame of their church",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:12 — \"That the name of our Lord Jesus Christ may be glorified in you, and ye in him.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say is a righteous thing with God?",
+        "option_a": "To recompense tribulation to them that trouble the Thessalonians, and to give rest to the troubled",
+        "option_b": "To bless all people equally regardless of their actions",
+        "option_c": "To withhold judgment indefinitely",
+        "option_d": "To allow the wicked to prosper without consequence",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:6-7 — \"it is a righteous thing with God to recompense tribulation to them that trouble you; And to you who are troubled rest with us.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What two groups does Christ take vengeance on at His coming?",
+        "option_a": "Those who know not God and those who obey not the gospel of our Lord Jesus Christ",
+        "option_b": "Only the Jews who rejected Him and the Romans who crucified Him",
+        "option_c": "Only false teachers and their followers",
+        "option_d": "Only demons and fallen angels",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:8 — \"In flaming fire taking vengeance on them that know not God, and that obey not the gospel of our Lord Jesus Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "When does Paul say Christ will be admired?",
+        "option_a": "When He comes to be glorified in His saints and admired in all them that believe in that day",
+        "option_b": "When He establishes an earthly kingdom",
+        "option_c": "When He appears to the Roman emperor",
+        "option_d": "When the temple is rebuilt",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:10 — \"When he shall come to be glorified in his saints, and to be admired in all them that believe… in that day.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul pray God would count them worthy of?",
+        "option_a": "Their calling, and fulfil all the good pleasure of His goodness and the work of faith with power",
+        "option_b": "Their sacrifices and offerings",
+        "option_c": "Their leadership position in the church",
+        "option_d": "Their Hebrew ancestry",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:11 — \"that our God would count you worthy of this calling, and fulfil all the good pleasure of his goodness, and the work of faith with power.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is the basis for Paul's prayer for the Thessalonians?",
+        "option_a": "According to the grace of our God and the Lord Jesus Christ",
+        "option_b": "According to their works and merit",
+        "option_c": "According to apostolic authority",
+        "option_d": "According to prophecy and signs",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:12 — \"according to the grace of our God and the Lord Jesus Christ.\""
+      },
+      {
+        "question_number": 6,
+        "question": "How does Paul describe the Thessalonians' persecutions?",
+        "option_a": "They endure them patiently, and Paul boasts about them in the churches of God",
+        "option_b": "They fled from them to other cities",
+        "option_c": "They fought back against their persecutors",
+        "option_d": "They complained bitterly to Paul",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:4 — \"we ourselves glory in you in the churches of God for your patience and faith in all your persecutions and tribulations that ye endure.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does \"everlasting destruction from the presence of the Lord\" imply theologically?",
+        "option_a": "Eternal separation from God's beneficial presence — the punishment is both the loss of God's presence and the experience of His wrath",
+        "option_b": "Annihilation of the soul",
+        "option_c": "Temporary punishment followed by reconciliation",
+        "option_d": "Physical destruction of the body only",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:9 — \"punished with everlasting destruction from the presence of the Lord, and from the glory of his power.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul's statement \"our testimony among you was believed\" in verse 10 connect to?",
+        "option_a": "It connects the Thessalonians' faith to their participation in Christ's future glory — they believed, so they will be among those in whom He is glorified",
+        "option_b": "It proves Paul was a reliable witness in court",
+        "option_c": "It refers to miracles Paul performed among them",
+        "option_d": "It means they accepted his letter as Scripture",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 1:10 — \"because our testimony among you was believed.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did Paul tell the Thessalonians not to be?",
+        "option_a": "Shaken in mind or troubled, as if the day of Christ had already come",
+        "option_b": "Scared of animals",
+        "option_c": "Lazy at school",
+        "option_d": "Mean to their parents",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:2 — \"That ye be not soon shaken in mind, or be troubled… as that the day of Christ is at hand.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who is the \"man of sin\" who will try to deceive people?",
+        "option_a": "A wicked person who opposes God and sits in God's temple claiming to be God",
+        "option_b": "A Roman soldier",
+        "option_c": "A wild animal",
+        "option_d": "A mean teacher",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:3-4 — \"that man of sin be revealed, the son of perdition; Who opposeth and exalteth himself above all that is called God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul tell believers to stand fast and hold?",
+        "option_a": "The traditions (teachings) they had been taught",
+        "option_b": "Their money tightly",
+        "option_c": "Each other's hands",
+        "option_d": "Their breath",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:15 — \"stand fast, and hold the traditions which ye have been taught.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What must happen before the day of Christ comes?",
+        "option_a": "A falling away (apostasy) must come first and the man of sin must be revealed",
+        "option_b": "All nations must become Christian",
+        "option_c": "The temple must be rebuilt in Jerusalem",
+        "option_d": "Every person on earth must hear the gospel",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:3 — \"that day shall not come, except there come a falling away first, and that man of sin be revealed, the son of perdition.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What will the Lord Jesus do to the wicked one?",
+        "option_a": "Consume him with the spirit of His mouth and destroy him with the brightness of His coming",
+        "option_b": "Imprison him for a thousand years",
+        "option_c": "Reform and convert him",
+        "option_d": "Send him to a distant land",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:8 — \"whom the Lord shall consume with the spirit of his mouth, and shall destroy with the brightness of his coming.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What deception will come upon those who refuse to love the truth?",
+        "option_a": "God shall send them strong delusion, that they should believe a lie",
+        "option_b": "They will simply remain ignorant",
+        "option_c": "They will be physically blinded",
+        "option_d": "They will forget everything they know",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:11 — \"God shall send them strong delusion, that they should believe a lie.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is currently restraining the man of sin?",
+        "option_a": "A restrainer (\"he who now letteth\") who will be taken out of the way first",
+        "option_b": "The Roman Empire",
+        "option_c": "The Jewish temple",
+        "option_d": "A powerful angel",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:7 — \"he who now letteth will let, until he be taken out of the way.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did God choose the Thessalonians to through from the beginning?",
+        "option_a": "Salvation through sanctification of the Spirit and belief of the truth",
+        "option_b": "Earthly prosperity and political power",
+        "option_c": "Exemption from all suffering",
+        "option_d": "Leadership over all other churches",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:13 — \"God hath from the beginning chosen you to salvation through sanctification of the Spirit and belief of the truth.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does the man of sin do in the temple of God?",
+        "option_a": "He sits in the temple of God, showing himself that he is God",
+        "option_b": "He offers sacrifices to pagan idols",
+        "option_c": "He destroys the temple completely",
+        "option_d": "He locks the doors and keeps everyone out",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:4 — \"he as God sitteth in the temple of God, shewing himself that he is God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What accompanies the working of Satan through the lawless one?",
+        "option_a": "All power, signs, and lying wonders, and all deceivableness of unrighteousness",
+        "option_b": "True miracles that cannot be distinguished from God's",
+        "option_c": "Political manipulation and military conquest only",
+        "option_d": "Scholarly arguments and philosophical reasoning",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:9-10 — \"whose coming is after the working of Satan with all power and signs and lying wonders, And with all deceivableness of unrighteousness.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Why does God send strong delusion to the unbelievers?",
+        "option_a": "Because they received not the love of the truth that they might be saved — it is judicial judgment on willful rejection",
+        "option_b": "Because God wants them to perish",
+        "option_c": "Because they never had the chance to hear the truth",
+        "option_d": "Because they were predestined to be lost",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:10-11 — \"because they received not the love of the truth, that they might be saved. And for this cause God shall send them strong delusion.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does \"the mystery of iniquity doth already work\" mean?",
+        "option_a": "The spirit and principle of lawlessness was already secretly active in Paul's day, awaiting full manifestation",
+        "option_b": "A specific crime was being committed in the church",
+        "option_c": "The Roman Empire was declining",
+        "option_d": "Jewish false teachers were already in Thessalonica",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:7 — \"the mystery of iniquity doth already work: only he who now letteth will let, until he be taken out of the way.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What two means of teaching does Paul reference in verse 15?",
+        "option_a": "By word (oral teaching) and by epistle (written letter) — both are authoritative apostolic tradition",
+        "option_b": "By parables and by allegories",
+        "option_c": "By miracles and by visions",
+        "option_d": "By fasting and by prayer",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:15 — \"hold the traditions which ye have been taught, whether by word, or our epistle.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul pray God would do for the Thessalonians' hearts?",
+        "option_a": "Comfort their hearts and stablish them in every good word and work",
+        "option_b": "Reveal to them the date of Christ's return",
+        "option_c": "Remove all their earthly troubles",
+        "option_d": "Give them positions of authority",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:16-17 — \"comfort your hearts, and stablish you in every good word and work.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What is the ultimate fate of all who did not believe the truth?",
+        "option_a": "That they all might be damned who believed not the truth, but had pleasure in unrighteousness",
+        "option_b": "They will have a second chance after death",
+        "option_c": "They will be given more time to repent",
+        "option_d": "They will simply cease to exist",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:12 — \"That they all might be damned who believed not the truth, but had pleasure in unrighteousness.\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does Paul describe God's love toward the Thessalonians?",
+        "option_a": "God loved them and gave them everlasting consolation and good hope through grace",
+        "option_b": "God tested them severely to prove their faith",
+        "option_c": "God remained distant until they proved themselves",
+        "option_d": "God offered conditional love based on their obedience",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 2:16 — \"God, even our Father, which hath loved us, and hath given us everlasting consolation and good hope through grace.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say people should do instead of being idle?",
+        "option_a": "Work quietly and earn their own bread",
+        "option_b": "Sleep all day",
+        "option_c": "Beg from others",
+        "option_d": "Complain about everything",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:12 — \"that with quietness they work, and eat their own bread.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What should we not be weary of doing?",
+        "option_a": "Well doing (doing good)",
+        "option_b": "Eating",
+        "option_c": "Playing",
+        "option_d": "Sleeping",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:13 — \"be not weary in well doing.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul ask the Thessalonians to pray for?",
+        "option_a": "That the word of the Lord would spread quickly",
+        "option_b": "That Paul would become rich",
+        "option_c": "That it would stop raining",
+        "option_d": "That Rome would fall",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:1 — \"pray for us, that the word of the Lord may have free course, and be glorified.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What rule did Paul give about those who refuse to work?",
+        "option_a": "If any would not work, neither should he eat",
+        "option_b": "Give them extra food to encourage them",
+        "option_c": "Appoint them as teachers instead",
+        "option_d": "Send them to another church",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:10 — \"if any would not work, neither should he eat.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul say about disorderly brethren?",
+        "option_a": "Withdraw from them, but do not count them as enemies — admonish them as brothers",
+        "option_b": "Expel them permanently from the church",
+        "option_c": "Ignore them completely",
+        "option_d": "Give them leadership responsibilities",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:6,14-15 — \"withdraw yourselves from every brother that walketh disorderly… yet count him not as an enemy, but admonish him as a brother.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How did Paul set an example for the Thessalonians?",
+        "option_a": "He worked night and day so as not to be a burden to any of them",
+        "option_b": "He performed many miracles",
+        "option_c": "He fasted for forty days",
+        "option_d": "He gave away all his money",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:8 — \"Neither did we eat any man's bread for nought; but wrought with labour and travail night and day, that we might not be chargeable to any of you.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say the Lord is faithful to do?",
+        "option_a": "Stablish (establish) them and keep them from evil",
+        "option_b": "Make them wealthy",
+        "option_c": "Remove all their problems",
+        "option_d": "Give them political power",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:3 — \"the Lord is faithful, who shall stablish you, and keep you from evil.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul describe the busybodies in the church?",
+        "option_a": "They work not at all but are busybodies — meddling in others' affairs instead of working",
+        "option_b": "They are hard workers who take on too much",
+        "option_c": "They are dedicated prayer warriors",
+        "option_d": "They are enthusiastic evangelists",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:11 — \"we hear that there are some which walk among you disorderly, working not at all, but are busybodies.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul pray for regarding unreasonable and wicked men?",
+        "option_a": "That he and his companions may be delivered from them, for all men have not faith",
+        "option_b": "That they be struck down by God",
+        "option_c": "That they be converted immediately",
+        "option_d": "That they be imprisoned by the Romans",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:2 — \"that we may be delivered from unreasonable and wicked men: for all men have not faith.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say was the purpose of his example of working?",
+        "option_a": "To make himself an ensample (example) for them to follow, not because he had no right to support",
+        "option_b": "Because he could not find donors",
+        "option_c": "Because manual labor was required by Jewish law",
+        "option_d": "Because the Thessalonians refused to support him",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:9 — \"Not because we have not power, but to make ourselves an ensample unto you to follow us.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What connection exists between idleness and the eschatological confusion in Thessalonica?",
+        "option_a": "Some Thessalonians, believing Christ's return was imminent, stopped working and became idle busybodies — Paul corrects both their theology and behavior",
+        "option_b": "The idle were pagans who hadn't yet converted",
+        "option_c": "Idleness was a cultural norm in Thessalonica",
+        "option_d": "The idle were wealthy patrons who didn't need to work",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:10-12 connects the command to work with the correction of eschatological excitement leading to abandonment of daily responsibilities."
+      },
+      {
+        "question_number": 4,
+        "question": "What disciplinary measure does Paul prescribe for those who disobey this epistle?",
+        "option_a": "Note that man and have no company with him, that he may be ashamed — yet admonish him as a brother, not an enemy",
+        "option_b": "Excommunicate him permanently",
+        "option_c": "Fine him and take his property",
+        "option_d": "Report him to the civil authorities",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:14-15 — \"note that man, and have no company with him, that he may be ashamed. Yet count him not as an enemy, but admonish him as a brother.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul direct the Lord to do for their hearts?",
+        "option_a": "\"The Lord direct your hearts into the love of God, and into the patient waiting for Christ\"",
+        "option_b": "\"The Lord fill your hearts with knowledge\"",
+        "option_c": "\"The Lord remove all fear from your hearts\"",
+        "option_d": "\"The Lord grant your hearts' desires\"",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:5 — \"the Lord direct your hearts into the love of God, and into the patient waiting for Christ.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say about the tradition (teaching) they received from him?",
+        "option_a": "They should withdraw from every brother who walks disorderly and not after the tradition received from the apostles",
+        "option_b": "Traditions are optional guidelines",
+        "option_c": "Only written traditions are authoritative",
+        "option_d": "Traditions should be modified by each generation",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:6 — \"withdraw yourselves from every brother that walketh disorderly, and not after the tradition which he received of us.\""
+      },
+      {
+        "question_number": 7,
+        "question": "How does Paul authenticate this letter?",
+        "option_a": "He writes the salutation with his own hand, which is the token (sign) in every epistle",
+        "option_b": "He seals it with his apostolic ring",
+        "option_c": "He has two witnesses sign it",
+        "option_d": "He sends it via a trusted courier only",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:17 — \"The salutation of Paul with mine own hand, which is the token in every epistle: so I write.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What comprehensive peace blessing does Paul give?",
+        "option_a": "\"Now the Lord of peace himself give you peace always by all means\"",
+        "option_b": "\"May the God of war protect you from your enemies\"",
+        "option_c": "\"May the Lord give you financial peace\"",
+        "option_d": "\"Peace be upon Israel and the church\"",
+        "correct_answer": "a",
+        "explanation": "2 Thessalonians 3:16 — \"Now the Lord of peace himself give you peace always by all means. The Lord be with you all.\""
+      }
+    ]
+  }
+}

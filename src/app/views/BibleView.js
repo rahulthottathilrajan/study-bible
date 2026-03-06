@@ -317,11 +317,11 @@ export default function BibleView() {
   // ═══ VERSE STUDY ═══
   const VerseStudy = () => {
     if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={goBack} /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
-    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>{dbLive?"Loading...":"Connect to Supabase"}</div></div></div>;
+    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
 
     const ref = `${book} ${chapter}:${verse}`;
-    const vWords = wordStudies[currentVerse.id] || [];
-    const vRefs = crossRefs[currentVerse.id] || [];
+    const vWords = wordStudies[String(verse)] || [];
+    const vRefs = crossRefs[String(verse)] || [];
     const outline = chapterMeta?.outline ? JSON.parse(chapterMeta.outline) : [];
 
     return (

@@ -1,0 +1,1010 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote the letter to the Ephesians?",
+        "option_a": "Paul",
+        "option_b": "Peter",
+        "option_c": "John",
+        "option_d": "James",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:1 — \"Paul, an apostle of Jesus Christ by the will of God, to the saints which are at Ephesus.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What has God blessed us with according to Ephesians 1?",
+        "option_a": "All spiritual blessings in heavenly places in Christ",
+        "option_b": "Gold and silver",
+        "option_c": "Many animals",
+        "option_d": "A big house",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:3 — \"who hath blessed us with all spiritual blessings in heavenly places in Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Where is Jesus sitting right now according to Paul?",
+        "option_a": "At God's right hand in heaven",
+        "option_b": "On a throne on earth",
+        "option_c": "In the temple",
+        "option_d": "In a garden",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:20 — \"set him at his own right hand in the heavenly places.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "When did God choose us according to Ephesians 1:4?",
+        "option_a": "Before the foundation of the world",
+        "option_b": "At the moment of our baptism",
+        "option_c": "When we first prayed",
+        "option_d": "When we joined the church",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:4 — \"he hath chosen us in him before the foundation of the world.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Through what do we have redemption?",
+        "option_a": "Through His blood, the forgiveness of sins",
+        "option_b": "Through keeping the law",
+        "option_c": "Through good works",
+        "option_d": "Through animal sacrifices",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:7 — \"In whom we have redemption through his blood, the forgiveness of sins.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul call the Holy Spirit in relation to our inheritance?",
+        "option_a": "The earnest (guarantee/deposit) of our inheritance",
+        "option_b": "The seal of our salvation",
+        "option_c": "The voice of our conscience",
+        "option_d": "The guard of our hearts",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:14 — \"Which is the earnest of our inheritance until the redemption of the purchased possession.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul pray the Ephesians would receive?",
+        "option_a": "The spirit of wisdom and revelation in the knowledge of Him",
+        "option_b": "Great wealth and prosperity",
+        "option_c": "Freedom from Roman rule",
+        "option_d": "The ability to perform miracles",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:17 — \"the God of our Lord Jesus Christ… may give unto you the spirit of wisdom and revelation in the knowledge of him.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is the church called in relation to Christ?",
+        "option_a": "His body, the fulness of him that filleth all in all",
+        "option_b": "His building and temple only",
+        "option_c": "His servants and slaves",
+        "option_d": "His students and pupils",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:22-23 — \"gave him to be the head over all things to the church, Which is his body, the fulness of him that filleth all in all.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about God's predestination in verse 5?",
+        "option_a": "He predestinated us unto the adoption of children by Jesus Christ, according to the good pleasure of His will",
+        "option_b": "He predestinated only the apostles",
+        "option_c": "Predestination is based on foreseen merit",
+        "option_d": "He predestinated the fall of mankind",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:5 — \"Having predestinated us unto the adoption of children by Jesus Christ to himself, according to the good pleasure of his will.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What is the \"mystery of His will\" Paul mentions?",
+        "option_a": "To gather together in one all things in Christ, both in heaven and earth",
+        "option_b": "The date of Christ's return",
+        "option_c": "The identity of the Antichrist",
+        "option_d": "The location of the lost tribes",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:9-10 — \"the mystery of his will… That in the dispensation of the fulness of times he might gather together in one all things in Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What two things does Paul say believers were sealed with?",
+        "option_a": "The Holy Spirit of promise, after hearing the word of truth (the gospel of salvation)",
+        "option_b": "Water baptism and circumcision",
+        "option_c": "The blood of the Passover lamb and anointing oil",
+        "option_d": "The sign of the cross and chrismation",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:13 — \"after that ye heard the word of truth, the gospel of your salvation: in whom also after that ye believed, ye were sealed with that holy Spirit of promise.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What three things does Paul pray the Ephesians would know (eyes of understanding enlightened)?",
+        "option_a": "The hope of His calling, the riches of His glorious inheritance in the saints, and the exceeding greatness of His power toward believers",
+        "option_b": "Past sins, present duties, and future rewards",
+        "option_c": "The law, the prophets, and the writings",
+        "option_d": "Their spiritual gifts, their calling, and their church role",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:18-19 — \"the hope of his calling… the riches of the glory of his inheritance in the saints, And what is the exceeding greatness of his power to us-ward who believe.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say Christ's exalted position is far above?",
+        "option_a": "All principality, power, might, dominion, and every name that is named in this world and the world to come",
+        "option_b": "Only earthly kings and rulers",
+        "option_c": "Only the Jewish religious leaders",
+        "option_d": "Only the Roman emperor",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:21 — \"Far above all principality, and power, and might, and dominion, and every name that is named, not only in this world, but also in that which is to come.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What power does Paul compare to God's power working in believers?",
+        "option_a": "The same mighty power that raised Christ from the dead and seated Him at God's right hand",
+        "option_b": "The power that parted the Red Sea",
+        "option_c": "The power that created the world in six days",
+        "option_d": "The power that held back the flood",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:19-20 — \"according to the working of his mighty power, Which he wrought in Christ, when he raised him from the dead.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does \"to the praise of the glory of his grace\" repeated in this chapter emphasize?",
+        "option_a": "That God's ultimate purpose in election, redemption, and sealing is His own glory — the refrain appears in verses 6, 12, and 14",
+        "option_b": "That believers should praise loudly in worship",
+        "option_c": "That only grace matters, not holiness",
+        "option_d": "That God seeks human applause",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:6,12,14 — The phrase \"to the praise of his glory\" appears three times, emphasizing God's glory as the ultimate purpose."
+      },
+      {
+        "question_number": 8,
+        "question": "How does Paul describe God's working in redemption in verse 8?",
+        "option_a": "He abounded toward us in all wisdom and prudence",
+        "option_b": "He acted in strict justice without mercy",
+        "option_c": "He worked through natural human reasoning",
+        "option_d": "He revealed everything at once without progression",
+        "correct_answer": "a",
+        "explanation": "Ephesians 1:8 — \"Wherein he hath abounded toward us in all wisdom and prudence.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say we are saved by?",
+        "option_a": "Grace through faith",
+        "option_b": "Being good",
+        "option_c": "Keeping rules",
+        "option_d": "Giving money",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:8 — \"For by grace are ye saved through faith.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say we are — God's what?",
+        "option_a": "God's workmanship",
+        "option_b": "God's soldiers",
+        "option_c": "God's servants only",
+        "option_d": "God's students",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:10 — \"we are his workmanship, created in Christ Jesus unto good works.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who is our peace, making Jews and Gentiles one?",
+        "option_a": "Christ Jesus",
+        "option_b": "Moses",
+        "option_c": "Abraham",
+        "option_d": "The Roman emperor",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:14 — \"he is our peace, who hath made both one.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What were believers before God made them alive?",
+        "option_a": "Dead in trespasses and sins",
+        "option_b": "Slightly sinful",
+        "option_c": "Already righteous",
+        "option_d": "Spiritually confused",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:1 — \"And you hath he quickened, who were dead in trespasses and sins.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What is salvation NOT of, according to Ephesians 2:8-9?",
+        "option_a": "Not of yourselves and not of works, lest any man should boast",
+        "option_b": "Not of grace",
+        "option_c": "Not of faith",
+        "option_d": "Not of God's plan",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:8-9 — \"not of yourselves: it is the gift of God: Not of works, lest any man should boast.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Christ break down between Jews and Gentiles?",
+        "option_a": "The middle wall of partition",
+        "option_b": "The temple curtain",
+        "option_c": "The city gates",
+        "option_d": "The stone tablets",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:14 — \"hath broken down the middle wall of partition between us.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say Gentile believers are no longer?",
+        "option_a": "Strangers and foreigners, but fellowcitizens with the saints and of the household of God",
+        "option_b": "Required to follow Jewish law",
+        "option_c": "Excluded from worshipping God",
+        "option_d": "Second-class members of the church",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:19 — \"ye are no more strangers and foreigners, but fellowcitizens with the saints, and of the household of God.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is the church built upon according to verse 20?",
+        "option_a": "The foundation of the apostles and prophets, Jesus Christ being the chief corner stone",
+        "option_b": "The foundation of Peter alone",
+        "option_c": "The foundation of the law of Moses",
+        "option_d": "The foundation of church tradition",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:20 — \"built upon the foundation of the apostles and prophets, Jesus Christ himself being the chief corner stone.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What three influences controlled believers before conversion according to verses 2-3?",
+        "option_a": "The course of this world, the prince of the power of the air, and the lusts of the flesh and mind",
+        "option_b": "Poverty, ignorance, and disease",
+        "option_c": "Greek philosophy, Roman law, and Jewish tradition",
+        "option_d": "Fear, pride, and laziness",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:2-3 — \"the course of this world… the prince of the power of the air, the spirit that now worketh in the children of disobedience… the lusts of our flesh… the desires of the flesh and of the mind.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What motivated God to save us according to verse 4?",
+        "option_a": "His great love and His being rich in mercy",
+        "option_b": "Our good works impressed Him",
+        "option_c": "We deserved salvation",
+        "option_d": "The angels interceded for us",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:4 — \"God, who is rich in mercy, for his great love wherewith he loved us.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What three things has God done for believers \"together with Christ\" in verses 5-6?",
+        "option_a": "Quickened us together, raised us up together, and made us sit together in heavenly places",
+        "option_b": "Forgiven us, baptized us, and confirmed us",
+        "option_c": "Taught us, disciplined us, and rewarded us",
+        "option_d": "Called us, chosen us, and glorified us",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:5-6 — \"hath quickened us together with Christ… hath raised us up together, and made us sit together in heavenly places in Christ Jesus.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is God's purpose in the ages to come according to verse 7?",
+        "option_a": "To show the exceeding riches of His grace in His kindness toward us through Christ Jesus",
+        "option_b": "To establish believers as earthly rulers",
+        "option_c": "To demonstrate His wrath against sin",
+        "option_d": "To reveal hidden mysteries to angels",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:7 — \"That in the ages to come he might shew the exceeding riches of his grace in his kindness toward us through Christ Jesus.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does \"created in Christ Jesus unto good works\" imply about the role of works?",
+        "option_a": "Good works are the result and purpose of salvation, not its cause — they were prepared beforehand for believers to walk in",
+        "option_b": "Works are required before salvation",
+        "option_c": "Works are optional for the saved",
+        "option_d": "Works earn additional salvation",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:10 — \"created in Christ Jesus unto good works, which God hath before ordained that we should walk in them.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say Christ abolished in His flesh?",
+        "option_a": "The enmity, even the law of commandments contained in ordinances, to make of two one new man",
+        "option_b": "The Roman legal system",
+        "option_c": "The entire Old Testament",
+        "option_d": "The priesthood of Aaron",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:15 — \"Having abolished in his flesh the enmity, even the law of commandments contained in ordinances; for to make in himself of twain one new man, so making peace.\""
+      },
+      {
+        "question_number": 7,
+        "question": "How does Paul describe believers' access to God in verse 18?",
+        "option_a": "Through Christ we both (Jews and Gentiles) have access by one Spirit unto the Father",
+        "option_b": "Only through a human priest",
+        "option_c": "Only through temple sacrifice",
+        "option_d": "Through our own merits",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:18 — \"For through him we both have access by one Spirit unto the Father.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What is the church growing into according to verse 21?",
+        "option_a": "A holy temple in the Lord, a habitation of God through the Spirit",
+        "option_b": "A political force in the Roman Empire",
+        "option_c": "A philosophical school of thought",
+        "option_d": "A replacement for the Jerusalem temple",
+        "correct_answer": "a",
+        "explanation": "Ephesians 2:21-22 — \"groweth unto an holy temple in the Lord: In whom ye also are builded together for an habitation of God through the Spirit.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What mystery did God reveal to Paul?",
+        "option_a": "That Gentiles are fellow heirs with Jews in Christ",
+        "option_b": "The date of Christ's return",
+        "option_c": "Where to build the church",
+        "option_d": "How to make gold",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:6 — \"the Gentiles should be fellowheirs, and of the same body.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say God can do beyond what we ask?",
+        "option_a": "Exceeding abundantly above all that we ask or think",
+        "option_b": "Exactly what we pray for",
+        "option_c": "Only small things",
+        "option_d": "Nothing without our help",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:20 — \"able to do exceeding abundantly above all that we ask or think.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul pray that Christ would do in the Ephesians' hearts?",
+        "option_a": "Dwell in their hearts by faith",
+        "option_b": "Give them riches",
+        "option_c": "Make them famous",
+        "option_d": "Keep them from all trouble",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:17 — \"That Christ may dwell in your hearts by faith.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul call himself in relation to the Gentiles?",
+        "option_a": "The prisoner of Jesus Christ for you Gentiles",
+        "option_b": "The king of the Gentiles",
+        "option_c": "The judge of the Gentiles",
+        "option_d": "The teacher of the Gentiles only",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:1 — \"I Paul, the prisoner of Jesus Christ for you Gentiles.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul call himself — the least of what?",
+        "option_a": "Less than the least of all saints",
+        "option_b": "The greatest of all apostles",
+        "option_c": "A Pharisee of Pharisees",
+        "option_d": "The chief of sinners",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:8 — \"Unto me, who am less than the least of all saints, is this grace given.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What four dimensions of Christ's love does Paul pray they would know?",
+        "option_a": "The breadth, length, depth, and height",
+        "option_b": "Faith, hope, love, and joy",
+        "option_c": "Past, present, future, and eternal",
+        "option_d": "Grace, mercy, peace, and truth",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:18 — \"May be able to comprehend with all saints what is the breadth, and length, and depth, and height.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did Paul say the mystery of Christ was hidden from in past ages?",
+        "option_a": "Other ages — it was not made known to the sons of men as now revealed to apostles and prophets by the Spirit",
+        "option_b": "Only from the Gentiles",
+        "option_c": "Only from women",
+        "option_d": "Only from children",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:5 — \"Which in other ages was not made known unto the sons of men, as it is now revealed unto his holy apostles and prophets by the Spirit.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul ask the Ephesians not to lose heart about?",
+        "option_a": "His tribulations (sufferings) for them, which are their glory",
+        "option_b": "The slow growth of the church",
+        "option_c": "The persecution from Rome",
+        "option_d": "The cost of building a meeting place",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:13 — \"I desire that ye faint not at my tribulations for you, which is your glory.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What is the \"dispensation of the grace of God\" given to Paul?",
+        "option_a": "The stewardship of proclaiming the mystery that Gentiles are fellow heirs, of the same body, and partakers of the promise in Christ by the gospel",
+        "option_b": "A special healing ministry",
+        "option_c": "Authority to write all the epistles",
+        "option_d": "The role of high priest for the church",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:2,6 — \"the dispensation of the grace of God which is given me to you-ward… the Gentiles should be fellowheirs, and of the same body.\""
+      },
+      {
+        "question_number": 2,
+        "question": "To whom is the manifold wisdom of God made known through the church?",
+        "option_a": "Principalities and powers in heavenly places",
+        "option_b": "The Roman senate",
+        "option_c": "The Jewish Sanhedrin",
+        "option_d": "Future generations of humanity",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:10 — \"To the intent that now unto the principalities and powers in heavenly places might be known by the church the manifold wisdom of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about boldness and access to God in verse 12?",
+        "option_a": "In Christ we have boldness and access with confidence by the faith of Him",
+        "option_b": "We must approach God with fear and trembling only",
+        "option_c": "Only apostles have direct access to God",
+        "option_d": "Access requires priestly mediation",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:12 — \"In whom we have boldness and access with confidence by the faith of him.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul pray the Father would grant according to the riches of His glory?",
+        "option_a": "To be strengthened with might by His Spirit in the inner man",
+        "option_b": "To be blessed with material wealth",
+        "option_c": "To be given political influence",
+        "option_d": "To be made physically strong",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:16 — \"he would grant you, according to the riches of his glory, to be strengthened with might by his Spirit in the inner man.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say Christ's love surpasses?",
+        "option_a": "Knowledge — it passeth knowledge, that they might be filled with all the fulness of God",
+        "option_b": "Human experience only",
+        "option_c": "Earthly love only",
+        "option_d": "The love of angels",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:19 — \"to know the love of Christ, which passeth knowledge, that ye might be filled with all the fulness of God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "According to what power does God work in believers?",
+        "option_a": "According to the power that worketh in us — the same power referenced in Ephesians 1:19-20",
+        "option_b": "According to our faith level",
+        "option_c": "According to our obedience",
+        "option_d": "According to our knowledge",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:20 — \"according to the power that worketh in us.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul's doxology in 3:20-21 ascribe glory to?",
+        "option_a": "God in the church by Christ Jesus throughout all ages, world without end",
+        "option_b": "God in the temple at Jerusalem",
+        "option_c": "God through the apostles only",
+        "option_d": "God in heaven alone, not on earth",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:21 — \"Unto him be glory in the church by Christ Jesus throughout all ages, world without end. Amen.\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does Paul describe his role as a minister of the gospel?",
+        "option_a": "He was made a minister according to the gift of the grace of God given by the effectual working of His power",
+        "option_b": "He chose the ministry as a career",
+        "option_c": "He inherited the role from his family",
+        "option_d": "He was appointed by the Jerusalem council",
+        "correct_answer": "a",
+        "explanation": "Ephesians 3:7 — \"Whereof I was made a minister, according to the gift of the grace of God given unto me by the effectual working of his power.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "How many Lord, faith, and baptism does Paul say there are?",
+        "option_a": "One of each",
+        "option_b": "Three of each",
+        "option_c": "Seven of each",
+        "option_d": "Many",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:5 — \"One Lord, one faith, one baptism.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say we should speak to each other?",
+        "option_a": "The truth in love",
+        "option_b": "Whatever makes them happy",
+        "option_c": "Only good news",
+        "option_d": "Nothing at all",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:15 — \"speaking the truth in love.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should we do instead of stealing?",
+        "option_a": "Work with our hands so we can give to those in need",
+        "option_b": "Hide what we take",
+        "option_c": "Ask someone else to steal for us",
+        "option_d": "Only take small things",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:28 — \"let him labour, working with his hands the thing which is good, that he may have to give to him that needeth.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul urge believers to walk worthy of?",
+        "option_a": "The vocation wherewith they are called, with lowliness, meekness, longsuffering",
+        "option_b": "Their social status",
+        "option_c": "Their education",
+        "option_d": "Their wealth",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:1 — \"walk worthy of the vocation wherewith ye are called.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What five ministry gifts did Christ give to the church?",
+        "option_a": "Apostles, prophets, evangelists, pastors, and teachers",
+        "option_b": "Deacons, elders, bishops, priests, and monks",
+        "option_c": "Healers, miracle workers, speakers, singers, and writers",
+        "option_d": "Kings, priests, prophets, judges, and warriors",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:11 — \"he gave some, apostles; and some, prophets; and some, evangelists; and some, pastors and teachers.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about not letting the sun go down on?",
+        "option_a": "Your wrath (anger)",
+        "option_b": "Your prayers",
+        "option_c": "Your work",
+        "option_d": "Your food",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:26 — \"let not the sun go down upon your wrath.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What should believers put off and put on?",
+        "option_a": "Put off the old man (corrupt according to deceitful lusts) and put on the new man (created in righteousness and true holiness)",
+        "option_b": "Put off old clothes and put on new ones",
+        "option_c": "Put off sadness and put on happiness",
+        "option_d": "Put off work and put on rest",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:22-24 — \"put off concerning the former conversation the old man… put on the new man, which after God is created in righteousness and true holiness.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who does Paul say believers should not grieve?",
+        "option_a": "The Holy Spirit of God, by whom they are sealed unto the day of redemption",
+        "option_b": "Their parents",
+        "option_c": "Their pastors",
+        "option_d": "The angels",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:30 — \"grieve not the holy Spirit of God, whereby ye are sealed unto the day of redemption.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What seven unities does Paul list in verses 4-6?",
+        "option_a": "One body, one Spirit, one hope, one Lord, one faith, one baptism, one God and Father",
+        "option_b": "Seven churches, seven seals, seven trumpets",
+        "option_c": "Seven gifts, seven virtues, seven blessings",
+        "option_d": "One temple, one priesthood, one sacrifice, one altar, one feast, one law, one covenant",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:4-6 — \"One body, and one Spirit… one hope… One Lord, one faith, one baptism, One God and Father of all.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What Psalm does Paul quote about Christ's ascension?",
+        "option_a": "\"When he ascended up on high, he led captivity captive, and gave gifts unto men\" (Psalm 68:18)",
+        "option_b": "\"The Lord said unto my Lord, Sit thou at my right hand\" (Psalm 110:1)",
+        "option_c": "\"Lift up your heads, O ye gates\" (Psalm 24:7)",
+        "option_d": "\"The stone which the builders refused is become the head stone\" (Psalm 118:22)",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:8 — \"When he ascended up on high, he led captivity captive, and gave gifts unto men.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the purpose of the five ministry gifts?",
+        "option_a": "For the perfecting of the saints, the work of the ministry, and the edifying of the body of Christ",
+        "option_b": "To govern the church politically",
+        "option_c": "To replace the Levitical priesthood",
+        "option_d": "To collect tithes and manage finances",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:12 — \"For the perfecting of the saints, for the work of the ministry, for the edifying of the body of Christ.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about Christ descending before ascending?",
+        "option_a": "He first descended into the lower parts of the earth before ascending far above all heavens, that He might fill all things",
+        "option_b": "He descended from a mountain into a valley",
+        "option_c": "He went down to the river for baptism",
+        "option_d": "He descended from heaven only once at the incarnation",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:9-10 — \"he also descended first into the lower parts of the earth… He that descended is the same also that ascended up far above all heavens, that he might fill all things.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about Gentile believers' former manner of thinking?",
+        "option_a": "They walked in the vanity of their mind, having the understanding darkened, being alienated from the life of God through ignorance and blindness of heart",
+        "option_b": "They were wise philosophers seeking truth",
+        "option_c": "They were simple but sincere seekers",
+        "option_d": "They were morally superior to Jewish unbelievers",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:17-18 — \"walk not as other Gentiles walk, in the vanity of their mind, Having the understanding darkened, being alienated from the life of God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does \"being past feeling\" describe about unregenerate Gentiles?",
+        "option_a": "They gave themselves over unto lasciviousness, to work all uncleanness with greediness — their conscience was seared",
+        "option_b": "They could not feel physical pain",
+        "option_c": "They were emotionally stable",
+        "option_d": "They had no capacity for joy",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:19 — \"Who being past feeling have given themselves over unto lasciviousness, to work all uncleanness with greediness.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul say about corrupt communication?",
+        "option_a": "\"Let no corrupt communication proceed out of your mouth, but that which is good to the use of edifying, that it may minister grace unto the hearers\"",
+        "option_b": "\"Only speak in tongues when in church\"",
+        "option_c": "\"Never speak to unbelievers\"",
+        "option_d": "\"Use only Hebrew in worship\"",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:29 — \"Let no corrupt communication proceed out of your mouth, but that which is good to the use of edifying.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What six things does Paul say to put away, and what should replace them?",
+        "option_a": "Bitterness, wrath, anger, clamour, evil speaking, malice — replaced by kindness, tenderheartedness, and forgiveness as God forgave us in Christ",
+        "option_b": "Poverty, sickness, ignorance, weakness, loneliness, fear",
+        "option_c": "Fasting, prayer, giving, preaching, teaching, serving",
+        "option_d": "Wine, meat, luxury, idleness, travel, entertainment",
+        "correct_answer": "a",
+        "explanation": "Ephesians 4:31-32 — \"Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be ye kind one to another, tenderhearted, forgiving one another.\""
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say children of light should walk in?",
+        "option_a": "Love, as Christ also hath loved us",
+        "option_b": "Darkness",
+        "option_c": "Fear",
+        "option_d": "Riches",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:2 — \"walk in love, as Christ also hath loved us.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say to find out?",
+        "option_a": "What is acceptable unto the Lord",
+        "option_b": "How to become rich",
+        "option_c": "Where treasure is hidden",
+        "option_d": "When school is over",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:10 — \"Proving what is acceptable unto the Lord.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should we be filled with instead of wine?",
+        "option_a": "The Spirit",
+        "option_b": "Water",
+        "option_c": "Juice",
+        "option_d": "Milk",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:18 — \"be not drunk with wine, wherein is excess; but be filled with the Spirit.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say Christ gave Himself as?",
+        "option_a": "An offering and a sacrifice to God for a sweetsmelling savour",
+        "option_b": "A political leader",
+        "option_c": "A military general",
+        "option_d": "A wealthy benefactor",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:2 — \"Christ also hath loved us, and hath given himself for us an offering and a sacrifice to God for a sweetsmelling savour.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What should have no fellowship with?",
+        "option_a": "The unfruitful works of darkness; rather reprove (expose) them",
+        "option_b": "Other churches",
+        "option_c": "People who are different",
+        "option_d": "Anyone outside our group",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:11 — \"have no fellowship with the unfruitful works of darkness, but rather reprove them.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Paul say we should walk?",
+        "option_a": "Circumspectly (carefully), not as fools but as wise, redeeming the time",
+        "option_b": "Slowly and cautiously",
+        "option_c": "Only in safe places",
+        "option_d": "Without any plan",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:15-16 — \"See then that ye walk circumspectly, not as fools, but as wise, Redeeming the time, because the days are evil.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What relationship does Paul compare to Christ and the church?",
+        "option_a": "Husband and wife",
+        "option_b": "Parent and child",
+        "option_c": "Master and servant",
+        "option_d": "King and subject",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:25 — \"Husbands, love your wives, even as Christ also loved the church.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How did Christ love the church?",
+        "option_a": "He gave Himself for it, to sanctify and cleanse it",
+        "option_b": "He ruled over it with strict laws",
+        "option_c": "He taught it theology only",
+        "option_d": "He left it to manage itself",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:25-26 — \"Christ also loved the church, and gave himself for it; That he might sanctify and cleanse it with the washing of water by the word.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about the fruit of the Spirit (or Light)?",
+        "option_a": "The fruit of the Spirit is in all goodness and righteousness and truth",
+        "option_b": "The fruit of the Spirit is in tongues, healing, and prophecy",
+        "option_c": "The fruit of the Spirit is only for apostles",
+        "option_d": "The fruit of the Spirit replaces moral living",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:9 — \"the fruit of the Spirit is in all goodness and righteousness and truth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul quote that says \"Awake thou that sleepest\"?",
+        "option_a": "\"Awake thou that sleepest, and arise from the dead, and Christ shall give thee light\" — likely an early Christian hymn or prophetic adaptation of Isaiah 60:1",
+        "option_b": "\"Arise, shine; for thy light is come\" (Isaiah 60:1) exactly as written",
+        "option_c": "A quote from the book of Enoch",
+        "option_d": "A saying of Jesus from the Gospels",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:14 — \"Awake thou that sleepest, and arise from the dead, and Christ shall give thee light.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about understanding the will of the Lord versus drunkenness?",
+        "option_a": "\"Be not drunk with wine, wherein is excess; but be filled with the Spirit\" — contrasting fleshly excess with spiritual fullness",
+        "option_b": "Wine is forbidden for all Christians",
+        "option_c": "Moderate drinking is encouraged",
+        "option_d": "Only priests should abstain from wine",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:17-18 — \"Wherefore be ye not unwise, but understanding what the will of the Lord is. And be not drunk with wine, wherein is excess; but be filled with the Spirit.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does being filled with the Spirit produce according to verses 19-21?",
+        "option_a": "Speaking in psalms, hymns, spiritual songs; giving thanks always; submitting to one another in the fear of God",
+        "option_b": "Only speaking in tongues",
+        "option_c": "Silent meditation and fasting",
+        "option_d": "Withdrawal from all social interaction",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:19-21 — \"Speaking to yourselves in psalms and hymns and spiritual songs, singing and making melody in your heart to the Lord; Giving thanks always… Submitting yourselves one to another in the fear of God.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul describe Christ's goal for the church?",
+        "option_a": "To present it to Himself a glorious church, not having spot or wrinkle or any such thing, but holy and without blemish",
+        "option_b": "To make it the largest organization on earth",
+        "option_c": "To give it political power over nations",
+        "option_d": "To make it wealthy and influential",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:27 — \"That he might present it to himself a glorious church, not having spot, or wrinkle, or any such thing; but that it should be holy and without blemish.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What Old Testament text does Paul quote about marriage?",
+        "option_a": "\"For this cause shall a man leave his father and mother, and shall be joined unto his wife, and they two shall be one flesh\" (Genesis 2:24)",
+        "option_b": "\"It is not good that the man should be alone\" (Genesis 2:18)",
+        "option_c": "\"Be fruitful, and multiply\" (Genesis 1:28)",
+        "option_d": "\"Whoso findeth a wife findeth a good thing\" (Proverbs 18:22)",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:31 — \"For this cause shall a man leave his father and mother, and shall be joined unto his wife, and they two shall be one flesh.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul call the marriage-Christ/church parallel?",
+        "option_a": "\"This is a great mystery: but I speak concerning Christ and the church\"",
+        "option_b": "\"This is a simple illustration\"",
+        "option_c": "\"This is a temporary arrangement\"",
+        "option_d": "\"This is a cultural accommodation\"",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:32 — \"This is a great mystery: but I speak concerning Christ and the church.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say the wife's submission is compared to?",
+        "option_a": "As the church is subject unto Christ, so let the wives be to their own husbands in every thing",
+        "option_b": "As slaves are to masters",
+        "option_c": "As children are to teachers",
+        "option_d": "As soldiers are to generals",
+        "correct_answer": "a",
+        "explanation": "Ephesians 5:24 — \"as the church is subject unto Christ, so let the wives be to their own husbands in every thing.\""
+      }
+    ]
+  },
+  "6": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul tell children to do?",
+        "option_a": "Obey your parents in the Lord, for this is right",
+        "option_b": "Do whatever they want",
+        "option_c": "Argue with their parents",
+        "option_d": "Ignore their parents",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:1 — \"Children, obey your parents in the Lord: for this is right.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What armor does Paul say to put on?",
+        "option_a": "The whole armour of God",
+        "option_b": "A suit of Roman armor",
+        "option_c": "A shield made of wood",
+        "option_d": "New clothes",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:11 — \"Put on the whole armour of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the sword of the Spirit?",
+        "option_a": "The word of God",
+        "option_b": "A real metal sword",
+        "option_c": "A magic wand",
+        "option_d": "A sharp stick",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:17 — \"the sword of the Spirit, which is the word of God.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What is the first commandment with a promise?",
+        "option_a": "\"Honour thy father and mother; that it may be well with thee, and thou mayest live long on the earth\"",
+        "option_b": "\"Thou shalt not steal\"",
+        "option_c": "\"Remember the sabbath day\"",
+        "option_d": "\"Thou shalt not kill\"",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:2-3 — \"Honour thy father and mother; which is the first commandment with promise.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say fathers should not do to their children?",
+        "option_a": "Provoke them to wrath, but bring them up in the nurture and admonition of the Lord",
+        "option_b": "Spoil them with gifts",
+        "option_c": "Let them do whatever they want",
+        "option_d": "Keep them from attending synagogue",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:4 — \"ye fathers, provoke not your children to wrath: but bring them up in the nurture and admonition of the Lord.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who is our real enemy according to Ephesians 6?",
+        "option_a": "Principalities, powers, rulers of darkness, and spiritual wickedness in high places",
+        "option_b": "The Roman government",
+        "option_c": "Other religions",
+        "option_d": "Our neighbors",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:12 — \"we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Name the six pieces of the armor of God.",
+        "option_a": "Belt of truth, breastplate of righteousness, shoes of the gospel of peace, shield of faith, helmet of salvation, sword of the Spirit",
+        "option_b": "Sword, spear, shield, helmet, armor, and horse",
+        "option_c": "Prayer, fasting, giving, reading, singing, and serving",
+        "option_d": "Faith, hope, love, patience, kindness, and goodness",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:14-17 lists the belt of truth, breastplate of righteousness, shoes of the gospel of peace, shield of faith, helmet of salvation, and sword of the Spirit."
+      },
+      {
+        "question_number": 5,
+        "question": "What does the shield of faith quench?",
+        "option_a": "All the fiery darts of the wicked",
+        "option_b": "Physical arrows",
+        "option_c": "Hunger and thirst",
+        "option_d": "Fear and doubt",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:16 — \"the shield of faith, wherewith ye shall be able to quench all the fiery darts of the wicked.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul instruct servants (bondservants) to work?",
+        "option_a": "With fear and trembling, in singleness of heart as unto Christ, not with eyeservice as menpleasers, doing the will of God from the heart",
+        "option_b": "Only when the master is watching",
+        "option_c": "Reluctantly but obediently",
+        "option_d": "With the goal of earning their freedom",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:5-6 — \"Servants, be obedient to them that are your masters… with fear and trembling, in singleness of your heart, as unto Christ; Not with eyeservice, as menpleasers; but as the servants of Christ, doing the will of God from the heart.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say masters should do, and why?",
+        "option_a": "Do the same things (treat servants well), forbearing threatening, knowing that their Master is in heaven and there is no respect of persons with Him",
+        "option_b": "Rule with an iron fist",
+        "option_c": "Free all their slaves immediately",
+        "option_d": "Pay them wages equal to free men",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:9 — \"ye masters, do the same things unto them, forbearing threatening: knowing that your Master also is in heaven; neither is there respect of persons with him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Why does Paul say to put on the whole armor of God?",
+        "option_a": "To be able to stand against the wiles (schemes) of the devil",
+        "option_b": "To impress other churches",
+        "option_c": "To fight against the Romans",
+        "option_d": "To prove our salvation",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:11 — \"Put on the whole armour of God, that ye may be able to stand against the wiles of the devil.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does the phrase \"having done all, to stand\" mean in context?",
+        "option_a": "After using every piece of armor and fighting the spiritual battle, the believer remains standing firm — perseverance in spiritual warfare",
+        "option_b": "After finishing your daily chores, stand still",
+        "option_c": "After preaching a sermon, stand at the door",
+        "option_d": "After communion, remain standing",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:13 — \"having done all, to stand.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What kind of prayer does Paul call for in spiritual warfare?",
+        "option_a": "\"Praying always with all prayer and supplication in the Spirit, and watching thereunto with all perseverance and supplication for all saints\"",
+        "option_b": "A specific prayer said once daily",
+        "option_c": "Only silent meditation",
+        "option_d": "Prayer only during church services",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:18 — \"Praying always with all prayer and supplication in the Spirit, and watching thereunto with all perseverance and supplication for all saints.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul ask the Ephesians to pray for regarding his ministry?",
+        "option_a": "That utterance may be given to him to make known with boldness the mystery of the gospel, for which he is an ambassador in bonds",
+        "option_b": "That he be released from prison",
+        "option_c": "That he receive financial support",
+        "option_d": "That he be given safety in travel",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:19-20 — \"that utterance may be given unto me, that I may open my mouth boldly, to make known the mystery of the gospel, For which I am an ambassador in bonds.\""
+      },
+      {
+        "question_number": 7,
+        "question": "Who does Paul send to the Ephesians and for what purpose?",
+        "option_a": "Tychicus, a beloved brother and faithful minister, to inform them of Paul's affairs and comfort their hearts",
+        "option_b": "Timothy, to be their new pastor",
+        "option_c": "Luke, to heal the sick",
+        "option_d": "Apollos, to teach them eloquence",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:21-22 — \"Tychicus, a beloved brother and faithful minister in the Lord, shall make known to you all things… that he might comfort your hearts.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What unique phrase does Paul use in his closing benediction?",
+        "option_a": "\"Grace be with all them that love our Lord Jesus Christ in sincerity (incorruption)\"",
+        "option_b": "\"The grace of our Lord Jesus Christ be with your spirit\"",
+        "option_c": "\"May the peace of God guard your hearts\"",
+        "option_d": "\"Greet one another with a holy kiss\"",
+        "correct_answer": "a",
+        "explanation": "Ephesians 6:24 — \"Grace be with all them that love our Lord Jesus Christ in sincerity. Amen.\""
+      }
+    ]
+  }
+}

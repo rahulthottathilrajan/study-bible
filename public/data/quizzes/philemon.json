@@ -1,0 +1,170 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote the letter to Philemon?",
+        "option_a": "Paul",
+        "option_b": "Peter",
+        "option_c": "John",
+        "option_d": "James",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:1 — \"Paul, a prisoner of Jesus Christ, and Timothy our brother, unto Philemon.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What was the name of the runaway servant Paul was sending back?",
+        "option_a": "Onesimus",
+        "option_b": "Timothy",
+        "option_c": "Titus",
+        "option_d": "Barnabas",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:10 — \"I beseech thee for my son Onesimus, whom I have begotten in my bonds.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul ask Philemon to do with Onesimus?",
+        "option_a": "Receive him back as a beloved brother",
+        "option_b": "Punish him severely",
+        "option_c": "Sell him to someone else",
+        "option_d": "Send him to Rome",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:16 — \"receive him… Not now as a servant, but above a servant, a brother beloved.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Where was Paul when he wrote the letter to Philemon?",
+        "option_a": "In prison (in bonds)",
+        "option_b": "At the temple in Jerusalem",
+        "option_c": "On a ship at sea",
+        "option_d": "In Philemon's house",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:1,9 — \"Paul, a prisoner of Jesus Christ\" and \"being such an one as Paul the aged, and now also a prisoner of Jesus Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How does Paul describe Onesimus before and after his conversion?",
+        "option_a": "Once unprofitable but now profitable to both Paul and Philemon",
+        "option_b": "Always a faithful servant",
+        "option_c": "A skilled craftsman who lost his way",
+        "option_d": "A wealthy man who became poor",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:11 — \"Which in time past was to thee unprofitable, but now profitable to thee and to me.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Rather than commanding Philemon, what approach does Paul take?",
+        "option_a": "He appeals to him on the basis of love",
+        "option_b": "He threatens church discipline",
+        "option_c": "He sends a formal decree",
+        "option_d": "He asks the other apostles to intervene",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:8-9 — \"though I might be much bold in Christ to enjoin thee… Yet for love's sake I rather beseech thee.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul offer to do regarding any debt Onesimus owes?",
+        "option_a": "Paul says \"put that on mine account\" — he will repay it",
+        "option_b": "He asks the church to take up a collection",
+        "option_c": "He says the debt should be forgiven without payment",
+        "option_d": "He says Onesimus should work it off",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:18 — \"If he hath wronged thee, or oweth thee ought, put that on mine account.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say Philemon's love and faith have done?",
+        "option_a": "Refreshed the hearts (bowels) of the saints",
+        "option_b": "Built three new churches",
+        "option_c": "Converted the whole city",
+        "option_d": "Provided funding for Paul's missions",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:7 — \"we have great joy and consolation in thy love, because the bowels of the saints are refreshed by thee, brother.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul call Philemon in his greeting?",
+        "option_a": "\"Our dearly beloved, and fellowlabourer\"",
+        "option_b": "\"A servant of the church\"",
+        "option_c": "\"The bishop of Colossae\"",
+        "option_d": "\"A teacher of the law\"",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:1 — \"unto Philemon our dearly beloved, and fellowlabourer.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who else is addressed in the salutation besides Philemon?",
+        "option_a": "Apphia (beloved), Archippus (fellowsoldier), and the church in Philemon's house",
+        "option_b": "Only Timothy and Titus",
+        "option_c": "The entire church of Colossae by name",
+        "option_d": "The Roman governor of the province",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:2 — \"And to our beloved Apphia, and Archippus our fellowsoldier, and to the church in thy house.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul pray regarding Philemon's faith?",
+        "option_a": "\"That the communication of thy faith may become effectual by the acknowledging of every good thing which is in you in Christ Jesus\"",
+        "option_b": "\"That thy faith fail not in times of trouble\"",
+        "option_c": "\"That thy faith may move mountains\"",
+        "option_d": "\"That thy faith may convert the emperor\"",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:6 — \"That the communication of thy faith may become effectual by the acknowledging of every good thing which is in you in Christ Jesus.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is the meaning of the name \"Onesimus\" and how does Paul play on it?",
+        "option_a": "It means \"useful/profitable\" — Paul says he was once unprofitable but is now profitable, a wordplay on his name",
+        "option_b": "It means \"faithful\" — Paul says he proved his name true",
+        "option_c": "It means \"servant\" — Paul says he should be freed from that identity",
+        "option_d": "It means \"blessed\" — Paul says he has been a blessing",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:10-11 — Onesimus means \"useful\"; Paul writes \"in time past was to thee unprofitable, but now profitable.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What subtle reminder does Paul give Philemon in verse 19?",
+        "option_a": "\"I Paul have written it with mine own hand, I will repay it: albeit I do not say to thee how thou owest unto me even thine own self besides\"",
+        "option_b": "\"Remember that I am an apostle with authority over you\"",
+        "option_c": "\"Remember the day I healed your mother\"",
+        "option_d": "\"Remember that the Lord watches all transactions\"",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:19 — Paul reminds Philemon that he owes Paul his very salvation — a gentle but powerful persuasion."
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul suggest may have been the providential reason for Onesimus's departure?",
+        "option_a": "\"Perhaps he therefore departed for a season, that thou shouldest receive him for ever\" — temporary separation for eternal gain",
+        "option_b": "God sent him away as punishment",
+        "option_c": "Onesimus needed to learn a trade in Rome",
+        "option_d": "Philemon needed to learn independence",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:15 — \"For perhaps he therefore departed for a season, that thou shouldest receive him for ever.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What confidence does Paul express about Philemon's response?",
+        "option_a": "\"Having confidence in thy obedience I wrote unto thee, knowing that thou wilt also do more than I say\"",
+        "option_b": "\"I know you will do the minimum required\"",
+        "option_c": "\"I expect you to follow my direct command\"",
+        "option_d": "\"I am uncertain whether you will obey\"",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:21 — \"Having confidence in thy obedience I wrote unto thee, knowing that thou wilt also do more than I say.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What practical request does Paul make at the end of the letter?",
+        "option_a": "Prepare a lodging for him, as he hopes to be granted to them through their prayers",
+        "option_b": "Send money for his legal defense",
+        "option_c": "Come visit him in prison",
+        "option_d": "Send Onesimus back to Rome permanently",
+        "correct_answer": "a",
+        "explanation": "Philemon 1:22 — \"But withal prepare me also a lodging: for I trust that through your prayers I shall be given unto you.\""
+      }
+    ]
+  }
+}

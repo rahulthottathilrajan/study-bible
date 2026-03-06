@@ -32,22 +32,24 @@ export default function QuizView() {
   const chapterKey = `${book}-${chapter}`;
   const scores = quizScores[chapterKey] || [];
 
-  // Check which difficulties have questions for this chapter
+  // Check which difficulties have questions for this chapter (from static JSON)
   useEffect(() => {
     if (view !== "quiz-intro") return;
     setCheckingAvailability(true);
-    import("../../lib/supabase").then(({ supabase }) => {
-      supabase.from("chapter_quizzes")
-        .select("difficulty")
-        .eq("book_name", book)
-        .eq("chapter_number", chapter)
-        .then(({ data }) => {
-          const map = {};
-          if (data) data.forEach(q => { map[q.difficulty] = (map[q.difficulty] || 0) + 1; });
-          setAvailableDifficulties(map);
-          setCheckingAvailability(false);
-        });
-    });
+    const slug = book.toLowerCase().replace(/\s+/g, '-');
+    fetch(`/data/quizzes/${slug}.json`)
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        const map = {};
+        if (data?.[String(chapter)]) {
+          Object.entries(data[String(chapter)]).forEach(([diff, questions]) => {
+            if (questions.length > 0) map[diff] = questions.length;
+          });
+        }
+        setAvailableDifficulties(map);
+        setCheckingAvailability(false);
+      })
+      .catch(() => { setAvailableDifficulties({}); setCheckingAvailability(false); });
   }, [view, book, chapter]);
 
   // Reset state when entering intro

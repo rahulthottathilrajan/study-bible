@@ -1,0 +1,842 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does James say we should feel when we face troubles?",
+        "option_a": "Count it all joy",
+        "option_b": "Count it all sadness",
+        "option_c": "Count it all anger",
+        "option_d": "Count it all fear",
+        "correct_answer": "a",
+        "explanation": "James 1:2 — \"My brethren, count it all joy when ye fall into divers temptations.\""
+      },
+      {
+        "question_number": 2,
+        "question": "If you need wisdom, what should you do?",
+        "option_a": "Ask God for it",
+        "option_b": "Read a fortune cookie",
+        "option_c": "Ask a magician",
+        "option_d": "Guess the answer",
+        "correct_answer": "a",
+        "explanation": "James 1:5 — \"If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not.\""
+      },
+      {
+        "question_number": 3,
+        "question": "James says we should not just hear God's word but also do what?",
+        "option_a": "Be doers of the word",
+        "option_b": "Forget about it",
+        "option_c": "Argue about it",
+        "option_d": "Write it on paper only",
+        "correct_answer": "a",
+        "explanation": "James 1:22 — \"But be ye doers of the word, and not hearers only, deceiving your own selves.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does the trying of your faith produce?",
+        "option_a": "Patience",
+        "option_b": "Wealth",
+        "option_c": "Popularity",
+        "option_d": "Magical power",
+        "correct_answer": "a",
+        "explanation": "James 1:3 — \"Knowing this, that the trying of your faith worketh patience.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What is a double minded man compared to?",
+        "option_a": "A wave of the sea driven with the wind and tossed",
+        "option_b": "A strong oak tree",
+        "option_c": "A solid rock",
+        "option_d": "A mighty eagle",
+        "correct_answer": "a",
+        "explanation": "James 1:6 — \"He that wavereth is like a wave of the sea driven with the wind and tossed.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does lust bring forth when it is finished?",
+        "option_a": "Sin, and sin when finished bringeth forth death",
+        "option_b": "Happiness and wealth",
+        "option_c": "Wisdom and understanding",
+        "option_d": "Strength and power",
+        "correct_answer": "a",
+        "explanation": "James 1:15 — \"Then when lust hath conceived, it bringeth forth sin: and sin, when it is finished, bringeth forth death.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What three things does James say every man should be?",
+        "option_a": "Swift to hear, slow to speak, slow to wrath",
+        "option_b": "Slow to hear, swift to speak, quick to anger",
+        "option_c": "Quick to judge, slow to forgive, fast to act",
+        "option_d": "First to speak, last to listen, quick to fight",
+        "correct_answer": "a",
+        "explanation": "James 1:19 — \"Let every man be swift to hear, slow to speak, slow to wrath.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is pure religion before God the Father?",
+        "option_a": "To visit the fatherless and widows, and keep himself unspotted from the world",
+        "option_b": "To attend church every day",
+        "option_c": "To give all your money away",
+        "option_d": "To fast and pray at all times",
+        "correct_answer": "a",
+        "explanation": "James 1:27 — \"Pure religion and undefiled before God and the Father is this, To visit the fatherless and widows in their affliction, and to keep himself unspotted from the world.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Who does James identify himself as and who does he address?",
+        "option_a": "A servant of God and of the Lord Jesus Christ, to the twelve tribes scattered abroad",
+        "option_b": "The brother of Jesus, to the church in Jerusalem",
+        "option_c": "An apostle of Christ, to the Gentiles",
+        "option_d": "A prophet of Israel, to the Jewish leaders",
+        "correct_answer": "a",
+        "explanation": "James 1:1 — \"James, a servant of God and of the Lord Jesus Christ, to the twelve tribes which are scattered abroad, greeting.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does James say about God and temptation in verse 13?",
+        "option_a": "God cannot be tempted with evil, neither tempteth he any man",
+        "option_b": "God tempts people to test their strength",
+        "option_c": "God allows temptation only for the righteous",
+        "option_d": "God and evil are in constant battle over temptation",
+        "correct_answer": "a",
+        "explanation": "James 1:13 — \"Let no man say when he is tempted, I am tempted of God: for God cannot be tempted with evil, neither tempteth he any man.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does James say about every good and perfect gift?",
+        "option_a": "It comes down from the Father of lights, with whom is no variableness, neither shadow of turning",
+        "option_b": "It comes from human effort and hard work",
+        "option_c": "It is earned through religious rituals",
+        "option_d": "It comes from the angels who serve God",
+        "correct_answer": "a",
+        "explanation": "James 1:17 — \"Every good gift and every perfect gift is from above, and cometh down from the Father of lights, with whom is no variableness, neither shadow of turning.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does James call believers in verse 18?",
+        "option_a": "A kind of firstfruits of his creatures",
+        "option_b": "The final harvest of God's plan",
+        "option_c": "The remnant of Israel",
+        "option_d": "The chosen elite of heaven",
+        "correct_answer": "a",
+        "explanation": "James 1:18 — \"Of his own will begat he us with the word of truth, that we should be a kind of firstfruits of his creatures.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does James compare the hearer who is not a doer to?",
+        "option_a": "A man beholding his natural face in a glass who goes away and straightway forgetteth what manner of man he was",
+        "option_b": "A wise builder who lays a strong foundation",
+        "option_c": "A shepherd who tends his sheep carefully",
+        "option_d": "A farmer who plants and waters diligently",
+        "correct_answer": "a",
+        "explanation": "James 1:23-24 — \"He is like unto a man beholding his natural face in a glass: For he beholdeth himself, and goeth his way, and straightway forgetteth what manner of man he was.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does James call the law that brings blessing to the doer?",
+        "option_a": "The perfect law of liberty",
+        "option_b": "The law of Moses",
+        "option_c": "The law of the prophets",
+        "option_d": "The law of circumcision",
+        "correct_answer": "a",
+        "explanation": "James 1:25 — \"But whoso looketh into the perfect law of liberty, and continueth therein, he being not a forgetful hearer, but a doer of the work, this man shall be blessed in his deed.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does James say about the low brother and the rich in verses 9-10?",
+        "option_a": "The brother of low degree should rejoice that he is exalted; the rich that he is made low",
+        "option_b": "The low should envy the rich; the rich should boast",
+        "option_c": "The low should serve the rich; the rich should command",
+        "option_d": "The low should hide; the rich should display their glory",
+        "correct_answer": "a",
+        "explanation": "James 1:9-10 — \"Let the brother of low degree rejoice in that he is exalted: But the rich, in that he is made low: because as the flower of the grass he shall pass away.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What crown is promised to the man who endures temptation?",
+        "option_a": "The crown of life, which the Lord hath promised to them that love him",
+        "option_b": "The crown of thorns shared with Christ",
+        "option_c": "The crown of righteousness for all believers",
+        "option_d": "The crown of gold for the wealthy faithful",
+        "correct_answer": "a",
+        "explanation": "James 1:12 — \"Blessed is the man that endureth temptation: for when he is tried, he shall receive the crown of life, which the Lord hath promised to them that love him.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "If a rich man and a poor man come to church, how should you treat them?",
+        "option_a": "Treat them both the same",
+        "option_b": "Give the rich man the best seat",
+        "option_c": "Tell the poor man to leave",
+        "option_d": "Only talk to the rich man",
+        "correct_answer": "a",
+        "explanation": "James 2:1-4 — James warns against showing favouritism, telling the poor man \"Stand thou there\" while giving the rich man a good place."
+      },
+      {
+        "question_number": 2,
+        "question": "What does James call the commandment \"Love thy neighbour as thyself\"?",
+        "option_a": "The royal law",
+        "option_b": "The golden rule",
+        "option_c": "The first commandment",
+        "option_d": "The last commandment",
+        "correct_answer": "a",
+        "explanation": "James 2:8 — \"If ye fulfil the royal law according to the scripture, Thou shalt love thy neighbour as thyself, ye do well.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does James say about faith without doing good deeds?",
+        "option_a": "It is dead",
+        "option_b": "It is strong",
+        "option_c": "It is the best kind",
+        "option_d": "It does not matter",
+        "correct_answer": "a",
+        "explanation": "James 2:26 — \"For as the body without the spirit is dead, so faith without works is dead also.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does James say about showing respect of persons (favouritism)?",
+        "option_a": "It is sin and transgression of the law",
+        "option_b": "It is wise and practical",
+        "option_c": "It is acceptable in church",
+        "option_d": "It is a minor issue",
+        "correct_answer": "a",
+        "explanation": "James 2:9 — \"But if ye have respect to persons, ye commit sin, and are convinced of the law as transgressors.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What happens if you keep the whole law but offend in one point?",
+        "option_a": "You are guilty of all",
+        "option_b": "You are still mostly righteous",
+        "option_c": "God overlooks one mistake",
+        "option_d": "That one point does not count",
+        "correct_answer": "a",
+        "explanation": "James 2:10 — \"For whosoever shall keep the whole law, and yet offend in one point, he is guilty of all.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who is the Old Testament example James uses for faith shown by works?",
+        "option_a": "Abraham, when he offered Isaac his son upon the altar",
+        "option_b": "Moses, when he parted the Red Sea",
+        "option_c": "David, when he killed Goliath",
+        "option_d": "Elijah, when he called down fire",
+        "correct_answer": "a",
+        "explanation": "James 2:21 — \"Was not Abraham our father justified by works, when he had offered Isaac his son upon the altar?\""
+      },
+      {
+        "question_number": 4,
+        "question": "What other person besides Abraham showed faith by works?",
+        "option_a": "Rahab the harlot, when she received the messengers",
+        "option_b": "Ruth, when she followed Naomi",
+        "option_c": "Esther, when she saved her people",
+        "option_d": "Deborah, when she judged Israel",
+        "correct_answer": "a",
+        "explanation": "James 2:25 — \"Likewise also was not Rahab the harlot justified by works, when she had received the messengers, and had sent them out another way?\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does James compare faith without works to?",
+        "option_a": "A body without the spirit",
+        "option_b": "A sword without a handle",
+        "option_c": "A ship without a sail",
+        "option_d": "A crown without jewels",
+        "correct_answer": "a",
+        "explanation": "James 2:26 — \"For as the body without the spirit is dead, so faith without works is dead also.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does James describe the treatment of the poor man in the assembly?",
+        "option_a": "Told to stand there or sit under the footstool while the rich man gets the good place",
+        "option_b": "Given food and drink before the rich man",
+        "option_c": "Asked to lead the congregation in prayer",
+        "option_d": "Welcomed warmly by all the members",
+        "correct_answer": "a",
+        "explanation": "James 2:3 — \"And ye say to the poor, Stand thou there, or sit here under my footstool.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did God choose the poor of this world to be?",
+        "option_a": "Rich in faith and heirs of the kingdom which he hath promised to them that love him",
+        "option_b": "Leaders of the synagogues",
+        "option_c": "Missionaries to foreign lands",
+        "option_d": "Temple servants in Jerusalem",
+        "correct_answer": "a",
+        "explanation": "James 2:5 — \"Hath not God chosen the poor of this world rich in faith, and heirs of the kingdom which he hath promised to them that love him?\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does James say the rich do to believers?",
+        "option_a": "They oppress you and draw you before the judgment seats",
+        "option_b": "They help and support the church",
+        "option_c": "They build synagogues for believers",
+        "option_d": "They send gifts to the apostles",
+        "correct_answer": "a",
+        "explanation": "James 2:6 — \"Do not rich men oppress you, and draw you before the judgment seats?\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does James say about mercy and judgment?",
+        "option_a": "Mercy rejoiceth against judgment",
+        "option_b": "Judgment always triumphs over mercy",
+        "option_c": "Mercy and judgment are equal",
+        "option_d": "Judgment is unnecessary where mercy exists",
+        "correct_answer": "a",
+        "explanation": "James 2:13 — \"For he shall have judgment without mercy, that hath shewed no mercy; and mercy rejoiceth against judgment.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What illustration shows that faith without works is dead?",
+        "option_a": "Saying to a naked and hungry brother \"be ye warmed and filled\" without giving them things needful",
+        "option_b": "Building a house on a strong foundation",
+        "option_c": "Planting a vineyard and tending it carefully",
+        "option_d": "Lighting a candle and placing it on a candlestick",
+        "correct_answer": "a",
+        "explanation": "James 2:15-16 — \"If a brother or sister be naked, and destitute of daily food, And one of you say unto them, Depart in peace, be ye warmed and filled; notwithstanding ye give them not those things which are needful to the body; what doth it profit?\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does James say the devils do regarding belief in God?",
+        "option_a": "The devils also believe and tremble",
+        "option_b": "The devils deny God exists",
+        "option_c": "The devils worship God willingly",
+        "option_d": "The devils are indifferent to God",
+        "correct_answer": "a",
+        "explanation": "James 2:19 — \"Thou believest that there is one God; thou doest well: the devils also believe, and tremble.\""
+      },
+      {
+        "question_number": 7,
+        "question": "How does James describe the relationship between faith and works in Abraham?",
+        "option_a": "Faith wrought with his works, and by works was faith made perfect",
+        "option_b": "Faith replaced his works entirely",
+        "option_c": "Works were unnecessary alongside his faith",
+        "option_d": "Faith and works were in conflict",
+        "correct_answer": "a",
+        "explanation": "James 2:22 — \"Seest thou how faith wrought with his works, and by works was faith made perfect?\""
+      },
+      {
+        "question_number": 8,
+        "question": "What was Abraham called because of his faith?",
+        "option_a": "The Friend of God",
+        "option_b": "The Father of Nations",
+        "option_c": "The Patriarch of Israel",
+        "option_d": "The Servant of the Lord",
+        "correct_answer": "a",
+        "explanation": "James 2:23 — \"And the scripture was fulfilled which saith, Abraham believed God, and it was imputed unto him for righteousness: and he was called the Friend of God.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What small body part can cause big trouble?",
+        "option_a": "The tongue",
+        "option_b": "The thumb",
+        "option_c": "The ear",
+        "option_d": "The nose",
+        "correct_answer": "a",
+        "explanation": "James 3:5-6 — \"Even so the tongue is a little member, and boasteth great things. Behold, how great a matter a little fire kindleth!\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does James compare the tongue to?",
+        "option_a": "A fire",
+        "option_b": "A flower",
+        "option_c": "A river",
+        "option_d": "A mountain",
+        "correct_answer": "a",
+        "explanation": "James 3:6 — \"And the tongue is a fire, a world of iniquity.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Can a fountain send out both sweet and bitter water?",
+        "option_a": "No, it cannot",
+        "option_b": "Yes, all the time",
+        "option_c": "Only on special days",
+        "option_d": "Only in the summer",
+        "correct_answer": "a",
+        "explanation": "James 3:11 — \"Doth a fountain send forth at the same place sweet water and bitter?\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why does James warn against many becoming masters (teachers)?",
+        "option_a": "Because they shall receive the greater condemnation",
+        "option_b": "Because teachers earn less money",
+        "option_c": "Because teachers are always lonely",
+        "option_d": "Because there are already too many teachers",
+        "correct_answer": "a",
+        "explanation": "James 3:1 — \"My brethren, be not many masters, knowing that we shall receive the greater condemnation.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What two small things does James say control bigger things, like the tongue?",
+        "option_a": "A bit in a horse's mouth and a small helm (rudder) on a ship",
+        "option_b": "A key in a lock and a button on a coat",
+        "option_c": "A seed in the ground and a drop in the ocean",
+        "option_d": "A needle in a haystack and a star in the sky",
+        "correct_answer": "a",
+        "explanation": "James 3:3-4 — \"We put bits in the horses' mouths... Behold also the ships, which though they be so great... are turned about with a very small helm.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does James say no man can tame?",
+        "option_a": "The tongue",
+        "option_b": "A wild lion",
+        "option_c": "The wind",
+        "option_d": "The sea",
+        "correct_answer": "a",
+        "explanation": "James 3:8 — \"But the tongue can no man tame; it is an unruly evil, full of deadly poison.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is the tongue full of according to James?",
+        "option_a": "Deadly poison",
+        "option_b": "Sweet honey",
+        "option_c": "Living water",
+        "option_d": "Golden words",
+        "correct_answer": "a",
+        "explanation": "James 3:8 — \"It is an unruly evil, full of deadly poison.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does James describe the wisdom that is from above?",
+        "option_a": "Pure, peaceable, gentle, easy to be intreated, full of mercy and good fruits",
+        "option_b": "Bold, commanding, authoritative, and powerful",
+        "option_c": "Secretive, mysterious, hidden, and rare",
+        "option_d": "Loud, forceful, aggressive, and dominating",
+        "correct_answer": "a",
+        "explanation": "James 3:17 — \"But the wisdom that is from above is first pure, then peaceable, gentle, and easy to be intreated, full of mercy and good fruits, without partiality, and without hypocrisy.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does James call the tongue in verse 6?",
+        "option_a": "A world of iniquity that defileth the whole body and is set on fire of hell",
+        "option_b": "A lamp that gives light to the body",
+        "option_c": "A tool for building up the church",
+        "option_d": "A weapon of warfare against enemies",
+        "correct_answer": "a",
+        "explanation": "James 3:6 — \"And the tongue is a fire, a world of iniquity: so is the tongue among our members, that it defileth the whole body, and setteth on fire the course of nature; and it is set on fire of hell.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What contradiction does James point out about the tongue?",
+        "option_a": "With it we bless God and curse men which are made after the similitude of God",
+        "option_b": "With it we teach truth and learn lies",
+        "option_c": "With it we sing praises and speak languages",
+        "option_d": "With it we pray loudly and whisper softly",
+        "correct_answer": "a",
+        "explanation": "James 3:9 — \"Therewith bless we God, even the Father; and therewith curse we men, which are made after the similitude of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does James say about the fig tree bearing olive berries?",
+        "option_a": "The fig tree cannot bear olive berries, neither can a vine yield figs",
+        "option_b": "The fig tree sometimes bears olive berries in good seasons",
+        "option_c": "The fig tree and olive tree are the same",
+        "option_d": "Fig trees and vines can bear any fruit",
+        "correct_answer": "a",
+        "explanation": "James 3:12 — \"Can the fig tree, my brethren, bear olive berries? either a vine, figs? so can no fountain both yield salt water and fresh.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does James describe wisdom that is not from above?",
+        "option_a": "Earthly, sensual, devilish",
+        "option_b": "Heavenly, spiritual, divine",
+        "option_c": "Simple, humble, gentle",
+        "option_d": "Powerful, mighty, victorious",
+        "correct_answer": "a",
+        "explanation": "James 3:15 — \"This wisdom descendeth not from above, but is earthly, sensual, devilish.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Where envying and strife exist, what does James say is found?",
+        "option_a": "Confusion and every evil work",
+        "option_b": "Peace and righteousness",
+        "option_c": "Growth and prosperity",
+        "option_d": "Wisdom and understanding",
+        "correct_answer": "a",
+        "explanation": "James 3:16 — \"For where envying and strife is, there is confusion and every evil work.\""
+      },
+      {
+        "question_number": 6,
+        "question": "In what is the fruit of righteousness sown?",
+        "option_a": "In peace of them that make peace",
+        "option_b": "In conflict of those who fight for justice",
+        "option_c": "In solitude of those who meditate",
+        "option_d": "In power of those who rule",
+        "correct_answer": "a",
+        "explanation": "James 3:18 — \"And the fruit of righteousness is sown in peace of them that make peace.\""
+      },
+      {
+        "question_number": 7,
+        "question": "Who should show his works with meekness of wisdom?",
+        "option_a": "A wise man who is endued with knowledge",
+        "option_b": "A strong warrior who wins battles",
+        "option_c": "A wealthy merchant who earns profits",
+        "option_d": "A king who governs his nation",
+        "correct_answer": "a",
+        "explanation": "James 3:13 — \"Who is a wise man and endued with knowledge among you? let him shew out of a good conversation his works with meekness of wisdom.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does James say those with bitter envying should not do?",
+        "option_a": "Glory not and lie not against the truth",
+        "option_b": "Leave the church immediately",
+        "option_c": "Fast and pray for three days",
+        "option_d": "Seek counsel from the elders",
+        "correct_answer": "a",
+        "explanation": "James 3:14 — \"But if ye have bitter envying and strife in your hearts, glory not, and lie not against the truth.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does James say to do when the devil comes?",
+        "option_a": "Resist him and he will flee from you",
+        "option_b": "Run away and hide",
+        "option_c": "Ignore him completely",
+        "option_d": "Try to be his friend",
+        "correct_answer": "a",
+        "explanation": "James 4:7 — \"Resist the devil, and he will flee from you.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What happens when you draw near to God?",
+        "option_a": "He will draw near to you",
+        "option_b": "He will test you more",
+        "option_c": "Nothing will change",
+        "option_d": "He will hide from you",
+        "correct_answer": "a",
+        "explanation": "James 4:8 — \"Draw nigh to God, and he will draw nigh to you.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Does James say we know what will happen tomorrow?",
+        "option_a": "No, we do not know what tomorrow will bring",
+        "option_b": "Yes, we can predict the future",
+        "option_c": "Yes, if we pray hard enough",
+        "option_d": "Only wise people know the future",
+        "correct_answer": "a",
+        "explanation": "James 4:14 — \"Whereas ye know not what shall be on the morrow.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Where do wars and fightings come from according to James?",
+        "option_a": "From your lusts that war in your members",
+        "option_b": "From disagreements about the law",
+        "option_c": "From other nations attacking",
+        "option_d": "From misunderstandings between friends",
+        "correct_answer": "a",
+        "explanation": "James 4:1 — \"From whence come wars and fightings among you? come they not hence, even of your lusts that war in your members?\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why do people not receive what they ask God for?",
+        "option_a": "Because they ask amiss, that they may consume it upon their lusts",
+        "option_b": "Because God does not hear them",
+        "option_c": "Because they did not ask loudly enough",
+        "option_d": "Because God wants them to figure it out alone",
+        "correct_answer": "a",
+        "explanation": "James 4:3 — \"Ye ask, and receive not, because ye ask amiss, that ye may consume it upon your lusts.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does James call friendship with the world?",
+        "option_a": "Enmity with God",
+        "option_b": "A path to wisdom",
+        "option_c": "A good way to witness",
+        "option_d": "A necessary compromise",
+        "correct_answer": "a",
+        "explanation": "James 4:4 — \"Know ye not that the friendship of the world is enmity with God? whosoever therefore will be a friend of the world is the enemy of God.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does James say our life is like?",
+        "option_a": "A vapour that appeareth for a little time and then vanisheth away",
+        "option_b": "A mighty river that flows forever",
+        "option_c": "A strong mountain that never moves",
+        "option_d": "A bright star that always shines",
+        "correct_answer": "a",
+        "explanation": "James 4:14 — \"For what is your life? It is even a vapour, that appeareth for a little time, and then vanisheth away.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does God give to the humble?",
+        "option_a": "Grace — God resisteth the proud but giveth grace unto the humble",
+        "option_b": "Wealth and riches beyond measure",
+        "option_c": "Political power and authority",
+        "option_d": "Freedom from all suffering",
+        "correct_answer": "a",
+        "explanation": "James 4:6 — \"God resisteth the proud, but giveth grace unto the humble.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does James say the spirit that dwelleth in us lusteth to?",
+        "option_a": "Envy",
+        "option_b": "Righteousness",
+        "option_c": "Charity",
+        "option_d": "Purity",
+        "correct_answer": "a",
+        "explanation": "James 4:5 — \"The spirit that dwelleth in us lusteth to envy.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does James say about speaking evil of a brother?",
+        "option_a": "He that speaketh evil of his brother speaketh evil of the law and judgeth the law",
+        "option_b": "It is acceptable if the brother has sinned",
+        "option_c": "It is only wrong if done in public",
+        "option_d": "It does not affect one's standing before God",
+        "correct_answer": "a",
+        "explanation": "James 4:11 — \"He that speaketh evil of his brother, and judgeth his brother, speaketh evil of the law, and judgeth the law.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who is the one lawgiver who is able to save and to destroy?",
+        "option_a": "God alone",
+        "option_b": "Moses",
+        "option_c": "The high priest",
+        "option_d": "The king of Israel",
+        "correct_answer": "a",
+        "explanation": "James 4:12 — \"There is one lawgiver, who is able to save and to destroy: who art thou that judgest another?\""
+      },
+      {
+        "question_number": 4,
+        "question": "What should believers say instead of boasting about their plans?",
+        "option_a": "If the Lord will, we shall live, and do this, or that",
+        "option_b": "We will certainly accomplish our goals",
+        "option_c": "Our plans will surely succeed",
+        "option_d": "Nothing can stop our plans",
+        "correct_answer": "a",
+        "explanation": "James 4:15 — \"For that ye ought to say, If the Lord will, we shall live, and do this, or that.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does James say about all such rejoicing in one's boastings?",
+        "option_a": "All such rejoicing is evil",
+        "option_b": "Such rejoicing is acceptable",
+        "option_c": "Such rejoicing shows strong faith",
+        "option_d": "Such rejoicing glorifies God",
+        "correct_answer": "a",
+        "explanation": "James 4:16 — \"But now ye rejoice in your boastings: all such rejoicing is evil.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What is sin according to James 4:17?",
+        "option_a": "To him that knoweth to do good, and doeth it not, to him it is sin",
+        "option_b": "Only breaking the Ten Commandments",
+        "option_c": "Only actions that harm other people",
+        "option_d": "Only things done with evil intent",
+        "correct_answer": "a",
+        "explanation": "James 4:17 — \"Therefore to him that knoweth to do good, and doeth it not, to him it is sin.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does James mean by \"ye adulterers and adulteresses\" in verse 4?",
+        "option_a": "Spiritual unfaithfulness to God through love of the world",
+        "option_b": "Literal marital unfaithfulness",
+        "option_c": "Worshipping in pagan temples",
+        "option_d": "Breaking business agreements",
+        "correct_answer": "a",
+        "explanation": "James 4:4 — \"Ye adulterers and adulteresses, know ye not that the friendship of the world is enmity with God?\" This refers to spiritual adultery — unfaithfulness to God."
+      },
+      {
+        "question_number": 8,
+        "question": "What series of imperatives does James give in verses 7-10 for drawing near to God?",
+        "option_a": "Submit to God, resist the devil, draw nigh to God, cleanse your hands, purify your hearts, be afflicted, mourn, weep, humble yourselves",
+        "option_b": "Pray more, give more, attend synagogue, fast weekly",
+        "option_c": "Study the Torah, memorize the prophets, recite the psalms, teach the children",
+        "option_d": "Travel to Jerusalem, offer sacrifices, consult the priests, observe the feasts",
+        "correct_answer": "a",
+        "explanation": "James 4:7-10 — \"Submit yourselves therefore to God. Resist the devil... Draw nigh to God... Cleanse your hands, ye sinners; and purify your hearts, ye double minded. Be afflicted, and mourn, and weep... Humble yourselves in the sight of the Lord, and he shall lift you up.\""
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who does James tell to be patient, like a farmer waiting for rain?",
+        "option_a": "The brethren (fellow believers)",
+        "option_b": "The rich people",
+        "option_c": "The kings and rulers",
+        "option_d": "The young children",
+        "correct_answer": "a",
+        "explanation": "James 5:7 — \"Be patient therefore, brethren, unto the coming of the Lord. Behold, the husbandman waiteth for the precious fruit of the earth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What should you do if you are sick?",
+        "option_a": "Call for the elders of the church to pray for you",
+        "option_b": "Hide it from everyone",
+        "option_c": "Try to heal yourself",
+        "option_d": "Wait and hope it goes away",
+        "correct_answer": "a",
+        "explanation": "James 5:14 — \"Is any sick among you? let him call for the elders of the church; and let them pray over him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Whose prayer does James say is very powerful?",
+        "option_a": "The prayer of a righteous man",
+        "option_b": "The prayer of a king",
+        "option_c": "The prayer of the richest person",
+        "option_d": "The prayer of the oldest person",
+        "correct_answer": "a",
+        "explanation": "James 5:16 — \"The effectual fervent prayer of a righteous man availeth much.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does James warn the rich about?",
+        "option_a": "Their riches are corrupted and their gold and silver is cankered",
+        "option_b": "Their wealth will double in the last days",
+        "option_c": "Their money will buy them salvation",
+        "option_d": "Their riches will protect them from judgment",
+        "correct_answer": "a",
+        "explanation": "James 5:2-3 — \"Your riches are corrupted, and your garments are motheaten. Your gold and silver is cankered.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who does James use as examples of suffering and patience?",
+        "option_a": "The prophets who spoke in the name of the Lord, and Job",
+        "option_b": "The kings and princes of Israel",
+        "option_c": "The Roman soldiers and generals",
+        "option_d": "The Greek philosophers and teachers",
+        "correct_answer": "a",
+        "explanation": "James 5:10-11 — \"Take, my brethren, the prophets, who have spoken in the name of the Lord, for an example of suffering affliction, and of patience. Ye have heard of the patience of Job.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does James say about swearing oaths?",
+        "option_a": "Let your yea be yea and your nay, nay",
+        "option_b": "Swear by heaven for important promises",
+        "option_c": "Always make oaths to show sincerity",
+        "option_d": "Oaths are required for all agreements",
+        "correct_answer": "a",
+        "explanation": "James 5:12 — \"But above all things, my brethren, swear not, neither by heaven, neither by the earth, neither by any other oath: but let your yea be yea; and your nay, nay.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What will the prayer of faith do for the sick?",
+        "option_a": "Save the sick, and the Lord shall raise him up",
+        "option_b": "Guarantee instant physical healing",
+        "option_c": "Ensure the sick person becomes wealthy",
+        "option_d": "Remove all future illness forever",
+        "correct_answer": "a",
+        "explanation": "James 5:15 — \"And the prayer of faith shall save the sick, and the Lord shall raise him up.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How long did Elijah pray for no rain, and it did not rain?",
+        "option_a": "Three years and six months",
+        "option_b": "One year",
+        "option_c": "Seven years",
+        "option_d": "Forty days and nights",
+        "correct_answer": "a",
+        "explanation": "James 5:17 — \"He prayed earnestly that it might not rain: and it rained not on the earth by the space of three years and six months.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Whose cries have entered into the ears of the Lord of sabaoth?",
+        "option_a": "The labourers whose hire (wages) was kept back by fraud",
+        "option_b": "The priests who served in the temple",
+        "option_c": "The prophets who were rejected",
+        "option_d": "The widows who lost their husbands",
+        "correct_answer": "a",
+        "explanation": "James 5:4 — \"Behold, the hire of the labourers who have reaped down your fields, which is of you kept back by fraud, crieth: and the cries of them which have reaped are entered into the ears of the Lord of sabaoth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How does James describe the lifestyle of the rich in verse 5?",
+        "option_a": "They lived in pleasure on the earth and been wanton, nourishing their hearts as in a day of slaughter",
+        "option_b": "They lived humbly and gave to the poor",
+        "option_c": "They worked harder than anyone else",
+        "option_d": "They faithfully served God with their wealth",
+        "correct_answer": "a",
+        "explanation": "James 5:5 — \"Ye have lived in pleasure on the earth, and been wanton; ye have nourished your hearts, as in a day of slaughter.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does James say about the coming of the Lord?",
+        "option_a": "The coming of the Lord draweth nigh",
+        "option_b": "The coming of the Lord is far away",
+        "option_c": "The coming of the Lord is uncertain",
+        "option_d": "The coming of the Lord has already happened",
+        "correct_answer": "a",
+        "explanation": "James 5:8 — \"Be ye also patient; stablish your hearts: for the coming of the Lord draweth nigh.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What end of the Lord does James say we see through Job?",
+        "option_a": "That the Lord is very pitiful, and of tender mercy",
+        "option_b": "That the Lord is harsh and demanding",
+        "option_c": "That the Lord is distant and uninvolved",
+        "option_d": "That the Lord tests without purpose",
+        "correct_answer": "a",
+        "explanation": "James 5:11 — \"Ye have heard of the patience of Job, and have seen the end of the Lord; that the Lord is very pitiful, and of tender mercy.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What should be done along with prayer for the sick?",
+        "option_a": "Anointing him with oil in the name of the Lord",
+        "option_b": "Offering burnt sacrifices at the altar",
+        "option_c": "Fasting for seven days",
+        "option_d": "Making a pilgrimage to Jerusalem",
+        "correct_answer": "a",
+        "explanation": "James 5:14 — \"Let them pray over him, anointing him with oil in the name of the Lord.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What connection does James make between confession and healing?",
+        "option_a": "Confess your faults one to another and pray one for another, that ye may be healed",
+        "option_b": "Confession is only for the priest to hear",
+        "option_c": "Healing comes without any confession",
+        "option_d": "Confession should be private and never shared",
+        "correct_answer": "a",
+        "explanation": "James 5:16 — \"Confess your faults one to another, and pray one for another, that ye may be healed.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does James say Elijah was?",
+        "option_a": "A man subject to like passions as we are",
+        "option_b": "A supernatural being from heaven",
+        "option_c": "An angel in human form",
+        "option_d": "A man without any human weakness",
+        "correct_answer": "a",
+        "explanation": "James 5:17 — \"Elias was a man subject to like passions as we are, and he prayed earnestly that it might not rain.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does James say about the one who converts a sinner from the error of his way?",
+        "option_a": "He shall save a soul from death, and shall hide a multitude of sins",
+        "option_b": "He shall receive a prophet's reward",
+        "option_c": "He shall be given authority over ten cities",
+        "option_d": "He shall be first in the kingdom of heaven",
+        "correct_answer": "a",
+        "explanation": "James 5:20 — \"Let him know, that he which converteth the sinner from the error of his way shall save a soul from death, and shall hide a multitude of sins.\""
+      }
+    ]
+  }
+}

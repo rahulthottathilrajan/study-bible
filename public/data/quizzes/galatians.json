@@ -1,0 +1,1010 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote the letter to the Galatians?",
+        "option_a": "Paul",
+        "option_b": "Peter",
+        "option_c": "John",
+        "option_d": "James",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:1 — \"Paul, an apostle, (not of men, neither by man, but by Jesus Christ).\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul say he was amazed about?",
+        "option_a": "That the Galatians were turning to a different gospel",
+        "option_b": "That they had built a new church",
+        "option_c": "That they were growing so fast",
+        "option_d": "That they had sent him a gift",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:6 — \"I marvel that ye are so soon removed from him that called you into the grace of Christ unto another gospel.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who did Paul say taught him the gospel?",
+        "option_a": "Jesus Christ",
+        "option_b": "The other apostles",
+        "option_c": "His teachers",
+        "option_d": "His parents",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:12 — \"I neither received it of man, neither was I taught it, but by the revelation of Jesus Christ.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Paul say should happen to anyone who preaches a different gospel?",
+        "option_a": "Let him be accursed (anathema)",
+        "option_b": "Let him be forgiven",
+        "option_c": "Let him be corrected gently",
+        "option_d": "Let him be sent away",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:8 — \"though we, or an angel from heaven, preach any other gospel… let him be accursed.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What was Paul's former life in Judaism characterized by?",
+        "option_a": "Persecuting the church of God and wasting it",
+        "option_b": "Quietly studying the Scriptures",
+        "option_c": "Traveling to foreign nations",
+        "option_d": "Serving in the temple",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:13 — \"I persecuted the church of God, and wasted it.\""
+      },
+      {
+        "question_number": 3,
+        "question": "When did God set Paul apart according to this chapter?",
+        "option_a": "From his mother's womb",
+        "option_b": "From the day of his baptism",
+        "option_c": "From the day he met Jesus on the road",
+        "option_d": "From the day he entered the synagogue",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:15 — \"God, who separated me from my mother's womb, and called me by his grace.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Where did Paul go after his conversion instead of going to Jerusalem?",
+        "option_a": "Arabia, and then back to Damascus",
+        "option_b": "Egypt and then Rome",
+        "option_c": "Antioch and then Ephesus",
+        "option_d": "Tarsus and then Corinth",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:17 — \"I went into Arabia, and returned again unto Damascus.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Which apostle did Paul visit when he finally went to Jerusalem?",
+        "option_a": "Peter (Cephas), and he also saw James the Lord's brother",
+        "option_b": "John and Andrew",
+        "option_c": "Matthew and Bartholomew",
+        "option_d": "Thomas and Philip",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:18-19 — \"I went up to Jerusalem to see Peter… But other of the apostles saw I none, save James the Lord's brother.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul establish his apostolic authority in the opening verse?",
+        "option_a": "By stating his apostleship is not from men nor through man, but through Jesus Christ and God the Father who raised Him",
+        "option_b": "By listing the miracles he performed",
+        "option_c": "By citing his training under Gamaliel",
+        "option_d": "By referencing his letter of recommendation from Jerusalem",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:1 — \"Paul, an apostle, (not of men, neither by man, but by Jesus Christ, and God the Father, who raised him from the dead).\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say Christ gave Himself for?",
+        "option_a": "To deliver us from this present evil world, according to the will of God and our Father",
+        "option_b": "To establish an earthly kingdom in Israel",
+        "option_c": "To abolish all forms of government",
+        "option_d": "To give mankind wealth and prosperity",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:4 — \"Who gave himself for our sins, that he might deliver us from this present evil world, according to the will of God and our Father.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How quickly does Paul say the Galatians were removed from the gospel of grace?",
+        "option_a": "\"So soon\" — emphasizing the rapid nature of their departure",
+        "option_b": "After many years of faithful service",
+        "option_c": "Gradually over a generation",
+        "option_d": "Only after Paul left the region",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:6 — \"I marvel that ye are so soon removed from him that called you into the grace of Christ unto another gospel.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What rhetorical question does Paul ask about seeking to please men?",
+        "option_a": "\"If I yet pleased men, I should not be the servant of Christ\"",
+        "option_b": "\"Can a man serve two masters at once?\"",
+        "option_c": "\"What profit is there in gaining the whole world?\"",
+        "option_d": "\"Who among you is without sin?\"",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:10 — \"for if I yet pleased men, I should not be the servant of Christ.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul describe his zeal in Judaism compared to his contemporaries?",
+        "option_a": "He profited in the Jews' religion above many his equals, being exceedingly zealous of the traditions of his fathers",
+        "option_b": "He was the youngest rabbi ever ordained",
+        "option_c": "He had memorized the entire Torah by age twelve",
+        "option_d": "He was recognized as the chief Pharisee by the Sanhedrin",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:14 — \"profited in the Jews' religion above many my equals in mine own nation, being more exceedingly zealous of the traditions of my fathers.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What was God's purpose in revealing His Son in Paul?",
+        "option_a": "That Paul might preach Him among the heathen (Gentiles)",
+        "option_b": "That Paul might reform the Jewish temple system",
+        "option_c": "That Paul might write the entire New Testament",
+        "option_d": "That Paul might become the high priest of Israel",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:16 — \"To reveal his Son in me, that I might preach him among the heathen.\""
+      },
+      {
+        "question_number": 7,
+        "question": "How long was it before Paul went up to Jerusalem after his conversion?",
+        "option_a": "Three years",
+        "option_b": "Forty days",
+        "option_c": "Seven years",
+        "option_d": "One year",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:18 — \"Then after three years I went up to Jerusalem to see Peter.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What was the reaction of the churches in Judaea regarding Paul?",
+        "option_a": "They glorified God in him, having heard that their former persecutor now preached the faith he once destroyed",
+        "option_b": "They were suspicious and refused to meet him",
+        "option_c": "They sent a delegation to test his theology",
+        "option_d": "They immediately appointed him as their bishop",
+        "correct_answer": "a",
+        "explanation": "Galatians 1:23-24 — \"He which persecuted us in times past now preacheth the faith which once he destroyed. And they glorified God in me.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who did Paul take with him to Jerusalem?",
+        "option_a": "Barnabas and Titus",
+        "option_b": "Peter and John",
+        "option_c": "Timothy and Silas",
+        "option_d": "Luke and Mark",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:1 — \"I went up again to Jerusalem with Barnabas, and took Titus with me also.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul say we are not saved by?",
+        "option_a": "The works of the law",
+        "option_b": "Being kind to others",
+        "option_c": "Going to church",
+        "option_d": "Giving money",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:16 — \"a man is not justified by the works of the law, but by the faith of Jesus Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who does Paul say now lives in him?",
+        "option_a": "Christ",
+        "option_b": "Moses",
+        "option_c": "Abraham",
+        "option_d": "An angel",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:20 — \"I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why did Paul rebuke Peter (Cephas) to his face in Antioch?",
+        "option_a": "Because Peter withdrew from eating with Gentiles when Jewish believers arrived from James",
+        "option_b": "Because Peter denied knowing Christ",
+        "option_c": "Because Peter refused to preach to the Gentiles",
+        "option_d": "Because Peter was teaching false doctrine",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:11-12 — \"I withstood him to the face, because he was to be blamed. For before that certain came from James, he did eat with the Gentiles: but when they were come, he withdrew.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What three pillars of the church gave Paul the right hand of fellowship?",
+        "option_a": "James, Cephas (Peter), and John",
+        "option_b": "Matthew, Mark, and Luke",
+        "option_c": "Andrew, Philip, and Thomas",
+        "option_d": "Barnabas, Silas, and Timothy",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:9 — \"James, Cephas, and John, who seemed to be pillars… gave to me and Barnabas the right hands of fellowship.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Was Titus compelled to be circumcised even though he was a Greek?",
+        "option_a": "No, he was not compelled",
+        "option_b": "Yes, James required it",
+        "option_c": "Yes, but only symbolically",
+        "option_d": "It is not mentioned",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:3 — \"But neither Titus, who was with me, being a Greek, was compelled to be circumcised.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did the Jerusalem apostles ask Paul to remember?",
+        "option_a": "The poor, which Paul was also eager to do",
+        "option_b": "The temple sacrifices",
+        "option_c": "The Sabbath laws",
+        "option_d": "The feast of Passover",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:10 — \"Only they would that we should remember the poor; the same which I also was forward to do.\""
+      },
+      {
+        "question_number": 5,
+        "question": "According to Galatians 2:20, how does Paul now live in the flesh?",
+        "option_a": "By the faith of the Son of God, who loved him and gave Himself for him",
+        "option_b": "By keeping the law of Moses perfectly",
+        "option_c": "By following the traditions of the elders",
+        "option_d": "By performing miracles and signs",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:20 — \"the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How many years after his first visit did Paul go up to Jerusalem again?",
+        "option_a": "Fourteen years",
+        "option_b": "Seven years",
+        "option_c": "Three years",
+        "option_d": "Twenty years",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:1 — \"Then fourteen years after I went up again to Jerusalem.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why did Paul privately communicate the gospel he preached among the Gentiles to the leaders?",
+        "option_a": "Lest by any means he should run, or had run, in vain",
+        "option_b": "Because he doubted his own message",
+        "option_c": "Because the leaders demanded an accounting",
+        "option_d": "Because he needed their financial support",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:2 — \"lest by any means I should run, or had run, in vain.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who does Paul describe as \"false brethren unawares brought in\"?",
+        "option_a": "Those who came in privately to spy out the liberty believers had in Christ Jesus, to bring them into bondage",
+        "option_b": "Roman spies infiltrating the church",
+        "option_c": "Former pagans who had not truly converted",
+        "option_d": "Tax collectors working for Rome",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:4 — \"false brethren unawares brought in, who came in privily to spy out our liberty which we have in Christ Jesus, that they might bring us into bondage.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about those who \"seemed to be somewhat\" (the pillars)?",
+        "option_a": "Whatever they were, it makes no matter — God accepteth no man's person",
+        "option_b": "They were the highest authority and must be obeyed",
+        "option_c": "They were less knowledgeable than Paul",
+        "option_d": "They had lost their apostolic authority",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:6 — \"But of these who seemed to be somewhat, (whatsoever they were, it maketh no matter to me: God accepteth no man's person).\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul distinguish his ministry from Peter's?",
+        "option_a": "The gospel of the uncircumcision was committed to Paul, as the gospel of the circumcision was to Peter",
+        "option_b": "Paul was for the educated and Peter for the uneducated",
+        "option_c": "Paul worked in cities while Peter worked in rural areas",
+        "option_d": "Paul preached grace while Peter preached law",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:7 — \"the gospel of the uncircumcision was committed unto me, as the gospel of the circumcision was unto Peter.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say Peter's dissimulation led even Barnabas to do?",
+        "option_a": "Barnabas was also carried away with their dissimulation (hypocrisy)",
+        "option_b": "Barnabas left the church entirely",
+        "option_c": "Barnabas confronted the Jerusalem council",
+        "option_d": "Barnabas returned to Cyprus permanently",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:13 — \"And the other Jews dissembled likewise with him; insomuch that Barnabas also was carried away with their dissimulation.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What logical argument does Paul make in 2:17-18 about being found sinners?",
+        "option_a": "If seeking justification by Christ makes us sinners, that does not make Christ a minister of sin — for rebuilding what was destroyed makes one a transgressor",
+        "option_b": "If we obey the law we cannot sin",
+        "option_c": "If Christ died for all then all are automatically saved",
+        "option_d": "If the Gentiles keep the law they become Jews",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:17-18 — \"is therefore Christ the minister of sin? God forbid. For if I build again the things which I destroyed, I make myself a transgressor.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say about the relationship between righteousness and the law?",
+        "option_a": "\"If righteousness come by the law, then Christ is dead in vain\"",
+        "option_b": "\"The law and grace work together for righteousness\"",
+        "option_c": "\"Righteousness by law was once valid but is now expired\"",
+        "option_d": "\"The law prepares us to receive righteousness by works\"",
+        "correct_answer": "a",
+        "explanation": "Galatians 2:21 — \"if righteousness come by the law, then Christ is dead in vain.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who does Paul say was a man of faith in the Old Testament?",
+        "option_a": "Abraham",
+        "option_b": "Moses",
+        "option_c": "David",
+        "option_d": "Elijah",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:6 — \"Even as Abraham believed God, and it was accounted to him for righteousness.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Are we all one in Christ Jesus?",
+        "option_a": "Yes — there is neither Jew nor Greek, bond nor free, male nor female",
+        "option_b": "No, some are more important",
+        "option_c": "Only if we follow the law",
+        "option_d": "Only in heaven, not on earth",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:28 — \"There is neither Jew nor Greek… for ye are all one in Christ Jesus.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul call the Galatians for turning away from faith?",
+        "option_a": "Foolish",
+        "option_b": "Wicked",
+        "option_c": "Lost",
+        "option_d": "Lazy",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:1 — \"O foolish Galatians, who hath bewitched you.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How did Paul say the Galatians received the Spirit?",
+        "option_a": "By the hearing of faith, not by the works of the law",
+        "option_b": "By being circumcised",
+        "option_c": "By performing sacrifices",
+        "option_d": "By studying the Torah",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:2 — \"Received ye the Spirit by the works of the law, or by the hearing of faith?\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say the law was until Christ came?",
+        "option_a": "A schoolmaster to bring us unto Christ",
+        "option_b": "A permanent guide for all believers",
+        "option_c": "A set of suggestions",
+        "option_d": "An obstacle to faith",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:24 — \"the law was our schoolmaster to bring us unto Christ, that we might be justified by faith.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How many years before the law was the promise given to Abraham?",
+        "option_a": "Four hundred and thirty years",
+        "option_b": "Two hundred years",
+        "option_c": "One thousand years",
+        "option_d": "Forty years",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:17 — \"the covenant, that was confirmed before of God in Christ, the law, which was four hundred and thirty years after, cannot disannul.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Who are the children of Abraham according to Paul?",
+        "option_a": "Those who are of faith",
+        "option_b": "Only the biological descendants of Abraham",
+        "option_c": "Only those who keep the law",
+        "option_d": "Only the twelve tribes of Israel",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:7 — \"they which are of faith, the same are the children of Abraham.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What curse does Paul say Christ redeemed us from?",
+        "option_a": "The curse of the law, being made a curse for us",
+        "option_b": "The curse of physical death",
+        "option_c": "The curse of poverty",
+        "option_d": "The curse placed on Adam's ground",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:13 — \"Christ hath redeemed us from the curse of the law, being made a curse for us.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What Old Testament quote does Paul use to prove that God justifies the Gentiles by faith?",
+        "option_a": "\"In thee shall all nations be blessed\" (from Genesis 12:3)",
+        "option_b": "\"The Lord is my shepherd\" (Psalm 23:1)",
+        "option_c": "\"The just shall live by faith\" (Habakkuk 2:4) — though he quotes this too",
+        "option_d": "\"I will make of thee a great nation\" (Genesis 12:2)",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:8 — \"the scripture, foreseeing that God would justify the heathen through faith, preached before the gospel unto Abraham, saying, In thee shall all nations be blessed.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What Deuteronomy passage does Paul quote about those under the law?",
+        "option_a": "\"Cursed is every one that continueth not in all things which are written in the book of the law to do them\" (Deut 27:26)",
+        "option_b": "\"Hear, O Israel: The Lord our God is one Lord\" (Deut 6:4)",
+        "option_c": "\"Thou shalt love the Lord thy God with all thine heart\" (Deut 6:5)",
+        "option_d": "\"Man shall not live by bread alone\" (Deut 8:3)",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:10 — \"Cursed is every one that continueth not in all things which are written in the book of the law to do them.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How was Christ's hanging on a tree connected to the law's curse?",
+        "option_a": "Deuteronomy 21:23 says \"Cursed is every one that hangeth on a tree,\" and Christ bore this curse for us",
+        "option_b": "Trees were sacred in Jewish law",
+        "option_c": "The tree symbolized the tree of knowledge in Eden",
+        "option_d": "Roman law required execution on trees",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:13 — \"Christ hath redeemed us from the curse of the law, being made a curse for us: for it is written, Cursed is every one that hangeth on a tree.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What distinction does Paul make about God's promise using the word \"seed\" (singular)?",
+        "option_a": "The promise was to Abraham's \"seed\" (singular, meaning Christ), not \"seeds\" (plural, meaning many)",
+        "option_b": "The word seed refers to the nation of Israel collectively",
+        "option_c": "Seed means the church as the new Israel",
+        "option_d": "Seed refers only to Isaac, Abraham's son",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:16 — \"He saith not, And to seeds, as of many; but as of one, And to thy seed, which is Christ.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Through whom was the law ordained, according to Paul?",
+        "option_a": "By angels in the hand of a mediator (Moses)",
+        "option_b": "Directly by God without any mediator",
+        "option_c": "Through the prophets over many generations",
+        "option_d": "Through the high priest Aaron",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:19 — \"it was ordained by angels in the hand of a mediator.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Is the law against the promises of God, according to Paul?",
+        "option_a": "God forbid — if a law could have given life, righteousness would have come by the law",
+        "option_b": "Yes, the law contradicts grace entirely",
+        "option_c": "Only in certain circumstances",
+        "option_d": "The law fulfills the promises",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:21 — \"Is the law then against the promises of God? God forbid: for if there had been a law given which could have given life, verily righteousness should have been by the law.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul say the Scripture did before faith came?",
+        "option_a": "It concluded all under sin, that the promise by faith of Jesus Christ might be given to them that believe",
+        "option_b": "It provided a way of salvation through works",
+        "option_c": "It divided humanity into chosen and unchosen",
+        "option_d": "It established the priesthood as mediators",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:22 — \"the scripture hath concluded all under sin, that the promise by faith of Jesus Christ might be given to them that believe.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say about the identity of those who have been baptized into Christ?",
+        "option_a": "They have put on Christ — neither Jew nor Greek, bond nor free, male nor female, all one in Christ",
+        "option_b": "They have become spiritual Jews",
+        "option_c": "They have transcended all earthly relationships",
+        "option_d": "They no longer have individual identities",
+        "correct_answer": "a",
+        "explanation": "Galatians 3:27-28 — \"as many of you as have been baptized into Christ have put on Christ. There is neither Jew nor Greek… for ye are all one in Christ Jesus.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who did God send to redeem those under the law?",
+        "option_a": "His Son, born of a woman",
+        "option_b": "An angel from heaven",
+        "option_c": "A mighty warrior",
+        "option_d": "A wise teacher",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:4 — \"God sent forth his Son, made of a woman, made under the law.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say believers can call God?",
+        "option_a": "Abba, Father",
+        "option_b": "Master",
+        "option_c": "Lord of Hosts",
+        "option_d": "The Almighty",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:6 — \"God hath sent forth the Spirit of his Son into your hearts, crying, Abba, Father.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Paul compared two women from the Bible to two covenants. Who were they?",
+        "option_a": "Hagar and Sarah",
+        "option_b": "Ruth and Naomi",
+        "option_c": "Rachel and Leah",
+        "option_d": "Eve and Mary",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:22-24 — Abraham had two sons, one by a bondmaid (Hagar) and one by a freewoman (Sarah), which are an allegory of two covenants."
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say believers are no longer, but instead have become?",
+        "option_a": "No longer servants but sons, and heirs of God through Christ",
+        "option_b": "No longer sinners but saints by works",
+        "option_c": "No longer human but spiritual beings",
+        "option_d": "No longer mortal but immortal",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:7 — \"thou art no more a servant, but a son; and if a son, then an heir of God through Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul fear about the Galatians in verse 11?",
+        "option_a": "That he has laboured upon them in vain",
+        "option_b": "That they will be persecuted",
+        "option_c": "That they will lose their possessions",
+        "option_d": "That they will be exiled",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:11 — \"I am afraid of you, lest I have bestowed upon you labour in vain.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say the Galatians would have done for him when he first preached to them?",
+        "option_a": "Plucked out their own eyes and given them to him",
+        "option_b": "Built him a house",
+        "option_c": "Given him all their money",
+        "option_d": "Made him their king",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:15 — \"if it had been possible, ye would have plucked out your own eyes, and have given them to me.\""
+      },
+      {
+        "question_number": 4,
+        "question": "In Paul's allegory, what does Hagar represent?",
+        "option_a": "Mount Sinai in Arabia, which genders to bondage (the old covenant of law)",
+        "option_b": "The promised land of Canaan",
+        "option_c": "The new Jerusalem",
+        "option_d": "The church at Antioch",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:24-25 — \"the one from the mount Sinai, which gendereth to bondage, which is Agar. For this Agar is mount Sinai in Arabia.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about the Jerusalem above?",
+        "option_a": "She is free and is the mother of us all",
+        "option_b": "She is bound by the law of Moses",
+        "option_c": "She is reserved only for Israel",
+        "option_d": "She has not yet been built",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:26 — \"But Jerusalem which is above is free, which is the mother of us all.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul mean by \"the fulness of the time\" in verse 4?",
+        "option_a": "The divinely appointed moment when God sent His Son, born of a woman, born under the law, to redeem those under the law",
+        "option_b": "The end of the world",
+        "option_c": "The completion of the Old Testament canon",
+        "option_d": "The moment the Roman Empire reached full power",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:4 — \"when the fulness of the time was come, God sent forth his Son, made of a woman, made under the law.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What are the \"weak and beggarly elements\" Paul warns the Galatians about returning to?",
+        "option_a": "The elementary principles of the world — observing days, months, times, and years as religious obligations",
+        "option_b": "Pagan idol worship",
+        "option_c": "Greek philosophy",
+        "option_d": "Roman government service",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:9-10 — \"how turn ye again to the weak and beggarly elements… Ye observe days, and months, and times, and years.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What physical infirmity does Paul reference as the occasion for first preaching to the Galatians?",
+        "option_a": "An infirmity of the flesh, which the Galatians did not despise or reject but received him as an angel of God",
+        "option_b": "Blindness from his Damascus road experience",
+        "option_c": "A broken leg from being stoned",
+        "option_d": "A fever he contracted at sea",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:13-14 — \"through infirmity of the flesh I preached the gospel unto you at the first. And my temptation which was in my flesh ye despised not, nor rejected.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say the false teachers want to do to the Galatians?",
+        "option_a": "Exclude them so the Galatians would zealously seek the false teachers instead",
+        "option_b": "Force them to pay temple taxes",
+        "option_c": "Make them leave their homes",
+        "option_d": "Turn them over to the Roman authorities",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:17 — \"They zealously affect you, but not well; yea, they would exclude you, that ye might affect them.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul compare his anguish for the Galatians to?",
+        "option_a": "Travailing in birth again until Christ be formed in them",
+        "option_b": "A shepherd searching for lost sheep",
+        "option_c": "A farmer waiting for harvest",
+        "option_d": "A soldier preparing for battle",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:19 — \"My little children, of whom I travail in birth again until Christ be formed in you.\""
+      },
+      {
+        "question_number": 6,
+        "question": "In the Hagar/Sarah allegory, what does Paul say those born after the flesh did to those born after the Spirit?",
+        "option_a": "He that was born after the flesh persecuted him that was born after the Spirit",
+        "option_b": "They lived in peace together",
+        "option_c": "They divided the inheritance equally",
+        "option_d": "They both served in the temple",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:29 — \"as then he that was born after the flesh persecuted him that was born after the Spirit, even so it is now.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What Isaiah prophecy does Paul quote about the barren woman?",
+        "option_a": "\"Rejoice, thou barren that bearest not; break forth and cry, thou that travailest not: for the desolate hath many more children than she which hath an husband\" (Isaiah 54:1)",
+        "option_b": "\"A virgin shall conceive and bear a son\" (Isaiah 7:14)",
+        "option_c": "\"Unto us a child is born\" (Isaiah 9:6)",
+        "option_d": "\"The wilderness shall blossom as the rose\" (Isaiah 35:1)",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:27 — \"Rejoice, thou barren that bearest not; break forth and cry, thou that travailest not.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does the Scripture say to do with the bondwoman and her son?",
+        "option_a": "\"Cast out the bondwoman and her son: for the son of the bondwoman shall not be heir with the son of the freewoman\"",
+        "option_b": "\"Let them dwell together in peace\"",
+        "option_c": "\"Give the bondwoman her freedom\"",
+        "option_d": "\"Divide the inheritance between them\"",
+        "correct_answer": "a",
+        "explanation": "Galatians 4:30 — \"Cast out the bondwoman and her son: for the son of the bondwoman shall not be heir with the son of the freewoman.\""
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say Christ has made us?",
+        "option_a": "Free",
+        "option_b": "Rich",
+        "option_c": "Powerful",
+        "option_d": "Famous",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:1 — \"Stand fast therefore in the liberty wherewith Christ hath made us free.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What is one fruit of the Spirit Paul lists?",
+        "option_a": "Love",
+        "option_b": "Anger",
+        "option_c": "Jealousy",
+        "option_d": "Selfishness",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:22 — \"the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say the whole law is fulfilled in?",
+        "option_a": "\"Thou shalt love thy neighbour as thyself\"",
+        "option_b": "\"Keep the Sabbath holy\"",
+        "option_c": "\"Do not steal\"",
+        "option_d": "\"Honor thy father and mother\"",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:14 — \"all the law is fulfilled in one word, even in this; Thou shalt love thy neighbour as thyself.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about those who seek justification by law?",
+        "option_a": "They are fallen from grace",
+        "option_b": "They are doing the right thing",
+        "option_c": "They are almost saved",
+        "option_d": "They are the strongest believers",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:4 — \"whosoever of you are justified by the law; ye are fallen from grace.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about circumcision in Christ Jesus?",
+        "option_a": "Neither circumcision availeth any thing, nor uncircumcision; but faith which worketh by love",
+        "option_b": "Circumcision is still required for all believers",
+        "option_c": "Only uncircumcision matters now",
+        "option_d": "Both are equally valid paths to God",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:6 — \"in Jesus Christ neither circumcision availeth any thing, nor uncircumcision; but faith which worketh by love.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What metaphor does Paul use about false teaching spreading?",
+        "option_a": "\"A little leaven leaveneth the whole lump\"",
+        "option_b": "\"One bad apple spoils the barrel\"",
+        "option_c": "\"A spark starts a forest fire\"",
+        "option_d": "\"One drop poisons the well\"",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:9 — \"A little leaven leaveneth the whole lump.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What are the flesh and the Spirit described as?",
+        "option_a": "Contrary to one another, so you cannot do the things you would",
+        "option_b": "Complementary forces working together",
+        "option_c": "The same thing viewed differently",
+        "option_d": "Temporary and permanent aspects of life",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:17 — \"the flesh lusteth against the Spirit, and the Spirit against the flesh: and these are contrary the one to the other.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How many fruits of the Spirit are listed in Galatians 5:22-23?",
+        "option_a": "Nine: love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance",
+        "option_b": "Seven",
+        "option_c": "Twelve",
+        "option_d": "Five",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:22-23 — \"love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say happens to a person who becomes circumcised for justification?",
+        "option_a": "Christ shall profit him nothing, and he is a debtor to do the whole law",
+        "option_b": "He gains extra merit with God",
+        "option_c": "He fulfills the Abrahamic covenant",
+        "option_d": "He shows respect for Jewish heritage",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:2-3 — \"if ye be circumcised, Christ shall profit you nothing… he is a debtor to do the whole law.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say believers through the Spirit wait for?",
+        "option_a": "The hope of righteousness by faith",
+        "option_b": "The physical return of Christ to Jerusalem",
+        "option_c": "The restoration of the temple",
+        "option_d": "The millennial kingdom",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:5 — \"we through the Spirit wait for the hope of righteousness by faith.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say freedom in Christ should not be used as?",
+        "option_a": "An occasion to the flesh; but by love serve one another",
+        "option_b": "A reason to stop attending synagogue",
+        "option_c": "A justification for breaking civil laws",
+        "option_d": "A basis for spiritual pride",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:13 — \"use not liberty for an occasion to the flesh; but by love serve one another.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What warning does Paul give about the Galatians biting and devouring one another?",
+        "option_a": "Take heed that ye be not consumed one of another",
+        "option_b": "You will be excommunicated",
+        "option_c": "God will send a famine",
+        "option_d": "The Romans will punish you",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:15 — \"if ye bite and devour one another, take heed that ye be not consumed one of another.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about those who are led by the Spirit?",
+        "option_a": "They are not under the law",
+        "option_b": "They must still keep all ceremonial laws",
+        "option_c": "They will never face temptation",
+        "option_d": "They are guaranteed earthly prosperity",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:18 — \"if ye be led of the Spirit, ye are not under the law.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Which of these is NOT listed among the works of the flesh in Galatians 5:19-21?",
+        "option_a": "Slothfulness",
+        "option_b": "Adultery",
+        "option_c": "Witchcraft",
+        "option_d": "Envyings",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:19-21 lists adultery, fornication, uncleanness, lasciviousness, idolatry, witchcraft, hatred, variance, emulations, wrath, strife, seditions, heresies, envyings, murders, drunkenness, revellings — slothfulness is not in this list."
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul say about the law in relation to the fruit of the Spirit?",
+        "option_a": "\"Against such there is no law\"",
+        "option_b": "\"The law requires all of these\"",
+        "option_c": "\"These replace the need for law\"",
+        "option_d": "\"The law produces these fruits\"",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:23 — \"against such there is no law.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say those who are Christ's have done?",
+        "option_a": "Crucified the flesh with the affections and lusts",
+        "option_b": "Memorized the entire Torah",
+        "option_c": "Been baptized in the Jordan River",
+        "option_d": "Made a pilgrimage to Jerusalem",
+        "correct_answer": "a",
+        "explanation": "Galatians 5:24 — \"they that are Christ's have crucified the flesh with the affections and lusts.\""
+      }
+    ]
+  },
+  "6": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say we should not grow tired of doing?",
+        "option_a": "Good things (well doing)",
+        "option_b": "Eating",
+        "option_c": "Sleeping",
+        "option_d": "Playing",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:9 — \"let us not be weary in well doing: for in due season we shall reap, if we faint not.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say we should help carry for each other?",
+        "option_a": "Burdens",
+        "option_b": "Swords",
+        "option_c": "Books",
+        "option_d": "Food",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:2 — \"Bear ye one another's burdens, and so fulfil the law of Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say matters most — not circumcision but what?",
+        "option_a": "A new creature (creation)",
+        "option_b": "Following rules",
+        "option_c": "Being rich",
+        "option_d": "Being strong",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:15 — \"in Christ Jesus neither circumcision availeth any thing, nor uncircumcision, but a new creature.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about a person who thinks he is something when he is nothing?",
+        "option_a": "He deceiveth himself",
+        "option_b": "He is truly great",
+        "option_c": "He will be humbled by God",
+        "option_d": "He is a good leader",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:3 — \"if a man think himself to be something, when he is nothing, he deceiveth himself.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What principle of sowing and reaping does Paul teach?",
+        "option_a": "Whatsoever a man soweth, that shall he also reap — flesh reaps corruption, Spirit reaps life everlasting",
+        "option_b": "Good farmers always get good harvests",
+        "option_c": "Hard work guarantees success",
+        "option_d": "Money planted grows into more money",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:7-8 — \"whatsoever a man soweth, that shall he also reap. For he that soweth to his flesh shall of the flesh reap corruption; but he that soweth to the Spirit shall of the Spirit reap life everlasting.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say those who are taught in the word should do?",
+        "option_a": "Share all good things with him that teaches",
+        "option_b": "Keep the knowledge to themselves",
+        "option_c": "Only learn from scrolls, not people",
+        "option_d": "Test every teacher with signs",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:6 — \"Let him that is taught in the word communicate unto him that teacheth in all good things.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Why does Paul say certain people want the Galatians to be circumcised?",
+        "option_a": "So they can boast in the Galatians' flesh and avoid persecution for the cross of Christ",
+        "option_b": "Because circumcision brings health benefits",
+        "option_c": "Because Moses commanded it for all nations",
+        "option_d": "Because it shows dedication to God",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:12-13 — \"they constrain you to be circumcised; only lest they should suffer persecution for the cross of Christ… that they may glory in your flesh.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about restoring someone caught in a fault?",
+        "option_a": "Those who are spiritual should restore such a one in the spirit of meekness, considering themselves lest they also be tempted",
+        "option_b": "They should be immediately expelled from the church",
+        "option_c": "They should be publicly shamed",
+        "option_d": "Only apostles can restore fallen believers",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:1 — \"if a man be overtaken in a fault, ye which are spiritual, restore such an one in the spirit of meekness; considering thyself, lest thou also be tempted.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul reconcile \"bear ye one another's burdens\" (6:2) with \"every man shall bear his own burden\" (6:5)?",
+        "option_a": "The Greek uses different words: \"bare\" (heavy, crushing loads to share) vs \"phortion\" (individual responsibility/load); community support and personal accountability coexist",
+        "option_b": "Paul contradicts himself",
+        "option_c": "Verse 5 is about physical burdens while verse 2 is spiritual",
+        "option_d": "Verse 2 applies to leaders and verse 5 to laypeople",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:2 uses \"bare\" (heavy burdens) suggesting shared loads, while 6:5 uses \"phortion\" (a soldier's pack) suggesting individual responsibility."
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say a man should do instead of comparing himself with others?",
+        "option_a": "\"Let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another\"",
+        "option_b": "\"Compare yourself only to Christ\"",
+        "option_c": "\"Seek the approval of the apostles\"",
+        "option_d": "\"Measure your faith by your giving\"",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:4 — \"let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul mean by \"God is not mocked\"?",
+        "option_a": "God cannot be deceived — the principle of sowing and reaping is an unbreakable divine law",
+        "option_b": "God punishes those who laugh at Him",
+        "option_c": "God does not tolerate jokes in worship",
+        "option_d": "God will destroy mockers immediately",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:7 — \"Be not deceived; God is not mocked: for whatsoever a man soweth, that shall he also reap.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about doing good to all men?",
+        "option_a": "\"As we have therefore opportunity, let us do good unto all men, especially unto them who are of the household of faith\"",
+        "option_b": "\"Only help fellow believers\"",
+        "option_c": "\"Help only those who can repay you\"",
+        "option_d": "\"Give equally to everyone without distinction\"",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:10 — \"as we have therefore opportunity, let us do good unto all men, especially unto them who are of the household of faith.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is notable about how Paul closes this letter?",
+        "option_a": "He writes the closing in his own hand with \"large letters,\" possibly due to an eye ailment",
+        "option_b": "He seals it with his apostolic ring",
+        "option_c": "He has Timothy sign as co-author",
+        "option_d": "He includes a hymn",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:11 — \"Ye see how large a letter I have written unto you with mine own hand.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What is the only thing Paul says he will glory (boast) in?",
+        "option_a": "The cross of our Lord Jesus Christ, by whom the world is crucified unto him and he unto the world",
+        "option_b": "His apostolic authority",
+        "option_c": "The number of churches he planted",
+        "option_d": "His sufferings for the gospel",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:14 — \"God forbid that I should glory, save in the cross of our Lord Jesus Christ, by whom the world is crucified unto me, and I unto the world.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul call the rule of being a new creature in Christ?",
+        "option_a": "He says \"as many as walk according to this rule, peace be on them, and mercy, and upon the Israel of God\"",
+        "option_b": "\"This is the first and greatest commandment\"",
+        "option_c": "\"This is the way of righteousness\"",
+        "option_d": "\"This is the mark of true discipleship\"",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:15-16 — \"in Christ Jesus neither circumcision availeth any thing… but a new creature. And as many as walk according to this rule, peace be on them… and upon the Israel of God.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say about the marks on his body?",
+        "option_a": "\"I bear in my body the marks of the Lord Jesus\" — referring to scars from persecution",
+        "option_b": "He had tattoos of Christian symbols",
+        "option_c": "He bore the stigmata miraculously",
+        "option_d": "He had marks from Jewish circumcision",
+        "correct_answer": "a",
+        "explanation": "Galatians 6:17 — \"I bear in my body the marks of the Lord Jesus.\""
+      }
+    ]
+  }
+}

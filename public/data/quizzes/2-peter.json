@@ -1,0 +1,506 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote the book of 2 Peter?",
+        "option_a": "Simon Peter",
+        "option_b": "Paul",
+        "option_c": "John",
+        "option_d": "James",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:1 — \"Simon Peter, a servant and an apostle of Jesus Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Peter say we should add to our faith?",
+        "option_a": "Virtue, knowledge, temperance, patience, godliness, brotherly kindness, and charity",
+        "option_b": "Money and possessions",
+        "option_c": "Buildings and land",
+        "option_d": "Horses and chariots",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:5-7 lists the virtues to add to faith."
+      },
+      {
+        "question_number": 3,
+        "question": "Where did Peter hear God's voice about Jesus?",
+        "option_a": "On the holy mount (mountain)",
+        "option_b": "In the temple",
+        "option_c": "At the river",
+        "option_d": "In a cave",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:18 — \"this voice which came from heaven we heard, when we were with him in the holy mount.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What has God's divine power given us?",
+        "option_a": "All things that pertain unto life and godliness, through the knowledge of Him",
+        "option_b": "Wealth and political influence",
+        "option_c": "Physical strength and health",
+        "option_d": "Freedom from all suffering",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:3 — \"his divine power hath given unto us all things that pertain unto life and godliness.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What do the exceeding great and precious promises allow us to be?",
+        "option_a": "Partakers of the divine nature, having escaped the corruption in the world through lust",
+        "option_b": "Equal to God in power",
+        "option_c": "Free from all earthly responsibilities",
+        "option_d": "Immune to physical death",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:4 — \"ye might be partakers of the divine nature, having escaped the corruption that is in the world through lust.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did God the Father say about Jesus on the mount?",
+        "option_a": "\"This is my beloved Son, in whom I am well pleased\"",
+        "option_b": "\"This is my servant whom I have chosen\"",
+        "option_c": "\"This is the prophet like Moses\"",
+        "option_d": "\"This is the angel of the covenant\"",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:17 — \"This is my beloved Son, in whom I am well pleased.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Peter say about prophecy of Scripture?",
+        "option_a": "No prophecy of the scripture is of any private interpretation — holy men spake as moved by the Holy Ghost",
+        "option_b": "Anyone can interpret prophecy however they wish",
+        "option_c": "Prophecy is outdated and no longer relevant",
+        "option_d": "Only priests can understand prophecy",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:20-21 — \"no prophecy of the scripture is of any private interpretation. For the prophecy came not in old time by the will of man: but holy men of God spake as they were moved by the Holy Ghost.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Peter compare to a light shining in a dark place?",
+        "option_a": "The word of prophecy (Scripture), which believers do well to heed",
+        "option_b": "A candle in a window",
+        "option_c": "The moon at night",
+        "option_d": "A campfire in the wilderness",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:19 — \"We have also a more sure word of prophecy; whereunto ye do well that ye take heed, as unto a light that shineth in a dark place.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Peter say about those who lack the virtues listed in verses 5-7?",
+        "option_a": "He that lacketh these things is blind and cannot see afar off, and hath forgotten that he was purged from his old sins",
+        "option_b": "He is in danger of losing his salvation",
+        "option_c": "He will be excommunicated from the church",
+        "option_d": "He will not receive spiritual gifts",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:9 — \"he that lacketh these things is blind, and cannot see afar off, and hath forgotten that he was purged from his old sins.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Peter say about making your calling and election sure?",
+        "option_a": "Give diligence to make your calling and election sure, for if ye do these things ye shall never fall",
+        "option_b": "Election is automatic and requires no effort",
+        "option_c": "Only apostles need to make their calling sure",
+        "option_d": "Calling and election are the same thing",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:10 — \"give diligence to make your calling and election sure: for if ye do these things, ye shall never fall.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What will be ministered abundantly to those who practice these virtues?",
+        "option_a": "An entrance into the everlasting kingdom of our Lord and Saviour Jesus Christ",
+        "option_b": "Material blessings in this life",
+        "option_c": "Visions and revelations",
+        "option_d": "Authority over other believers",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:11 — \"so an entrance shall be ministered unto you abundantly into the everlasting kingdom of our Lord and Saviour Jesus Christ.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Why does Peter say he will always remind them of these things?",
+        "option_a": "Because he knows his departure (death) is soon, as the Lord Jesus Christ showed him",
+        "option_b": "Because they are forgetful by nature",
+        "option_c": "Because he has nothing else to write about",
+        "option_d": "Because other apostles asked him to",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:14 — \"Knowing that shortly I must put off this my tabernacle, even as our Lord Jesus Christ hath shewed me.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Peter claim about following \"cunningly devised fables\"?",
+        "option_a": "They did NOT follow cunningly devised fables — they were eyewitnesses of Christ's majesty",
+        "option_b": "They sometimes used fables for teaching purposes",
+        "option_c": "They inherited fables from Jewish tradition",
+        "option_d": "They created parables similar to fables",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:16 — \"we have not followed cunningly devised fables, when we made known unto you the power and coming of our Lord Jesus Christ, but were eyewitnesses of his majesty.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does \"the day star arise in your hearts\" refer to?",
+        "option_a": "The dawning of full understanding and hope in Christ, connected to His return — until prophetic Scripture's truth fully illuminates",
+        "option_b": "The morning star Venus appearing in the sky",
+        "option_c": "A literal star that appeared at Jesus' birth",
+        "option_d": "The sun rising each morning",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:19 — \"until the day dawn, and the day star arise in your hearts.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does 2 Peter 1:21 say about the origin of Scripture?",
+        "option_a": "Prophecy came not by the will of man, but holy men of God spake as they were moved by the Holy Ghost",
+        "option_b": "Prophets wrote from their own ideas and experiences",
+        "option_c": "Scripture was dictated word-for-word like dictation",
+        "option_d": "Prophets received visions but wrote in their own words without guidance",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:21 — \"the prophecy came not in old time by the will of man: but holy men of God spake as they were moved by the Holy Ghost.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Peter mean by putting off his \"tabernacle\"?",
+        "option_a": "His physical death — he compares his body to a tent that will be taken down, as Jesus Christ revealed to him",
+        "option_b": "Leaving his house in Jerusalem",
+        "option_c": "Resigning from church leadership",
+        "option_d": "Ending his missionary journeys",
+        "correct_answer": "a",
+        "explanation": "2 Peter 1:14 — \"Knowing that shortly I must put off this my tabernacle, even as our Lord Jesus Christ hath shewed me.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did Peter warn would come among believers?",
+        "option_a": "False teachers",
+        "option_b": "Friendly visitors",
+        "option_c": "Rich kings",
+        "option_d": "Wild animals",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:1 — \"there shall be false teachers among you.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who did God save when He destroyed the old world with a flood?",
+        "option_a": "Noah and seven others (eight people total)",
+        "option_b": "Only Noah",
+        "option_c": "Noah and twelve others",
+        "option_d": "Nobody survived",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:5 — \"saved Noah the eighth person, a preacher of righteousness.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What cities did God destroy as an example of punishment?",
+        "option_a": "Sodom and Gomorrha",
+        "option_b": "Jerusalem and Bethlehem",
+        "option_c": "Rome and Athens",
+        "option_d": "Babylon and Nineveh",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:6 — \"turning the cities of Sodom and Gomorrha into ashes condemned them.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What do the false teachers secretly bring in?",
+        "option_a": "Damnable heresies, even denying the Lord that bought them",
+        "option_b": "New worship songs",
+        "option_c": "Greek philosophy",
+        "option_d": "Pagan festivals",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:1 — \"who privily shall bring in damnable heresies, even denying the Lord that bought them.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What happened to the angels that sinned?",
+        "option_a": "God cast them down to hell (Tartarus) and delivered them into chains of darkness",
+        "option_b": "They were forgiven and restored",
+        "option_c": "They became human beings",
+        "option_d": "They were sent to rule other planets",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:4 — \"God spared not the angels that sinned, but cast them down to hell, and delivered them into chains of darkness.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What Old Testament man is called \"just Lot\" in this chapter?",
+        "option_a": "Lot, who was vexed with the filthy conversation of the wicked in Sodom",
+        "option_b": "Lot who chose the plains of Jordan greedily",
+        "option_c": "Lot who fled from Abraham",
+        "option_d": "Lot who built the tower of Babel",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:7-8 — \"delivered just Lot, vexed with the filthy conversation of the wicked.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What animal metaphor does Peter use for the false teachers?",
+        "option_a": "A dog returning to its own vomit and a washed sow returning to wallow in the mire",
+        "option_b": "Wolves in sheep's clothing",
+        "option_c": "Foxes in a henhouse",
+        "option_d": "Serpents in the grass",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:22 — \"The dog is turned to his own vomit again; and the sow that was washed to her wallowing in the mire.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Peter say false teachers promise others?",
+        "option_a": "Liberty (freedom), while they themselves are servants of corruption",
+        "option_b": "Salvation through good works",
+        "option_c": "Earthly riches and power",
+        "option_d": "Secret knowledge of the future",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:19 — \"While they promise them liberty, they themselves are the servants of corruption.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Peter say about God's ability to distinguish the righteous from the wicked?",
+        "option_a": "The Lord knoweth how to deliver the godly out of temptations and to reserve the unjust unto the day of judgment to be punished",
+        "option_b": "God treats the righteous and wicked exactly the same",
+        "option_c": "God will sort everyone out only at the final judgment",
+        "option_d": "God cannot distinguish between them in this life",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:9 — \"The Lord knoweth how to deliver the godly out of temptations, and to reserve the unjust unto the day of judgment to be punished.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Peter say the false teachers are not afraid to do?",
+        "option_a": "Speak evil of dignities (glorious ones), whereas angels who are greater in power do not bring a railing accusation before the Lord",
+        "option_b": "They are not afraid to preach in public",
+        "option_c": "They are not afraid to fast for many days",
+        "option_d": "They are not afraid to visit the sick",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:10-11 — \"not afraid to speak evil of dignities. Whereas angels, which are greater in power and might, bring not railing accusation against them before the Lord.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Peter describe these false teachers?",
+        "option_a": "Natural brute beasts, made to be taken and destroyed — they speak evil of things they understand not and shall utterly perish in their own corruption",
+        "option_b": "Educated philosophers who got slightly off track",
+        "option_c": "Former good teachers who became discouraged",
+        "option_d": "Young converts who need more training",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:12 — \"as natural brute beasts, made to be taken and destroyed, speak evil of the things that they understand not; and shall utterly perish in their own corruption.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Peter say about Balaam the son of Bosor?",
+        "option_a": "He loved the wages of unrighteousness but was rebuked by a dumb ass speaking with man's voice",
+        "option_b": "He was a faithful prophet who never sinned",
+        "option_c": "He cursed Israel successfully",
+        "option_d": "He repented and became a follower of God",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:15-16 — \"following the way of Balaam the son of Bosor, who loved the wages of unrighteousness; But was rebuked for his iniquity: the dumb ass speaking with man's voice forbad the madness of the prophet.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Peter say about those who knew Christ but turned back?",
+        "option_a": "The latter end is worse than the beginning — it would have been better for them not to have known the way of righteousness than to turn from the holy commandment",
+        "option_b": "They can easily return at any time",
+        "option_c": "They were never truly saved",
+        "option_d": "God understands and forgives automatically",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:20-21 — \"the latter end is worse with them than the beginning. For it had been better for them not to have known the way of righteousness.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What imagery does Peter use for the emptiness of false teachers?",
+        "option_a": "Wells without water and clouds carried with a tempest, to whom the mist of darkness is reserved for ever",
+        "option_b": "Bright stars that will eventually fade",
+        "option_c": "Strong trees that bear no fruit",
+        "option_d": "Beautiful birds that cannot sing",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:17 — \"These are wells without water, clouds that are carried with a tempest; to whom the mist of darkness is reserved for ever.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What great swelling words do the false teachers use?",
+        "option_a": "Great swelling words of vanity to allure through the lusts of the flesh those who had barely escaped from error",
+        "option_b": "Precise theological terminology",
+        "option_c": "Direct quotations from Scripture",
+        "option_d": "Simple parables about farming",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:18 — \"they speak great swelling words of vanity, they allure through the lusts of the flesh, through much wantonness, those that were clean escaped from them who live in error.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What principle does Peter state about slavery to sin?",
+        "option_a": "\"Of whom a man is overcome, of the same is he brought in bondage\" — whatever masters a person enslaves them",
+        "option_b": "Sin can never enslave a believer",
+        "option_c": "Only willful sin leads to bondage",
+        "option_d": "Bondage only applies to physical slavery",
+        "correct_answer": "a",
+        "explanation": "2 Peter 2:19 — \"of whom a man is overcome, of the same is he brought in bondage.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Peter say the Lord's return will come like?",
+        "option_a": "A thief in the night",
+        "option_b": "A loud trumpet",
+        "option_c": "A slow sunrise",
+        "option_d": "A gentle rain",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:10 — \"the day of the Lord will come as a thief in the night.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why does God wait patiently before coming back?",
+        "option_a": "He does not want anyone to perish but wants all to come to repentance",
+        "option_b": "He forgot about us",
+        "option_c": "He is too busy",
+        "option_d": "He changed His mind",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:9 — \"not willing that any should perish, but that all should come to repentance.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What new thing does Peter say believers are looking forward to?",
+        "option_a": "New heavens and a new earth where righteousness dwells",
+        "option_b": "A new temple",
+        "option_c": "A new king",
+        "option_d": "A new garden",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:13 — \"we, according to his promise, look for new heavens and a new earth, wherein dwelleth righteousness.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What do scoffers say in the last days?",
+        "option_a": "\"Where is the promise of His coming? All things continue as they were from the beginning\"",
+        "option_b": "\"We believe God will come tomorrow\"",
+        "option_c": "\"Let us prepare for the Lord's return\"",
+        "option_d": "\"The prophets were right about everything\"",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:4 — \"Where is the promise of his coming? for since the fathers fell asleep, all things continue as they were from the beginning of the creation.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How long is one day with the Lord?",
+        "option_a": "As a thousand years, and a thousand years as one day",
+        "option_b": "Exactly 24 hours",
+        "option_c": "As one hour",
+        "option_d": "As one minute",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:8 — \"one day is with the Lord as a thousand years, and a thousand years as one day.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What will happen to the heavens and earth on the day of the Lord?",
+        "option_a": "The heavens shall pass away with a great noise, the elements shall melt with fervent heat, and the earth and its works shall be burned up",
+        "option_b": "They will be renovated and cleaned",
+        "option_c": "They will remain exactly as they are",
+        "option_d": "They will be given to the angels",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:10 — \"the heavens shall pass away with a great noise, and the elements shall melt with fervent heat, the earth also and the works that are therein shall be burned up.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Peter say about Paul's writings?",
+        "option_a": "They contain some things hard to understand, which the unlearned and unstable wrest (distort) to their own destruction",
+        "option_b": "They are perfectly clear and easy to understand",
+        "option_c": "They are not as authoritative as Peter's",
+        "option_d": "They should only be read by scholars",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:16 — \"in which are some things hard to be understood, which they that are unlearned and unstable wrest, as they do also the other scriptures, unto their own destruction.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Peter exhort believers to grow in?",
+        "option_a": "Grace and in the knowledge of our Lord and Saviour Jesus Christ",
+        "option_b": "Wealth and influence",
+        "option_c": "Military strength",
+        "option_d": "Political connections",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:18 — \"grow in grace, and in the knowledge of our Lord and Saviour Jesus Christ.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What do scoffers willingly forget according to Peter?",
+        "option_a": "That the heavens were of old, and the earth standing out of the water and in the water by the word of God, and the world was destroyed by water",
+        "option_b": "That Moses parted the Red Sea",
+        "option_c": "That God created light on the first day",
+        "option_d": "That the temple was built by Solomon",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:5-6 — \"they willingly are ignorant of, that by the word of God the heavens were of old… the world that then was, being overflowed with water, perished.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Peter say God's apparent \"slowness\" actually represents?",
+        "option_a": "Longsuffering toward us — He is not slack concerning His promise but is patient, not willing that any should perish",
+        "option_b": "God has forgotten His promise",
+        "option_c": "God is unable to fulfill His promise",
+        "option_d": "God has changed His plans",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:9 — \"The Lord is not slack concerning his promise… but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Peter say the present heavens and earth are reserved for?",
+        "option_a": "Fire, being kept unto the day of judgment and perdition of ungodly men",
+        "option_b": "Eternal preservation without change",
+        "option_c": "Gradual improvement over millennia",
+        "option_d": "Division among the righteous",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:7 — \"the heavens and the earth, which are now, by the same word are kept in store, reserved unto fire against the day of judgment and perdition of ungodly men.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Peter's reference to Paul's epistles imply about their status?",
+        "option_a": "Peter groups them with \"the other scriptures,\" implying they are recognized as Scripture",
+        "option_b": "They are merely helpful letters with no special authority",
+        "option_c": "They are equal to but not greater than rabbinical writings",
+        "option_d": "They should be treated as personal opinions",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:16 — \"as they do also the other scriptures\" — placing Paul's writings alongside recognized Scripture."
+      },
+      {
+        "question_number": 5,
+        "question": "What practical question does Peter ask in light of the coming dissolution?",
+        "option_a": "\"What manner of persons ought ye to be in all holy conversation and godliness?\" — eschatology should drive holy living",
+        "option_b": "\"How much money should you save for retirement?\"",
+        "option_c": "\"Where should you build your houses?\"",
+        "option_d": "\"Which political party should you support?\"",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:11 — \"Seeing then that all these things shall be dissolved, what manner of persons ought ye to be in all holy conversation and godliness.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Peter say believers should be looking for and hasting?",
+        "option_a": "The coming of the day of God, wherein the heavens being on fire shall be dissolved and elements melt",
+        "option_b": "The coming of the Messiah to establish an earthly kingdom",
+        "option_c": "The rapture of the church before tribulation",
+        "option_d": "The millennium of peace on earth",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:12 — \"Looking for and hasting unto the coming of the day of God, wherein the heavens being on fire shall be dissolved, and the elements shall melt with fervent heat.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Peter warn believers to beware of?",
+        "option_a": "Being led away with the error of the wicked and falling from their own stedfastness",
+        "option_b": "Studying too much theology",
+        "option_c": "Traveling to foreign countries",
+        "option_d": "Making friends outside the church",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:17 — \"beware lest ye also, being led away with the error of the wicked, fall from your own stedfastness.\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does 2 Peter end?",
+        "option_a": "With a doxology: \"To him be glory both now and for ever. Amen.\" — ascribing glory to Christ eternally",
+        "option_b": "With a list of greetings to named individuals",
+        "option_c": "With a travel itinerary",
+        "option_d": "With a request for financial support",
+        "correct_answer": "a",
+        "explanation": "2 Peter 3:18 — \"To him be glory both now and for ever. Amen.\""
+      }
+    ]
+  }
+}

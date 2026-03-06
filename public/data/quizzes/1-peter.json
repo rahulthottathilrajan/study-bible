@@ -1,0 +1,842 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote this letter?",
+        "option_a": "Peter, an apostle of Jesus Christ",
+        "option_b": "Paul",
+        "option_c": "James",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:1 — \"Peter, an apostle of Jesus Christ, to the strangers scattered throughout Pontus, Galatia, Cappadocia, Asia, and Bithynia.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What kind of hope do believers have through Jesus?",
+        "option_a": "A living hope because Jesus rose from the dead",
+        "option_b": "A fading hope that might not come true",
+        "option_c": "A hope only for this life",
+        "option_d": "A hope based on being good enough",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:3 — \"Hath begotten us again unto a lively hope by the resurrection of Jesus Christ from the dead.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Peter say is more precious than gold?",
+        "option_a": "The trial of your faith",
+        "option_b": "A bag of diamonds",
+        "option_c": "A king's crown",
+        "option_d": "A beautiful palace",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:7 — \"That the trial of your faith, being much more precious than of gold that perisheth, though it be tried with fire.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How does Peter describe the believers' inheritance?",
+        "option_a": "Incorruptible, undefiled, and that fadeth not away, reserved in heaven",
+        "option_b": "Earthly land promised to Abraham's children",
+        "option_c": "Gold and silver stored in the temple",
+        "option_d": "Political freedom from Roman rule",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:4 — \"To an inheritance incorruptible, and undefiled, and that fadeth not away, reserved in heaven for you.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why are trials of faith valuable?",
+        "option_a": "That the trial of your faith might be found unto praise and honour and glory at the appearing of Jesus Christ",
+        "option_b": "So believers can boast about their suffering",
+        "option_c": "So God can separate the weak from the strong",
+        "option_d": "So the world will pity Christians",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:7 — \"That the trial of your faith, being much more precious than of gold that perisheth, though it be tried with fire, might be found unto praise and honour and glory at the appearing of Jesus Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Peter say believers should be?",
+        "option_a": "Holy, for God is holy",
+        "option_b": "Wealthy, for God owns everything",
+        "option_c": "Popular, for God loves all people",
+        "option_d": "Powerful, for God is almighty",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:15-16 — \"But as he which hath called you is holy, so be ye holy in all manner of conversation; Because it is written, Be ye holy; for I am holy.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What were believers redeemed with?",
+        "option_a": "The precious blood of Christ, as of a lamb without blemish and without spot",
+        "option_b": "Silver and gold from the temple treasury",
+        "option_c": "Good works and righteous deeds",
+        "option_d": "The prayers of the saints",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:18-19 — \"Ye were not redeemed with corruptible things, as silver and gold... But with the precious blood of Christ, as of a lamb without blemish and without spot.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How long does the word of the Lord endure?",
+        "option_a": "For ever",
+        "option_b": "For a thousand years",
+        "option_c": "Until the end of this age",
+        "option_d": "Only during our lifetime",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:25 — \"But the word of the Lord endureth for ever. And this is the word which by the gospel is preached unto you.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "To whom does Peter address this letter?",
+        "option_a": "Strangers scattered throughout Pontus, Galatia, Cappadocia, Asia, and Bithynia",
+        "option_b": "The church at Rome",
+        "option_c": "The twelve tribes of Israel",
+        "option_d": "The Gentile churches founded by Paul",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:1 — \"Peter, an apostle of Jesus Christ, to the strangers scattered throughout Pontus, Galatia, Cappadocia, Asia, and Bithynia.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What three aspects of the Trinity are mentioned in verse 2?",
+        "option_a": "Foreknowledge of God the Father, sanctification of the Spirit, sprinkling of the blood of Jesus Christ",
+        "option_b": "Creation by the Father, incarnation of the Son, indwelling of the Spirit",
+        "option_c": "Wrath of the Father, sacrifice of the Son, comfort of the Spirit",
+        "option_d": "Sovereignty of the Father, teaching of the Son, gifts of the Spirit",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:2 — \"Elect according to the foreknowledge of God the Father, through sanctification of the Spirit, unto obedience and sprinkling of the blood of Jesus Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did the Old Testament prophets search and inquire about?",
+        "option_a": "What, or what manner of time the Spirit of Christ which was in them did signify",
+        "option_b": "When the Messiah would overthrow Rome",
+        "option_c": "How to build the second temple",
+        "option_d": "Where the lost tribes of Israel had gone",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:10-11 — \"Of which salvation the prophets have enquired and searched diligently... Searching what, or what manner of time the Spirit of Christ which was in them did signify.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Peter say even the angels desire?",
+        "option_a": "To look into the things of the gospel",
+        "option_b": "To become human and experience salvation",
+        "option_c": "To worship in the earthly temple",
+        "option_d": "To rule over earthly kingdoms",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:12 — \"Which things the angels desire to look into.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Peter tell believers to gird up?",
+        "option_a": "The loins of your mind",
+        "option_b": "Your physical strength",
+        "option_c": "Your financial resources",
+        "option_d": "Your political alliances",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:13 — \"Wherefore gird up the loins of your mind, be sober, and hope to the end for the grace that is to be brought unto you at the revelation of Jesus Christ.\""
+      },
+      {
+        "question_number": 6,
+        "question": "How were believers born again according to verse 23?",
+        "option_a": "Not of corruptible seed, but of incorruptible, by the word of God which liveth and abideth for ever",
+        "option_b": "By water baptism in the Jordan River",
+        "option_c": "Through the laying on of apostolic hands",
+        "option_d": "By circumcision and keeping the law",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:23 — \"Being born again, not of corruptible seed, but of incorruptible, by the word of God, which liveth and abideth for ever.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Peter compare human life to in verse 24?",
+        "option_a": "All flesh is as grass, and all the glory of man as the flower of grass that withereth",
+        "option_b": "A mighty cedar tree that stands for centuries",
+        "option_c": "A rock that endures through all storms",
+        "option_d": "A river that flows without ceasing",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:24 — \"For all flesh is as grass, and all the glory of man as the flower of grass. The grass withereth, and the flower thereof falleth away.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Peter say about believers' relationship with Christ whom they have not seen?",
+        "option_a": "Whom having not seen, ye love; in whom ye rejoice with joy unspeakable and full of glory",
+        "option_b": "Whom not seeing, ye doubt and question",
+        "option_c": "Whom having not seen, ye fear and tremble",
+        "option_d": "Whom not seeing, ye wait with uncertainty",
+        "correct_answer": "a",
+        "explanation": "1 Peter 1:8 — \"Whom having not seen, ye love; in whom, though now ye see him not, yet believing, ye rejoice with joy unspeakable and full of glory.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Peter call believers?",
+        "option_a": "A chosen generation and a royal priesthood",
+        "option_b": "A group of ordinary people",
+        "option_c": "A gathering of sinners",
+        "option_d": "A collection of strangers",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:9 — \"But ye are a chosen generation, a royal priesthood, an holy nation, a peculiar people.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who is the chief corner stone that Peter talks about?",
+        "option_a": "Jesus Christ",
+        "option_b": "Abraham",
+        "option_c": "Moses",
+        "option_d": "King David",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:6 — \"Behold, I lay in Sion a chief corner stone, elect, precious: and he that believeth on him shall not be confounded.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus do when people said mean things to him?",
+        "option_a": "He did not answer back with mean words",
+        "option_b": "He yelled at them loudly",
+        "option_c": "He ran away from them",
+        "option_d": "He called down fire from heaven",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:23 — \"Who, when he was reviled, reviled not again; when he suffered, he threatened not.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What should believers desire like newborn babies?",
+        "option_a": "The sincere milk of the word, that they may grow thereby",
+        "option_b": "Wealth and earthly possessions",
+        "option_c": "Power and influence in society",
+        "option_d": "The praise and approval of men",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:2 — \"As newborn babes, desire the sincere milk of the word, that ye may grow thereby.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What are believers called to be built up as?",
+        "option_a": "A spiritual house and a holy priesthood to offer up spiritual sacrifices",
+        "option_b": "A physical temple made of stone",
+        "option_c": "An earthly kingdom with a human king",
+        "option_d": "A military army for God",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:5 — \"Ye also, as lively stones, are built up a spiritual house, an holy priesthood, to offer up spiritual sacrifices, acceptable to God by Jesus Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Peter say about submitting to human authorities?",
+        "option_a": "Submit to every ordinance of man for the Lord's sake",
+        "option_b": "Rebel against all earthly rulers",
+        "option_c": "Only obey rulers who are Christians",
+        "option_d": "Ignore all government completely",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:13 — \"Submit yourselves to every ordinance of man for the Lord's sake: whether it be to the king, as supreme.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What happened to the stone the builders disallowed (rejected)?",
+        "option_a": "It became the head of the corner",
+        "option_b": "It was thrown away forever",
+        "option_c": "It was ground into dust",
+        "option_d": "It was used for a lesser purpose",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:7 — \"The stone which the builders disallowed, the same is made the head of the corner.\""
+      },
+      {
+        "question_number": 5,
+        "question": "By whose stripes are believers healed?",
+        "option_a": "By the stripes of Christ",
+        "option_b": "By the stripes of the prophets",
+        "option_c": "By the stripes of the apostles",
+        "option_d": "By the stripes of Moses",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:24 — \"By whose stripes ye were healed.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Peter call Christ in verse 4?",
+        "option_a": "A living stone, disallowed indeed of men, but chosen of God, and precious",
+        "option_b": "The great high priest after the order of Melchisedec",
+        "option_c": "The Lion of the tribe of Judah",
+        "option_d": "The bright and morning star",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:4 — \"To whom coming, as unto a living stone, disallowed indeed of men, but chosen of God, and precious.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Christ become to those who are disobedient?",
+        "option_a": "A stone of stumbling, and a rock of offence",
+        "option_b": "A light shining in the darkness",
+        "option_c": "A refuge in the time of storm",
+        "option_d": "A healer of their wounds",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:8 — \"And a stone of stumbling, and a rock of offence, even to them which stumble at the word, being disobedient.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What four titles does Peter give believers in verse 9?",
+        "option_a": "A chosen generation, a royal priesthood, an holy nation, a peculiar people",
+        "option_b": "Apostles, prophets, evangelists, and pastors",
+        "option_c": "Children, servants, soldiers, and ambassadors",
+        "option_d": "Priests, Levites, scribes, and Pharisees",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:9 — \"But ye are a chosen generation, a royal priesthood, an holy nation, a peculiar people; that ye should shew forth the praises of him who hath called you out of darkness into his marvellous light.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Peter say servants should do regarding their masters?",
+        "option_a": "Be subject to masters with all fear, not only to the good and gentle but also to the froward",
+        "option_b": "Only obey kind and fair masters",
+        "option_c": "Refuse to serve unkind masters",
+        "option_d": "Flee from harsh masters",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:18 — \"Servants, be subject to your masters with all fear; not only to the good and gentle, but also to the froward.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is thankworthy (acceptable) in God's sight?",
+        "option_a": "If a man for conscience toward God endure grief, suffering wrongfully",
+        "option_b": "If a man accumulates great wealth for the church",
+        "option_c": "If a man gains political power to spread the gospel",
+        "option_d": "If a man avoids all suffering through wisdom",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:19 — \"For this is thankworthy, if a man for conscience toward God endure grief, suffering wrongfully.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Christ's example teach about suffering?",
+        "option_a": "When he suffered, he threatened not, but committed himself to him that judgeth righteously",
+        "option_b": "When he suffered, he called for legions of angels",
+        "option_c": "When he suffered, he promised vengeance on his enemies",
+        "option_d": "When he suffered, he cursed those who persecuted him",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:23 — \"Who, when he was reviled, reviled not again; when he suffered, he threatened not; but committed himself to him that judgeth righteously.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What did Christ bear in his own body on the tree?",
+        "option_a": "Our sins, that we being dead to sins should live unto righteousness",
+        "option_b": "The curse of the law only",
+        "option_c": "The punishment for Adam's sin alone",
+        "option_d": "The weight of the entire world",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:24 — \"Who his own self bare our sins in his own body on the tree, that we, being dead to sins, should live unto righteousness.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What were believers before, but now have returned to whom?",
+        "option_a": "As sheep going astray, but are now returned unto the Shepherd and Bishop of your souls",
+        "option_b": "As wolves in sheep's clothing, but now are true believers",
+        "option_c": "As wandering stars, but now are fixed in heaven",
+        "option_d": "As lost coins, but now are found by the angels",
+        "correct_answer": "a",
+        "explanation": "1 Peter 2:25 — \"For ye were as sheep going astray; but are now returned unto the Shepherd and Bishop of your souls.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What kind of beauty does Peter say is most important?",
+        "option_a": "The beauty inside your heart — a meek and quiet spirit",
+        "option_b": "Wearing fancy clothes",
+        "option_c": "Having pretty hair",
+        "option_d": "Wearing gold jewelry",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:3-4 — \"Whose adorning let it not be that outward adorning... But let it be the hidden man of the heart... even the ornament of a meek and quiet spirit.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What should we always be ready to do?",
+        "option_a": "Give an answer about our hope in God",
+        "option_b": "Run a race really fast",
+        "option_c": "Win an argument with everyone",
+        "option_d": "Show off our Bible knowledge",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:15 — \"Be ready always to give an answer to every man that asketh you a reason of the hope that is in you.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus do to bring us to God?",
+        "option_a": "He suffered once for sins, the just for the unjust",
+        "option_b": "He built a bridge from earth to heaven",
+        "option_c": "He opened a magical door",
+        "option_d": "He wrote a letter to God for us",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:18 — \"For Christ also hath once suffered for sins, the just for the unjust, that he might bring us to God.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Peter say about outward adornment for women?",
+        "option_a": "Not the outward adorning of plaiting hair and wearing gold, but the hidden man of the heart",
+        "option_b": "Always wear the finest clothes to honour God",
+        "option_c": "Dress as plainly as possible to show humility",
+        "option_d": "Only wear what the elders approve",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:3-4 — \"Whose adorning let it not be that outward adorning of plaiting the hair, and of wearing of gold, or of putting on of apparel; But let it be the hidden man of the heart.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Peter call a meek and quiet spirit?",
+        "option_a": "Of great price in the sight of God",
+        "option_b": "Weak and useless in this world",
+        "option_c": "Acceptable but not necessary",
+        "option_d": "Good only for women",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:4 — \"Even the ornament of a meek and quiet spirit, which is in the sight of God of great price.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Peter say husbands should give to their wives?",
+        "option_a": "Honour, as unto the weaker vessel and as being heirs together of the grace of life",
+        "option_b": "Commands, as the head of the household",
+        "option_c": "Permission to speak in the assembly",
+        "option_d": "Money for their personal needs",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:7 — \"Likewise, ye husbands, dwell with them according to knowledge, giving honour unto the wife, as unto the weaker vessel, and as being heirs together of the grace of life.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What should believers not render (give back) for evil?",
+        "option_a": "Not evil for evil, or railing for railing, but contrariwise blessing",
+        "option_b": "An equal measure of punishment",
+        "option_c": "Silence and complete avoidance",
+        "option_d": "A stern warning and rebuke",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:9 — \"Not rendering evil for evil, or railing for railing: but contrariwise blessing; knowing that ye are thereunto called, that ye should inherit a blessing.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Peter say about having a good conscience?",
+        "option_a": "Having a good conscience so that those who speak evil of you as evildoers may be ashamed",
+        "option_b": "A good conscience is unnecessary for believers",
+        "option_c": "A good conscience comes naturally without effort",
+        "option_d": "A good conscience only matters before God, not men",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:16 — \"Having a good conscience; that, whereas they speak evil of you, as of evildoers, they may be ashamed that falsely accuse your good conversation in Christ.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What Old Testament woman does Peter mention as an example for wives?",
+        "option_a": "Sara, who obeyed Abraham, calling him lord",
+        "option_b": "Ruth, who followed Naomi to Bethlehem",
+        "option_c": "Esther, who saved her people from Haman",
+        "option_d": "Deborah, who judged Israel",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:6 — \"Even as Sara obeyed Abraham, calling him lord: whose daughters ye are, as long as ye do well, and are not afraid with any amazement.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Peter say can be hindered if husbands do not honour their wives?",
+        "option_a": "Their prayers",
+        "option_b": "Their income",
+        "option_c": "Their health",
+        "option_d": "Their ministry",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:7 — \"That your prayers be not hindered.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Peter describe Christ's suffering for sins in verse 18?",
+        "option_a": "The just for the unjust, that he might bring us to God, being put to death in the flesh but quickened by the Spirit",
+        "option_b": "As a temporary setback in God's eternal plan",
+        "option_c": "As an example of passive resistance",
+        "option_d": "As a political sacrifice for Israel's freedom",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:18 — \"For Christ also hath once suffered for sins, the just for the unjust, that he might bring us to God, being put to death in the flesh, but quickened by the Spirit.\""
+      },
+      {
+        "question_number": 4,
+        "question": "To whom did Christ preach by the Spirit?",
+        "option_a": "The spirits in prison",
+        "option_b": "The angels in heaven",
+        "option_c": "The saints in paradise",
+        "option_d": "The prophets in the temple",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:19 — \"By which also he went and preached unto the spirits in prison.\""
+      },
+      {
+        "question_number": 5,
+        "question": "When were the spirits in prison disobedient?",
+        "option_a": "In the days of Noah, while the ark was a preparing",
+        "option_b": "In the days of Moses at Mount Sinai",
+        "option_c": "In the days of Abraham in Ur",
+        "option_d": "In the days of David in Jerusalem",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:20 — \"Which sometime were disobedient, when once the longsuffering of God waited in the days of Noah, while the ark was a preparing.\""
+      },
+      {
+        "question_number": 6,
+        "question": "How does Peter describe the saving work of baptism?",
+        "option_a": "Not the putting away of the filth of the flesh, but the answer of a good conscience toward God, by the resurrection of Jesus Christ",
+        "option_b": "The physical washing that cleanses the body",
+        "option_c": "A ritual that guarantees salvation apart from faith",
+        "option_d": "A symbolic act with no spiritual significance",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:21 — \"The like figure whereunto even baptism doth also now save us (not the putting away of the filth of the flesh, but the answer of a good conscience toward God,) by the resurrection of Jesus Christ.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What Psalm does Peter quote about the Lord's eyes and ears?",
+        "option_a": "Psalm 34 — \"The eyes of the Lord are over the righteous, and his ears are open unto their prayers\"",
+        "option_b": "Psalm 23 — The Lord is my shepherd",
+        "option_c": "Psalm 51 — Create in me a clean heart",
+        "option_d": "Psalm 119 — Thy word is a lamp unto my feet",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:12 — \"For the eyes of the Lord are over the righteous, and his ears are open unto their prayers: but the face of the Lord is against them that do evil.\" This quotes Psalm 34:15-16."
+      },
+      {
+        "question_number": 8,
+        "question": "Where is Christ now according to verse 22?",
+        "option_a": "At the right hand of God, angels and authorities and powers being made subject unto him",
+        "option_b": "In the temple in Jerusalem",
+        "option_c": "Walking among the churches",
+        "option_d": "Waiting in paradise until the resurrection",
+        "correct_answer": "a",
+        "explanation": "1 Peter 3:22 — \"Who is gone into heaven, and is on the right hand of God; angels and authorities and powers being made subject unto him.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What should we use our gifts from God to do?",
+        "option_a": "Help and serve one another",
+        "option_b": "Show off to our friends",
+        "option_c": "Keep them for ourselves",
+        "option_d": "Trade them for money",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:10 — \"As every man hath received the gift, even so minister the same one to another, as good stewards of the manifold grace of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "If you suffer for being a Christian, should you be ashamed?",
+        "option_a": "No, you should glorify God",
+        "option_b": "Yes, you should hide your faith",
+        "option_c": "Yes, you should stop believing",
+        "option_d": "No, you should fight back",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:16 — \"Yet if any man suffer as a Christian, let him not be ashamed; but let him glorify God on this behalf.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Peter say we should have above all things?",
+        "option_a": "Fervent love (charity) among yourselves",
+        "option_b": "Lots of money in the bank",
+        "option_c": "The biggest house on the street",
+        "option_d": "The most toys and games",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:8 — \"And above all things have fervent charity among yourselves: for charity shall cover the multitude of sins.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Peter say about the time past of our lives?",
+        "option_a": "The time past may suffice us to have wrought the will of the Gentiles",
+        "option_b": "The past doesn't matter at all anymore",
+        "option_c": "We should always dwell on our past mistakes",
+        "option_d": "The past was better than the present",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:3 — \"For the time past of our life may suffice us to have wrought the will of the Gentiles, when we walked in lasciviousness, lusts, excess of wine, revellings, banquetings, and abominable idolatries.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why do former companions think it strange about believers?",
+        "option_a": "Because believers no longer run with them to the same excess of riot",
+        "option_b": "Because believers have become wealthy",
+        "option_c": "Because believers have moved away",
+        "option_d": "Because believers speak a different language",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:4 — \"Wherein they think it strange that ye run not with them to the same excess of riot, speaking evil of you.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does charity (love) cover?",
+        "option_a": "The multitude of sins",
+        "option_b": "Only small offences",
+        "option_c": "Nothing at all",
+        "option_d": "Only the sins of friends",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:8 — \"For charity shall cover the multitude of sins.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What should believers not think strange about?",
+        "option_a": "The fiery trial which is to try you",
+        "option_b": "Having money problems",
+        "option_c": "Making new friends",
+        "option_d": "Learning difficult subjects",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:12 — \"Beloved, think it not strange concerning the fiery trial which is to try you, as though some strange thing happened unto you.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What should believers do if they suffer as a Christian?",
+        "option_a": "Not be ashamed, but glorify God on this behalf",
+        "option_b": "Fight back against the persecutors",
+        "option_c": "Deny their faith to avoid trouble",
+        "option_d": "Complain loudly to the authorities",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:16 — \"Yet if any man suffer as a Christian, let him not be ashamed; but let him glorify God on this behalf.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Peter mean by \"arm yourselves likewise with the same mind\"?",
+        "option_a": "Since Christ suffered in the flesh, believers should adopt the same readiness to suffer, for he that hath suffered in the flesh hath ceased from sin",
+        "option_b": "Put on physical armor for battle",
+        "option_c": "Prepare mentally for academic study",
+        "option_d": "Equip yourselves with earthly weapons",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:1 — \"Forasmuch then as Christ hath suffered for us in the flesh, arm yourselves likewise with the same mind: for he that hath suffered in the flesh hath ceased from sin.\""
+      },
+      {
+        "question_number": 2,
+        "question": "To whom shall the living and dead give account?",
+        "option_a": "Him that is ready to judge the quick and the dead",
+        "option_b": "The Roman emperor",
+        "option_c": "The Jewish Sanhedrin",
+        "option_d": "The apostles in Jerusalem",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:5 — \"Who shall give account to him that is ready to judge the quick and the dead.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Why was the gospel preached to them that are dead?",
+        "option_a": "That they might be judged according to men in the flesh, but live according to God in the spirit",
+        "option_b": "So the dead could convert in the afterlife",
+        "option_c": "To give the dead a second chance at salvation",
+        "option_d": "To prove God's power over death",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:6 — \"For for this cause was the gospel preached also to them that are dead, that they might be judged according to men in the flesh, but live according to God in the spirit.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Peter say about the end of all things?",
+        "option_a": "The end of all things is at hand; be ye therefore sober, and watch unto prayer",
+        "option_b": "The end is far away, so relax",
+        "option_c": "The end has already passed",
+        "option_d": "The end cannot be known by anyone",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:7 — \"But the end of all things is at hand: be ye therefore sober, and watch unto prayer.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How should those who speak in ministry speak?",
+        "option_a": "As the oracles of God",
+        "option_b": "As the philosophers of Greece",
+        "option_c": "As the scribes of Israel",
+        "option_d": "As the senators of Rome",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:11 — \"If any man speak, let him speak as the oracles of God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Where does Peter say judgment must begin?",
+        "option_a": "At the house of God",
+        "option_b": "At the throne of Caesar",
+        "option_c": "At the gates of Jerusalem",
+        "option_d": "At the temple of Diana",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:17 — \"For the time is come that judgment must begin at the house of God: and if it first begin at us, what shall the end be of them that obey not the gospel of God?\""
+      },
+      {
+        "question_number": 7,
+        "question": "If the righteous scarcely be saved, what question does Peter raise?",
+        "option_a": "Where shall the ungodly and the sinner appear?",
+        "option_b": "How shall the righteous be rewarded?",
+        "option_c": "When shall the prophets return?",
+        "option_d": "Why shall the wicked prosper?",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:18 — \"And if the righteous scarcely be saved, where shall the ungodly and the sinner appear?\""
+      },
+      {
+        "question_number": 8,
+        "question": "What should those who suffer according to the will of God do?",
+        "option_a": "Commit the keeping of their souls to him in well doing, as unto a faithful Creator",
+        "option_b": "Demand immediate vindication from God",
+        "option_c": "Withdraw from all social contact",
+        "option_d": "Seek revenge when the opportunity arises",
+        "correct_answer": "a",
+        "explanation": "1 Peter 4:19 — \"Wherefore let them that suffer according to the will of God commit the keeping of their souls to him in well doing, as unto a faithful Creator.\""
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who does Peter tell to feed (take care of) the flock of God?",
+        "option_a": "The elders",
+        "option_b": "The children",
+        "option_c": "The Roman soldiers",
+        "option_d": "The rich merchants",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:1-2 — \"The elders which are among you I exhort... Feed the flock of God which is among you.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What animal does Peter compare the devil to?",
+        "option_a": "A roaring lion",
+        "option_b": "A sneaky snake",
+        "option_c": "A big bear",
+        "option_d": "A hungry wolf",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:8 — \"Your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should you do with your worries?",
+        "option_a": "Give them to God because he cares for you",
+        "option_b": "Keep them all to yourself",
+        "option_c": "Tell everyone your problems",
+        "option_d": "Pretend you have no worries",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:7 — \"Casting all your care upon him; for he careth for you.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How should elders shepherd the flock?",
+        "option_a": "Not by constraint but willingly; not for filthy lucre but of a ready mind",
+        "option_b": "By strict rules and heavy penalties",
+        "option_c": "By hiring others to do the work",
+        "option_d": "By only preaching on Sundays",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:2 — \"Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Peter say younger people should do?",
+        "option_a": "Submit to the elder, and all be clothed with humility",
+        "option_b": "Challenge the elders at every opportunity",
+        "option_c": "Ignore the elders and follow their own plans",
+        "option_d": "Take leadership from the elders by force",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:5 — \"Likewise, ye younger, submit yourselves unto the elder. Yea, all of you be subject one to another, and be clothed with humility.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does God give to the humble?",
+        "option_a": "Grace — God resisteth the proud and giveth grace to the humble",
+        "option_b": "Wealth and power beyond measure",
+        "option_c": "Freedom from all suffering",
+        "option_d": "Angels to serve their every need",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:5 — \"God resisteth the proud, and giveth grace to the humble.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Peter say to do under God's mighty hand?",
+        "option_a": "Humble yourselves, that he may exalt you in due time",
+        "option_b": "Stand tall and demand your rights",
+        "option_c": "Complain until God blesses you",
+        "option_d": "Do nothing and wait for a miracle",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:6 — \"Humble yourselves therefore under the mighty hand of God, that he may exalt you in due time.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who does Peter say helped him write this letter?",
+        "option_a": "Silvanus, a faithful brother",
+        "option_b": "Timothy, a young pastor",
+        "option_c": "Luke, a beloved physician",
+        "option_d": "Barnabas, the son of consolation",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:12 — \"By Silvanus, a faithful brother unto you, as I suppose, I have written briefly.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Peter call himself among the elders?",
+        "option_a": "A fellow elder and witness of the sufferings of Christ, and a partaker of the glory that shall be revealed",
+        "option_b": "The chief apostle over all elders",
+        "option_c": "The bishop of Rome appointed by Christ",
+        "option_d": "The greatest of all the apostles",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:1 — \"The elders which are among you I exhort, who am also an elder, and a witness of the sufferings of Christ, and also a partaker of the glory that shall be revealed.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What should elders not be?",
+        "option_a": "Lords over God's heritage, but ensamples to the flock",
+        "option_b": "Friends with the congregation",
+        "option_c": "Gentle and patient with sinners",
+        "option_d": "Willing to serve without pay",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:3 — \"Neither as being lords over God's heritage, but being ensamples to the flock.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What will the chief Shepherd give when he shall appear?",
+        "option_a": "A crown of glory that fadeth not away",
+        "option_b": "A crown of thorns to share in his suffering",
+        "option_c": "A golden scepter of earthly authority",
+        "option_d": "A mansion in the heavenly city",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:4 — \"And when the chief Shepherd shall appear, ye shall receive a crown of glory that fadeth not away.\""
+      },
+      {
+        "question_number": 4,
+        "question": "After believers have suffered a while, what does the God of all grace do?",
+        "option_a": "Make you perfect, stablish, strengthen, settle you",
+        "option_b": "Remove all suffering permanently",
+        "option_c": "Grant immediate revenge on enemies",
+        "option_d": "Transport them directly to heaven",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:10 — \"But the God of all grace, who hath called us unto his eternal glory by Christ Jesus, after that ye have suffered a while, make you perfect, stablish, strengthen, settle you.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Peter call \"Babylon\" in his closing greetings?",
+        "option_a": "The church that is at Babylon, elected together with you — widely understood as a reference to Rome",
+        "option_b": "A literal city in Mesopotamia",
+        "option_c": "A small village near Jerusalem",
+        "option_d": "An imaginary place representing heaven",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:13 — \"The church that is at Babylon, elected together with you, saluteth you.\" Most scholars understand \"Babylon\" as a cryptic reference to Rome."
+      },
+      {
+        "question_number": 6,
+        "question": "Who does Peter mention as greeting the readers along with the church?",
+        "option_a": "Marcus my son — referring to John Mark",
+        "option_b": "Timothy my true son in the faith",
+        "option_c": "Luke the beloved physician",
+        "option_d": "Apollos the eloquent preacher",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:13 — \"And so doth Marcus my son.\""
+      },
+      {
+        "question_number": 7,
+        "question": "How does Peter describe Silvanus in verse 12?",
+        "option_a": "A faithful brother",
+        "option_b": "A mighty prophet",
+        "option_c": "A skilled physician",
+        "option_d": "A wealthy supporter",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:12 — \"By Silvanus, a faithful brother unto you, as I suppose, I have written briefly.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Peter say is the true grace of God in verse 12?",
+        "option_a": "This is the true grace of God wherein ye stand",
+        "option_b": "The ability to speak in tongues",
+        "option_c": "The power to perform miracles",
+        "option_d": "The gift of prophetic visions",
+        "correct_answer": "a",
+        "explanation": "1 Peter 5:12 — \"Exhorting, and testifying that this is the true grace of God wherein ye stand.\""
+      }
+    ]
+  }
+}

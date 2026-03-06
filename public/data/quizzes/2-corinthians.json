@@ -1,0 +1,2186 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote this letter?",
+        "option_a": "Paul",
+        "option_b": "Peter",
+        "option_c": "James",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:1 — \"Paul, an apostle of Jesus Christ by the will of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does God do for us when we are in trouble?",
+        "option_a": "He comforts us",
+        "option_b": "He ignores us",
+        "option_c": "He punishes us",
+        "option_d": "He leaves us alone",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:4 — \"Who comforteth us in all our tribulation.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who was with Paul when he wrote this letter?",
+        "option_a": "Timothy",
+        "option_b": "Moses",
+        "option_c": "David",
+        "option_d": "Abraham",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:1 — \"Paul, an apostle of Jesus Christ by the will of God, and Timothy our brother.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What title does Paul give God in verse 3?",
+        "option_a": "The Father of mercies and the God of all comfort",
+        "option_b": "The God of thunder and lightning",
+        "option_c": "The Lord of armies and battles",
+        "option_d": "The King of all earthly kingdoms",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:3 — \"Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why does God comfort us in our tribulation?",
+        "option_a": "That we may be able to comfort them which are in any trouble, by the comfort wherewith we ourselves are comforted of God",
+        "option_b": "So we can boast about our strength",
+        "option_c": "So we can avoid all future suffering",
+        "option_d": "So we never have to help anyone else",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:4 — \"Who comforteth us in all our tribulation, that we may be able to comfort them which are in any trouble, by the comfort wherewith we ourselves are comforted of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What happened to Paul in Asia?",
+        "option_a": "He was pressed out of measure, above strength, insomuch that he despaired even of life",
+        "option_b": "He built a great church with many members",
+        "option_c": "He found a treasure of gold and silver",
+        "option_d": "He was crowned king of the province",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:8 — \"For we would not, brethren, have you ignorant of our trouble which came to us in Asia, that we were pressed out of measure, above strength, insomuch that we despaired even of life.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Why did Paul receive the sentence of death in himself?",
+        "option_a": "That he should not trust in himself but in God which raiseth the dead",
+        "option_b": "To make him give up his ministry",
+        "option_c": "To punish him for past sins",
+        "option_d": "To test his physical endurance",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:9 — \"But we had the sentence of death in ourselves, that we should not trust in ourselves, but in God which raiseth the dead.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What has God given as an earnest (guarantee) in our hearts?",
+        "option_a": "The Spirit — God hath sealed us and given the earnest of the Spirit in our hearts",
+        "option_b": "A written contract of salvation",
+        "option_c": "Gold and silver as a deposit",
+        "option_d": "A promise from the angels",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:22 — \"Who hath also sealed us, and given the earnest of the Spirit in our hearts.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul describe the relationship between Christ's sufferings and comfort?",
+        "option_a": "As the sufferings of Christ abound in us, so our consolation also aboundeth by Christ",
+        "option_b": "Suffering and comfort are unrelated experiences",
+        "option_c": "Comfort comes only after all suffering has ended",
+        "option_d": "Christ's sufferings eliminate the need for human suffering",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:5 — \"For as the sufferings of Christ abound in us, so our consolation also aboundeth by Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about all the promises of God?",
+        "option_a": "In him they are yea, and in him Amen, unto the glory of God by us",
+        "option_b": "They are conditional upon perfect obedience",
+        "option_c": "They apply only to the apostles",
+        "option_d": "They are symbolic and not literal",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:20 — \"For all the promises of God in him are yea, and in him Amen, unto the glory of God by us.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who does Paul say establishes believers in Christ and has anointed them?",
+        "option_a": "God — who also hath sealed us and given the earnest of the Spirit",
+        "option_b": "The apostles through their teaching",
+        "option_c": "The law of Moses through obedience",
+        "option_d": "The church through baptism",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:21-22 — \"Now he which stablisheth us with you in Christ, and hath anointed us, is God; Who hath also sealed us, and given the earnest of the Spirit in our hearts.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Why did Paul call God as a witness upon his soul?",
+        "option_a": "To spare them he came not as yet unto Corinth — not because he had dominion over their faith but was a helper of their joy",
+        "option_b": "Because he was afraid of the journey",
+        "option_c": "Because he wanted to visit Rome first",
+        "option_d": "Because the Corinthians owed him money",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:23-24 — \"Moreover I call God for a record upon my soul, that to spare you I came not as yet unto Corinth. Not for that we have dominion over your faith, but are helpers of your joy.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about the Corinthians' standing in faith?",
+        "option_a": "By faith ye stand — he is not lord over their faith but a helper of their joy",
+        "option_b": "They are weak and falling away",
+        "option_c": "They need Paul to sustain their faith",
+        "option_d": "They have no faith of their own",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:24 — \"Not for that we have dominion over your faith, but are helpers of your joy: for by faith ye stand.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul mean by saying he had the \"sentence of death\" in himself?",
+        "option_a": "He had given up hope of survival humanly speaking, so that he would learn to trust only in God who raises the dead",
+        "option_b": "He was formally sentenced to execution by a Roman court",
+        "option_c": "He was suffering from a terminal illness",
+        "option_d": "He was feeling depressed about his ministry",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:9 — \"But we had the sentence of death in ourselves, that we should not trust in ourselves, but in God which raiseth the dead.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What role does Paul say the Corinthians play in his deliverance?",
+        "option_a": "They help together by prayer for him, so that thanks may be given by many persons on his behalf",
+        "option_b": "They send him financial support",
+        "option_c": "They send bodyguards to protect him",
+        "option_d": "They write letters to the Roman authorities",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:11 — \"Ye also helping together by prayer for us, that for the gift bestowed upon us by the means of many persons thanks may be given by many on our behalf.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say his rejoicing and the testimony of his conscience is?",
+        "option_a": "That in simplicity and godly sincerity, not with fleshly wisdom but by the grace of God, he had his conversation in the world",
+        "option_b": "That he performed many miracles",
+        "option_c": "That he converted the most people",
+        "option_d": "That he had the most theological knowledge",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 1:12 — \"For our rejoicing is this, the testimony of our conscience, that in simplicity and godly sincerity, not with fleshly wisdom, but by the grace of God, we have had our conversation in the world, and more abundantly to you-ward.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did Paul write to the Corinthians with?",
+        "option_a": "Many tears and a loving heart",
+        "option_b": "Anger and frustration",
+        "option_c": "Happiness and laughter",
+        "option_d": "Fear and worry",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:4 — \"For out of much affliction and anguish of heart I wrote unto you with many tears.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What should we do when someone is sorry for what they did wrong?",
+        "option_a": "Forgive them and comfort them",
+        "option_b": "Stay angry at them forever",
+        "option_c": "Ignore them completely",
+        "option_d": "Make them feel worse",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:7 — \"So that contrariwise ye ought rather to forgive him, and comfort him, lest perhaps such a one should be swallowed up with overmuch sorrow.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does God always cause us to do in Christ?",
+        "option_a": "Triumph (win)",
+        "option_b": "Fail",
+        "option_c": "Hide",
+        "option_d": "Run away",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:14 — \"Now thanks be unto God, which always causeth us to triumph in Christ.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why did Paul write with tears instead of visiting?",
+        "option_a": "He did not want to come again to them in heaviness, but wrote that his joy might be theirs",
+        "option_b": "He was too busy with other churches",
+        "option_c": "He was forbidden by the authorities",
+        "option_d": "He had lost interest in the Corinthians",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:1,3 — \"But I determined this with myself, that I would not come again to you in heaviness... that my joy is the joy of you all.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why should the Corinthians forgive the offender?",
+        "option_a": "Lest Satan should get an advantage of them, for we are not ignorant of his devices",
+        "option_b": "Because the offender was an important person",
+        "option_c": "Because Paul would punish them if they didn't",
+        "option_d": "Because forgiveness earns heavenly rewards",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:10-11 — \"Lest Satan should get an advantage of us: for we are not ignorant of his devices.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul call the knowledge of Christ?",
+        "option_a": "A sweet savour — God maketh manifest the savour of his knowledge by us in every place",
+        "option_b": "A heavy burden to carry",
+        "option_c": "A mystery no one can understand",
+        "option_d": "A secret for apostles only",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:14 — \"Now thanks be unto God, which always causeth us to triumph in Christ, and maketh manifest the savour of his knowledge by us in every place.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is the gospel to those who are saved versus those who perish?",
+        "option_a": "To one a savour of death unto death, and to the other a savour of life unto life",
+        "option_b": "The same pleasant message to everyone",
+        "option_c": "Confusing to both groups equally",
+        "option_d": "Only meaningful to educated people",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:15-16 — \"For we are unto God a sweet savour of Christ, in them that are saved, and in them that perish: To the one we are the savour of death unto death; and to the other the savour of life unto life.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say they are NOT doing with the word of God?",
+        "option_a": "They are not as many, which corrupt the word of God, but speak in sincerity as of God in the sight of God",
+        "option_b": "They are not reading it enough",
+        "option_c": "They are not translating it properly",
+        "option_d": "They are not memorizing it daily",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:17 — \"For we are not as many, which corrupt the word of God: but as of sincerity, but as of God, in the sight of God speak we in Christ.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What was the punishment inflicted on the offender by many?",
+        "option_a": "Sufficient punishment — Paul now urges forgiveness and comfort lest he be swallowed up with overmuch sorrow",
+        "option_b": "A fine of money paid to the church",
+        "option_c": "Permanent exile from the city",
+        "option_d": "A public flogging in the synagogue",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:6-7 — \"Sufficient to such a man is this punishment, which was inflicted of many. So that contrariwise ye ought rather to forgive him, and comfort him, lest perhaps such a one should be swallowed up with overmuch sorrow.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul urge the Corinthians to confirm toward the offender?",
+        "option_a": "Their love — that he might know the proof of them, whether they be obedient in all things",
+        "option_b": "Their authority over him",
+        "option_c": "Their superiority to him",
+        "option_d": "Their indifference toward him",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:8-9 — \"Wherefore I beseech you that ye would confirm your love toward him. For to this end also did I write, that I might know the proof of you, whether ye be obedient in all things.\""
+      },
+      {
+        "question_number": 3,
+        "question": "In whose person does Paul say he forgave?",
+        "option_a": "In the person of Christ — what he forgave, he forgave for their sakes in the person of Christ",
+        "option_b": "In the person of Moses",
+        "option_c": "In the person of the high priest",
+        "option_d": "In his own person as an apostle",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:10 — \"To whom ye forgive any thing, I forgive also: for if I forgave any thing, to whom I forgave it, for your sakes forgave I it in the person of Christ.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What happened when Paul came to Troas to preach?",
+        "option_a": "A door was opened unto him of the Lord, but he had no rest in his spirit because he found not Titus",
+        "option_b": "He was arrested and imprisoned",
+        "option_c": "He performed many miracles",
+        "option_d": "He found a large congregation waiting",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:12-13 — \"Furthermore, when I came to Troas to preach Christ's gospel, and a door was opened unto me of the Lord, I had no rest in my spirit, because I found not Titus my brother.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What profound question does Paul ask in verse 16?",
+        "option_a": "Who is sufficient for these things? — referring to the weighty responsibility of being a savour of life or death",
+        "option_b": "How many churches should one apostle oversee?",
+        "option_c": "When will Christ return to earth?",
+        "option_d": "Where should the next church be planted?",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:16 — \"And who is sufficient for these things?\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul mean by those who \"corrupt\" the word of God?",
+        "option_a": "Those who peddle or adulterate God's word for profit, as opposed to speaking sincerely as from God in Christ",
+        "option_b": "Those who accidentally misquote Scripture",
+        "option_c": "Those who translate it into other languages",
+        "option_d": "Those who read it without understanding",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:17 — \"For we are not as many, which corrupt the word of God: but as of sincerity, but as of God, in the sight of God speak we in Christ.\""
+      },
+      {
+        "question_number": 7,
+        "question": "Why did Paul leave Troas despite the open door for the gospel?",
+        "option_a": "He had no rest in his spirit because he did not find Titus, so he went into Macedonia",
+        "option_b": "The authorities shut down his preaching",
+        "option_c": "He ran out of money for the journey",
+        "option_d": "The church at Troas rejected his message",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:13 — \"I had no rest in my spirit, because I found not Titus my brother: but taking my leave of them, I went from thence into Macedonia.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say about their manner of speaking in the sight of God?",
+        "option_a": "As of sincerity, as of God, in the sight of God speak we in Christ — transparent accountability before God",
+        "option_b": "They speak with great eloquence and rhetoric",
+        "option_c": "They speak only when inspired by visions",
+        "option_d": "They speak with the authority of the Sanhedrin",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 2:17 — \"But as of sincerity, but as of God, in the sight of God speak we in Christ.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul call the Corinthian believers?",
+        "option_a": "His letter, written in their hearts",
+        "option_b": "His students in a school",
+        "option_c": "His soldiers in an army",
+        "option_d": "His servants in a palace",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:2 — \"Ye are our epistle written in our hearts, known and read of all men.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does the Spirit give?",
+        "option_a": "Life",
+        "option_b": "Rules",
+        "option_c": "Punishment",
+        "option_d": "Fear",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:6 — \"The letter killeth, but the spirit giveth life.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Where the Spirit of the Lord is, what do we have?",
+        "option_a": "Liberty (freedom)",
+        "option_b": "Chains",
+        "option_c": "Sadness",
+        "option_d": "Darkness",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:17 — \"Where the Spirit of the Lord is, there is liberty.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What is the Corinthians' epistle written with?",
+        "option_a": "Not with ink but with the Spirit of the living God, not in tables of stone but in fleshy tables of the heart",
+        "option_b": "With expensive gold ink on parchment",
+        "option_c": "With ordinary ink on papyrus scrolls",
+        "option_d": "With carved letters on marble tablets",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:3 — \"Written not with ink, but with the Spirit of the living God; not in tables of stone, but in fleshy tables of the heart.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does the letter do versus what the spirit does?",
+        "option_a": "The letter killeth but the spirit giveth life",
+        "option_b": "The letter gives life but the spirit restricts",
+        "option_c": "Both the letter and spirit give life equally",
+        "option_d": "The letter and spirit are the same thing",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:6 — \"Who also hath made us able ministers of the new testament; not of the letter, but of the spirit: for the letter killeth, but the spirit giveth life.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What happened to Moses' face when he came down from the mountain?",
+        "option_a": "His face shone with glory so the children of Israel could not steadfastly behold it",
+        "option_b": "His face turned completely white",
+        "option_c": "His face became invisible",
+        "option_d": "His face looked exactly the same as before",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:7 — \"The ministration of death, written and engraven in stones, was glorious, so that the children of Israel could not stedfastly behold the face of Moses for the glory of his countenance.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is still over the hearts of Israel when Moses is read?",
+        "option_a": "A veil — the vail is upon their heart, but when they turn to the Lord, the vail shall be taken away",
+        "option_b": "A crown of thorns",
+        "option_c": "A cloud of darkness",
+        "option_d": "A wall of fire",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:15-16 — \"But even unto this day, when Moses is read, the vail is upon their heart. Nevertheless when it shall turn to the Lord, the vail shall be taken away.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What are believers being changed into?",
+        "option_a": "The same image from glory to glory, even as by the Spirit of the Lord",
+        "option_b": "Powerful warriors",
+        "option_c": "Perfect scholars",
+        "option_d": "Wealthy rulers",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:18 — \"But we all, with open face beholding as in a glass the glory of the Lord, are changed into the same image from glory to glory, even as by the Spirit of the Lord.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about needing epistles of commendation?",
+        "option_a": "He needs no letters of commendation to or from them because they are his epistle, known and read of all men",
+        "option_b": "He requires formal letters from every church",
+        "option_c": "He carries letters from the Jerusalem council",
+        "option_d": "He insists on written approval from Peter",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:1-2 — \"Do we begin again to commend ourselves? or need we, as some others, epistles of commendation to you, or letters of commendation from you? Ye are our epistle written in our hearts, known and read of all men.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about his sufficiency?",
+        "option_a": "Not that we are sufficient of ourselves to think any thing as of ourselves; but our sufficiency is of God",
+        "option_b": "His sufficiency comes from his rabbinic training",
+        "option_c": "His sufficiency is from years of experience",
+        "option_d": "His sufficiency is from the Jerusalem church",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:5 — \"Not that we are sufficient of ourselves to think any thing as of ourselves; but our sufficiency is of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Paul contrast the ministry of death with the ministry of the spirit?",
+        "option_a": "If the ministration of death, written and engraven in stones, was glorious, the ministration of the spirit must be rather more glorious",
+        "option_b": "The ministry of death was shameful and the spirit is merely adequate",
+        "option_c": "Both ministries have equal glory",
+        "option_d": "The old ministry was more glorious than the new",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:7-8 — \"The ministration of death, written and engraven in stones, was glorious... how shall not the ministration of the spirit be rather more glorious?\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about the glory of the old covenant versus the new?",
+        "option_a": "That which was made glorious had no glory in this respect, by reason of the glory that excelleth",
+        "option_b": "The old covenant's glory continues unchanged",
+        "option_c": "Both covenants share identical glory",
+        "option_d": "The old covenant had no glory at all",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:10 — \"For even that which was made glorious had no glory in this respect, by reason of the glory that excelleth.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Why did Moses put a vail over his face?",
+        "option_a": "So the children of Israel could not stedfastly look to the end of that which is abolished",
+        "option_b": "To protect his face from the sun",
+        "option_c": "To hide his identity from the people",
+        "option_d": "To show humility before God",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:13 — \"And not as Moses, which put a vail over his face, that the children of Israel could not stedfastly look to the end of that which is abolished.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What happens when one turns to the Lord regarding the veil?",
+        "option_a": "The vail shall be taken away — now the Lord is that Spirit, and where the Spirit of the Lord is, there is liberty",
+        "option_b": "The veil becomes thicker",
+        "option_c": "The veil changes colour",
+        "option_d": "The veil is passed to someone else",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:16-17 — \"Nevertheless when it shall turn to the Lord, the vail shall be taken away. Now the Lord is that Spirit: and where the Spirit of the Lord is, there is liberty.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul mean by \"beholding as in a glass the glory of the Lord\"?",
+        "option_a": "With unveiled face we reflect the Lord's glory like a mirror and are progressively transformed into his image from glory to glory",
+        "option_b": "We see God perfectly and completely right now",
+        "option_c": "We see a distorted image that never changes",
+        "option_d": "We cannot see any of God's glory at all",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:18 — \"But we all, with open face beholding as in a glass the glory of the Lord, are changed into the same image from glory to glory, even as by the Spirit of the Lord.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul identify the \"Lord\" as in verse 17?",
+        "option_a": "Now the Lord is that Spirit — identifying the Holy Spirit's work in removing the veil and bringing freedom",
+        "option_b": "The Lord is only the Father",
+        "option_c": "The Lord refers to an angel",
+        "option_d": "The Lord is a metaphor for knowledge",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 3:17 — \"Now the Lord is that Spirit: and where the Spirit of the Lord is, there is liberty.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did God command to shine out of darkness?",
+        "option_a": "Light",
+        "option_b": "Stars",
+        "option_c": "Fire",
+        "option_d": "Gold",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:6 — \"For God, who commanded the light to shine out of darkness, hath shined in our hearts.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What kind of vessels (containers) does Paul say our bodies are like?",
+        "option_a": "Earthen vessels (clay pots)",
+        "option_b": "Gold vases",
+        "option_c": "Silver cups",
+        "option_d": "Diamond boxes",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:7 — \"But we have this treasure in earthen vessels, that the excellency of the power may be of God, and not of us.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Can we see the things that last forever?",
+        "option_a": "No, eternal things are not seen; things we see are temporary",
+        "option_b": "Yes, everything we see lasts forever",
+        "option_c": "Only some things we see last forever",
+        "option_d": "Nothing lasts forever at all",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:18 — \"The things which are seen are temporal; but the things which are not seen are eternal.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say they have renounced?",
+        "option_a": "The hidden things of dishonesty — not walking in craftiness nor handling the word of God deceitfully",
+        "option_b": "The right to earn a living",
+        "option_c": "The hope of ever visiting Corinth",
+        "option_d": "The practice of speaking in tongues",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:2 — \"But have renounced the hidden things of dishonesty, not walking in craftiness, nor handling the word of God deceitfully.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who has blinded the minds of those who don't believe?",
+        "option_a": "The god of this world — lest the light of the glorious gospel of Christ should shine unto them",
+        "option_b": "The Roman government",
+        "option_c": "The Jewish leaders",
+        "option_d": "The Greek philosophers",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:4 — \"In whom the god of this world hath blinded the minds of them which believe not, lest the light of the glorious gospel of Christ, who is the image of God, should shine unto them.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Why do we have treasure in earthen vessels?",
+        "option_a": "That the excellency of the power may be of God and not of us",
+        "option_b": "So people will admire us",
+        "option_c": "So we can show off our strength",
+        "option_d": "So the vessels become more valuable",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:7 — \"But we have this treasure in earthen vessels, that the excellency of the power may be of God, and not of us.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Though we are troubled, what does Paul say we are NOT?",
+        "option_a": "Distressed — troubled on every side yet not distressed; perplexed but not in despair",
+        "option_b": "Troubled at all",
+        "option_c": "Believers in Christ",
+        "option_d": "Qualified to preach",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:8 — \"We are troubled on every side, yet not distressed; we are perplexed, but not in despair.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about our light affliction?",
+        "option_a": "It worketh for us a far more exceeding and eternal weight of glory",
+        "option_b": "It has no purpose or meaning",
+        "option_c": "It is punishment for our sins",
+        "option_d": "It proves God has abandoned us",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:17 — \"For our light affliction, which is but for a moment, worketh for us a far more exceeding and eternal weight of glory.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul describe his ministry in light of God's mercy?",
+        "option_a": "As we have received mercy we faint not — commending himself by manifestation of the truth to every man's conscience in the sight of God",
+        "option_b": "As a heavy burden he reluctantly carries",
+        "option_c": "As a privilege reserved for the elite",
+        "option_d": "As a temporary assignment until retirement",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:1-2 — \"Therefore seeing we have this ministry, as we have received mercy, we faint not; But have renounced the hidden things of dishonesty... by manifestation of the truth commending ourselves to every man's conscience in the sight of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "If the gospel is hid, to whom is it hid?",
+        "option_a": "To them that are lost — in whom the god of this world hath blinded the minds of them which believe not",
+        "option_b": "To the uneducated and illiterate",
+        "option_c": "To the Gentile nations only",
+        "option_d": "To those who live far from Jerusalem",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:3-4 — \"But if our gospel be hid, it is hid to them that are lost: In whom the god of this world hath blinded the minds of them which believe not.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who does Paul say they preach?",
+        "option_a": "Not ourselves but Christ Jesus the Lord, and ourselves your servants for Jesus' sake",
+        "option_b": "Themselves as the primary authority",
+        "option_c": "A new philosophy of life",
+        "option_d": "The traditions of the Jewish elders",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:5 — \"For we preach not ourselves, but Christ Jesus the Lord; and ourselves your servants for Jesus' sake.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What has God shined in our hearts to give?",
+        "option_a": "The light of the knowledge of the glory of God in the face of Jesus Christ",
+        "option_b": "The ability to perform miracles",
+        "option_c": "The wisdom of Solomon",
+        "option_d": "The power to judge others",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:6 — \"For God, who commanded the light to shine out of darkness, hath shined in our hearts, to give the light of the knowledge of the glory of God in the face of Jesus Christ.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What fourfold description of trials does Paul give in verses 8-9?",
+        "option_a": "Troubled but not distressed; perplexed but not in despair; persecuted but not forsaken; cast down but not destroyed",
+        "option_b": "Hungry, thirsty, cold, and homeless",
+        "option_c": "Beaten, imprisoned, shipwrecked, and stoned",
+        "option_d": "Mocked, rejected, betrayed, and abandoned",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:8-9 — \"We are troubled on every side, yet not distressed; we are perplexed, but not in despair; Persecuted, but not forsaken; cast down, but not destroyed.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say about the dying of the Lord Jesus in their body?",
+        "option_a": "Always bearing about in the body the dying of the Lord Jesus, that the life also of Jesus might be made manifest in our body",
+        "option_b": "It is a burden that weakens their ministry",
+        "option_c": "It is a metaphor for emotional sadness",
+        "option_d": "It is a reference to baptism only",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:10 — \"Always bearing about in the body the dying of the Lord Jesus, that the life also of Jesus might be made manifest in our body.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What spirit of faith does Paul reference?",
+        "option_a": "We having the same spirit of faith according as it is written, I believed and therefore have I spoken — citing Psalm 116:10",
+        "option_b": "A spirit of timidity and fear",
+        "option_c": "A spirit of worldly wisdom",
+        "option_d": "A spirit of legalistic obedience",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:13 — \"We having the same spirit of faith, according as it is written, I believed, and therefore have I spoken; we also believe, and therefore speak.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What contrast does Paul draw between the outward and inward man?",
+        "option_a": "Though our outward man perish, yet the inward man is renewed day by day",
+        "option_b": "Both the outward and inward man perish together",
+        "option_c": "The outward man is strengthened while the inward weakens",
+        "option_d": "The inward man does not change at all",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 4:16 — \"For which cause we faint not; but though our outward man perish, yet the inward man is renewed day by day.\""
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does God have waiting for us in heaven?",
+        "option_a": "A house not made with hands, eternal in the heavens",
+        "option_b": "A big pile of gold",
+        "option_c": "A castle made of clouds",
+        "option_d": "Nothing at all",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:1 — \"For we know that if our earthly house of this tabernacle were dissolved, we have a building of God, an house not made with hands, eternal in the heavens.\""
+      },
+      {
+        "question_number": 2,
+        "question": "If anyone is in Christ, what are they?",
+        "option_a": "A new creature — old things are passed away and all things are become new",
+        "option_b": "The same as before",
+        "option_c": "Older and wiser",
+        "option_d": "Just a good person",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:17 — \"Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What job has God given believers?",
+        "option_a": "The ministry of reconciliation (bringing people back to God)",
+        "option_b": "The job of judging everyone",
+        "option_c": "The task of building temples",
+        "option_d": "The work of collecting money",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:18 — \"And hath given to us the ministry of reconciliation.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about being absent from the body?",
+        "option_a": "To be absent from the body is to be present with the Lord",
+        "option_b": "To be absent from the body is to sleep forever",
+        "option_c": "To be absent from the body is to cease to exist",
+        "option_d": "To be absent from the body is to wander in darkness",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:8 — \"We are confident, I say, and willing rather to be absent from the body, and to be present with the Lord.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Where must we all appear?",
+        "option_a": "Before the judgment seat of Christ, that every one may receive the things done in his body",
+        "option_b": "Before the Roman senate",
+        "option_c": "Before the Jewish Sanhedrin",
+        "option_d": "Before the angels in heaven",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:10 — \"For we must all appear before the judgment seat of Christ; that every one may receive the things done in his body, according to that he hath done, whether it be good or bad.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What constrains (compels) Paul?",
+        "option_a": "The love of Christ constraineth us — because if one died for all then were all dead",
+        "option_b": "The fear of punishment",
+        "option_c": "The desire for fame",
+        "option_d": "The need for money",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:14 — \"For the love of Christ constraineth us; because we thus judge, that if one died for all, then were all dead.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does \"if any man be in Christ, he is a new creature\" mean?",
+        "option_a": "Old things are passed away and all things are become new — a complete spiritual transformation",
+        "option_b": "He becomes physically different",
+        "option_c": "He gets a new name",
+        "option_d": "He moves to a new city",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:17 — \"Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did God do with our sins through Christ?",
+        "option_a": "He made him to be sin for us who knew no sin, that we might be made the righteousness of God in him",
+        "option_b": "He ignored our sins entirely",
+        "option_c": "He gave us a list of rules to follow",
+        "option_d": "He reduced the punishment by half",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:21 — \"For he hath made him to be sin for us, who knew no sin; that we might be made the righteousness of God in him.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about the earthly house of this tabernacle?",
+        "option_a": "If it were dissolved, we have a building of God, an house not made with hands, eternal in the heavens",
+        "option_b": "It will be renovated and made eternal",
+        "option_c": "It will be transferred to another person",
+        "option_d": "It has no relationship to the heavenly body",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:1 — \"For we know that if our earthly house of this tabernacle were dissolved, we have a building of God, an house not made with hands, eternal in the heavens.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What has God wrought (prepared) us for and what has he given as the earnest?",
+        "option_a": "God hath wrought us for this selfsame thing and given unto us the earnest of the Spirit",
+        "option_b": "God has prepared wealth and given us gold",
+        "option_c": "God has wrought punishment and given a warning",
+        "option_d": "God has wrought confusion and given us riddles",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:5 — \"Now he that hath wrought us for the selfsame thing is God, who also hath given unto us the earnest of the Spirit.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about walking by faith?",
+        "option_a": "We walk by faith, not by sight — being always confident knowing that whilst in the body we are absent from the Lord",
+        "option_b": "We walk by sight and not by faith",
+        "option_c": "Faith and sight are identical things",
+        "option_d": "Walking by faith means ignoring all evidence",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:6-7 — \"Therefore we are always confident, knowing that, whilst we are at home in the body, we are absent from the Lord: (For we walk by faith, not by sight.)\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about knowing Christ after the flesh?",
+        "option_a": "Though we have known Christ after the flesh, yet now henceforth know we him no more — we now know him spiritually",
+        "option_b": "We should focus only on Christ's earthly life",
+        "option_c": "Physical knowledge of Christ is most important",
+        "option_d": "We never knew Christ in any way",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:16 — \"Wherefore henceforth know we no man after the flesh: yea, though we have known Christ after the flesh, yet now henceforth know we him no more.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is the ministry of reconciliation that God has given?",
+        "option_a": "That God was in Christ reconciling the world unto himself, not imputing their trespasses unto them, and hath committed unto us the word of reconciliation",
+        "option_b": "A ministry of judgment and condemnation",
+        "option_c": "A ministry limited to the Jewish people",
+        "option_d": "A ministry of philosophical debate",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:19 — \"To wit, that God was in Christ, reconciling the world unto himself, not imputing their trespasses unto them; and hath committed unto us the word of reconciliation.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What role does Paul say believers hold?",
+        "option_a": "Ambassadors for Christ — as though God did beseech you by us, we pray you in Christ's stead, be ye reconciled to God",
+        "option_b": "Judges over the nations",
+        "option_c": "Kings of earthly kingdoms",
+        "option_d": "Servants of the Roman government",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:20 — \"Now then we are ambassadors for Christ, as though God did beseech you by us: we pray you in Christ's stead, be ye reconciled to God.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What is the theological significance of verse 21?",
+        "option_a": "The great exchange: Christ, who knew no sin, was made sin for us that we might be made the righteousness of God in him — imputed righteousness",
+        "option_b": "Christ merely demonstrated how to live righteously",
+        "option_c": "God punished Christ for his own sins",
+        "option_d": "Righteousness is earned through good works",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:21 — \"For he hath made him to be sin for us, who knew no sin; that we might be made the righteousness of God in him.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul labour for, whether present or absent?",
+        "option_a": "That we may be accepted of him — we labour to be well-pleasing to the Lord",
+        "option_b": "To build the largest church possible",
+        "option_c": "To earn the highest heavenly reward",
+        "option_d": "To impress the other apostles",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 5:9 — \"Wherefore we labour, that, whether present or absent, we may be accepted of him.\""
+      }
+    ]
+  },
+  "6": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "When is the right time to be saved?",
+        "option_a": "Now — today is the day of salvation",
+        "option_b": "Only when you are very old",
+        "option_c": "Only on special holidays",
+        "option_d": "Only after you die",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:2 — \"Behold, now is the accepted time; behold, now is the day of salvation.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does God promise to be to us?",
+        "option_a": "A Father — and we shall be his sons and daughters",
+        "option_b": "A strict judge",
+        "option_c": "A distant stranger",
+        "option_d": "A harsh teacher",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:18 — \"And will be a Father unto you, and ye shall be my sons and daughters, saith the Lord Almighty.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should believers do with people who don't believe?",
+        "option_a": "Not be unequally yoked (joined) together with unbelievers",
+        "option_b": "Avoid them completely at all times",
+        "option_c": "Do whatever they want us to do",
+        "option_d": "Pretend to agree with everything they say",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:14 — \"Be ye not unequally yoked together with unbelievers.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul urge the Corinthians not to receive in vain?",
+        "option_a": "The grace of God — for now is the accepted time, now is the day of salvation",
+        "option_b": "Their financial gifts to the church",
+        "option_c": "The letters Paul sent to them",
+        "option_d": "The food provided at church meals",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:1-2 — \"We then, as workers together with him, beseech you also that ye receive not the grace of God in vain... behold, now is the accepted time; behold, now is the day of salvation.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How does Paul describe his ministry to give no offence?",
+        "option_a": "In all things approving ourselves as ministers of God — in much patience, afflictions, necessities, distresses",
+        "option_b": "By avoiding all difficult situations",
+        "option_c": "By always agreeing with everyone",
+        "option_d": "By staying silent about controversial truths",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:4 — \"But in all things approving ourselves as the ministers of God, in much patience, in afflictions, in necessities, in distresses.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What rhetorical questions does Paul ask about believers and unbelievers?",
+        "option_a": "What fellowship hath righteousness with unrighteousness? What communion hath light with darkness?",
+        "option_b": "How much money should they share?",
+        "option_c": "What language should they speak together?",
+        "option_d": "Where should they live in the same city?",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:14 — \"For what fellowship hath righteousness with unrighteousness? and what communion hath light with darkness?\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say believers are the temple of?",
+        "option_a": "The living God — as God hath said, I will dwell in them and walk in them",
+        "option_b": "The temple of human achievement",
+        "option_c": "The temple of Roman culture",
+        "option_d": "The temple of earthly wisdom",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:16 — \"For ye are the temple of the living God; as God hath said, I will dwell in them, and walk in them; and I will be their God, and they shall be my people.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does God tell his people to do in verse 17?",
+        "option_a": "Come out from among them, be separate, and touch not the unclean thing — and God will receive them",
+        "option_b": "Join every group they can find",
+        "option_c": "Blend in with the surrounding culture",
+        "option_d": "Fight against the Roman government",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:17 — \"Wherefore come out from among them, and be ye separate, saith the Lord, and touch not the unclean thing; and I will receive you.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What Old Testament passage does Paul quote in verse 2?",
+        "option_a": "Isaiah 49:8 — \"In an acceptable time have I heard thee, and in a day of salvation have I succoured thee\"",
+        "option_b": "Psalm 23:1",
+        "option_c": "Genesis 1:1",
+        "option_d": "Deuteronomy 6:4",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:2 — \"For he saith, I have heard thee in a time accepted, and in the day of salvation have I succoured thee.\" This quotes Isaiah 49:8."
+      },
+      {
+        "question_number": 2,
+        "question": "What extensive catalogue of hardships does Paul list in verses 4-5?",
+        "option_a": "Patience, afflictions, necessities, distresses, stripes, imprisonments, tumults, labours, watchings, fastings",
+        "option_b": "Wealth, power, fame, comfort, and luxury",
+        "option_c": "Education, travel, study, and debate",
+        "option_d": "Health, rest, peace, and quiet",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:4-5 — \"In much patience, in afflictions, in necessities, in distresses, In stripes, in imprisonments, in tumults, in labours, in watchings, in fastings.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What paradoxes does Paul describe about the apostolic ministry in verses 8-10?",
+        "option_a": "As unknown yet well known; dying yet living; chastened yet not killed; sorrowful yet always rejoicing; poor yet making many rich; having nothing yet possessing all things",
+        "option_b": "As wealthy yet poor; famous yet unknown",
+        "option_c": "As powerful yet weak; honoured yet dishonoured",
+        "option_d": "As young yet old; travelling yet stationary",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:8-10 — \"By honour and dishonour, by evil report and good report: as deceivers, and yet true; As unknown, and yet well known; as dying, and yet, behold, we live; as chastened, and not killed; As sorrowful, yet alway rejoicing; as poor, yet making many rich; as having nothing, and yet possessing all things.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul mean by \"be ye not unequally yoked together with unbelievers\"?",
+        "option_a": "Believers should not enter binding partnerships with unbelievers that compromise their faith — the metaphor is from Deuteronomy 22:10 about yoking different animals together",
+        "option_b": "Christians should never interact with non-Christians",
+        "option_c": "Believers should not do business of any kind",
+        "option_d": "Only marriages between believers and unbelievers are forbidden",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:14 — \"Be ye not unequally yoked together with unbelievers: for what fellowship hath righteousness with unrighteousness?\" The imagery comes from Deuteronomy 22:10."
+      },
+      {
+        "question_number": 5,
+        "question": "What five rhetorical questions does Paul ask in verses 14-16?",
+        "option_a": "What fellowship hath righteousness with unrighteousness? What communion hath light with darkness? What concord hath Christ with Belial? What part hath he that believeth with an infidel? What agreement hath the temple of God with idols?",
+        "option_b": "Five questions about church finances",
+        "option_c": "Five questions about eschatology",
+        "option_d": "Five questions about spiritual gifts",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:14-16 lists these five contrasting pairs to emphasize the incompatibility of believers being bound with unbelievers."
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say about the heart of the apostles toward the Corinthians?",
+        "option_a": "Our mouth is open unto you, our heart is enlarged — ye are not straitened in us but ye are straitened in your own bowels",
+        "option_b": "He has closed his heart to them",
+        "option_c": "He has grown indifferent toward them",
+        "option_d": "He has transferred his affection to another church",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:11-12 — \"O ye Corinthians, our mouth is open unto you, our heart is enlarged. Ye are not straitened in us, but ye are straitened in your own bowels.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What recompence (return) does Paul ask from the Corinthians?",
+        "option_a": "Be ye also enlarged — open your hearts to us as we have opened ours to you",
+        "option_b": "Send a large financial gift",
+        "option_c": "Build a monument in his honour",
+        "option_d": "Send workers to help his ministry",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:13 — \"Now for a recompence in the same, (I speak as unto my children,) be ye also enlarged.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What comprehensive promise does God make in verses 16-18?",
+        "option_a": "I will dwell in them, walk in them, be their God; they shall be my people; I will receive you; I will be a Father unto you, ye shall be my sons and daughters",
+        "option_b": "He will make them wealthy and powerful",
+        "option_c": "He will give them political authority",
+        "option_d": "He will remove all suffering from their lives",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 6:16-18 — God promises indwelling presence, covenant relationship, reception, and familial belonging, drawing from Leviticus 26:12, Isaiah 52:11, and 2 Samuel 7:14."
+      }
+    ]
+  },
+  "7": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What kind of sorrow makes us come back to God?",
+        "option_a": "Godly sorrow (being sorry because we disobeyed God)",
+        "option_b": "Being sorry we got caught",
+        "option_c": "Being angry at other people",
+        "option_d": "Being sad about losing a toy",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:10 — \"For godly sorrow worketh repentance to salvation not to be repented of.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who brought good news to Paul about the Corinthians?",
+        "option_a": "Titus",
+        "option_b": "Peter",
+        "option_c": "Barnabas",
+        "option_d": "Silas",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:6-7 — \"Nevertheless God, that comforteth those that are cast down, comforted us by the coming of Titus.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Was Paul glad he had written a strong letter to the Corinthians?",
+        "option_a": "Yes, because it helped them repent and turn back to God",
+        "option_b": "No, he wished he had never written it",
+        "option_c": "He didn't care either way",
+        "option_d": "He was angry about it",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:9 — \"Now I rejoice, not that ye were made sorry, but that ye sorrowed to repentance.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul urge them to do since they have God's promises?",
+        "option_a": "Cleanse themselves from all filthiness of the flesh and spirit, perfecting holiness in the fear of God",
+        "option_b": "Celebrate with feasts and parties",
+        "option_c": "Withdraw from all social activities",
+        "option_d": "Focus entirely on earning money",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:1 — \"Having therefore these promises, dearly beloved, let us cleanse ourselves from all filthiness of the flesh and spirit, perfecting holiness in the fear of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How did God comfort Paul when he was cast down?",
+        "option_a": "By the coming of Titus, and by the consolation wherewith Titus was comforted in them",
+        "option_b": "By sending an angel with a message",
+        "option_c": "By giving him a vision of heaven",
+        "option_d": "By removing all his enemies",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:6-7 — \"Nevertheless God, that comforteth those that are cast down, comforted us by the coming of Titus; And not by his coming only, but by the consolation wherewith he was comforted in you.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the difference between godly sorrow and worldly sorrow?",
+        "option_a": "Godly sorrow worketh repentance to salvation not to be repented of; but the sorrow of the world worketh death",
+        "option_b": "There is no difference between them",
+        "option_c": "Worldly sorrow is more intense than godly sorrow",
+        "option_d": "Godly sorrow is weaker than worldly sorrow",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:10 — \"For godly sorrow worketh repentance to salvation not to be repented of: but the sorrow of the world worketh death.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did the Corinthians' godly sorrow produce in them?",
+        "option_a": "Carefulness, clearing of themselves, indignation, fear, vehement desire, zeal, and revenge (vindication)",
+        "option_b": "Laziness and indifference",
+        "option_c": "Pride and self-righteousness",
+        "option_d": "Depression and hopelessness",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:11 — \"For behold this selfsame thing, that ye sorrowed after a godly sort, what carefulness it wrought in you, yea, what clearing of yourselves, yea, what indignation, yea, what fear, yea, what vehement desire, yea, what zeal, yea, what revenge!\""
+      },
+      {
+        "question_number": 5,
+        "question": "How did Titus feel about the Corinthians?",
+        "option_a": "His inward affection was more abundant toward them, remembering their obedience and how they received him with fear and trembling",
+        "option_b": "He was angry and disappointed",
+        "option_c": "He was afraid to return to them",
+        "option_d": "He had no particular feelings about them",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:15 — \"And his inward affection is more abundant toward you, whilst he remembereth the obedience of you all, how with fear and trembling ye received him.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What twofold cleansing does Paul call for in verse 1?",
+        "option_a": "Cleansing from all filthiness of the flesh and spirit — both outward behaviour and inward attitudes",
+        "option_b": "Cleansing only from spiritual sins",
+        "option_c": "Cleansing only from physical sins",
+        "option_d": "Cleansing through ritual washing only",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:1 — \"Let us cleanse ourselves from all filthiness of the flesh and spirit, perfecting holiness in the fear of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about his boasting regarding the Corinthians to Titus?",
+        "option_a": "He was not ashamed — his boasting to Titus proved true, just as all things he spoke were truth",
+        "option_b": "He regretted exaggerating about them",
+        "option_c": "He never mentioned them to Titus",
+        "option_d": "He criticised them before Titus",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:14 — \"For if I have boasted any thing to him of you, I am not ashamed; but as we spake all things to you in truth, even so our boasting, which I made before Titus, is found a truth.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about the sorrow his letter caused?",
+        "option_a": "He did repent at first, but now rejoices — not that they were made sorry but that they sorrowed to repentance after a godly manner",
+        "option_b": "He deeply regrets ever sending the letter",
+        "option_c": "He wished the letter had been harsher",
+        "option_d": "He plans to send an even more severe letter",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:8-9 — \"For though I made you sorry with a letter, I do not repent, though I did repent: for I perceive that the same epistle hath made you sorry, though it were but for a season. Now I rejoice, not that ye were made sorry, but that ye sorrowed to repentance.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about the Corinthians' sorrow being after a godly manner?",
+        "option_a": "They received damage by Paul in nothing — godly sorrow caused no spiritual harm but led to genuine repentance",
+        "option_b": "It caused them to leave the church",
+        "option_c": "It made them bitter toward Paul",
+        "option_d": "It led them to reject the gospel",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:9 — \"Now I rejoice, not that ye were made sorry, but that ye sorrowed to repentance: for ye were made sorry after a godly manner, that ye might receive damage by us in nothing.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What seven fruits of godly repentance does Paul list in verse 11?",
+        "option_a": "Carefulness, clearing of themselves, indignation, fear, vehement desire, zeal, and revenge (vindication of justice)",
+        "option_b": "Faith, hope, love, joy, peace, patience, and kindness",
+        "option_c": "Wisdom, understanding, counsel, might, knowledge, fear, and delight",
+        "option_d": "Poverty, chastity, obedience, prayer, fasting, alms, and pilgrimage",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:11 — \"What carefulness it wrought in you, yea, what clearing of yourselves, yea, what indignation, yea, what fear, yea, what vehement desire, yea, what zeal, yea, what revenge!\""
+      },
+      {
+        "question_number": 6,
+        "question": "Why did Paul write the severe letter?",
+        "option_a": "Not for his cause that had done the wrong, nor for his cause that suffered wrong, but that their care for Paul might appear unto them in the sight of God",
+        "option_b": "Primarily to punish the offender",
+        "option_c": "To assert his apostolic authority",
+        "option_d": "To demand financial compensation",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:12 — \"Wherefore, though I wrote unto you, I did it not for his cause that had done the wrong, nor for his cause that suffered wrong, but that our care for you in the sight of God might appear unto you.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What was Paul's emotional state when he arrived in Macedonia?",
+        "option_a": "His flesh had no rest — without were fightings, within were fears; but God comforted him by the coming of Titus",
+        "option_b": "He was joyful and at complete peace",
+        "option_c": "He was angry at the Corinthians",
+        "option_d": "He was indifferent about everything",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:5-6 — \"For, when we were come into Macedonia, our flesh had no rest, but we were troubled on every side; without were fightings, within were fears. Nevertheless God, that comforteth those that are cast down, comforted us by the coming of Titus.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul conclude about his confidence in the Corinthians?",
+        "option_a": "He has confidence in them in all things — he rejoiceth the more exceedingly",
+        "option_b": "He has lost all trust in them",
+        "option_c": "He is cautiously optimistic but uncertain",
+        "option_d": "He will withhold judgment until his next visit",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 7:16 — \"I rejoice therefore that I have confidence in you in all things.\""
+      }
+    ]
+  },
+  "8": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did the churches in Macedonia do even though they were poor?",
+        "option_a": "They gave generously to help other Christians",
+        "option_b": "They kept all their money for themselves",
+        "option_c": "They asked Paul for more money",
+        "option_d": "They complained about being poor",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:2 — \"How that in a great trial of affliction the abundance of their joy and their deep poverty abounded unto the riches of their liberality.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus do for us even though he was rich?",
+        "option_a": "He became poor so that we could become rich",
+        "option_b": "He stayed rich and gave us gold",
+        "option_c": "He kept his riches in heaven",
+        "option_d": "He asked us to make him richer",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:9 — \"For ye know the grace of our Lord Jesus Christ, that, though he was rich, yet for your sakes he became poor, that ye through his poverty might be rich.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who did Paul send to help the Corinthians with their giving?",
+        "option_a": "Titus",
+        "option_b": "Peter",
+        "option_c": "James",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:6 — \"Insomuch that we desired Titus, that as he had begun, so he would also finish in you the same grace also.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How did the Macedonian churches give beyond Paul's expectation?",
+        "option_a": "They first gave their own selves to the Lord, and unto Paul by the will of God — and gave beyond their power willingly",
+        "option_b": "They gave exactly what was requested",
+        "option_c": "They gave only after much persuasion",
+        "option_d": "They gave reluctantly and with complaints",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:3-5 — \"For to their power, I bear record, yea, and beyond their power they were willing of themselves... and this they did, not as we hoped, but first gave their own selves to the Lord, and unto us by the will of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What seven things does Paul say the Corinthians abound in?",
+        "option_a": "Faith, utterance, knowledge, all diligence, love — Paul urges them to abound in this grace of giving also",
+        "option_b": "Gold, silver, land, houses, and servants",
+        "option_c": "Miracles, signs, wonders, and healings",
+        "option_d": "Political power, social status, and fame",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:7 — \"Therefore, as ye abound in every thing, in faith, and utterance, and knowledge, and in all diligence, and in your love to us, see that ye abound in this grace also.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What principle does Paul give about willing giving?",
+        "option_a": "If there be first a willing mind, it is accepted according to that a man hath, and not according to that he hath not",
+        "option_b": "Give only if you can afford it after all your needs",
+        "option_c": "Give everything you have with nothing left",
+        "option_d": "Give only what is specifically demanded",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:12 — \"For if there be first a willing mind, it is accepted according to that a man hath, and not according to that he hath not.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about equality in giving?",
+        "option_a": "That there be equality — your abundance now should supply their want, and their abundance may supply your want",
+        "option_b": "The rich should give everything to the poor",
+        "option_c": "Everyone should give exactly the same amount",
+        "option_d": "Only the wealthiest members should give",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:14 — \"But by an equality, that now at this time your abundance may be a supply for their want, that their abundance also may be a supply for your want: that there may be equality.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What Old Testament example does Paul cite about equality?",
+        "option_a": "He that had gathered much had nothing over, and he that had gathered little had no lack — referring to the manna",
+        "option_b": "The division of the promised land",
+        "option_c": "The building of Solomon's temple",
+        "option_d": "The offering of Abraham's tithe",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:15 — \"As it is written, He that had gathered much had nothing over; and he that had gathered little had no lack.\" This quotes Exodus 16:18 about gathering manna."
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul reveal about the grace of God bestowed on the Macedonian churches?",
+        "option_a": "In a great trial of affliction, the abundance of their joy and deep poverty abounded unto the riches of their liberality",
+        "option_b": "God gave them great financial prosperity",
+        "option_c": "They received miraculous provision of food",
+        "option_d": "They were exempted from the Roman tax",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:1-2 — \"Moreover, brethren, we do you to wit of the grace of God bestowed on the churches of Macedonia; How that in a great trial of affliction the abundance of their joy and their deep poverty abounded unto the riches of their liberality.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What is the Christological basis for generous giving in verse 9?",
+        "option_a": "The grace of our Lord Jesus Christ: though he was rich, yet for your sakes he became poor, that ye through his poverty might be rich",
+        "option_b": "The example of Abraham tithing to Melchizedek",
+        "option_c": "The command of Moses regarding temple offerings",
+        "option_d": "The parable of the talents",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:9 — \"For ye know the grace of our Lord Jesus Christ, that, though he was rich, yet for your sakes he became poor, that ye through his poverty might be rich.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about the Corinthians' readiness a year ago?",
+        "option_a": "They were the first to begin, not only to do but also to be forward (willing) a year ago — now he urges them to complete what they started",
+        "option_b": "They had already completed the collection",
+        "option_c": "They had never shown any interest in giving",
+        "option_d": "They had given more than any other church",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:10-11 — \"For this is expedient for you, who have begun before, not only to do, but also to be forward a year ago. Now therefore perform the doing of it.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does Paul describe Titus' role in the collection?",
+        "option_a": "Titus accepted the exhortation and being more forward went of his own accord unto them — he is Paul's partner and fellowhelper",
+        "option_b": "Titus reluctantly agreed to go",
+        "option_c": "Titus refused the assignment",
+        "option_d": "Titus went only because Paul commanded him",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:17,23 — \"For indeed he accepted the exhortation; but being more forward, of his own accord he went unto you... he is my partner and fellowhelper concerning you.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who is the brother \"whose praise is in the gospel throughout all the churches\"?",
+        "option_a": "An unnamed brother chosen by the churches to travel with Paul, whose praise in the gospel is widely known",
+        "option_b": "Luke, the physician and author",
+        "option_c": "Barnabas, Paul's former companion",
+        "option_d": "Apollos, the eloquent teacher",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:18-19 — \"And we have sent with him the brother, whose praise is in the gospel throughout all the churches; And not that only, but who was also chosen of the churches to travel with us.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Why does Paul take precautions about the administration of the gift?",
+        "option_a": "Avoiding that any man should blame them in this abundance — providing for honest things not only before the Lord but also before men",
+        "option_b": "To ensure the gift reaches the maximum amount",
+        "option_c": "To track each individual's donation",
+        "option_d": "To create a public record for tax purposes",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:20-21 — \"Avoiding this, that no man should blame us in this abundance which is administered by us: Providing for honest things, not only in the sight of the Lord, but also in the sight of men.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul call the messengers of the churches?",
+        "option_a": "The messengers of the churches and the glory of Christ",
+        "option_b": "The servants of the apostles",
+        "option_c": "The rulers of the congregations",
+        "option_d": "The prophets of the new covenant",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:23 — \"Whether any do enquire of Titus, he is my partner and fellowhelper concerning you: or our brethren be enquired of, they are the messengers of the churches, and the glory of Christ.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What proof does Paul ask the Corinthians to show?",
+        "option_a": "The proof of their love and of Paul's boasting on their behalf before the churches",
+        "option_b": "The proof of their theological knowledge",
+        "option_c": "The proof of their spiritual gifts",
+        "option_d": "The proof of their church attendance",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 8:24 — \"Wherefore shew ye to them, and before the churches, the proof of your love, and of our boasting on your behalf.\""
+      }
+    ]
+  },
+  "9": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What kind of giver does God love?",
+        "option_a": "A cheerful giver",
+        "option_b": "A rich giver",
+        "option_c": "A sad giver",
+        "option_d": "A forced giver",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:7 — \"God loveth a cheerful giver.\""
+      },
+      {
+        "question_number": 2,
+        "question": "If you plant a lot of seeds, what happens?",
+        "option_a": "You get a big harvest — he which soweth bountifully shall reap also bountifully",
+        "option_b": "You get nothing at all",
+        "option_c": "The seeds all die",
+        "option_d": "You get fewer plants",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:6 — \"He which soweth bountifully shall reap also bountifully.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What special gift from God can we never fully describe?",
+        "option_a": "His unspeakable gift (Jesus)",
+        "option_b": "A box of gold",
+        "option_c": "A beautiful garden",
+        "option_d": "A brand new house",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:15 — \"Thanks be unto God for his unspeakable gift.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why did Paul send the brethren ahead to Corinth?",
+        "option_a": "That their bounty might be ready as a matter of bounty and not as of covetousness",
+        "option_b": "To start new churches in the area",
+        "option_c": "To collect payment for Paul's expenses",
+        "option_d": "To investigate reports of false teaching",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:5 — \"Therefore I thought it necessary to exhort the brethren, that they would go before unto you, and make up beforehand your bounty... that the same might be ready, as a matter of bounty, and not as of covetousness.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How should each person decide what to give?",
+        "option_a": "Every man according as he purposeth in his heart, not grudgingly or of necessity, for God loveth a cheerful giver",
+        "option_b": "According to a fixed percentage required by the church",
+        "option_c": "Based on what others are giving",
+        "option_d": "Only what the apostles demand",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:7 — \"Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a cheerful giver.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say God is able to make abound toward believers?",
+        "option_a": "All grace — that ye, always having all sufficiency in all things, may abound to every good work",
+        "option_b": "Only financial blessings",
+        "option_c": "Only spiritual gifts",
+        "option_d": "Only physical health",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:8 — \"And God is able to make all grace abound toward you; that ye, always having all sufficiency in all things, may abound to every good work.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does the Corinthians' generosity cause others to do?",
+        "option_a": "Glorify God — their generosity causes thanksgiving to God and proves their obedience to the gospel",
+        "option_b": "Become jealous of the Corinthians",
+        "option_c": "Leave their own churches",
+        "option_d": "Start competing with each other",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:13 — \"Whiles by the experiment of this ministration they glorify God for your professed subjection unto the gospel of Christ, and for your liberal distribution unto them, and unto all men.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is God's \"unspeakable gift\"?",
+        "option_a": "The gift of Jesus Christ — a gift so wonderful it cannot be fully expressed in words",
+        "option_b": "A treasure chest of gold",
+        "option_c": "The ability to speak in tongues",
+        "option_d": "A special prayer language",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:15 — \"Thanks be unto God for his unspeakable gift.\" This refers to the supreme gift of God's Son."
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about the Corinthians' readiness to give?",
+        "option_a": "He boasted to Macedonia that Achaia (Corinth) was ready a year ago, and their zeal provoked very many",
+        "option_b": "The Corinthians had already completed the collection",
+        "option_c": "The Corinthians showed no interest in giving",
+        "option_d": "The Corinthians were the least generous church",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:2 — \"For I know the forwardness of your mind, for which I boast of you to them of Macedonia, that Achaia was ready a year ago; and your zeal hath provoked very many.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What agricultural principle does Paul apply to giving?",
+        "option_a": "He which soweth sparingly shall reap also sparingly; and he which soweth bountifully shall reap also bountifully",
+        "option_b": "Those who sow will always reap exactly the same amount",
+        "option_c": "Sowing and reaping have no connection",
+        "option_d": "Only professional farmers can reap a harvest",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:6 — \"But this I say, He which soweth sparingly shall reap also sparingly; and he which soweth bountifully shall reap also bountifully.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What Old Testament passage does Paul reference about God's provision?",
+        "option_a": "He hath dispersed abroad; he hath given to the poor: his righteousness remaineth for ever — quoting Psalm 112:9",
+        "option_b": "The provision of manna in the wilderness",
+        "option_c": "The feeding of Elijah by ravens",
+        "option_d": "The multiplication of the widow's oil",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:9 — \"As it is written, He hath dispersed abroad; he hath given to the poor: his righteousness remaineth for ever.\" This quotes Psalm 112:9."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about God supplying seed to the sower?",
+        "option_a": "He that ministereth seed to the sower both minister bread for your food, and multiply your seed sown, and increase the fruits of your righteousness",
+        "option_b": "God gives seed only to wealthy farmers",
+        "option_c": "Seed is always in limited supply",
+        "option_d": "Sowers must provide their own seed",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:10 — \"Now he that ministereth seed to the sower both minister bread for your food, and multiply your seed sown, and increase the fruits of your righteousness.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is the purpose of being enriched in every thing?",
+        "option_a": "Being enriched in every thing to all bountifulness, which causeth through us thanksgiving to God",
+        "option_b": "To accumulate personal wealth",
+        "option_c": "To gain social status in the church",
+        "option_d": "To prove one's spiritual maturity",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:11 — \"Being enriched in every thing to all bountifulness, which causeth through us thanksgiving to God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say the administration of this service does?",
+        "option_a": "It not only supplieth the want of the saints but is abundant also by many thanksgivings unto God",
+        "option_b": "It creates division in the church",
+        "option_c": "It burdens the wealthy members",
+        "option_d": "It causes jealousy among the recipients",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:12 — \"For the administration of this service not only supplieth the want of the saints, but is abundant also by many thanksgivings unto God.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What do the recipients pray for regarding the Corinthians?",
+        "option_a": "They long after the Corinthians and pray for them because of the exceeding grace of God in them",
+        "option_b": "They demand more financial support",
+        "option_c": "They criticise the Corinthians' doctrine",
+        "option_d": "They request the Corinthians visit them",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:14 — \"And by their prayer for you, which long after you for the exceeding grace of God in you.\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does Paul describe the \"all sufficiency\" God provides?",
+        "option_a": "Always having all sufficiency in all things — the Greek word \"autarkeia\" means contentment and self-sufficiency that comes from God's provision enabling every good work",
+        "option_b": "A bare minimum to survive",
+        "option_c": "Unlimited material wealth",
+        "option_d": "Only spiritual blessings with no material provision",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 9:8 — \"And God is able to make all grace abound toward you; that ye, always having all sufficiency in all things, may abound to every good work.\""
+      }
+    ]
+  },
+  "10": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What kind of weapons does Paul say Christians use?",
+        "option_a": "Not swords or spears — our weapons are mighty through God",
+        "option_b": "Swords and shields",
+        "option_c": "Bows and arrows",
+        "option_d": "Rocks and sticks",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:4 — \"For the weapons of our warfare are not carnal, but mighty through God to the pulling down of strong holds.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What should we bring every thought to obey?",
+        "option_a": "Christ — bringing every thought into captivity to the obedience of Christ",
+        "option_b": "Our parents only",
+        "option_c": "Our own feelings",
+        "option_d": "Our best friends",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:5 — \"Bringing into captivity every thought to the obedience of Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who is the right person to praise you?",
+        "option_a": "The Lord — not he that commendeth himself is approved, but whom the Lord commendeth",
+        "option_b": "Yourself",
+        "option_c": "Your best friend",
+        "option_d": "The most popular person",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:18 — \"For not he that commendeth himself is approved, but whom the Lord commendeth.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What are the weapons of our warfare?",
+        "option_a": "Not carnal but mighty through God to the pulling down of strong holds",
+        "option_b": "Made of the finest Roman steel",
+        "option_c": "Only the sword of the Spirit",
+        "option_d": "Human arguments and debate skills",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:4 — \"For the weapons of our warfare are not carnal, but mighty through God to the pulling down of strong holds.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What do we cast down with these spiritual weapons?",
+        "option_a": "Imaginations, and every high thing that exalteth itself against the knowledge of God",
+        "option_b": "Physical fortresses and city walls",
+        "option_c": "Enemy armies and their equipment",
+        "option_d": "Only personal sins and habits",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:5 — \"Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about comparing themselves with others?",
+        "option_a": "They that measure themselves by themselves and compare themselves among themselves are not wise",
+        "option_b": "Comparison is helpful for growth",
+        "option_c": "Christians should always compete with each other",
+        "option_d": "Self-comparison is the best motivation",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:12 — \"For we dare not make ourselves of the number, or compare ourselves with some that commend themselves: but they measuring themselves by themselves, and comparing themselves among themselves, are not wise.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about boasting?",
+        "option_a": "He that glorieth, let him glory in the Lord — quoting Jeremiah 9:24",
+        "option_b": "Boasting about achievements is always good",
+        "option_c": "Boasting builds confidence in others",
+        "option_d": "Boasting is acceptable for church leaders",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:17 — \"But he that glorieth, let him glory in the Lord.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about his authority from the Lord?",
+        "option_a": "The Lord gave him authority for edification (building up) and not for destruction of the Corinthians",
+        "option_b": "His authority was unlimited with no boundaries",
+        "option_c": "His authority was only over the Corinthian church",
+        "option_d": "His authority was given by the Jerusalem council",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:8 — \"For though I should boast somewhat more of our authority, which the Lord hath given us for edification, and not for your destruction, I should not be ashamed.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What accusation did Paul's opponents make about his presence?",
+        "option_a": "His bodily presence is weak and his speech contemptible — but Paul warns that what he is in word by letters when absent, such will he be in deed when present",
+        "option_b": "He was too aggressive and intimidating",
+        "option_c": "He was too wealthy and arrogant",
+        "option_d": "He was too young and inexperienced",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:10-11 — \"For his letters, say they, are weighty and powerful; but his bodily presence is weak, and his speech contemptible. Let such an one think this, that, such as we are in word by letters when we are absent, such will we be also in deed when we are present.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about the measure or rule God has distributed to him?",
+        "option_a": "God has distributed to him a measure to reach even unto the Corinthians — he is not overextending himself because he came to them with the gospel of Christ",
+        "option_b": "His measure was limited to Jerusalem only",
+        "option_c": "His measure covered only the Jewish diaspora",
+        "option_d": "His measure excluded the Greek-speaking world",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:13-14 — \"But we will not boast of things without our measure, but according to the measure of the rule which God hath distributed to us, a measure to reach even unto you. For we stretch not ourselves beyond our measure, as though we reached not unto you: for we are come as far as to you also in preaching the gospel of Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul hope will happen as the Corinthians' faith increases?",
+        "option_a": "He will be enlarged by them according to his rule abundantly, to preach the gospel in regions beyond them",
+        "option_b": "They will send him more financial support",
+        "option_c": "They will build a larger church building",
+        "option_d": "They will stop all contact with other apostles",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:15-16 — \"Not boasting of things without our measure, that is, of other men's labours; but having hope, when your faith is increased, that we shall be enlarged by you according to our rule abundantly, To preach the gospel in the regions beyond you.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about those who commend themselves?",
+        "option_a": "Not he that commendeth himself is approved, but whom the Lord commendeth",
+        "option_b": "Self-commendation is always appropriate for leaders",
+        "option_c": "Those who commend themselves deserve honour",
+        "option_d": "Self-promotion is necessary for effective ministry",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:18 — \"For not he that commendeth himself is approved, but whom the Lord commendeth.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does \"bringing into captivity every thought to the obedience of Christ\" mean?",
+        "option_a": "Every intellectual and philosophical argument must be submitted to Christ's lordship — the mind is a battlefield where obedience to Christ must be established",
+        "option_b": "Only sinful thoughts need to be controlled",
+        "option_c": "Thinking is discouraged for believers",
+        "option_d": "Only theological thoughts matter to Christ",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:5 — \"Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say about not boasting in another man's line of things?",
+        "option_a": "He will not boast of things without his measure or of other men's labours — he builds on his own apostolic foundation, not another's",
+        "option_b": "He freely takes credit for others' work",
+        "option_c": "He considers all churches equally his",
+        "option_d": "He competes with other apostles for credit",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:15-16 — \"Not boasting of things without our measure, that is, of other men's labours; but having hope... To preach the gospel in the regions beyond you, and not to boast in another man's line of things made ready to our hand.\""
+      },
+      {
+        "question_number": 7,
+        "question": "By what meekness and gentleness does Paul beseech the Corinthians?",
+        "option_a": "By the meekness and gentleness of Christ — though some think Paul is base (bold only in letters, timid in person)",
+        "option_b": "By the authority of the Jerusalem council",
+        "option_c": "By the power of the Roman government",
+        "option_d": "By the traditions of the Pharisees",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:1 — \"Now I Paul myself beseech you by the meekness and gentleness of Christ, who in presence am base among you, but being absent am bold toward you.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What readiness does Paul have regarding disobedience?",
+        "option_a": "A readiness to revenge all disobedience when the Corinthians' obedience is fulfilled — disciplinary action is postponed to give them time to comply",
+        "option_b": "Immediate punishment without warning",
+        "option_c": "Complete indifference to disobedience",
+        "option_d": "A plan to report them to Roman authorities",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 10:6 — \"And having in a readiness to revenge all disobedience, when your obedience is fulfilled.\""
+      }
+    ]
+  },
+  "11": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who can disguise himself as an angel of light?",
+        "option_a": "Satan",
+        "option_b": "Moses",
+        "option_c": "Gabriel",
+        "option_d": "Michael",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:14 — \"And no marvel; for Satan himself is transformed into an angel of light.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How many times was Paul shipwrecked?",
+        "option_a": "Three times",
+        "option_b": "One time",
+        "option_c": "Five times",
+        "option_d": "Never",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:25 — \"Thrice I suffered shipwreck.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Did Paul take money from the Corinthians for preaching?",
+        "option_a": "No, he preached the gospel to them freely",
+        "option_b": "Yes, he charged a high price",
+        "option_c": "Yes, but only a small amount",
+        "option_d": "He asked for gold and silver",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:7 — \"Have I committed an offence in abasing myself that ye might be exalted, because I have preached to you the gospel of God freely?\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul fear about the Corinthians being deceived?",
+        "option_a": "As the serpent beguiled Eve through his subtilty, their minds should be corrupted from the simplicity that is in Christ",
+        "option_b": "That they will forget how to read Scripture",
+        "option_c": "That they will stop attending church",
+        "option_d": "That they will move to another city",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:3 — \"But I fear, lest by any means, as the serpent beguiled Eve through his subtilty, so your minds should be corrupted from the simplicity that is in Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul call the false teachers at Corinth?",
+        "option_a": "False apostles, deceitful workers, transforming themselves into the apostles of Christ",
+        "option_b": "Honourable leaders with different opinions",
+        "option_c": "Well-meaning but misguided teachers",
+        "option_d": "Temporary substitutes for Paul",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:13 — \"For such are false apostles, deceitful workers, transforming themselves into the apostles of Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Satan disguise himself?",
+        "option_a": "Satan himself is transformed into an angel of light — therefore his ministers also transform themselves as ministers of righteousness",
+        "option_b": "He appears as a terrifying monster",
+        "option_c": "He never disguises himself",
+        "option_d": "He only appears as a serpent",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:14-15 — \"And no marvel; for Satan himself is transformed into an angel of light. Therefore it is no great thing if his ministers also be transformed as the ministers of righteousness.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What kinds of dangers did Paul face in his travels?",
+        "option_a": "Perils of waters, robbers, his own countrymen, the heathen, the city, the wilderness, the sea, and false brethren",
+        "option_b": "Only dangers from wild animals",
+        "option_c": "Only dangers from the Roman government",
+        "option_d": "He faced no real dangers at all",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:26 — \"In journeyings often, in perils of waters, in perils of robbers, in perils by mine own countrymen, in perils by the heathen, in perils in the city, in perils in the wilderness, in perils in the sea, in perils among false brethren.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What daily burden did Paul carry besides physical suffering?",
+        "option_a": "The care of all the churches — who is weak and Paul is not weak? Who is offended and he burns not?",
+        "option_b": "The weight of his personal finances",
+        "option_c": "The responsibility of running a business",
+        "option_d": "The task of writing Roman law",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:28-29 — \"Beside those things that are without, that which cometh upon me daily, the care of all the churches. Who is weak, and I am not weak? who is offended, and I burn not?\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about presenting the Corinthians to Christ?",
+        "option_a": "He espoused them to one husband, to present them as a chaste virgin to Christ — jealous with a godly jealousy",
+        "option_b": "He wanted them to be independent of Christ",
+        "option_c": "He planned for them to follow multiple teachers",
+        "option_d": "He had no particular concern for their faithfulness",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:2 — \"For I am jealous over you with godly jealousy: for I have espoused you to one husband, that I may present you as a chaste virgin to Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul accuse the false teachers of preaching?",
+        "option_a": "Another Jesus whom Paul had not preached, another spirit, and another gospel",
+        "option_b": "The same gospel with minor variations",
+        "option_c": "A complementary message to Paul's teaching",
+        "option_d": "A more advanced version of Paul's gospel",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:4 — \"For if he that cometh preacheth another Jesus, whom we have not preached, or if ye receive another spirit, which ye have not received, or another gospel, which ye have not accepted, ye might well bear with him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about being inferior to the \"chiefest apostles\"?",
+        "option_a": "He is not a whit behind the very chiefest apostles — though he be rude in speech, yet not in knowledge",
+        "option_b": "He admits he is inferior to them",
+        "option_c": "He considers them his superiors in every way",
+        "option_d": "He has never met the chiefest apostles",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:5-6 — \"For I suppose I was not a whit behind the very chiefest apostles. But though I be rude in speech, yet not in knowledge.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How did Paul fund his ministry at Corinth?",
+        "option_a": "He robbed other churches, taking wages of them to serve the Corinthians, and when in want the brethren from Macedonia supplied him",
+        "option_b": "The Corinthians paid him a generous salary",
+        "option_c": "He worked as a tentmaker only",
+        "option_d": "He received funding from the Roman government",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:8-9 — \"I robbed other churches, taking wages of them, to do you service. And when I was present with you, and wanted, I was chargeable to no man: for that which was lacking to me the brethren which came from Macedonia supplied.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What physical sufferings does Paul catalogue in verses 24-25?",
+        "option_a": "Five times forty stripes save one from the Jews; thrice beaten with rods; once stoned; thrice shipwrecked; a night and a day in the deep",
+        "option_b": "He was never physically harmed",
+        "option_c": "He was imprisoned once and beaten twice",
+        "option_d": "He suffered only verbal persecution",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:24-25 — \"Of the Jews five times received I forty stripes save one. Thrice was I beaten with rods, once was I stoned, thrice I suffered shipwreck, a night and a day I have been in the deep.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What additional hardships does Paul list in verse 27?",
+        "option_a": "Weariness and painfulness, watchings often, hunger and thirst, fastings often, cold and nakedness",
+        "option_b": "Wealth, comfort, and luxurious living",
+        "option_c": "Only spiritual struggles and prayer",
+        "option_d": "Academic challenges and debate",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:27 — \"In weariness and painfulness, in watchings often, in hunger and thirst, in fastings often, in cold and nakedness.\""
+      },
+      {
+        "question_number": 7,
+        "question": "If Paul must boast, what will he boast of?",
+        "option_a": "The things which concern his infirmities (weaknesses)",
+        "option_b": "His miraculous powers and signs",
+        "option_c": "His education and credentials",
+        "option_d": "His many converts and churches",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:30 — \"If I must needs glory, I will glory of the things which concern mine infirmities.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What happened to Paul in Damascus?",
+        "option_a": "The governor under Aretas the king kept the city with a garrison to apprehend him, and through a window in a basket was he let down by the wall and escaped",
+        "option_b": "He was publicly honoured by the governor",
+        "option_c": "He established the largest church in Syria",
+        "option_d": "He debated Greek philosophers in the marketplace",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 11:32-33 — \"In Damascus the governor under Aretas the king kept the city of the Damascenes with a garrison, desirous to apprehend me: And through a window in a basket was I let down by the wall, and escaped his hands.\""
+      }
+    ]
+  },
+  "12": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Where was Paul caught up to in a vision?",
+        "option_a": "The third heaven (paradise)",
+        "option_b": "The moon",
+        "option_c": "A tall mountain",
+        "option_d": "A high tower",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:2 — \"I knew a man in Christ above fourteen years ago... such an one caught up to the third heaven.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did God say when Paul asked for his problem to be removed?",
+        "option_a": "My grace is sufficient for thee",
+        "option_b": "I will take it away right now",
+        "option_c": "You must try harder",
+        "option_d": "Ask someone else for help",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:9 — \"And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.\""
+      },
+      {
+        "question_number": 3,
+        "question": "When is Paul strong?",
+        "option_a": "When he is weak — for God's power works best in weakness",
+        "option_b": "When he exercises a lot",
+        "option_c": "When he eats good food",
+        "option_d": "When he has lots of money",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:10 — \"For when I am weak, then am I strong.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Paul hear in paradise?",
+        "option_a": "Unspeakable words, which it is not lawful for a man to utter",
+        "option_b": "A list of future events",
+        "option_c": "The names of all the saved",
+        "option_d": "Instructions for building a church",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:4 — \"How that he was caught up into paradise, and heard unspeakable words, which it is not lawful for a man to utter.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What was the thorn in the flesh given to Paul?",
+        "option_a": "A messenger of Satan to buffet him, lest he should be exalted above measure through the abundance of revelations",
+        "option_b": "A physical injury from a shipwreck",
+        "option_c": "A difficult church member",
+        "option_d": "A Roman imprisonment",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:7 — \"And lest I should be exalted above measure through the abundance of the revelations, there was given to me a thorn in the flesh, the messenger of Satan to buffet me, lest I should be exalted above measure.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How many times did Paul pray for the thorn to be removed?",
+        "option_a": "Three times — and the Lord said my grace is sufficient for thee",
+        "option_b": "Once and God immediately removed it",
+        "option_c": "Seven times and God finally agreed",
+        "option_d": "He never prayed about it",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:8 — \"For this thing I besought the Lord thrice, that it might depart from me.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul take pleasure in because of Christ?",
+        "option_a": "Infirmities, reproaches, necessities, persecutions, and distresses — for when I am weak then am I strong",
+        "option_b": "Wealth, fame, and earthly success",
+        "option_c": "Comfort, ease, and leisure",
+        "option_d": "Political power and influence",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:10 — \"Therefore I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ's sake: for when I am weak, then am I strong.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What signs proved Paul was truly an apostle?",
+        "option_a": "The signs of an apostle were wrought among them — signs, wonders, and mighty deeds",
+        "option_b": "A certificate from the Jerusalem church",
+        "option_c": "His wealth and social status",
+        "option_d": "His Roman citizenship",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:12 — \"Truly the signs of an apostle were wrought among you in all patience, in signs, and wonders, and mighty deeds.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul describe his heavenly experience?",
+        "option_a": "A man in Christ caught up to the third heaven fourteen years ago — whether in the body or out of the body he cannot tell, God knoweth",
+        "option_b": "He had a vivid dream about heaven",
+        "option_c": "An angel described heaven to him in detail",
+        "option_d": "He read about heaven in a prophetic scroll",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:2-3 — \"I knew a man in Christ above fourteen years ago, (whether in the body, I cannot tell; or whether out of the body, I cannot tell: God knoweth;) such an one caught up to the third heaven.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why was the thorn in the flesh given to Paul?",
+        "option_a": "Lest he should be exalted above measure through the abundance of the revelations — a messenger of Satan to buffet him",
+        "option_b": "As punishment for persecuting Christians",
+        "option_c": "As a test of his physical endurance",
+        "option_d": "Because he had committed a specific sin",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:7 — \"And lest I should be exalted above measure through the abundance of the revelations, there was given to me a thorn in the flesh, the messenger of Satan to buffet me.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the complete statement of God's response about the thorn?",
+        "option_a": "My grace is sufficient for thee: for my strength is made perfect in weakness",
+        "option_b": "I will remove it when you have suffered enough",
+        "option_c": "Your faith is not strong enough to overcome it",
+        "option_d": "This thorn will make you a better preacher",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:9 — \"And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is Paul's response to God's answer about the thorn?",
+        "option_a": "Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me",
+        "option_b": "He was disappointed and frustrated",
+        "option_c": "He immediately stopped praying entirely",
+        "option_d": "He sought healing from other sources",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:9 — \"Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about what he will not boast of?",
+        "option_a": "He will glory of his infirmities but of himself he will not glory, except in his infirmities — lest any man should think of him above what he sees or hears",
+        "option_b": "He will boast freely of all his accomplishments",
+        "option_c": "He will boast only of his revelations",
+        "option_d": "He has nothing worth boasting about",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:5-6 — \"Of such an one will I glory: yet of myself I will not glory, but in mine infirmities. For though I would desire to glory, I shall not be a fool; for I will say the truth: but now I forbear, lest any man should think of me above that which he seeth me to be, or that he heareth of me.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say about how he treated the Corinthians compared to other churches?",
+        "option_a": "In what were they inferior to other churches except that Paul himself was not burdensome to them? He asks them to forgive him this wrong",
+        "option_b": "He treated them more harshly than other churches",
+        "option_c": "He gave them more money than other churches",
+        "option_d": "He spent more time with them than any other church",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:13 — \"For what is it wherein ye were inferior to other churches, except it be that I myself was not burdensome to you? forgive me this wrong.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul say about his upcoming third visit?",
+        "option_a": "He will not be burdensome to them, for he seeks not theirs but them — the children ought not to lay up for the parents but the parents for the children",
+        "option_b": "He plans to collect a large offering",
+        "option_c": "He will demand payment for his preaching",
+        "option_d": "He expects them to provide luxury accommodations",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:14 — \"Behold, the third time I am ready to come to you; and I will not be burdensome to you: for I seek not yours, but you: for the children ought not to lay up for the parents, but the parents for the children.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul fear he may find when he visits Corinth?",
+        "option_a": "Debates, envyings, wraths, strifes, backbitings, whisperings, swellings, and tumults — and that God will humble him and he will bewail many who have sinned and not repented",
+        "option_b": "A perfect and sinless church",
+        "option_c": "A church that has grown very wealthy",
+        "option_d": "A church that has forgotten his name",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 12:20-21 — \"For I fear, lest, when I come, I shall not find you such as I would... lest there be debates, envyings, wraths, strifes, backbitings, whisperings, swellings, tumults.\""
+      }
+    ]
+  },
+  "13": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul tell the Corinthians to do to check their faith?",
+        "option_a": "Examine yourselves whether ye be in the faith",
+        "option_b": "Ask a priest to check for them",
+        "option_c": "Read a special book about it",
+        "option_d": "Wait for a sign from heaven",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:5 — \"Examine yourselves, whether ye be in the faith; prove your own selves.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul want the Corinthians to be?",
+        "option_a": "Perfect (complete) — be of good comfort, be of one mind, live in peace",
+        "option_b": "The richest church in the world",
+        "option_c": "The biggest church in the world",
+        "option_d": "The most famous church in the world",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:11 — \"Finally, brethren, farewell. Be perfect, be of good comfort, be of one mind, live in peace.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who does Paul say will be with believers?",
+        "option_a": "The God of love and peace",
+        "option_b": "Only angels",
+        "option_c": "Only good people",
+        "option_d": "Only rich people",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:11 — \"And the God of love and peace shall be with you.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What Old Testament principle does Paul invoke about witnesses?",
+        "option_a": "In the mouth of two or three witnesses shall every word be established",
+        "option_b": "One witness is sufficient for all matters",
+        "option_c": "No witnesses are needed if the apostle is present",
+        "option_d": "Only written testimony is valid",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:1 — \"In the mouth of two or three witnesses shall every word be established.\" This quotes Deuteronomy 19:15."
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul tell the Corinthians to do about their faith?",
+        "option_a": "Examine yourselves whether ye be in the faith; prove your own selves — know ye not that Jesus Christ is in you except ye be reprobates?",
+        "option_b": "Let others examine your faith for you",
+        "option_c": "Faith cannot be examined or tested",
+        "option_d": "Only apostles can verify genuine faith",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:5 — \"Examine yourselves, whether ye be in the faith; prove your own selves. Know ye not your own selves, how that Jesus Christ is in you, except ye be reprobates?\""
+      },
+      {
+        "question_number": 3,
+        "question": "What four commands does Paul give in his farewell?",
+        "option_a": "Be perfect, be of good comfort, be of one mind, live in peace",
+        "option_b": "Be wealthy, be powerful, be famous, be feared",
+        "option_c": "Be silent, be still, be hidden, be separate",
+        "option_d": "Be strong, be brave, be bold, be loud",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:11 — \"Finally, brethren, farewell. Be perfect, be of good comfort, be of one mind, live in peace.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does Paul tell the Corinthians to greet one another?",
+        "option_a": "With an holy kiss",
+        "option_b": "With a formal handshake",
+        "option_c": "With a bow from a distance",
+        "option_d": "With a wave of the hand",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:12 — \"Greet one another with an holy kiss.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What famous blessing does Paul give at the end of this letter?",
+        "option_a": "The grace of the Lord Jesus Christ, and the love of God, and the communion of the Holy Ghost, be with you all",
+        "option_b": "May the force be with you",
+        "option_c": "Peace and prosperity to all",
+        "option_d": "May your wealth increase forever",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:14 — \"The grace of the Lord Jesus Christ, and the love of God, and the communion of the Holy Ghost, be with you all. Amen.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What warning does Paul give about his third visit?",
+        "option_a": "He will not spare — if he comes again he will not spare those who have sinned, since they seek a proof of Christ speaking in him",
+        "option_b": "He will be gentle and overlook all sins",
+        "option_c": "He will not visit if they don't repent first",
+        "option_d": "He will send Titus in his place",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:2 — \"I told you before, and foretell you, as if I were present, the second time; and being absent now I write to them which heretofore have sinned, and to all other, that, if I come again, I will not spare.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about Christ's apparent weakness and power?",
+        "option_a": "Though he was crucified through weakness, yet he liveth by the power of God; we also are weak in him but shall live with him by the power of God toward you",
+        "option_b": "Christ was never truly weak",
+        "option_c": "Christ's weakness disproves his divinity",
+        "option_d": "Power and weakness cannot coexist",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:4 — \"For though he was crucified through weakness, yet he liveth by the power of God. For we also are weak in him, but we shall live with him by the power of God toward you.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul pray for regarding the Corinthians?",
+        "option_a": "That they do no evil — not that Paul should appear approved, but that they should do that which is honest, though Paul be as reprobates",
+        "option_b": "That they send him more money",
+        "option_c": "That they build a larger church building",
+        "option_d": "That they submit to his authority without question",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:7 — \"Now I pray to God that ye do no evil; not that we should appear approved, but that ye should do that which is honest, though we be as reprobates.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about doing anything against the truth?",
+        "option_a": "We can do nothing against the truth, but for the truth",
+        "option_b": "Truth is relative to each person",
+        "option_c": "Truth can be suppressed by authority",
+        "option_d": "Truth is whatever the majority believes",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:8 — \"For we can do nothing against the truth, but for the truth.\""
+      },
+      {
+        "question_number": 5,
+        "question": "When is Paul glad about his own weakness?",
+        "option_a": "When the Corinthians are strong — he wishes for their perfection (spiritual maturity)",
+        "option_b": "When it brings him sympathy",
+        "option_c": "When it excuses him from work",
+        "option_d": "When it makes others feel better about themselves",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:9 — \"For we are glad, when we are weak, and ye are strong: and this also we wish, even your perfection.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Why does Paul write these things while absent?",
+        "option_a": "Lest being present he should use sharpness, according to the power the Lord gave him for edification and not destruction",
+        "option_b": "Because he is afraid to confront them in person",
+        "option_c": "Because writing is easier than speaking",
+        "option_d": "Because the postal service is faster than travel",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:10 — \"Therefore I write these things being absent, lest being present I should use sharpness, according to the power which the Lord hath given me to edification, and not to destruction.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What is the theological significance of the Trinitarian benediction in verse 14?",
+        "option_a": "It is one of the clearest Trinitarian formulas in Scripture — attributing grace to Christ, love to God the Father, and communion (fellowship) to the Holy Ghost as three distinct persons in one blessing",
+        "option_b": "It is simply a poetic closing with no doctrinal significance",
+        "option_c": "It mentions three attributes of one divine person",
+        "option_d": "It refers to three separate gods working together",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:14 — \"The grace of the Lord Jesus Christ, and the love of God, and the communion of the Holy Ghost, be with you all. Amen.\" This Trinitarian benediction distinctly names all three persons of the Godhead."
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul mean by \"examine yourselves whether ye be in the faith\"?",
+        "option_a": "Believers should conduct honest self-examination to test whether their faith is genuine — not presuming salvation but verifying that Christ is truly in them",
+        "option_b": "Only church leaders should examine their faith",
+        "option_c": "Self-examination is a sign of weak faith",
+        "option_d": "Examination means checking others' faith",
+        "correct_answer": "a",
+        "explanation": "2 Corinthians 13:5 — \"Examine yourselves, whether ye be in the faith; prove your own selves. Know ye not your own selves, how that Jesus Christ is in you, except ye be reprobates?\""
+      }
+    ]
+  }
+}

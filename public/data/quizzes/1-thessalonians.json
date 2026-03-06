@@ -1,0 +1,842 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote this letter to the Thessalonians?",
+        "option_a": "Paul",
+        "option_b": "Peter",
+        "option_c": "James",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:1 — \"Paul, and Silvanus, and Timotheus, unto the church of the Thessalonians.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What three things did Paul thank God the Thessalonians had?",
+        "option_a": "Faith, love, and hope",
+        "option_b": "Gold, silver, and jewels",
+        "option_c": "Swords, shields, and armor",
+        "option_d": "Horses, chariots, and soldiers",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:3 — \"Your work of faith, and labour of love, and patience of hope.\""
+      },
+      {
+        "question_number": 3,
+        "question": "The Thessalonians turned from idols to serve whom?",
+        "option_a": "The living and true God",
+        "option_b": "The Roman emperor",
+        "option_c": "The Greek gods",
+        "option_d": "Their own desires",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:9 — \"Ye turned to God from idols to serve the living and true God.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How did the gospel come to the Thessalonians according to verse 5?",
+        "option_a": "Not in word only, but also in power, and in the Holy Ghost",
+        "option_b": "Only through written letters",
+        "option_c": "Only through human reasoning",
+        "option_d": "Only through signs and wonders",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:5 — \"Our gospel came not unto you in word only, but also in power, and in the Holy Ghost, and in much assurance.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the Thessalonians become to believers in Macedonia and Achaia?",
+        "option_a": "Examples (ensamples) to all that believe",
+        "option_b": "Financial supporters",
+        "option_c": "Political leaders",
+        "option_d": "Military commanders",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:7 — \"So that ye were ensamples to all that believe in Macedonia and Achaia.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Despite receiving the word in much affliction, what did the Thessalonians have?",
+        "option_a": "Joy of the Holy Ghost",
+        "option_b": "Anger at their persecutors",
+        "option_c": "Desire for revenge",
+        "option_d": "Plans to flee the city",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:6 — \"Having received the word in much affliction, with joy of the Holy Ghost.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What sounded out from the Thessalonians in every place?",
+        "option_a": "The word of the Lord",
+        "option_b": "Complaints about Rome",
+        "option_c": "Requests for money",
+        "option_d": "Political speeches",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:8 — \"For from you sounded out the word of the Lord not only in Macedonia and Achaia, but also in every place.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who are the Thessalonians waiting for from heaven?",
+        "option_a": "God's Son Jesus, who delivers us from the wrath to come",
+        "option_b": "An angel with a sword",
+        "option_c": "A new king for Israel",
+        "option_d": "The prophet Elijah",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:10 — \"To wait for his Son from heaven... even Jesus, which delivered us from the wrath to come.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Who are the co-senders of this epistle with Paul?",
+        "option_a": "Silvanus and Timotheus",
+        "option_b": "Barnabas and Luke",
+        "option_c": "Titus and Apollos",
+        "option_d": "Peter and James",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:1 — \"Paul, and Silvanus, and Timotheus, unto the church of the Thessalonians.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say he knows about the Thessalonians' election in verse 4?",
+        "option_a": "Their election of God",
+        "option_b": "Their political elections",
+        "option_c": "Their choice of leaders",
+        "option_d": "Their selection of teachers",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:4 — \"Knowing, brethren beloved, your election of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who did the Thessalonians become followers of according to verse 6?",
+        "option_a": "Paul and the Lord",
+        "option_b": "The Roman governors",
+        "option_c": "The Jewish Sanhedrin",
+        "option_d": "The Greek philosophers",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:6 — \"And ye became followers of us, and of the Lord.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say the Thessalonians' faith had done geographically?",
+        "option_a": "Their faith to God-ward had spread abroad in every place",
+        "option_b": "Their faith was confined to Thessalonica",
+        "option_c": "Their faith only reached Macedonia",
+        "option_d": "Their faith was known only to Paul",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:8 — \"Your faith to God-ward is spread abroad; so that we need not to speak any thing.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What two actions describe the Thessalonians' conversion in verse 9?",
+        "option_a": "They turned to God from idols to serve the living and true God",
+        "option_b": "They left their homes and moved to Jerusalem",
+        "option_c": "They stopped eating and began fasting",
+        "option_d": "They destroyed all Greek temples",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:9 — \"Ye turned to God from idols to serve the living and true God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What eschatological hope is mentioned in verse 10?",
+        "option_a": "Waiting for God's Son from heaven whom he raised from the dead",
+        "option_b": "Waiting for the temple to be rebuilt",
+        "option_c": "Waiting for Rome to fall",
+        "option_d": "Waiting for a new prophet",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:10 — \"And to wait for his Son from heaven, whom he raised from the dead.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Jesus deliver believers from according to verse 10?",
+        "option_a": "The wrath to come",
+        "option_b": "Physical death",
+        "option_c": "Roman persecution",
+        "option_d": "Earthly poverty",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:10 — \"Even Jesus, which delivered us from the wrath to come.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul's mention of \"much assurance\" in verse 5 suggest about his ministry?",
+        "option_a": "The gospel was confirmed by the conviction of the Holy Spirit, not just human persuasion",
+        "option_b": "Paul was extremely confident in his own abilities",
+        "option_c": "The Thessalonians guaranteed Paul's safety",
+        "option_d": "Paul had official documents proving his authority",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 1:5 — \"In power, and in the Holy Ghost, and in much assurance.\" This indicates the Spirit's confirming work in both preacher and hearers."
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "How did Paul say he treated the Thessalonians?",
+        "option_a": "Gently, like a nursing mother caring for children",
+        "option_b": "Harshly, like a strict teacher",
+        "option_c": "Carelessly, ignoring their needs",
+        "option_d": "Angrily, yelling at them",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:7 — \"We were gentle among you, even as a nurse cherisheth her children.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Did Paul work hard or was he lazy when he visited?",
+        "option_a": "He worked hard night and day",
+        "option_b": "He was lazy and did nothing",
+        "option_c": "He only worked one day a week",
+        "option_d": "He made others work for him",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:9 — \"Labouring night and day, because we would not be chargeable unto any of you.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul call the Thessalonians in verse 19?",
+        "option_a": "His hope, joy, and crown",
+        "option_b": "His students",
+        "option_c": "His servants",
+        "option_d": "His employees",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:19 — \"For what is our hope, or joy, or crown of rejoicing? Are not even ye?\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Where had Paul been shamefully treated before coming to Thessalonica?",
+        "option_a": "Philippi",
+        "option_b": "Athens",
+        "option_c": "Corinth",
+        "option_d": "Ephesus",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:2 — \"Even after that we had suffered before, and were shamefully entreated, as ye know, at Philippi.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul say he never used as a cloke (cover) for his motives?",
+        "option_a": "Flattering words or covetousness",
+        "option_b": "The name of God",
+        "option_c": "Miraculous signs",
+        "option_d": "His apostolic authority",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:5 — \"For neither at any time used we flattering words, as ye know, nor a cloke of covetousness; God is witness.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Paul describe a father's role with his children as a model for ministry?",
+        "option_a": "Exhorting, comforting, and charging them to walk worthy of God",
+        "option_b": "Punishing them severely for any mistake",
+        "option_c": "Leaving them to figure things out alone",
+        "option_d": "Giving them whatever they wanted",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:11-12 — \"As a father doth his children, Exhorting and comforting and charging... that ye would walk worthy of God.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did the Thessalonians receive Paul's message as?",
+        "option_a": "The word of God, which effectually worketh in believers",
+        "option_b": "Just another human opinion",
+        "option_c": "An interesting philosophy",
+        "option_d": "A political manifesto",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:13 — \"Ye received it not as the word of men, but as it is in truth, the word of God, which effectually worketh also in you that believe.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who does Paul say hindered him from coming to the Thessalonians?",
+        "option_a": "Satan",
+        "option_b": "The Roman governor",
+        "option_c": "The Jewish leaders",
+        "option_d": "Timothy",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:18 — \"We would have come unto you, even I Paul, once and again; but Satan hindered us.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about seeking glory from men in verse 6?",
+        "option_a": "They did not seek glory of men, neither of the Thessalonians nor of others",
+        "option_b": "They sought glory from the Roman authorities",
+        "option_c": "They wanted recognition from Jerusalem",
+        "option_d": "They desired fame throughout Greece",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:6 — \"Nor of men sought we glory, neither of you, nor yet of others.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What apostolic right did Paul say he could have used but chose not to?",
+        "option_a": "Being burdensome (claiming financial support) as apostles of Christ",
+        "option_b": "Demanding the best seats in synagogues",
+        "option_c": "Requiring bodyguards from the church",
+        "option_d": "Insisting on special food and lodging",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:6-7 — \"When we might have been burdensome, as the apostles of Christ. But we were gentle among you.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say the Jews did that filled up their sins in verse 16?",
+        "option_a": "Forbidding the apostles to speak to the Gentiles that they might be saved",
+        "option_b": "Rebuilding the temple without permission",
+        "option_c": "Refusing to pay Roman taxes",
+        "option_d": "Declaring war against Rome",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:16 — \"Forbidding us to speak to the Gentiles that they might be saved, to fill up their sins alway.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say came upon the opposing Jews \"to the uttermost\"?",
+        "option_a": "Wrath",
+        "option_b": "Blessing",
+        "option_c": "Wisdom",
+        "option_d": "Prosperity",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:16 — \"For the wrath is come upon them to the uttermost.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul mean by being \"taken from you\" in verse 17?",
+        "option_a": "Being separated in presence but not in heart (orphaned from them physically)",
+        "option_b": "Dying and going to heaven",
+        "option_c": "Being captured by enemies",
+        "option_d": "Voluntarily leaving the faith",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:17 — \"Being taken from you for a short time in presence, not in heart, endeavoured the more abundantly to see your face with great desire.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Before whom does Paul say the Thessalonians are his crown of rejoicing?",
+        "option_a": "Before our Lord Jesus Christ at his coming",
+        "option_b": "Before the Roman emperor",
+        "option_c": "Before the other apostles",
+        "option_d": "Before the Jewish leaders",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:19 — \"Are not even ye in the presence of our Lord Jesus Christ at his coming?\""
+      },
+      {
+        "question_number": 7,
+        "question": "What churches does Paul say the Thessalonians became followers of in verse 14?",
+        "option_a": "The churches of God in Judaea which are in Christ Jesus",
+        "option_b": "The churches in Rome",
+        "option_c": "The churches in Ephesus",
+        "option_d": "The churches in Corinth",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:14 — \"For ye, brethren, became followers of the churches of God which in Judaea are in Christ Jesus.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What bold claim does Paul make about his preaching motive in verse 4?",
+        "option_a": "Not as pleasing men but God, which trieth our hearts",
+        "option_b": "To gain followers for his own ministry",
+        "option_c": "To become famous throughout the Roman Empire",
+        "option_d": "To compete with other apostles",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 2:4 — \"But as we were allowed of God to be put in trust with the gospel, even so we speak; not as pleasing men, but God, which trieth our hearts.\");\n\n-- ═══ 1 Thessalonians Chapter 3 ═══\n"
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who did Paul send to check on the Thessalonians?",
+        "option_a": "Timothy",
+        "option_b": "Peter",
+        "option_c": "Barnabas",
+        "option_d": "Luke",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:2 — \"And sent Timotheus, our brother, and minister of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What good news did Timothy bring back about the Thessalonians?",
+        "option_a": "Good news of their faith and love",
+        "option_b": "Bad news about fighting",
+        "option_c": "News about their wealth",
+        "option_d": "News about a new building",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:6 — \"When Timotheus came from you unto us, and brought us good tidings of your faith and charity.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How did Paul feel when he heard about their faith?",
+        "option_a": "Comforted and joyful",
+        "option_b": "Angry and upset",
+        "option_c": "Bored and tired",
+        "option_d": "Scared and worried",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:7 — \"We were comforted over you in all our affliction and distress by your faith.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why did Paul send Timothy to the Thessalonians?",
+        "option_a": "To establish and comfort them concerning their faith",
+        "option_b": "To collect money for the church in Jerusalem",
+        "option_c": "To start a new church nearby",
+        "option_d": "To recruit soldiers for Paul",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:2 — \"To establish you, and to comfort you concerning your faith.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul fear about the Thessalonians?",
+        "option_a": "That the tempter had tempted them and his labour was in vain",
+        "option_b": "That they had become wealthy and proud",
+        "option_c": "That they had moved to another city",
+        "option_d": "That they had forgotten his name",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:5 — \"Lest by some means the tempter have tempted you, and our labour be in vain.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul say believers are appointed to in verse 3?",
+        "option_a": "Afflictions",
+        "option_b": "Prosperity",
+        "option_c": "Political power",
+        "option_d": "Earthly comfort",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:3 — \"That no man should be moved by these afflictions: for yourselves know that we are appointed thereunto.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about their faith that he wants to perfect?",
+        "option_a": "That which is lacking in their faith",
+        "option_b": "Their understanding of Roman law",
+        "option_c": "Their knowledge of Greek philosophy",
+        "option_d": "Their ability to work miracles",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:10 — \"Night and day praying exceedingly that we might see your face, and might perfect that which is lacking in your faith.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul pray would increase and abound among them?",
+        "option_a": "Love one toward another, and toward all men",
+        "option_b": "Knowledge and wisdom",
+        "option_c": "Wealth and possessions",
+        "option_d": "Political influence",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:12 — \"The Lord make you to increase and abound in love one toward another, and toward all men.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Where was Paul left alone when he sent Timothy to Thessalonica?",
+        "option_a": "Athens",
+        "option_b": "Corinth",
+        "option_c": "Ephesus",
+        "option_d": "Rome",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:1 — \"When we could no longer forbear, we thought it good to be left at Athens alone.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What three titles does Paul give Timothy in verse 2?",
+        "option_a": "Brother, minister of God, and fellowlabourer in the gospel of Christ",
+        "option_b": "Apostle, prophet, and evangelist",
+        "option_c": "Bishop, elder, and deacon",
+        "option_d": "Scribe, teacher, and priest",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:2 — \"Timotheus, our brother, and minister of God, and our fellowlabourer in the gospel of Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say he told the Thessalonians beforehand?",
+        "option_a": "That they would suffer tribulation, which came to pass",
+        "option_b": "That they would become wealthy",
+        "option_c": "That Rome would fall",
+        "option_d": "That Christ would return immediately",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:4 — \"When we were with you, we told you before that we should suffer tribulation; even as it came to pass.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say gives him life in verse 8?",
+        "option_a": "If ye stand fast in the Lord",
+        "option_b": "If they send him financial support",
+        "option_c": "If they build a new church",
+        "option_d": "If they convert the Roman governor",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:8 — \"For now we live, if ye stand fast in the Lord.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is the goal of Paul's prayer in verse 13?",
+        "option_a": "To establish their hearts unblameable in holiness before God at the coming of the Lord Jesus",
+        "option_b": "To make them wealthy and prosperous",
+        "option_c": "To give them political authority",
+        "option_d": "To make them famous throughout the world",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:13 — \"To the end he may stablish your hearts unblameable in holiness before God, even our Father, at the coming of our Lord Jesus Christ with all his saints.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does the reference to \"the coming of our Lord Jesus Christ with all his saints\" in verse 13 affirm?",
+        "option_a": "The bodily return of Christ accompanied by all believers",
+        "option_b": "A spiritual metaphor for inner peace",
+        "option_c": "The destruction of Rome",
+        "option_d": "The restoration of Israel's kingdom",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:13 — \"At the coming of our Lord Jesus Christ with all his saints.\" This affirms the literal Second Coming."
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul's phrase \"we could no longer forbear\" (v.1,5) reveal about his pastoral heart?",
+        "option_a": "His deep anxiety and love for the believers drove him to send Timothy despite his own need",
+        "option_b": "He was merely curious about their progress",
+        "option_c": "He was following an organizational protocol",
+        "option_d": "He was required by the church to check on them",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:1,5 — \"When we could no longer forbear\" shows Paul's intense concern for their spiritual welfare."
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul's thankfulness in verse 9 suggest about the relationship between a pastor and his flock?",
+        "option_a": "A pastor's deepest joy comes from the spiritual wellbeing of those he serves",
+        "option_b": "A pastor should seek financial reward",
+        "option_c": "A pastor should remain emotionally detached",
+        "option_d": "A pastor's joy depends on church size",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 3:9 — \"For what thanks can we render to God again for you, for all the joy wherewith we joy for your sakes before our God.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does God want us to do according to Paul?",
+        "option_a": "Live holy lives",
+        "option_b": "Be the richest person",
+        "option_c": "Fight with everyone",
+        "option_d": "Think only about ourselves",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:3 — \"For this is the will of God, even your sanctification.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What will happen when Jesus comes back?",
+        "option_a": "The dead in Christ shall rise first",
+        "option_b": "Everyone will stay sleeping",
+        "option_c": "Nothing will happen",
+        "option_d": "Only angels will come",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:16 — \"And the dead in Christ shall rise first.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Where will believers meet the Lord?",
+        "option_a": "In the air",
+        "option_b": "In the temple",
+        "option_c": "At a mountain",
+        "option_d": "In the sea",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:17 — \"Then we which are alive and remain shall be caught up together with them in the clouds, to meet the Lord in the air.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What is the will of God according to verse 3?",
+        "option_a": "Your sanctification",
+        "option_b": "Your wealth",
+        "option_c": "Your political power",
+        "option_d": "Your popularity",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:3 — \"For this is the will of God, even your sanctification.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say believers should do about those who have died (fallen asleep)?",
+        "option_a": "Not sorrow as others which have no hope",
+        "option_b": "Forget about them completely",
+        "option_c": "Be angry at God",
+        "option_d": "Give up their own faith",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:13 — \"That ye sorrow not, even as others which have no hope.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What three sounds accompany the Lord's descent from heaven?",
+        "option_a": "A shout, the voice of the archangel, and the trump of God",
+        "option_b": "Thunder, lightning, and earthquake",
+        "option_c": "Trumpets, drums, and cymbals",
+        "option_d": "Singing, clapping, and shouting",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:16 — \"For the Lord himself shall descend from heaven with a shout, with the voice of the archangel, and with the trump of God.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What should believers comfort each other with?",
+        "option_a": "These words about the Lord's return",
+        "option_b": "Promises of earthly wealth",
+        "option_c": "Stories of Greek heroes",
+        "option_d": "Plans for revenge against enemies",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:18 — \"Wherefore comfort one another with these words.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul say believers should behave toward outsiders?",
+        "option_a": "Walk honestly and have lack of nothing",
+        "option_b": "Avoid all contact with them",
+        "option_c": "Try to impress them with wealth",
+        "option_d": "Argue with them about religion",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:12 — \"That ye may walk honestly toward them that are without, and that ye may have lack of nothing.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul mean by \"possess his vessel in sanctification and honour\" in verse 4?",
+        "option_a": "Controlling one's own body in holiness and honor",
+        "option_b": "Owning a sacred artifact",
+        "option_c": "Possessing a clean drinking vessel",
+        "option_d": "Having a boat for missionary journeys",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:4 — \"That every one of you should know how to possess his vessel in sanctification and honour.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say God has called believers to in verse 7?",
+        "option_a": "Holiness, not uncleanness",
+        "option_b": "Wealth and prosperity",
+        "option_c": "Political leadership",
+        "option_d": "Miraculous powers",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:7 — \"For God hath not called us unto uncleanness, but unto holiness.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about rejecting these instructions in verse 8?",
+        "option_a": "He that despiseth, despiseth not man, but God who hath given us his Holy Spirit",
+        "option_b": "It is just Paul's personal opinion",
+        "option_c": "It doesn't really matter",
+        "option_d": "It only applies to church leaders",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:8 — \"He therefore that despiseth, despiseth not man, but God, who hath also given unto us his holy Spirit.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about brotherly love being taught?",
+        "option_a": "They are taught of God to love one another",
+        "option_b": "They learned it from Greek philosophy",
+        "option_c": "They were taught by Roman educators",
+        "option_d": "They figured it out on their own",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:9 — \"As touching brotherly love ye need not that I write unto you: for ye yourselves are taught of God to love one another.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What three practical instructions does Paul give in verse 11?",
+        "option_a": "Study to be quiet, do your own business, work with your own hands",
+        "option_b": "Preach loudly, meddle in others' affairs, avoid manual labor",
+        "option_c": "Travel widely, seek adventure, avoid routine",
+        "option_d": "Debate fiercely, lead politically, accumulate wealth",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:11 — \"That ye study to be quiet, and to do your own business, and to work with your own hands, as we commanded you.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What is the theological significance of the phrase \"the dead in Christ shall rise first\" (v.16)?",
+        "option_a": "Deceased believers have priority in the resurrection order, followed by living believers being caught up",
+        "option_b": "Only dead believers will be resurrected",
+        "option_c": "Living believers are not included in the rapture",
+        "option_d": "The dead in Christ are already in heaven",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:16 — \"And the dead in Christ shall rise first.\" This establishes the order: resurrection of dead believers, then transformation of living believers."
+      },
+      {
+        "question_number": 7,
+        "question": "What does the phrase \"caught up together\" (harpazo in Greek) in verse 17 mean?",
+        "option_a": "Snatched away suddenly and forcefully — the basis for the doctrine of the rapture",
+        "option_b": "A gradual ascension over many days",
+        "option_c": "A metaphor for spiritual enlightenment",
+        "option_d": "A political movement to overthrow Rome",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:17 — \"Then we which are alive and remain shall be caught up together with them in the clouds.\" The Greek harpazo means to seize or snatch away suddenly."
+      },
+      {
+        "question_number": 8,
+        "question": "What is the ultimate promise in verse 17 about believers' relationship with the Lord?",
+        "option_a": "So shall we ever be with the Lord — eternal, unbroken fellowship",
+        "option_b": "We will serve the Lord for 1,000 years",
+        "option_c": "We will be sent on missions throughout the universe",
+        "option_d": "We will sleep until the final judgment",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 4:17 — \"And so shall we ever be with the Lord.\" The ultimate hope is permanent, unending communion with Christ."
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "How will the day of the Lord come?",
+        "option_a": "Like a thief in the night",
+        "option_b": "With a big parade",
+        "option_c": "After a long warning",
+        "option_d": "When everyone is ready",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:2 — \"The day of the Lord so cometh as a thief in the night.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say to do always?",
+        "option_a": "Rejoice evermore (be joyful always)",
+        "option_b": "Complain about everything",
+        "option_c": "Sleep all day",
+        "option_d": "Worry about tomorrow",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:16 — \"Rejoice evermore.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about praying?",
+        "option_a": "Pray without ceasing",
+        "option_b": "Only pray on Sundays",
+        "option_c": "Never pray out loud",
+        "option_d": "Pray only when you are sad",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:17 — \"Pray without ceasing.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What will people be saying when sudden destruction comes?",
+        "option_a": "Peace and safety",
+        "option_b": "War and destruction",
+        "option_c": "Judgment and wrath",
+        "option_d": "Famine and plague",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:3 — \"For when they shall say, Peace and safety; then sudden destruction cometh upon them.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What are believers called children of in verse 5?",
+        "option_a": "Children of light and children of the day",
+        "option_b": "Children of the world",
+        "option_c": "Children of Abraham",
+        "option_d": "Children of the temple",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:5 — \"Ye are all the children of light, and the children of the day.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What spiritual armor does Paul mention in verse 8?",
+        "option_a": "The breastplate of faith and love, and the helmet of the hope of salvation",
+        "option_b": "A sword and a shield",
+        "option_c": "A crown and a scepter",
+        "option_d": "Sandals and a belt",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:8 — \"Putting on the breastplate of faith and love; and for an helmet, the hope of salvation.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What three short commands does Paul give in verses 16-18?",
+        "option_a": "Rejoice evermore, pray without ceasing, in every thing give thanks",
+        "option_b": "Fight bravely, run fast, eat well",
+        "option_c": "Study hard, work harder, sleep little",
+        "option_d": "Speak loudly, act boldly, think wisely",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:16-18 — \"Rejoice evermore. Pray without ceasing. In every thing give thanks.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about the Spirit in verse 19?",
+        "option_a": "Quench not the Spirit",
+        "option_b": "Ignore the Spirit",
+        "option_c": "Control the Spirit",
+        "option_d": "Question the Spirit",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:19 — \"Quench not the Spirit.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What analogy does Paul use for sudden destruction in verse 3?",
+        "option_a": "Travail upon a woman with child — they shall not escape",
+        "option_b": "A flood sweeping away a village",
+        "option_c": "A fire consuming a forest",
+        "option_d": "An earthquake destroying a city",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:3 — \"Then sudden destruction cometh upon them, as travail upon a woman with child; and they shall not escape.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say God has NOT appointed believers to in verse 9?",
+        "option_a": "Wrath, but to obtain salvation by our Lord Jesus Christ",
+        "option_b": "Suffering of any kind",
+        "option_c": "Work or labor",
+        "option_d": "Physical death",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:9 — \"For God hath not appointed us to wrath, but to obtain salvation by our Lord Jesus Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Whether we wake or sleep, what does Paul say in verse 10?",
+        "option_a": "We should live together with him",
+        "option_b": "We should fear judgment",
+        "option_c": "We should remain uncertain",
+        "option_d": "We should withdraw from the world",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:10 — \"Who died for us, that, whether we wake or sleep, we should live together with him.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does \"in every thing give thanks\" in verse 18 mean in context?",
+        "option_a": "This is the will of God in Christ Jesus concerning you",
+        "option_b": "It is Paul's personal suggestion",
+        "option_c": "It only applies in good circumstances",
+        "option_d": "It is optional for mature believers",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:18 — \"In every thing give thanks: for this is the will of God in Christ Jesus concerning you.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say to do with prophecies in verse 20?",
+        "option_a": "Despise not prophesyings",
+        "option_b": "Accept all prophecies without question",
+        "option_c": "Write all prophecies in a book",
+        "option_d": "Only listen to prophecy from apostles",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:20 — \"Despise not prophesyings.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say to prove (test) in verse 21?",
+        "option_a": "All things; hold fast that which is good",
+        "option_b": "Only teachings from apostles",
+        "option_c": "Nothing — just believe everything",
+        "option_d": "Only Old Testament prophecies",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:21 — \"Prove all things; hold fast that which is good.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul pray to be preserved blameless in verse 23?",
+        "option_a": "Your whole spirit and soul and body unto the coming of our Lord Jesus Christ",
+        "option_b": "Only the spirit",
+        "option_c": "Only the body",
+        "option_d": "Only the mind",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:23 — \"I pray God your whole spirit and soul and body be preserved blameless unto the coming of our Lord Jesus Christ.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What is the theological significance of the trichotomy \"spirit and soul and body\" in verse 23?",
+        "option_a": "It affirms the three-part nature of human beings: spirit (God-consciousness), soul (self-consciousness), and body (world-consciousness)",
+        "option_b": "It suggests humans have three separate bodies",
+        "option_c": "It is a poetic expression with no doctrinal significance",
+        "option_d": "It refers to three stages of Christian growth",
+        "correct_answer": "a",
+        "explanation": "1 Thessalonians 5:23 — \"Your whole spirit and soul and body.\" This verse is a key text in the trichotomist view of human nature, distinguishing spirit, soul, and body as distinct aspects of the person."
+      }
+    ]
+  }
+}

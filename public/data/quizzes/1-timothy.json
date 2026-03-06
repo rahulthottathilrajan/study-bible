@@ -1,0 +1,1010 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote this letter?",
+        "option_a": "Paul",
+        "option_b": "Peter",
+        "option_c": "James",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:1 — \"Paul, an apostle of Jesus Christ by the commandment of God our Saviour.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul call Timothy?",
+        "option_a": "His own son in the faith",
+        "option_b": "His brother",
+        "option_c": "His teacher",
+        "option_d": "His servant",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:2 — \"Unto Timothy, my own son in the faith.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul say Jesus came into the world to do?",
+        "option_a": "Save sinners",
+        "option_b": "Build a temple",
+        "option_c": "Start a school",
+        "option_d": "Become a king",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:15 — \"Christ Jesus came into the world to save sinners.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Paul charge Timothy to do at Ephesus?",
+        "option_a": "Command certain men not to teach other doctrine or give heed to fables and genealogies",
+        "option_b": "Collect money for the temple in Jerusalem",
+        "option_c": "Organize a council of all the apostles",
+        "option_d": "Build a new synagogue for the church",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:3-4 — \"That thou mightest charge some that they teach no other doctrine, Neither give heed to fables and endless genealogies.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What is the end (goal) of the commandment?",
+        "option_a": "Charity out of a pure heart, and of a good conscience, and of faith unfeigned",
+        "option_b": "Strict obedience to every rule",
+        "option_c": "Knowledge of all theological mysteries",
+        "option_d": "Perfect performance of rituals",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:5 — \"Now the end of the commandment is charity out of a pure heart, and of a good conscience, and of faith unfeigned.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who is the law made for according to Paul?",
+        "option_a": "Not for a righteous man, but for the lawless and disobedient, ungodly and sinners",
+        "option_b": "Only for the Jewish people",
+        "option_c": "For church leaders exclusively",
+        "option_d": "For everyone without exception",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:9 — \"Knowing this, that the law is not made for a righteous man, but for the lawless and disobedient, for the ungodly and for sinners.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul call himself in relation to sinners?",
+        "option_a": "The chief of sinners",
+        "option_b": "The holiest apostle",
+        "option_c": "The wisest teacher",
+        "option_d": "The bravest warrior",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:15 — \"Christ Jesus came into the world to save sinners; of whom I am chief.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What happened to Hymenaeus and Alexander?",
+        "option_a": "Paul delivered them unto Satan, that they may learn not to blaspheme",
+        "option_b": "They were promoted to elders",
+        "option_c": "They were sent on missionary trips",
+        "option_d": "They became Paul's closest companions",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:20 — \"Of whom is Hymenæus and Alexander; whom I have delivered unto Satan, that they may learn not to blaspheme.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say some have turned aside unto?",
+        "option_a": "Vain jangling — wanting to be teachers of the law without understanding what they say or affirm",
+        "option_b": "Genuine theological inquiry",
+        "option_c": "Profitable charitable works",
+        "option_d": "Effective missionary strategies",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:6-7 — \"From which some having swerved have turned aside unto vain jangling; Desiring to be teachers of the law; understanding neither what they say, nor whereof they affirm.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about the law in verse 8?",
+        "option_a": "The law is good, if a man use it lawfully",
+        "option_b": "The law has been entirely abolished",
+        "option_c": "The law is evil and should be rejected",
+        "option_d": "The law is only for Israel and not the church",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:8 — \"But we know that the law is good, if a man use it lawfully.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul call the gospel he was entrusted with?",
+        "option_a": "The glorious gospel of the blessed God, which was committed to his trust",
+        "option_b": "The law of Moses updated for Gentiles",
+        "option_c": "The wisdom of Greek philosophy",
+        "option_d": "The traditions of the Jewish elders",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:11 — \"According to the glorious gospel of the blessed God, which was committed to my trust.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What was Paul before Christ showed him mercy?",
+        "option_a": "A blasphemer, a persecutor, and injurious — but he obtained mercy because he did it ignorantly in unbelief",
+        "option_b": "A faithful Pharisee who always obeyed God",
+        "option_c": "A Roman soldier who fought for justice",
+        "option_d": "A Greek philosopher who sought truth",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:13 — \"Who was before a blasphemer, and a persecutor, and injurious: but I obtained mercy, because I did it ignorantly in unbelief.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul call the statement \"Christ Jesus came into the world to save sinners\"?",
+        "option_a": "A faithful saying and worthy of all acceptation",
+        "option_b": "An interesting theory worth considering",
+        "option_c": "A metaphor not to be taken literally",
+        "option_d": "A teaching only for advanced believers",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:15 — \"This is a faithful saying, and worthy of all acceptation, that Christ Jesus came into the world to save sinners.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Why did Paul obtain mercy as the chief of sinners?",
+        "option_a": "That in him first Jesus Christ might shew forth all longsuffering, for a pattern to them which should believe on him to life everlasting",
+        "option_b": "Because Paul's sins were not very serious",
+        "option_c": "Because Paul was from a good family",
+        "option_d": "Because Paul had already done many good works",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:16 — \"Howbeit for this cause I obtained mercy, that in me first Jesus Christ might shew forth all longsuffering, for a pattern to them which should hereafter believe on him to life everlasting.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What doxology does Paul give in verse 17?",
+        "option_a": "Now unto the King eternal, immortal, invisible, the only wise God, be honour and glory for ever and ever",
+        "option_b": "Blessed be the God and Father of our Lord Jesus Christ",
+        "option_c": "Great is the Lord and greatly to be praised",
+        "option_d": "Holy, holy, holy, Lord God Almighty",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:17 — \"Now unto the King eternal, immortal, invisible, the only wise God, be honour and glory for ever and ever. Amen.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What charge does Paul give Timothy in verse 18?",
+        "option_a": "War a good warfare, holding faith and a good conscience",
+        "option_b": "Build a large and wealthy church",
+        "option_c": "Travel to as many cities as possible",
+        "option_d": "Write many letters to the churches",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 1:18 — \"This charge I commit unto thee, son Timothy... that thou by them mightest war a good warfare; Holding faith, and a good conscience.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say we should do for all people?",
+        "option_a": "Pray for them",
+        "option_b": "Ignore them",
+        "option_c": "Judge them",
+        "option_d": "Compete with them",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:1 — \"I exhort therefore, that, first of all, supplications, prayers, intercessions, and giving of thanks, be made for all men.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How many Gods are there?",
+        "option_a": "One God",
+        "option_b": "Many gods",
+        "option_c": "Two gods",
+        "option_d": "No one knows",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:5 — \"For there is one God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who is the one person who connects God and people?",
+        "option_a": "The man Christ Jesus",
+        "option_b": "Moses",
+        "option_c": "Abraham",
+        "option_d": "King David",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:5 — \"There is one God, and one mediator between God and men, the man Christ Jesus.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why should we pray for kings and those in authority?",
+        "option_a": "That we may lead a quiet and peaceable life in all godliness and honesty",
+        "option_b": "So they will make us wealthy",
+        "option_c": "So they will join our church",
+        "option_d": "So they will stop all wars",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:2 — \"For kings, and for all that are in authority; that we may lead a quiet and peaceable life in all godliness and honesty.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does God desire for all men?",
+        "option_a": "That all men be saved and come unto the knowledge of the truth",
+        "option_b": "That all men become priests",
+        "option_c": "That all men move to Jerusalem",
+        "option_d": "That all men become wealthy",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:4 — \"Who will have all men to be saved, and to come unto the knowledge of the truth.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Christ give himself as?",
+        "option_a": "A ransom for all, to be testified in due time",
+        "option_b": "A gift only for the Jewish nation",
+        "option_c": "A sacrifice only for the apostles",
+        "option_d": "An example only for church leaders",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:6 — \"Who gave himself a ransom for all, to be testified in due time.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does Paul say men should pray?",
+        "option_a": "Lifting up holy hands, without wrath and doubting",
+        "option_b": "With loud voices and dramatic gestures",
+        "option_c": "Only in the synagogue on the Sabbath",
+        "option_d": "Silently and never out loud",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:8 — \"I will therefore that men pray every where, lifting up holy hands, without wrath and doubting.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul say women should adorn themselves?",
+        "option_a": "In modest apparel, with shamefacedness and sobriety; with good works",
+        "option_b": "With gold, pearls, and costly array",
+        "option_c": "With the latest fashions of Rome",
+        "option_d": "With nothing special at all",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:9-10 — \"That women adorn themselves in modest apparel, with shamefacedness and sobriety; not with broided hair, or gold, or pearls, or costly array; But (which becometh women professing godliness) with good works.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What four types of prayer does Paul list in verse 1?",
+        "option_a": "Supplications, prayers, intercessions, and giving of thanks",
+        "option_b": "Praise, worship, singing, and dancing",
+        "option_c": "Fasting, mourning, weeping, and groaning",
+        "option_d": "Reading, studying, meditating, and memorizing",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:1 — \"I exhort therefore, that, first of all, supplications, prayers, intercessions, and giving of thanks, be made for all men.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What is good and acceptable in the sight of God our Saviour?",
+        "option_a": "Praying for all men, including kings and those in authority",
+        "option_b": "Building large and impressive temples",
+        "option_c": "Accumulating great theological knowledge",
+        "option_d": "Performing signs and wonders",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:3 — \"For this is good and acceptable in the sight of God our Saviour.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the theological significance of \"one mediator between God and men, the man Christ Jesus\"?",
+        "option_a": "Christ alone bridges the gap between God and humanity — no other mediator, priest, or intercessor is needed",
+        "option_b": "There are many mediators but Christ is the chief",
+        "option_c": "Moses was the mediator of the Old Testament and Christ of the New",
+        "option_d": "The term mediator refers to Christ's role as teacher",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:5 — \"For there is one God, and one mediator between God and men, the man Christ Jesus.\" The singular \"one\" excludes all other mediators."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say he was ordained as?",
+        "option_a": "A preacher, and an apostle, and a teacher of the Gentiles in faith and verity",
+        "option_b": "A priest of the temple in Jerusalem",
+        "option_c": "A judge over the twelve tribes",
+        "option_d": "A governor of the churches",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:7 — \"Whereunto I am ordained a preacher, and an apostle, (I speak the truth in Christ, and lie not;) a teacher of the Gentiles in faith and verity.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say about Adam and Eve regarding the order of creation?",
+        "option_a": "Adam was first formed, then Eve",
+        "option_b": "Eve was formed first, then Adam",
+        "option_c": "They were formed at the same time",
+        "option_d": "The order of creation is not mentioned",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:13 — \"For Adam was first formed, then Eve.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Who was in the transgression according to verse 14?",
+        "option_a": "Adam was not deceived, but the woman being deceived was in the transgression",
+        "option_b": "Adam was deceived first",
+        "option_c": "Both were equally deceived",
+        "option_d": "Neither was truly deceived",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:14 — \"And Adam was not deceived, but the woman being deceived was in the transgression.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul say about women being saved through childbearing?",
+        "option_a": "She shall be saved in childbearing, if they continue in faith and charity and holiness with sobriety",
+        "option_b": "Childbearing is the means of spiritual salvation",
+        "option_c": "Women are exempt from salvation requirements",
+        "option_d": "Childbearing is forbidden for godly women",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:15 — \"Notwithstanding she shall be saved in childbearing, if they continue in faith and charity and holiness with sobriety.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul emphasize by saying \"I speak the truth in Christ, and lie not\" in verse 7?",
+        "option_a": "He solemnly affirms the truth of his apostolic appointment, especially regarding his mission to the Gentiles",
+        "option_b": "He is making a casual remark",
+        "option_c": "He is quoting an Old Testament prophecy",
+        "option_d": "He is defending himself against a specific false charge",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 2:7 — \"I speak the truth in Christ, and lie not.\" Paul uses this emphatic assertion to validate his divine appointment as apostle to the Gentiles."
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What kind of person should a bishop (church leader) be?",
+        "option_a": "Blameless and of good behaviour",
+        "option_b": "The richest person in town",
+        "option_c": "The tallest and strongest man",
+        "option_d": "Someone with the loudest voice",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:2 — \"A bishop then must be blameless, the husband of one wife, vigilant, sober, of good behaviour.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What kind of people should deacons (church helpers) be?",
+        "option_a": "Honest and serious",
+        "option_b": "The funniest and most popular",
+        "option_c": "The youngest in the church",
+        "option_d": "Only people with no family",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:8 — \"Likewise must the deacons be grave, not doubletongued, not given to much wine, not greedy of filthy lucre.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul call the church?",
+        "option_a": "The pillar and ground of the truth",
+        "option_b": "A building made of gold",
+        "option_c": "A castle in the clouds",
+        "option_d": "A school for smart people",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:15 — \"The church of the living God, the pillar and ground of the truth.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about desiring the office of a bishop?",
+        "option_a": "He desireth a good work — it is a true saying",
+        "option_b": "It is prideful and should be avoided",
+        "option_c": "Only apostles should seek this office",
+        "option_d": "It is reserved for the wealthy",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:1 — \"This is a true saying, If a man desire the office of a bishop, he desireth a good work.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why must a bishop not be a novice (new convert)?",
+        "option_a": "Lest being lifted up with pride he fall into the condemnation of the devil",
+        "option_b": "Because new converts are too enthusiastic",
+        "option_c": "Because they have not paid enough dues",
+        "option_d": "Because they don't know enough people",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:6 — \"Not a novice, lest being lifted up with pride he fall into the condemnation of the devil.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What must a bishop have from those outside the church?",
+        "option_a": "A good report of them which are without",
+        "option_b": "A letter of recommendation from the government",
+        "option_c": "Approval from the Jewish council",
+        "option_d": "Endorsement from other bishops",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:7 — \"Moreover he must have a good report of them which are without; lest he fall into reproach and the snare of the devil.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What must deacons be proved (tested) before doing?",
+        "option_a": "Let them first be proved; then let them use the office of a deacon, being found blameless",
+        "option_b": "They need no testing if they volunteer",
+        "option_c": "They only need to pass a written exam",
+        "option_d": "They must serve for ten years first",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:10 — \"And let these also first be proved; then let them use the office of a deacon, being found blameless.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What great mystery does Paul mention at the end of the chapter?",
+        "option_a": "Great is the mystery of godliness: God was manifest in the flesh",
+        "option_b": "The mystery of why evil exists",
+        "option_c": "The mystery of the end times",
+        "option_d": "The mystery of speaking in tongues",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:16 — \"And without controversy great is the mystery of godliness: God was manifest in the flesh.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say a bishop must be the husband of?",
+        "option_a": "One wife — \"mias gunaikos andra\" meaning a one-woman man",
+        "option_b": "No wife — he must be celibate",
+        "option_c": "Multiple wives to show he can manage a household",
+        "option_d": "A wife from a priestly family",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:2 — \"A bishop then must be blameless, the husband of one wife.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What is the connection Paul draws between managing a household and leading the church?",
+        "option_a": "If a man know not how to rule his own house, how shall he take care of the church of God?",
+        "option_b": "Managing a household is irrelevant to church leadership",
+        "option_c": "Only unmarried men can focus properly on the church",
+        "option_d": "Church leadership requires different skills than family leadership",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:5 — \"For if a man know not how to rule his own house, how shall he take care of the church of God?\""
+      },
+      {
+        "question_number": 3,
+        "question": "What must deacons hold with a pure conscience?",
+        "option_a": "The mystery of the faith",
+        "option_b": "The keys of the kingdom",
+        "option_c": "The scrolls of the law",
+        "option_d": "The traditions of the elders",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:9 — \"Holding the mystery of the faith in a pure conscience.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about the wives (of deacons or deaconesses) in verse 11?",
+        "option_a": "They must be grave, not slanderers, sober, faithful in all things",
+        "option_b": "They should remain silent at all times",
+        "option_c": "They should manage the church finances",
+        "option_d": "They should teach all the women's classes",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:11 — \"Even so must their wives be grave, not slanderers, sober, faithful in all things.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What do deacons who serve well purchase for themselves?",
+        "option_a": "A good degree and great boldness in the faith which is in Christ Jesus",
+        "option_b": "A promotion to the office of bishop",
+        "option_c": "A financial reward from the church",
+        "option_d": "A guaranteed place in heaven",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:13 — \"For they that have used the office of a deacon well purchase to themselves a good degree, and great boldness in the faith which is in Christ Jesus.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Why is Paul writing these instructions to Timothy?",
+        "option_a": "That thou mayest know how thou oughtest to behave thyself in the house of God",
+        "option_b": "To establish Paul's authority over Timothy",
+        "option_c": "To create a legal document for the church",
+        "option_d": "To record the history of the church at Ephesus",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:15 — \"But if I tarry long, that thou mayest know how thou oughtest to behave thyself in the house of God.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What six-part creedal statement does Paul give about the mystery of godliness?",
+        "option_a": "God was manifest in the flesh, justified in the Spirit, seen of angels, preached unto the Gentiles, believed on in the world, received up into glory",
+        "option_b": "Born of a virgin, baptized in Jordan, tempted in the wilderness, crucified on Calvary, buried in a tomb, risen on the third day",
+        "option_c": "Created the world, called Abraham, delivered Israel, gave the law, sent the prophets, established the church",
+        "option_d": "Father almighty, Son eternal, Spirit holy, church universal, saints forgiven, life everlasting",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:16 — \"God was manifest in the flesh, justified in the Spirit, seen of angels, preached unto the Gentiles, believed on in the world, received up into glory.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul call the church of the living God?",
+        "option_a": "The pillar and ground of the truth",
+        "option_b": "The bride of Christ",
+        "option_c": "The body of believers",
+        "option_d": "The temple of the Holy Ghost",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 3:15 — \"The church of the living God, the pillar and ground of the truth.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say some people will do in the last times?",
+        "option_a": "Depart from the faith (stop believing)",
+        "option_b": "Become stronger in their faith",
+        "option_c": "All become missionaries",
+        "option_d": "Everyone will agree on everything",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:1 — \"Now the Spirit speaketh expressly, that in the latter times some shall depart from the faith.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul tell Timothy to be for other believers?",
+        "option_a": "An example (a good role model)",
+        "option_b": "The boss of everyone",
+        "option_c": "The richest person",
+        "option_d": "The quietest person",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:12 — \"Be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is better than exercising your body?",
+        "option_a": "Godliness (being close to God)",
+        "option_b": "Being the fastest runner",
+        "option_c": "Having the most toys",
+        "option_d": "Sleeping all day",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:8 — \"For bodily exercise profiteth little: but godliness is profitable unto all things.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What will the departing ones give heed to?",
+        "option_a": "Seducing spirits and doctrines of devils",
+        "option_b": "The teachings of the apostles",
+        "option_c": "The wisdom of the prophets",
+        "option_d": "The commandments of God",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:1 — \"Giving heed to seducing spirits, and doctrines of devils.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What two things do the false teachers forbid?",
+        "option_a": "Forbidding to marry and commanding to abstain from meats",
+        "option_b": "Teaching the gospel and baptizing believers",
+        "option_c": "Praying and giving thanks",
+        "option_d": "Reading scripture and singing hymns",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:3 — \"Forbidding to marry, and commanding to abstain from meats, which God hath created to be received with thanksgiving.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about bodily exercise?",
+        "option_a": "Bodily exercise profiteth little, but godliness is profitable unto all things",
+        "option_b": "Bodily exercise is sinful",
+        "option_c": "Bodily exercise is the most important thing",
+        "option_d": "Bodily exercise and godliness are equal",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:8 — \"For bodily exercise profiteth little: but godliness is profitable unto all things, having promise of the life that now is, and of that which is to come.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul tell Timothy about his youth?",
+        "option_a": "Let no man despise thy youth, but be thou an example of the believers",
+        "option_b": "Wait until you are older to teach",
+        "option_c": "Young people should stay silent in church",
+        "option_d": "Youth disqualifies you from leadership",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:12 — \"Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What should Timothy give attendance to until Paul comes?",
+        "option_a": "Reading, exhortation, and doctrine",
+        "option_b": "Building construction and repairs",
+        "option_c": "Collecting donations and tithes",
+        "option_d": "Organizing feasts and celebrations",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:13 — \"Till I come, give attendance to reading, to exhortation, to doctrine.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul describe the conscience of the false teachers?",
+        "option_a": "Speaking lies in hypocrisy, having their conscience seared with a hot iron",
+        "option_b": "Having a tender and sensitive conscience",
+        "option_c": "Having a well-informed conscience",
+        "option_d": "Having a conscience guided by Scripture",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:2 — \"Speaking lies in hypocrisy; having their conscience seared with a hot iron.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How is every creature of God sanctified?",
+        "option_a": "By the word of God and prayer",
+        "option_b": "By ritual cleansing and sacrifice",
+        "option_c": "By the approval of the elders",
+        "option_d": "By abstaining from it for a period",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:4-5 — \"For every creature of God is good, and nothing to be refused, if it be received with thanksgiving: For it is sanctified by the word of God and prayer.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul call Timothy if he puts these things in remembrance?",
+        "option_a": "A good minister of Jesus Christ, nourished up in the words of faith and of good doctrine",
+        "option_b": "A great apostle equal to Paul",
+        "option_c": "A worthy priest of the temple",
+        "option_d": "A mighty prophet of God",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:6 — \"If thou put the brethren in remembrance of these things, thou shalt be a good minister of Jesus Christ, nourished up in the words of faith and of good doctrine, whereunto thou hast attained.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What should Timothy refuse?",
+        "option_a": "Profane and old wives' fables, and exercise himself rather unto godliness",
+        "option_b": "All social gatherings and celebrations",
+        "option_c": "All contact with Gentile believers",
+        "option_d": "All food that has been offered to idols",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:7 — \"But refuse profane and old wives' fables, and exercise thyself rather unto godliness.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Why do believers labour and suffer reproach?",
+        "option_a": "Because we trust in the living God, who is the Saviour of all men, specially of those that believe",
+        "option_b": "Because suffering earns heavenly rewards",
+        "option_c": "Because it is punishment for past sins",
+        "option_d": "Because all religious people must suffer",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:10 — \"For therefore we both labour and suffer reproach, because we trust in the living God, who is the Saviour of all men, specially of those that believe.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What gift did Timothy receive by prophecy with the laying on of hands?",
+        "option_a": "A spiritual gift given by prophecy, with the laying on of the hands of the presbytery",
+        "option_b": "The ability to speak in tongues",
+        "option_c": "The power to heal the sick",
+        "option_d": "The authority to write Scripture",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:14 — \"Neglect not the gift that is in thee, which was given thee by prophecy, with the laying on of the hands of the presbytery.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul tell Timothy to meditate upon and give himself wholly to?",
+        "option_a": "These things — that his profiting may appear to all",
+        "option_b": "Ancient philosophical texts",
+        "option_c": "Military strategy and tactics",
+        "option_d": "The traditions of the Pharisees",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:15 — \"Meditate upon these things; give thyself wholly to them; that thy profiting may appear to all.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say Timothy will save by taking heed to himself and the doctrine?",
+        "option_a": "Both himself and them that hear him",
+        "option_b": "Only himself",
+        "option_c": "Only those who are already believers",
+        "option_d": "Only the elders of the church",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 4:16 — \"Take heed unto thyself, and unto the doctrine; continue in them: for in doing this thou shalt both save thyself, and them that hear thee.\""
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who does Paul say the church should take care of?",
+        "option_a": "Widows who are truly alone and in need",
+        "option_b": "Only the richest members",
+        "option_c": "Only the youngest members",
+        "option_d": "Only people from other cities",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:3 — \"Honour widows that are widows indeed.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What should children and grandchildren do for their family first?",
+        "option_a": "Show love at home and repay their parents",
+        "option_b": "Leave home as soon as possible",
+        "option_c": "Only help people outside the family",
+        "option_d": "Wait for the church to help their parents",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:4 — \"Let them learn first to shew piety at home, and to requite their parents: for that is good and acceptable before God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say elders who lead well deserve?",
+        "option_a": "Double honour",
+        "option_b": "A new house",
+        "option_c": "A golden crown",
+        "option_d": "A long vacation",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:17 — \"Let the elders that rule well be counted worthy of double honour.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about someone who does not provide for his own family?",
+        "option_a": "He hath denied the faith and is worse than an infidel",
+        "option_b": "He is still a good believer",
+        "option_c": "He is showing trust in God",
+        "option_d": "He is focusing on spiritual things",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:8 — \"But if any provide not for his own, and specially for those of his own house, he hath denied the faith, and is worse than an infidel.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What age must a widow be to be enrolled in the church's care?",
+        "option_a": "Not under threescore years old (sixty)",
+        "option_b": "At least thirty years old",
+        "option_c": "At least forty years old",
+        "option_d": "Any age if she is a widow",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:9 — \"Let not a widow be taken into the number under threescore years old.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about elders who labour in the word and doctrine?",
+        "option_a": "They are worthy of double honour, especially those who labour in the word and doctrine",
+        "option_b": "They should receive the same as everyone else",
+        "option_c": "They need no special recognition",
+        "option_d": "They should volunteer without any support",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:17 — \"Let the elders that rule well be counted worthy of double honour, especially they who labour in the word and doctrine.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What scripture does Paul quote about not muzzling the ox?",
+        "option_a": "Thou shalt not muzzle the ox that treadeth out the corn, and the labourer is worthy of his reward",
+        "option_b": "The ox knows his owner",
+        "option_c": "The ox is a clean animal for sacrifice",
+        "option_d": "The ox shall rest on the Sabbath",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:18 — \"For the scripture saith, Thou shalt not muzzle the ox that treadeth out the corn. And, The labourer is worthy of his reward.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul tell Timothy about laying hands on people hastily?",
+        "option_a": "Lay hands suddenly on no man, neither be partaker of other men's sins",
+        "option_b": "Lay hands on everyone who asks",
+        "option_c": "Only lay hands on the wealthy",
+        "option_d": "Lay hands only on family members",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:22 — \"Lay hands suddenly on no man, neither be partaker of other men's sins: keep thyself pure.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say a widow indeed is?",
+        "option_a": "One who is desolate, trusteth in God, and continueth in supplications and prayers night and day",
+        "option_b": "Any woman whose husband has died",
+        "option_c": "Only a widow with no children",
+        "option_d": "A widow who remarries quickly",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:5 — \"Now she that is a widow indeed, and desolate, trusteth in God, and continueth in supplications and prayers night and day.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about the widow who lives in pleasure?",
+        "option_a": "She is dead while she liveth",
+        "option_b": "She is enjoying God's blessings",
+        "option_c": "She is living her best life",
+        "option_d": "She is setting a good example",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:6 — \"But she that liveth in pleasure is dead while she liveth.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about younger widows and their first faith?",
+        "option_a": "When they have begun to wax wanton against Christ, they will marry, having damnation because they have cast off their first faith",
+        "option_b": "They should never remarry under any circumstances",
+        "option_c": "They should immediately seek new husbands",
+        "option_d": "Their first faith is always permanent",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:11-12 — \"But the younger widows refuse... they will marry; Having damnation, because they have cast off their first faith.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul prefer younger widows to do?",
+        "option_a": "Marry, bear children, guide the house, and give none occasion to the adversary to speak reproachfully",
+        "option_b": "Remain single and devote themselves entirely to prayer",
+        "option_c": "Travel as missionaries to other churches",
+        "option_d": "Move back to their parents' households",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:14 — \"I will therefore that the younger women marry, bear children, guide the house, give none occasion to the adversary to speak reproachfully.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How should an accusation against an elder be received?",
+        "option_a": "Not except before two or three witnesses",
+        "option_b": "From any single accuser",
+        "option_c": "Only from other elders",
+        "option_d": "Only from the apostle himself",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:19 — \"Against an elder receive not an accusation, but before two or three witnesses.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What should be done with elders who sin?",
+        "option_a": "Rebuke them before all, that others also may fear",
+        "option_b": "Speak to them privately and never mention it again",
+        "option_c": "Ignore the sin to preserve church unity",
+        "option_d": "Immediately remove them without discussion",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:20 — \"Them that sin rebuke before all, that others also may fear.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul charge Timothy before God and the elect angels?",
+        "option_a": "Observe these things without preferring one before another, doing nothing by partiality",
+        "option_b": "Build a new meeting place for the church",
+        "option_c": "Appoint as many elders as possible",
+        "option_d": "Send missionaries to every Roman province",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:21 — \"I charge thee before God, and the Lord Jesus Christ, and the elect angels, that thou observe these things without preferring one before another, doing nothing by partiality.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul advise Timothy about his frequent infirmities?",
+        "option_a": "Drink no longer water, but use a little wine for thy stomach's sake and thine often infirmities",
+        "option_b": "Fast and pray until healed",
+        "option_c": "See a Greek physician immediately",
+        "option_d": "Accept suffering as God's will without remedy",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 5:23 — \"Drink no longer water, but use a little wine for thy stomach's sake and thine often infirmities.\""
+      }
+    ]
+  },
+  "6": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say is great gain?",
+        "option_a": "Godliness with contentment",
+        "option_b": "Having lots of money",
+        "option_c": "Being the most popular person",
+        "option_d": "Winning every competition",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:6 — \"But godliness with contentment is great gain.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about the love of money?",
+        "option_a": "It is the root of all evil",
+        "option_b": "It is the best thing in life",
+        "option_c": "It makes you happy forever",
+        "option_d": "It is a sign of God's blessing",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:10 — \"For the love of money is the root of all evil.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What good fight does Paul tell Timothy to fight?",
+        "option_a": "The good fight of faith",
+        "option_b": "A fight with swords and shields",
+        "option_c": "A wrestling match",
+        "option_d": "A running race",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:12 — \"Fight the good fight of faith.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did we bring into this world and what can we carry out?",
+        "option_a": "We brought nothing in, and it is certain we can carry nothing out",
+        "option_b": "We brought our talents and will take our achievements",
+        "option_c": "We brought nothing but will carry out our memories",
+        "option_d": "We brought our souls and will carry out our rewards",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:7 — \"For we brought nothing into this world, and it is certain we can carry nothing out.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What happens to people who want to be rich?",
+        "option_a": "They fall into temptation and a snare and many foolish and hurtful lusts that drown men in destruction and perdition",
+        "option_b": "They always succeed and are blessed by God",
+        "option_c": "They become generous and charitable",
+        "option_d": "They find true happiness and peace",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:9 — \"But they that will be rich fall into temptation and a snare, and into many foolish and hurtful lusts, which drown men in destruction and perdition.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should Timothy flee from and what should he follow after?",
+        "option_a": "Flee the love of money; follow after righteousness, godliness, faith, love, patience, meekness",
+        "option_b": "Flee all people; follow only the apostles",
+        "option_c": "Flee all cities; follow the wilderness path",
+        "option_d": "Flee all knowledge; follow only feelings",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:11 — \"But thou, O man of God, flee these things; and follow after righteousness, godliness, faith, love, patience, meekness.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What good confession did Christ witness before Pontius Pilate?",
+        "option_a": "A good confession — Timothy should keep the commandment without spot until the appearing of the Lord Jesus Christ",
+        "option_b": "That he was the King of the Jews",
+        "option_c": "That he came to destroy Rome",
+        "option_d": "That he would return in three days",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:13 — \"I give thee charge in the sight of God... and before Christ Jesus, who before Pontius Pilate witnessed a good confession.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What should the rich in this world NOT be?",
+        "option_a": "Highminded, nor trust in uncertain riches, but in the living God who giveth us richly all things to enjoy",
+        "option_b": "Generous with their money",
+        "option_c": "Involved in church activities",
+        "option_d": "Friends with poor people",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:17 — \"Charge them that are rich in this world, that they be not highminded, nor trust in uncertain riches, but in the living God, who giveth us richly all things to enjoy.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about servants and their masters in verse 1?",
+        "option_a": "Servants should count their own masters worthy of all honour, that the name of God and his doctrine be not blasphemed",
+        "option_b": "Servants should demand their freedom in Christ",
+        "option_c": "Servants have no obligations to unbelieving masters",
+        "option_d": "Masters and servants are equal in all social matters",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:1 — \"Let as many servants as are under the yoke count their own masters worthy of all honour, that the name of God and his doctrine be not blasphemed.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about those who teach differently and do not consent to sound words?",
+        "option_a": "He is proud, knowing nothing, doting about questions and strifes of words, whereof cometh envy, strife, railings, evil surmisings",
+        "option_b": "He is a mature believer with a different perspective",
+        "option_c": "He is being led by a different spiritual gift",
+        "option_d": "He should be given more time to come to the truth",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:3-4 — \"If any man teach otherwise, and consent not to wholesome words, even the words of our Lord Jesus Christ, and to the doctrine which is according to godliness; He is proud, knowing nothing.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What do some suppose gain is?",
+        "option_a": "Godliness — thinking religion is a means of financial gain; from such withdraw thyself",
+        "option_b": "A fair and legitimate business practice",
+        "option_c": "A sign of God's favour and blessing",
+        "option_d": "The natural result of hard work",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:5 — \"Perverse disputings of men of corrupt minds, and destitute of the truth, supposing that gain is godliness: from such withdraw thyself.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did some who coveted after money do?",
+        "option_a": "They erred from the faith and pierced themselves through with many sorrows",
+        "option_b": "They built large and prosperous churches",
+        "option_c": "They funded many missionary trips",
+        "option_d": "They became the most respected church leaders",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:10 — \"Which while some coveted after, they have erred from the faith, and pierced themselves through with many sorrows.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What titles does Paul give God in verses 15-16?",
+        "option_a": "The blessed and only Potentate, the King of kings, and Lord of lords, who only hath immortality, dwelling in the light which no man can approach unto",
+        "option_b": "The Ancient of Days, the Judge of all the earth",
+        "option_c": "The God of Abraham, Isaac, and Jacob",
+        "option_d": "The Lord of hosts, the Maker of heaven and earth",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:15-16 — \"The blessed and only Potentate, the King of kings, and Lord of lords; Who only hath immortality, dwelling in the light which no man can approach unto.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul tell the rich to be rich in?",
+        "option_a": "Good works, ready to distribute, willing to communicate",
+        "option_b": "Gold, silver, and precious stones",
+        "option_c": "Land, houses, and possessions",
+        "option_d": "Theological knowledge and debate skills",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:18 — \"That they do good, that they be rich in good works, ready to distribute, willing to communicate.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul tell Timothy to keep and avoid?",
+        "option_a": "Keep that which is committed to thy trust, avoiding profane and vain babblings, and oppositions of science falsely so called",
+        "option_b": "Keep the Jewish traditions and avoid Gentile customs",
+        "option_c": "Keep the peace and avoid all confrontation",
+        "option_d": "Keep his wealth and avoid poverty",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:20 — \"O Timothy, keep that which is committed to thy trust, avoiding profane and vain babblings, and oppositions of science falsely so called.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What happened to some who professed \"science falsely so called\"?",
+        "option_a": "They erred concerning the faith",
+        "option_b": "They became great scholars",
+        "option_c": "They discovered important truths",
+        "option_d": "They were promoted in the church",
+        "correct_answer": "a",
+        "explanation": "1 Timothy 6:21 — \"Which some professing have erred concerning the faith. Grace be with thee. Amen.\""
+      }
+    ]
+  }
+}

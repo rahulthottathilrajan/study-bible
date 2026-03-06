@@ -1,0 +1,2690 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote this letter to the church at Corinth?",
+        "option_a": "Paul",
+        "option_b": "Peter",
+        "option_c": "Moses",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:1 — \"Paul, called to be an apostle of Jesus Christ through the will of God, and Sosthenes our brother.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Were the people in the Corinthian church getting along well?",
+        "option_a": "No, there were divisions and arguments among them",
+        "option_b": "Yes, they were perfectly united",
+        "option_c": "They never talked to each other",
+        "option_d": "They lived in different cities",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:11 — \"For it hath been declared unto me of you, my brethren, by them which are of the house of Chloe, that there are contentions among you.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul say God uses to confound the wise?",
+        "option_a": "The foolish things of the world",
+        "option_b": "The richest people",
+        "option_c": "The strongest armies",
+        "option_d": "The tallest buildings",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:27 — \"But God hath chosen the foolish things of the world to confound the wise.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What were the Corinthians dividing over?",
+        "option_a": "Following different leaders — saying \"I am of Paul,\" \"I am of Apollos,\" \"I am of Cephas,\" \"I am of Christ\"",
+        "option_b": "Which day to worship",
+        "option_c": "What food to eat",
+        "option_d": "How to dress for church",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:12 — \"Now this I say, that every one of you saith, I am of Paul; and I of Apollos; and I of Cephas; and I of Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul say about the preaching of the cross?",
+        "option_a": "To them that perish it is foolishness, but unto us which are saved it is the power of God",
+        "option_b": "Everyone thinks it is wise",
+        "option_c": "Only philosophers understand it",
+        "option_d": "It is irrelevant to daily life",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:18 — \"For the preaching of the cross is to them that perish foolishness; but unto us which are saved it is the power of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What do the Jews require and the Greeks seek according to Paul?",
+        "option_a": "The Jews require a sign and the Greeks seek after wisdom",
+        "option_b": "The Jews seek wisdom and the Greeks require signs",
+        "option_c": "Both groups seek miracles",
+        "option_d": "Both groups seek philosophy",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:22 — \"For the Jews require a sign, and the Greeks seek after wisdom.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is Christ crucified to the Jews and to the Greeks?",
+        "option_a": "Unto the Jews a stumblingblock and unto the Greeks foolishness",
+        "option_b": "A point of agreement for both groups",
+        "option_c": "An intellectual breakthrough",
+        "option_d": "A political victory",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:23 — \"But we preach Christ crucified, unto the Jews a stumblingblock, and unto the Greeks foolishness.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Why did God choose weak and foolish things?",
+        "option_a": "So that no flesh should glory in His presence",
+        "option_b": "Because nothing better was available",
+        "option_c": "Because wise people refused Him",
+        "option_d": "To test people's patience",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:29 — \"That no flesh should glory in his presence.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say the Corinthians were enriched in through Christ?",
+        "option_a": "In every thing — in all utterance and in all knowledge",
+        "option_b": "In material wealth and property",
+        "option_c": "In political influence",
+        "option_d": "In military strength",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:5 — \"That in every thing ye are enriched by him, in all utterance, and in all knowledge.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul appeal to the Corinthians for by the name of the Lord Jesus Christ?",
+        "option_a": "That they all speak the same thing, with no divisions, perfectly joined together in the same mind and judgment",
+        "option_b": "That they send him financial support",
+        "option_c": "That they build a larger meeting place",
+        "option_d": "That they elect new leaders",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:10 — \"Now I beseech you, brethren, by the name of our Lord Jesus Christ, that ye all speak the same thing, and that there be no divisions among you; but that ye be perfectly joined together in the same mind and in the same judgment.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What rhetorical questions does Paul ask about the divided Christ?",
+        "option_a": "\"Is Christ divided? was Paul crucified for you? or were ye baptized in the name of Paul?\"",
+        "option_b": "\"Was Moses greater than Christ?\"",
+        "option_c": "\"Did Peter build the church?\"",
+        "option_d": "\"Is Apollos the true leader?\"",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:13 — \"Is Christ divided? was Paul crucified for you? or were ye baptized in the name of Paul?\""
+      },
+      {
+        "question_number": 4,
+        "question": "Why did Paul say he was thankful he had baptised so few Corinthians?",
+        "option_a": "Lest any should say that he had baptized in his own name — avoiding personality-driven factions",
+        "option_b": "Because he disliked the practice of baptism",
+        "option_c": "Because baptism was unimportant",
+        "option_d": "Because he had no authority to baptise",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:14-15 — \"I thank God that I baptized none of you, but Crispus and Gaius; Lest any should say that I had baptized in mine own name.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What Old Testament passage does Paul quote about destroying the wisdom of the wise?",
+        "option_a": "Isaiah 29:14 — \"I will destroy the wisdom of the wise, and will bring to nothing the understanding of the prudent\"",
+        "option_b": "Proverbs 1:7 — \"The fear of the Lord is the beginning of knowledge\"",
+        "option_c": "Ecclesiastes 1:2 — \"Vanity of vanities\"",
+        "option_d": "Job 28:28 — \"The fear of the Lord, that is wisdom\"",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:19 — \"For it is written, I will destroy the wisdom of the wise, and will bring to nothing the understanding of the prudent\" (Isaiah 29:14)."
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say Christ is made unto believers?",
+        "option_a": "Wisdom, and righteousness, and sanctification, and redemption",
+        "option_b": "Only a moral teacher and example",
+        "option_c": "A political liberator",
+        "option_d": "A philosophical framework",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:30 — \"But of him are ye in Christ Jesus, who of God is made unto us wisdom, and righteousness, and sanctification, and redemption.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What principle from Jeremiah does Paul cite at the chapter's end?",
+        "option_a": "\"He that glorieth, let him glory in the Lord\" — from Jeremiah 9:24",
+        "option_b": "\"The heart is deceitful above all things\" — from Jeremiah 17:9",
+        "option_c": "\"Before I formed thee I knew thee\" — from Jeremiah 1:5",
+        "option_d": "\"Is there no balm in Gilead?\" — from Jeremiah 8:22",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:31 — \"That, according as it is written, He that glorieth, let him glory in the Lord\" (Jeremiah 9:24)."
+      },
+      {
+        "question_number": 8,
+        "question": "How does Paul describe the typical social standing of those God called in Corinth?",
+        "option_a": "Not many wise after the flesh, not many mighty, not many noble — God chose the base things and things which are despised",
+        "option_b": "Mostly wealthy aristocrats",
+        "option_c": "Primarily scholars and philosophers",
+        "option_d": "Mainly Roman officials",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 1:26-28 — \"For ye see your calling, brethren, how that not many wise men after the flesh, not many mighty, not many noble, are called: But God hath chosen the foolish things of the world... and base things of the world, and things which are despised.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did Paul decide to know nothing among the Corinthians except?",
+        "option_a": "Jesus Christ and Him crucified",
+        "option_b": "Greek philosophy",
+        "option_c": "Roman politics",
+        "option_d": "Jewish customs",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:2 — \"For I determined not to know any thing among you, save Jesus Christ, and him crucified.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who helps us understand the things of God?",
+        "option_a": "The Holy Spirit",
+        "option_b": "Our own cleverness",
+        "option_c": "Our teachers at school",
+        "option_d": "Our friends",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:10 — \"But God hath revealed them unto us by his Spirit: for the Spirit searcheth all things, yea, the deep things of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Can a person without God's Spirit understand spiritual things?",
+        "option_a": "No, the natural man does not receive the things of the Spirit of God",
+        "option_b": "Yes, anyone can understand them",
+        "option_c": "Yes, if they study hard enough",
+        "option_d": "Yes, if they are smart enough",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:14 — \"But the natural man receiveth not the things of the Spirit of God: for they are foolishness unto him.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How did Paul describe his own manner of speaking when he came to Corinth?",
+        "option_a": "In weakness, fear, and much trembling — not with enticing words of man's wisdom",
+        "option_b": "With great confidence and eloquence",
+        "option_c": "As a powerful orator",
+        "option_d": "With rehearsed philosophical arguments",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:3-4 — \"And I was with you in weakness, and in fear, and in much trembling. And my speech and my preaching was not with enticing words of man's wisdom.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What has God prepared for those who love Him?",
+        "option_a": "Things which eye hath not seen, nor ear heard, neither have entered into the heart of man",
+        "option_b": "A comfortable life on earth",
+        "option_c": "Great political power",
+        "option_d": "Vast material wealth",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:9 — \"But as it is written, Eye hath not seen, nor ear heard, neither have entered into the heart of man, the things which God hath prepared for them that love him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does the Spirit search out?",
+        "option_a": "All things, yea, the deep things of God",
+        "option_b": "Only simple truths",
+        "option_c": "Only the thoughts of humans",
+        "option_d": "Only Old Testament prophecies",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:10 — \"For the Spirit searcheth all things, yea, the deep things of God.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Why does the natural man not receive the things of the Spirit?",
+        "option_a": "Because they are spiritually discerned — they are foolishness to him",
+        "option_b": "Because he is too busy",
+        "option_c": "Because the Spirit is hidden",
+        "option_d": "Because the Bible is too long",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:14 — \"But the natural man receiveth not the things of the Spirit of God: for they are foolishness unto him: neither can he know them, because they are spiritually discerned.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say believers have received?",
+        "option_a": "Not the spirit of the world, but the spirit which is of God, that they might know the things freely given by God",
+        "option_b": "The spirit of worldly wisdom",
+        "option_c": "The spirit of political power",
+        "option_d": "The spirit of self-reliance",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:12 — \"Now we have received, not the spirit of the world, but the spirit which is of God; that we might know the things that are freely given to us of God.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Why did Paul deliberately avoid persuasive rhetoric with the Corinthians?",
+        "option_a": "So that their faith would stand in the power of God rather than in the wisdom of men",
+        "option_b": "Because he was uneducated",
+        "option_c": "Because Greek was not his native language",
+        "option_d": "Because the Corinthians disliked speeches",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:5 — \"That your faith should not stand in the wisdom of men, but in the power of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What wisdom does Paul say he speaks among the mature?",
+        "option_a": "The wisdom of God in a mystery, the hidden wisdom ordained before the world unto our glory",
+        "option_b": "The wisdom of Greek philosophers",
+        "option_c": "The wisdom of the princes of this world",
+        "option_d": "Common proverbial wisdom",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:6-7 — \"Howbeit we speak wisdom among them that are perfect: yet not the wisdom of this world... But we speak the wisdom of God in a mystery, even the hidden wisdom, which God ordained before the world unto our glory.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say the princes of this world did not know?",
+        "option_a": "God's hidden wisdom — for had they known it, they would not have crucified the Lord of glory",
+        "option_b": "The location of Jerusalem",
+        "option_c": "The writings of Moses",
+        "option_d": "The customs of the Jews",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:8 — \"Which none of the princes of this world knew: for had they known it, they would not have crucified the Lord of glory.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is the source of the phrase \"Eye hath not seen, nor ear heard\"?",
+        "option_a": "Isaiah 64:4 — adapted by Paul to describe the incomprehensible blessings God has prepared for those who love Him",
+        "option_b": "Psalm 23 — \"The Lord is my shepherd\"",
+        "option_c": "Proverbs 3:5 — \"Trust in the Lord\"",
+        "option_d": "Genesis 1:1 — \"In the beginning\"",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:9 — \"But as it is written, Eye hath not seen, nor ear heard\" (cf. Isaiah 64:4, 65:17). Paul applies this to the revelation believers receive through the Spirit."
+      },
+      {
+        "question_number": 5,
+        "question": "What analogy does Paul use to explain how the Spirit reveals God's thoughts?",
+        "option_a": "Just as only a man's own spirit knows his thoughts, so only God's Spirit knows God's thoughts",
+        "option_b": "Just as a king reveals his plans to servants",
+        "option_c": "Just as a teacher reveals truth to students",
+        "option_d": "Just as the sun reveals what is hidden in darkness",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:11 — \"For what man knoweth the things of a man, save the spirit of man which is in him? even so the things of God knoweth no man, but the Spirit of God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul mean by \"comparing spiritual things with spiritual\"?",
+        "option_a": "Interpreting spiritual truths with Spirit-given words — combining spiritual content with spiritual communication",
+        "option_b": "Comparing one religion with another",
+        "option_c": "Rating spiritual gifts against each other",
+        "option_d": "Matching Bible verses with scientific facts",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:13 — \"Which things also we speak, not in the words which man's wisdom teacheth, but which the Holy Ghost teacheth; comparing spiritual things with spiritual.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does the phrase \"the Lord of glory\" reveal about Paul's Christology?",
+        "option_a": "It identifies Jesus with the divine glory of Yahweh — the One crucified is the Lord of all glory, affirming Christ's deity",
+        "option_b": "It is a common title for Roman emperors",
+        "option_c": "It refers only to Christ's earthly honour",
+        "option_d": "It is a reference to angelic beings",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:8 — \"They would not have crucified the Lord of glory.\" This title connects Jesus to the divine kavod (glory) of the Old Testament, a strong claim of deity."
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul mean when he says \"we have the mind of Christ\"?",
+        "option_a": "Through the Holy Spirit, believers have access to Christ's perspective and understanding of God's purposes",
+        "option_b": "Believers become omniscient",
+        "option_c": "Believers no longer need to study Scripture",
+        "option_d": "Believers automatically agree on everything",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 2:16 — \"For who hath known the mind of the Lord, that he may instruct him? But we have the mind of Christ.\" This quotes Isaiah 40:13 and indicates Spirit-illuminated understanding."
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What kind of food did Paul say the Corinthians needed — milk or meat?",
+        "option_a": "Milk, because they were still spiritual babies",
+        "option_b": "Meat, because they were strong",
+        "option_c": "Both equally",
+        "option_d": "Neither, they did not need food",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:2 — \"I have fed you with milk, and not with meat: for hitherto ye were not able to bear it, neither yet now are ye able.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul plant and Apollos water?",
+        "option_a": "The seed of God's word in people's hearts",
+        "option_b": "A vegetable garden",
+        "option_c": "Flowers in the church",
+        "option_d": "Trees in the temple",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:6 — \"I have planted, Apollos watered; but God gave the increase.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say believers are?",
+        "option_a": "The temple of God, and the Spirit of God dwells in them",
+        "option_b": "A strong castle",
+        "option_c": "A tall mountain",
+        "option_d": "A great army",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:16 — \"Know ye not that ye are the temple of God, and that the Spirit of God dwelleth in you?\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why could Paul not speak to the Corinthians as spiritual people?",
+        "option_a": "Because they were carnal — there was envying, strife, and divisions among them",
+        "option_b": "Because they were too intelligent",
+        "option_c": "Because they spoke a different language",
+        "option_d": "Because Paul had lost his voice",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:1,3 — \"And I, brethren, could not speak unto you as unto spiritual, but as unto carnal... For ye are yet carnal: for whereas there is among you envying, and strife, and divisions.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who gives the growth when Paul plants and Apollos waters?",
+        "option_a": "God gives the increase",
+        "option_b": "Paul gives the increase",
+        "option_c": "Apollos gives the increase",
+        "option_d": "The people themselves give the increase",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:6-7 — \"I have planted, Apollos watered; but God gave the increase. So then neither is he that planteth any thing, neither he that watereth; but God that giveth the increase.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What foundation does Paul say is already laid?",
+        "option_a": "Jesus Christ — no other foundation can be laid",
+        "option_b": "The law of Moses",
+        "option_c": "The writings of the prophets",
+        "option_d": "The tradition of the elders",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:11 — \"For other foundation can no man lay than that is laid, which is Jesus Christ.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What will test every man's work?",
+        "option_a": "Fire — it will reveal the quality of each person's work",
+        "option_b": "Water — a great flood",
+        "option_c": "Wind — a mighty storm",
+        "option_d": "Time — over many years",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:13 — \"Every man's work shall be made manifest: for the day shall declare it, because it shall be revealed by fire; and the fire shall try every man's work of what sort it is.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What warning does Paul give about destroying the temple of God?",
+        "option_a": "If any man defile the temple of God, him shall God destroy — for the temple of God is holy",
+        "option_b": "It is not a serious matter",
+        "option_c": "Only leaders need to worry about it",
+        "option_d": "God will overlook it",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:17 — \"If any man defile the temple of God, him shall God destroy; for the temple of God is holy, which temple ye are.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul's use of \"carnal\" (sarkinos/sarkikos) reveal about the Corinthians' spiritual state?",
+        "option_a": "They were genuinely saved but behaving like unregenerate people — dominated by fleshly attitudes rather than the Spirit",
+        "option_b": "They were not truly believers",
+        "option_c": "They were the most mature church",
+        "option_d": "They had surpassed Paul in knowledge",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:1-3 — \"As unto carnal, even as unto babes in Christ... for ye are yet carnal: for whereas there is among you envying, and strife, and divisions, are ye not carnal, and walk as men?\""
+      },
+      {
+        "question_number": 2,
+        "question": "What agricultural metaphor does Paul use to correct the personality cult problem?",
+        "option_a": "He and Apollos are merely labourers in God's field — one plants, another waters, but God gives the increase; neither planter nor waterer matters",
+        "option_b": "They are master farmers who deserve credit",
+        "option_c": "They are competing for the best harvest",
+        "option_d": "They are independent contractors working alone",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:6-9 — \"I have planted, Apollos watered; but God gave the increase... For we are labourers together with God: ye are God's husbandry, ye are God's building.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What six building materials does Paul list, and what do they represent?",
+        "option_a": "Gold, silver, precious stones, wood, hay, stubble — representing the quality of ministry built on the foundation of Christ, tested by fire at the judgment seat",
+        "option_b": "Six types of temple construction material",
+        "option_c": "Literal building supplies for a church",
+        "option_d": "Offerings to be brought to the altar",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:12 — \"Now if any man build upon this foundation gold, silver, precious stones, wood, hay, stubble.\" The first three survive fire; the latter three are consumed."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about the person whose work is burned up?",
+        "option_a": "He himself shall be saved, yet so as by fire — he loses his reward but not his salvation",
+        "option_b": "He will lose his salvation",
+        "option_c": "He will be punished in hell",
+        "option_d": "He will need to do the work over again",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:15 — \"If any man's work shall be burned, he shall suffer loss: but he himself shall be saved; yet so as by fire.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul's statement \"ye are the temple of God\" differ from its usage in chapter 6?",
+        "option_a": "Here the \"temple\" is the corporate church body (plural \"ye\"), while in 6:19 the temple is the individual believer's body — both indwelt by the Spirit",
+        "option_b": "There is no difference between the two uses",
+        "option_c": "Chapter 3 refers to the Jerusalem temple",
+        "option_d": "Chapter 6 refers to pagan temples",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:16 — \"Know ye not that ye are the temple of God?\" The Greek \"ye\" is plural, referring to the church collectively, whereas 6:19 uses the singular body of each believer."
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say about human wisdom in the closing verses?",
+        "option_a": "\"The wisdom of this world is foolishness with God\" — quoting Job 5:13 and Psalm 94:11 to prove God catches the wise in their craftiness",
+        "option_b": "Human wisdom is equal to divine wisdom",
+        "option_c": "Philosophers should lead the church",
+        "option_d": "Human wisdom is a reliable guide",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:19-20 — \"For the wisdom of this world is foolishness with God. For it is written, He taketh the wise in their own craftiness\" (Job 5:13). \"And again, The Lord knoweth the thoughts of the wise, that they are vain\" (Psalm 94:11)."
+      },
+      {
+        "question_number": 7,
+        "question": "What sweeping claim does Paul make about what belongs to believers?",
+        "option_a": "\"All things are yours\" — Paul, Apollos, Cephas, the world, life, death, present, future — all belong to believers because they belong to Christ, and Christ belongs to God",
+        "option_b": "Only spiritual blessings belong to believers",
+        "option_c": "Only Paul's teaching belongs to them",
+        "option_d": "Only future rewards belong to them",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:21-23 — \"For all things are yours; Whether Paul, or Apollos, or Cephas, or the world, or life, or death, or things present, or things to come; all are yours; And ye are Christ's; and Christ is God's.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What is the theological significance of \"no man can lay\" another foundation besides Christ?",
+        "option_a": "Christ is the sole and exclusive basis for the church — any ministry or teaching not built on Him is illegitimate, no matter how impressive it appears",
+        "option_b": "Other foundations can be added alongside Christ",
+        "option_c": "The foundation can be replaced over time",
+        "option_d": "Each denomination may have its own foundation",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 3:11 — \"For other foundation can no man lay than that is laid, which is Jesus Christ.\" This establishes the Christological exclusivity of the church's basis."
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say ministers of Christ should be?",
+        "option_a": "Faithful stewards of the mysteries of God",
+        "option_b": "Famous and popular",
+        "option_c": "Rich and powerful",
+        "option_d": "Rulers over others",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:1-2 — \"Let a man so account of us, as of the ministers of Christ, and stewards of the mysteries of God. Moreover it is required in stewards, that a man be found faithful.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say the apostles were made like?",
+        "option_a": "A spectacle unto the world, and to angels, and to men",
+        "option_b": "Kings and rulers",
+        "option_c": "The richest people alive",
+        "option_d": "Famous entertainers",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:9 — \"For I think that God hath set forth us the apostles last, as it were appointed to death: for we are made a spectacle unto the world, and to angels, and to men.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul call the Corinthians and what did he want them to do?",
+        "option_a": "His beloved children — he wanted them to follow his example",
+        "option_b": "His enemies — he wanted them to leave",
+        "option_c": "His students — he wanted them to pay fees",
+        "option_d": "His workers — he wanted them to build a church",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:14,16 — \"I write not these things to shame you, but as my beloved sons I warn you... I beseech you, be ye followers of me.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Who does Paul say is the ultimate judge of his ministry?",
+        "option_a": "The Lord — Paul says he does not even judge himself, but the Lord is the one who judges",
+        "option_b": "The Corinthian church members",
+        "option_c": "The other apostles",
+        "option_d": "The Roman government",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:3-4 — \"But with me it is a very small thing that I should be judged of you, or of man's judgment: yea, I judge not mine own self... but he that judgeth me is the Lord.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What sarcastic contrast does Paul draw between the apostles and the Corinthians?",
+        "option_a": "The Corinthians are \"full,\" \"rich,\" and \"reigning as kings,\" while the apostles are hungry, thirsty, naked, and buffeted",
+        "option_b": "The Corinthians are suffering while the apostles are comfortable",
+        "option_c": "Both groups are equally blessed",
+        "option_d": "The apostles are wealthier than the Corinthians",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:8,11 — \"Now ye are full, now ye are rich, ye have reigned as kings without us... Even unto this present hour we both hunger, and thirst, and are naked, and are buffeted.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What question does Paul ask to humble the Corinthians' pride?",
+        "option_a": "\"What hast thou that thou didst not receive? Now if thou didst receive it, why dost thou glory, as if thou hadst not received it?\"",
+        "option_b": "\"Why are you so poor?\"",
+        "option_c": "\"Why did you not build a bigger church?\"",
+        "option_d": "\"Why do you not read the Scriptures?\"",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:7 — \"For who maketh thee to differ from another? and what hast thou that thou didst not receive? now if thou didst receive it, why dost thou glory, as if thou hadst not received it?\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say the apostles have become?",
+        "option_a": "The filth of the world and the offscouring of all things",
+        "option_b": "The greatest celebrities",
+        "option_c": "The most respected teachers",
+        "option_d": "The wealthiest missionaries",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:13 — \"Being defamed, we intreat: we are made as the filth of the world, and are the offscouring of all things unto this day.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who did Paul send to remind the Corinthians of his ways in Christ?",
+        "option_a": "Timothy, his beloved and faithful son in the Lord",
+        "option_b": "Peter the apostle",
+        "option_c": "Barnabas",
+        "option_d": "Apollos",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:17 — \"For this cause have I sent unto you Timotheus, who is my beloved son, and faithful in the Lord, who shall bring you into remembrance of my ways which be in Christ.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul mean by \"judge nothing before the time\"?",
+        "option_a": "Do not pass final verdict on anyone's ministry until the Lord comes, who will bring to light hidden things and reveal the counsels of the hearts",
+        "option_b": "Never evaluate any teaching at all",
+        "option_c": "Postpone all church decisions indefinitely",
+        "option_d": "Ignore all wrongdoing until the end times",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:5 — \"Therefore judge nothing before the time, until the Lord come, who both will bring to light the hidden things of darkness, and will make manifest the counsels of the hearts: and then shall every man have praise of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul's phrase \"not to think above that which is written\" teach?",
+        "option_a": "Scripture should be the standard and limit of one's evaluation of ministers — not going beyond what God's word says to inflate one leader against another",
+        "option_b": "Do not think at all",
+        "option_c": "Do not read extra-biblical books",
+        "option_d": "Do not discuss theology",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:6 — \"That ye might learn in us not to think of men above that which is written, that no one of you be puffed up for one against another.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What rhetorical device does Paul use in verses 8-13?",
+        "option_a": "Biting irony — sarcastically praising the Corinthians as reigning kings while cataloguing the apostles' genuine sufferings: hunger, thirst, nakedness, persecution",
+        "option_b": "A logical syllogism",
+        "option_c": "A parable about farming",
+        "option_d": "A prayer of thanksgiving",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:8-13 — Paul uses sustained irony: \"Ye have reigned as kings without us: and I would to God ye did reign, that we also might reign with you.\" Then he lists apostolic hardships to show true ministry involves suffering, not triumphalism."
+      },
+      {
+        "question_number": 4,
+        "question": "What distinction does Paul draw between instructors and fathers?",
+        "option_a": "Though the Corinthians may have ten thousand instructors in Christ, they have only one father — Paul begat them through the gospel",
+        "option_b": "Instructors are superior to fathers",
+        "option_c": "Fathers are merely honorary titles",
+        "option_d": "Both roles are identical",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:15 — \"For though ye have ten thousand instructors in Christ, yet have ye not many fathers: for in Christ Jesus I have begotten you through the gospel.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What ultimatum does Paul present at the chapter's end?",
+        "option_a": "\"Shall I come unto you with a rod, or in love, and in the spirit of meekness?\" — they choose which by their response",
+        "option_b": "He threatens to close the church permanently",
+        "option_c": "He promises to send financial aid",
+        "option_d": "He offers to resign as their apostle",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:21 — \"What will ye? shall I come unto you with a rod, or in love, and in the spirit of meekness?\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say the kingdom of God is not in?",
+        "option_a": "Word, but in power — the kingdom is not about eloquent speech but demonstrated spiritual power",
+        "option_b": "Military might",
+        "option_c": "Political authority",
+        "option_d": "Financial wealth",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:20 — \"For the kingdom of God is not in word, but in power.\""
+      },
+      {
+        "question_number": 7,
+        "question": "How does Paul's catalogue of apostolic sufferings function in his argument against the Corinthians' arrogance?",
+        "option_a": "It demonstrates that authentic apostleship is marked by suffering and humility, not the triumphalism and self-promotion the Corinthians were displaying",
+        "option_b": "It proves Paul is the greatest apostle",
+        "option_c": "It serves as a fundraising appeal",
+        "option_d": "It is a personal complaint unrelated to the argument",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:9-13 — The hardship catalogue (hunger, thirst, reviling, persecution) models the cruciform pattern of Christ-like ministry that stands in stark contrast to Corinthian boasting."
+      },
+      {
+        "question_number": 8,
+        "question": "What does the term \"stewards of the mysteries of God\" imply about Christian ministers?",
+        "option_a": "They are entrusted managers, not owners — responsible to faithfully dispense God's revealed truths, and accountable to the Master who entrusted them",
+        "option_b": "They are the creators of God's mysteries",
+        "option_c": "They own the truths they teach",
+        "option_d": "They may modify the message as they see fit",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 4:1-2 — \"Let a man so account of us, as of the ministers of Christ, and stewards of the mysteries of God. Moreover it is required in stewards, that a man be found faithful.\""
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Was there a serious sin problem in the Corinthian church?",
+        "option_a": "Yes, there was a kind of sin that was not even found among unbelievers",
+        "option_b": "No, they were a perfect church",
+        "option_c": "Only small problems",
+        "option_d": "Nobody was sinning",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:1 — \"It is reported commonly that there is fornication among you, and such fornication as is not so much as named among the Gentiles.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Were the Corinthians sad about the sin in their church?",
+        "option_a": "No, they were puffed up (proud) instead of mourning over it",
+        "option_b": "Yes, they were very sad",
+        "option_c": "They did not know about it",
+        "option_d": "They tried to fix it immediately",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:2 — \"And ye are puffed up, and have not rather mourned, that he that hath done this deed might be taken away from among you.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul compare a little sin in the church to?",
+        "option_a": "A little leaven (yeast) that makes the whole lump of dough rise",
+        "option_b": "A small fish in a big pond",
+        "option_c": "A tiny bird in a large tree",
+        "option_d": "A small pebble on a big beach",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:6 — \"Know ye not that a little leaven leaveneth the whole lump?\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Paul command the church to do about the man living in serious sin?",
+        "option_a": "Deliver such an one unto Satan for the destruction of the flesh, that the spirit may be saved",
+        "option_b": "Ignore the problem and be tolerant",
+        "option_c": "Celebrate his freedom",
+        "option_d": "Promote him to leadership",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:5 — \"To deliver such an one unto Satan for the destruction of the flesh, that the spirit may be saved in the day of the Lord Jesus.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul call Christ in relation to Passover?",
+        "option_a": "Our passover — Christ is sacrificed for us",
+        "option_b": "Our teacher",
+        "option_c": "Our philosopher",
+        "option_d": "Our general",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:7 — \"Purge out therefore the old leaven, that ye may be a new lump, as ye are unleavened. For even Christ our passover is sacrificed for us.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul tell them about associating with immoral people?",
+        "option_a": "Not to keep company with anyone called a brother who is sexually immoral, covetous, an idolater, a railer, a drunkard, or an extortioner — not even to eat with such a person",
+        "option_b": "Avoid all sinners everywhere",
+        "option_c": "Only avoid people outside the church",
+        "option_d": "Always be tolerant of everything",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:11 — \"But now I have written unto you not to keep company, if any man that is called a brother be a fornicator, or covetous, or an idolater, or a railer, or a drunkard, or an extortioner; with such an one no not to eat.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Did Paul say Christians should avoid all contact with sinners in the world?",
+        "option_a": "No — he clarified that would mean going out of the world entirely; his instruction was about professing believers who live in sin",
+        "option_b": "Yes, Christians must avoid all contact with sinners",
+        "option_c": "Only pastors need to be separate",
+        "option_d": "Christians should live in monasteries",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:9-10 — \"I wrote unto you in an epistle not to company with fornicators: Yet not altogether with the fornicators of this world... for then must ye needs go out of the world.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Whose responsibility is it to judge those inside the church versus those outside?",
+        "option_a": "The church judges those inside; God judges those outside",
+        "option_b": "The church judges everyone",
+        "option_c": "No one should judge anyone",
+        "option_d": "Only apostles can judge",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:12-13 — \"For what have I to do to judge them also that are without? do not ye judge them that are within? But them that are without God judgeth.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What specific sin does Paul address, and why was it particularly scandalous?",
+        "option_a": "A man had his father's wife — a form of incest so egregious that even pagans (Gentiles) found it abhorrent",
+        "option_b": "Theft from the church treasury",
+        "option_c": "Worshipping idols during services",
+        "option_d": "Denying the resurrection",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:1 — \"It is reported commonly that there is fornication among you, and such fornication as is not so much as named among the Gentiles, that one should have his father's wife.\" Even Roman law prohibited this relationship (Gaius, Institutes 1.63)."
+      },
+      {
+        "question_number": 2,
+        "question": "What does \"deliver unto Satan\" most likely mean in its context?",
+        "option_a": "Formal excommunication — putting the offender outside the church (the realm of Christ) into the world (the domain of Satan) so that physical consequences bring him to repentance",
+        "option_b": "A literal transfer of the man's soul to Satan",
+        "option_c": "A magical curse upon the man",
+        "option_d": "Asking Satan to kill the man",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:5 — \"To deliver such an one unto Satan for the destruction of the flesh, that the spirit may be saved.\" The purpose is redemptive — removal from the protective fellowship of the church with the goal of ultimate salvation."
+      },
+      {
+        "question_number": 3,
+        "question": "How does Paul use the Passover/leaven metaphor to argue for church discipline?",
+        "option_a": "Just as Israel purged leaven before Passover, the church must purge out sin because Christ our Passover lamb has already been sacrificed — they must now live as unleavened (pure)",
+        "option_b": "He is giving instructions for a church dinner",
+        "option_c": "He is describing literal bread-making",
+        "option_d": "He is recommending a new diet",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:6-8 — \"Purge out therefore the old leaven, that ye may be a new lump, as ye are unleavened. For even Christ our passover is sacrificed for us: Therefore let us keep the feast, not with old leaven... but with the unleavened bread of sincerity and truth.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul mean by keeping the feast \"with the unleavened bread of sincerity and truth\"?",
+        "option_a": "The Christian life is a perpetual Passover celebration — lived in moral purity (sincerity) and doctrinal integrity (truth), not in the leaven of malice and wickedness",
+        "option_b": "A command to observe annual Passover",
+        "option_c": "A recommendation for dietary changes",
+        "option_d": "A metaphor for financial honesty",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:8 — \"Therefore let us keep the feast, not with old leaven, neither with the leaven of malice and wickedness; but with the unleavened bread of sincerity and truth.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul distinguish between judging insiders and outsiders?",
+        "option_a": "The church has jurisdiction to discipline its own members but has no authority to judge the world — that belongs to God",
+        "option_b": "The church must judge everyone equally",
+        "option_c": "Christians should never judge anyone",
+        "option_d": "Outsiders should judge the church",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:12-13 — \"For what have I to do to judge them also that are without? do not ye judge them that are within? But them that are without God judgeth. Therefore put away from among yourselves that wicked person.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What Old Testament command does Paul echo with \"put away from among yourselves that wicked person\"?",
+        "option_a": "Deuteronomy 17:7, 19:19, 22:21, 24:7 — the recurring formula for purging evil from Israel, linking church discipline to covenant community purity",
+        "option_b": "The command to love your neighbour",
+        "option_c": "The Shema of Deuteronomy 6:4",
+        "option_d": "The Ten Commandments",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:13 — \"Therefore put away from among yourselves that wicked person.\" This phrase echoes the LXX of multiple Deuteronomy passages commanding the removal of evil from Israel."
+      },
+      {
+        "question_number": 7,
+        "question": "What six categories of sinners does Paul list as grounds for disassociation within the church?",
+        "option_a": "Fornicator, covetous, idolater, railer, drunkard, extortioner — believers living in these patterns are to be excluded from fellowship, including shared meals",
+        "option_b": "Only murderers and thieves",
+        "option_c": "Only those who deny Christ",
+        "option_d": "Only false prophets",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:11 — \"If any man that is called a brother be a fornicator, or covetous, or an idolater, or a railer, or a drunkard, or an extortioner; with such an one no not to eat.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul's reference to a previous letter (\"I wrote unto you in an epistle\") suggest?",
+        "option_a": "Paul wrote an earlier letter to Corinth (now lost) that was misunderstood — they thought he meant avoiding all sinners, but he clarified he meant sinning believers within the church",
+        "option_b": "Paul is referring to this same letter",
+        "option_c": "Paul wrote to a different church",
+        "option_d": "Paul is quoting the Old Testament",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 5:9 — \"I wrote unto you in an epistle not to company with fornicators.\" This indicates a prior letter (sometimes called the \"previous letter\" or \"1 Corinthians A\") that preceded our canonical 1 Corinthians."
+      }
+    ]
+  },
+  "6": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Were the Christians in Corinth taking each other to court?",
+        "option_a": "Yes, and Paul said it was wrong for believers to sue each other before unbelievers",
+        "option_b": "No, they got along perfectly",
+        "option_c": "Only the leaders went to court",
+        "option_d": "They never had disagreements",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:1 — \"Dare any of you, having a matter against another, go to law before the unjust, and not before the saints?\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say your body is?",
+        "option_a": "The temple of the Holy Ghost (Spirit)",
+        "option_b": "Just a shell that does not matter",
+        "option_c": "Something to do whatever you want with",
+        "option_d": "A prison for the soul",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:19 — \"What? know ye not that your body is the temple of the Holy Ghost which is in you, which ye have of God, and ye are not your own?\""
+      },
+      {
+        "question_number": 3,
+        "question": "Why should we honour God with our bodies?",
+        "option_a": "Because we are bought with a price — Jesus paid for us",
+        "option_b": "Because our bodies are our own",
+        "option_c": "Because it makes us look good",
+        "option_d": "Because other people are watching",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:20 — \"For ye are bought with a price: therefore glorify God in your body, and in your spirit, which are God's.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say the saints will one day do?",
+        "option_a": "Judge the world and even judge angels",
+        "option_b": "Be servants to the world forever",
+        "option_c": "Rule only over themselves",
+        "option_d": "Have no responsibilities at all",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:2-3 — \"Do ye not know that the saints shall judge the world?... Know ye not that we shall judge angels?\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say is better than winning a lawsuit against a brother?",
+        "option_a": "Being willing to be defrauded and wronged rather than taking a brother to court before unbelievers",
+        "option_b": "Winning at any cost",
+        "option_c": "Hiring a better lawyer",
+        "option_d": "Moving to a different church",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:7 — \"Now therefore there is utterly a fault among you, because ye go to law one with another. Why do ye not rather take wrong? why do ye not rather suffer yourselves to be defrauded?\""
+      },
+      {
+        "question_number": 3,
+        "question": "What list of sinners does Paul say will not inherit the kingdom of God?",
+        "option_a": "Fornicators, idolaters, adulterers, effeminate, abusers of themselves with mankind, thieves, covetous, drunkards, revilers, extortioners",
+        "option_b": "Only murderers",
+        "option_c": "Only unbelievers",
+        "option_d": "No specific list is given",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:9-10 — \"Know ye not that the unrighteous shall not inherit the kingdom of God? Be not deceived: neither fornicators, nor idolaters, nor adulterers... shall inherit the kingdom of God.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about some of the Corinthians' past?",
+        "option_a": "\"And such were some of you: but ye are washed, but ye are sanctified, but ye are justified in the name of the Lord Jesus\"",
+        "option_b": "They were always righteous",
+        "option_c": "They never sinned",
+        "option_d": "They were born holy",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:11 — \"And such were some of you: but ye are washed, but ye are sanctified, but ye are justified in the name of the Lord Jesus, and by the Spirit of our God.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What slogan of the Corinthians does Paul correct?",
+        "option_a": "\"All things are lawful unto me\" — Paul responds: \"but all things are not expedient\" and \"I will not be brought under the power of any\"",
+        "option_b": "\"Do whatever feels right\"",
+        "option_c": "\"Follow your heart always\"",
+        "option_d": "\"There are no rules in Christ\"",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:12 — \"All things are lawful unto me, but all things are not expedient: all things are lawful for me, but I will not be brought under the power of any.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Why does Paul say lawsuits between believers before pagan judges are shameful?",
+        "option_a": "If saints will judge the world and angels, surely they are competent to settle trivial disputes among themselves — going to unbelievers exposes the church's failure",
+        "option_b": "Because Roman courts were always corrupt",
+        "option_c": "Because lawsuits are inherently sinful",
+        "option_d": "Because Christians should never disagree",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:2-4 — \"Do ye not know that the saints shall judge the world?... Know ye not that we shall judge angels? how much more things that pertain to this life?\""
+      },
+      {
+        "question_number": 2,
+        "question": "How does Paul counter the Corinthian libertine slogan \"Meats for the belly, and the belly for meats\"?",
+        "option_a": "God shall destroy both — but the body is not for fornication but for the Lord, and the Lord for the body; God will raise our bodies, showing they have eternal significance",
+        "option_b": "He agrees with the slogan completely",
+        "option_c": "He says food laws still apply",
+        "option_d": "He ignores the argument",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:13-14 — \"Meats for the belly, and the belly for meats: but God shall destroy both it and them. Now the body is not for fornication, but for the Lord; and the Lord for the body. And God hath both raised up the Lord, and will also raise up us by his own power.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What theological argument does Paul make about the body being \"members of Christ\"?",
+        "option_a": "Believers' bodies are literally united to Christ — therefore joining them to a prostitute makes Christ's members one with a prostitute, which is an abomination",
+        "option_b": "The body is irrelevant to spiritual life",
+        "option_c": "Only the soul matters to God",
+        "option_d": "The body is sinful by nature",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:15 — \"Know ye not that your bodies are the members of Christ? shall I then take the members of Christ, and make them the members of an harlot? God forbid.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What Genesis text does Paul quote to argue against sexual immorality?",
+        "option_a": "\"The two shall be one flesh\" (Genesis 2:24) — sexual union creates a one-flesh bond, so union with a prostitute profanes the body that belongs to Christ",
+        "option_b": "\"In the beginning God created\"",
+        "option_c": "\"Be fruitful and multiply\"",
+        "option_d": "\"It is not good for man to be alone\"",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:16 — \"What? know ye not that he which is joined to an harlot is one body? for two, saith he, shall be one flesh.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What unique claim does Paul make about sexual sin compared to other sins?",
+        "option_a": "Every other sin is without (outside) the body, but fornication is a sin against one's own body — a uniquely self-destructive violation",
+        "option_b": "All sins are exactly the same",
+        "option_c": "Murder is worse than sexual sin",
+        "option_d": "Only spiritual sins matter",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:18 — \"Flee fornication. Every sin that a man doeth is without the body; but he that committeth fornication sinneth against his own body.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What three theological truths does Paul marshal in his argument about the body in verses 19-20?",
+        "option_a": "The body is the temple of the Holy Spirit, believers are not their own, and they were bought with a price — therefore they must glorify God in their bodies",
+        "option_b": "The body is temporary, sinful, and unimportant",
+        "option_c": "The body will be destroyed, replaced, and forgotten",
+        "option_d": "The body is good, independent, and self-governing",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:19-20 — \"Know ye not that your body is the temple of the Holy Ghost which is in you, which ye have of God, and ye are not your own? For ye are bought with a price: therefore glorify God in your body, and in your spirit, which are God's.\""
+      },
+      {
+        "question_number": 7,
+        "question": "How does \"ye are bought with a price\" connect to the broader theology of redemption?",
+        "option_a": "It uses the marketplace metaphor of ransom — Christ's death purchased believers out of slavery to sin, making God the rightful owner of both body and spirit",
+        "option_b": "It refers to tithing obligations",
+        "option_c": "It means believers must pay back their salvation",
+        "option_d": "It is a metaphor for church membership fees",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:20 — \"For ye are bought with a price.\" The Greek agorazō means \"to buy in the marketplace.\" Combined with 1 Peter 1:18-19 (\"redeemed... with the precious blood of Christ\"), this establishes the doctrine of redemptive purchase."
+      },
+      {
+        "question_number": 8,
+        "question": "What does \"he that is joined unto the Lord is one spirit\" mean in contrast to physical union?",
+        "option_a": "Spiritual union with Christ creates an inseparable bond that transcends the physical — making sexual immorality a violation of this sacred spiritual union",
+        "option_b": "It means believers lose their individuality",
+        "option_c": "It refers only to emotional feelings",
+        "option_d": "It has no practical implications",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 6:17 — \"But he that is joined unto the Lord is one spirit.\" The spiritual union with Christ is deeper than any physical union, which is why Paul argues so forcefully that bodily conduct matters."
+      }
+    ]
+  },
+  "7": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Does Paul say that married people should stay together?",
+        "option_a": "Yes, a husband and wife should not leave each other",
+        "option_b": "No, they should separate",
+        "option_c": "Only if they are both believers",
+        "option_d": "Only if they are happy",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:10-11 — \"And unto the married I command, yet not I, but the Lord, Let not the wife depart from her husband... and let not the husband put away his wife.\""
+      },
+      {
+        "question_number": 2,
+        "question": "If a Christian is married to someone who is not a Christian, what should they do?",
+        "option_a": "Stay married to them if the unbeliever is willing to stay",
+        "option_b": "Leave them immediately",
+        "option_c": "Force them to believe",
+        "option_d": "Pretend they are not married",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:12-13 — \"If any brother hath a wife that believeth not, and she be pleased to dwell with him, let him not put her away. And the woman which hath an husband that believeth not, and if he be pleased to dwell with her, let her not leave him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about being content with where God has placed you?",
+        "option_a": "Each person should remain in the condition they were in when God called them",
+        "option_b": "Everyone must change their situation",
+        "option_c": "Only the rich should stay where they are",
+        "option_d": "Only the poor should stay where they are",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:20 — \"Let every man abide in the same calling wherein he was called.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about the unmarried and widows?",
+        "option_a": "It is good for them to remain as Paul is (unmarried), but if they cannot exercise self-control, let them marry — it is better to marry than to burn",
+        "option_b": "They must marry immediately",
+        "option_c": "They are forbidden from marrying",
+        "option_d": "They should live alone forever",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:8-9 — \"I say therefore to the unmarried and widows, It is good for them if they abide even as I. But if they cannot contain, let them marry: for it is better to marry than to burn.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about the unbelieving spouse?",
+        "option_a": "The unbelieving spouse is sanctified by the believing spouse — their children are holy",
+        "option_b": "The unbelieving spouse must be converted before they can stay",
+        "option_c": "The unbelieving spouse has no benefit from the marriage",
+        "option_d": "The believing spouse becomes unclean",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:14 — \"For the unbelieving husband is sanctified by the wife, and the unbelieving wife is sanctified by the husband: else were your children unclean; but now are they holy.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What happens if the unbelieving spouse wants to leave?",
+        "option_a": "Let them depart — a brother or sister is not under bondage in such cases, for God hath called us to peace",
+        "option_b": "The believer must prevent them from leaving at all costs",
+        "option_c": "The believer must go to court",
+        "option_d": "The believer must leave first",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:15 — \"But if the unbelieving depart, let him depart. A brother or a sister is not under bondage in such cases: but God hath called us to peace.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Why does Paul recommend remaining single in certain circumstances?",
+        "option_a": "Because of the \"present distress\" — the unmarried person can focus on pleasing the Lord without the cares of married life",
+        "option_b": "Because marriage is sinful",
+        "option_c": "Because God commands all to be single",
+        "option_d": "Because married people cannot serve God",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:26,32-33 — \"I suppose therefore that this is good for the present distress... He that is unmarried careth for the things that belong to the Lord... But he that is married careth for the things that are of the world.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Does Paul say it is a sin to get married?",
+        "option_a": "No — he explicitly says \"if thou marry, thou hast not sinned,\" but warns of practical troubles",
+        "option_b": "Yes, marriage is sinful",
+        "option_c": "Only for widows",
+        "option_d": "Only for young people",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:28 — \"But and if thou marry, thou hast not sinned; and if a virgin marry, she hath not sinned. Nevertheless such shall have trouble in the flesh: but I spare you.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul distinguish between the Lord's command and his own opinion in this chapter?",
+        "option_a": "He explicitly marks some instructions as from the Lord (v.10 — \"not I, but the Lord\") and others as his apostolic judgment (v.12 — \"speak I, not the Lord\"; v.25 — \"I have no commandment of the Lord: yet I give my judgment\")",
+        "option_b": "Everything in the chapter is directly from the Lord",
+        "option_c": "Nothing in the chapter is from the Lord",
+        "option_d": "He makes no such distinction",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:10,12,25 — Paul carefully distinguishes dominical commands (Jesus' teaching on divorce, v.10) from his own Spirit-guided apostolic counsel (vv.12,25), showing both authority and intellectual honesty."
+      },
+      {
+        "question_number": 2,
+        "question": "What does the \"Pauline privilege\" refer to in verse 15?",
+        "option_a": "If an unbelieving spouse abandons the marriage, the believing spouse is \"not under bondage\" — interpreted as freedom from the marriage bond, including potential remarriage",
+        "option_b": "Paul's right to be paid for ministry",
+        "option_c": "Paul's exemption from Jewish law",
+        "option_d": "Paul's authority over other apostles",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:15 — \"But if the unbelieving depart, let him depart. A brother or a sister is not under bondage in such cases.\" The phrase \"not under bondage\" (ou dedoulōtai) suggests release from the marriage obligation, going beyond mere separation."
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul mean by \"the time is short\" and \"the fashion of this world passeth away\"?",
+        "option_a": "The eschatological urgency of the present age means all earthly relationships and circumstances are temporary — believers should hold them loosely and prioritise eternal concerns",
+        "option_b": "The world will end within Paul's lifetime",
+        "option_c": "Time moves faster for Christians",
+        "option_d": "Marriage will be abolished soon",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:29,31 — \"But this I say, brethren, the time is short: it remaineth, that both they that have wives be as though they had none... for the fashion of this world passeth away.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What principle does Paul establish with \"Let every man abide in the same calling\"?",
+        "option_a": "Conversion does not require social revolution — whether circumcised or uncircumcised, slave or free, one should remain in the situation where called, serving God there",
+        "option_b": "Everyone must change their profession",
+        "option_c": "Slaves must immediately seek freedom",
+        "option_d": "Social status determines spiritual worth",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:20-24 — \"Let every man abide in the same calling wherein he was called. Art thou called being a servant? care not for it: but if thou mayest be made free, use it rather... for he that is called in the Lord, being a servant, is the Lord's freeman.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul view his own singleness in relation to his teaching?",
+        "option_a": "He presents it as a genuine gift (charisma) from God — not superior to marriage but practically advantageous for undivided devotion to the Lord, especially in times of persecution",
+        "option_b": "He sees it as a curse",
+        "option_c": "He regrets never marrying",
+        "option_d": "He considers it mandatory for all ministers",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:7 — \"For I would that all men were even as I myself. But every man hath his proper gift of God, one after this manner, and another after that.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What is significant about Paul's phrase \"I think also that I have the Spirit of God\" in verse 40?",
+        "option_a": "It is understated irony — Paul is asserting apostolic authority while modestly claiming Spirit-guidance, subtly contrasting his genuine authority with the Corinthians' inflated self-assessment",
+        "option_b": "He is unsure whether he has the Spirit",
+        "option_c": "He is admitting his advice may be wrong",
+        "option_d": "He is quoting another apostle",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:40 — \"But she is happier if she so abide, after my judgment: and I think also that I have the Spirit of God.\" Given Paul's apostolic authority (cf. 2:16, 14:37), this is likely litotes — deliberate understatement for rhetorical effect."
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul's teaching on mutual conjugal rights in verses 3-5 reveal?",
+        "option_a": "Marriage involves mutual authority — the wife's body belongs to the husband and the husband's body to the wife; neither should deprive the other except by mutual consent for prayer",
+        "option_b": "Only the husband has authority",
+        "option_c": "Physical intimacy is sinful",
+        "option_d": "Spouses have no obligations to each other",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 7:3-5 — \"The wife hath not power of her own body, but the husband: and likewise also the husband hath not power of his own body, but the wife. Defraud ye not one the other, except it be with consent for a time.\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does Paul's teaching in chapter 7 balance the ascetic and libertine tendencies in Corinth?",
+        "option_a": "He corrects both extremes: against ascetics who despised marriage, he affirms it as good and commands conjugal rights; against libertines who abused freedom, he upholds marital faithfulness and sexual purity",
+        "option_b": "He sides entirely with the ascetics",
+        "option_c": "He sides entirely with the libertines",
+        "option_d": "He ignores both groups",
+        "correct_answer": "a",
+        "explanation": "Paul navigates between the Corinthian ascetics (\"It is good for a man not to touch a woman,\" 7:1 — likely their slogan) and the libertines of chapters 5-6, establishing a balanced theology of marriage and singleness."
+      }
+    ]
+  },
+  "8": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What is more important — knowledge or love?",
+        "option_a": "Love — knowledge puffs up, but love builds up",
+        "option_b": "Knowledge is more important",
+        "option_c": "They are the same thing",
+        "option_d": "Neither matters",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:1 — \"Knowledge puffeth up, but charity edifieth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How many gods are there for Christians?",
+        "option_a": "One God the Father and one Lord Jesus Christ",
+        "option_b": "Many gods",
+        "option_c": "Two separate gods",
+        "option_d": "No god at all",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:6 — \"But to us there is but one God, the Father, of whom are all things, and we in him; and one Lord Jesus Christ, by whom are all things, and we by him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Should we do things that might cause a weaker believer to stumble?",
+        "option_a": "No — we should be careful not to make others stumble, even if we have freedom to do something",
+        "option_b": "Yes, everyone should do whatever they want",
+        "option_c": "Only strong Christians need to be careful",
+        "option_d": "It does not matter what others think",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:9 — \"But take heed lest by any means this liberty of yours become a stumblingblock to them that are weak.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What issue were the Corinthians debating about?",
+        "option_a": "Whether it was acceptable to eat food that had been offered to idols",
+        "option_b": "Whether to build a new church",
+        "option_c": "Whether to accept Gentiles",
+        "option_d": "Whether women should teach",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:1 — \"Now as touching things offered unto idols...\" This was a major practical issue in Corinth, where much of the meat sold in markets came from pagan temple sacrifices."
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about idols?",
+        "option_a": "An idol is nothing in the world — there is no God but one",
+        "option_b": "Idols have real spiritual power",
+        "option_c": "Idols should be respected",
+        "option_d": "Idols represent real gods",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:4 — \"We know that an idol is nothing in the world, and that there is none other God but one.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the problem with using your knowledge without love?",
+        "option_a": "Your freedom might cause a weaker brother, for whom Christ died, to stumble and fall into sin",
+        "option_b": "There is no problem at all",
+        "option_c": "Knowledge always helps others",
+        "option_d": "Weaker believers should just get stronger",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:11 — \"And through thy knowledge shall the weak brother perish, for whom Christ died?\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about sinning against weaker brethren?",
+        "option_a": "When you sin against the brethren and wound their weak conscience, you sin against Christ",
+        "option_b": "It is only a minor offence",
+        "option_c": "It does not really matter",
+        "option_d": "Only deliberate sins count",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:12 — \"But when ye sin so against the brethren, and wound their weak conscience, ye sin against Christ.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Paul say he would do to avoid causing a brother to stumble?",
+        "option_a": "Never eat meat again if it would make his brother to offend",
+        "option_b": "Eat whatever he wanted regardless",
+        "option_c": "Tell the weak brother to grow up",
+        "option_d": "Ignore the weaker brother's concerns",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:13 — \"Wherefore, if meat make my brother to offend, I will eat no flesh while the world standeth, lest I make my brother to offend.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul's monotheistic confession in verse 6 function as an early Christian creed?",
+        "option_a": "It adapts the Jewish Shema (Deuteronomy 6:4) to include Christ — \"one God, the Father... and one Lord Jesus Christ, by whom are all things\" — placing Jesus within the divine identity as agent of creation",
+        "option_b": "It is a simple statement with no theological depth",
+        "option_c": "It denies the existence of Christ",
+        "option_d": "It is borrowed from Greek philosophy",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:6 — \"But to us there is but one God, the Father, of whom are all things, and we in him; and one Lord Jesus Christ, by whom are all things, and we by him.\" The Shema's \"one LORD\" is split between Father (God) and Son (Lord), incorporating Christ into monotheistic worship."
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul mean by \"knowledge puffeth up, but charity edifieth\"?",
+        "option_a": "Mere intellectual understanding of theological truth inflates the ego, but love builds up the community — right knowledge without love produces arrogance, not godliness",
+        "option_b": "Knowledge is always bad",
+        "option_c": "Love requires ignorance",
+        "option_d": "Paul opposes all theological education",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:1 — \"Knowledge puffeth up, but charity edifieth.\" Paul does not deny the value of knowledge but insists it must be governed by love (agapē) to function rightly within the body of Christ."
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul concede about idols while also adding a nuance?",
+        "option_a": "He agrees that idols are nothing and there is one God — but acknowledges that not all believers have this knowledge; some with a conscience still attached to idolatry eat as if the food is truly sacrificed to a real deity",
+        "option_b": "All idols have real power",
+        "option_c": "Idol food is always contaminated",
+        "option_d": "Knowledge alone settles the issue",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:4,7 — \"We know that an idol is nothing... Howbeit there is not in every man that knowledge: for some with conscience of the idol unto this hour eat it as a thing offered unto an idol; and their conscience being weak is defiled.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is the \"weaker brother\" principle that Paul establishes?",
+        "option_a": "Those with stronger theological understanding must voluntarily limit their liberty to avoid causing those with less understanding to act against their conscience — because a violated conscience is spiritually destructive",
+        "option_b": "Weak believers should be expelled from the church",
+        "option_c": "Strong believers have no responsibility toward the weak",
+        "option_d": "Weakness is always sinful",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:9-12 — Paul establishes that liberty must be governed by love. The strong must not exercise rights that could cause the weak to violate their conscience, which would be sinning against Christ Himself."
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul's statement \"for whom Christ died\" elevate the seriousness of causing a brother to stumble?",
+        "option_a": "If Christ valued the weaker brother enough to die for him, then the stronger brother's willingness to cause him spiritual harm over a matter of food shows a horrifying lack of love — trivialising what Christ considered worth dying for",
+        "option_b": "It is a casual remark with no special weight",
+        "option_c": "It applies only to Paul",
+        "option_d": "It is a hypothetical scenario",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:11 — \"And through thy knowledge shall the weak brother perish, for whom Christ died?\" The price Christ paid for the weaker brother makes the strong brother's careless exercise of liberty a grotesque inversion of the cross."
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul's willingness to never eat meat again reveal about his ethics?",
+        "option_a": "He demonstrates that Christian liberty is not an absolute right but is always subordinate to love — the freedom to abstain is greater than the freedom to indulge when a brother's welfare is at stake",
+        "option_b": "He was personally a vegetarian",
+        "option_c": "He disliked the taste of meat",
+        "option_d": "He followed Jewish dietary laws strictly",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:13 — \"Wherefore, if meat make my brother to offend, I will eat no flesh while the world standeth, lest I make my brother to offend.\" Paul models the voluntary self-limitation of rights for the sake of others."
+      },
+      {
+        "question_number": 7,
+        "question": "How does chapter 8 introduce the broader argument that continues through chapters 9 and 10?",
+        "option_a": "Chapter 8 establishes the principle (love limits liberty), chapter 9 provides Paul's personal example (his voluntary surrender of apostolic rights), and chapter 10 gives the theological warning (Israel's idolatry and its consequences)",
+        "option_b": "These chapters are unrelated topics",
+        "option_c": "Chapter 8 stands alone",
+        "option_d": "Chapters 9-10 contradict chapter 8",
+        "correct_answer": "a",
+        "explanation": "Chapters 8-10 form a unified argument on idol food and Christian liberty. Paul moves from principle (8) to example (9) to warning (10), culminating in practical guidelines (10:23-33)."
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul's phrase \"if any man think that he knoweth any thing, he knoweth nothing yet as he ought to know\" teach?",
+        "option_a": "True knowledge includes knowing how to use knowledge lovingly — someone who has correct doctrine but lacks the humility and love to apply it properly does not truly understand it yet",
+        "option_b": "Knowledge is completely worthless",
+        "option_c": "No one can know anything",
+        "option_d": "Paul is anti-intellectual",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 8:2 — \"And if any man think that he knoweth any thing, he knoweth nothing yet as he ought to know.\" Genuine knowledge is not merely intellectual but relational — marked by love for God and neighbour."
+      }
+    ]
+  },
+  "9": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Was Paul an apostle who had seen the Lord Jesus?",
+        "option_a": "Yes, he had seen Jesus the Lord and was a true apostle",
+        "option_b": "No, he had never seen Jesus",
+        "option_c": "He was not sure",
+        "option_d": "Only Peter had seen Jesus",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:1 — \"Am I not an apostle? am I not free? have I not seen Jesus Christ our Lord?\""
+      },
+      {
+        "question_number": 2,
+        "question": "Did Paul take money for preaching the gospel?",
+        "option_a": "No, he preached for free even though he had the right to be paid",
+        "option_b": "Yes, he charged a high price",
+        "option_c": "He only accepted gold",
+        "option_d": "He refused to preach at all",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:18 — \"What is my reward then? Verily that, when I preach the gospel, I may make the gospel of Christ without charge.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul compare the Christian life to?",
+        "option_a": "A race — we should run to win the prize",
+        "option_b": "A nap — we should rest and relax",
+        "option_c": "A party — we should celebrate every day",
+        "option_d": "A holiday — we should take it easy",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:24 — \"Know ye not that they which run in a race run all, but one receiveth the prize? So run, that ye may obtain.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What rights does Paul say he had as an apostle but chose not to use?",
+        "option_a": "The right to eat and drink, to have a believing wife, and to receive financial support from the churches",
+        "option_b": "The right to rule over cities",
+        "option_c": "The right to command armies",
+        "option_d": "The right to own large estates",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:4-6 — \"Have we not power to eat and to drink? Have we not power to lead about a sister, a wife, as well as other apostles... Or I only and Barnabas, have not we power to forbear working?\""
+      },
+      {
+        "question_number": 2,
+        "question": "What Old Testament principle does Paul quote about paying workers?",
+        "option_a": "\"Thou shalt not muzzle the mouth of the ox that treadeth out the corn\" — meaning workers deserve payment",
+        "option_b": "Workers should never be paid",
+        "option_c": "Only priests deserve wages",
+        "option_d": "Oxen are more important than people",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:9 — \"For it is written in the law of Moses, Thou shalt not muzzle the mouth of the ox that treadeth out the corn. Doth God take care for oxen?\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul become to win different kinds of people?",
+        "option_a": "All things to all men, that he might by all means save some",
+        "option_b": "A wealthy merchant",
+        "option_c": "A Roman soldier",
+        "option_d": "A Greek philosopher",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:22 — \"I am made all things to all men, that I might by all means save some.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What kind of crown do athletes compete for versus what believers receive?",
+        "option_a": "Athletes compete for a corruptible (perishable) crown, but believers for an incorruptible (imperishable) one",
+        "option_b": "Both crowns are the same",
+        "option_c": "Athletes get a better crown",
+        "option_d": "Neither group receives a crown",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:25 — \"And every man that striveth for the mastery is temperate in all things. Now they do it to obtain a corruptible crown; but we an incorruptible.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say he does to his own body?",
+        "option_a": "He keeps it under subjection (disciplines it) lest after preaching to others he himself should be a castaway",
+        "option_b": "He lets it do whatever it wants",
+        "option_c": "He ignores his physical health",
+        "option_d": "He pampers it constantly",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:27 — \"But I keep under my body, and bring it into subjection: lest that by any means, when I have preached to others, I myself should be a castaway.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does chapter 9 function within the larger argument of chapters 8-10?",
+        "option_a": "Paul offers himself as a living example of the principle he taught in chapter 8 — he voluntarily surrenders his legitimate apostolic rights for the sake of others, modelling the love-governed liberty he demands of the Corinthians",
+        "option_b": "It is an unrelated digression",
+        "option_c": "It introduces a completely new topic",
+        "option_d": "It contradicts chapter 8",
+        "correct_answer": "a",
+        "explanation": "Chapter 9 is Paul's autobiography of self-denial: he had the right to financial support (vv.4-14) but waived it (vv.15-18), adapting to different audiences (vv.19-23), and disciplining himself (vv.24-27) — all illustrating the voluntary surrender of rights for others."
+      },
+      {
+        "question_number": 2,
+        "question": "What multiple arguments does Paul marshal to prove apostles deserve financial support?",
+        "option_a": "Human analogy (soldiers, vinedressers, shepherds), Mosaic law (ox muzzle — Deut 25:4), temple practice (priests eat of the altar), and dominical command (the Lord ordained that preachers live of the gospel)",
+        "option_b": "Only one argument from common sense",
+        "option_c": "No arguments — he says they do not deserve support",
+        "option_d": "Only a single Old Testament verse",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:7-14 — Paul piles up evidence: secular analogies (v.7), Mosaic law (v.9), temple practice (v.13), and Jesus' own command (v.14 — cf. Luke 10:7) to establish an irrefutable case for ministerial support."
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul mean by \"I am made all things to all men\"?",
+        "option_a": "He contextualised his approach — becoming as a Jew to Jews, as under the law to those under the law, as without law to Gentiles, and as weak to the weak — adapting culturally without compromising the gospel",
+        "option_b": "He changed his beliefs constantly",
+        "option_c": "He was a people-pleaser without conviction",
+        "option_d": "He had no personal identity",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:19-22 — Paul adapted his cultural practices and personal freedom to remove unnecessary barriers to the gospel, while remaining \"under the law to Christ\" (ennomos Christou) — bound to Christ's own law."
+      },
+      {
+        "question_number": 4,
+        "question": "What is the significance of Paul's reference to the Isthmian Games?",
+        "option_a": "Corinth hosted the biennial Isthmian Games — Paul uses athletic imagery the Corinthians would viscerally understand: discipline, self-control, and purposeful effort toward an eternal prize",
+        "option_b": "Paul was a professional athlete",
+        "option_c": "The games were held in Jerusalem",
+        "option_d": "Paul is discussing the Olympics",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:24-25 — The Isthmian Games were held near Corinth every two years. Victors received a wreath of withered celery (corruptible crown), making Paul's contrast with the incorruptible crown vivid for his audience."
+      },
+      {
+        "question_number": 5,
+        "question": "What does \"castaway\" (adokimos) mean in verse 27?",
+        "option_a": "Disqualified — the term means failing to meet the standard of approval; Paul fears being rejected from reward or service, not losing salvation, after having preached to others",
+        "option_b": "Shipwrecked at sea",
+        "option_c": "Thrown into prison",
+        "option_d": "Cast into hell",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:27 — \"Lest... I myself should be a castaway (adokimos).\" The word means \"unapproved\" or \"disqualified\" — like an athlete who breaks training rules and is disqualified from receiving the prize, though they still exist."
+      },
+      {
+        "question_number": 6,
+        "question": "How does Paul's statement \"necessity is laid upon me; yea, woe is unto me, if I preach not the gospel\" reflect his understanding of calling?",
+        "option_a": "Preaching is not a voluntary choice but a divine compulsion — Paul was commissioned by Christ on the Damascus road and cannot boast in what he is obligated to do",
+        "option_b": "He wishes he could stop preaching",
+        "option_c": "He preaches only for money",
+        "option_d": "He considers preaching optional",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:16 — \"For though I preach the gospel, I have nothing to glory of: for necessity is laid upon me; yea, woe is unto me, if I preach not the gospel!\""
+      },
+      {
+        "question_number": 7,
+        "question": "What reward does Paul seek since he preaches under divine compulsion?",
+        "option_a": "Making the gospel free of charge — his reward is the voluntary element: choosing not to use his right to financial support, so no one can accuse him of self-interest",
+        "option_b": "A large salary",
+        "option_c": "Public recognition",
+        "option_d": "A position of political authority",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:17-18 — \"For if I do this thing willingly, I have a reward... What is my reward then? Verily that, when I preach the gospel, I may make the gospel of Christ without charge, that I abuse not my power in the gospel.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does \"under the law to Christ\" (ennomos Christou) reveal about Paul's relationship to law?",
+        "option_a": "Paul is not lawless (anomos) but operates under a higher law — Christ's law — which fulfils and transcends the Mosaic code; he is free from Moses but bound to Christ",
+        "option_b": "Paul kept all 613 Mosaic commandments",
+        "option_c": "Paul rejected all moral standards",
+        "option_d": "Paul created his own legal code",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 9:21 — \"To them that are without law, as without law, (being not without law to God, but under the law to Christ).\" Ennomos Christou indicates that Christ's authoritative teaching governs Paul's conduct."
+      }
+    ]
+  },
+  "10": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What happened to the Israelites even though they all went through the Red Sea?",
+        "option_a": "Many of them sinned and God was not pleased — they fell in the wilderness",
+        "option_b": "They all made it safely to the promised land",
+        "option_c": "They all obeyed God perfectly",
+        "option_d": "Nothing bad happened to them",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:5 — \"But with many of them God was not well pleased: for they were overthrown in the wilderness.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Will God let you be tempted more than you can bear?",
+        "option_a": "No, God is faithful and will not let you be tempted beyond what you can handle — He will provide a way of escape",
+        "option_b": "Yes, sometimes temptation is too strong",
+        "option_c": "God does not care about our temptations",
+        "option_d": "We must fight temptation alone",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:13 — \"God is faithful, who will not suffer you to be tempted above that ye are able; but will with the temptation also make a way to escape, that ye may be able to bear it.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Should we do everything just for ourselves?",
+        "option_a": "No, we should think about what helps other people, not just ourselves",
+        "option_b": "Yes, always put yourself first",
+        "option_c": "Only think about yourself",
+        "option_d": "Nobody else matters",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:24 — \"Let no man seek his own, but every man another's wealth.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why does Paul bring up the story of Israel in the wilderness?",
+        "option_a": "As warnings (examples) for believers — so we do not fall into the same sins of idolatry, fornication, tempting God, and murmuring",
+        "option_b": "To teach a history lesson",
+        "option_c": "To praise Israel's faithfulness",
+        "option_d": "To discuss geography",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:6,11 — \"Now these things were our examples, to the intent we should not lust after evil things, as they also lusted... Now all these things happened unto them for ensamples: and they are written for our admonition.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What warning does Paul give to those who think they are standing firm?",
+        "option_a": "\"Let him that thinketh he standeth take heed lest he fall\"",
+        "option_b": "\"Keep standing no matter what\"",
+        "option_c": "\"Only the strong survive\"",
+        "option_d": "\"Your faith is unshakeable\"",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:12 — \"Wherefore let him that thinketh he standeth take heed lest he fall.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Can a believer drink the cup of the Lord and the cup of devils?",
+        "option_a": "No — you cannot be partakers of the Lord's table and the table of devils",
+        "option_b": "Yes, both are acceptable",
+        "option_c": "Only in special circumstances",
+        "option_d": "It depends on your intentions",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:21 — \"Ye cannot drink the cup of the Lord, and the cup of devils: ye cannot be partakers of the Lord's table, and of the table of devils.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What principle does Paul give for making decisions about food and other matters?",
+        "option_a": "\"Whether therefore ye eat, or drink, or whatsoever ye do, do all to the glory of God\"",
+        "option_b": "\"Eat whatever makes you happy\"",
+        "option_c": "\"Follow the majority's opinion\"",
+        "option_d": "\"Do what is easiest\"",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:31 — \"Whether therefore ye eat, or drink, or whatsoever ye do, do all to the glory of God.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What practical instruction does Paul give about meat sold in the market?",
+        "option_a": "Eat whatever is sold in the market without asking questions for conscience' sake — the earth is the Lord's",
+        "option_b": "Never eat meat from the market",
+        "option_c": "Only buy kosher meat",
+        "option_d": "Always interrogate the seller",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:25-26 — \"Whatsoever is sold in the shambles, that eat, asking no question for conscience sake: For the earth is the Lord's, and the fulness thereof.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What typological reading does Paul give to Israel's wilderness experiences?",
+        "option_a": "The cloud and sea represent baptism, the manna and water represent spiritual food and drink, and the rock that followed them was Christ — all prefiguring Christian sacraments",
+        "option_b": "They are merely historical records",
+        "option_c": "They have no connection to Christianity",
+        "option_d": "They are allegorical fiction",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:1-4 — \"All baptized unto Moses in the cloud and in the sea; And did all eat the same spiritual meat; And did all drink the same spiritual drink: for they drank of that spiritual Rock that followed them: and that Rock was Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul mean by identifying the rock as Christ?",
+        "option_a": "A typological identification — the rock that provided water in the wilderness (Exodus 17, Numbers 20) was a type of Christ, the true source of spiritual sustenance; the rabbinic tradition of a \"following rock\" is reinterpreted christologically",
+        "option_b": "Christ was literally a physical rock",
+        "option_c": "The rock had no spiritual meaning",
+        "option_d": "Paul was confused about Old Testament history",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:4 — \"That Rock was Christ.\" Paul draws on both Exodus 17:6 and Numbers 20:11, and possibly the Jewish tradition of a mobile well, reinterpreting the entire wilderness provision as Christ's work."
+      },
+      {
+        "question_number": 3,
+        "question": "How does 1 Corinthians 10:13 function theologically?",
+        "option_a": "It guarantees God's covenant faithfulness in temptation — no trial exceeds God's grace, and He always provides an exit strategy; this is a promise of divine provision, not human self-sufficiency",
+        "option_b": "It is a generic motivational saying",
+        "option_c": "It promises that believers will never face temptation",
+        "option_d": "It applies only to apostles",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:13 — \"God is faithful, who will not suffer you to be tempted above that ye are able; but will with the temptation also make a way to escape, that ye may be able to bear it.\" The emphasis is on God's faithfulness, not human willpower."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul argue about the relationship between the Lord's Supper and pagan sacrifices?",
+        "option_a": "The cup of blessing and bread create communion (koinōnia) with Christ's body and blood — just as pagan sacrifices create fellowship with demons; therefore participation in both is mutually exclusive",
+        "option_b": "There is no connection between them",
+        "option_c": "Both are equally valid forms of worship",
+        "option_d": "The Lord's Supper replaced all other rituals",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:16,20-21 — \"The cup of blessing which we bless, is it not the communion of the blood of Christ?... the things which the Gentiles sacrifice, they sacrifice to devils, and not to God... Ye cannot drink the cup of the Lord, and the cup of devils.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul mean by \"Do we provoke the Lord to jealousy? are we stronger than he?\"",
+        "option_a": "Participating in idol worship provokes God's jealousy (echoing Deuteronomy 32:21) — the rhetorical question warns that no one is strong enough to survive divine judgment for spiritual unfaithfulness",
+        "option_b": "God cannot be provoked",
+        "option_c": "Believers are indeed stronger than God",
+        "option_d": "Jealousy does not apply to God",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:22 — \"Do we provoke the Lord to jealousy? are we stronger than he?\" Paul echoes the Song of Moses (Deuteronomy 32:21) where Israel provoked God to jealousy through idolatry."
+      },
+      {
+        "question_number": 6,
+        "question": "How does Paul resolve the practical question of meat in the marketplace?",
+        "option_a": "Buy and eat freely without investigating its origin — the earth is the Lord's (Psalm 24:1); but if someone specifically identifies it as idol-offered, abstain for the sake of the informant's conscience, not your own",
+        "option_b": "Always investigate the origin of every food item",
+        "option_c": "Never eat marketplace meat",
+        "option_d": "Only eat food prepared at home",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:25-28 — Paul gives a nuanced three-scenario answer: (1) buy freely (v.25), (2) eat freely at a pagan's dinner (v.27), (3) abstain if told it's idol-offered (v.28) — always for the other person's conscience."
+      },
+      {
+        "question_number": 7,
+        "question": "What overarching ethical principle does Paul establish for all conduct?",
+        "option_a": "\"Do all to the glory of God\" — every action, including mundane activities like eating and drinking, should be directed toward glorifying God, forming the supreme criterion for Christian ethics",
+        "option_b": "Follow the majority opinion",
+        "option_c": "Do whatever feels right",
+        "option_d": "Follow Roman customs",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:31 — \"Whether therefore ye eat, or drink, or whatsoever ye do, do all to the glory of God.\" This verse provides the teleological framework for all ethical decisions in Paul's thought."
+      },
+      {
+        "question_number": 8,
+        "question": "How does Paul summarise his approach at the chapter's conclusion?",
+        "option_a": "\"Even as I please all men in all things, not seeking mine own profit, but the profit of many, that they may be saved\" — modelling the self-denying love that limits liberty for others' salvation",
+        "option_b": "He seeks his own comfort first",
+        "option_c": "He focuses on personal gain",
+        "option_d": "He ignores the needs of others",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 10:33 — \"Even as I please all men in all things, not seeking mine own profit, but the profit of many, that they may be saved.\" This summarises Paul's missional ethic of voluntary self-limitation."
+      }
+    ]
+  },
+  "11": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What special meal did Jesus share with His disciples that Paul writes about?",
+        "option_a": "The Lord's Supper — with bread and the cup",
+        "option_b": "A birthday party",
+        "option_c": "A regular breakfast",
+        "option_d": "A fishing picnic",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:23-24 — \"The Lord Jesus the same night in which he was betrayed took bread: And when he had given thanks, he brake it.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does the bread represent in the Lord's Supper?",
+        "option_a": "The body of Jesus, which was broken for us",
+        "option_b": "Just ordinary food",
+        "option_c": "The temple building",
+        "option_d": "A gift from heaven",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:24 — \"Take, eat: this is my body, which is broken for you: this do in remembrance of me.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does the cup represent?",
+        "option_a": "The new testament (covenant) in Jesus' blood",
+        "option_b": "Just grape juice",
+        "option_c": "Water from a well",
+        "option_d": "Rain from the sky",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:25 — \"This cup is the new testament in my blood: this do ye, as oft as ye drink it, in remembrance of me.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What problem was happening when the Corinthians gathered for the Lord's Supper?",
+        "option_a": "Some were eating all the food and getting drunk while others went hungry — they were not discerning the body of the Lord",
+        "option_b": "They forgot to bring food",
+        "option_c": "They came at different times by accident",
+        "option_d": "The food was spoiled",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:21 — \"For in eating every one taketh before other his own supper: and one is hungry, and another is drunken.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about eating the bread and drinking the cup unworthily?",
+        "option_a": "He who eats and drinks unworthily is guilty of the body and blood of the Lord",
+        "option_b": "It makes no difference how you approach it",
+        "option_c": "Only the pastor can eat unworthily",
+        "option_d": "Unworthiness does not apply to believers",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:27 — \"Wherefore whosoever shall eat this bread, and drink this cup of the Lord, unworthily, shall be guilty of the body and blood of the Lord.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should a person do before eating the Lord's Supper?",
+        "option_a": "Examine himself — let a man examine himself and so let him eat",
+        "option_b": "Just eat as quickly as possible",
+        "option_c": "Let someone else examine him",
+        "option_d": "Wait until everyone is perfect",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:28 — \"But let a man examine himself, and so let him eat of that bread, and drink of that cup.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What consequences did some Corinthians experience because of their unworthy approach?",
+        "option_a": "Many were weak and sickly, and many had died (\"sleep\")",
+        "option_b": "They became wealthier",
+        "option_c": "They received extra spiritual gifts",
+        "option_d": "Nothing happened to them",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:30 — \"For this cause many are weak and sickly among you, and many sleep.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Paul tell the Corinthians to do when they come together to eat?",
+        "option_a": "Wait for one another — tarry one for another",
+        "option_b": "Start eating as soon as you arrive",
+        "option_c": "Eat at home and skip the church meal",
+        "option_d": "Only the leaders should eat",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:33 — \"Wherefore, my brethren, when ye come together to eat, tarry one for another.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What is the order of headship Paul presents and what does \"head\" mean in context?",
+        "option_a": "God is the head of Christ, Christ is the head of every man, and the man is the head of the woman — \"head\" (kephalē) likely denotes source/authority, establishing a relational order without implying inferiority",
+        "option_b": "Women are inferior to men",
+        "option_c": "There is no order at all",
+        "option_d": "Only God has headship",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:3 — \"But I would have you know, that the head of every man is Christ; and the head of the woman is the man; and the head of Christ is God.\" The Son is not inferior to the Father despite being \"headed\" by Him, showing headship is relational, not about worth."
+      },
+      {
+        "question_number": 2,
+        "question": "What is the earliest written account of the Lord's Supper institution, and why is it significant?",
+        "option_a": "Paul's account here (written c. AD 55) predates the Gospel accounts — he received it \"of the Lord\" (direct revelation or authoritative tradition traceable to Jesus), making it the oldest record of the institution",
+        "option_b": "Matthew's account is earlier",
+        "option_c": "Luke wrote first",
+        "option_d": "The Didache recorded it first",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:23 — \"For I have received of the Lord that which also I delivered unto you.\" Written around AD 55, this predates Mark (c. AD 65) and is the earliest extant written account of the Lord's Supper institution."
+      },
+      {
+        "question_number": 3,
+        "question": "What does \"not discerning the Lord's body\" mean in verse 29?",
+        "option_a": "Failing to recognise both the sacred significance of the elements (Christ's sacrificial body) and the corporate reality of the church as Christ's body — treating the Supper as a common meal while despising fellow believers",
+        "option_b": "Failing to see a physical transformation of the bread",
+        "option_c": "Not understanding nutrition",
+        "option_d": "Not knowing the recipe",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:29 — \"For he that eateth and drinketh unworthily, eateth and drinketh damnation to himself, not discerning the Lord's body.\" The double referent (sacramental body and ecclesiastical body) fits the context of both communion and community abuse."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul mean by \"when we are judged, we are chastened of the Lord, that we should not be condemned with the world\"?",
+        "option_a": "God's temporal discipline of believers (sickness, death) is corrective, not condemnatory — it is fatherly chastening to prevent final condemnation alongside the unbelieving world",
+        "option_b": "Believers can lose their salvation",
+        "option_c": "God never disciplines believers",
+        "option_d": "Discipline and condemnation are the same",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:32 — \"But when we are judged, we are chastened of the Lord, that we should not be condemned with the world.\" This distinguishes divine discipline (paideúō — parental training) from final judgment (katakrinō — condemnation)."
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul's phrase \"this do in remembrance of me\" (anamnēsis) differ from mere recollection?",
+        "option_a": "Anamnēsis is active re-presentation — not merely recalling a past event but making its reality present and effective in the assembly, proclaiming the Lord's death until He comes",
+        "option_b": "It is simple nostalgia",
+        "option_c": "It has no theological significance",
+        "option_d": "It means performing a magic ritual",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:24-25 — \"This do in remembrance of me.\" The Greek anamnēsis carries the Jewish Passover sense of active memorial — each celebration participates in and proclaims the redemptive event."
+      },
+      {
+        "question_number": 6,
+        "question": "What does \"ye do shew the Lord's death till he come\" reveal about the Lord's Supper?",
+        "option_a": "It is simultaneously backward-looking (proclamation of Christ's death), present (communion with the living Lord), and forward-looking (anticipating His return) — a comprehensive eschatological act",
+        "option_b": "It is only about the past",
+        "option_c": "It has no future dimension",
+        "option_d": "It is purely symbolic with no real significance",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:26 — \"For as often as ye eat this bread, and drink this cup, ye do shew the Lord's death till he come.\" The three temporal dimensions make the Supper a microcosm of redemptive history."
+      },
+      {
+        "question_number": 7,
+        "question": "What social abuse was occurring at the Corinthian Lord's Supper?",
+        "option_a": "Wealthy members were eating lavish private meals while poor members went hungry — creating class divisions that contradicted the unity symbolised by the one bread and one cup",
+        "option_b": "The food was prepared incorrectly",
+        "option_c": "The meeting place was too small",
+        "option_d": "There was a shortage of bread",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:21-22 — \"For in eating every one taketh before other his own supper: and one is hungry, and another is drunken... despise ye the church of God, and shame them that have not?\" The Corinthian agape feast had become a mirror of Roman social stratification."
+      },
+      {
+        "question_number": 8,
+        "question": "What does \"this cup is the new testament in my blood\" establish theologically?",
+        "option_a": "It inaugurates the new covenant prophesied in Jeremiah 31:31-34 — Christ's blood ratifies a new covenant replacing the old Sinaitic covenant, providing forgiveness and internalized knowledge of God",
+        "option_b": "It is a reference to the old covenant",
+        "option_c": "It creates a third covenant alongside the old and new",
+        "option_d": "It abolishes all covenants",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 11:25 — \"This cup is the new testament in my blood.\" The Greek diathēkē kainē echoes Jeremiah 31:31 (LXX), explicitly identifying the Lord's Supper with the fulfilment of the new covenant promise."
+      }
+    ]
+  },
+  "12": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Does every Christian get the same spiritual gift?",
+        "option_a": "No, the Spirit gives different gifts to different people",
+        "option_b": "Yes, everyone gets exactly the same gifts",
+        "option_c": "No one gets any gifts",
+        "option_d": "Only pastors receive gifts",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:4 — \"Now there are diversities of gifts, but the same Spirit.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul compare the church to?",
+        "option_a": "A human body with many different parts that all work together",
+        "option_b": "A building made of bricks",
+        "option_c": "A garden full of flowers",
+        "option_d": "A fleet of ships",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:12 — \"For as the body is one, and hath many members, and all the members of that one body, being many, are one body: so also is Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Can any part of the body say it does not need the other parts?",
+        "option_a": "No, the eye cannot say to the hand \"I have no need of thee\" — every part is needed",
+        "option_b": "Yes, some parts are not needed",
+        "option_c": "Only the head matters",
+        "option_d": "The body can work with just one part",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:21 — \"And the eye cannot say unto the hand, I have no need of thee: nor again the head to the feet, I have no need of you.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What are some of the spiritual gifts Paul mentions?",
+        "option_a": "Wisdom, knowledge, faith, healing, miracles, prophecy, discerning of spirits, tongues, interpretation of tongues",
+        "option_b": "Only preaching and teaching",
+        "option_c": "Only singing and music",
+        "option_d": "Only giving money",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:8-10 — Paul lists nine gifts: word of wisdom, word of knowledge, faith, gifts of healing, working of miracles, prophecy, discerning of spirits, divers kinds of tongues, and interpretation of tongues."
+      },
+      {
+        "question_number": 2,
+        "question": "Who decides which gifts each person receives?",
+        "option_a": "The Holy Spirit — dividing to every man severally as He will",
+        "option_b": "Each person chooses their own gift",
+        "option_c": "The church leaders assign gifts",
+        "option_d": "Gifts are earned through hard work",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:11 — \"But all these worketh that one and the selfsame Spirit, dividing to every man severally as he will.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say about the weaker or less honourable members of the body?",
+        "option_a": "They are necessary — God gives more abundant honour to the parts that lack it, so there should be no division in the body",
+        "option_b": "They are unimportant and can be removed",
+        "option_c": "They should be hidden away",
+        "option_d": "They have no function",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:22-24 — \"Nay, much more those members of the body, which seem to be more feeble, are necessary... God hath tempered the body together, having given more abundant honour to that part which lacked.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What happens when one member of the body suffers?",
+        "option_a": "All the members suffer with it — and if one member is honoured, all the members rejoice with it",
+        "option_b": "The other members are unaffected",
+        "option_c": "Only nearby members feel it",
+        "option_d": "The body ignores the suffering part",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:26 — \"And whether one member suffer, all the members suffer with it; or one member be honoured, all the members rejoice with it.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Does everyone have the same role in the church?",
+        "option_a": "No — God set some as apostles, prophets, teachers, miracles, healings, helps, governments, tongues — not all have every gift",
+        "option_b": "Yes, everyone has exactly the same role",
+        "option_c": "Roles do not matter in the church",
+        "option_d": "Only one gift is valid",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:28-30 — \"And God hath set some in the church, first apostles, secondarily prophets, thirdly teachers, after that miracles... Are all apostles? are all prophets? are all teachers?\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What Trinitarian structure does Paul present in verses 4-6?",
+        "option_a": "Diversities of gifts but the same Spirit, diversities of administrations but the same Lord, diversities of operations but the same God — the Trinity is the source of all spiritual gifts, with each Person distinctly involved",
+        "option_b": "Only the Spirit gives gifts",
+        "option_c": "Only God the Father is mentioned",
+        "option_d": "The Trinity is not referenced",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:4-6 — \"Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of operations, but it is the same God which worketh all in all.\" Spirit, Lord (Son), and God (Father) are distinctly named."
+      },
+      {
+        "question_number": 2,
+        "question": "What does \"by one Spirit are we all baptized into one body\" mean?",
+        "option_a": "The Holy Spirit's work at conversion incorporates every believer — whether Jew or Greek, bond or free — into the one body of Christ; this is Spirit baptism creating organic unity",
+        "option_b": "It refers only to water baptism",
+        "option_c": "It describes a second blessing experience",
+        "option_d": "It applies only to the original apostles",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:13 — \"For by one Spirit are we all baptized into one body, whether we be Jews or Gentiles, whether we be bond or free; and have been all made to drink into one Spirit.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Paul's body analogy counter both inferiority and superiority complexes in the church?",
+        "option_a": "Against inferiority: the foot and ear are still part of the body even if they are not the hand or eye (vv.15-16). Against superiority: the eye cannot say to the hand \"I have no need of thee\" (v.21). Every member is essential and interdependent",
+        "option_b": "Only superior members matter",
+        "option_c": "Inferiority is a sign of weak faith",
+        "option_d": "The body analogy is purely decorative",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:15-21 — Paul addresses both the temptation of less prominent members to withdraw (\"I am not of the body,\" v.16) and the temptation of prominent members to dismiss others (\"I have no need of thee,\" v.21)."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul mean by God \"tempering the body together\" and giving \"more abundant honour to that part which lacked\"?",
+        "option_a": "God intentionally designed the church so that less visible and less esteemed members receive compensating honour, preventing schism and ensuring mutual care — divine design produces interdependence",
+        "option_b": "God favours prominent members",
+        "option_c": "Less honourable parts should be removed",
+        "option_d": "The church is a hierarchy of value",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:24-25 — \"God hath tempered the body together, having given more abundant honour to that part which lacked: That there should be no schism in the body; but that the members should have the same care one for another.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is the significance of Paul's ranked list: \"first apostles, secondarily prophets, thirdly teachers\"?",
+        "option_a": "It establishes a functional priority for foundational ministries — apostles and prophets lay the foundation (Ephesians 2:20), teachers build on it; this is a rank of function, not personal worth",
+        "option_b": "It is a hierarchy of personal importance",
+        "option_c": "Teachers are more important than apostles",
+        "option_d": "The list is random with no order",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:28 — \"And God hath set some in the church, first apostles, secondarily prophets, thirdly teachers.\" The ordinal numbering (prōton, deuteron, triton) indicates intentional ranking of foundational roles."
+      },
+      {
+        "question_number": 6,
+        "question": "What rhetorical effect do Paul's seven rapid-fire questions in verses 29-30 produce?",
+        "option_a": "Each expects a \"no\" answer (using mē in Greek), proving that no single gift is universal — directly countering the Corinthian elevation of tongues as the mark of true spirituality",
+        "option_b": "They expect \"yes\" answers",
+        "option_c": "They are open-ended discussion prompts",
+        "option_d": "They have no expected answer",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:29-30 — \"Are all apostles? are all prophets?... do all speak with tongues? do all interpret?\" The Greek particle mē expects negative answers, definitively ruling out any single gift as normative for all believers."
+      },
+      {
+        "question_number": 7,
+        "question": "What does \"covet earnestly the best gifts\" mean, and how does it connect to chapter 13?",
+        "option_a": "Paul urges them to desire the greater (more edifying) gifts — but then reveals a \"more excellent way\" (love) that transcends and governs all gifts; love is not itself a gift but the indispensable context for all gifts",
+        "option_b": "They should compete for the most spectacular gifts",
+        "option_c": "Love replaces all spiritual gifts",
+        "option_d": "Gifts are unimportant",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:31 — \"But covet earnestly the best gifts: and yet shew I unto you a more excellent way.\" The \"best gifts\" are those that edify the body (prophecy over tongues — 14:1-5), but all are worthless without love (ch.13)."
+      },
+      {
+        "question_number": 8,
+        "question": "How does Paul's phrase \"Now ye are the body of Christ, and members in particular\" define ecclesiology?",
+        "option_a": "The church is not merely a human organisation but the actual body of Christ on earth — each individual believer is a particular, irreplaceable member with a God-assigned function in the organic whole",
+        "option_b": "The church is merely a social club",
+        "option_c": "Individual members have no significance",
+        "option_d": "The body of Christ is only a metaphor with no real meaning",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 12:27 — \"Now ye are the body of Christ, and members in particular.\" The Greek melē ek merous means \"members individually\" — each person has a specific, divinely appointed role within the corporate body."
+      }
+    ]
+  },
+  "13": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What is the most important thing according to this chapter?",
+        "option_a": "Love (charity)",
+        "option_b": "Being very smart",
+        "option_c": "Being very strong",
+        "option_d": "Being very rich",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:13 — \"And now abideth faith, hope, charity, these three; but the greatest of these is charity.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does love (charity) do and not do?",
+        "option_a": "Love is patient and kind — it does not envy or boast",
+        "option_b": "Love is selfish and proud",
+        "option_c": "Love is angry and jealous",
+        "option_d": "Love is rude and mean",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:4 — \"Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Will love ever end?",
+        "option_a": "No, love never fails — it lasts forever",
+        "option_b": "Yes, love ends when you grow up",
+        "option_c": "Love only lasts for a little while",
+        "option_d": "Love stops when things get hard",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:8 — \"Charity never faileth.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What is Paul without love, even if he could speak in tongues of men and angels?",
+        "option_a": "A sounding brass or a tinkling cymbal — just empty noise",
+        "option_b": "A great speaker",
+        "option_c": "A wonderful musician",
+        "option_d": "An impressive person",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:1 — \"Though I speak with the tongues of men and of angels, and have not charity, I am become as sounding brass, or a tinkling cymbal.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Even if you have enough faith to move mountains, what are you without love?",
+        "option_a": "Nothing — without charity, I am nothing",
+        "option_b": "A great hero of faith",
+        "option_c": "The most powerful person alive",
+        "option_d": "Still very impressive",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:2 — \"And though I have all faith, so that I could remove mountains, and have not charity, I am nothing.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul compare our current understanding to?",
+        "option_a": "Seeing through a glass darkly — we know in part now, but one day we will know fully",
+        "option_b": "Perfect crystal-clear vision",
+        "option_c": "Complete understanding of everything",
+        "option_d": "We already know everything",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:12 — \"For now we see through a glass, darkly; but then face to face: now I know in part; but then shall I know even as also I am known.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What three things abide (remain) forever?",
+        "option_a": "Faith, hope, and charity (love) — and the greatest is love",
+        "option_b": "Gold, silver, and bronze",
+        "option_c": "Prophecy, tongues, and knowledge",
+        "option_d": "Power, wisdom, and strength",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:13 — \"And now abideth faith, hope, charity, these three; but the greatest of these is charity.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does love not keep a record of?",
+        "option_a": "Wrongs — love thinketh no evil and rejoiceth not in iniquity",
+        "option_b": "Good deeds",
+        "option_c": "Compliments",
+        "option_d": "Gifts received",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:5-6 — \"Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil; Rejoiceth not in iniquity, but rejoiceth in the truth.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does chapter 13 function within the broader argument of chapters 12-14?",
+        "option_a": "It is the theological hinge — chapter 12 establishes the diversity of gifts, chapter 13 establishes love as the governing principle for all gifts, and chapter 14 applies this to the specific issue of tongues vs. prophecy",
+        "option_b": "It is an independent hymn unrelated to its context",
+        "option_c": "It replaces the teaching on spiritual gifts",
+        "option_d": "It is a later addition by another author",
+        "correct_answer": "a",
+        "explanation": "Chapter 13 is not a standalone poem but the strategic centre of Paul's argument on spiritual gifts. It answers 12:31's \"more excellent way\" and prepares for 14:1's \"Follow after charity, and desire spiritual gifts.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul's list of love's fifteen attributes reveal about the Corinthian problems?",
+        "option_a": "Each attribute addresses a specific Corinthian failing — they were impatient, envious, boastful, puffed up, rude, self-seeking, easily provoked, keeping score, and rejoicing in others' failures",
+        "option_b": "The list is generic with no connection to Corinth",
+        "option_c": "Paul is describing his own virtues",
+        "option_d": "The list is borrowed from Greek philosophy",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:4-7 — Each attribute mirrors a Corinthian vice: \"envieth not\" (they envied gifts), \"vaunteth not itself\" (they boasted), \"is not puffed up\" (they were arrogant — 4:6,18,19; 5:2; 8:1), \"seeketh not her own\" (they were selfish — 10:24,33)."
+      },
+      {
+        "question_number": 3,
+        "question": "What does \"when that which is perfect is come\" refer to?",
+        "option_a": "Most likely the eschatological consummation — Christ's return or the eternal state — when partial knowledge and gifts give way to complete, face-to-face knowledge of God",
+        "option_b": "The completion of the New Testament canon",
+        "option_c": "The maturity of the church",
+        "option_d": "The destruction of Jerusalem in AD 70",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:10,12 — \"But when that which is perfect is come, then that which is in part shall be done away... then face to face.\" The \"face to face\" language echoes Numbers 12:8 and suggests direct encounter with God, best fitting the eschaton."
+      },
+      {
+        "question_number": 4,
+        "question": "What is the significance of \"I shall know even as also I am known\"?",
+        "option_a": "In the eschaton, believers will know God with the same directness and intimacy with which God now knows them — not omniscience, but relational, unmediated knowledge replacing the current partial and indirect knowing",
+        "option_b": "Believers will become omniscient",
+        "option_c": "This refers only to self-knowledge",
+        "option_d": "Knowledge will be eliminated",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:12 — \"Then shall I know even as also I am known.\" The verb epiginōskō (full knowledge) contraces ginōskō (partial knowledge) — the asymmetry of God knowing us will be resolved by our full knowing of Him."
+      },
+      {
+        "question_number": 5,
+        "question": "Why is love \"the greatest\" even above faith and hope?",
+        "option_a": "Faith and hope are temporal — faith will give way to sight and hope to fulfillment — but love is eternal, reflecting the very nature of God who is love (1 John 4:8); love participates in God's own character",
+        "option_b": "Because Paul personally preferred love",
+        "option_c": "Because faith and hope are unimportant",
+        "option_d": "Because love is easier to practise",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:13 — \"The greatest of these is charity.\" Faith becomes sight (2 Corinthians 5:7) and hope becomes reality (Romans 8:24) at Christ's return, but love endures because it is the essence of God's own nature."
+      },
+      {
+        "question_number": 6,
+        "question": "How does \"love beareth all things, believeth all things, hopeth all things, endureth all things\" work grammatically?",
+        "option_a": "The four \"all things\" (panta) clauses form a chiasm (A-B-B'-A'): bearing/enduring frame the outer ring (patient endurance), while believing/hoping form the inner ring (positive trust) — love covers every dimension of human experience",
+        "option_b": "The phrases are random with no structure",
+        "option_c": "They are four separate commands",
+        "option_d": "Each phrase contradicts the one before it",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:7 — \"Beareth all things, believeth all things, hopeth all things, endureth all things.\" The structure moves from passive endurance to active trust and back to endurance, creating a comprehensive portrait of love's resilience."
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul's childhood metaphor (\"When I was a child... when I became a man\") illustrate?",
+        "option_a": "The current exercise of partial gifts (tongues, prophecy, knowledge) is to the eschatological fullness as childhood is to adulthood — present spiritual experiences are real but immature compared to what is coming",
+        "option_b": "Childhood is sinful and adulthood is righteous",
+        "option_c": "Spiritual gifts are childish and should be abandoned now",
+        "option_d": "Growing up means losing all spiritual experiences",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:11 — \"When I was a child, I spake as a child, I understood as a child, I thought as a child: but when I became a man, I put away childish things.\" The analogy legitimises present gifts while relativising them in light of future glory."
+      },
+      {
+        "question_number": 8,
+        "question": "How does Paul's claim that giving one's body to be burned without love profits nothing challenge the Corinthian value system?",
+        "option_a": "Even the most extreme act of self-sacrifice — martyrdom — is spiritually worthless without love, demolishing the idea that spectacular spiritual experiences or heroic acts can substitute for genuine Christ-like love",
+        "option_b": "Martyrdom is always wrong",
+        "option_c": "Physical sacrifice automatically equals spiritual merit",
+        "option_d": "Paul discourages all forms of sacrifice",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 13:3 — \"And though I bestow all my goods to feed the poor, and though I give my body to be burned, and have not charity, it profiteth me nothing.\" The ultimate sacrifices of possessions and life itself are rendered meaningless without love."
+      }
+    ]
+  },
+  "14": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Which is more helpful in church — speaking in tongues or prophecy?",
+        "option_a": "Prophecy, because it speaks to people in a language they can understand and helps them",
+        "option_b": "Tongues, because it sounds more impressive",
+        "option_c": "Neither one matters",
+        "option_d": "Both are equally helpful in every situation",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:3-4 — \"But he that prophesieth speaketh unto men to edification, and exhortation, and comfort. He that speaketh in an unknown tongue edifieth himself; but he that prophesieth edifieth the church.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Should church services be confusing or orderly?",
+        "option_a": "Orderly — God is not the author of confusion, but of peace",
+        "option_b": "Confusing is fine",
+        "option_c": "It does not matter how services are run",
+        "option_d": "The louder the better",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:33 — \"For God is not the author of confusion, but of peace, as in all churches of the saints.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should everything in church be done for?",
+        "option_a": "To build up and help others — let all things be done unto edifying",
+        "option_b": "To make one person look important",
+        "option_c": "To entertain the audience",
+        "option_d": "To show off spiritual gifts",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:26 — \"Let all things be done unto edifying.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why does Paul prefer prophecy over tongues in the gathered church?",
+        "option_a": "Because prophecy edifies the whole church while uninterpreted tongues only edify the speaker",
+        "option_b": "Because tongues are sinful",
+        "option_c": "Because prophecy is louder",
+        "option_d": "Because tongues are fake",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:4-5 — \"He that speaketh in an unknown tongue edifieth himself; but he that prophesieth edifieth the church. I would that ye all spake with tongues but rather that ye prophesied: for greater is he that prophesieth than he that speaketh with tongues, except he interpret.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about speaking in tongues without an interpreter?",
+        "option_a": "The speaker should keep silent in the church and speak to himself and to God",
+        "option_b": "He should speak as loudly as possible",
+        "option_c": "The church must listen anyway",
+        "option_d": "An interpreter is never needed",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:28 — \"But if there be no interpreter, let him keep silence in the church; and let him speak to himself, and to God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How many people should speak in tongues at a gathering, and how?",
+        "option_a": "At most two or three, and by course (taking turns), with an interpreter",
+        "option_b": "As many as want, all at once",
+        "option_c": "Everyone must speak in tongues",
+        "option_d": "Only the pastor may speak in tongues",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:27 — \"If any man speak in an unknown tongue, let it be by two, or at the most by three, and that by course; and let one interpret.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about understanding in worship?",
+        "option_a": "He wants to pray and sing with both the spirit and the understanding — using the mind as well as the spirit",
+        "option_b": "Understanding does not matter in worship",
+        "option_c": "Only feelings matter",
+        "option_d": "The mind should be turned off during worship",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:15 — \"I will pray with the spirit, and I will pray with the understanding also: I will sing with the spirit, and I will sing with the understanding also.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What would an unbeliever think if everyone was speaking in tongues at once?",
+        "option_a": "They would think the church members were mad (insane)",
+        "option_b": "They would be deeply impressed",
+        "option_c": "They would immediately convert",
+        "option_d": "They would feel welcome",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:23 — \"If therefore the whole church be come together into one place, and all speak with tongues, and there come in those that are unlearned, or unbelievers, will they not say that ye are mad?\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Paul define prophecy's threefold function?",
+        "option_a": "Edification (building up), exhortation (urging action), and comfort (consolation) — prophecy addresses the congregation intelligibly for their spiritual benefit",
+        "option_b": "Prediction of future events exclusively",
+        "option_c": "Political commentary",
+        "option_d": "Entertainment and spectacle",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:3 — \"But he that prophesieth speaketh unto men to edification, and exhortation, and comfort.\" New Testament prophecy is primarily forth-telling (speaking God's truth to the congregation) rather than exclusively fore-telling."
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul's statement \"I thank my God, I speak with tongues more than ye all\" accomplish rhetorically?",
+        "option_a": "It establishes Paul's credibility on the topic — he cannot be accused of opposing tongues from ignorance or jealousy — before he then subordinates tongues to prophecy in the assembly",
+        "option_b": "He is boasting about his superiority",
+        "option_c": "He is exaggerating",
+        "option_d": "He is being sarcastic",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:18-19 — \"I thank my God, I speak with tongues more than ye all: Yet in the church I had rather speak five words with my understanding, that by my voice I might teach others also, than ten thousand words in an unknown tongue.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What Old Testament text does Paul cite regarding tongues, and how does he apply it?",
+        "option_a": "Isaiah 28:11-12 — God spoke to Israel through foreign-sounding languages (Assyrian invaders) as a sign of judgment; tongues similarly function as a sign for unbelievers, not for believers",
+        "option_b": "Psalm 150 about praise instruments",
+        "option_c": "Genesis 11 about the Tower of Babel",
+        "option_d": "Exodus 4 about Moses' speech difficulty",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:21 — \"In the law it is written, With men of other tongues and other lips will I speak unto this people; and yet for all that will they not hear me, saith the Lord\" (Isaiah 28:11-12). Paul applies this to show tongues are a sign of judgment toward unbelievers."
+      },
+      {
+        "question_number": 4,
+        "question": "What regulations does Paul establish for orderly worship?",
+        "option_a": "Tongues: two or three speakers maximum, in turn, with interpretation required. Prophecy: two or three speakers, with others judging (evaluating). If no interpreter, the tongue-speaker must be silent. All in order",
+        "option_b": "No regulations are needed — the Spirit will direct",
+        "option_c": "Only one person may ever speak",
+        "option_d": "Services should be completely spontaneous",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:27-33 — Paul provides specific regulations: tongues (2-3, by course, with interpretation), prophecy (2-3, with evaluation), and the overarching principle that \"God is not the author of confusion, but of peace\" (v.33)."
+      },
+      {
+        "question_number": 5,
+        "question": "What is the effect of prophecy on an unbeliever entering the assembly?",
+        "option_a": "The secrets of his heart are made manifest — he is convicted, judged, and falls down to worship God, declaring \"God is in you of a truth\"",
+        "option_b": "He would be impressed by the spectacle",
+        "option_c": "He would leave immediately",
+        "option_d": "Nothing would happen",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:24-25 — \"But if all prophesy, and there come in one that believeth not... he is convinced of all, he is judged of all: And thus are the secrets of his heart made manifest; and so falling down on his face he will worship God, and report that God is in you of a truth.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does \"the spirits of the prophets are subject to the prophets\" mean?",
+        "option_a": "Prophetic utterance is under the speaker's voluntary control — genuine inspiration does not produce ecstatic frenzy; a prophet can choose when to speak or be silent, maintaining order",
+        "option_b": "Prophets cannot control when they speak",
+        "option_c": "The Spirit forces uncontrollable utterances",
+        "option_d": "Only false prophets maintain control",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:32 — \"And the spirits of the prophets are subject to the prophets.\" This distinguishes Christian prophecy from pagan ecstatic frenzy (manticism) where the speaker lost self-control. The Holy Spirit works with, not against, human volition."
+      },
+      {
+        "question_number": 7,
+        "question": "How does Paul's principle \"let all things be done decently and in order\" relate to Corinthian worship problems?",
+        "option_a": "The Corinthians' worship was chaotic — multiple tongue-speakers at once, no interpretation, everyone vying to participate simultaneously — Paul corrects this with the principle that divine worship should reflect God's character of order and peace",
+        "option_b": "Corinthian worship was already perfectly ordered",
+        "option_c": "Paul is being overly controlling",
+        "option_d": "Order is the opposite of spiritual freedom",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:40 — \"Let all things be done decently and in order.\" The Greek euschēmonōs kai kata taxin means \"with propriety and according to arrangement.\" This is Paul's final summary of the worship regulations in chapter 14."
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul mean by \"Be not children in understanding: howbeit in malice be ye children, but in understanding be men\"?",
+        "option_a": "The Corinthians were being childish in their pursuit of spectacular gifts like tongues — Paul urges them to be mature in their theological understanding while maintaining childlike innocence regarding evil",
+        "option_b": "He wants them to be literally childish",
+        "option_c": "He is against all forms of maturity",
+        "option_d": "He wants them to be malicious adults",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 14:20 — \"Brethren, be not children in understanding: howbeit in malice be ye children, but in understanding be men.\" Paul calls for intellectual and spiritual maturity in evaluating gifts, combined with moral innocence."
+      }
+    ]
+  },
+  "15": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Did Jesus rise from the dead?",
+        "option_a": "Yes! Christ died for our sins, was buried, and rose again the third day",
+        "option_b": "No one knows for sure",
+        "option_c": "Only His spirit rose",
+        "option_d": "He did not really die",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:3-4 — \"Christ died for our sins according to the scriptures; And that he was buried, and that he rose again the third day according to the scriptures.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Will believers also be raised from the dead?",
+        "option_a": "Yes, because Jesus rose, all who believe in Him will be raised too",
+        "option_b": "No, only Jesus rose",
+        "option_c": "Only special people will rise",
+        "option_d": "The Bible does not say",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:20-22 — \"But now is Christ risen from the dead, and become the firstfruits of them that slept... even so in Christ shall all be made alive.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What will happen to death in the end?",
+        "option_a": "Death will be swallowed up in victory — it will be completely defeated",
+        "option_b": "Death will last forever",
+        "option_c": "Death cannot be defeated",
+        "option_d": "Death will grow stronger",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:54 — \"Death is swallowed up in victory.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Who are some of the people who saw Jesus after He rose?",
+        "option_a": "Cephas (Peter), then the twelve, then over 500 brethren at once, then James, then all the apostles, and lastly Paul himself",
+        "option_b": "Only Mary Magdalene",
+        "option_c": "No one saw Him after the resurrection",
+        "option_d": "Only one or two people",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:5-8 — \"He was seen of Cephas, then of the twelve: After that, he was seen of above five hundred brethren at once... After that, he was seen of James; then of all the apostles. And last of all he was seen of me also.\""
+      },
+      {
+        "question_number": 2,
+        "question": "If Christ is not risen, what does Paul say about the Christian faith?",
+        "option_a": "Our faith is vain (empty), we are still in our sins, and we are of all men most miserable",
+        "option_b": "Our faith is still perfectly fine",
+        "option_c": "It does not matter whether He rose",
+        "option_d": "We can believe whatever we want",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:14,17,19 — \"If Christ be not risen, then is our preaching vain, and your faith is also vain... ye are yet in your sins... we are of all men most miserable.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the last enemy that will be destroyed?",
+        "option_a": "Death",
+        "option_b": "Satan",
+        "option_c": "Sin",
+        "option_d": "Sickness",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:26 — \"The last enemy that shall be destroyed is death.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does Paul describe the resurrection body compared to our current body?",
+        "option_a": "Our current body is sown in corruption, dishonour, and weakness; it is raised in incorruption, glory, and power — a natural body is sown, a spiritual body is raised",
+        "option_b": "The resurrection body is exactly the same",
+        "option_c": "We will not have bodies at all",
+        "option_d": "Our bodies will be weaker",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:42-44 — \"It is sown in corruption; it is raised in incorruption: It is sown in dishonour; it is raised in glory: it is sown in weakness; it is raised in power: It is sown a natural body; it is raised a spiritual body.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What triumphant words does Paul write about death at the end of the chapter?",
+        "option_a": "\"O death, where is thy sting? O grave, where is thy victory?\" — the sting of death is sin, and the strength of sin is the law, but thanks be to God who gives us victory through Jesus Christ",
+        "option_b": "Death remains victorious",
+        "option_c": "The grave has the final word",
+        "option_d": "There is no hope against death",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:55-57 — \"O death, where is thy sting? O grave, where is thy victory? The sting of death is sin; and the strength of sin is the law. But thanks be to God, which giveth us the victory through our Lord Jesus Christ.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What creedal formula does Paul cite in verses 3-5, and why is it significant?",
+        "option_a": "\"Christ died for our sins according to the scriptures, was buried, rose again the third day according to the scriptures, and was seen\" — this is a pre-Pauline creed dating to within years of the crucifixion, demonstrating very early belief in the resurrection",
+        "option_b": "Paul created this formula himself",
+        "option_c": "It was composed in the second century",
+        "option_d": "It is a later addition to the text",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:3-5 — \"For I delivered unto you first of all that which I also received.\" The verbs \"received/delivered\" (paralambano/paradidomi) are technical terms for transmitting authoritative tradition, indicating this is pre-Pauline creedal material."
+      },
+      {
+        "question_number": 2,
+        "question": "What does \"firstfruits\" (aparchē) mean when applied to Christ's resurrection?",
+        "option_a": "Christ's resurrection is the initial harvest guaranteeing the full harvest — just as the firstfruits offered in the temple represented and guaranteed the entire crop, Christ's rising guarantees believers' future resurrection",
+        "option_b": "Christ was the first person ever to die",
+        "option_c": "It refers to agricultural practices only",
+        "option_d": "It means Christ's resurrection was incomplete",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:20,23 — \"But now is Christ risen from the dead, and become the firstfruits of them that slept... Christ the firstfruits; afterward they that are Christ's at his coming.\" The Feast of Firstfruits (Leviticus 23:10) typologically pictures Christ's resurrection."
+      },
+      {
+        "question_number": 3,
+        "question": "How does Paul's Adam-Christ typology work in verses 21-22 and 45-49?",
+        "option_a": "The first Adam brought death to all through sin; the last Adam (Christ) brings resurrection life to all who are in Him. The first Adam was a living soul from the earth; the last Adam is a life-giving spirit from heaven — believers will bear the image of the heavenly",
+        "option_b": "Adam and Christ are the same person",
+        "option_c": "The comparison is purely metaphorical",
+        "option_d": "Paul invents this parallel with no OT basis",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:21-22,45 — \"For since by man came death, by man came also the resurrection of the dead... The first man Adam was made a living soul; the last Adam was made a quickening spirit.\" This is a federal headship argument — humanity's destiny is determined by its representative head."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul teach about the nature of the resurrection body?",
+        "option_a": "It is continuous with yet transformed from the present body — sown/raised contrasts (corruption/incorruption, dishonour/glory, weakness/power, natural/spiritual) show both continuity (same body sown and raised) and radical transformation",
+        "option_b": "It is an entirely new body unrelated to the old",
+        "option_c": "Resurrection is purely spiritual with no body",
+        "option_d": "The resurrection body is identical to the current one",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:42-44 — The seed analogy (vv.36-38) establishes continuity (the same seed that is planted grows), while the contrasts establish transformation. The resurrection body is the present body glorified, not a replacement."
+      },
+      {
+        "question_number": 5,
+        "question": "What \"mystery\" does Paul reveal in verses 51-52?",
+        "option_a": "\"We shall not all sleep, but we shall all be changed, in a moment, in the twinkling of an eye, at the last trump\" — living believers at Christ's return will be instantaneously transformed without dying",
+        "option_b": "All believers must die before being resurrected",
+        "option_c": "The mystery is that resurrection will not happen",
+        "option_d": "Only the dead will be changed",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:51-52 — \"Behold, I shew you a mystery; We shall not all sleep, but we shall all be changed, In a moment, in the twinkling of an eye, at the last trump: for the trumpet shall sound, and the dead shall be raised incorruptible, and we shall be changed.\""
+      },
+      {
+        "question_number": 6,
+        "question": "How does Paul's argument \"if the dead rise not... let us eat and drink; for to morrow we die\" function?",
+        "option_a": "It is a reductio ad absurdum — if there is no resurrection, then Christian morality, sacrifice, and suffering are pointless, and hedonism (quoting Isaiah 22:13) is the only logical response; but since this conclusion is absurd, the premise (no resurrection) must be false",
+        "option_b": "Paul is recommending hedonism",
+        "option_c": "He is quoting Greek philosophy approvingly",
+        "option_d": "He genuinely doubts the resurrection",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:32 — \"If after the manner of men I have fought with beasts at Ephesus, what advantageth it me, if the dead rise not? let us eat and drink; for to morrow we die.\" Paul shows the existential absurdity of denying resurrection."
+      },
+      {
+        "question_number": 7,
+        "question": "What does \"flesh and blood cannot inherit the kingdom of God\" mean?",
+        "option_a": "The present mortal, perishable body in its current state is unsuited for the eternal kingdom — transformation (not destruction) is required; the body must be clothed with incorruption and immortality",
+        "option_b": "Physical matter is inherently evil",
+        "option_c": "Bodies will be abolished entirely",
+        "option_d": "Only spirits enter heaven",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:50 — \"Now this I say, brethren, that flesh and blood cannot inherit the kingdom of God; neither doth corruption inherit incorruption.\" \"Flesh and blood\" is a Semitic idiom for mortal human nature, not a statement against materiality per se."
+      },
+      {
+        "question_number": 8,
+        "question": "What does \"then cometh the end, when he shall have delivered up the kingdom to God, even the Father\" reveal about eschatology?",
+        "option_a": "Christ's mediatorial kingdom culminates when all enemies (including death) are subdued; He then delivers the kingdom to the Father and subjects Himself, so that \"God may be all in all\" — the Son's voluntary submission preserves Trinitarian unity",
+        "option_b": "Christ's kingdom replaces the Father's",
+        "option_c": "The Son ceases to exist",
+        "option_d": "The kingdom has no end",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 15:24,28 — \"Then cometh the end, when he shall have delivered up the kingdom to God, even the Father... then shall the Son also himself be subject unto him that put all things under him, that God may be all in all.\""
+      }
+    ]
+  },
+  "16": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did Paul ask the Corinthians to collect for?",
+        "option_a": "A collection for the poor saints in Jerusalem",
+        "option_b": "A collection for building a palace",
+        "option_c": "Money for a new chariot",
+        "option_d": "Gold for a statue",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:1 — \"Now concerning the collection for the saints, as I have given order to the churches of Galatia, even so do ye.\""
+      },
+      {
+        "question_number": 2,
+        "question": "When did Paul say they should set aside their giving?",
+        "option_a": "On the first day of the week",
+        "option_b": "On the last day of the month",
+        "option_c": "Only once a year",
+        "option_d": "Whenever they felt like it",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:2 — \"Upon the first day of the week let every one of you lay by him in store, as God hath prospered him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul tell them to do at the very end of the letter?",
+        "option_a": "\"Watch ye, stand fast in the faith, quit you like men, be strong. Let all your things be done with charity (love)\"",
+        "option_b": "Be afraid and hide",
+        "option_c": "Give up when things get hard",
+        "option_d": "Do not talk to anyone",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:13-14 — \"Watch ye, stand fast in the faith, quit you like men, be strong. Let all your things be done with charity.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How should each person decide how much to give?",
+        "option_a": "As God has prospered him — proportional giving based on what God has provided",
+        "option_b": "A fixed amount for everyone",
+        "option_c": "Nothing unless they are wealthy",
+        "option_d": "Only what they can spare after all expenses",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:2 — \"Upon the first day of the week let every one of you lay by him in store, as God hath prospered him, that there be no gatherings when I come.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How did Paul want them to treat Timothy when he visited?",
+        "option_a": "See that he is with you without fear and do not despise him — for he does the work of the Lord as Paul does",
+        "option_b": "Ignore him completely",
+        "option_c": "Test him harshly",
+        "option_d": "Send him away",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:10-11 — \"Now if Timotheus come, see that he may be with you without fear: for he worketh the work of the Lord, as I also do. Let no man therefore despise him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul say about Apollos visiting Corinth?",
+        "option_a": "Paul greatly desired Apollos to come, but Apollos was not willing to come at that time — he would come when he had a convenient time",
+        "option_b": "Apollos refused to ever visit Corinth",
+        "option_c": "Paul forbade Apollos from going",
+        "option_d": "Apollos was already there",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:12 — \"As touching our brother Apollos, I greatly desired him to come unto you with the brethren: but his will was not at all to come at this time; but he will come when he shall have convenient time.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What household does Paul commend for their service?",
+        "option_a": "The household of Stephanas — they were the firstfruits of Achaia and had devoted themselves to the ministry of the saints",
+        "option_b": "The household of Caesar",
+        "option_c": "The household of Herod",
+        "option_d": "The household of Pilate",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:15 — \"I beseech you, brethren, (ye know the house of Stephanas, that it is the firstfruits of Achaia, and that they have addicted themselves to the ministry of the saints).\""
+      },
+      {
+        "question_number": 5,
+        "question": "What Aramaic word does Paul use near the end of the letter?",
+        "option_a": "Maranatha — meaning \"Our Lord, come!\" or \"The Lord is coming\"",
+        "option_b": "Hallelujah",
+        "option_c": "Amen",
+        "option_d": "Hosanna",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:22 — \"If any man love not the Lord Jesus Christ, let him be Anathema Maranatha.\" Maranatha is an Aramaic word meaning \"Our Lord, come!\" — an early Christian prayer for Christ's return."
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul's instruction about the collection reveal about early church practice?",
+        "option_a": "Weekly, proportional, systematic giving on the first day of the week (Sunday) — indicating that Christians already gathered for worship on Sundays and that financial generosity was organised, not haphazard",
+        "option_b": "Giving was completely spontaneous",
+        "option_c": "Collections only happened once",
+        "option_d": "Sunday worship had not yet begun",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:1-2 — \"Upon the first day of the week let every one of you lay by him in store, as God hath prospered him.\" This is early evidence for Sunday as the Christian day of assembly (cf. Acts 20:7, Revelation 1:10)."
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul's reference to \"a great door and effectual is opened unto me, and there are many adversaries\" reveal about his ministry philosophy?",
+        "option_a": "Effective ministry and opposition go hand in hand — Paul sees open doors and adversaries as simultaneous, not contradictory; opposition is not a reason to leave but rather confirms that significant work is happening",
+        "option_b": "Opposition means God has closed the door",
+        "option_c": "Paul is complaining about his difficulties",
+        "option_d": "He plans to avoid all opposition",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:9 — \"For a great door and effectual is opened unto me, and there are many adversaries.\" Paul was in Ephesus during this time (cf. Acts 19), where he experienced both tremendous gospel advance and intense opposition."
+      },
+      {
+        "question_number": 3,
+        "question": "What does the phrase \"If any man love not the Lord Jesus Christ, let him be Anathema Maranatha\" combine?",
+        "option_a": "A solemn curse (anathema — devoted to destruction/excommunication) with an eschatological prayer (Maranatha — \"Our Lord, come!\") — invoking divine judgment on those who do not love Christ while simultaneously praying for His return",
+        "option_b": "A simple farewell greeting",
+        "option_c": "A blessing for everyone",
+        "option_d": "A request for more donations",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:22 — \"Anathema\" is a Greek term for a curse of separation (cf. Romans 9:3; Galatians 1:8-9), while \"Maranatha\" is Aramaic — the juxtaposition of Greek curse and Aramaic prayer reflects the bilingual early church and its apocalyptic expectation."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul's commendation of Stephanas's household as \"firstfruits of Achaia\" reveal?",
+        "option_a": "They were the first converts in the province of Achaia (southern Greece) — Paul uses agricultural firstfruits language (cf. Romans 16:5) to denote both chronological priority and representative significance",
+        "option_b": "They were the wealthiest family",
+        "option_c": "They produced the best crops",
+        "option_d": "They arrived in Corinth first",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:15 — \"Ye know the house of Stephanas, that it is the firstfruits of Achaia.\" Note that in Acts 17:34, Dionysius and Damaris believed in Athens (also in Achaia), but Stephanas was likely converted during Paul's earlier visit to Corinth (Acts 18:1-11)."
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul's statement about Apollos — \"his will was not at all to come at this time\" — reveal about apostolic relationships?",
+        "option_a": "Apollos exercised independent judgment about his travel plans despite Paul's strong desire — showing that early church leaders were colleagues, not subordinates under a papal hierarchy; Apollos had genuine autonomy",
+        "option_b": "Paul controlled Apollos's schedule",
+        "option_c": "Apollos was rebelling against Paul",
+        "option_d": "They were enemies",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:12 — \"As touching our brother Apollos, I greatly desired him to come unto you with the brethren: but his will was not at all to come at this time.\" The Greek thelēma (will/desire) is emphatic — Apollos made his own decision, and Paul respected it."
+      },
+      {
+        "question_number": 6,
+        "question": "How do the five rapid imperatives in verses 13-14 function as a summary of the letter?",
+        "option_a": "\"Watch\" (against doctrinal error — ch.15), \"stand fast in the faith\" (against division — ch.1-4), \"quit you like men\" (against moral cowardice — ch.5-6), \"be strong\" (against self-indulgence — ch.8-10), \"let all things be done with charity\" (the governing principle — ch.13)",
+        "option_b": "They are random military commands",
+        "option_c": "They have no connection to the letter",
+        "option_d": "They are borrowed from Roman military manuals",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:13-14 — These five imperatives compress the entire letter's concerns into a memorable charge. \"Quit you like men\" (andrizesthe) means \"act courageously/maturely\" — the same call to maturity found throughout the letter."
+      },
+      {
+        "question_number": 7,
+        "question": "What is the significance of Paul writing the final greeting \"with mine own hand\"?",
+        "option_a": "Paul typically dictated his letters through an amanuensis (secretary) but wrote the final greeting personally as authentication — proving the letter's genuineness and adding a personal touch (cf. Galatians 6:11, Colossians 4:18, 2 Thessalonians 3:17)",
+        "option_b": "He could not afford a secretary",
+        "option_c": "The rest of the letter was not his",
+        "option_d": "He was testing a new pen",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16:21 — \"The salutation of me Paul with mine own hand.\" This autographic practice was common in ancient letter-writing as a seal of authenticity, confirming that the dictated content was genuinely from the named author."
+      },
+      {
+        "question_number": 8,
+        "question": "How does 1 Corinthians 16 balance practical instructions with theological depth?",
+        "option_a": "Paul seamlessly weaves mundane logistics (travel plans, collections, household greetings) with profound theological content (anathema/Maranatha, standing in the faith, love as governing principle) — showing that practical church life and deep theology are inseparable",
+        "option_b": "The chapter is purely practical with no theology",
+        "option_c": "It is purely theological with no practical content",
+        "option_d": "It contradicts the rest of the letter",
+        "correct_answer": "a",
+        "explanation": "1 Corinthians 16 integrates Paul's travel plans (vv.5-9), personnel matters (vv.10-12,15-18), theological charge (vv.13-14), solemn warning (v.22), and personal greeting (vv.19-24) — modelling how gospel truth shapes every dimension of church life."
+      }
+    ]
+  }
+}

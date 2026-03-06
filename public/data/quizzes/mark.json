@@ -1,0 +1,2690 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who baptized Jesus in the river Jordan?",
+        "option_a": "John the Baptist",
+        "option_b": "Peter",
+        "option_c": "Moses",
+        "option_d": "Paul",
+        "correct_answer": "a",
+        "explanation": "Mark 1:9 — \"Jesus came from Nazareth of Galilee, and was baptized of John in Jordan.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What happened when Jesus came up out of the water?",
+        "option_a": "The heavens opened and the Spirit descended like a dove",
+        "option_b": "A rainbow appeared",
+        "option_c": "Thunder struck the ground",
+        "option_d": "The river dried up",
+        "correct_answer": "a",
+        "explanation": "Mark 1:10 — \"And straightway coming up out of the water, he saw the heavens opened, and the Spirit like a dove descending upon him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus tell the fishermen to follow Him and He would make them?",
+        "option_a": "Fishers of men",
+        "option_b": "Builders of temples",
+        "option_c": "Rulers of nations",
+        "option_d": "Writers of books",
+        "correct_answer": "a",
+        "explanation": "Mark 1:17 — \"Come ye after me, and I will make you to become fishers of men.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What Old Testament prophet is quoted at the beginning of Mark?",
+        "option_a": "Isaiah",
+        "option_b": "Jeremiah",
+        "option_c": "Ezekiel",
+        "option_d": "Daniel",
+        "correct_answer": "a",
+        "explanation": "Mark 1:2-3 — \"As it is written in the prophets... The voice of one crying in the wilderness, Prepare ye the way of the Lord\" (quoting Isaiah 40:3)."
+      },
+      {
+        "question_number": 2,
+        "question": "How long was Jesus tempted in the wilderness?",
+        "option_a": "Forty days",
+        "option_b": "Seven days",
+        "option_c": "Three days",
+        "option_d": "Twelve days",
+        "correct_answer": "a",
+        "explanation": "Mark 1:13 — \"And he was there in the wilderness forty days, tempted of Satan.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What was the first thing Jesus preached?",
+        "option_a": "The kingdom of God is at hand: repent ye, and believe the gospel",
+        "option_b": "Beware the scribes and Pharisees",
+        "option_c": "Love your enemies",
+        "option_d": "Blessed are the poor in spirit",
+        "correct_answer": "a",
+        "explanation": "Mark 1:15 — \"The time is fulfilled, and the kingdom of God is at hand: repent ye, and believe the gospel.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did the unclean spirit say to Jesus in the synagogue at Capernaum?",
+        "option_a": "I know thee who thou art, the Holy One of God",
+        "option_b": "We do not know you",
+        "option_c": "Leave us alone forever",
+        "option_d": "You have no power here",
+        "correct_answer": "a",
+        "explanation": "Mark 1:24 — \"I know thee who thou art, the Holy One of God.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Jesus do very early in the morning after healing many people?",
+        "option_a": "Rose up a great while before day and went to a solitary place to pray",
+        "option_b": "Slept until noon",
+        "option_c": "Traveled to Jerusalem",
+        "option_d": "Called a large meeting",
+        "correct_answer": "a",
+        "explanation": "Mark 1:35 — \"And in the morning, rising up a great while before day, he went out, and departed into a solitary place, and there prayed.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What is the very first verse of Mark's Gospel?",
+        "option_a": "The beginning of the gospel of Jesus Christ, the Son of God",
+        "option_b": "In the beginning was the Word",
+        "option_c": "The book of the generation of Jesus Christ",
+        "option_d": "Forasmuch as many have taken in hand",
+        "correct_answer": "a",
+        "explanation": "Mark 1:1 — \"The beginning of the gospel of Jesus Christ, the Son of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did John the Baptist wear and eat according to Mark?",
+        "option_a": "Camel's hair with a leather girdle; locusts and wild honey",
+        "option_b": "Fine linen and bread",
+        "option_c": "Wool and fish",
+        "option_d": "Sackcloth and figs",
+        "correct_answer": "a",
+        "explanation": "Mark 1:6 — \"And John was clothed with camel's hair, and with a girdle of a skin about his loins; and he did eat locusts and wild honey.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What voice spoke from heaven at Jesus' baptism and what did it say?",
+        "option_a": "Thou art my beloved Son, in whom I am well pleased",
+        "option_b": "This is a great prophet, listen to him",
+        "option_c": "Behold the Lamb of God",
+        "option_d": "Go and sin no more",
+        "correct_answer": "a",
+        "explanation": "Mark 1:11 — \"And there came a voice from heaven, saying, Thou art my beloved Son, in whom I am well pleased.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Which two sets of brothers did Jesus call as His first four disciples?",
+        "option_a": "Simon and Andrew, then James and John (sons of Zebedee)",
+        "option_b": "Philip and Bartholomew, then Thomas and Matthew",
+        "option_c": "James and Judas, then Peter and Andrew",
+        "option_d": "Matthew and Thomas, then Philip and Nathanael",
+        "correct_answer": "a",
+        "explanation": "Mark 1:16-20 — Simon and Andrew casting a net, then James and John mending their nets."
+      },
+      {
+        "question_number": 5,
+        "question": "What did Jesus command the unclean spirit, and what happened?",
+        "option_a": "He rebuked him saying \"Hold thy peace, and come out of him,\" and the spirit came out with convulsions and a loud cry",
+        "option_b": "He touched the man and the spirit vanished silently",
+        "option_c": "He prayed over the man for many hours",
+        "option_d": "He sent the man to the priests for cleansing",
+        "correct_answer": "a",
+        "explanation": "Mark 1:25-26 — \"Jesus rebuked him, saying, Hold thy peace, and come out of him. And when the unclean spirit had torn him, and cried with a loud voice, he came out of him.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Whom did Jesus heal in Simon's house, and how?",
+        "option_a": "Simon's wife's mother, sick of a fever; He took her by the hand and lifted her up",
+        "option_b": "Simon's daughter who was lame; He spoke a word",
+        "option_c": "Simon's servant who was blind; He touched his eyes",
+        "option_d": "Simon's brother who had leprosy; He commanded him to wash",
+        "correct_answer": "a",
+        "explanation": "Mark 1:30-31 — \"But Simon's wife's mother lay sick of a fever... and he came and took her by the hand, and lifted her up; and immediately the fever left her.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What did Jesus tell the cleansed leper NOT to do, and what did the leper do?",
+        "option_a": "Jesus charged him to say nothing, but the man published it much and blazed abroad the matter",
+        "option_b": "Jesus told him not to return home, but he went home immediately",
+        "option_c": "Jesus told him to stay in the city, but he fled to the wilderness",
+        "option_d": "Jesus told him to go to Jerusalem, but he went to Samaria",
+        "correct_answer": "a",
+        "explanation": "Mark 1:44-45 — \"See thou say nothing to any man... But he went out, and began to publish it much, and to blaze abroad the matter.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What theological significance does Mark's use of \"straightway\" (euthys) throughout chapter 1 convey?",
+        "option_a": "It emphasizes the urgency and immediate authority of Jesus' ministry as the active Servant of God",
+        "option_b": "It shows that Mark was writing in a hurry",
+        "option_c": "It indicates the events happened on a single day",
+        "option_d": "It suggests Mark had poor literary style",
+        "correct_answer": "a",
+        "explanation": "Mark uses \"straightway/immediately\" over 40 times in his Gospel, emphasizing Christ's decisive action — especially prominent in chapter 1 (vv. 10, 12, 18, 20, 21, 23, 28, 29, 30, 42)."
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "How did the sick man's friends get him to Jesus?",
+        "option_a": "They lowered him through the roof on his bed",
+        "option_b": "They carried him through the front door",
+        "option_c": "They waited outside until Jesus came out",
+        "option_d": "They called Jesus on a phone",
+        "correct_answer": "a",
+        "explanation": "Mark 2:4 — \"They uncovered the roof where he was: and when they had broken it up, they let down the bed wherein the sick of the palsy lay.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus tell the sick man to do?",
+        "option_a": "Arise, take up thy bed, and walk",
+        "option_b": "Stay in bed and rest",
+        "option_c": "Go to the doctors",
+        "option_d": "Wait until tomorrow",
+        "correct_answer": "a",
+        "explanation": "Mark 2:11 — \"I say unto thee, Arise, and take up thy bed, and go thy way into thine house.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who did Jesus call to follow Him from the tax collector's table?",
+        "option_a": "Levi (Matthew)",
+        "option_b": "Simon Peter",
+        "option_c": "James",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "Mark 2:14 — \"And as he passed by, he saw Levi the son of Alphaeus sitting at the receipt of custom, and said unto him, Follow me.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Jesus say first to the paralyzed man, and why did the scribes object?",
+        "option_a": "He said \"Thy sins be forgiven thee,\" and the scribes said only God can forgive sins",
+        "option_b": "He said \"Stand up and walk,\" and the scribes said he broke the Sabbath",
+        "option_c": "He said \"Your faith has saved you,\" and the scribes questioned his authority",
+        "option_d": "He said \"Be healed,\" and the scribes doubted his power",
+        "correct_answer": "a",
+        "explanation": "Mark 2:5,7 — \"Son, thy sins be forgiven thee... Why doth this man thus speak blasphemies? who can forgive sins but God only?\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why did the Pharisees criticize Jesus for eating with publicans and sinners?",
+        "option_a": "They believed a righteous teacher should not associate with sinful people",
+        "option_b": "They were concerned about food safety",
+        "option_c": "They wanted a private dinner invitation",
+        "option_d": "They objected to the type of food served",
+        "correct_answer": "a",
+        "explanation": "Mark 2:16 — \"How is it that he eateth and drinketh with publicans and sinners?\""
+      },
+      {
+        "question_number": 3,
+        "question": "How did Jesus respond to the criticism about eating with sinners?",
+        "option_a": "They that are whole have no need of the physician, but they that are sick",
+        "option_b": "He apologized and left the table",
+        "option_c": "He ignored them completely",
+        "option_d": "He told the sinners to leave",
+        "correct_answer": "a",
+        "explanation": "Mark 2:17 — \"They that are whole have no need of the physician, but they that are sick: I came not to call the righteous, but sinners to repentance.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What illustration did Jesus use about new wine?",
+        "option_a": "New wine must be put into new bottles (wineskins)",
+        "option_b": "New wine should be poured onto the ground",
+        "option_c": "New wine must be mixed with old wine",
+        "option_d": "New wine should be stored in clay pots",
+        "correct_answer": "a",
+        "explanation": "Mark 2:22 — \"And no man putteth new wine into old bottles... but new wine must be put into new bottles.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Jesus say about the Sabbath in response to the Pharisees?",
+        "option_a": "The sabbath was made for man, and not man for the sabbath",
+        "option_b": "The sabbath should be abolished",
+        "option_c": "The sabbath rules must be made stricter",
+        "option_d": "The sabbath only applies to priests",
+        "correct_answer": "a",
+        "explanation": "Mark 2:27 — \"The sabbath was made for man, and not man for the sabbath.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Jesus' statement \"Son, thy sins be forgiven thee\" reveal about the relationship between sin and sickness?",
+        "option_a": "Jesus addresses the root spiritual need before the physical, demonstrating His divine authority to forgive sins",
+        "option_b": "That all sickness is directly caused by personal sin",
+        "option_c": "That physical healing is unimportant",
+        "option_d": "That forgiveness requires a temple sacrifice",
+        "correct_answer": "a",
+        "explanation": "Mark 2:5 — \"Son, thy sins be forgiven thee.\" Jesus prioritizes the man's spiritual condition, then heals physically to prove His authority (v. 10)."
+      },
+      {
+        "question_number": 2,
+        "question": "What reasoning did Jesus use to prove He had power to forgive sins?",
+        "option_a": "Whether is it easier to say, Thy sins be forgiven; or to say, Arise and walk? — then He healed the man as visible proof",
+        "option_b": "He quoted an Old Testament prophecy",
+        "option_c": "He called angels to testify",
+        "option_d": "He asked the Pharisees to verify His identity",
+        "correct_answer": "a",
+        "explanation": "Mark 2:9-11 — \"Whether is it easier to say to the sick of the palsy, Thy sins be forgiven thee; or to say, Arise, and take up thy bed, and walk? But that ye may know that the Son of man hath power on earth to forgive sins...\""
+      },
+      {
+        "question_number": 3,
+        "question": "What title does Jesus use for Himself in verse 10, and what does it signify?",
+        "option_a": "The Son of man — a Messianic title from Daniel 7:13 indicating both divine authority and human identification",
+        "option_b": "The Son of David — referring only to His royal lineage",
+        "option_c": "The Son of God — emphasizing only His deity",
+        "option_d": "The Lamb of God — pointing to His sacrifice",
+        "correct_answer": "a",
+        "explanation": "Mark 2:10 — \"That ye may know that the Son of man hath power on earth to forgive sins.\" \"Son of man\" echoes Daniel 7:13-14."
+      },
+      {
+        "question_number": 4,
+        "question": "What Old Testament example did Jesus cite when defending His disciples for plucking grain on the Sabbath?",
+        "option_a": "David eating the shewbread in the house of God when Abiathar was high priest",
+        "option_b": "Moses gathering manna on the Sabbath",
+        "option_c": "Elijah being fed by ravens",
+        "option_d": "Joshua marching around Jericho on the Sabbath",
+        "correct_answer": "a",
+        "explanation": "Mark 2:25-26 — \"Have ye never read what David did... how he went into the house of God in the days of Abiathar the high priest, and did eat the shewbread.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Jesus claim about Himself in Mark 2:28?",
+        "option_a": "The Son of man is Lord also of the sabbath",
+        "option_b": "The sabbath belongs to the Pharisees",
+        "option_c": "Only priests have authority over the sabbath",
+        "option_d": "The sabbath is no longer relevant",
+        "correct_answer": "a",
+        "explanation": "Mark 2:28 — \"Therefore the Son of man is Lord also of the sabbath.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What do the parables of the unshrunk cloth and new wine teach about Jesus' ministry?",
+        "option_a": "Christ's new covenant cannot simply be patched onto old legalistic traditions; it requires a new framework",
+        "option_b": "Old traditions are always better than new ones",
+        "option_c": "Wine making was an important first-century industry",
+        "option_d": "Clothing repair was a common occupation",
+        "correct_answer": "a",
+        "explanation": "Mark 2:21-22 — The new cloth and new wine illustrations show that Jesus' teaching is not merely a reform of Pharisaic Judaism but something entirely new."
+      },
+      {
+        "question_number": 7,
+        "question": "How does the calling of Levi illustrate the nature of Jesus' ministry?",
+        "option_a": "It shows Jesus deliberately chose a despised tax collector, demonstrating that His kingdom includes social outcasts",
+        "option_b": "It shows Jesus needed wealthy supporters",
+        "option_c": "It demonstrates that tax collectors were respected",
+        "option_d": "It proves that all vocations are equally moral",
+        "correct_answer": "a",
+        "explanation": "Mark 2:14-15 — Jesus called Levi the publican and ate at his house with many sinners, scandalizing the religious establishment."
+      },
+      {
+        "question_number": 8,
+        "question": "What does the reaction of the crowd in verse 12 — \"We never saw it on this fashion\" — indicate about the healing?",
+        "option_a": "It was an unprecedented display of divine power that amazed all, including skeptics, and glorified God",
+        "option_b": "The crowd was simply entertained",
+        "option_c": "They had never seen a paralyzed man before",
+        "option_d": "They were frightened and wanted to flee",
+        "correct_answer": "a",
+        "explanation": "Mark 2:12 — \"Insomuch that they were all amazed, and glorified God, saying, We never saw it on this fashion.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What was wrong with the man's hand in the synagogue?",
+        "option_a": "It was withered (dried up)",
+        "option_b": "It was cut off",
+        "option_c": "It was too big",
+        "option_d": "It was burned",
+        "correct_answer": "a",
+        "explanation": "Mark 3:1 — \"And there was a man there which had a withered hand.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How many special helpers (apostles) did Jesus choose?",
+        "option_a": "Twelve",
+        "option_b": "Seven",
+        "option_c": "Three",
+        "option_d": "Twenty",
+        "correct_answer": "a",
+        "explanation": "Mark 3:14 — \"And he ordained twelve, that they should be with him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who did Jesus say are His brother, sister, and mother?",
+        "option_a": "Whoever does the will of God",
+        "option_b": "Only His relatives",
+        "option_c": "Only the twelve disciples",
+        "option_d": "Only people in the synagogue",
+        "correct_answer": "a",
+        "explanation": "Mark 3:35 — \"For whosoever shall do the will of God, the same is my brother, and my sister, and mother.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Why were the Pharisees watching Jesus in the synagogue on the Sabbath?",
+        "option_a": "To see if He would heal on the sabbath so they could accuse Him",
+        "option_b": "To learn from His teaching",
+        "option_c": "To invite Him to a feast",
+        "option_d": "To ask Him questions about Moses",
+        "correct_answer": "a",
+        "explanation": "Mark 3:2 — \"And they watched him, whether he would heal him on the sabbath day; that they might accuse him.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How did Jesus feel when He looked at the Pharisees before healing the man?",
+        "option_a": "He looked on them with anger, grieved at the hardness of their hearts",
+        "option_b": "He was indifferent to them",
+        "option_c": "He was amused by their questions",
+        "option_d": "He was frightened by their power",
+        "correct_answer": "a",
+        "explanation": "Mark 3:5 — \"And when he had looked round about on them with anger, being grieved for the hardness of their hearts.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who did the Pharisees join with to plot against Jesus?",
+        "option_a": "The Herodians",
+        "option_b": "The Sadducees",
+        "option_c": "The Romans",
+        "option_d": "The Essenes",
+        "correct_answer": "a",
+        "explanation": "Mark 3:6 — \"And the Pharisees went forth, and straightway took counsel with the Herodians against him, how they might destroy him.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What two purposes did Jesus ordain the twelve apostles for?",
+        "option_a": "To be with Him, and to be sent out to preach with power to heal and cast out devils",
+        "option_b": "To guard the temple and collect tithes",
+        "option_c": "To write the Old Testament and teach children",
+        "option_d": "To serve in the Roman government and spread news",
+        "correct_answer": "a",
+        "explanation": "Mark 3:14-15 — \"He ordained twelve, that they should be with him, and that he might send them forth to preach, And to have power to heal sicknesses, and to cast out devils.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What unforgivable sin did Jesus warn about?",
+        "option_a": "Blasphemy against the Holy Ghost",
+        "option_b": "Missing a day of worship",
+        "option_c": "Eating unclean food",
+        "option_d": "Working on the sabbath",
+        "correct_answer": "a",
+        "explanation": "Mark 3:29 — \"But he that shall blaspheme against the Holy Ghost hath never forgiveness, but is in danger of eternal damnation.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What question did Jesus ask in the synagogue before healing the withered hand?",
+        "option_a": "Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill?",
+        "option_b": "Is it lawful to eat on the sabbath?",
+        "option_c": "Is it lawful to walk on the sabbath?",
+        "option_d": "Is it lawful to pray on the sabbath?",
+        "correct_answer": "a",
+        "explanation": "Mark 3:4 — \"Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill? But they held their peace.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Mark record about the unclean spirits' response when they saw Jesus?",
+        "option_a": "They fell down before Him and cried, Thou art the Son of God",
+        "option_b": "They fled without speaking",
+        "option_c": "They challenged Him to prove His identity",
+        "option_d": "They ignored Him completely",
+        "correct_answer": "a",
+        "explanation": "Mark 3:11 — \"And unclean spirits, when they saw him, fell down before him, and cried, saying, Thou art the Son of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What surname did Jesus give to James and John, and what does it mean?",
+        "option_a": "Boanerges, which is The sons of thunder",
+        "option_b": "Cephas, which is A stone",
+        "option_c": "Didymus, which is A twin",
+        "option_d": "Iscariot, which is Man of Kerioth",
+        "correct_answer": "a",
+        "explanation": "Mark 3:17 — \"And James the son of Zebedee, and John the brother of James; and he surnamed them Boanerges, which is, The sons of thunder.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did the scribes from Jerusalem accuse Jesus of?",
+        "option_a": "Having Beelzebub and casting out devils by the prince of the devils",
+        "option_b": "Being a drunkard and a glutton",
+        "option_c": "Stealing from the temple treasury",
+        "option_d": "Practicing Egyptian sorcery",
+        "correct_answer": "a",
+        "explanation": "Mark 3:22 — \"And the scribes which came down from Jerusalem said, He hath Beelzebub, and by the prince of the devils casteth he out devils.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How did Jesus refute the accusation that He cast out demons by Satan's power?",
+        "option_a": "A kingdom divided against itself cannot stand; Satan would not cast out his own forces",
+        "option_b": "He performed an even greater miracle",
+        "option_c": "He quoted a passage from Leviticus",
+        "option_d": "He called witnesses to testify",
+        "correct_answer": "a",
+        "explanation": "Mark 3:23-26 — \"How can Satan cast out Satan? And if a kingdom be divided against itself, that kingdom cannot stand.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What parable does Jesus use about the \"strong man\" in verse 27?",
+        "option_a": "No man can enter a strong man's house and spoil his goods unless he first bind the strong man",
+        "option_b": "A strong man builds his house on rock",
+        "option_c": "A strong man lifts heavy burdens for others",
+        "option_d": "A strong man guards the city gates",
+        "correct_answer": "a",
+        "explanation": "Mark 3:27 — \"No man can enter into a strong man's house, and spoil his goods, except he will first bind the strong man; and then he will spoil his house.\""
+      },
+      {
+        "question_number": 7,
+        "question": "Why specifically did Jesus say the scribes were guilty of blaspheming the Holy Ghost?",
+        "option_a": "Because they said He had an unclean spirit — attributing the Spirit's work to Satan",
+        "option_b": "Because they refused to attend the synagogue",
+        "option_c": "Because they did not fast on the appointed days",
+        "option_d": "Because they collected taxes for Rome",
+        "correct_answer": "a",
+        "explanation": "Mark 3:30 — \"Because they said, He hath an unclean spirit.\" They attributed the Holy Spirit's miraculous work through Christ to demonic power."
+      },
+      {
+        "question_number": 8,
+        "question": "What does Jesus' redefinition of family in verses 33-35 teach about the nature of the kingdom of God?",
+        "option_a": "Spiritual kinship through obedience to God's will transcends and supersedes biological family ties",
+        "option_b": "Biological family is unimportant in every situation",
+        "option_c": "Only celibate people can be part of God's family",
+        "option_d": "Family relationships are meaningless in the afterlife",
+        "correct_answer": "a",
+        "explanation": "Mark 3:33-35 — \"Who is my mother, or my brethren?... For whosoever shall do the will of God, the same is my brother, and my sister, and mother.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "In Jesus' story, what happened to the seed that fell on good ground?",
+        "option_a": "It grew and brought forth fruit, some thirty, sixty, and a hundredfold",
+        "option_b": "It died right away",
+        "option_c": "It turned into a tree",
+        "option_d": "It was eaten by birds",
+        "correct_answer": "a",
+        "explanation": "Mark 4:8 — \"And other fell on good ground, and did yield fruit that sprang up and increased; and brought forth, some thirty, and some sixty, and some an hundred.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What was Jesus doing in the boat during the storm?",
+        "option_a": "Sleeping on a pillow",
+        "option_b": "Fishing",
+        "option_c": "Rowing",
+        "option_d": "Standing and watching",
+        "correct_answer": "a",
+        "explanation": "Mark 4:38 — \"And he was in the hinder part of the ship, asleep on a pillow.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus say to make the storm stop?",
+        "option_a": "Peace, be still",
+        "option_b": "Stop, wind",
+        "option_c": "Go away, storm",
+        "option_d": "Calm down, waves",
+        "correct_answer": "a",
+        "explanation": "Mark 4:39 — \"And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "In the parable of the sower, what do the thorns represent?",
+        "option_a": "The cares of this world, the deceitfulness of riches, and the lusts of other things",
+        "option_b": "Evil people who attack believers",
+        "option_c": "Diseases and sickness",
+        "option_d": "Government persecution",
+        "correct_answer": "a",
+        "explanation": "Mark 4:19 — \"And the cares of this world, and the deceitfulness of riches, and the lusts of other things entering in, choke the word, and it becometh unfruitful.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus say about hidden things in verse 22?",
+        "option_a": "There is nothing hid which shall not be manifested, nor kept secret but that it shall come abroad",
+        "option_b": "Some secrets will remain forever hidden",
+        "option_c": "Only God knows all hidden things",
+        "option_d": "Hidden things are always sinful",
+        "correct_answer": "a",
+        "explanation": "Mark 4:22 — \"For there is nothing hid, which shall not be manifested; neither was any thing kept secret, but that it should come abroad.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the mustard seed parable about?",
+        "option_a": "The kingdom of God starts very small but grows to become the greatest",
+        "option_b": "Mustard is the best seasoning",
+        "option_c": "Small seeds are worthless",
+        "option_d": "Only large trees please God",
+        "correct_answer": "a",
+        "explanation": "Mark 4:31-32 — \"When it is sown in the earth, is less than all the seeds... But when it is sown, it groweth up, and becometh greater than all herbs.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did the disciples say to Jesus during the storm?",
+        "option_a": "Master, carest thou not that we perish?",
+        "option_b": "Lord, save us, we are drowning",
+        "option_c": "Teacher, help us row to shore",
+        "option_d": "Rabbi, send the wind away",
+        "correct_answer": "a",
+        "explanation": "Mark 4:38 — \"And they awake him, and say unto him, Master, carest thou not that we perish?\""
+      },
+      {
+        "question_number": 5,
+        "question": "What question did the disciples ask each other after the storm was calmed?",
+        "option_a": "What manner of man is this, that even the wind and the sea obey him?",
+        "option_b": "How did he learn to control weather?",
+        "option_c": "Should we tell people about this?",
+        "option_d": "Was that just a coincidence?",
+        "correct_answer": "a",
+        "explanation": "Mark 4:41 — \"And they feared exceedingly, and said one to another, What manner of man is this, that even the wind and the sea obey him?\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "In the parable of the sower, what does the seed that fell by the way side represent?",
+        "option_a": "Those who hear the word but Satan immediately takes it away",
+        "option_b": "Those who hear and believe permanently",
+        "option_c": "Those who never hear the word",
+        "option_d": "Those who spread the word to others",
+        "correct_answer": "a",
+        "explanation": "Mark 4:15 — \"And these are they by the way side, where the word is sown; but when they have heard, Satan cometh immediately, and taketh away the word.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Jesus explain about why He speaks in parables?",
+        "option_a": "That seeing they may see, and not perceive; and hearing they may hear, and not understand — fulfilling Isaiah's prophecy",
+        "option_b": "To make His teachings easier to understand",
+        "option_c": "To entertain the crowd",
+        "option_d": "To avoid controversy",
+        "correct_answer": "a",
+        "explanation": "Mark 4:12 — \"That seeing they may see, and not perceive; and hearing they may hear, and not understand; lest at any time they should be converted, and their sins should be forgiven them.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does the stony ground represent in the parable of the sower?",
+        "option_a": "Those who receive the word gladly but have no root and fall away when affliction or persecution arises",
+        "option_b": "Those who never hear the gospel",
+        "option_c": "Those who bear abundant fruit",
+        "option_d": "Those who deliberately reject the truth",
+        "correct_answer": "a",
+        "explanation": "Mark 4:16-17 — \"These are they... which, when they have heard the word, immediately receive it with gladness; And have no root... when affliction or persecution ariseth for the word's sake, immediately they are offended.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What principle does Jesus state in verse 24 about measure?",
+        "option_a": "With what measure ye mete, it shall be measured to you: and unto you that hear shall more be given",
+        "option_b": "Only the wealthy will receive from God",
+        "option_c": "Everyone receives the same regardless",
+        "option_d": "God does not measure our deeds",
+        "correct_answer": "a",
+        "explanation": "Mark 4:24 — \"With what measure ye mete, it shall be measured to you: and unto you that hear shall more be given.\""
+      },
+      {
+        "question_number": 5,
+        "question": "In the parable of the seed growing secretly (Mark 4:26-29), what is the main point?",
+        "option_a": "The kingdom of God grows by divine power, not human effort — the earth bringeth forth fruit of herself",
+        "option_b": "Farmers should sleep more and work less",
+        "option_c": "Agriculture is the most godly profession",
+        "option_d": "Seeds are a symbol of money",
+        "correct_answer": "a",
+        "explanation": "Mark 4:27-28 — \"And should sleep, and rise night and day, and the seed should spring and grow up, he knoweth not how. For the earth bringeth forth fruit of herself.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Jesus' rebuke \"Why are ye so fearful? how is it that ye have no faith?\" reveal?",
+        "option_a": "That faith and fear are incompatible — the disciples should have trusted Christ's presence even in the storm",
+        "option_b": "That storms are illusions",
+        "option_c": "That the disciples were cowards",
+        "option_d": "That Jesus expected them to calm the storm themselves",
+        "correct_answer": "a",
+        "explanation": "Mark 4:40 — \"And he said unto them, Why are ye so fearful? how is it that ye have no faith?\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does the calming of the storm demonstrate about Christ's nature?",
+        "option_a": "His divine sovereignty over creation, since only God commands wind and sea (cf. Psalm 107:29)",
+        "option_b": "He had learned weather control from the Essenes",
+        "option_c": "He was merely lucky with the timing",
+        "option_d": "He used a natural phenomenon",
+        "correct_answer": "a",
+        "explanation": "Mark 4:39,41 — \"Peace, be still... What manner of man is this, that even the wind and the sea obey him?\" This parallels Psalm 107:29 — \"He maketh the storm a calm.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What literary function does Mark 4:33-34 serve regarding Jesus' teaching method?",
+        "option_a": "It summarizes that Jesus used many parables publicly but explained all things privately to His disciples, showing two levels of revelation",
+        "option_b": "It proves Jesus told only one parable",
+        "option_c": "It shows Jesus refused to teach the crowds",
+        "option_d": "It indicates the disciples never understood",
+        "correct_answer": "a",
+        "explanation": "Mark 4:33-34 — \"And with many such parables spake he the word unto them, as they were able to hear it. But without a parable spake he not unto them: and when they were alone, he expounded all things to his disciples.\""
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Where did the demons go when Jesus cast them out of the man?",
+        "option_a": "Into a herd of pigs that ran into the sea",
+        "option_b": "Into the mountains",
+        "option_c": "Into the temple",
+        "option_d": "Into the sky",
+        "correct_answer": "a",
+        "explanation": "Mark 5:13 — \"And the unclean spirits went out, and entered into the swine: and the herd ran violently down a steep place into the sea.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What happened when the sick woman touched Jesus' clothes?",
+        "option_a": "She was healed immediately",
+        "option_b": "Nothing happened",
+        "option_c": "She fell asleep",
+        "option_d": "She became more sick",
+        "correct_answer": "a",
+        "explanation": "Mark 5:29 — \"And straightway the fountain of her blood was dried up; and she felt in her body that she was healed of that plague.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus say to the little girl who had died?",
+        "option_a": "Talitha cumi, which means Little girl, I say unto thee, arise",
+        "option_b": "Go to sleep, child",
+        "option_c": "Rest in peace",
+        "option_d": "Wake up tomorrow",
+        "correct_answer": "a",
+        "explanation": "Mark 5:41 — \"And he took the damsel by the hand, and said unto her, Talitha cumi; which is, being interpreted, Damsel, I say unto thee, arise.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What was the name the demon-possessed man gave when Jesus asked?",
+        "option_a": "Legion, because they were many",
+        "option_b": "Beelzebub",
+        "option_c": "Satan",
+        "option_d": "Destroyer",
+        "correct_answer": "a",
+        "explanation": "Mark 5:9 — \"And he asked him, What is thy name? And he answered, saying, My name is Legion: for we are many.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the people of the region ask Jesus to do after He healed the man?",
+        "option_a": "They asked Him to depart out of their coasts",
+        "option_b": "They threw a feast for Him",
+        "option_c": "They asked Him to stay forever",
+        "option_d": "They worshipped Him publicly",
+        "correct_answer": "a",
+        "explanation": "Mark 5:17 — \"And they began to pray him to depart out of their coasts.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus tell the healed man to do?",
+        "option_a": "Go home to thy friends and tell them how great things the Lord hath done for thee",
+        "option_b": "Come and follow Me as a disciple",
+        "option_c": "Go to the temple and offer a sacrifice",
+        "option_d": "Stay silent about what happened",
+        "correct_answer": "a",
+        "explanation": "Mark 5:19 — \"Go home to thy friends, and tell them how great things the Lord hath done for thee, and hath had compassion on thee.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Who came to Jesus begging Him to heal his dying daughter?",
+        "option_a": "Jairus, a ruler of the synagogue",
+        "option_b": "Nicodemus, a Pharisee",
+        "option_c": "Joseph of Arimathea",
+        "option_d": "A Roman centurion",
+        "correct_answer": "a",
+        "explanation": "Mark 5:22-23 — \"And, behold, there cometh one of the rulers of the synagogue, Jairus by name... and besought him greatly, saying, My little daughter lieth at the point of death.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Jesus say to Jairus when told his daughter was dead?",
+        "option_a": "Be not afraid, only believe",
+        "option_b": "It is too late now",
+        "option_c": "We should turn back",
+        "option_d": "Let us pray for her soul",
+        "correct_answer": "a",
+        "explanation": "Mark 5:36 — \"As soon as Jesus heard the word that was spoken, he saith unto the ruler of the synagogue, Be not afraid, only believe.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How does Mark describe the demon-possessed man of the Gadarenes before Jesus healed him?",
+        "option_a": "He lived among the tombs, could not be bound even with chains, and cut himself with stones night and day",
+        "option_b": "He lived in a fine house and appeared normal",
+        "option_c": "He was mute and could not speak",
+        "option_d": "He was blind and deaf from birth",
+        "correct_answer": "a",
+        "explanation": "Mark 5:3-5 — \"Who had his dwelling among the tombs; and no man could bind him, no, not with chains... always, night and day, he was in the mountains, and in the tombs, crying, and cutting himself with stones.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How many swine perished when the demons entered them?",
+        "option_a": "About two thousand",
+        "option_b": "About five hundred",
+        "option_c": "About one hundred",
+        "option_d": "About ten thousand",
+        "correct_answer": "a",
+        "explanation": "Mark 5:13 — \"And the unclean spirits went out, and entered into the swine: and the herd ran violently down a steep place into the sea, (they were about two thousand;) and were choked in the sea.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus perceive when the woman with the issue of blood touched Him?",
+        "option_a": "That virtue (power) had gone out of Him",
+        "option_b": "That someone had stolen from Him",
+        "option_c": "That the crowd was too large",
+        "option_d": "That a sinner was nearby",
+        "correct_answer": "a",
+        "explanation": "Mark 5:30 — \"And Jesus, immediately knowing in himself that virtue had gone out of him, turned him about in the press, and said, Who touched my clothes?\""
+      },
+      {
+        "question_number": 4,
+        "question": "How long had the woman suffered with her issue of blood?",
+        "option_a": "Twelve years",
+        "option_b": "Seven years",
+        "option_c": "Three years",
+        "option_d": "Twenty years",
+        "correct_answer": "a",
+        "explanation": "Mark 5:25 — \"And a certain woman, which had an issue of blood twelve years.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Jesus say to the woman that identified the true cause of her healing?",
+        "option_a": "Thy faith hath made thee whole; go in peace, and be whole of thy plague",
+        "option_b": "My power has healed you",
+        "option_c": "Your touch has magical properties",
+        "option_d": "The garment itself healed you",
+        "correct_answer": "a",
+        "explanation": "Mark 5:34 — \"Daughter, thy faith hath made thee whole; go in peace, and be whole of thy plague.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What was the response of the mourners when Jesus said the girl was not dead but sleeping?",
+        "option_a": "They laughed Him to scorn",
+        "option_b": "They believed Him immediately",
+        "option_c": "They fell on their knees",
+        "option_d": "They ran away in fear",
+        "correct_answer": "a",
+        "explanation": "Mark 5:40 — \"And they laughed him to scorn. But when he had put them all out, he taketh the father and the mother of the damsel, and them that were with him, and entereth in where the damsel was lying.\""
+      },
+      {
+        "question_number": 7,
+        "question": "Who did Jesus allow to witness the raising of Jairus' daughter?",
+        "option_a": "Peter, James, and John, along with the father and mother",
+        "option_b": "All twelve disciples",
+        "option_c": "The entire crowd",
+        "option_d": "Only the mother",
+        "correct_answer": "a",
+        "explanation": "Mark 5:37,40 — \"He suffered no man to follow him, save Peter, and James, and John the brother of James... he taketh the father and the mother of the damsel, and them that were with him.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does the juxtaposition of the woman healed after 12 years of suffering and the 12-year-old girl raised from the dead suggest theologically?",
+        "option_a": "Both accounts demonstrate that Jesus has absolute authority over chronic disease and death, with faith as the common thread connecting both miracles",
+        "option_b": "The number 12 is merely a coincidence",
+        "option_c": "Only women and girls can receive miracles",
+        "option_d": "Physical touch is required for all healings",
+        "correct_answer": "a",
+        "explanation": "Mark 5:25,42 — The woman suffered 12 years; the girl was 12 years old. Both are restored by Jesus' power, responding to faith (Jairus' in v. 36, the woman's in v. 34)."
+      }
+    ]
+  },
+  "6": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Why couldn't Jesus do many mighty works in His hometown?",
+        "option_a": "Because of their unbelief",
+        "option_b": "Because He was tired",
+        "option_c": "Because it was the sabbath",
+        "option_d": "Because He forgot how",
+        "correct_answer": "a",
+        "explanation": "Mark 6:5-6 — \"And he could there do no mighty work... And he marvelled because of their unbelief.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How many people did Jesus feed with five loaves and two fishes?",
+        "option_a": "Five thousand men",
+        "option_b": "One hundred men",
+        "option_c": "Twelve men",
+        "option_d": "Fifty men",
+        "correct_answer": "a",
+        "explanation": "Mark 6:44 — \"And they that did eat of the loaves were about five thousand men.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What amazing thing did Jesus do on the sea?",
+        "option_a": "He walked on the water",
+        "option_b": "He swam very fast",
+        "option_c": "He rode a boat alone",
+        "option_d": "He caught a big fish",
+        "correct_answer": "a",
+        "explanation": "Mark 6:48 — \"And he saw them toiling in rowing... and about the fourth watch of the night he cometh unto them, walking upon the sea.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Jesus tell the twelve to take with them when He sent them out?",
+        "option_a": "Nothing except a staff — no bread, no bag, no money, but to wear sandals",
+        "option_b": "Plenty of food and money",
+        "option_c": "Extra clothing and supplies",
+        "option_d": "Weapons for protection",
+        "correct_answer": "a",
+        "explanation": "Mark 6:8-9 — \"And commanded them that they should take nothing for their journey, save a staff only; no scrip, no bread, no money in their purse: But be shod with sandals.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who had John the Baptist beheaded?",
+        "option_a": "Herod, at the request of Herodias' daughter",
+        "option_b": "Pontius Pilate",
+        "option_c": "The Sanhedrin",
+        "option_d": "A Roman soldier",
+        "correct_answer": "a",
+        "explanation": "Mark 6:27 — \"And immediately the king sent an executioner, and commanded his head to be brought.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Why did Herod fear John the Baptist?",
+        "option_a": "He knew John was a just and holy man",
+        "option_b": "He thought John had a large army",
+        "option_c": "He believed John was a Roman spy",
+        "option_d": "He was afraid of John's magical powers",
+        "correct_answer": "a",
+        "explanation": "Mark 6:20 — \"For Herod feared John, knowing that he was a just man and an holy.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How many baskets of leftovers were collected after the feeding of the five thousand?",
+        "option_a": "Twelve baskets full",
+        "option_b": "Two baskets full",
+        "option_c": "Five baskets full",
+        "option_d": "Seven baskets full",
+        "correct_answer": "a",
+        "explanation": "Mark 6:43 — \"And they took up twelve baskets full of the fragments, and of the fishes.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did the disciples think when they saw Jesus walking on the water?",
+        "option_a": "They supposed it was a spirit and cried out in fear",
+        "option_b": "They recognized Him immediately",
+        "option_c": "They thought it was a fisherman",
+        "option_d": "They ignored it and kept rowing",
+        "correct_answer": "a",
+        "explanation": "Mark 6:49 — \"But when they saw him walking upon the sea, they supposed it had been a spirit, and cried out.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What did the people of Nazareth call Jesus, and why did they take offense?",
+        "option_a": "The carpenter and son of Mary — they were offended because He was a local tradesman they thought they knew",
+        "option_b": "The prophet from Galilee — they expected miracles",
+        "option_c": "The teacher from Jerusalem — they questioned His credentials",
+        "option_d": "The healer from Bethsaida — they doubted His origins",
+        "correct_answer": "a",
+        "explanation": "Mark 6:3 — \"Is not this the carpenter, the son of Mary... And they were offended at him.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What proverbial saying did Jesus use about His rejection in Nazareth?",
+        "option_a": "A prophet is not without honour, but in his own country, and among his own kin, and in his own house",
+        "option_b": "No man can serve two masters",
+        "option_c": "The last shall be first",
+        "option_d": "Where your treasure is, there will your heart be",
+        "correct_answer": "a",
+        "explanation": "Mark 6:4 — \"A prophet is not without honour, but in his own country, and among his own kin, and in his own house.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Herod think about Jesus after hearing of His fame?",
+        "option_a": "That John the Baptist was risen from the dead",
+        "option_b": "That a new prophet had appeared",
+        "option_c": "That Moses had returned",
+        "option_d": "That Elijah had come back",
+        "correct_answer": "a",
+        "explanation": "Mark 6:14,16 — \"And king Herod heard of him... But when Herod heard thereof, he said, It is John, whom I beheaded: he is risen from the dead.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Why did Herodias want John the Baptist killed?",
+        "option_a": "Because John told Herod it was not lawful to have his brother's wife",
+        "option_b": "Because John refused to bow to Herod",
+        "option_c": "Because John predicted Herod's downfall",
+        "option_d": "Because John threatened to expose tax fraud",
+        "correct_answer": "a",
+        "explanation": "Mark 6:18-19 — \"For John had said unto Herod, It is not lawful for thee to have thy brother's wife. Therefore Herodias had a quarrel against him, and would have killed him.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What emotion did Jesus feel when He saw the great multitude before the feeding miracle?",
+        "option_a": "Compassion, because they were as sheep not having a shepherd",
+        "option_b": "Frustration because they followed Him",
+        "option_c": "Anger at their spiritual ignorance",
+        "option_d": "Indifference to their physical needs",
+        "correct_answer": "a",
+        "explanation": "Mark 6:34 — \"And Jesus, when he came out, saw much people, and was moved with compassion toward them, because they were as sheep not having a shepherd.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Jesus' command to the disciples — \"Give ye them to eat\" — reveal about His teaching method?",
+        "option_a": "He tested their faith and resourcefulness before demonstrating divine provision, inviting them to participate in the miracle",
+        "option_b": "He expected them to buy food from a nearby town",
+        "option_c": "He was testing their knowledge of Scripture",
+        "option_d": "He was being sarcastic",
+        "correct_answer": "a",
+        "explanation": "Mark 6:37 — \"Give ye them to eat.\" Jesus involved the disciples in the miracle, using what they had (5 loaves, 2 fish) to display divine abundance."
+      },
+      {
+        "question_number": 7,
+        "question": "What does Mark 6:48 say Jesus intended to do when walking on the sea?",
+        "option_a": "He would have passed by them — an allusion to Old Testament theophanies (cf. Exodus 33:19, 1 Kings 19:11)",
+        "option_b": "He intended to walk past them to the other shore",
+        "option_c": "He was testing whether they would call out",
+        "option_d": "He did not see them in the darkness",
+        "correct_answer": "a",
+        "explanation": "Mark 6:48 — \"And he saw them toiling in rowing... and about the fourth watch of the night he cometh unto them, walking upon the sea, and would have passed by them.\" This echoes God's self-revelation in the OT."
+      },
+      {
+        "question_number": 8,
+        "question": "What does Mark say was the reason the disciples were amazed at the walking on water and their hearts were hardened?",
+        "option_a": "They considered not the miracle of the loaves — they failed to understand what the feeding miracle revealed about Jesus' identity",
+        "option_b": "They were naturally afraid of the dark",
+        "option_c": "They had never seen the sea before",
+        "option_d": "They were exhausted from rowing",
+        "correct_answer": "a",
+        "explanation": "Mark 6:52 — \"For they considered not the miracle of the loaves: for their heart was hardened.\""
+      }
+    ]
+  },
+  "7": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did Jesus say makes a person unclean?",
+        "option_a": "Evil things that come out from within a person's heart",
+        "option_b": "Not washing hands before eating",
+        "option_c": "Touching dirty animals",
+        "option_d": "Eating the wrong food",
+        "correct_answer": "a",
+        "explanation": "Mark 7:20-21 — \"That which cometh out of the man, that defileth the man. For from within, out of the heart of men, proceed evil thoughts.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the woman from Syrophoenicia ask Jesus to do?",
+        "option_a": "Cast the devil out of her daughter",
+        "option_b": "Heal her own sickness",
+        "option_c": "Give her food to eat",
+        "option_d": "Teach her to pray",
+        "correct_answer": "a",
+        "explanation": "Mark 7:26 — \"The woman was a Greek, a Syrophenician by nation; and she besought him that he would cast forth the devil out of her daughter.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus use to heal the deaf man?",
+        "option_a": "He put His fingers in the man's ears and touched his tongue",
+        "option_b": "He gave him medicine",
+        "option_c": "He told him to wash in a river",
+        "option_d": "He placed a cloth on his head",
+        "correct_answer": "a",
+        "explanation": "Mark 7:33 — \"And he took him aside from the multitude, and put his fingers into his ears, and he spit, and touched his tongue.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did the Pharisees and scribes criticize the disciples for?",
+        "option_a": "Eating bread with unwashed (defiled) hands, not following the tradition of the elders",
+        "option_b": "Not attending the synagogue",
+        "option_c": "Not paying the temple tax",
+        "option_d": "Not wearing proper clothing",
+        "correct_answer": "a",
+        "explanation": "Mark 7:2,5 — \"They saw some of his disciples eat bread with defiled, that is to say, with unwashen, hands... Why walk not thy disciples according to the tradition of the elders?\""
+      },
+      {
+        "question_number": 2,
+        "question": "What Old Testament prophet did Jesus quote against the Pharisees?",
+        "option_a": "Isaiah — \"This people honoureth me with their lips, but their heart is far from me\"",
+        "option_b": "Jeremiah — \"The heart is deceitful above all things\"",
+        "option_c": "Ezekiel — \"I will give them a new heart\"",
+        "option_d": "Amos — \"Let justice roll down like waters\"",
+        "correct_answer": "a",
+        "explanation": "Mark 7:6 — \"Well hath Esaias prophesied of you hypocrites, as it is written, This people honoureth me with their lips, but their heart is far from me.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What practice of the Pharisees did Jesus condemn as \"Corban\"?",
+        "option_a": "Declaring money as a gift devoted to God to avoid supporting their parents",
+        "option_b": "Giving extra offerings to the temple",
+        "option_c": "Fasting twice a week for God",
+        "option_d": "Teaching children the Law of Moses",
+        "correct_answer": "a",
+        "explanation": "Mark 7:11-12 — \"If a man shall say to his father or mother, It is Corban, that is to say, a gift, by whatsoever thou mightest be profited by me... ye suffer him no more to do ought for his father or his mother.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How did the Syrophoenician woman respond to Jesus' statement about the children's bread?",
+        "option_a": "Yes, Lord: yet the dogs under the table eat of the children's crumbs",
+        "option_b": "She walked away in anger",
+        "option_c": "She demanded equal treatment",
+        "option_d": "She offered to pay for the healing",
+        "correct_answer": "a",
+        "explanation": "Mark 7:28 — \"And she answered and said unto him, Yes, Lord: yet the dogs under the table eat of the children's crumbs.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What word did Jesus say when healing the deaf man, and what does it mean?",
+        "option_a": "Ephphatha, which means Be opened",
+        "option_b": "Talitha cumi, which means Arise",
+        "option_c": "Eloi, which means My God",
+        "option_d": "Hosanna, which means Save us",
+        "correct_answer": "a",
+        "explanation": "Mark 7:34 — \"And looking up to heaven, he sighed, and saith unto him, Ephphatha, that is, Be opened.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Jesus' teaching in verses 18-19 declare about all foods?",
+        "option_a": "That nothing from outside entering a man can defile him — Mark notes this purges (cleanses) all meats",
+        "option_b": "That only kosher foods are acceptable",
+        "option_c": "That fasting is required before eating",
+        "option_d": "That vegetarianism is the Christian ideal",
+        "correct_answer": "a",
+        "explanation": "Mark 7:18-19 — \"Whatsoever thing from without entereth into the man, it cannot defile him... purging all meats.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What thirteen evil things does Jesus list as coming from within the heart of man?",
+        "option_a": "Evil thoughts, adulteries, fornications, murders, thefts, covetousness, wickedness, deceit, lasciviousness, an evil eye, blasphemy, pride, foolishness",
+        "option_b": "Only hatred and jealousy",
+        "option_c": "Poverty, illness, and bad luck",
+        "option_d": "Ignorance, laziness, and poor hygiene",
+        "correct_answer": "a",
+        "explanation": "Mark 7:21-22 — \"For from within, out of the heart of men, proceed evil thoughts, adulteries, fornications, murders, Thefts, covetousness, wickedness, deceit, lasciviousness, an evil eye, blasphemy, pride, foolishness.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Jesus' accusation in verse 8 distinguish between divine law and human tradition?",
+        "option_a": "He says the Pharisees lay aside the commandment of God to hold the tradition of men",
+        "option_b": "He says human tradition is more important",
+        "option_c": "He says both are equally authoritative",
+        "option_d": "He abolishes all law entirely",
+        "correct_answer": "a",
+        "explanation": "Mark 7:8 — \"For laying aside the commandment of God, ye hold the tradition of men.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does the \"Corban\" controversy in verses 10-13 reveal about the danger of religious tradition?",
+        "option_a": "Human traditions, even religious ones, can be used to circumvent God's moral commands — here, the fifth commandment to honour parents",
+        "option_b": "That all religious traditions are inherently evil",
+        "option_c": "That the Pharisees had good intentions",
+        "option_d": "That financial offerings replace moral duties",
+        "correct_answer": "a",
+        "explanation": "Mark 7:10-13 — Jesus shows that \"Corban\" vows were used to evade the commandment \"Honour thy father and thy mother,\" making God's word of no effect through tradition."
+      },
+      {
+        "question_number": 5,
+        "question": "What is the theological significance of Jesus healing the Syrophoenician woman's daughter?",
+        "option_a": "It demonstrates that God's grace extends beyond Israel to the Gentiles — the gospel is for all nations",
+        "option_b": "That Gentiles must earn their healing",
+        "option_c": "That Jesus only helped non-Jews reluctantly",
+        "option_d": "That Jewish priority in salvation is permanent",
+        "correct_answer": "a",
+        "explanation": "Mark 7:29-30 — \"For this saying go thy way; the devil is gone out of thy daughter.\" Jesus healed a Gentile's child, foreshadowing the gospel going to all nations."
+      },
+      {
+        "question_number": 6,
+        "question": "In what region did Jesus heal the deaf man with a speech impediment?",
+        "option_a": "Decapolis — a Gentile region of ten cities",
+        "option_b": "Jerusalem — the holy city",
+        "option_c": "Nazareth — His hometown",
+        "option_d": "Bethlehem — the city of David",
+        "correct_answer": "a",
+        "explanation": "Mark 7:31 — \"And again, departing from the coasts of Tyre and Sidon, he came unto the sea of Galilee, through the midst of the coasts of Decapolis.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What is notable about Jesus' method of healing the deaf man (fingers in ears, spitting, touching tongue)?",
+        "option_a": "Jesus used physical actions to communicate with a man who could not hear verbal commands, accommodating his disability",
+        "option_b": "Jesus needed physical contact for all healings",
+        "option_c": "Saliva was considered medicine in the first century",
+        "option_d": "It was a ritual required by Mosaic law",
+        "correct_answer": "a",
+        "explanation": "Mark 7:33-35 — Jesus adapted His approach to reach a man who could not hear. The physical touch communicated what words could not."
+      },
+      {
+        "question_number": 8,
+        "question": "What did the people say after the healing of the deaf man, echoing Genesis and Isaiah?",
+        "option_a": "He hath done all things well: he maketh both the deaf to hear, and the dumb to speak",
+        "option_b": "He is merely a good teacher",
+        "option_c": "He has power from Beelzebub",
+        "option_d": "He is the reincarnation of Elijah",
+        "correct_answer": "a",
+        "explanation": "Mark 7:37 — \"He hath done all things well: he maketh both the deaf to hear, and the dumb to speak.\" This echoes Genesis 1:31 (\"very good\") and Isaiah 35:5-6."
+      }
+    ]
+  },
+  "8": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "How many loaves did Jesus use to feed four thousand people?",
+        "option_a": "Seven",
+        "option_b": "Five",
+        "option_c": "Three",
+        "option_d": "Twelve",
+        "correct_answer": "a",
+        "explanation": "Mark 8:5-6 — \"And he asked them, How many loaves have ye? And they said, Seven... and he took the seven loaves.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Peter say when Jesus asked who the disciples thought He was?",
+        "option_a": "Thou art the Christ",
+        "option_b": "You are a great teacher",
+        "option_c": "You are John the Baptist",
+        "option_d": "You are Elijah",
+        "correct_answer": "a",
+        "explanation": "Mark 8:29 — \"And Peter answereth and saith unto him, Thou art the Christ.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus say a person must do to follow Him?",
+        "option_a": "Deny himself, take up his cross, and follow Me",
+        "option_b": "Give all his money away",
+        "option_c": "Move to Jerusalem",
+        "option_d": "Study for many years",
+        "correct_answer": "a",
+        "explanation": "Mark 8:34 — \"Whosoever will come after me, let him deny himself, and take up his cross, and follow me.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How many baskets of leftovers were collected after the feeding of the four thousand?",
+        "option_a": "Seven baskets",
+        "option_b": "Twelve baskets",
+        "option_c": "Five baskets",
+        "option_d": "Three baskets",
+        "correct_answer": "a",
+        "explanation": "Mark 8:8 — \"So they did eat, and were filled: and they took up of the broken meat that was left seven baskets.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the Pharisees demand from Jesus that He refused to give?",
+        "option_a": "A sign from heaven",
+        "option_b": "Tax money",
+        "option_c": "A public apology",
+        "option_d": "A written letter",
+        "correct_answer": "a",
+        "explanation": "Mark 8:11-12 — \"And the Pharisees came forth, and began to question with him, seeking of him a sign from heaven... There shall no sign be given unto this generation.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus warn the disciples to beware of?",
+        "option_a": "The leaven of the Pharisees and the leaven of Herod",
+        "option_b": "The soldiers of Rome",
+        "option_c": "The storms on the sea",
+        "option_d": "The wild animals in the desert",
+        "correct_answer": "a",
+        "explanation": "Mark 8:15 — \"And he charged them, saying, Take heed, beware of the leaven of the Pharisees, and of the leaven of Herod.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did the blind man at Bethsaida see at first after Jesus touched him?",
+        "option_a": "Men as trees, walking — his sight was only partially restored at first",
+        "option_b": "Nothing at all",
+        "option_c": "Perfect clear vision immediately",
+        "option_d": "Only bright light",
+        "correct_answer": "a",
+        "explanation": "Mark 8:24 — \"And he looked up, and said, I see men as trees, walking.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Jesus say would happen to someone who is ashamed of Him?",
+        "option_a": "The Son of man shall be ashamed of him when He comes in the glory of His Father with the holy angels",
+        "option_b": "Nothing will happen",
+        "option_c": "They will be forgiven later",
+        "option_d": "They will receive a second chance",
+        "correct_answer": "a",
+        "explanation": "Mark 8:38 — \"Whosoever therefore shall be ashamed of me and of my words... of him also shall the Son of man be ashamed, when he cometh in the glory of his Father with the holy angels.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What is the significance of Jesus' two feeding miracles — five thousand (ch. 6) and four thousand (ch. 8)?",
+        "option_a": "The 5,000 with 12 baskets left symbolizes ministry to Israel (12 tribes); the 4,000 with 7 baskets symbolizes ministry to Gentiles (7 representing completeness)",
+        "option_b": "They are the same event told twice",
+        "option_c": "Jesus only fed Jews in both cases",
+        "option_d": "The numbers are symbolic of zodiac signs",
+        "correct_answer": "a",
+        "explanation": "Mark 8:19-20 — Jesus specifically asks the disciples to recall both miracles and the different numbers of baskets (12 and 7), suggesting distinct theological significance."
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus mean by \"the leaven of the Pharisees and Herod\"?",
+        "option_a": "Their hypocritical teaching and corrupt influence that spreads like yeast through dough",
+        "option_b": "Literal bread and yeast",
+        "option_c": "Their baking traditions",
+        "option_d": "Their dietary restrictions",
+        "correct_answer": "a",
+        "explanation": "Mark 8:15 — \"Beware of the leaven of the Pharisees, and of the leaven of Herod.\" Leaven symbolizes corrupting influence; the Pharisees' legalism and Herod's worldliness both distort truth."
+      },
+      {
+        "question_number": 3,
+        "question": "Why is the two-stage healing of the blind man at Bethsaida unique among Jesus' miracles?",
+        "option_a": "It is the only recorded miracle where Jesus healed in two stages, likely illustrating the disciples' own partial understanding that needed further enlightenment",
+        "option_b": "Jesus' power was weakened that day",
+        "option_c": "The man's blindness was too severe for one touch",
+        "option_d": "It was a failed first attempt",
+        "correct_answer": "a",
+        "explanation": "Mark 8:23-25 — The progressive healing mirrors the disciples' own journey from spiritual blindness to partial sight (Peter's confession) to full understanding (after the resurrection)."
+      },
+      {
+        "question_number": 4,
+        "question": "What did people say about who Jesus was when He asked the disciples?",
+        "option_a": "John the Baptist, Elias (Elijah), or one of the prophets",
+        "option_b": "The Son of David, a king, or the Messiah",
+        "option_c": "Moses, Abraham, or Solomon",
+        "option_d": "An angel, a priest, or a scribe",
+        "correct_answer": "a",
+        "explanation": "Mark 8:28 — \"And they answered, John the Baptist: but some say, Elias; and others, One of the prophets.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Jesus begin to teach the disciples after Peter's confession?",
+        "option_a": "That the Son of man must suffer many things, be rejected, be killed, and after three days rise again",
+        "option_b": "That they should go to Rome and preach",
+        "option_c": "That the kingdom would come immediately",
+        "option_d": "That they should establish a political movement",
+        "correct_answer": "a",
+        "explanation": "Mark 8:31 — \"And he began to teach them, that the Son of man must suffer many things, and be rejected of the elders, and of the chief priests, and scribes, and be killed, and after three days rise again.\""
+      },
+      {
+        "question_number": 6,
+        "question": "How did Jesus respond when Peter rebuked Him for predicting His suffering?",
+        "option_a": "Get thee behind me, Satan: for thou savourest not the things that be of God, but the things that be of men",
+        "option_b": "Thank you, Peter, for your concern",
+        "option_c": "I will reconsider my path",
+        "option_d": "You may be right about this",
+        "correct_answer": "a",
+        "explanation": "Mark 8:33 — \"But when he had turned about and looked on his disciples, he rebuked Peter, saying, Get thee behind me, Satan: for thou savourest not the things that be of God, but the things that be of men.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What rhetorical question does Jesus ask about the value of a soul?",
+        "option_a": "What shall it profit a man, if he shall gain the whole world, and lose his own soul?",
+        "option_b": "How much gold is a man's life worth?",
+        "option_c": "What shall a man give in exchange for his freedom?",
+        "option_d": "Who can measure the value of wisdom?",
+        "correct_answer": "a",
+        "explanation": "Mark 8:36 — \"For what shall it profit a man, if he shall gain the whole world, and lose his own soul?\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does Peter's confession in Mark 8:29 serve as the structural pivot of Mark's Gospel?",
+        "option_a": "It marks the transition from the first half (who is Jesus? — revealed through miracles) to the second half (what must Jesus do? — the way of the cross)",
+        "option_b": "It is merely one of many confessions in the book",
+        "option_c": "It represents the end of Jesus' ministry",
+        "option_d": "It has no special literary significance",
+        "correct_answer": "a",
+        "explanation": "Mark 8:29 — \"Thou art the Christ.\" This confession divides Mark: chapters 1-8 reveal Jesus' identity; chapters 9-16 reveal His mission of suffering, death, and resurrection."
+      }
+    ]
+  },
+  "9": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What happened to Jesus' clothes on the mountain?",
+        "option_a": "They became shining, exceeding white as snow",
+        "option_b": "They turned brown",
+        "option_c": "They disappeared",
+        "option_d": "They became heavy",
+        "correct_answer": "a",
+        "explanation": "Mark 9:3 — \"And his raiment became shining, exceeding white as snow; so as no fuller on earth can white them.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who appeared with Jesus on the mountain?",
+        "option_a": "Moses and Elijah",
+        "option_b": "Abraham and David",
+        "option_c": "Adam and Noah",
+        "option_d": "Samuel and Isaiah",
+        "correct_answer": "a",
+        "explanation": "Mark 9:4 — \"And there appeared unto them Elias with Moses: and they were talking with Jesus.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus say about being the greatest?",
+        "option_a": "If any man desire to be first, the same shall be last of all and servant of all",
+        "option_b": "The strongest person is the greatest",
+        "option_c": "The richest person is the greatest",
+        "option_d": "The oldest person is the greatest",
+        "correct_answer": "a",
+        "explanation": "Mark 9:35 — \"If any man desire to be first, the same shall be last of all, and servant of all.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did the voice from the cloud say at the Transfiguration?",
+        "option_a": "This is my beloved Son: hear him",
+        "option_b": "Behold the Lamb of God",
+        "option_c": "Worship the Lord thy God only",
+        "option_d": "Fear not, I am with you",
+        "correct_answer": "a",
+        "explanation": "Mark 9:7 — \"And there was a cloud that overshadowed them: and a voice came out of the cloud, saying, This is my beloved Son: hear him.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the father of the demon-possessed boy cry out to Jesus?",
+        "option_a": "Lord, I believe; help thou mine unbelief",
+        "option_b": "I have no faith at all",
+        "option_c": "I only believe in miracles I can see",
+        "option_d": "I trust the physicians more",
+        "correct_answer": "a",
+        "explanation": "Mark 9:24 — \"And straightway the father of the child cried out, and said with tears, Lord, I believe; help thou mine unbelief.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus say about the kind of spirit that possessed the boy?",
+        "option_a": "This kind can come forth by nothing, but by prayer and fasting",
+        "option_b": "Any disciple can easily cast this out",
+        "option_c": "This kind cannot be removed",
+        "option_d": "This kind only leaves at sunset",
+        "correct_answer": "a",
+        "explanation": "Mark 9:29 — \"And he said unto them, This kind can come forth by nothing, but by prayer and fasting.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did Jesus do when the disciples argued about who was the greatest?",
+        "option_a": "He set a little child in the midst of them and said receiving a child in His name is receiving Him",
+        "option_b": "He chose Peter as the greatest",
+        "option_c": "He told them to stop talking",
+        "option_d": "He ignored their argument",
+        "correct_answer": "a",
+        "explanation": "Mark 9:36-37 — \"And he took a child, and set him in the midst of them: and when he had taken him in his arms, he said unto them, Whosoever shall receive one of such children in my name, receiveth me.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What vivid warning did Jesus give about causing a little one to stumble?",
+        "option_a": "It is better for him that a millstone were hanged about his neck, and he were cast into the sea",
+        "option_b": "He should pay a fine to the temple",
+        "option_c": "He should fast for a week",
+        "option_d": "He should move to another city",
+        "correct_answer": "a",
+        "explanation": "Mark 9:42 — \"And whosoever shall offend one of these little ones that believe in me, it is better for him that a millstone were hanged about his neck, and he were cast into the sea.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Which three disciples witnessed the Transfiguration?",
+        "option_a": "Peter, James, and John",
+        "option_b": "Peter, Andrew, and Matthew",
+        "option_c": "James, John, and Thomas",
+        "option_d": "Peter, Philip, and Bartholomew",
+        "correct_answer": "a",
+        "explanation": "Mark 9:2 — \"And after six days Jesus taketh with him Peter, and James, and John, and leadeth them up into an high mountain apart by themselves.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Peter suggest building on the mount of Transfiguration?",
+        "option_a": "Three tabernacles — one for Jesus, one for Moses, and one for Elijah",
+        "option_b": "A permanent temple",
+        "option_c": "An altar of sacrifice",
+        "option_d": "A stone monument",
+        "correct_answer": "a",
+        "explanation": "Mark 9:5 — \"Master, it is good for us to be here: and let us make three tabernacles; one for thee, and one for Moses, and one for Elias.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus charge the three disciples after the Transfiguration?",
+        "option_a": "To tell no man what they had seen until the Son of man were risen from the dead",
+        "option_b": "To immediately tell everyone",
+        "option_c": "To write it down in a book",
+        "option_d": "To tell only the other nine disciples",
+        "correct_answer": "a",
+        "explanation": "Mark 9:9 — \"And as they came down from the mountain, he charged them that they should tell no man what things they had seen, till the Son of man were risen from the dead.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did Jesus say about Elias (Elijah) having already come?",
+        "option_a": "That Elias has indeed come, and they have done unto him whatsoever they listed — referring to John the Baptist",
+        "option_b": "That Elijah was still expected in the future",
+        "option_c": "That the prophecy about Elijah was symbolic only",
+        "option_d": "That Elijah appeared at the Transfiguration as fulfillment",
+        "correct_answer": "a",
+        "explanation": "Mark 9:13 — \"But I say unto you, That Elias is indeed come, and they have done unto him whatsoever they listed, as it is written of him.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Jesus' statement \"All things are possible to him that believeth\" teach about faith?",
+        "option_a": "That genuine faith connects a person to the limitless power of God, making the impossible possible through Him",
+        "option_b": "That humans have unlimited natural power",
+        "option_c": "That faith is merely positive thinking",
+        "option_d": "That believing guarantees material prosperity",
+        "correct_answer": "a",
+        "explanation": "Mark 9:23 — \"Jesus said unto him, If thou canst believe, all things are possible to him that believeth.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What repeated phrase does Jesus use about hell (Gehenna) in verses 43-48?",
+        "option_a": "Where their worm dieth not, and the fire is not quenched",
+        "option_b": "Where there is weeping and gnashing of teeth",
+        "option_c": "Where the darkness is eternal",
+        "option_d": "Where the soul sleeps forever",
+        "correct_answer": "a",
+        "explanation": "Mark 9:44,46,48 — \"Where their worm dieth not, and the fire is not quenched.\" Jesus quotes Isaiah 66:24 three times for emphasis."
+      },
+      {
+        "question_number": 7,
+        "question": "What does Jesus mean by \"Have salt in yourselves, and have peace one with another\" in verse 50?",
+        "option_a": "Believers should maintain their distinctive, preserving influence (salt) and live in harmony with each other",
+        "option_b": "Literal salt should be added to all meals",
+        "option_c": "Salt is a symbol of wealth and prosperity",
+        "option_d": "Only peacemakers can enter the kingdom",
+        "correct_answer": "a",
+        "explanation": "Mark 9:50 — \"Salt is good: but if the salt have lost his saltness, wherewith will ye season it? Have salt in yourselves, and have peace one with another.\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does the Transfiguration confirm Jesus' identity and mission?",
+        "option_a": "It reveals His pre-incarnate divine glory, connects Him to the Law (Moses) and Prophets (Elijah), and the Father's voice affirms His unique Sonship",
+        "option_b": "It was merely a vision with no theological meaning",
+        "option_c": "It shows Jesus was equal to Moses and Elijah",
+        "option_d": "It proves the disciples had spiritual powers",
+        "correct_answer": "a",
+        "explanation": "Mark 9:2-7 — The Transfiguration unveils Christ's glory (v. 3), connects Him to the OT witness (v. 4), and the Father commands \"Hear him\" (v. 7), superseding Moses and Elijah."
+      }
+    ]
+  },
+  "10": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did Jesus say when the disciples tried to keep the children away?",
+        "option_a": "Suffer the little children to come unto me, and forbid them not",
+        "option_b": "Children should wait until they are older",
+        "option_c": "Only adults can come to me",
+        "option_d": "Tell the children to go home",
+        "correct_answer": "a",
+        "explanation": "Mark 10:14 — \"Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the rich young man have a lot of?",
+        "option_a": "Great possessions (riches)",
+        "option_b": "Friends",
+        "option_c": "Brothers and sisters",
+        "option_d": "Animals",
+        "correct_answer": "a",
+        "explanation": "Mark 10:22 — \"And he was sad at that saying, and went away grieved: for he had great possessions.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who did Jesus heal on the road near Jericho?",
+        "option_a": "Blind Bartimaeus",
+        "option_b": "Deaf Matthew",
+        "option_c": "Lame Zacchaeus",
+        "option_d": "Sick Lazarus",
+        "correct_answer": "a",
+        "explanation": "Mark 10:46,52 — \"Blind Bartimaeus, the son of Timaeus, sat by the highway side begging... And Jesus said unto him, Go thy way; thy faith hath made thee whole.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Jesus say about divorce when the Pharisees tested Him?",
+        "option_a": "What God hath joined together, let not man put asunder",
+        "option_b": "Divorce is acceptable for any reason",
+        "option_c": "Marriage is not important",
+        "option_d": "Moses' law is the final word",
+        "correct_answer": "a",
+        "explanation": "Mark 10:9 — \"What therefore God hath joined together, let not man put asunder.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus say is hard for rich people to do?",
+        "option_a": "Enter into the kingdom of God",
+        "option_b": "Find good friends",
+        "option_c": "Be healthy",
+        "option_d": "Travel safely",
+        "correct_answer": "a",
+        "explanation": "Mark 10:23 — \"How hardly shall they that have riches enter into the kingdom of God!\""
+      },
+      {
+        "question_number": 3,
+        "question": "What famous comparison did Jesus make about a rich man entering the kingdom?",
+        "option_a": "It is easier for a camel to go through the eye of a needle than for a rich man to enter the kingdom of God",
+        "option_b": "It is easier for a horse to fly",
+        "option_c": "It is easier for a mountain to move",
+        "option_d": "It is easier for the sun to stop",
+        "correct_answer": "a",
+        "explanation": "Mark 10:25 — \"It is easier for a camel to go through the eye of a needle, than for a rich man to enter into the kingdom of God.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did James and John ask Jesus for?",
+        "option_a": "To sit on His right and left hand in His glory",
+        "option_b": "To be released from following Him",
+        "option_c": "To go back to fishing",
+        "option_d": "To lead the other ten disciples",
+        "correct_answer": "a",
+        "explanation": "Mark 10:37 — \"They said unto him, Grant unto us that we may sit, one on thy right hand, and the other on thy left hand, in thy glory.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did blind Bartimaeus cry out to Jesus?",
+        "option_a": "Jesus, thou Son of David, have mercy on me",
+        "option_b": "Jesus, give me money",
+        "option_c": "Jesus, take me as your disciple",
+        "option_d": "Jesus, destroy my enemies",
+        "correct_answer": "a",
+        "explanation": "Mark 10:47 — \"And when he heard that it was Jesus of Nazareth, he began to cry out, and say, Jesus, thou Son of David, have mercy on me.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Why did Jesus say Moses permitted a bill of divorcement?",
+        "option_a": "For the hardness of your hearts he wrote you this precept",
+        "option_b": "Because marriage is temporary",
+        "option_c": "Because divorce is God's perfect will",
+        "option_d": "Because Moses disliked marriage",
+        "correct_answer": "a",
+        "explanation": "Mark 10:5 — \"And Jesus answered and said unto them, For the hardness of your heart he wrote you this precept.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Jesus say about receiving the kingdom of God like a child?",
+        "option_a": "Whosoever shall not receive the kingdom of God as a little child, he shall not enter therein",
+        "option_b": "Only literal children can enter the kingdom",
+        "option_c": "Adults should act immature",
+        "option_d": "Children are automatically saved",
+        "correct_answer": "a",
+        "explanation": "Mark 10:15 — \"Verily I say unto you, Whosoever shall not receive the kingdom of God as a little child, he shall not enter therein.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did the rich young ruler claim about keeping the commandments?",
+        "option_a": "Master, all these have I observed from my youth",
+        "option_b": "He admitted he had broken them all",
+        "option_c": "He said he knew only a few",
+        "option_d": "He asked which commandments Jesus meant",
+        "correct_answer": "a",
+        "explanation": "Mark 10:20 — \"And he answered and said unto him, Master, all these have I observed from my youth.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How did Jesus feel when He looked at the rich young ruler?",
+        "option_a": "He loved him — then told him to sell all he had, give to the poor, and follow Him",
+        "option_b": "He was angry with him",
+        "option_c": "He was indifferent",
+        "option_d": "He was suspicious of his motives",
+        "correct_answer": "a",
+        "explanation": "Mark 10:21 — \"Then Jesus beholding him loved him, and said unto him, One thing thou lackest: go thy way, sell whatsoever thou hast, and give to the poor.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What promise does Jesus make about those who leave everything for Him and the gospel?",
+        "option_a": "They shall receive an hundredfold now in this time, and in the world to come eternal life",
+        "option_b": "They will become wealthy immediately",
+        "option_c": "They will suffer without reward",
+        "option_d": "They will be forgotten by God",
+        "correct_answer": "a",
+        "explanation": "Mark 10:29-30 — \"There is no man that hath left house, or brethren... but he shall receive an hundredfold now in this time... and in the world to come eternal life.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Jesus say the Son of man came to do?",
+        "option_a": "Not to be ministered unto, but to minister, and to give his life a ransom for many",
+        "option_b": "To be served by all nations",
+        "option_c": "To establish an earthly kingdom",
+        "option_d": "To overthrow the Roman Empire",
+        "correct_answer": "a",
+        "explanation": "Mark 10:45 — \"For even the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What \"cup\" and \"baptism\" does Jesus ask James and John about?",
+        "option_a": "His suffering and death — the cup of God's wrath and the baptism of His crucifixion",
+        "option_b": "The communion cup and water baptism",
+        "option_c": "A cup of wine and ritual washing",
+        "option_d": "The cup of blessing and Spirit baptism",
+        "correct_answer": "a",
+        "explanation": "Mark 10:38 — \"Can ye drink of the cup that I drink of? and be baptized with the baptism that I am baptized with?\" The cup and baptism refer to His atoning death."
+      },
+      {
+        "question_number": 8,
+        "question": "How does Mark 10:45 serve as a key verse summarizing Mark's entire Gospel?",
+        "option_a": "It encapsulates Jesus as the suffering Servant who came to serve and give His life as a substitutionary ransom — the central theme of Mark",
+        "option_b": "It is a minor teaching among many",
+        "option_c": "It only applies to the twelve disciples",
+        "option_d": "It refers to a future, not present, mission",
+        "correct_answer": "a",
+        "explanation": "Mark 10:45 — \"To give his life a ransom for many.\" This verse is often called the key verse of Mark, summarizing Jesus' mission as the Servant-Redeemer (cf. Isaiah 53)."
+      }
+    ]
+  },
+  "11": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What animal did Jesus ride into Jerusalem?",
+        "option_a": "A young donkey (colt)",
+        "option_b": "A horse",
+        "option_c": "A camel",
+        "option_d": "A chariot",
+        "correct_answer": "a",
+        "explanation": "Mark 11:7 — \"And they brought the colt to Jesus, and cast their garments on him; and he sat upon him.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the people shout as Jesus entered Jerusalem?",
+        "option_a": "Hosanna; Blessed is he that cometh in the name of the Lord",
+        "option_b": "Go back to Nazareth",
+        "option_c": "Hail Caesar",
+        "option_d": "Long live the king of Rome",
+        "correct_answer": "a",
+        "explanation": "Mark 11:9 — \"Hosanna; Blessed is he that cometh in the name of the Lord.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus do to the money changers in the temple?",
+        "option_a": "He overturned their tables and drove them out",
+        "option_b": "He gave them more money",
+        "option_c": "He sat down and talked with them",
+        "option_d": "He invited them to dinner",
+        "correct_answer": "a",
+        "explanation": "Mark 11:15 — \"And Jesus went into the temple, and began to cast out them that sold and bought in the temple, and overthrew the tables of the moneychangers.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Jesus find on the fig tree when He was hungry?",
+        "option_a": "Nothing but leaves — it had no fruit",
+        "option_b": "An abundance of figs",
+        "option_c": "A bird's nest",
+        "option_d": "Beautiful flowers",
+        "correct_answer": "a",
+        "explanation": "Mark 11:13 — \"And seeing a fig tree afar off having leaves, he came, if haply he might find any thing thereon: and when he came to it, he found nothing but leaves.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus say the temple should be called?",
+        "option_a": "A house of prayer for all nations",
+        "option_b": "A house of business",
+        "option_c": "A museum of ancient things",
+        "option_d": "A place for priests only",
+        "correct_answer": "a",
+        "explanation": "Mark 11:17 — \"Is it not written, My house shall be called of all nations the house of prayer? but ye have made it a den of thieves.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What happened to the fig tree the morning after Jesus cursed it?",
+        "option_a": "It was dried up from the roots",
+        "option_b": "It grew more leaves",
+        "option_c": "It produced fruit",
+        "option_d": "Nothing changed",
+        "correct_answer": "a",
+        "explanation": "Mark 11:20 — \"And in the morning, as they passed by, they saw the fig tree dried up from the roots.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did Jesus teach about prayer using the fig tree as an example?",
+        "option_a": "Whatever you ask in prayer, believe that you receive it, and you shall have it",
+        "option_b": "Prayer only works in the temple",
+        "option_c": "Only priests can have effective prayers",
+        "option_d": "Prayer is not really necessary",
+        "correct_answer": "a",
+        "explanation": "Mark 11:24 — \"What things soever ye desire, when ye pray, believe that ye receive them, and ye shall have them.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What condition did Jesus add about forgiveness and prayer?",
+        "option_a": "When ye stand praying, forgive, if ye have ought against any, that your Father may forgive you",
+        "option_b": "Forgiveness is not connected to prayer",
+        "option_c": "Only forgive those who ask",
+        "option_d": "God forgives everyone automatically",
+        "correct_answer": "a",
+        "explanation": "Mark 11:25 — \"And when ye stand praying, forgive, if ye have ought against any: that your Father also which is in heaven may forgive you your trespasses.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What Old Testament prophecy did Jesus fulfill by riding into Jerusalem on a colt?",
+        "option_a": "Zechariah 9:9 — \"Thy King cometh unto thee... lowly, and riding upon an ass, and upon a colt the foal of an ass\"",
+        "option_b": "Isaiah 53 — the suffering servant",
+        "option_c": "Malachi 3:1 — the messenger",
+        "option_d": "Daniel 7:13 — the Son of man coming in clouds",
+        "correct_answer": "a",
+        "explanation": "Mark 11:7,9 — Jesus' entry on a colt fulfills Zechariah 9:9, presenting Himself as the humble, peaceful Messianic King."
+      },
+      {
+        "question_number": 2,
+        "question": "What does the cursing of the fig tree symbolize?",
+        "option_a": "God's judgment on Israel for having the appearance of spiritual life (leaves) but bearing no fruit of genuine faith",
+        "option_b": "That fig trees are inferior to other trees",
+        "option_c": "That Jesus was unreasonably angry",
+        "option_d": "That agriculture was failing in Palestine",
+        "correct_answer": "a",
+        "explanation": "Mark 11:13-14,20 — The fig tree with leaves but no fruit symbolizes Israel's religious show without genuine righteousness. Its withering foreshadows judgment on the temple."
+      },
+      {
+        "question_number": 3,
+        "question": "How does the temple cleansing narrative bracket the fig tree episode (Mark 11:12-21)?",
+        "option_a": "Mark uses a \"sandwich\" literary structure: fig tree cursed (A), temple cleansed (B), fig tree withered (A') — linking fruitlessness to temple corruption",
+        "option_b": "The events are completely unrelated",
+        "option_c": "The fig tree episode was an afterthought",
+        "option_d": "Mark simply recorded events chronologically",
+        "correct_answer": "a",
+        "explanation": "Mark 11:12-21 — Mark's intercalation (sandwich) technique links the barren fig tree to the corrupt temple, both judged for outward show without genuine devotion."
+      },
+      {
+        "question_number": 4,
+        "question": "What Scripture quotation does Jesus combine when cleansing the temple?",
+        "option_a": "Isaiah 56:7 (\"My house shall be called of all nations the house of prayer\") and Jeremiah 7:11 (\"a den of thieves\")",
+        "option_b": "Psalm 23 and Proverbs 3",
+        "option_c": "Genesis 1 and Exodus 20",
+        "option_d": "Deuteronomy 6 and Leviticus 19",
+        "correct_answer": "a",
+        "explanation": "Mark 11:17 — Jesus merges Isaiah 56:7 with Jeremiah 7:11, condemning the exploitation of worshippers and exclusion of Gentiles from the temple courts."
+      },
+      {
+        "question_number": 5,
+        "question": "What does Jesus' saying about moving a mountain into the sea illustrate?",
+        "option_a": "The extraordinary power available through faith-filled prayer — nothing is impossible for God",
+        "option_b": "That literal mountains should be moved",
+        "option_c": "That prayer replaces physical action",
+        "option_d": "That geography is meaningless to God",
+        "correct_answer": "a",
+        "explanation": "Mark 11:23 — \"Whosoever shall say unto this mountain, Be thou removed, and be thou cast into the sea; and shall not doubt in his heart... he shall have whatsoever he saith.\""
+      },
+      {
+        "question_number": 6,
+        "question": "How did Jesus respond when the chief priests asked by what authority He acted?",
+        "option_a": "He counter-questioned them about the baptism of John — whether it was from heaven or of men",
+        "option_b": "He showed them a written decree",
+        "option_c": "He performed a miracle as proof",
+        "option_d": "He quoted the Law of Moses",
+        "correct_answer": "a",
+        "explanation": "Mark 11:29-30 — \"I will also ask of you one question... The baptism of John, was it from heaven, or of men?\""
+      },
+      {
+        "question_number": 7,
+        "question": "Why could the chief priests not answer Jesus' question about John's baptism?",
+        "option_a": "If they said from heaven, Jesus would ask why they did not believe John; if from men, they feared the people",
+        "option_b": "They did not know who John was",
+        "option_c": "They had not considered the question",
+        "option_d": "They were forbidden to discuss baptism",
+        "correct_answer": "a",
+        "explanation": "Mark 11:31-32 — \"If we shall say, From heaven; he will say, Why then did ye not believe him? But if we shall say, Of men; they feared the people.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What is the theological significance of \"Hosanna in the highest\" and \"Blessed is he that cometh in the name of the Lord\"?",
+        "option_a": "The crowd quotes Psalm 118:25-26, a Messianic psalm used during Passover, recognizing Jesus as the long-awaited Davidic King",
+        "option_b": "It was a common greeting for any visitor",
+        "option_c": "The people were merely following Roman custom",
+        "option_d": "The words had no special religious meaning",
+        "correct_answer": "a",
+        "explanation": "Mark 11:9-10 — \"Hosanna; Blessed is he that cometh in the name of the Lord: Blessed be the kingdom of our father David.\" Psalm 118 was a Hallel psalm with Messianic expectations."
+      }
+    ]
+  },
+  "12": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "In Jesus' story, what did the wicked farmers do to the owner's son?",
+        "option_a": "They killed him",
+        "option_b": "They welcomed him",
+        "option_c": "They ignored him",
+        "option_d": "They hired him",
+        "correct_answer": "a",
+        "explanation": "Mark 12:7-8 — \"This is the heir; come, let us kill him... And they took him, and killed him, and cast him out of the vineyard.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What is the greatest commandment according to Jesus?",
+        "option_a": "Love the Lord thy God with all thy heart, soul, mind, and strength",
+        "option_b": "Do not steal",
+        "option_c": "Keep the sabbath",
+        "option_d": "Honour thy father and mother",
+        "correct_answer": "a",
+        "explanation": "Mark 12:30 — \"And thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind, and with all thy strength.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did the poor widow put into the temple treasury?",
+        "option_a": "Two small coins (mites)",
+        "option_b": "A bag of gold",
+        "option_c": "Ten silver coins",
+        "option_d": "A precious stone",
+        "correct_answer": "a",
+        "explanation": "Mark 12:42 — \"And there came a certain poor widow, and she threw in two mites, which make a farthing.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How did Jesus answer the trick question about paying taxes to Caesar?",
+        "option_a": "Render to Caesar the things that are Caesar's, and to God the things that are God's",
+        "option_b": "Do not pay any taxes",
+        "option_c": "Pay double taxes to show obedience",
+        "option_d": "Taxes are sinful",
+        "correct_answer": "a",
+        "explanation": "Mark 12:17 — \"Render to Caesar the things that are Caesar's, and to God the things that are God's.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the Sadducees try to trick Jesus with?",
+        "option_a": "A question about the resurrection involving a woman married to seven brothers",
+        "option_b": "A question about the sabbath",
+        "option_c": "A question about fasting",
+        "option_d": "A question about clean and unclean foods",
+        "correct_answer": "a",
+        "explanation": "Mark 12:23 — \"In the resurrection therefore, when they shall rise, whose wife shall she be of them? for the seven had her to wife.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus say about marriage in the resurrection?",
+        "option_a": "They neither marry nor are given in marriage but are as the angels in heaven",
+        "option_b": "Marriage continues in heaven",
+        "option_c": "Only the first marriage counts",
+        "option_d": "There is no resurrection",
+        "correct_answer": "a",
+        "explanation": "Mark 12:25 — \"For when they shall rise from the dead, they neither marry, nor are given in marriage; but are as the angels which are in heaven.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is the second greatest commandment?",
+        "option_a": "Thou shalt love thy neighbour as thyself",
+        "option_b": "Thou shalt not steal",
+        "option_c": "Remember the sabbath day",
+        "option_d": "Thou shalt not kill",
+        "correct_answer": "a",
+        "explanation": "Mark 12:31 — \"And the second is like, namely this, Thou shalt love thy neighbour as thyself.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Why did Jesus say the widow gave more than all the rich people?",
+        "option_a": "She gave all she had to live on, while they gave out of their abundance",
+        "option_b": "She gave a larger amount",
+        "option_c": "She gave more frequently",
+        "option_d": "She gave the most beautiful coins",
+        "correct_answer": "a",
+        "explanation": "Mark 12:44 — \"For all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Who does the \"beloved son\" represent in the parable of the wicked husbandmen?",
+        "option_a": "Jesus Christ — sent by God the Father (the householder) to Israel (the vineyard), and killed by the religious leaders (the husbandmen)",
+        "option_b": "Any generic prophet",
+        "option_c": "John the Baptist",
+        "option_d": "King David",
+        "correct_answer": "a",
+        "explanation": "Mark 12:6-8 — \"Having yet therefore one son, his wellbeloved, he sent him also last unto them, saying, They will reverence my son. But those husbandmen said... let us kill him.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What Scripture does Jesus quote after the parable of the wicked husbandmen?",
+        "option_a": "The stone which the builders rejected is become the head of the corner — Psalm 118:22-23",
+        "option_b": "The Lord is my shepherd — Psalm 23:1",
+        "option_c": "In the beginning God created — Genesis 1:1",
+        "option_d": "The fear of the Lord is the beginning of wisdom — Proverbs 9:10",
+        "correct_answer": "a",
+        "explanation": "Mark 12:10-11 — \"The stone which the builders rejected is become the head of the corner: This was the Lord's doing, and it is marvellous in our eyes.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How did Jesus prove the resurrection to the Sadducees from the Torah?",
+        "option_a": "He quoted Exodus 3:6 — God said \"I am the God of Abraham, Isaac, and Jacob,\" not \"I was\" — He is God of the living, not the dead",
+        "option_b": "He quoted Daniel's vision of the resurrection",
+        "option_c": "He pointed to Elijah raising the dead",
+        "option_d": "He cited the story of Lazarus",
+        "correct_answer": "a",
+        "explanation": "Mark 12:26-27 — \"I am the God of Abraham, and the God of Isaac, and the God of Jacob? He is not the God of the dead, but the God of the living.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did the scribe say when Jesus gave the two great commandments?",
+        "option_a": "That to love God and neighbor is more than all whole burnt offerings and sacrifices",
+        "option_b": "That Jesus was wrong",
+        "option_c": "That the commandments cannot be ranked",
+        "option_d": "That sacrifice is more important than love",
+        "correct_answer": "a",
+        "explanation": "Mark 12:33 — \"And to love him with all the heart... and to love his neighbour as himself, is more than all whole burnt offerings and sacrifices.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Jesus say to the scribe who answered wisely?",
+        "option_a": "Thou art not far from the kingdom of God",
+        "option_b": "You are already in the kingdom",
+        "option_c": "You are very far from truth",
+        "option_d": "You need to fast more",
+        "correct_answer": "a",
+        "explanation": "Mark 12:34 — \"And when Jesus saw that he answered discreetly, he said unto him, Thou art not far from the kingdom of God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What question did Jesus raise about David and the Messiah using Psalm 110?",
+        "option_a": "If David calls the Messiah \"Lord,\" how is He then merely David's son? — pointing to the Messiah's divinity",
+        "option_b": "He asked why David was a shepherd",
+        "option_c": "He questioned David's right to be king",
+        "option_d": "He asked why David wrote psalms",
+        "correct_answer": "a",
+        "explanation": "Mark 12:37 — \"David therefore himself calleth him Lord; and whence is he then his son?\" Jesus uses Psalm 110:1 to show the Messiah is both David's descendant and David's Lord."
+      },
+      {
+        "question_number": 7,
+        "question": "What did Jesus warn about the scribes?",
+        "option_a": "They love long robes, chief seats, and long prayers, but devour widows' houses — they shall receive greater damnation",
+        "option_b": "They are humble servants",
+        "option_c": "They are the most righteous people",
+        "option_d": "They deserve honor above all",
+        "correct_answer": "a",
+        "explanation": "Mark 12:38-40 — \"Beware of the scribes, which love to go in long clothing, and love salutations... and for a pretence make long prayers: these shall receive greater damnation.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What principle about giving does the widow's mites episode teach?",
+        "option_a": "God evaluates giving not by the amount but by the sacrifice — the widow gave proportionally more because she gave everything she had",
+        "option_b": "That only small donations please God",
+        "option_c": "That the temple treasury was poorly managed",
+        "option_d": "That widows should not give to the temple",
+        "correct_answer": "a",
+        "explanation": "Mark 12:43-44 — \"This poor widow hath cast more in, than all they which have cast into the treasury: For all they did cast in of their abundance; but she of her want did cast in all that she had.\""
+      }
+    ]
+  },
+  "13": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did Jesus say would happen to the temple?",
+        "option_a": "Not one stone would be left upon another — it would all be thrown down",
+        "option_b": "It would last forever",
+        "option_c": "It would become even bigger",
+        "option_d": "It would float into the sky",
+        "correct_answer": "a",
+        "explanation": "Mark 13:2 — \"Seest thou these great buildings? there shall not be left one stone upon another, that shall not be thrown down.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus say about false Christs?",
+        "option_a": "Many shall come saying I am Christ, but do not believe them",
+        "option_b": "No one would ever pretend to be Christ",
+        "option_c": "Only one false Christ would appear",
+        "option_d": "False Christs would help people",
+        "correct_answer": "a",
+        "explanation": "Mark 13:6 — \"For many shall come in my name, saying, I am Christ; and shall deceive many.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus tell His followers to do?",
+        "option_a": "Watch and be ready",
+        "option_b": "Sleep and rest",
+        "option_c": "Run away and hide",
+        "option_d": "Build a fort",
+        "correct_answer": "a",
+        "explanation": "Mark 13:37 — \"And what I say unto you I say unto all, Watch.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What signs did Jesus give before the end?",
+        "option_a": "Wars, earthquakes, famines, and persecution — but the gospel must first be published among all nations",
+        "option_b": "Only peace and prosperity",
+        "option_c": "Nothing unusual would happen",
+        "option_d": "The stars would dance",
+        "correct_answer": "a",
+        "explanation": "Mark 13:7-10 — \"And when ye shall hear of wars and rumours of wars, be ye not troubled... and the gospel must first be published among all nations.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus say about the \"abomination of desolation\"?",
+        "option_a": "When ye shall see it standing where it ought not, let those in Judaea flee to the mountains",
+        "option_b": "It refers to a beautiful new statue",
+        "option_c": "It is a natural disaster",
+        "option_d": "It describes a solar eclipse",
+        "correct_answer": "a",
+        "explanation": "Mark 13:14 — \"But when ye shall see the abomination of desolation, spoken of by Daniel the prophet, standing where it ought not... then let them that be in Judaea flee to the mountains.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How will the Son of man come according to Jesus?",
+        "option_a": "In the clouds with great power and glory",
+        "option_b": "Walking on the road",
+        "option_c": "Riding a horse",
+        "option_d": "Appearing in the temple",
+        "correct_answer": "a",
+        "explanation": "Mark 13:26 — \"And then shall they see the Son of man coming in the clouds with great power and glory.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did Jesus say about heaven and earth?",
+        "option_a": "Heaven and earth shall pass away, but my words shall not pass away",
+        "option_b": "Heaven and earth are eternal",
+        "option_c": "His words would eventually be forgotten",
+        "option_d": "Only heaven would remain",
+        "correct_answer": "a",
+        "explanation": "Mark 13:31 — \"Heaven and earth shall pass away: but my words shall not pass away.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Does anyone know the day and hour of Christ's return?",
+        "option_a": "No, not even the angels in heaven, nor the Son, but only the Father",
+        "option_b": "The prophets know the exact date",
+        "option_c": "It was revealed to the apostles",
+        "option_d": "It can be calculated from Scripture",
+        "correct_answer": "a",
+        "explanation": "Mark 13:32 — \"But of that day and that hour knoweth no man, no, not the angels which are in heaven, neither the Son, but the Father.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Which four disciples asked Jesus privately about the destruction of the temple?",
+        "option_a": "Peter, James, John, and Andrew",
+        "option_b": "Peter, James, John, and Matthew",
+        "option_c": "Peter, Andrew, Philip, and Thomas",
+        "option_d": "James, John, Judas, and Bartholomew",
+        "correct_answer": "a",
+        "explanation": "Mark 13:3 — \"And as he sat upon the mount of Olives over against the temple, Peter and James and John and Andrew asked him privately.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Jesus promise the Holy Spirit will do when believers are brought before rulers?",
+        "option_a": "It is not ye that speak, but the Holy Ghost — He will give them the words to say",
+        "option_b": "They should memorize speeches in advance",
+        "option_c": "They should hire lawyers to defend them",
+        "option_d": "They should remain silent in court",
+        "correct_answer": "a",
+        "explanation": "Mark 13:11 — \"But when they shall lead you, and deliver you up, take no thought beforehand what ye shall speak... for it is not ye that speak, but the Holy Ghost.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does \"the abomination of desolation spoken of by Daniel the prophet\" refer to historically and prophetically?",
+        "option_a": "It references Daniel 9:27 and 12:11 — historically fulfilled in the Roman destruction of the temple (AD 70) and potentially pointing to a future end-time desecration",
+        "option_b": "It refers only to Antiochus Epiphanes",
+        "option_c": "It was fulfilled entirely in the Babylonian exile",
+        "option_d": "It has no specific historical referent",
+        "correct_answer": "a",
+        "explanation": "Mark 13:14 — \"The abomination of desolation, spoken of by Daniel the prophet.\" This echoes Daniel 9:27 and was partially fulfilled in AD 70 when Rome destroyed the temple."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Jesus say about the tribulation in verse 19?",
+        "option_a": "It will be the worst affliction since the creation until now, and never shall be again",
+        "option_b": "It will be a time of moderate difficulty",
+        "option_c": "It will be shorter than previous trials",
+        "option_d": "It will affect only Gentiles",
+        "correct_answer": "a",
+        "explanation": "Mark 13:19 — \"For in those days shall be affliction, such as was not from the beginning of the creation which God created unto this time, neither shall be.\""
+      },
+      {
+        "question_number": 5,
+        "question": "For whose sake did Jesus say those days would be shortened?",
+        "option_a": "The elect's sake, whom He hath chosen",
+        "option_b": "The Roman emperor's sake",
+        "option_c": "The high priest's sake",
+        "option_d": "The sake of the angels",
+        "correct_answer": "a",
+        "explanation": "Mark 13:20 — \"And except that the Lord had shortened those days, no flesh should be saved: but for the elect's sake, whom he hath chosen, he hath shortened the days.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What cosmic signs will accompany the Son of man's coming?",
+        "option_a": "The sun shall be darkened, the moon shall not give her light, the stars shall fall, and the powers in heaven shall be shaken",
+        "option_b": "A great rainbow will appear",
+        "option_c": "The seas will turn to glass",
+        "option_d": "All mountains will crumble",
+        "correct_answer": "a",
+        "explanation": "Mark 13:24-25 — \"But in those days, after that tribulation, the sun shall be darkened, and the moon shall not give her light, And the stars of heaven shall fall, and the powers that are in heaven shall be shaken.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What parable does Jesus use to illustrate watchfulness at the end of chapter 13?",
+        "option_a": "The parable of the man travelling to a far country who left his servants in charge, commanding the porter to watch",
+        "option_b": "The parable of the ten virgins",
+        "option_c": "The parable of the talents",
+        "option_d": "The parable of the wheat and tares",
+        "correct_answer": "a",
+        "explanation": "Mark 13:34 — \"For the Son of man is as a man taking a far journey, who left his house, and gave authority to his servants, and to every man his work, and commanded the porter to watch.\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does Jesus' statement that \"neither the Son\" knows the day and hour relate to His dual nature?",
+        "option_a": "In His human nature, Jesus voluntarily limited His omniscience; as God the Son, all things are known to Him — this reflects the mystery of the incarnation",
+        "option_b": "It proves Jesus is not truly divine",
+        "option_c": "It means Jesus is inferior to the Father",
+        "option_d": "It was simply a figure of speech",
+        "correct_answer": "a",
+        "explanation": "Mark 13:32 — \"Neither the Son, but the Father.\" This is understood as reflecting Christ's voluntary self-limitation in His incarnate state (cf. Philippians 2:7)."
+      }
+    ]
+  },
+  "14": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did the woman pour on Jesus' head?",
+        "option_a": "Very precious ointment (spikenard)",
+        "option_b": "Water",
+        "option_c": "Oil for cooking",
+        "option_d": "Honey",
+        "correct_answer": "a",
+        "explanation": "Mark 14:3 — \"There came a woman having an alabaster box of ointment of spikenard very precious; and she brake the box, and poured it on his head.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus share with His disciples at the Last Supper?",
+        "option_a": "Bread and wine, saying the bread was His body and the wine His blood",
+        "option_b": "Fish and bread",
+        "option_c": "Lamb and vegetables",
+        "option_d": "Water and fruit",
+        "correct_answer": "a",
+        "explanation": "Mark 14:22-24 — \"Take, eat: this is my body... This is my blood of the new testament, which is shed for many.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How did Judas show the soldiers which man was Jesus?",
+        "option_a": "He kissed Jesus",
+        "option_b": "He pointed at Him",
+        "option_c": "He called His name",
+        "option_d": "He threw a stone",
+        "correct_answer": "a",
+        "explanation": "Mark 14:44-45 — \"Whomsoever I shall kiss, that same is he... and kissed him.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How much was the woman's ointment worth?",
+        "option_a": "More than three hundred pence (nearly a year's wages)",
+        "option_b": "Ten pence",
+        "option_c": "Fifty pence",
+        "option_d": "One thousand pence",
+        "correct_answer": "a",
+        "explanation": "Mark 14:5 — \"For it might have been sold for more than three hundred pence, and have been given to the poor.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Jesus predict Peter would do?",
+        "option_a": "Deny Him three times before the cock crew twice",
+        "option_b": "Defend Him with a sword",
+        "option_c": "Run away and never return",
+        "option_d": "Betray Him for money",
+        "correct_answer": "a",
+        "explanation": "Mark 14:30 — \"Verily I say unto thee, That this day, even in this night, before the cock crow twice, thou shalt deny me thrice.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus pray in the Garden of Gethsemane?",
+        "option_a": "Abba, Father, all things are possible unto thee; take away this cup from me: nevertheless not what I will, but what thou wilt",
+        "option_b": "Let me escape from my enemies",
+        "option_c": "Destroy those who oppose me",
+        "option_d": "Send angels to protect me from all harm",
+        "correct_answer": "a",
+        "explanation": "Mark 14:36 — \"Abba, Father, all things are possible unto thee; take away this cup from me: nevertheless not what I will, but what thou wilt.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did the disciples do when Jesus was arrested?",
+        "option_a": "They all forsook Him and fled",
+        "option_b": "They fought the soldiers bravely",
+        "option_c": "They followed Him to the trial",
+        "option_d": "They negotiated His release",
+        "correct_answer": "a",
+        "explanation": "Mark 14:50 — \"And they all forsook him, and fled.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What happened when Peter was accused of being with Jesus?",
+        "option_a": "He denied it three times, and then the cock crew and he wept",
+        "option_b": "He boldly confessed Jesus",
+        "option_c": "He ran away immediately",
+        "option_d": "He stayed silent",
+        "correct_answer": "a",
+        "explanation": "Mark 14:72 — \"And the second time the cock crew. And Peter called to mind the word that Jesus said unto him... And when he thought thereon, he wept.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What did Jesus say about the woman who anointed Him?",
+        "option_a": "She is come aforehand to anoint my body to the burying — and wherever the gospel is preached, her deed shall be told as a memorial",
+        "option_b": "She wasted expensive ointment",
+        "option_c": "She should have given to the poor instead",
+        "option_d": "Her act was merely symbolic",
+        "correct_answer": "a",
+        "explanation": "Mark 14:8-9 — \"She is come aforehand to anoint my body to the burying. Verily I say unto you, Wheresoever this gospel shall be preached throughout the whole world, this also that she hath done shall be spoken of for a memorial of her.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How much did Judas receive for betraying Jesus?",
+        "option_a": "The chief priests promised him money — Mark does not specify the amount, but Matthew 26:15 records thirty pieces of silver",
+        "option_b": "One hundred gold coins",
+        "option_c": "Nothing — he did it freely",
+        "option_d": "A piece of land",
+        "correct_answer": "a",
+        "explanation": "Mark 14:10-11 — \"And Judas Iscariot, one of the twelve, went unto the chief priests, to betray him unto them... and they promised to give him money.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What words did Jesus use to institute the Lord's Supper?",
+        "option_a": "Take, eat: this is my body... This is my blood of the new testament, which is shed for many",
+        "option_b": "Let us eat in remembrance of Moses",
+        "option_c": "This food shall sustain you forever",
+        "option_d": "Break bread and share with strangers",
+        "correct_answer": "a",
+        "explanation": "Mark 14:22,24 — \"Take, eat: this is my body... This is my blood of the new testament, which is shed for many.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Jesus' use of \"Abba\" in Gethsemane reveal?",
+        "option_a": "An intimate Aramaic term for Father, revealing Christ's unique filial relationship with God even in His deepest anguish",
+        "option_b": "A formal title used by all Jews",
+        "option_c": "A Greek philosophical concept",
+        "option_d": "A term meaning \"teacher\"",
+        "correct_answer": "a",
+        "explanation": "Mark 14:36 — \"Abba, Father.\" Abba is an intimate Aramaic address, showing Jesus' tender, trusting relationship with the Father even facing the cross."
+      },
+      {
+        "question_number": 5,
+        "question": "What claim did Jesus make before the high priest that was declared blasphemy?",
+        "option_a": "When asked if He was the Christ, the Son of the Blessed, Jesus said \"I am\" and quoted Daniel 7:13 about the Son of man sitting at the right hand of power",
+        "option_b": "He claimed to be an angel",
+        "option_c": "He said He was greater than Moses",
+        "option_d": "He declared the temple would be rebuilt in three days",
+        "correct_answer": "a",
+        "explanation": "Mark 14:61-62 — \"Art thou the Christ, the Son of the Blessed? And Jesus said, I am: and ye shall see the Son of man sitting on the right hand of power, and coming in the clouds of heaven.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What detail unique to Mark describes a young man who fled naked at Jesus' arrest?",
+        "option_a": "A young man wearing only a linen cloth was seized; he left the cloth and fled naked — many scholars believe this was Mark himself",
+        "option_b": "A soldier lost his uniform",
+        "option_c": "Peter threw off his cloak",
+        "option_d": "An angel appeared and vanished",
+        "correct_answer": "a",
+        "explanation": "Mark 14:51-52 — \"And there followed him a certain young man, having a linen cloth cast about his naked body; and the young men laid hold on him: And he left the linen cloth, and fled from them naked.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Jesus' statement \"I am\" (ego eimi) before the Sanhedrin echo?",
+        "option_a": "The divine name revealed to Moses at the burning bush (Exodus 3:14) — \"I AM THAT I AM\" — a direct claim to deity",
+        "option_b": "A common Greek greeting",
+        "option_c": "An acknowledgment of His human identity",
+        "option_d": "A phrase used by all Jewish teachers",
+        "correct_answer": "a",
+        "explanation": "Mark 14:62 — \"I am.\" Jesus' use of \"I am\" (ego eimi) in response to the question of His identity deliberately echoes the divine self-revelation of Exodus 3:14."
+      },
+      {
+        "question_number": 8,
+        "question": "How does Peter's denial fulfill Jesus' prophecy and what does the cock crowing twice signify?",
+        "option_a": "Jesus predicted the specific detail of two cock-crows (unique to Mark), showing His foreknowledge; Peter's failure under pressure contrasts with his earlier boast of loyalty",
+        "option_b": "The rooster crowing was coincidental",
+        "option_c": "Peter denied Jesus only once",
+        "option_d": "The cock crowing was a metaphor for morning",
+        "correct_answer": "a",
+        "explanation": "Mark 14:30,72 — \"Before the cock crow twice, thou shalt deny me thrice.\" Mark alone records the two cock-crows, a precise detail suggesting Peter's own eyewitness testimony as Mark's source."
+      }
+    ]
+  },
+  "15": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who did the crowd choose to set free instead of Jesus?",
+        "option_a": "Barabbas",
+        "option_b": "Peter",
+        "option_c": "Lazarus",
+        "option_d": "Paul",
+        "correct_answer": "a",
+        "explanation": "Mark 15:11,15 — \"But the chief priests moved the people, that he should rather release Barabbas unto them... And so Pilate, willing to content the people, released Barabbas unto them.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the soldiers put on Jesus' head?",
+        "option_a": "A crown of thorns",
+        "option_b": "A golden crown",
+        "option_c": "A wreath of flowers",
+        "option_d": "A hat",
+        "correct_answer": "a",
+        "explanation": "Mark 15:17 — \"And they clothed him with purple, and platted a crown of thorns, and put it about his head.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who asked Pilate for Jesus' body to bury it?",
+        "option_a": "Joseph of Arimathaea",
+        "option_b": "Peter",
+        "option_c": "John",
+        "option_d": "Nicodemus",
+        "correct_answer": "a",
+        "explanation": "Mark 15:43 — \"Joseph of Arimathaea, an honourable counsellor... went in boldly unto Pilate, and craved the body of Jesus.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Pilate ask Jesus, and how did Jesus respond?",
+        "option_a": "Pilate asked \"Art thou the King of the Jews?\" and Jesus answered \"Thou sayest it\"",
+        "option_b": "Pilate asked \"Are you guilty?\" and Jesus said \"No\"",
+        "option_c": "Pilate asked \"Do you know God?\" and Jesus preached a sermon",
+        "option_d": "Pilate asked nothing and condemned Him immediately",
+        "correct_answer": "a",
+        "explanation": "Mark 15:2 — \"And Pilate asked him, Art thou the King of the Jews? And he answering said unto him, Thou sayest it.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who was compelled to carry Jesus' cross?",
+        "option_a": "Simon of Cyrene, the father of Alexander and Rufus",
+        "option_b": "Peter the disciple",
+        "option_c": "A Roman soldier",
+        "option_d": "John the Baptist's disciple",
+        "correct_answer": "a",
+        "explanation": "Mark 15:21 — \"And they compel one Simon a Cyrenian, who passed by, coming out of the country, the father of Alexander and Rufus, to bear his cross.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What happened from the sixth hour to the ninth hour (noon to 3 PM)?",
+        "option_a": "There was darkness over the whole land",
+        "option_b": "There was a great earthquake",
+        "option_c": "A rainbow appeared",
+        "option_d": "The sun shone brighter than ever",
+        "correct_answer": "a",
+        "explanation": "Mark 15:33 — \"And when the sixth hour was come, there was darkness over the whole land until the ninth hour.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did Jesus cry out at the ninth hour?",
+        "option_a": "Eloi, Eloi, lama sabachthani — My God, my God, why hast thou forsaken me?",
+        "option_b": "Father, forgive them",
+        "option_c": "It is finished",
+        "option_d": "Into thy hands I commend my spirit",
+        "correct_answer": "a",
+        "explanation": "Mark 15:34 — \"And at the ninth hour Jesus cried with a loud voice, saying, Eloi, Eloi, lama sabachthani? which is, being interpreted, My God, my God, why hast thou forsaken me?\""
+      },
+      {
+        "question_number": 5,
+        "question": "What happened in the temple when Jesus died?",
+        "option_a": "The veil of the temple was rent in twain from the top to the bottom",
+        "option_b": "The altar caught fire",
+        "option_c": "The doors of the temple opened",
+        "option_d": "The temple bells rang by themselves",
+        "correct_answer": "a",
+        "explanation": "Mark 15:38 — \"And the veil of the temple was rent in twain from the top to the bottom.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What did Pilate marvel at regarding Jesus during the trial?",
+        "option_a": "That Jesus answered nothing to the many accusations against Him",
+        "option_b": "That Jesus spoke so eloquently",
+        "option_c": "That Jesus performed a miracle",
+        "option_d": "That Jesus was dressed in fine clothing",
+        "correct_answer": "a",
+        "explanation": "Mark 15:5 — \"But Jesus yet answered nothing; so that Pilate marvelled.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does the release of Barabbas (a murderer) instead of Jesus illustrate theologically?",
+        "option_a": "The innocent dying in the place of the guilty — a vivid picture of substitutionary atonement",
+        "option_b": "That the Jewish legal system was fair",
+        "option_c": "That Barabbas was innocent",
+        "option_d": "That crowds make good decisions",
+        "correct_answer": "a",
+        "explanation": "Mark 15:7,15 — Barabbas, a murderer, was released while the innocent Jesus was condemned — a powerful illustration of the gospel: Christ takes the sinner's place."
+      },
+      {
+        "question_number": 3,
+        "question": "What is the significance of Jesus' cry \"Eloi, Eloi, lama sabachthani?\"",
+        "option_a": "It quotes Psalm 22:1, showing Jesus bore the full weight of divine judgment for sin, experiencing separation from the Father on behalf of humanity",
+        "option_b": "It shows Jesus lost faith on the cross",
+        "option_c": "It was an appeal to Elijah for help",
+        "option_d": "It was a prayer for physical relief",
+        "correct_answer": "a",
+        "explanation": "Mark 15:34 — \"My God, my God, why hast thou forsaken me?\" quotes Psalm 22:1. Jesus experienced the spiritual agony of bearing the world's sin (2 Corinthians 5:21)."
+      },
+      {
+        "question_number": 4,
+        "question": "What does the tearing of the temple veil from top to bottom signify?",
+        "option_a": "God Himself opened access to His presence — the barrier between God and man was removed through Christ's atoning death",
+        "option_b": "An earthquake caused structural damage",
+        "option_c": "The priests tore it in grief",
+        "option_d": "It was old and simply wore out",
+        "correct_answer": "a",
+        "explanation": "Mark 15:38 — \"And the veil of the temple was rent in twain from the top to the bottom.\" The direction (top to bottom) signifies divine action, not human; access to God is now open (Hebrews 10:19-20)."
+      },
+      {
+        "question_number": 5,
+        "question": "What did the Roman centurion say when he saw how Jesus died?",
+        "option_a": "Truly this man was the Son of God",
+        "option_b": "This was just another criminal",
+        "option_c": "He deserved what he got",
+        "option_d": "His followers will cause trouble",
+        "correct_answer": "a",
+        "explanation": "Mark 15:39 — \"And when the centurion, which stood over against him, saw that he so cried out, and gave up the ghost, he said, Truly this man was the Son of God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "Why is the centurion's confession in Mark 15:39 theologically significant?",
+        "option_a": "A Gentile soldier recognizes what Israel's leaders rejected — Jesus is the Son of God — echoing Mark 1:1 and forming an inclusio for the entire Gospel",
+        "option_b": "It shows that Roman soldiers were secret Christians",
+        "option_c": "It proves that execution methods were humane",
+        "option_d": "It demonstrates military respect for prisoners",
+        "correct_answer": "a",
+        "explanation": "Mark 15:39 — \"Truly this man was the Son of God.\" This confession by a Gentile bookends Mark's opening (1:1) and shows that the cross, not miracles, ultimately reveals Jesus' identity."
+      },
+      {
+        "question_number": 7,
+        "question": "Which women does Mark name as watching the crucifixion from afar?",
+        "option_a": "Mary Magdalene, Mary the mother of James the less and of Joses, and Salome",
+        "option_b": "Mary the mother of Jesus and Martha",
+        "option_c": "Joanna and Susanna",
+        "option_d": "Elizabeth and Anna",
+        "correct_answer": "a",
+        "explanation": "Mark 15:40 — \"There were also women looking on afar off: among whom was Mary Magdalene, and Mary the mother of James the less and of Joses, and Salome.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What details does Mark provide about Joseph of Arimathaea that show the significance of his action?",
+        "option_a": "He was an honourable counsellor who also waited for the kingdom of God, went boldly to Pilate, bought fine linen, and laid Jesus in a hewn rock tomb",
+        "option_b": "He was a poor man with no resources",
+        "option_c": "He was a Roman citizen with political motives",
+        "option_d": "He was one of the twelve disciples",
+        "correct_answer": "a",
+        "explanation": "Mark 15:43-46 — Joseph was a member of the Sanhedrin who risked his reputation and safety by publicly requesting Jesus' body for burial, fulfilling Isaiah 53:9."
+      }
+    ]
+  },
+  "16": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "When the women came to the tomb, what did they find?",
+        "option_a": "The stone was rolled away and the tomb was empty",
+        "option_b": "Jesus was still inside",
+        "option_c": "The soldiers were guarding it",
+        "option_d": "The tomb was sealed shut",
+        "correct_answer": "a",
+        "explanation": "Mark 16:4 — \"And when they looked, they saw that the stone was rolled away: for it was very great.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did the young man in white tell the women?",
+        "option_a": "Jesus is risen; He is not here",
+        "option_b": "Jesus is still sleeping",
+        "option_c": "Come back tomorrow",
+        "option_d": "You have the wrong tomb",
+        "correct_answer": "a",
+        "explanation": "Mark 16:6 — \"And he saith unto them, Be not affrighted: Ye seek Jesus of Nazareth, which was crucified: he is risen; he is not here.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Jesus tell His disciples to do before He went to heaven?",
+        "option_a": "Go into all the world and preach the gospel to every creature",
+        "option_b": "Stay in Jerusalem forever",
+        "option_c": "Write books about Him",
+        "option_d": "Build a new temple",
+        "correct_answer": "a",
+        "explanation": "Mark 16:15 — \"And he said unto them, Go ye into all the world, and preach the gospel to every creature.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "Who came to the tomb very early on the first day of the week?",
+        "option_a": "Mary Magdalene, Mary the mother of James, and Salome",
+        "option_b": "Peter, James, and John",
+        "option_c": "The twelve disciples",
+        "option_d": "Nicodemus and Joseph",
+        "correct_answer": "a",
+        "explanation": "Mark 16:1-2 — \"And when the sabbath was past, Mary Magdalene, and Mary the mother of James, and Salome... came unto the sepulchre at the rising of the sun.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What were the women worried about on the way to the tomb?",
+        "option_a": "Who shall roll us away the stone from the door of the sepulchre?",
+        "option_b": "Whether the soldiers would stop them",
+        "option_c": "Whether they had enough spices",
+        "option_d": "Whether the tomb was the right one",
+        "correct_answer": "a",
+        "explanation": "Mark 16:3 — \"And they said among themselves, Who shall roll us away the stone from the door of the sepulchre?\""
+      },
+      {
+        "question_number": 3,
+        "question": "To whom did Jesus first appear after His resurrection?",
+        "option_a": "Mary Magdalene, out of whom He had cast seven devils",
+        "option_b": "Peter the apostle",
+        "option_c": "John the beloved disciple",
+        "option_d": "His mother Mary",
+        "correct_answer": "a",
+        "explanation": "Mark 16:9 — \"Now when Jesus was risen early the first day of the week, he appeared first to Mary Magdalene, out of whom he had cast seven devils.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What did Jesus say would follow those who believe?",
+        "option_a": "Signs: casting out devils, speaking with new tongues, and taking up serpents without harm",
+        "option_b": "Wealth and prosperity",
+        "option_c": "Freedom from all suffering",
+        "option_d": "Immediate entry to heaven",
+        "correct_answer": "a",
+        "explanation": "Mark 16:17 — \"And these signs shall follow them that believe; In my name shall they cast out devils; they shall speak with new tongues.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Where did Jesus go after speaking to His disciples?",
+        "option_a": "He was received up into heaven and sat on the right hand of God",
+        "option_b": "He went to Egypt",
+        "option_c": "He returned to Nazareth",
+        "option_d": "He traveled to Rome",
+        "correct_answer": "a",
+        "explanation": "Mark 16:19 — \"So then after the Lord had spoken unto them, he was received up into heaven, and sat on the right hand of God.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What instructions did the young man in white give the women?",
+        "option_a": "Go tell His disciples and Peter that He goeth before you into Galilee; there shall ye see Him",
+        "option_b": "Stay here and wait for further instructions",
+        "option_c": "Go to the temple and offer sacrifice",
+        "option_d": "Return home and tell no one",
+        "correct_answer": "a",
+        "explanation": "Mark 16:7 — \"But go your way, tell his disciples and Peter that he goeth before you into Galilee: there shall ye see him, as he said unto you.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why is the specific mention of \"and Peter\" in verse 7 significant?",
+        "option_a": "It shows grace to the one who had denied Christ three times — Peter is personally named to assure him he is not excluded from restoration",
+        "option_b": "Peter was the leader so he naturally came first",
+        "option_c": "Peter lived the closest to the tomb",
+        "option_d": "It was an administrative instruction",
+        "correct_answer": "a",
+        "explanation": "Mark 16:7 — \"Tell his disciples and Peter.\" After his denials, Peter might have considered himself disqualified; the specific mention of his name is a message of personal grace and restoration."
+      },
+      {
+        "question_number": 3,
+        "question": "What is the textual significance of Mark 16:9-20?",
+        "option_a": "These verses (the \"longer ending\") are absent from the two oldest Greek manuscripts (Sinaiticus and Vaticanus) and are debated by scholars, though accepted in the KJV tradition",
+        "option_b": "All manuscripts contain these verses identically",
+        "option_c": "These verses were added in the 20th century",
+        "option_d": "Only Catholic manuscripts include them",
+        "correct_answer": "a",
+        "explanation": "Mark 16:9-20 — The longer ending of Mark is present in the KJV and most manuscripts but absent from Codex Sinaiticus and Vaticanus. Scholars debate its originality."
+      },
+      {
+        "question_number": 4,
+        "question": "What does the Great Commission in Mark 16:15-16 emphasize compared to Matthew 28:19-20?",
+        "option_a": "Mark emphasizes believing and being baptized for salvation, with condemnation for unbelief — focusing on individual response to the gospel",
+        "option_b": "Mark focuses on making disciples of nations",
+        "option_c": "Mark emphasizes teaching commandments",
+        "option_d": "Mark is identical to Matthew's version",
+        "correct_answer": "a",
+        "explanation": "Mark 16:15-16 — \"He that believeth and is baptized shall be saved; but he that believeth not shall be damned.\" Mark's version stresses personal belief and its eternal consequences."
+      },
+      {
+        "question_number": 5,
+        "question": "How does the ending of Mark's Gospel at verse 8 create a literary effect if taken as the original ending?",
+        "option_a": "The abrupt ending — \"for they were afraid\" — leaves the reader to respond personally to the resurrection, creating an open-ended call to faith and action",
+        "option_b": "Mark simply ran out of papyrus",
+        "option_c": "The ending was accidentally lost",
+        "option_d": "Mark intended to write a sequel",
+        "correct_answer": "a",
+        "explanation": "Mark 16:8 — \"And they went out quickly, and fled from the sepulchre; for they trembled and were amazed: neither said they any thing to any man; for they were afraid.\" If original, this ending confronts the reader with the resurrection and demands a personal response."
+      },
+      {
+        "question_number": 6,
+        "question": "What does Jesus' ascension and sitting at the right hand of God signify?",
+        "option_a": "His exaltation, completion of His redemptive work, and present intercessory authority as King and High Priest",
+        "option_b": "He retired from active ministry",
+        "option_c": "He is waiting passively until the end",
+        "option_d": "He surrendered His power to the Father",
+        "correct_answer": "a",
+        "explanation": "Mark 16:19 — \"He was received up into heaven, and sat on the right hand of God.\" The right hand signifies authority and honor (cf. Psalm 110:1, Hebrews 1:3)."
+      },
+      {
+        "question_number": 7,
+        "question": "What does the final verse of Mark say about the disciples' subsequent ministry?",
+        "option_a": "They went forth and preached every where, the Lord working with them and confirming the word with signs following",
+        "option_b": "They stayed in Jerusalem and never traveled",
+        "option_c": "They wrote books but did not preach",
+        "option_d": "They returned to their former occupations",
+        "correct_answer": "a",
+        "explanation": "Mark 16:20 — \"And they went forth, and preached every where, the Lord working with them, and confirming the word with signs following.\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does Mark's Gospel as a whole present Jesus Christ?",
+        "option_a": "As the suffering Servant and Son of God — beginning with His divine identity (1:1), demonstrated through authoritative action, and climaxing in His sacrificial death and victorious resurrection",
+        "option_b": "Primarily as a moral teacher",
+        "option_c": "Only as a political revolutionary",
+        "option_d": "Mainly as a miracle worker with no deeper purpose",
+        "correct_answer": "a",
+        "explanation": "Mark presents Jesus as the active, authoritative Son of God (1:1) who came to serve and give His life as a ransom for many (10:45), with His identity fully revealed through the cross (15:39)."
+      }
+    ]
+  }
+}

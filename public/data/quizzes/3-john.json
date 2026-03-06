@@ -1,0 +1,170 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who did John write this letter to?",
+        "option_a": "Gaius",
+        "option_b": "Timothy",
+        "option_c": "Peter",
+        "option_d": "Titus",
+        "correct_answer": "a",
+        "explanation": "3 John 1:1 — \"The elder unto the wellbeloved Gaius, whom I love in the truth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did John say he had no greater joy than?",
+        "option_a": "Hearing that his children walk in truth",
+        "option_b": "Receiving gifts",
+        "option_c": "Building churches",
+        "option_d": "Traveling to new places",
+        "correct_answer": "a",
+        "explanation": "3 John 1:4 — \"I have no greater joy than to hear that my children walk in truth.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who was a bad example in this letter because he loved to be first?",
+        "option_a": "Diotrephes",
+        "option_b": "Gaius",
+        "option_c": "Demetrius",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "3 John 1:9 — \"Diotrephes, who loveth to have the preeminence among them.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What good thing did John praise Gaius for?",
+        "option_a": "Showing hospitality to travelling brethren and strangers",
+        "option_b": "Building a large church",
+        "option_c": "Writing many letters",
+        "option_d": "Performing miracles",
+        "correct_answer": "a",
+        "explanation": "3 John 1:5 — \"thou doest faithfully whatsoever thou doest to the brethren, and to strangers.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Diotrephes do to those who wanted to welcome the brethren?",
+        "option_a": "He cast them out of the church",
+        "option_b": "He congratulated them",
+        "option_c": "He ignored them",
+        "option_d": "He sent them money",
+        "correct_answer": "a",
+        "explanation": "3 John 1:10 — \"neither doth he himself receive the brethren, and forbiddeth them that would, and casteth them out of the church.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did John say about Demetrius?",
+        "option_a": "He had a good report from all men and from the truth itself",
+        "option_b": "He was a wealthy merchant",
+        "option_c": "He was a new convert",
+        "option_d": "He was a Roman official",
+        "correct_answer": "a",
+        "explanation": "3 John 1:12 — \"Demetrius hath good report of all men, and of the truth itself.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does John say about imitating?",
+        "option_a": "Follow not that which is evil, but that which is good",
+        "option_b": "Imitate the leaders of the synagogue",
+        "option_c": "Follow the customs of the Romans",
+        "option_d": "Imitate only the apostles",
+        "correct_answer": "a",
+        "explanation": "3 John 1:11 — \"Beloved, follow not that which is evil, but that which is good.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Why did the travelling brethren go forth?",
+        "option_a": "For the sake of the Name (of Jesus), taking nothing of the Gentiles",
+        "option_b": "To earn money from preaching",
+        "option_c": "To escape persecution in Jerusalem",
+        "option_d": "To find new trade routes",
+        "correct_answer": "a",
+        "explanation": "3 John 1:7 — \"Because that for his name's sake they went forth, taking nothing of the Gentiles.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does John's opening wish for Gaius reveal about his pastoral concern?",
+        "option_a": "He wishes that Gaius may prosper and be in health, even as his soul prospereth — showing concern for whole-person wellbeing",
+        "option_b": "He wishes Gaius financial success",
+        "option_c": "He commands Gaius to fast and pray",
+        "option_d": "He asks Gaius to send money",
+        "correct_answer": "a",
+        "explanation": "3 John 1:2 — \"I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does John say is the duty of believers toward travelling missionaries?",
+        "option_a": "We ought to receive and support such, that we might be fellowhelpers to the truth",
+        "option_b": "We should test them for a year before helping",
+        "option_c": "We should send them to the synagogue for support",
+        "option_d": "We should only support those from our own church",
+        "correct_answer": "a",
+        "explanation": "3 John 1:8 — \"We therefore ought to receive such, that we might be fellowhelpers to the truth.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What three specific charges does John level against Diotrephes?",
+        "option_a": "He loves preeminence, speaks malicious words against the apostles, and refuses to receive the brethren while casting out those who do",
+        "option_b": "He steals money, lies about his credentials, and worships idols",
+        "option_c": "He denies the resurrection, rejects baptism, and forsakes the assembly",
+        "option_d": "He teaches false doctrine, forbids prayer, and burns Scripture",
+        "correct_answer": "a",
+        "explanation": "3 John 1:9-10 — \"Diotrephes, who loveth to have the preeminence… prating against us with malicious words: and not content therewith, neither doth he himself receive the brethren, and forbiddeth them that would, and casteth them out.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What theological principle does John state about doing good and doing evil?",
+        "option_a": "\"He that doeth good is of God: but he that doeth evil hath not seen God\"",
+        "option_b": "\"Good and evil are equal paths to knowledge\"",
+        "option_c": "\"Evil is merely the absence of good\"",
+        "option_d": "\"Only God can truly distinguish good from evil\"",
+        "correct_answer": "a",
+        "explanation": "3 John 1:11 — \"He that doeth good is of God: but he that doeth evil hath not seen God.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is significant about Demetrius having testimony from \"the truth itself\"?",
+        "option_a": "It means his life and doctrine are validated not only by human witnesses but by the objective standard of divine truth",
+        "option_b": "The truth is a person who wrote a letter about him",
+        "option_c": "He passed a written examination on Scripture",
+        "option_d": "He was recognized by the Roman senate",
+        "correct_answer": "a",
+        "explanation": "3 John 1:12 — \"Demetrius hath good report of all men, and of the truth itself: yea, and we also bear record.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does John say he wrote to the church, and what happened?",
+        "option_a": "He wrote to the church, but Diotrephes would not receive them (the letter/messengers)",
+        "option_b": "He wrote asking for money but was refused",
+        "option_c": "He wrote to schedule a visit but weather delayed him",
+        "option_d": "He wrote a doctrinal treatise that was lost",
+        "correct_answer": "a",
+        "explanation": "3 John 1:9 — \"I wrote unto the church: but Diotrephes, who loveth to have the preeminence among them, receiveth us not.\""
+      },
+      {
+        "question_number": 7,
+        "question": "How does John plan to address the situation with Diotrephes?",
+        "option_a": "\"If I come, I will remember his deeds which he doeth\" — indicating personal apostolic confrontation",
+        "option_b": "He will write a stronger letter",
+        "option_c": "He will send Peter to deal with it",
+        "option_d": "He will excommunicate him from afar",
+        "correct_answer": "a",
+        "explanation": "3 John 1:10 — \"if I come, I will remember his deeds which he doeth, prating against us with malicious words.\""
+      },
+      {
+        "question_number": 8,
+        "question": "How does John close this letter, and what does it reveal about early church communication?",
+        "option_a": "He prefers face-to-face conversation over writing, showing the importance of personal presence in apostolic ministry",
+        "option_b": "He asks Gaius to burn the letter for safety",
+        "option_c": "He sends a formal blessing through the bishop",
+        "option_d": "He attaches a creedal statement for the church to sign",
+        "correct_answer": "a",
+        "explanation": "3 John 1:13-14 — \"I had many things to write, but I will not with ink and pen write unto thee: But I trust I shall shortly see thee, and we shall speak face to face.\""
+      }
+    ]
+  }
+}

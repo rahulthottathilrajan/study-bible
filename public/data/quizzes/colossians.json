@@ -1,0 +1,674 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote the letter to the Colossians?",
+        "option_a": "Paul",
+        "option_b": "Peter",
+        "option_c": "James",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:1 — \"Paul, an apostle of Jesus Christ by the will of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul say the Colossians had in Christ Jesus?",
+        "option_a": "Faith",
+        "option_b": "Money",
+        "option_c": "A big house",
+        "option_d": "Many animals",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:4 — \"Since we heard of your faith in Christ Jesus.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul pray the Colossians would be filled with?",
+        "option_a": "Knowledge of God's will",
+        "option_b": "Gold and silver",
+        "option_c": "Fancy clothes",
+        "option_d": "Great power to rule",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:9 — \"That ye might be filled with the knowledge of his will.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "According to Colossians 1:13, from what has God delivered believers?",
+        "option_a": "The power of darkness",
+        "option_b": "The power of Rome",
+        "option_c": "The power of the Pharisees",
+        "option_d": "The power of nature",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:13 — \"Who hath delivered us from the power of darkness.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Colossians 1:15 say about Jesus in relation to the invisible God?",
+        "option_a": "He is the image of the invisible God",
+        "option_b": "He is a prophet of God",
+        "option_c": "He is an angel of God",
+        "option_d": "He is a servant of God",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:15 — \"Who is the image of the invisible God, the firstborn of every creature.\""
+      },
+      {
+        "question_number": 3,
+        "question": "According to verse 16, what was created by Jesus?",
+        "option_a": "All things in heaven and earth",
+        "option_b": "Only the earth",
+        "option_c": "Only angels",
+        "option_d": "Only mankind",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:16 — \"For by him were all things created, that are in heaven, and that are in earth.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say holds all things together?",
+        "option_a": "Christ",
+        "option_b": "The law",
+        "option_c": "The temple",
+        "option_d": "Human effort",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:17 — \"And he is before all things, and by him all things consist.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is Christ called in relation to the church in verse 18?",
+        "option_a": "The head of the body",
+        "option_b": "The foundation stone",
+        "option_c": "The cornerstone",
+        "option_d": "The vine",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:18 — \"And he is the head of the body, the church.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "In Colossians 1:14, what do believers have through Christ's blood?",
+        "option_a": "Redemption through his blood, even the forgiveness of sins",
+        "option_b": "Eternal wealth and prosperity",
+        "option_c": "Freedom from all earthly obligations",
+        "option_d": "Authority over all nations",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:14 — \"In whom we have redemption through his blood, even the forgiveness of sins.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What phrase does Paul use in verse 15 to describe Christ's relation to creation?",
+        "option_a": "The firstborn of every creature",
+        "option_b": "The last of every creature",
+        "option_c": "The ruler of every creature",
+        "option_d": "The servant of every creature",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:15 — \"The firstborn of every creature.\" This denotes supremacy and preeminence, not that Christ was created."
+      },
+      {
+        "question_number": 3,
+        "question": "According to verse 19, what was the Father's pleasure regarding Christ?",
+        "option_a": "That in him should all fulness dwell",
+        "option_b": "That he should serve as a prophet only",
+        "option_c": "That he should reign on earth immediately",
+        "option_d": "That he should remain hidden from mankind",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:19 — \"For it pleased the Father that in him should all fulness dwell.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does verse 20 say peace was made between God and creation?",
+        "option_a": "Through the blood of his cross",
+        "option_b": "Through the keeping of the law",
+        "option_c": "Through animal sacrifices",
+        "option_d": "Through angelic mediation",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:20 — \"Having made peace through the blood of his cross.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say the gospel was preached to in verse 23?",
+        "option_a": "Every creature which is under heaven",
+        "option_b": "Only the Jews in Jerusalem",
+        "option_c": "Only the Greeks in Athens",
+        "option_d": "Only the Roman citizens",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:23 — \"Which was preached to every creature which is under heaven.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say he fills up in verse 24?",
+        "option_a": "That which is behind of the afflictions of Christ in his flesh",
+        "option_b": "The treasury of the church",
+        "option_c": "The positions of leadership",
+        "option_d": "The scrolls of prophecy",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:24 — \"Fill up that which is behind of the afflictions of Christ in my flesh.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What is the mystery hidden from ages and generations according to verse 26-27?",
+        "option_a": "Christ in you, the hope of glory",
+        "option_b": "The timing of Christ's return",
+        "option_c": "The identity of the Antichrist",
+        "option_d": "The location of the Garden of Eden",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:27 — \"Which is Christ in you, the hope of glory.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What is Paul's stated goal in preaching Christ according to verse 28?",
+        "option_a": "To present every man perfect in Christ Jesus",
+        "option_b": "To build the largest church possible",
+        "option_c": "To defeat the Roman government",
+        "option_d": "To replace the Jewish priesthood",
+        "correct_answer": "a",
+        "explanation": "Colossians 1:28 — \"That we may present every man perfect in Christ Jesus.\");\n\n-- ═══ Colossians Chapter 2 ═══\n"
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Where does Paul say all treasures of wisdom and knowledge are hidden?",
+        "option_a": "In Christ",
+        "option_b": "In a cave",
+        "option_c": "In the temple",
+        "option_d": "In a book",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:3 — \"In whom are hid all the treasures of wisdom and knowledge.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul warn the Colossians not to be tricked by?",
+        "option_a": "Enticing words",
+        "option_b": "Magic tricks",
+        "option_c": "Wild animals",
+        "option_d": "Bad weather",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:4 — \"Lest any man should beguile you with enticing words.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Paul say believers should walk?",
+        "option_a": "As they received Christ, walk in him",
+        "option_b": "Very slowly",
+        "option_c": "Only at night",
+        "option_d": "Without shoes",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:6 — \"As ye have therefore received Christ Jesus the Lord, so walk ye in him.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul warn the Colossians to beware of in verse 8?",
+        "option_a": "Philosophy and vain deceit",
+        "option_b": "Roman soldiers",
+        "option_c": "Dangerous animals",
+        "option_d": "Natural disasters",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:8 — \"Beware lest any man spoil you through philosophy and vain deceit.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What dwells in Christ bodily according to verse 9?",
+        "option_a": "All the fulness of the Godhead",
+        "option_b": "Only wisdom",
+        "option_c": "Only power",
+        "option_d": "Only love",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:9 — \"For in him dwelleth all the fulness of the Godhead bodily.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Christ do with the handwriting of ordinances against us?",
+        "option_a": "Nailed it to his cross",
+        "option_b": "Hid it in the temple",
+        "option_c": "Gave it to Moses",
+        "option_d": "Burned it in fire",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:14 — \"Blotting out the handwriting of ordinances that was against us... nailing it to his cross.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What should no man judge believers about according to verse 16?",
+        "option_a": "Meat, drink, holy days, new moon, or sabbath days",
+        "option_b": "Their wealth or poverty",
+        "option_c": "Their nationality",
+        "option_d": "Their occupation",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:16 — \"Let no man therefore judge you in meat, or in drink, or in respect of an holyday.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul call these Jewish observances in verse 17?",
+        "option_a": "A shadow of things to come",
+        "option_b": "The most important rules",
+        "option_c": "Eternal commandments",
+        "option_d": "The path to salvation",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:17 — \"Which are a shadow of things to come; but the body is of Christ.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul describe as the \"circumcision of Christ\" in verse 11?",
+        "option_a": "Putting off the body of the sins of the flesh",
+        "option_b": "Physical circumcision of the body",
+        "option_c": "Baptism by water immersion",
+        "option_d": "Keeping the Mosaic law perfectly",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:11 — \"In whom also ye are circumcised with the circumcision made without hands, in putting off the body of the sins of the flesh.\""
+      },
+      {
+        "question_number": 2,
+        "question": "According to verse 12, with what are believers buried with Christ?",
+        "option_a": "Baptism",
+        "option_b": "Fasting",
+        "option_c": "Prayer",
+        "option_d": "Sacrifice",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:12 — \"Buried with him in baptism, wherein also ye are risen with him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did God do to principalities and powers according to verse 15?",
+        "option_a": "Spoiled them and made a shew of them openly, triumphing over them",
+        "option_b": "Gave them more power and authority",
+        "option_c": "Made a treaty with them",
+        "option_d": "Ignored them entirely",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:15 — \"Having spoiled principalities and powers, he made a shew of them openly, triumphing over them in it.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about voluntary humility and worshipping of angels in verse 18?",
+        "option_a": "Let no man beguile you of your reward through such things",
+        "option_b": "These are acceptable forms of worship",
+        "option_c": "They should be practiced weekly",
+        "option_d": "They are the highest form of devotion",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:18 — \"Let no man beguile you of your reward in a voluntary humility and worshipping of angels.\""
+      },
+      {
+        "question_number": 5,
+        "question": "According to verse 19, what happens when believers do not hold the Head (Christ)?",
+        "option_a": "The body cannot grow with the increase of God",
+        "option_b": "They become more spiritual",
+        "option_c": "They gain greater wisdom",
+        "option_d": "They receive more visions",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:19 — \"Not holding the Head, from which all the body... increaseth with the increase of God.\""
+      },
+      {
+        "question_number": 6,
+        "question": "If believers are dead with Christ from the rudiments of the world, what should they not do (v. 20)?",
+        "option_a": "Be subject to ordinances as though living in the world",
+        "option_b": "Avoid all contact with unbelievers",
+        "option_c": "Stop praying and fasting",
+        "option_d": "Leave the church immediately",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:20 — \"If ye be dead with Christ from the rudiments of the world, why... are ye subject to ordinances.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What are the \"touch not; taste not; handle not\" rules described as in verse 22?",
+        "option_a": "Commandments and doctrines of men that perish with the using",
+        "option_b": "God's eternal commandments",
+        "option_c": "The heart of the gospel",
+        "option_d": "Essential rules for salvation",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:22 — \"Which all are to perish with the using; after the commandments and doctrines of men.\""
+      },
+      {
+        "question_number": 8,
+        "question": "Despite having a show of wisdom, what do man-made rules fail to do according to verse 23?",
+        "option_a": "Honour the body or restrain the indulgence of the flesh",
+        "option_b": "Bring people to church",
+        "option_c": "Create unity among believers",
+        "option_d": "Please God in any way",
+        "correct_answer": "a",
+        "explanation": "Colossians 2:23 — \"Which things have indeed a shew of wisdom... not in any honour to the satisfying of the flesh.\");\n\n-- ═══ Colossians Chapter 3 ═══\n"
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say believers should seek?",
+        "option_a": "Things which are above, where Christ sits",
+        "option_b": "Treasure on earth",
+        "option_c": "Fame and glory",
+        "option_d": "Fancy clothes",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:1 — \"Seek those things which are above, where Christ sitteth on the right hand of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul tell the Colossians to put on?",
+        "option_a": "Kindness and love",
+        "option_b": "Armor and weapons",
+        "option_c": "Fancy jewelry",
+        "option_d": "Running shoes",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:12,14 — \"Put on therefore... kindness... And above all these things put on charity.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should children do according to this chapter?",
+        "option_a": "Obey their parents in all things",
+        "option_b": "Play all day",
+        "option_c": "Argue with their parents",
+        "option_d": "Do whatever they want",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:20 — \"Children, obey your parents in all things: for this is well pleasing unto the Lord.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say believers should set their affection on?",
+        "option_a": "Things above, not on things on the earth",
+        "option_b": "Things of the earth for daily living",
+        "option_c": "Their own desires and goals",
+        "option_d": "Worldly success and wealth",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:2 — \"Set your affection on things above, not on things on the earth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What five sins does Paul list first to \"mortify\" (put to death) in verse 5?",
+        "option_a": "Fornication, uncleanness, inordinate affection, evil concupiscence, and covetousness",
+        "option_b": "Lying, stealing, murder, slander, and gossip",
+        "option_c": "Pride, envy, gluttony, sloth, and greed",
+        "option_d": "Anger, bitterness, malice, wrath, and revenge",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:5 — \"Mortify therefore your members which are upon the earth; fornication, uncleanness, inordinate affection, evil concupiscence, and covetousness.\""
+      },
+      {
+        "question_number": 3,
+        "question": "According to verse 11, in the new man there is neither what?",
+        "option_a": "Greek nor Jew, circumcision nor uncircumcision, Barbarian, Scythian, bond nor free",
+        "option_b": "Rich nor poor",
+        "option_c": "Young nor old",
+        "option_d": "Educated nor uneducated",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:11 — \"Where there is neither Greek nor Jew, circumcision nor uncircumcision, Barbarian, Scythian, bond nor free: but Christ is all, and in all.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is called \"the bond of perfectness\" in verse 14?",
+        "option_a": "Charity (love)",
+        "option_b": "Faith",
+        "option_c": "Hope",
+        "option_d": "Patience",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:14 — \"And above all these things put on charity, which is the bond of perfectness.\""
+      },
+      {
+        "question_number": 5,
+        "question": "How does Paul say believers should do everything according to verse 17?",
+        "option_a": "In the name of the Lord Jesus, giving thanks to God",
+        "option_b": "In their own strength and wisdom",
+        "option_c": "In secret without anyone knowing",
+        "option_d": "In fear and trembling always",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:17 — \"Whatsoever ye do in word or deed, do all in the name of the Lord Jesus, giving thanks to God.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say about believers' life being hid in verse 3?",
+        "option_a": "Your life is hid with Christ in God",
+        "option_b": "Your life is displayed for all to see",
+        "option_c": "Your life belongs to the church leadership",
+        "option_d": "Your life is controlled by the law",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:3 — \"For ye are dead, and your life is hid with Christ in God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "When Christ who is our life shall appear, what happens according to verse 4?",
+        "option_a": "Believers shall also appear with him in glory",
+        "option_b": "The earth will be destroyed",
+        "option_c": "All unbelievers will perish instantly",
+        "option_d": "The temple will be rebuilt",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:4 — \"When Christ, who is our life, shall appear, then shall ye also appear with him in glory.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul equate covetousness with in verse 5?",
+        "option_a": "Idolatry",
+        "option_b": "Adultery",
+        "option_c": "Murder",
+        "option_d": "Theft",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:5 — \"And covetousness, which is idolatry.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about the \"old man\" and the \"new man\" in verses 9-10?",
+        "option_a": "Put off the old man with his deeds and put on the new man renewed in knowledge",
+        "option_b": "The old man and new man coexist permanently",
+        "option_c": "The old man was never truly sinful",
+        "option_d": "The new man is achieved through the law",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:9-10 — \"Ye have put off the old man with his deeds; And have put on the new man, which is renewed in knowledge after the image of him that created him.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What should rule in believers' hearts according to verse 15?",
+        "option_a": "The peace of God",
+        "option_b": "The fear of judgment",
+        "option_c": "The desire for wealth",
+        "option_d": "Human reason and logic",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:15 — \"And let the peace of God rule in your hearts.\""
+      },
+      {
+        "question_number": 6,
+        "question": "How should the word of Christ dwell in believers according to verse 16?",
+        "option_a": "Richly in all wisdom",
+        "option_b": "Sparingly and carefully",
+        "option_c": "Only on the sabbath",
+        "option_d": "Through priestly teaching alone",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:16 — \"Let the word of Christ dwell in you richly in all wisdom.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What instruction does Paul give to fathers in verse 21?",
+        "option_a": "Provoke not your children to anger, lest they be discouraged",
+        "option_b": "Discipline your children harshly",
+        "option_c": "Keep your children away from the church",
+        "option_d": "Let your children do as they please",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:21 — \"Fathers, provoke not your children to anger, lest they be discouraged.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say servants are truly serving in verse 24?",
+        "option_a": "The Lord Christ",
+        "option_b": "Their earthly masters only",
+        "option_c": "The Roman government",
+        "option_d": "Their own interests",
+        "correct_answer": "a",
+        "explanation": "Colossians 3:24 — \"For ye serve the Lord Christ.\");\n\n-- ═══ Colossians Chapter 4 ═══\n"
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul ask the Colossians to keep doing?",
+        "option_a": "Praying",
+        "option_b": "Sleeping",
+        "option_c": "Running",
+        "option_d": "Fighting",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:2 — \"Continue in prayer, and watch in the same with thanksgiving.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who did Paul call a \"faithful minister\" in this chapter?",
+        "option_a": "Tychicus",
+        "option_b": "Timothy",
+        "option_c": "Barnabas",
+        "option_d": "Silas",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:7 — \"All my state shall Tychicus declare unto you, who is a beloved brother, and a faithful minister.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who does Paul say sends greetings — a fellow worker who was a doctor?",
+        "option_a": "Luke",
+        "option_b": "Mark",
+        "option_c": "Peter",
+        "option_d": "James",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:14 — \"Luke, the beloved physician... greet you.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How does Paul say believers should walk toward those outside the faith?",
+        "option_a": "In wisdom, redeeming the time",
+        "option_b": "In fear and avoidance",
+        "option_c": "In judgment and condemnation",
+        "option_d": "In indifference",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:5 — \"Walk in wisdom toward them that are without, redeeming the time.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How should believers' speech always be according to verse 6?",
+        "option_a": "With grace, seasoned with salt",
+        "option_b": "Loud and forceful",
+        "option_c": "Quiet and timid",
+        "option_d": "Harsh and direct",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:6 — \"Let your speech be alway with grace, seasoned with salt.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who does Paul describe as a fellowprisoner in verse 10?",
+        "option_a": "Aristarchus",
+        "option_b": "Timothy",
+        "option_c": "Titus",
+        "option_d": "Barnabas",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:10 — \"Aristarchus my fellowprisoner saluteth you.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about Epaphras in verse 12?",
+        "option_a": "He is always labouring fervently in prayers for them",
+        "option_b": "He is traveling to Rome",
+        "option_c": "He is building a new church",
+        "option_d": "He is writing a gospel",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:12 — \"Epaphras, who is one of you, a servant of Christ, saluteth you, always labouring fervently for you in prayers.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul instruct regarding this epistle and the one from Laodicea?",
+        "option_a": "Exchange and read both letters",
+        "option_b": "Keep this letter secret",
+        "option_c": "Destroy the letter from Laodicea",
+        "option_d": "Send both letters to Jerusalem",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:16 — \"When this epistle is read among you, cause that it be read also in the church of the Laodiceans; and that ye likewise read the epistle from Laodicea.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul ask the Colossians to pray for regarding his ministry in verse 3?",
+        "option_a": "That God would open a door of utterance to speak the mystery of Christ",
+        "option_b": "That he would be released from prison immediately",
+        "option_c": "That he would receive financial support",
+        "option_d": "That he would be given political authority",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:3 — \"Praying also for us, that God would open unto us a door of utterance, to speak the mystery of Christ.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who is described as \"Marcus, sister's son to Barnabas\" in verse 10?",
+        "option_a": "John Mark, about whom the Colossians received commandments",
+        "option_b": "A Roman centurion",
+        "option_c": "A Greek philosopher",
+        "option_d": "A Jewish high priest",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:10 — \"Marcus, sister's son to Barnabas, (touching whom ye received commandments: if he come unto you, receive him.)\""
+      },
+      {
+        "question_number": 3,
+        "question": "Which three men does Paul identify as being \"of the circumcision\" (Jewish Christians) who were his only fellowworkers?",
+        "option_a": "Aristarchus, Marcus, and Jesus called Justus",
+        "option_b": "Luke, Demas, and Epaphras",
+        "option_c": "Timothy, Titus, and Silas",
+        "option_d": "Barnabas, Peter, and James",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:10-11 — \"Aristarchus... and Marcus... And Jesus, which is called Justus, who are of the circumcision. These only are my fellowworkers.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say Epaphras has a great zeal for according to verse 13?",
+        "option_a": "Those in Colossae, Laodicea, and Hierapolis",
+        "option_b": "Only those in Jerusalem",
+        "option_c": "Only those in Rome",
+        "option_d": "Only the Jewish believers",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:13 — \"For I bear him record, that he hath a great zeal for you, and them that are in Laodicea, and them in Hierapolis.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What instruction does Paul give to Archippus in verse 17?",
+        "option_a": "Take heed to the ministry which thou hast received in the Lord, that thou fulfil it",
+        "option_b": "Come to Rome immediately",
+        "option_c": "Stop preaching and return home",
+        "option_d": "Give the leadership to someone else",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:17 — \"Say to Archippus, Take heed to the ministry which thou hast received in the Lord, that thou fulfil it.\""
+      },
+      {
+        "question_number": 6,
+        "question": "How does Paul sign off the letter in verse 18?",
+        "option_a": "With his own hand, asking them to remember his bonds",
+        "option_b": "Through a secretary without personal touch",
+        "option_c": "With a long theological discourse",
+        "option_d": "By sending a representative",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:18 — \"The salutation by the hand of me Paul. Remember my bonds.\""
+      },
+      {
+        "question_number": 7,
+        "question": "Which companion of Paul is mentioned who would later forsake him (cf. 2 Timothy 4:10)?",
+        "option_a": "Demas",
+        "option_b": "Luke",
+        "option_c": "Tychicus",
+        "option_d": "Epaphras",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:14 — \"Luke, the beloved physician, and Demas, greet you.\" In 2 Timothy 4:10, Paul writes that Demas forsook him, \"having loved this present world.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What is the reference to \"the church which is in his house\" about in verse 15?",
+        "option_a": "Nymphas hosted a house church in Laodicea",
+        "option_b": "Paul had his own church building in Rome",
+        "option_c": "The Jerusalem temple was called a house",
+        "option_d": "Peter's home was the first cathedral",
+        "correct_answer": "a",
+        "explanation": "Colossians 4:15 — \"Salute... Nymphas, and the church which is in his house.\");\n"
+      }
+    ]
+  }
+}

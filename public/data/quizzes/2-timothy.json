@@ -1,0 +1,674 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Who wrote this letter to Timothy?",
+        "option_a": "Paul",
+        "option_b": "Peter",
+        "option_c": "James",
+        "option_d": "John",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:1 — \"Paul, an apostle of Jesus Christ by the will of God.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Paul say God has NOT given us?",
+        "option_a": "The spirit of fear",
+        "option_b": "The spirit of love",
+        "option_c": "The spirit of power",
+        "option_d": "The spirit of a sound mind",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:7 — \"For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What family member of Timothy had sincere faith?",
+        "option_a": "His grandmother Lois and mother Eunice",
+        "option_b": "His father and uncle",
+        "option_c": "His brother and sister",
+        "option_d": "His cousin and aunt",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:5 — \"The unfeigned faith that is in thee, which dwelt first in thy grandmother Lois, and thy mother Eunice.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What three things did God give believers instead of fear according to verse 7?",
+        "option_a": "Power, love, and a sound mind",
+        "option_b": "Wealth, health, and happiness",
+        "option_c": "Wisdom, strength, and courage",
+        "option_d": "Faith, hope, and charity",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:7 — \"For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say God called us with according to verse 9?",
+        "option_a": "A holy calling, not according to our works",
+        "option_b": "A calling based on our good deeds",
+        "option_c": "A calling for the Jewish people only",
+        "option_d": "A calling that can be earned by study",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:9 — \"Who hath saved us, and called us with an holy calling, not according to our works.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Paul urge Timothy to stir up in verse 6?",
+        "option_a": "The gift of God which is in thee",
+        "option_b": "The fire in the temple",
+        "option_c": "The congregation of believers",
+        "option_d": "The anger against false teachers",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:6 — \"Stir up the gift of God, which is in thee by the putting on of my hands.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What has Christ abolished according to verse 10?",
+        "option_a": "Death, and brought life and immortality to light",
+        "option_b": "The law of Moses entirely",
+        "option_c": "The Roman government",
+        "option_d": "The power of the Pharisees",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:10 — \"Who hath abolished death, and hath brought life and immortality to light through the gospel.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who does Paul say turned away from him in Asia?",
+        "option_a": "All they which are in Asia, including Phygellus and Hermogenes",
+        "option_b": "Timothy and his family",
+        "option_c": "Luke and Barnabas",
+        "option_d": "Peter and James",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:15 — \"All they which are in Asia be turned away from me; of whom are Phygellus and Hermogenes.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say was given to believers \"before the world began\" in verse 9?",
+        "option_a": "Grace in Christ Jesus",
+        "option_b": "The law of Moses",
+        "option_c": "The gift of prophecy",
+        "option_d": "The written Scriptures",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:9 — \"According to his own purpose and grace, which was given us in Christ Jesus before the world began.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say he is persuaded about in verse 12?",
+        "option_a": "That God is able to keep that which he committed unto him against that day",
+        "option_b": "That Timothy will come to him soon",
+        "option_c": "That Rome will fall",
+        "option_d": "That all of Asia will repent",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:12 — \"For I know whom I have believed, and am persuaded that he is able to keep that which I have committed unto him against that day.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul tell Timothy to hold fast in verse 13?",
+        "option_a": "The form of sound words which thou hast heard of me",
+        "option_b": "The traditions of the elders",
+        "option_c": "The writings of the philosophers",
+        "option_d": "The opinions of the majority",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:13 — \"Hold fast the form of sound words, which thou hast heard of me, in faith and love which is in Christ Jesus.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say to guard by the Holy Ghost in verse 14?",
+        "option_a": "That good thing which was committed unto thee",
+        "option_b": "The gold in the treasury",
+        "option_c": "The temple building",
+        "option_d": "The apostolic succession",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:14 — \"That good thing which was committed unto thee keep by the Holy Ghost which dwelleth in us.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who does Paul commend for not being ashamed of his chain?",
+        "option_a": "Onesiphorus",
+        "option_b": "Timothy",
+        "option_c": "Luke",
+        "option_d": "Titus",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:16 — \"The Lord give mercy unto the house of Onesiphorus; for he oft refreshed me, and was not ashamed of my chain.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say Onesiphorus did when he was in Rome?",
+        "option_a": "He sought Paul out very diligently and found him",
+        "option_b": "He avoided Paul out of fear",
+        "option_c": "He reported Paul to the authorities",
+        "option_d": "He left Rome immediately",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:17 — \"But, when he was in Rome, he sought me out very diligently, and found me.\""
+      },
+      {
+        "question_number": 7,
+        "question": "How does Paul describe his relationship to Timothy in verse 2?",
+        "option_a": "My dearly beloved son",
+        "option_b": "My fellow apostle",
+        "option_c": "My trusted servant",
+        "option_d": "My brother in the faith",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:2 — \"To Timothy, my dearly beloved son: Grace, mercy, and peace.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does the phrase \"the laying on of my hands\" in verse 6 refer to?",
+        "option_a": "Paul's ordination of Timothy for ministry",
+        "option_b": "A healing miracle Paul performed",
+        "option_c": "A Jewish blessing ceremony",
+        "option_d": "A Roman greeting custom",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 1:6 — \"The gift of God, which is in thee by the putting on of my hands.\" This refers to Timothy's ordination and commissioning for ministry."
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul tell Timothy to be strong in?",
+        "option_a": "The grace that is in Christ Jesus",
+        "option_b": "His own muscles",
+        "option_c": "His fighting skills",
+        "option_d": "His knowledge of languages",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:1 — \"Thou therefore, my son, be strong in the grace that is in Christ Jesus.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What three examples does Paul use to describe a Christian?",
+        "option_a": "A soldier, an athlete, and a farmer",
+        "option_b": "A king, a priest, and a prophet",
+        "option_c": "A lion, an eagle, and a lamb",
+        "option_d": "A teacher, a doctor, and a builder",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:3-6 — Paul uses the images of a soldier (v.3-4), an athlete (v.5), and a husbandman/farmer (v.6)."
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say we should avoid?",
+        "option_a": "Foolish and unlearned questions",
+        "option_b": "Reading the Scriptures",
+        "option_c": "Praying every day",
+        "option_d": "Going to church",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:23 — \"But foolish and unlearned questions avoid, knowing that they do gender strifes.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Paul say a good soldier does NOT do?",
+        "option_a": "Entangle himself with the affairs of this life",
+        "option_b": "Train for battle",
+        "option_c": "Follow his commander",
+        "option_d": "Wear his armor",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:4 — \"No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What must happen to an athlete to receive a crown according to verse 5?",
+        "option_a": "He must strive lawfully (compete by the rules)",
+        "option_b": "He must win every single race",
+        "option_c": "He must defeat every opponent",
+        "option_d": "He must train for ten years",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:5 — \"If a man also strive for masteries, yet is he not crowned, except he strive lawfully.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the faithful saying in verses 11-12?",
+        "option_a": "If we be dead with him, we shall also live with him; if we suffer, we shall also reign with him",
+        "option_b": "If we pray enough, we will be rich",
+        "option_c": "If we study hard, we will be wise",
+        "option_d": "If we fast often, we will be holy",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:11-12 — \"If we be dead with him, we shall also live with him: If we suffer, we shall also reign with him.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about God's foundation in verse 19?",
+        "option_a": "It standeth sure, having this seal: The Lord knoweth them that are his",
+        "option_b": "It was laid in Jerusalem only",
+        "option_c": "It can be shaken by false teachers",
+        "option_d": "It needs to be rebuilt each generation",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:19 — \"The foundation of God standeth sure, having this seal, The Lord knoweth them that are his.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What should Timothy flee from according to verse 22?",
+        "option_a": "Youthful lusts",
+        "option_b": "Responsibility",
+        "option_c": "Hard work",
+        "option_d": "Public speaking",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:22 — \"Flee also youthful lusts: but follow righteousness, faith, charity, peace.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What principle of faithful ministry does Paul establish in verse 2?",
+        "option_a": "Commit the teaching to faithful men who shall be able to teach others also",
+        "option_b": "Keep the teaching secret among apostles",
+        "option_c": "Write everything down for future generations",
+        "option_d": "Only share with those who pay for instruction",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:2 — \"The things that thou hast heard of me among many witnesses, the same commit thou to faithful men, who shall be able to teach others also.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about the word of God in verse 9?",
+        "option_a": "The word of God is not bound",
+        "option_b": "The word of God is limited to Israel",
+        "option_c": "The word of God needs human defense",
+        "option_d": "The word of God changes with culture",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:9 — \"Wherein I suffer trouble, as an evil doer, even unto bonds; but the word of God is not bound.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What happens if we deny Christ according to verse 12?",
+        "option_a": "He also will deny us",
+        "option_b": "He will forgive us anyway",
+        "option_c": "Nothing happens",
+        "option_d": "He will give us more time",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:12 — \"If we deny him, he also will deny us.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say about God's faithfulness even when we are faithless (v. 13)?",
+        "option_a": "He abideth faithful: he cannot deny himself",
+        "option_b": "He becomes unfaithful too",
+        "option_c": "He punishes us immediately",
+        "option_d": "He withdraws his Spirit",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:13 — \"If we believe not, yet he abideth faithful: he cannot deny himself.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say the workman approved unto God should do?",
+        "option_a": "Rightly divide the word of truth",
+        "option_b": "Memorize every verse exactly",
+        "option_c": "Debate all opponents publicly",
+        "option_d": "Build large congregations",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:15 — \"Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What two men does Paul name as having erred concerning the truth?",
+        "option_a": "Hymenaeus and Philetus",
+        "option_b": "Phygellus and Hermogenes",
+        "option_c": "Demas and Alexander",
+        "option_d": "Jannes and Jambres",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:17-18 — \"Of whom is Hymenaeus and Philetus; Who concerning the truth have erred, saying that the resurrection is past already.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What false teaching did Hymenaeus and Philetus spread?",
+        "option_a": "That the resurrection is past already",
+        "option_b": "That Jesus never rose from the dead",
+        "option_c": "That there is no God",
+        "option_d": "That the law should be abolished",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:18 — \"Who concerning the truth have erred, saying that the resurrection is past already; and overthrow the faith of some.\""
+      },
+      {
+        "question_number": 8,
+        "question": "In the analogy of vessels in verse 20-21, what kind of vessel should a believer be?",
+        "option_a": "A vessel unto honour, sanctified and meet for the master's use",
+        "option_b": "A vessel of gold only",
+        "option_c": "A vessel that is never used",
+        "option_d": "A vessel displayed for decoration",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 2:21 — \"If a man therefore purge himself from these, he shall be a vessel unto honour, sanctified, and meet for the master's use.\");\n\n-- ═══ 2 Timothy Chapter 3 ═══\n"
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What did Paul say the last days would be like?",
+        "option_a": "Perilous (dangerous) times",
+        "option_b": "Easy and fun times",
+        "option_c": "Very peaceful times",
+        "option_d": "Boring and quiet times",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:1 — \"This know also, that in the last days perilous times shall come.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Timothy know from childhood?",
+        "option_a": "The holy scriptures",
+        "option_b": "How to build houses",
+        "option_c": "How to fish",
+        "option_d": "How to cook",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:15 — \"From a child thou hast known the holy scriptures.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Paul say all scripture is given by?",
+        "option_a": "Inspiration of God",
+        "option_b": "Human wisdom",
+        "option_c": "Angel dictation",
+        "option_d": "King's command",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:16 — \"All scripture is given by inspiration of God.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What characteristics of people in the last days does Paul list first in verse 2?",
+        "option_a": "Lovers of their own selves, covetous, boasters, proud",
+        "option_b": "Loving, generous, humble, kind",
+        "option_c": "Faithful, honest, gentle, patient",
+        "option_d": "Brave, courageous, strong, wise",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:2 — \"For men shall be lovers of their own selves, covetous, boasters, proud.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say about people having a form of godliness?",
+        "option_a": "They deny the power thereof",
+        "option_b": "They truly follow God",
+        "option_c": "They are the best Christians",
+        "option_d": "They will be saved first",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:5 — \"Having a form of godliness, but denying the power thereof: from such turn away.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who does Paul compare false teachers to in verse 8?",
+        "option_a": "Jannes and Jambres who withstood Moses",
+        "option_b": "Goliath who fought David",
+        "option_c": "Pharaoh who chased Israel",
+        "option_d": "Balaam who cursed Israel",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:8 — \"Now as Jannes and Jambres withstood Moses, so do these also resist the truth.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What happened to Paul in Antioch, Iconium, and Lystra?",
+        "option_a": "He suffered persecutions, but the Lord delivered him",
+        "option_b": "He built three large churches",
+        "option_c": "He performed many miracles",
+        "option_d": "He was welcomed by everyone",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:11 — \"Persecutions, afflictions, which came unto me at Antioch, at Iconium, at Lystra; what persecutions I endured: but out of them all the Lord delivered me.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Paul say will happen to all who live godly in Christ Jesus?",
+        "option_a": "They shall suffer persecution",
+        "option_b": "They will become wealthy",
+        "option_c": "They will never have problems",
+        "option_d": "They will be famous",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:12 — \"Yea, and all that will live godly in Christ Jesus shall suffer persecution.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How many negative characteristics of last-days people does Paul list in verses 2-4?",
+        "option_a": "Eighteen or nineteen distinct characteristics",
+        "option_b": "Five characteristics",
+        "option_c": "Ten characteristics",
+        "option_d": "Three characteristics",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:2-4 lists: lovers of own selves, covetous, boasters, proud, blasphemers, disobedient to parents, unthankful, unholy, without natural affection, trucebreakers, false accusers, incontinent, fierce, despisers of those that are good, traitors, heady, highminded, lovers of pleasures more than lovers of God."
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say evil men and seducers will do in verse 13?",
+        "option_a": "Wax worse and worse, deceiving and being deceived",
+        "option_b": "Eventually repent and turn to God",
+        "option_c": "Slowly improve over time",
+        "option_d": "Remain exactly the same",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:13 — \"But evil men and seducers shall wax worse and worse, deceiving, and being deceived.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What four purposes of Scripture does Paul list in verse 16?",
+        "option_a": "Doctrine, reproof, correction, instruction in righteousness",
+        "option_b": "Entertainment, history, poetry, philosophy",
+        "option_c": "Prophecy, genealogy, law, ceremony",
+        "option_d": "Prayer, fasting, meditation, worship",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:16 — \"All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What is the ultimate goal of Scripture according to verse 17?",
+        "option_a": "That the man of God may be perfect, throughly furnished unto all good works",
+        "option_b": "That believers may become wealthy",
+        "option_c": "That the church may grow large",
+        "option_d": "That all nations may be converted",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:17 — \"That the man of God may be perfect, throughly furnished unto all good works.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does the phrase \"given by inspiration of God\" literally mean in Greek?",
+        "option_a": "God-breathed (theopneustos)",
+        "option_b": "God-written",
+        "option_c": "God-spoken",
+        "option_d": "God-thought",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:16 — \"All scripture is given by inspiration of God.\" The Greek word theopneustos means \"God-breathed,\" indicating divine origin."
+      },
+      {
+        "question_number": 6,
+        "question": "What does Paul say about the type of women deceived by false teachers in verse 6?",
+        "option_a": "Silly women laden with sins, led away with divers lusts",
+        "option_b": "Wise and discerning women",
+        "option_c": "Women who study Scripture daily",
+        "option_d": "Women who lead the churches",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:6 — \"For of this sort are they which creep into houses, and lead captive silly women laden with sins, led away with divers lusts.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Paul say about the folly of false teachers in verse 9?",
+        "option_a": "They shall proceed no further: for their folly shall be manifest unto all men",
+        "option_b": "They will succeed in deceiving the whole world",
+        "option_c": "They will repent when confronted",
+        "option_d": "They will be destroyed by angels",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:9 — \"But they shall proceed no further: for their folly shall be manifest unto all men, as theirs also was.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What is the significance of Paul mentioning Timothy's knowledge of Scripture \"from a child\"?",
+        "option_a": "It demonstrates the importance of teaching Scripture to children from a young age and shows Timothy's Jewish upbringing",
+        "option_b": "It suggests Timothy was a child prodigy",
+        "option_c": "It implies only children can understand Scripture",
+        "option_d": "It means Timothy wrote Scripture as a child",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 3:15 — \"And that from a child thou hast known the holy scriptures, which are able to make thee wise unto salvation through faith which is in Christ Jesus.\");\n\n-- ═══ 2 Timothy Chapter 4 ═══\n"
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Paul tell Timothy to preach?",
+        "option_a": "The word",
+        "option_b": "His own ideas",
+        "option_c": "Funny stories",
+        "option_d": "Political opinions",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:2 — \"Preach the word; be instant in season, out of season.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Paul say he has finished?",
+        "option_a": "His course (race)",
+        "option_b": "Building a house",
+        "option_c": "Writing a book",
+        "option_d": "Traveling the world",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:7 — \"I have fought a good fight, I have finished my course.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is laid up (waiting) for Paul?",
+        "option_a": "A crown of righteousness",
+        "option_b": "A bag of gold",
+        "option_c": "A new house",
+        "option_d": "A fancy robe",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:8 — \"Henceforth there is laid up for me a crown of righteousness.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What three things does Paul say he has done in verse 7?",
+        "option_a": "Fought a good fight, finished his course, kept the faith",
+        "option_b": "Built many churches, healed many sick, raised the dead",
+        "option_c": "Written many letters, traveled many miles, made many converts",
+        "option_d": "Preached many sermons, baptized many converts, planted many churches",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:7 — \"I have fought a good fight, I have finished my course, I have kept the faith.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why did Demas forsake Paul according to verse 10?",
+        "option_a": "Having loved this present world",
+        "option_b": "He was sick and needed rest",
+        "option_c": "He was called to another ministry",
+        "option_d": "He was afraid of persecution",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:10 — \"For Demas hath forsaken me, having loved this present world, and is departed unto Thessalonica.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who was the only companion still with Paul?",
+        "option_a": "Luke",
+        "option_b": "Timothy",
+        "option_c": "Titus",
+        "option_d": "Barnabas",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:11 — \"Only Luke is with me.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Paul say people will want instead of sound doctrine?",
+        "option_a": "Teachers who tell them what they want to hear (having itching ears)",
+        "option_b": "Stricter rules and regulations",
+        "option_c": "More miracles and signs",
+        "option_d": "Longer worship services",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:3 — \"For the time will come when they will not endure sound doctrine; but after their own lusts shall they heap to themselves teachers, having itching ears.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Who does Paul say did him much evil?",
+        "option_a": "Alexander the coppersmith",
+        "option_b": "Demas the tentmaker",
+        "option_c": "Trophimus the Ephesian",
+        "option_d": "Erastus the chamberlain",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:14 — \"Alexander the coppersmith did me much evil: the Lord reward him according to his works.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "Before whom does Paul charge Timothy to preach the word in verse 1?",
+        "option_a": "Before God and the Lord Jesus Christ, who shall judge the quick and the dead",
+        "option_b": "Before the church elders",
+        "option_c": "Before the Roman authorities",
+        "option_d": "Before the Jewish Sanhedrin",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:1 — \"I charge thee therefore before God, and the Lord Jesus Christ, who shall judge the quick and the dead at his appearing and his kingdom.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What five imperatives does Paul give Timothy in verse 2?",
+        "option_a": "Preach, reprove, rebuke, exhort with all longsuffering and doctrine",
+        "option_b": "Pray, fast, study, teach, and baptize",
+        "option_c": "Heal, prophesy, cast out, deliver, and raise",
+        "option_d": "Build, organize, lead, manage, and grow",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:2 — \"Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What metaphor does Paul use for his approaching death in verse 6?",
+        "option_a": "Being poured out as a drink offering (ready to be offered)",
+        "option_b": "Being consumed by fire",
+        "option_c": "Being swept away by a flood",
+        "option_d": "Being carried away by eagles",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:6 — \"For I am now ready to be offered, and the time of my departure is at hand.\" The word \"offered\" (spendomai) means poured out as a drink offering."
+      },
+      {
+        "question_number": 4,
+        "question": "Who will receive the crown of righteousness according to verse 8?",
+        "option_a": "All them that love his appearing",
+        "option_b": "Only Paul and the apostles",
+        "option_c": "Only those who are martyred",
+        "option_d": "Only those who preach",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:8 — \"Not to me only, but unto all them also that love his appearing.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What personal items does Paul ask Timothy to bring in verse 13?",
+        "option_a": "The cloke, the books, and especially the parchments",
+        "option_b": "His sandals and staff",
+        "option_c": "His money and provisions",
+        "option_d": "His sword and shield",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:13 — \"The cloke that I left at Troas with Carpus, when thou comest, bring with thee, and the books, but especially the parchments.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What happened at Paul's first answer (defense) according to verse 16?",
+        "option_a": "No man stood with him, but all men forsook him",
+        "option_b": "The whole church supported him",
+        "option_c": "He was immediately released",
+        "option_d": "He was condemned to death",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:16 — \"At my first answer no man stood with me, but all men forsook me: I pray God that it may not be laid to their charge.\""
+      },
+      {
+        "question_number": 7,
+        "question": "Despite being forsaken, what does Paul say the Lord did in verse 17?",
+        "option_a": "The Lord stood with him and strengthened him so the message could be fully known",
+        "option_b": "The Lord sent angels to break him out",
+        "option_c": "The Lord struck his enemies blind",
+        "option_d": "The Lord destroyed the courtroom",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:17 — \"Notwithstanding the Lord stood with me, and strengthened me; that by me the preaching might be fully known.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Paul say the Lord delivered him from in verse 17?",
+        "option_a": "The mouth of the lion",
+        "option_b": "The Roman soldiers",
+        "option_c": "The Jewish leaders",
+        "option_d": "The stormy sea",
+        "correct_answer": "a",
+        "explanation": "2 Timothy 4:17 — \"And I was delivered out of the mouth of the lion.\" This likely refers to Nero or the danger of the Roman court."
+      }
+    ]
+  }
+}
