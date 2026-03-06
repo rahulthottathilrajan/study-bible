@@ -7,7 +7,7 @@ import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES } from "../con
 const initDbChapters = {};
 BIBLE_BOOKS.forEach(b => {
   initDbChapters[b.name] = Array.from({ length: b.chapters }, (_, i) => ({
-    num: i + 1, theme: CATEGORY_THEME[b.category]
+    num: i + 1, theme: null
   }));
 });
 
@@ -62,7 +62,7 @@ export function AppProvider({ children }) {
   const FS = { small:{list:13,detail:15}, medium:{list:14.5,detail:17}, large:{list:17,detail:20}, xlarge:{list:20.5,detail:24} };
 
   // ─── Bible data ───
-  const [dbChapters] = useState(initDbChapters);
+  const [dbChapters, setDbChapters] = useState(initDbChapters);
   const [collapsed, setCollapsed] = useState({});
   const [booksCollapsed, setBooksCollapsed] = useState({});
   const [overviewOpen, setOverviewOpen] = useState(false);
@@ -1093,6 +1093,17 @@ export function AppProvider({ children }) {
         if (res.ok) {
           bookData = await res.json();
           bookCache.current[slug] = bookData;
+
+          // Enrich dbChapters with chapter themes from static JSON
+          setDbChapters(prev => {
+            const existing = prev[bookName];
+            if (!existing) return prev;
+            const updated = existing.map(ch => {
+              const chData = bookData.chapters[String(ch.num)];
+              return chData?.meta?.theme ? { ...ch, theme: chData.meta.theme } : ch;
+            });
+            return { ...prev, [bookName]: updated };
+          });
         }
       }
 
@@ -1155,6 +1166,28 @@ export function AppProvider({ children }) {
     if (opts.tab !== undefined) setTab(opts.tab);
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [testament, book, chapter, verse, tab, changeVerse]);
+
+  // Preload book JSON when entering chapter list (enriches chapter themes)
+  useEffect(() => {
+    if (view === "chapter" && book) {
+      const slug = book.toLowerCase().replace(/\s+/g, '-');
+      if (!bookCache.current[slug]) {
+        fetch(`/data/${slug}.json`).then(r => r.ok ? r.json() : null).then(data => {
+          if (!data) return;
+          bookCache.current[slug] = data;
+          setDbChapters(prev => {
+            const existing = prev[book];
+            if (!existing) return prev;
+            const updated = existing.map(ch => {
+              const chData = data.chapters[String(ch.num)];
+              return chData?.meta?.theme ? { ...ch, theme: chData.meta.theme } : ch;
+            });
+            return { ...prev, [book]: updated };
+          });
+        }).catch(() => {});
+      }
+    }
+  }, [view, book]);
 
   useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter) loadChapter(book, chapter); }, [view, book, chapter, loadChapter]);
   useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) changeVerse(verseNums[0]); }, [view, verse, verseNums, changeVerse]);
