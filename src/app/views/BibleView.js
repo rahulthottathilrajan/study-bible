@@ -354,27 +354,23 @@ export default function BibleView() {
           {/* KJV Text Card */}
           <Card t={t} style={{ margin:"12px 0 14px",position:"relative",background:highlight?.highlight_color ? `${highlight.highlight_color}15` : t.card,borderColor:highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider }}>
             <div style={{position:"absolute",top:-1,left:30,right:30,height:3,background:`linear-gradient(90deg,transparent,${t.accent},transparent)`,borderRadius:"0 0 2px 2px"}}/>
-
-            {/* Prev verse arrow */}
-            {curIdx > 0 && (
-              <button onClick={() => setVerse(verseNums[curIdx - 1])}
-                style={{position:"absolute",left:-6,top:"50%",transform:"translateY(-50%)",width:36,height:36,borderRadius:"50%",background:t.card,border:`1px solid ${t.divider}`,boxShadow:`0 2px 8px rgba(0,0,0,${darkMode?0.25:0.1})`,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",zIndex:2,transition:"all 0.2s",color:t.accent,fontSize:16,fontWeight:700}}>
+            <Label icon="📖" t={t}>KJV Text</Label>
+            <div style={{display:"flex",alignItems:"stretch",gap:0}}>
+              {/* Prev arrow */}
+              <button onClick={()=>{if(curIdx>0){setVerse(verseNums[curIdx-1]);setTab("study")}}} disabled={curIdx<=0}
+                style={{flex:"0 0 36px",display:"flex",alignItems:"center",justifyContent:"center",background:"transparent",border:"none",cursor:curIdx>0?"pointer":"default",color:curIdx>0?t.accent:"transparent",fontSize:22,fontWeight:700,padding:0,transition:"color 0.2s",marginLeft:-6}}>
                 ‹
               </button>
-            )}
-
-            {/* Next verse arrow */}
-            {curIdx < verseNums.length - 1 && (
-              <button onClick={() => setVerse(verseNums[curIdx + 1])}
-                style={{position:"absolute",right:-6,top:"50%",transform:"translateY(-50%)",width:36,height:36,borderRadius:"50%",background:t.card,border:`1px solid ${t.divider}`,boxShadow:`0 2px 8px rgba(0,0,0,${darkMode?0.25:0.1})`,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",zIndex:2,transition:"all 0.2s",color:t.accent,fontSize:16,fontWeight:700}}>
+              {/* Verse text */}
+              <div style={{flex:1,fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.7,padding:"2px 0"}}>
+                <span style={{fontSize:"clamp(28px,9vw,38px)",fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:6,marginTop:4,fontFamily:t.heading}}>{verse}</span>
+                {currentVerse.kjv_text}
+              </div>
+              {/* Next arrow */}
+              <button onClick={()=>{if(curIdx<verseNums.length-1){setVerse(verseNums[curIdx+1]);setTab("study")}}} disabled={curIdx>=verseNums.length-1}
+                style={{flex:"0 0 36px",display:"flex",alignItems:"center",justifyContent:"center",background:"transparent",border:"none",cursor:curIdx<verseNums.length-1?"pointer":"default",color:curIdx<verseNums.length-1?t.accent:"transparent",fontSize:22,fontWeight:700,padding:0,transition:"color 0.2s",marginRight:-6}}>
                 ›
               </button>
-            )}
-
-            <Label icon="📖" t={t}>KJV Text</Label>
-            <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.7}}>
-              <span style={{fontSize:"clamp(28px,9vw,38px)",fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:6,marginTop:4,fontFamily:t.heading}}>{verse}</span>
-              {currentVerse.kjv_text}
             </div>
             {/* Highlight colors */}
             {user && <div style={{display:"flex",gap:6,marginTop:12,paddingTop:10,borderTop:`1px solid ${t.divider}`}}>
