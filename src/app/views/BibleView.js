@@ -3,6 +3,7 @@ import { useApp } from "../context/AppContext";
 import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS } from "../constants";
 import { ChevIcon, Badge, Label, Card, Btn, Spinner, DBBadge } from "../components/ui";
 import Header from "../components/Header";
+import BibleNavigator from "../components/BibleNavigator";
 
 export default function BibleView() {
   const {
@@ -26,6 +27,7 @@ export default function BibleView() {
       <div style={{ minHeight:"100vh",background:ht.bg }}>
         <Header title={testament === "OT" ? "Old Testament" : "New Testament"} subtitle={`${books.length} Books`} onBack={goBack} theme={ht} />
         <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
+          <BibleNavigator />
           {Object.entries(cats).map(([cat, catBooks]) => {
             const ct = THEMES[CATEGORY_THEME[cat] || "home"];
             const isOpen = booksCollapsed[cat] === true;
@@ -94,18 +96,7 @@ export default function BibleView() {
             </div>
           )}
 
-          {/* Legend */}
-          <div style={{ display:"flex",gap:16,marginBottom:18,padding:"10px 14px",background:t.accentLight,borderRadius:10 }}>
-            <div style={{ display:"flex",alignItems:"center",gap:5,fontFamily:t.ui,fontSize:11,color:t.muted }}>
-              <span style={{ width:8,height:8,borderRadius:"50%",background:t.accent,display:"inline-block" }}/>Study Ready
-            </div>
-            <div style={{ display:"flex",alignItems:"center",gap:5,fontFamily:t.ui,fontSize:11,color:t.muted }}>
-              <span style={{ fontSize:11 }}>✏️</span> Your Notes
-            </div>
-            <div style={{ display:"flex",alignItems:"center",gap:5,fontFamily:t.ui,fontSize:11,color:t.muted }}>
-              <span style={{ fontSize:11 }}>★</span> Bookmarked
-            </div>
-          </div>
+          <BibleNavigator />
 
           {/* Empty state banner */}
           {availNums.length === 0 && (
@@ -210,6 +201,7 @@ export default function BibleView() {
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <Header title={`${book} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} />
         <div style={{ maxWidth:620,margin:"0 auto",padding:"16px 16px 40px" }}>
+          <BibleNavigator />
 
           {/* Chapter Illustration */}
           {chapterMeta?.illustration_url && (
@@ -334,6 +326,7 @@ export default function BibleView() {
           </>}
         />
         <div style={{ maxWidth:620,margin:"0 auto",padding:"0 16px 40px" }}>
+          <div style={{ marginTop: 14 }}><BibleNavigator /></div>
           {chapterMeta?.overview && (
             <div style={{margin:"14px 0"}}>
               <button
