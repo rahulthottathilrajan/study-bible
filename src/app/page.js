@@ -27,12 +27,12 @@ import QuizView from "./views/QuizView";
 // MAIN APP
 // ═══════════════════════════════════════════════════
 function StudyBibleContent() {
-  const { view, fade, darkMode, nav, ht, updateSectionPosition, trackLearnExploration } = useApp();
+  const { view, darkMode, nav, ht, updateSectionPosition, trackLearnExploration } = useApp();
 
   const showNav = !["verse","verses","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice"].includes(view);
 
   return (
-    <div style={{ maxWidth:640,margin:"0 auto",transition:"opacity 0.12s ease",opacity:fade?1:0,minHeight:"100vh",paddingBottom:showNav?68:0 }}>
+    <div style={{ maxWidth:640,margin:"0 auto",minHeight:"100vh",paddingBottom:showNav?68:0 }}>
       <style>{`.pressable{transition:background 0.15s,transform 0.1s!important}.pressable:hover{background:rgba(0,0,0,0.03)!important}.pressable:active{background:rgba(0,0,0,0.07)!important;transform:scale(0.985)}@keyframes stoneShimmer{0%{background-position:250% 0}50%{background-position:-50% 0}100%{background-position:250% 0}}`}</style>
       {view === "home" && <ErrorBoundary theme={ht} label="Home"><HomeView /></ErrorBoundary>}
       {view === "search" && <ErrorBoundary theme={ht} label="Search"><BibleSearch nav={nav} ht={ht} /></ErrorBoundary>}

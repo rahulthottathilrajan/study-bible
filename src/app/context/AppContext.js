@@ -13,7 +13,6 @@ export function AppProvider({ children }) {
   const [chapter, setChapter] = useState(null);
   const [verse, setVerse] = useState(null);
   const [tab, setTab] = useState("study");
-  const [fade, setFade] = useState(true);
   const [loading, setLoading] = useState(false);
   const [dbLive, setDbLive] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -52,7 +51,7 @@ export function AppProvider({ children }) {
   }, []);
 
   // ─── Font size lookup ───
-  const FS = { small:{list:13,detail:17}, medium:{list:14.5,detail:19.5}, large:{list:17,detail:23}, xlarge:{list:20.5,detail:27} };
+  const FS = { small:{list:13,detail:15}, medium:{list:14.5,detail:17}, large:{list:17,detail:20}, xlarge:{list:20.5,detail:24} };
 
   // ─── Bible data ───
   const [dbChapters, setDbChapters] = useState({});
@@ -113,6 +112,16 @@ export function AppProvider({ children }) {
   const [slotsLoading, setSlotsLoading] = useState(false);
 
   const noteRef = useRef(null);
+
+  // ─── Wrapped verse setter — clears stale per-verse user data in same render batch ───
+  const changeVerse = useCallback((v) => {
+    setVerse(v);
+    setSavedNote(null);
+    setUserNote("");
+    if (noteRef.current) noteRef.current.value = "";
+    setHighlight(null);
+    setCommunityNotes([]);
+  }, []);
 
   // ─── Hebrew Learning state ───
   const [hebrewLessons, setHebrewLessons] = useState([]);
@@ -309,14 +318,19 @@ export function AppProvider({ children }) {
   // ═══ USER FEATURES ═══
   useEffect(() => {
     if (!user || !currentVerse) return;
+    let stale = false;
     (async () => {
       const { data: note } = await supabase.from("user_notes").select("*").eq("user_id", user.id).eq("verse_id", currentVerse.id).maybeSingle();
+      if (stale) return;
       if (note) { setSavedNote(note); setUserNote(note.note_text); if (noteRef.current) noteRef.current.value = note.note_text; } else { setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = ""; }
       const { data: hl } = await supabase.from("user_highlights").select("*").eq("user_id", user.id).eq("verse_id", currentVerse.id).maybeSingle();
+      if (stale) return;
       setHighlight(hl);
       const { data: cn } = await supabase.from("user_notes").select("*").eq("verse_id", currentVerse.id).eq("is_public", true).neq("user_id", user.id);
+      if (stale) return;
       setCommunityNotes(cn || []);
     })();
+    return () => { stale = true; };
   }, [user, currentVerse]);
 
   useEffect(() => {
@@ -1018,28 +1032,24 @@ export function AppProvider({ children }) {
     const target = BACK_MAP[view] || "home";
     if (navStack.current.length > 1) navStack.current.pop();
     goingBack.current = true;
-    setFade(false);
-    setTimeout(() => { setView(target); setFade(true); window.scrollTo({ top: 0, behavior: "instant" }); }, 80);
+    setView(target);
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const nav = useCallback((v, opts = {}) => {
     const snapshot = { view: v, testament, book, chapter, verse, tab, ...opts };
     navStack.current.push(snapshot);
-    setFade(false);
-    setTimeout(() => {
-      setView(v);
-      if (opts.testament !== undefined) setTestament(opts.testament);
-      if (opts.book !== undefined) setBook(opts.book);
-      if (opts.chapter !== undefined) setChapter(opts.chapter);
-      if (opts.verse !== undefined) setVerse(opts.verse);
-      if (opts.tab !== undefined) setTab(opts.tab);
-      setFade(true);
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }, 80);
-  }, [testament, book, chapter, verse, tab]);
+    setView(v);
+    if (opts.testament !== undefined) setTestament(opts.testament);
+    if (opts.book !== undefined) setBook(opts.book);
+    if (opts.chapter !== undefined) setChapter(opts.chapter);
+    if (opts.verse !== undefined) changeVerse(opts.verse);
+    if (opts.tab !== undefined) setTab(opts.tab);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [testament, book, chapter, verse, tab, changeVerse]);
 
   useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter && dbLive) loadChapter(book, chapter); }, [view, book, chapter, dbLive, loadChapter]);
-  useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) setVerse(verseNums[0]); }, [view, verse, verseNums]);
+  useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) changeVerse(verseNums[0]); }, [view, verse, verseNums, changeVerse]);
 
   // ═══ SUPABASE READING POSITION SYNC ═══
   const savePositionToSupabase = useCallback(async (sectionKey, positionData) => {
@@ -1114,7 +1124,7 @@ export function AppProvider({ children }) {
   const value = {
     // Core
     view, setView, testament, setTestament, book, setBook, chapter, setChapter,
-    verse, setVerse, tab, setTab, fade, setFade, loading, setLoading,
+    verse, setVerse: changeVerse, tab, setTab, loading, setLoading,
     dbLive, setDbLive, darkMode, setDarkMode, fontSize, setFontSize, FS,
     // Bible data
     dbChapters, collapsed, setCollapsed, booksCollapsed, setBooksCollapsed,

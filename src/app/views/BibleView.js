@@ -358,15 +358,21 @@ export default function BibleView() {
 
   
 
-          {/* KJV Text Card */}
-          <Card t={t} style={{ margin:"12px 0 14px",position:"relative",background:highlight?.highlight_color ? `${highlight.highlight_color}15` : t.card,borderColor:highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider,transition:"background 0.3s,border-color 0.3s" }}>
-            <div style={{position:"absolute",top:-1,left:30,right:30,height:3,background:`linear-gradient(90deg,transparent,${t.accent},transparent)`,borderRadius:"0 0 2px 2px"}}/>
+          {/* KJV Text Card — Stone Tablet */}
+          <div style={{
+            margin:"12px 0 14px",position:"relative",borderRadius:16,padding:"22px 22px 18px",
+            background:highlight?.highlight_color ? `${highlight.highlight_color}15` : (t.stone || t.card),
+            border:`1.5px solid ${highlight?.highlight_color ? `${highlight.highlight_color}40` : (t.stoneEdge || t.divider)}`,
+            boxShadow:`inset 0 2px 4px rgba(255,255,255,${darkMode?0.03:0.5}), inset 0 -2px 4px rgba(0,0,0,${darkMode?0.2:0.06}), 0 4px 16px rgba(0,0,0,${darkMode?0.3:0.08}), 0 1px 3px rgba(0,0,0,${darkMode?0.2:0.04})`,
+            transition:"background 0.3s,border-color 0.3s",
+          }}>
+            <div style={{position:"absolute",top:-1,left:40,right:40,height:2,background:`linear-gradient(90deg,transparent,${t.accent}66,transparent)`,borderRadius:"0 0 2px 2px"}}/>
             <Label icon="📖" t={t}>KJV Text</Label>
 
             {/* Tappable verse text */}
             <div onClick={() => user && setVerseActive(a => !a)}
-              style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.85,padding:"8px 0 12px",cursor:user?"pointer":"default",borderBottom:verseActive?`2px dotted ${t.accent}`:"2px solid transparent",transition:"border-color 0.2s"}}>
-              <span style={{fontSize:"clamp(28px,9vw,38px)",fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:8,marginTop:4,fontFamily:t.heading}}>{verse}</span>
+              style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.stoneText||t.dark,lineHeight:1.85,padding:"8px 0 12px",cursor:user?"pointer":"default",borderBottom:verseActive?`2px dotted ${t.accent}`:"2px solid transparent",transition:"border-color 0.2s",textShadow:darkMode?"0 1px 2px rgba(0,0,0,0.4)":"0 1px 0 rgba(255,255,255,0.7), 0 -0.5px 0 rgba(0,0,0,0.04)"}}>
+              <span style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:8,marginTop:4,fontFamily:t.heading,textShadow:darkMode?"0 2px 4px rgba(0,0,0,0.5)":"0 1px 0 rgba(255,255,255,0.8), 0 -1px 0 rgba(0,0,0,0.05)"}}>{verse}</span>
               {currentVerse.kjv_text}
             </div>
 
@@ -426,7 +432,7 @@ export default function BibleView() {
                 Next ›
               </button>
             </div>
-          </Card>
+          </div>
 
           {/* Tabs */}
           <div style={{ display:"flex",background:t.card,borderRadius:10,padding:3,marginBottom:14,border:`1px solid ${t.divider}`,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none" }}>
@@ -509,13 +515,6 @@ export default function BibleView() {
               <button onClick={() => nav("account")} style={{padding:"12px 28px",borderRadius:10,border:"none",background:t.tabActive,color:t.headerText,fontFamily:t.ui,fontSize:14,fontWeight:700,cursor:"pointer"}}>Sign In / Sign Up</button>
             </div>
           </Card>}
-
-          {/* Verse Navigation */}
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:18,gap:10}}>
-            <Btn onClick={()=>{if(curIdx>0){setVerse(verseNums[curIdx-1]);setTab("study")}}} disabled={curIdx<=0} style={{flex:1,padding:"11px",background:curIdx>0?t.card:t.bg,border:`1px solid ${t.divider}`,borderRadius:10,fontFamily:t.ui,fontSize:14,color:t.dark}}>← Prev</Btn>
-            <div style={{fontFamily:t.heading,fontSize:15,color:t.muted,fontWeight:700}}>v.{verse}</div>
-            <Btn onClick={()=>{if(curIdx<verseNums.length-1){setVerse(verseNums[curIdx+1]);setTab("study")}}} disabled={curIdx>=verseNums.length-1} style={{flex:1,padding:"11px",background:curIdx<verseNums.length-1?t.card:t.bg,border:`1px solid ${t.divider}`,borderRadius:10,fontFamily:t.ui,fontSize:14,color:t.dark}}>Next →</Btn>
-          </div>
 
           {/* All Verses Grid */}
           <Card t={t} style={{marginTop:16}}>
