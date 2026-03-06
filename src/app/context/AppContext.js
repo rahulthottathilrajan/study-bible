@@ -321,7 +321,7 @@ export function AppProvider({ children }) {
 
   useEffect(() => {
     if (!user) { setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = ""; setHighlight(null); setCommunityNotes([]); }
-  }, [user, verse]);
+  }, [user]);
 
   const saveNote = async () => {
     const noteText = noteRef.current?.value || "";

@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS } from "../constants";
 import { ChevIcon, Badge, Label, Card, Btn, Spinner, DBBadge } from "../components/ui";
@@ -18,6 +19,12 @@ export default function BibleView() {
     copyVerseText, shareVerseImage, nav, goBack,
     chapterReads, markChapterRead, quizScores,
   } = useApp();
+
+  const [verseActive, setVerseActive] = useState(false);
+  const [showColors, setShowColors] = useState(false);
+
+  // Reset toolbar when verse changes
+  useEffect(() => { setVerseActive(false); setShowColors(false); }, [verse]);
 
   // ═══ BOOKS ═══
   const Books = () => {
@@ -352,36 +359,72 @@ export default function BibleView() {
   
 
           {/* KJV Text Card */}
-          <Card t={t} style={{ margin:"12px 0 14px",position:"relative",background:highlight?.highlight_color ? `${highlight.highlight_color}15` : t.card,borderColor:highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider }}>
+          <Card t={t} style={{ margin:"12px 0 14px",position:"relative",background:highlight?.highlight_color ? `${highlight.highlight_color}15` : t.card,borderColor:highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider,transition:"background 0.3s,border-color 0.3s" }}>
             <div style={{position:"absolute",top:-1,left:30,right:30,height:3,background:`linear-gradient(90deg,transparent,${t.accent},transparent)`,borderRadius:"0 0 2px 2px"}}/>
             <Label icon="📖" t={t}>KJV Text</Label>
-            <div style={{display:"flex",alignItems:"stretch",gap:0}}>
-              {/* Prev arrow */}
-              <button onClick={()=>{if(curIdx>0){setVerse(verseNums[curIdx-1]);setTab("study")}}} disabled={curIdx<=0}
-                style={{flex:"0 0 36px",display:"flex",alignItems:"center",justifyContent:"center",background:"transparent",border:"none",cursor:curIdx>0?"pointer":"default",color:curIdx>0?t.accent:"transparent",fontSize:22,fontWeight:700,padding:0,transition:"color 0.2s",marginLeft:-6}}>
-                ‹
-              </button>
-              {/* Verse text */}
-              <div style={{flex:1,fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.7,padding:"2px 0"}}>
-                <span style={{fontSize:"clamp(28px,9vw,38px)",fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:6,marginTop:4,fontFamily:t.heading}}>{verse}</span>
-                {currentVerse.kjv_text}
-              </div>
-              {/* Next arrow */}
-              <button onClick={()=>{if(curIdx<verseNums.length-1){setVerse(verseNums[curIdx+1]);setTab("study")}}} disabled={curIdx>=verseNums.length-1}
-                style={{flex:"0 0 36px",display:"flex",alignItems:"center",justifyContent:"center",background:"transparent",border:"none",cursor:curIdx<verseNums.length-1?"pointer":"default",color:curIdx<verseNums.length-1?t.accent:"transparent",fontSize:22,fontWeight:700,padding:0,transition:"color 0.2s",marginRight:-6}}>
-                ›
-              </button>
+
+            {/* Tappable verse text */}
+            <div onClick={() => user && setVerseActive(a => !a)}
+              style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.85,padding:"8px 0 12px",cursor:user?"pointer":"default",borderBottom:verseActive?`2px dotted ${t.accent}`:"2px solid transparent",transition:"border-color 0.2s"}}>
+              <span style={{fontSize:"clamp(28px,9vw,38px)",fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:8,marginTop:4,fontFamily:t.heading}}>{verse}</span>
+              {currentVerse.kjv_text}
             </div>
-            {/* Highlight colors */}
-            {user && <div style={{display:"flex",gap:6,marginTop:12,paddingTop:10,borderTop:`1px solid ${t.divider}`}}>
-              <span style={{fontFamily:t.ui,fontSize:10,color:t.muted,alignSelf:"center",marginRight:4}}>Highlight:</span>
-              {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} style={{width:24,height:24,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?`3px solid ${t.dark}`:`2px solid ${c}66`,cursor:"pointer",transition:"all 0.15s"}} />)}
-              {highlight?.highlight_color && <button onClick={() => toggleHighlight(highlight.highlight_color)} style={{fontFamily:t.ui,fontSize:10,color:t.muted,background:"none",border:"none",cursor:"pointer",textDecoration:"underline"}}>Clear</button>}
-            </div>}
-            {/* Share row */}
-            <div style={{display:"flex",gap:8,marginTop:10,paddingTop:10,borderTop:`1px solid ${t.divider}`}}>
-              <button onClick={copyVerseText} style={{padding:"6px 14px",borderRadius:20,border:`1px solid ${shareCopied?"#22c55e":t.divider}`,background:shareCopied?"#22c55e18":"transparent",color:shareCopied?"#22c55e":t.muted,fontFamily:t.ui,fontSize:12,fontWeight:600,cursor:"pointer",transition:"all 0.2s"}}>{shareCopied?"✓ Copied!":"Copy text"}</button>
-              <button onClick={shareVerseImage} style={{padding:"6px 14px",borderRadius:20,border:`1px solid ${t.divider}`,background:"transparent",color:t.muted,fontFamily:t.ui,fontSize:12,fontWeight:600,cursor:"pointer"}}>Share image</button>
+
+            {/* Action toolbar — appears on verse tap */}
+            {verseActive && user && (
+              <div style={{display:"flex",alignItems:"center",gap:4,paddingTop:10,animation:"fadeIn 0.2s ease",flexWrap:"wrap"}}>
+                {/* Highlight toggle */}
+                <button onClick={() => setShowColors(c => !c)}
+                  style={{padding:"6px 10px",borderRadius:8,border:`1px solid ${showColors?t.accentBorder:t.divider}`,background:showColors?t.accentLight:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:600,color:showColors?t.accent:t.muted,cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"all 0.15s"}}>
+                  🎨 <span>Highlight</span>
+                </button>
+                {/* Bookmark */}
+                <button onClick={toggleBookmarkHL}
+                  style={{padding:"6px 10px",borderRadius:8,border:`1px solid ${highlight?.is_bookmarked?"#ffd70066":t.divider}`,background:highlight?.is_bookmarked?"rgba(255,215,0,0.12)":"transparent",fontFamily:t.ui,fontSize:11,fontWeight:600,color:highlight?.is_bookmarked?"#d4a017":t.muted,cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"all 0.15s"}}>
+                  {highlight?.is_bookmarked?"★":"☆"} <span>Bookmark</span>
+                </button>
+                {/* Notes */}
+                <button onClick={() => setTab("my")}
+                  style={{padding:"6px 10px",borderRadius:8,border:`1px solid ${t.divider}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:600,color:t.muted,cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
+                  ✏️ <span>Note</span>
+                </button>
+                {/* Prayer */}
+                <button onClick={() => { setPrayerTitle(`${book} ${chapter}:${verse}`); setPrayerText(""); setPrayerModal(true); }}
+                  style={{padding:"6px 10px",borderRadius:8,border:`1px solid ${t.divider}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:600,color:t.muted,cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
+                  🙏 <span>Pray</span>
+                </button>
+                {/* Copy */}
+                <button onClick={copyVerseText}
+                  style={{padding:"6px 10px",borderRadius:8,border:`1px solid ${shareCopied?"#22c55e":t.divider}`,background:shareCopied?"#22c55e12":"transparent",fontFamily:t.ui,fontSize:11,fontWeight:600,color:shareCopied?"#22c55e":t.muted,cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"all 0.15s"}}>
+                  {shareCopied?"✓":"📋"} <span>{shareCopied?"Copied":"Copy"}</span>
+                </button>
+                {/* Share */}
+                <button onClick={shareVerseImage}
+                  style={{padding:"6px 10px",borderRadius:8,border:`1px solid ${t.divider}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:600,color:t.muted,cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
+                  📤 <span>Share</span>
+                </button>
+              </div>
+            )}
+
+            {/* Highlight color picker — expands from toolbar */}
+            {verseActive && showColors && user && (
+              <div style={{display:"flex",gap:7,paddingTop:8,animation:"fadeIn 0.15s ease",alignItems:"center"}}>
+                {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} style={{width:28,height:28,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?`3px solid ${t.dark}`:`2px solid ${c}66`,cursor:"pointer",transition:"all 0.15s",transform:highlight?.highlight_color===c?"scale(1.15)":"scale(1)"}} />)}
+                {highlight?.highlight_color && <button onClick={() => toggleHighlight(highlight.highlight_color)} style={{fontFamily:t.ui,fontSize:10,color:t.muted,background:"none",border:"none",cursor:"pointer",textDecoration:"underline",marginLeft:4}}>Clear</button>}
+              </div>
+            )}
+
+            {/* Prev / Next arrows */}
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:12,paddingTop:10,borderTop:`1px solid ${t.divider}`}}>
+              <button onClick={()=>{if(curIdx>0){setVerse(verseNums[curIdx-1]);setTab("study")}}} disabled={curIdx<=0}
+                style={{display:"flex",alignItems:"center",gap:6,padding:"6px 14px",borderRadius:8,border:`1px solid ${t.divider}`,background:"transparent",fontFamily:t.ui,fontSize:12,fontWeight:600,color:curIdx>0?t.dark:t.light,cursor:curIdx>0?"pointer":"default",opacity:curIdx>0?1:0.35,transition:"all 0.15s"}}>
+                ‹ Prev
+              </button>
+              <span style={{fontFamily:t.heading,fontSize:13,color:t.muted,fontWeight:700}}>v.{verse}</span>
+              <button onClick={()=>{if(curIdx<verseNums.length-1){setVerse(verseNums[curIdx+1]);setTab("study")}}} disabled={curIdx>=verseNums.length-1}
+                style={{display:"flex",alignItems:"center",gap:6,padding:"6px 14px",borderRadius:8,border:`1px solid ${t.divider}`,background:"transparent",fontFamily:t.ui,fontSize:12,fontWeight:600,color:curIdx<verseNums.length-1?t.dark:t.light,cursor:curIdx<verseNums.length-1?"pointer":"default",opacity:curIdx<verseNums.length-1?1:0.35,transition:"all 0.15s"}}>
+                Next ›
+              </button>
             </div>
           </Card>
 
