@@ -377,10 +377,10 @@ export default function BibleView() {
           }}>
             <Label icon="📖" t={t}>{bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}</Label>
 
-            {/* Tappable verse text — engraved effect */}
+            {/* Tappable verse text */}
             <div onClick={() => user && setVerseActive(a => !a)}
-              style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:darkMode?"rgba(255,255,255,0.75)":t.dark,lineHeight:1.85,padding:"8px 0 12px",cursor:user?"pointer":"default",borderBottom:verseActive?`2px dotted ${t.accent}`:"2px solid transparent",transition:"border-color 0.2s",textShadow:darkMode?`0 -1px 1px rgba(0,0,0,0.6), 0 1px 1px rgba(255,255,255,0.08)`:`0 1px 0 rgba(255,255,255,0.9), 0 -1px 1px rgba(0,0,0,0.12)`,...rtlStyle}}>
-              <span style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:8,marginLeft:isRtl?8:0,marginTop:4,fontFamily:t.heading,textShadow:darkMode?`0 -1px 1px rgba(0,0,0,0.7), 0 1px 1px rgba(255,255,255,0.06)`:`0 1px 0 rgba(255,255,255,0.9), 0 -1px 1px rgba(0,0,0,0.15)`}}>{verse}</span>
+              style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.85,padding:"8px 0 12px",cursor:user?"pointer":"default",borderBottom:verseActive?`2px dotted ${t.accent}`:"2px solid transparent",transition:"border-color 0.2s",...rtlStyle}}>
+              <span style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:8,marginLeft:isRtl?8:0,marginTop:4,fontFamily:t.heading}}>{verse}</span>
               {currentVerse.kjv_text}
             </div>
 
