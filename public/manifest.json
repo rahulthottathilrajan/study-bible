@@ -1,7 +1,7 @@
 {
-  "name": "KJV Study Bible",
-  "short_name": "Study Bible",
-  "description": "King James Version Bible with notes, highlights, and study tools",
+  "name": "The Bible Scrollers",
+  "short_name": "Bible Scrollers",
+  "description": "KJV Bible study app with notes, highlights, and study tools — by The Bible Scrollers",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1a1a2e",

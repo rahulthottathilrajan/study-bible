@@ -271,7 +271,7 @@ export default function AccountView() {
             <Card accent t={ht}>
               <Label icon="❤️" t={ht}>Support the Ministry</Label>
               <div style={{fontFamily:ht.ui,fontSize:13,color:ht.text,lineHeight:1.7,marginBottom:12}}>
-                This Study Bible is completely free — every feature, every word study, every tool. If this resource has blessed you, consider supporting the ministry so we can keep building and sharing God's Word.
+                The Bible Scrollers is completely free — every feature, every word study, every tool. If this resource has blessed you, consider supporting the ministry so we can keep building and sharing God's Word.
               </div>
               <button onClick={() => setDonateModal(true)} style={{padding:"12px 24px",borderRadius:10,border:"none",background:"linear-gradient(135deg,#D4A853,#B8860B)",color:"#fff",fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer",boxShadow:"0 2px 8px rgba(212,168,83,0.3)"}}>
                 ❤️ Support This Ministry

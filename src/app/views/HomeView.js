@@ -35,11 +35,8 @@ export default function HomeView() {
       <div style={{ background:ht.headerGradient,padding:"10px 16px",position:"sticky",top:0,zIndex:10 }}>
         <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between" }}>
           <div style={{ display:"flex",alignItems:"center",gap:8 }}>
-            <svg width="22" height="22" viewBox="0 0 28 28" fill="none" style={{ filter:"drop-shadow(0 0 6px rgba(212,168,83,0.3))" }}>
-              <defs><linearGradient id="crossGoldSm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#F5D485"/><stop offset="50%" stopColor="#D4A853"/><stop offset="100%" stopColor="#A87820"/></linearGradient></defs>
-              <rect x="11" y="2" width="6" height="24" rx="1.5" fill="url(#crossGoldSm)"/><rect x="3" y="8" width="22" height="6" rx="1.5" fill="url(#crossGoldSm)"/>
-            </svg>
-            <h1 style={{ fontFamily:ht.heading,fontSize:18,fontWeight:800,color:ht.headerText,margin:0 }}>Study Bible</h1>
+            <img src="/favicon.ico" alt="The Bible Scrollers" width={26} height={26} style={{ borderRadius:4,filter:"drop-shadow(0 0 6px rgba(212,168,83,0.3))" }} />
+            <h1 style={{ fontFamily:ht.heading,fontSize:17,fontWeight:800,color:ht.headerText,margin:0 }}>The Bible Scrollers</h1>
           </div>
           <button onClick={() => setDarkMode(!darkMode)} style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:8,padding:"4px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:5,transition:"background 0.2s" }} title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}>
             <span style={{ fontSize:13 }}>{darkMode ? "☀️" : "🌙"}</span>

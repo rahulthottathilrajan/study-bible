@@ -510,7 +510,7 @@ export function AppProvider({ children }) {
 
     ctx.fillStyle = t.accent;
     ctx.font = "700 32px Georgia,serif";
-    ctx.fillText("KJV Study Bible", 80, 88);
+    ctx.fillText("The Bible Scrollers", 80, 88);
 
     ctx.globalAlpha = 0.12;
     ctx.fillStyle = t.accent;

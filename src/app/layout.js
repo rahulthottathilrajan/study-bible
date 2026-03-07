@@ -1,13 +1,13 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "KJV Study Bible",
-  description: "King James Version Study Bible with Hebrew & Greek word studies, cross-references, and study notes",
+  title: "The Bible Scrollers",
+  description: "KJV Bible study app with Hebrew & Greek word studies, cross-references, and study notes — by The Bible Scrollers",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Study Bible",
+    title: "Bible Scrollers",
   },
   other: {
     "mobile-web-app-capable": "yes",
