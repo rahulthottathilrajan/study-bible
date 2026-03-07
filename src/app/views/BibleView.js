@@ -20,14 +20,13 @@ export default function BibleView() {
   } = useApp();
 
   const [showColors, setShowColors] = useState(false);
-  const [showVersePicker, setShowVersePicker] = useState(false);
   const verseScrollRef = useRef(null);
   const currentTransDef = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
   const isRtl = currentTransDef?.rtl || false;
   const rtlStyle = isRtl ? { direction: "rtl", textAlign: "right" } : {};
 
   // Reset color picker when verse changes
-  useEffect(() => { setShowColors(false); setShowVersePicker(false); }, [verse]);
+  useEffect(() => { setShowColors(false); }, [verse]);
 
   // Auto-scroll verse strip — works on both mount and verse change
   const scrollVerseIntoView = (behavior = "smooth") => {
@@ -45,15 +44,6 @@ export default function BibleView() {
     });
     return () => cancelAnimationFrame(raf);
   }, [verse, view]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Scroll picker to active verse when opened
-  useEffect(() => {
-    if (showVersePicker) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => scrollVerseIntoView("smooth"));
-      });
-    }
-  }, [showVersePicker]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ═══ BOOKS ═══
   const Books = () => {
@@ -400,26 +390,34 @@ export default function BibleView() {
 
             {/* Verse text */}
             <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.85,padding:"8px 0 12px",...rtlStyle}}>
-              <span onClick={() => setShowVersePicker(p => !p)} style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:8,marginLeft:isRtl?8:0,marginTop:4,fontFamily:t.heading,cursor:"pointer",background:showVersePicker?`${t.accent}12`:"transparent",padding:"2px 5px",borderRadius:8,transition:"all 0.15s"}}>{verse}<span style={{fontSize:8,marginLeft:2,opacity:0.45,display:"inline-block",transform:showVersePicker?"rotate(180deg)":"none",transition:"transform 0.2s"}}>▾</span></span>
+              <span style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:8,marginLeft:isRtl?8:0,marginTop:4,fontFamily:t.heading}}>{verse}</span>
               {currentVerse.kjv_text}
             </div>
 
-            {/* Verse picker — tap verse number to reveal */}
-            {showVersePicker && (
-              <div style={{paddingTop:6,animation:"fadeIn 0.15s ease"}}>
-                <div ref={verseScrollRef} className="goto-wheel" style={{display:"flex",alignItems:"center",overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",scrollSnapType:"x mandatory",padding:"4px 2px",borderRadius:10,background:`${t.accent}08`,border:`1px solid ${t.accentBorder}`,maskImage:"linear-gradient(90deg, transparent 1%, rgba(0,0,0,0.4) 8%, #000 20%, #000 80%, rgba(0,0,0,0.4) 92%, transparent 99%)",WebkitMaskImage:"linear-gradient(90deg, transparent 1%, rgba(0,0,0,0.4) 8%, #000 20%, #000 80%, rgba(0,0,0,0.4) 92%, transparent 99%)"}}>
-                  {verseNums.map(v => {
-                    const isActive = v === verse;
-                    return (
-                      <button key={v} data-active={isActive?"true":undefined} onClick={() => {setVerse(v);setTab("study")}}
-                        style={{minWidth:34,height:30,border:"none",background:isActive?t.accent:"transparent",color:isActive?"#fff":t.muted,fontFamily:t.heading,fontSize:isActive?14:12,fontWeight:isActive?800:500,cursor:"pointer",borderRadius:8,transition:"all 0.15s",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",scrollSnapAlign:"center"}}>
-                        {v}
-                      </button>
-                    );
-                  })}
-                </div>
+            {/* Verse picker — always-visible borderless strip with Prev/Next */}
+            {(() => { const idx = verseNums.indexOf(verse); const canPrev = idx > 0; const canNext = idx < verseNums.length - 1; return (
+            <div style={{display:"flex",alignItems:"center",gap:6,marginTop:6}}>
+              <button onClick={() => {if(canPrev){setVerse(verseNums[idx-1]);setTab("study")}}} disabled={!canPrev}
+                style={{flexShrink:0,padding:"5px 10px",borderRadius:16,border:`1px solid ${canPrev?t.accentBorder:"transparent"}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canPrev?t.accent:t.light,cursor:canPrev?"pointer":"default",opacity:canPrev?1:0.35,transition:"all 0.2s"}}>
+                ‹ Prev
+              </button>
+              <div ref={verseScrollRef} className="goto-wheel" style={{flex:1,display:"flex",alignItems:"center",overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",scrollSnapType:"x mandatory",padding:"4px 0",maskImage:"linear-gradient(90deg, transparent 1%, rgba(0,0,0,0.4) 8%, #000 20%, #000 80%, rgba(0,0,0,0.4) 92%, transparent 99%)",WebkitMaskImage:"linear-gradient(90deg, transparent 1%, rgba(0,0,0,0.4) 8%, #000 20%, #000 80%, rgba(0,0,0,0.4) 92%, transparent 99%)"}}>
+                {verseNums.map(v => {
+                  const isActive = v === verse;
+                  return (
+                    <button key={v} data-active={isActive?"true":undefined} onClick={() => {setVerse(v);setTab("study")}}
+                      style={{minWidth:34,height:30,border:"none",background:isActive?t.accent:"transparent",color:isActive?"#fff":t.muted,fontFamily:t.heading,fontSize:isActive?14:12,fontWeight:isActive?800:500,cursor:"pointer",borderRadius:8,transition:"all 0.15s",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",scrollSnapAlign:"center"}}>
+                      {v}
+                    </button>
+                  );
+                })}
               </div>
-            )}
+              <button onClick={() => {if(canNext){setVerse(verseNums[idx+1]);setTab("study")}}} disabled={!canNext}
+                style={{flexShrink:0,padding:"5px 10px",borderRadius:16,border:`1px solid ${canNext?t.accentBorder:"transparent"}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canNext?t.accent:t.light,cursor:canNext?"pointer":"default",opacity:canNext?1:0.35,transition:"all 0.2s"}}>
+                Next ›
+              </button>
+            </div>
+            ); })()}
 
             {/* Always-visible action bar */}
             {user && (
