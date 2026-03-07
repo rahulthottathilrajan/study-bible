@@ -36,7 +36,7 @@ export default function HomeView() {
         {/* Row 1: Logo + Title | Support Icon */}
         <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between" }}>
           <div style={{ display:"flex",alignItems:"center",gap:8 }}>
-            <img src="/favicon.ico" alt="The Bible Scrollers" width={26} height={26} style={{ borderRadius:4,filter:"drop-shadow(0 0 6px rgba(212,168,83,0.3))" }} />
+            <img src="/icon.png" alt="The Bible Scrollers" width={34} height={34} style={{ filter:"drop-shadow(0 0 8px rgba(212,168,83,0.4))" }} />
             <h1 style={{ fontFamily:ht.heading,fontSize:17,fontWeight:800,color:ht.headerText,margin:0 }}>The Bible Scrollers</h1>
           </div>
           <button onClick={() => setDonateModal(true)} title="Support the Ministry" style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:10,padding:"5px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }}>

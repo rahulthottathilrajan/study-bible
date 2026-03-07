@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import { useRef, useMemo, useCallback } from "react";
 
 // ── Curated Verses ──
 // 120 beloved passages — the day-of-year picks one deterministically
@@ -133,7 +133,7 @@ const VOTD_GRADIENTS = [
   { bg: "linear-gradient(135deg, #3A1A1A 0%, #8B2020 40%, #2A0A0A 100%)", text: "#F5DCD8", ref: "#E88A7A", quote: "rgba(232,138,122,0.15)", accent: "#E88A7A", hint: "rgba(232,138,122,0.4)" },
 ];
 
-const CARD_COUNT = 5;
+const CARD_COUNT = VERSES.length;
 
 function getDayOfYear() {
   const now = new Date();
@@ -151,9 +151,8 @@ const OT_BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua
 
 export default function VerseOfTheDay({ nav, ht }) {
   const scrollRef = useRef(null);
-  const [activeIdx, setActiveIdx] = useState(0);
 
-  // Pick 5 consecutive verses starting from today's deterministic index
+  // Rotate all 120 verses so today's pick is first
   const verses = useMemo(() => {
     const startIdx = getDayOfYear() % VERSES.length;
     return Array.from({ length: CARD_COUNT }, (_, i) => VERSES[(startIdx + i) % VERSES.length]);
@@ -166,31 +165,6 @@ export default function VerseOfTheDay({ nav, ht }) {
     const bookName = parsed.book === "Psalm" ? "Psalms" : parsed.book;
     nav("verse", { testament, book: bookName, chapter: parsed.chapter, verse: parseInt(parsed.verse) });
   }, [nav]);
-
-  // Track active card via scroll position
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const idx = Math.round(el.scrollLeft / el.offsetWidth);
-        setActiveIdx(Math.min(idx, CARD_COUNT - 1));
-        ticking = false;
-      });
-    };
-    el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Scroll to dot on tap
-  const scrollToIdx = (idx) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.scrollTo({ left: idx * el.offsetWidth, behavior: "smooth" });
-  };
 
   return (
     <div style={{ marginBottom: 20 }}>
@@ -285,27 +259,6 @@ export default function VerseOfTheDay({ nav, ht }) {
         })}
       </div>
 
-      {/* Dot indicators */}
-      <div style={{
-        display: "flex", justifyContent: "center", gap: 8, marginTop: 12,
-      }}>
-        {verses.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => scrollToIdx(i)}
-            style={{
-              width: activeIdx === i ? 18 : 8,
-              height: 8,
-              borderRadius: 4,
-              background: activeIdx === i ? ht.accent : `${ht.accent}40`,
-              border: "none",
-              cursor: "pointer",
-              padding: 0,
-              transition: "all 0.3s ease",
-            }}
-          />
-        ))}
-      </div>
     </div>
   );
 }
