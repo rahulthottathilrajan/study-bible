@@ -20,13 +20,14 @@ export default function BibleView() {
   } = useApp();
 
   const [showColors, setShowColors] = useState(false);
+  const [showVersePicker, setShowVersePicker] = useState(false);
   const verseScrollRef = useRef(null);
   const currentTransDef = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
   const isRtl = currentTransDef?.rtl || false;
   const rtlStyle = isRtl ? { direction: "rtl", textAlign: "right" } : {};
 
   // Reset color picker when verse changes
-  useEffect(() => { setShowColors(false); }, [verse]);
+  useEffect(() => { setShowColors(false); setShowVersePicker(false); }, [verse]);
 
   // Auto-scroll verse strip — works on both mount and verse change
   const scrollVerseIntoView = (behavior = "smooth") => {
@@ -44,6 +45,15 @@ export default function BibleView() {
     });
     return () => cancelAnimationFrame(raf);
   }, [verse, view]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Scroll picker to active verse when opened
+  useEffect(() => {
+    if (showVersePicker) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => scrollVerseIntoView("smooth"));
+      });
+    }
+  }, [showVersePicker]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ═══ BOOKS ═══
   const Books = () => {
@@ -390,18 +400,35 @@ export default function BibleView() {
 
             {/* Verse text */}
             <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.85,padding:"8px 0 12px",...rtlStyle}}>
-              <span style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:8,marginLeft:isRtl?8:0,marginTop:4,fontFamily:t.heading}}>{verse}</span>
+              <span onClick={() => setShowVersePicker(p => !p)} style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:8,marginLeft:isRtl?8:0,marginTop:4,fontFamily:t.heading,cursor:"pointer",background:showVersePicker?`${t.accent}12`:"transparent",padding:"2px 5px",borderRadius:8,transition:"all 0.15s"}}>{verse}<span style={{fontSize:8,marginLeft:2,opacity:0.45,display:"inline-block",transform:showVersePicker?"rotate(180deg)":"none",transition:"transform 0.2s"}}>▾</span></span>
               {currentVerse.kjv_text}
             </div>
 
-            {/* Always-visible action bar — gradient strip with outlined SVG icons */}
+            {/* Verse picker — tap verse number to reveal */}
+            {showVersePicker && (
+              <div style={{paddingTop:6,animation:"fadeIn 0.15s ease"}}>
+                <div ref={verseScrollRef} className="goto-wheel" style={{display:"flex",alignItems:"center",overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",scrollSnapType:"x mandatory",padding:"4px 2px",borderRadius:10,background:`${t.accent}08`,border:`1px solid ${t.accentBorder}`,maskImage:"linear-gradient(90deg, transparent 1%, rgba(0,0,0,0.4) 8%, #000 20%, #000 80%, rgba(0,0,0,0.4) 92%, transparent 99%)",WebkitMaskImage:"linear-gradient(90deg, transparent 1%, rgba(0,0,0,0.4) 8%, #000 20%, #000 80%, rgba(0,0,0,0.4) 92%, transparent 99%)"}}>
+                  {verseNums.map(v => {
+                    const isActive = v === verse;
+                    return (
+                      <button key={v} data-active={isActive?"true":undefined} onClick={() => {setVerse(v);setTab("study")}}
+                        style={{minWidth:34,height:30,border:"none",background:isActive?t.accent:"transparent",color:isActive?"#fff":t.muted,fontFamily:t.heading,fontSize:isActive?14:12,fontWeight:isActive?800:500,cursor:"pointer",borderRadius:8,transition:"all 0.15s",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",scrollSnapAlign:"center"}}>
+                        {v}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Always-visible action bar */}
             {user && (
-              <div style={{background:t.headerGradient,borderRadius:10,padding:"8px 4px",marginTop:8,border:"1px solid rgba(255,255,255,0.08)"}}>
+              <div style={{borderRadius:10,padding:"8px 4px",marginTop:8,background:`${t.accent}0A`,border:`1px solid ${t.accentBorder}`}}>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly"}}>
                   {[
                     { label:"Highlight", active:showColors, onClick:() => setShowColors(c => !c),
-                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>,
-                      svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/></svg> },
+                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg>,
+                      svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg> },
                     { label:"Bookmark", active:highlight?.is_bookmarked, onClick:toggleBookmarkHL, activeColor:"#ffd700",
                       svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
                       svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="#ffd700" stroke="#ffd700" strokeWidth="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> },
@@ -416,7 +443,7 @@ export default function BibleView() {
                       svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> },
                   ].map((a,i) => (
                     <button key={i} onClick={a.onClick}
-                      style={{display:"flex",alignItems:"center",justifyContent:"center",width:36,height:36,borderRadius:8,border:"none",background:a.active?"rgba(255,255,255,0.15)":"transparent",color:a.active?(a.activeColor||"rgba(255,255,255,0.95)"):"rgba(255,255,255,0.55)",cursor:"pointer",transition:"all 0.15s",padding:0}}>
+                      style={{display:"flex",alignItems:"center",justifyContent:"center",width:36,height:36,borderRadius:8,border:"none",background:a.active?`${a.activeColor||t.accent}15`:"transparent",color:a.active?(a.activeColor||t.accent):t.muted,cursor:"pointer",transition:"all 0.15s",padding:0}}>
                       {a.active && a.svgActive ? a.svgActive : a.svg}
                     </button>
                   ))}
@@ -425,43 +452,13 @@ export default function BibleView() {
                 {/* Highlight color picker — expands below */}
                 {showColors && (
                   <div style={{display:"flex",gap:7,paddingTop:8,animation:"fadeIn 0.15s ease",alignItems:"center",justifyContent:"center"}}>
-                    {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} style={{width:26,height:26,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?"3px solid rgba(255,255,255,0.9)":`2px solid ${c}88`,cursor:"pointer",transition:"all 0.15s",transform:highlight?.highlight_color===c?"scale(1.15)":"scale(1)"}} />)}
-                    {highlight?.highlight_color && <button onClick={() => toggleHighlight(highlight.highlight_color)} style={{fontFamily:t.ui,fontSize:10,color:"rgba(255,255,255,0.5)",background:"none",border:"none",cursor:"pointer",textDecoration:"underline",marginLeft:4}}>Clear</button>}
+                    {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} style={{width:26,height:26,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?`3px solid ${t.dark}`:`2px solid ${c}88`,cursor:"pointer",transition:"all 0.15s",transform:highlight?.highlight_color===c?"scale(1.15)":"scale(1)"}} />)}
+                    {highlight?.highlight_color && <button onClick={() => toggleHighlight(highlight.highlight_color)} style={{fontFamily:t.ui,fontSize:10,color:t.muted,background:"none",border:"none",cursor:"pointer",textDecoration:"underline",marginLeft:4}}>Clear</button>}
                   </div>
                 )}
               </div>
             )}
 
-            {/* Verse dialer — center-locked scroll picker */}
-            {(() => { const idx = verseNums.indexOf(verse); const canPrev = idx > 0; const canNext = idx < verseNums.length - 1; return (
-            <div style={{marginTop:10,display:"flex",alignItems:"center",gap:6}}>
-              <button onClick={()=>{if(canPrev){setVerse(verseNums[idx-1]);setTab("study")}}} disabled={!canPrev}
-                style={{flexShrink:0,padding:"6px 12px",borderRadius:20,border:"none",background:canPrev?`linear-gradient(135deg, ${t.accent}22, ${t.tabActive}22)`:`${t.muted}11`,fontFamily:t.ui,fontSize:11,fontWeight:700,color:canPrev?t.accent:t.light,cursor:canPrev?"pointer":"default",opacity:canPrev?1:0.4,transition:"all 0.2s",letterSpacing:"0.02em",border:`1px solid ${canPrev?t.accentBorder:"transparent"}`}}>
-                ‹ Prev
-              </button>
-              {/* Dialer container */}
-              <div style={{flex:1,position:"relative",background:`linear-gradient(135deg, ${t.accent}08, ${t.tabActive}0A)`,borderRadius:12,border:`1px solid ${t.accentBorder}`,overflow:"hidden"}}>
-                {/* Center highlight notch */}
-                <div style={{position:"absolute",top:3,bottom:3,left:"50%",transform:"translateX(-50%)",width:36,borderRadius:8,background:`linear-gradient(135deg, ${t.accent}20, ${t.tabActive}25)`,border:`1.5px solid ${t.accent}40`,pointerEvents:"none",zIndex:1}} />
-                {/* Scroll track */}
-                <div ref={verseScrollRef} style={{display:"flex",alignItems:"center",overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",scrollSnapType:"x mandatory",padding:"6px 0",maskImage:"linear-gradient(90deg, transparent 2%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.7) 30%, #000 42%, #000 58%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.3) 85%, transparent 98%)",WebkitMaskImage:"linear-gradient(90deg, transparent 2%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.7) 30%, #000 42%, #000 58%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.3) 85%, transparent 98%)"}}>
-                  {verseNums.map(v => {
-                    const isActive = v === verse;
-                    return (
-                      <button key={v} data-active={isActive?"true":undefined} onClick={()=>{setVerse(v);setTab("study")}}
-                        style={{minWidth:36,height:30,border:"none",background:"transparent",color:isActive?t.accent:t.muted,fontFamily:t.heading,fontSize:isActive?15:11,fontWeight:isActive?800:500,cursor:"pointer",transition:"all 0.15s",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",scrollSnapAlign:"center",opacity:isActive?1:0.45,padding:0}}>
-                        {v}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-              <button onClick={()=>{if(canNext){setVerse(verseNums[idx+1]);setTab("study")}}} disabled={!canNext}
-                style={{flexShrink:0,padding:"6px 12px",borderRadius:20,border:"none",background:canNext?`linear-gradient(135deg, ${t.accent}22, ${t.tabActive}22)`:`${t.muted}11`,fontFamily:t.ui,fontSize:11,fontWeight:700,color:canNext?t.accent:t.light,cursor:canNext?"pointer":"default",opacity:canNext?1:0.4,transition:"all 0.2s",letterSpacing:"0.02em",border:`1px solid ${canNext?t.accentBorder:"transparent"}`}}>
-                Next ›
-              </button>
-            </div>
-            ); })()}
           </div>
 
           {/* Tabs */}
