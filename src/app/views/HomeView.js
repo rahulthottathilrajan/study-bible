@@ -41,14 +41,12 @@ export default function HomeView() {
           </div>
           <button onClick={() => setDonateModal(true)} title="Support the Ministry" style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:10,padding:"5px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }}>
-              <path d="M12 3C10.5 1 7.5 1 5.5 3C3.5 5 3.5 8.5 5.5 10.5L12 17L18.5 10.5C20.5 8.5 20.5 5 18.5 3C16.5 1 13.5 1 12 3Z" fill="rgba(212,168,83,0.85)" stroke="rgba(255,255,255,0.5)" strokeWidth="0.5"/>
-              <path d="M9.5 8L11 6.5L12 8L13 6.5L14.5 8L12 11L9.5 8Z" fill="rgba(255,255,255,0.9)"/>
+              <path d="M12.5 3C11.2 3 10 4 10 5.5c0 .7.3 1.3.8 1.8L4 12.5s3.5-1 5.8-.2L12 16l2.2-3.7c2.3-.8 5.8.2 5.8.2l-6.8-5.2c.5-.5.8-1.1.8-1.8C14 4 12.8 3 12.5 3z" fill="rgba(212,168,83,0.85)" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5"/>
+              <path d="M10.5 16l-.8 4.5M13.5 16l.8 4.5" stroke="rgba(212,168,83,0.7)" strokeWidth="0.8" strokeLinecap="round"/>
             </svg>
             <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.7)",letterSpacing:"0.05em" }}>GIVE</span>
           </button>
         </div>
-        {/* GoToBar */}
-        <GoToBar />
         {/* ── UTILITY STRIP ── */}
         <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"6px 0 8px",borderTop:"1px solid rgba(255,255,255,0.08)",marginTop:2 }}>
           <div style={{ display:"flex",alignItems:"center",gap:8,position:"relative" }} ref={langRef}>
@@ -93,6 +91,13 @@ export default function HomeView() {
             {!user && <button onClick={() => nav("account")} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>Sign In</button>}
             {user && <span onClick={() => nav("account")} style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.9)",fontWeight:700,cursor:"pointer" }}>&#10003; {(profile?.display_name || user?.user_metadata?.display_name || "Reader")?.split(' ')[0]}</span>}
           </div>
+        </div>
+        {/* ── ANIMATED RAINBOW LINE ── */}
+        <style>{`@keyframes rainbowFlow { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }`}</style>
+        <div style={{ height:2,background:"linear-gradient(90deg,#FF6B6B,#FFD93D,#6BCB77,#4D96FF,#9B59B6,#FF6B6B)",backgroundSize:"200% 100%",animation:"rainbowFlow 3s linear infinite",marginTop:2 }}/>
+        {/* GoToBar */}
+        <div style={{ paddingTop:4 }}>
+          <GoToBar />
         </div>
       </div>
       {/* ── PWA INSTALL BANNER ── */}

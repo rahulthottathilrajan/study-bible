@@ -99,14 +99,6 @@ export default function VerseOfTheDay({ nav, ht }) {
 
   return (
     <div style={{ marginBottom: 20 }}>
-      <div style={{
-        fontFamily: ht.ui, fontSize: 11, fontWeight: 700, color: ht.accent,
-        textTransform: "uppercase", letterSpacing: "0.14em", marginBottom: 12,
-        display: "flex", alignItems: "center", gap: 8,
-      }}>
-        <span>&#10024;</span> Verse of the Day
-      </div>
-
       {/* Scroll container */}
       <div
         ref={scrollRef}
