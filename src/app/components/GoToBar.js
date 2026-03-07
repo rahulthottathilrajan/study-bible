@@ -185,13 +185,16 @@ export default function GoToBar() {
   };
 
   return (
+    <>
+    <style>{`@keyframes gotoGlow { 0%,100% { border-color: rgba(212,168,83,0.5); box-shadow: 0 0 6px rgba(212,168,83,0.15); } 50% { border-color: rgba(255,255,255,0.6); box-shadow: 0 0 10px rgba(212,168,83,0.25); } }`}</style>
     <div style={{
       marginTop: 6,
       background: "rgba(0,0,0,0.18)",
       borderRadius: 10,
-      border: "1px solid rgba(255,255,255,0.08)",
+      border: "1px solid rgba(212,168,83,0.4)",
       overflow: "hidden",
       transition: "all 0.2s ease",
+      animation: "gotoGlow 3s ease-in-out infinite",
     }}>
       {/* ── Compact Bar (collapsed) ── */}
       <button onClick={() => setOpen(o => !o)} style={{
@@ -299,5 +302,6 @@ export default function GoToBar() {
         </div>
       )}
     </div>
+    </>
   );
 }
