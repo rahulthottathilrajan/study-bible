@@ -432,37 +432,30 @@ export default function BibleView() {
               </div>
             )}
 
-            {/* Verse scrubber — notch/slider style */}
-            <div style={{marginTop:12,paddingTop:10,borderTop:`1px solid ${t.divider}`}}>
-              <div ref={verseScrollRef} style={{position:"relative",overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",padding:"6px 0 4px",maskImage:"linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)",WebkitMaskImage:"linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)"}}>
-                {/* Track line */}
-                <div style={{position:"absolute",top:"50%",left:0,right:0,height:2,background:t.divider,transform:"translateY(-50%)",pointerEvents:"none"}} />
-                {/* Verse dots/notches */}
-                <div style={{display:"flex",alignItems:"center",gap:0,position:"relative"}}>
-                  {verseNums.map(v => {
-                    const isActive = v === verse;
-                    return (
-                      <button key={v} data-active={isActive?"true":undefined} onClick={()=>{setVerse(v);setTab("study")}}
-                        style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",border:"none",background:"transparent",cursor:"pointer",padding:isActive?"0 3px":"0 2px",flexShrink:0,transition:"all 0.2s",position:"relative"}}>
-                        {/* Dot or raised notch */}
-                        <div style={{
-                          width:isActive?30:8, height:isActive?30:8, borderRadius:isActive?15:4,
-                          background:isActive?`linear-gradient(135deg, ${t.accent}, ${t.tabActive})`:t.muted+"55",
-                          display:"flex",alignItems:"center",justifyContent:"center",
-                          transition:"all 0.2s",
-                          boxShadow:isActive?`0 2px 8px ${t.accent}44`:"none",
-                        }}>
-                          {isActive && <span style={{fontFamily:t.heading,fontSize:12,fontWeight:800,color:"#fff",lineHeight:1}}>{v}</span>}
-                        </div>
-                        {/* Number label below for every 5th verse (or first/last) */}
-                        {!isActive && (v % 5 === 0 || v === 1 || v === verseNums[verseNums.length-1]) && (
-                          <span style={{fontFamily:t.ui,fontSize:8,color:t.muted,marginTop:2,lineHeight:1}}>{v}</span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
+            {/* Verse nav strip — integrated gradient bar */}
+            <div style={{marginTop:10,background:t.headerGradient,borderRadius:10,border:"1px solid rgba(255,255,255,0.08)",display:"flex",alignItems:"center",overflow:"hidden"}}>
+              {/* Left arrow */}
+              <button onClick={()=>{const idx=verseNums.indexOf(verse);if(idx>0){setVerse(verseNums[idx-1]);setTab("study")}}} disabled={verseNums.indexOf(verse)<=0}
+                style={{flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",width:32,height:36,border:"none",background:"transparent",color:verseNums.indexOf(verse)>0?"rgba(255,255,255,0.7)":"rgba(255,255,255,0.15)",cursor:verseNums.indexOf(verse)>0?"pointer":"default",padding:0}}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              {/* Scrollable verse numbers */}
+              <div ref={verseScrollRef} style={{flex:1,display:"flex",alignItems:"center",gap:1,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",padding:"4px 0",maskImage:"linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",WebkitMaskImage:"linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)"}}>
+                {verseNums.map(v => {
+                  const isActive = v === verse;
+                  return (
+                    <button key={v} data-active={isActive?"true":undefined} onClick={()=>{setVerse(v);setTab("study")}}
+                      style={{minWidth:isActive?30:24,height:28,borderRadius:7,border:"none",background:isActive?"rgba(255,255,255,0.18)":"transparent",color:isActive?"rgba(255,255,255,0.95)":"rgba(255,255,255,0.35)",fontFamily:t.heading,fontSize:isActive?12:10,fontWeight:isActive?800:500,cursor:"pointer",transition:"all 0.15s",flexShrink:0,padding:"0 2px",display:"flex",alignItems:"center",justifyContent:"center"}}>
+                      {v}
+                    </button>
+                  );
+                })}
               </div>
+              {/* Right arrow */}
+              <button onClick={()=>{const idx=verseNums.indexOf(verse);if(idx<verseNums.length-1){setVerse(verseNums[idx+1]);setTab("study")}}} disabled={verseNums.indexOf(verse)>=verseNums.length-1}
+                style={{flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",width:32,height:36,border:"none",background:"transparent",color:verseNums.indexOf(verse)<verseNums.length-1?"rgba(255,255,255,0.7)":"rgba(255,255,255,0.15)",cursor:verseNums.indexOf(verse)<verseNums.length-1?"pointer":"default",padding:0}}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
             </div>
           </div>
 
