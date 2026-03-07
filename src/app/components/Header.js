@@ -4,7 +4,7 @@ import { Btn, BackIcon, UserIcon, PrayerIcon } from "./ui";
 import GoToBar from "./GoToBar";
 import UtilityStrip from "./UtilityStrip";
 
-export default function Header({ title, subtitle, onBack, right, theme, hidePrayer }) {
+export default function Header({ title, subtitle, onBack, right, theme, hidePrayer, hideUser }) {
   const { user, profile, t, setPrayerModal, handleLogout, nav } = useApp();
   const th = theme || t;
   return (
@@ -20,10 +20,10 @@ export default function Header({ title, subtitle, onBack, right, theme, hidePray
         <div style={{ display:"flex",alignItems:"center",gap:6,flexShrink:0 }}>
           {right}
           {!hidePrayer && user && <Btn onClick={() => setPrayerModal(true)} style={{color:th.headerText}} title="Prayer Journal"><PrayerIcon /></Btn>}
-          <Btn onClick={() => user ? handleLogout() : nav("account")} style={{ color:th.headerText,background:user?"rgba(125,212,173,0.2)":"rgba(255,255,255,0.1)",padding:"6px 10px",borderRadius:8 }}>
+          {!hideUser && <Btn onClick={() => user ? handleLogout() : nav("account")} style={{ color:th.headerText,background:user?"rgba(125,212,173,0.2)":"rgba(255,255,255,0.1)",padding:"6px 10px",borderRadius:8 }}>
             <UserIcon />
             {user && <span style={{ fontFamily:th.ui,fontSize:10,marginLeft:4,fontWeight:600 }}>{(profile?.display_name || user?.user_metadata?.display_name || '')?.split(' ')[0] || '•'}</span>}
-          </Btn>
+          </Btn>}
         </div>
       </div>
       <GoToBar />

@@ -34,7 +34,7 @@ export default function BibleView() {
     const cats = {}; books.forEach(b => { if (!cats[b.category]) cats[b.category] = []; cats[b.category].push(b); });
     return (
       <div style={{ minHeight:"100vh",background:ht.bg }}>
-        <Header title="The Holy Scriptures" subtitle="66 Books · 1,189 Chapters · 31,102 Verses" onBack={goBack} theme={ht} />
+        <Header title="The Holy Scriptures" onBack={goBack} theme={ht} hidePrayer hideUser />
         <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
 
           {/* ── Testament Picker (Parchment Scrolls) ── */}
@@ -67,6 +67,16 @@ export default function BibleView() {
             })}
           </div>
 
+          {/* ── Stats ── */}
+          <div style={{ display:"flex",justifyContent:"center",marginBottom:16 }}>
+            {[{n:"66",l:"Books"},{n:"1,189",l:"Chapters"},{n:"31,102",l:"Verses"}].map((s,i) => (
+              <div key={i} style={{ textAlign:"center",flex:1,borderRight:i<2?`1px solid ${ht.divider}`:"none",padding:"0 8px" }}>
+                <div style={{ fontFamily:ht.heading,fontSize:18,fontWeight:700,color:ht.dark,letterSpacing:"-0.02em" }}>{s.n}</div>
+                <div style={{ fontFamily:ht.ui,fontSize:9,fontWeight:600,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.1em",marginTop:1 }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+
           {/* ── Selected Testament Label ── */}
           <div style={{ fontFamily:ht.ui, fontSize:10, fontWeight:700, color:ht.muted, textTransform:"uppercase", letterSpacing:"0.12em", marginBottom:14, display:"flex", alignItems:"center", gap:8 }}>
             <span>{testament === "OT" ? "📜" : "✝️"}</span> {testament === "OT" ? "Old Testament" : "New Testament"} · {books.length} Books
@@ -91,15 +101,13 @@ export default function BibleView() {
                 {isOpen && (
                   <div style={{ border:`1px solid rgba(180,160,120,0.3)`,borderTop:"none",borderRadius:"0 0 12px 12px",overflow:"hidden",background:ht.card,boxShadow:"0 4px 10px rgba(0,0,0,0.06)" }}>
                     {catBooks.map((b, bi) => {
-                      const hasStudy = dbChapters[b.name]?.length > 0;
                       return (
-                        <button key={b.name} className="pressable" onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<catBooks.length-1?`1px dashed ${ht.divider}`:"none",padding:"14px 16px",cursor:"pointer",textAlign:"left",transition:"background 0.15s" }}>
+                        <button key={b.name} className="pressable" onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<catBooks.length-1?`1px dashed ${ht.divider}`:"none",padding:"12px 16px",cursor:"pointer",textAlign:"left",transition:"background 0.15s" }}>
                           <div style={{ display:"flex",alignItems:"baseline",justifyContent:"space-between",marginBottom:3 }}>
-                            <span style={{ fontFamily:ct.heading,fontSize:16,fontWeight:700,color:ht.dark }}>{b.name}</span>
+                            <span style={{ fontFamily:ct.heading,fontSize:13,fontWeight:700,color:ht.dark }}>{b.name}</span>
                             <span style={{ fontFamily:ct.ui,fontSize:10,fontWeight:700,color:ct.accent,background:`${ct.accent}15`,borderRadius:10,padding:"2px 8px" }}>{b.chapters} ch</span>
                           </div>
-                          <div style={{ fontFamily:"'Times New Roman',serif",fontSize:13,color:ht.light,fontStyle:"italic",marginBottom:hasStudy?4:0 }}>{b.original} <span style={{ fontFamily:ct.ui,fontStyle:"normal",fontSize:11,color:ht.muted }}>· {b.meaning}</span></div>
-                          {hasStudy && <Badge t={ct}>Study Notes</Badge>}
+                          <div style={{ fontFamily:"'Times New Roman',serif",fontSize:12,color:ht.light,fontStyle:"italic" }}>{b.original} <span style={{ fontFamily:ct.ui,fontStyle:"normal",fontSize:10,color:ht.muted }}>· {b.meaning}</span></div>
                         </button>
                       );
                     })}
