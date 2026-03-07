@@ -35,11 +35,15 @@ button {
   font-family: inherit;
 }
 
-.goto-verse-input::-webkit-inner-spin-button,
-.goto-verse-input::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
-.goto-verse-input {
-  -moz-appearance: textfield;
+
+.goto-wheel {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.goto-wheel::-webkit-scrollbar {
+  display: none;
 }
