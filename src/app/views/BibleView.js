@@ -2,12 +2,12 @@
 import { useState, useEffect, useRef } from "react";
 import { useApp } from "../context/AppContext";
 import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS } from "../constants";
-import { ChevIcon, Badge, Label, Card, Btn, Spinner, DBBadge } from "../components/ui";
+import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
 import Header from "../components/Header";
 
 export default function BibleView() {
   const {
-    view, book, chapter, verse, setVerse, tab, setTab, loading, dbLive,
+    view, book, chapter, verse, setVerse, tab, setTab, loading,
     testament, fontSize, setFontSize, FS, dbChapters, collapsed, setCollapsed,
     booksCollapsed, setBooksCollapsed, overviewOpen, setOverviewOpen,
     chapterMeta, verses, wordStudies, crossRefs,
@@ -28,10 +28,14 @@ export default function BibleView() {
   // Reset color picker & auto-scroll verse strip when verse changes
   useEffect(() => {
     setShowColors(false);
-    if (verseScrollRef.current) {
-      const active = verseScrollRef.current.querySelector('[data-active="true"]');
-      if (active) active.scrollIntoView({ behavior:"smooth", inline:"center", block:"nearest" });
-    }
+    // Defer scroll to next frame so React has rendered the new active pill
+    const raf = requestAnimationFrame(() => {
+      if (verseScrollRef.current) {
+        const active = verseScrollRef.current.querySelector('[data-active="true"]');
+        if (active) active.scrollIntoView({ behavior:"smooth", inline:"center", block:"nearest" });
+      }
+    });
+    return () => cancelAnimationFrame(raf);
   }, [verse]);
 
   // ═══ BOOKS ═══
@@ -332,22 +336,16 @@ export default function BibleView() {
 
   // ═══ VERSE STUDY ═══
   const VerseStudy = () => {
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={goBack} /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
-    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={book} onBack={goBack} hidePrayer /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
+    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={book} onBack={goBack} hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
 
-    const ref = `${book} ${chapter}:${verse}`;
     const vWords = wordStudies[String(verse)] || [];
     const vRefs = crossRefs[String(verse)] || [];
     const outline = chapterMeta?.outline ? JSON.parse(chapterMeta.outline) : [];
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={ref} subtitle={chapterMeta?.theme} onBack={goBack}
-          right={<>
-            <DBBadge live={dbLive} t={t} />
-            {user && <Btn onClick={toggleBookmarkHL} style={{color:highlight?.is_bookmarked?"#ffd700":t.headerText,fontSize:18,padding:"7px 10px",background:highlight?.is_bookmarked?"rgba(255,215,0,0.2)":"rgba(255,255,255,0.1)"}}>{highlight?.is_bookmarked?"★":"☆"}</Btn>}
-          </>}
-        />
+        <Header title={book} subtitle={chapterMeta?.theme} onBack={goBack} hidePrayer />
         <div style={{ maxWidth:620,margin:"0 auto",padding:"0 16px 40px" }}>
           {chapterMeta?.overview && (
             <div style={{margin:"14px 0"}}>
@@ -422,10 +420,10 @@ export default function BibleView() {
                 style={{display:"flex",alignItems:"center",gap:4,padding:"7px 12px",borderRadius:20,border:"none",background:curIdx>0?`linear-gradient(135deg, ${t.accent}, ${t.tabActive})`:`linear-gradient(135deg, ${t.light}44, ${t.light}22)`,fontFamily:t.ui,fontSize:12,fontWeight:700,color:curIdx>0?"#fff":t.light,cursor:curIdx>0?"pointer":"default",opacity:curIdx>0?1:0.4,transition:"all 0.2s",flexShrink:0,letterSpacing:"0.02em"}}>
                 ‹ Prev
               </button>
-              <div ref={verseScrollRef} style={{flex:1,display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",padding:"2px 0",maskImage:"linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",WebkitMaskImage:"linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)"}}>
+              <div ref={verseScrollRef} style={{flex:1,display:"flex",gap:3,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",padding:"2px 0",maskImage:"linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",WebkitMaskImage:"linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)"}}>
                 {verseNums.map(v => (
                   <button key={v} data-active={v===verse?"true":undefined} onClick={()=>{setVerse(v);setTab("study")}}
-                    style={{minWidth:34,height:34,borderRadius:17,border:v===verse?"none":`1px solid ${t.accentBorder}`,background:v===verse?`linear-gradient(135deg, ${t.accent}, ${t.tabActive})`:t.accentLight,color:v===verse?"#fff":t.text,fontFamily:t.heading,fontSize:12,fontWeight:v===verse?800:600,cursor:"pointer",transition:"all 0.15s",flexShrink:0,padding:"0 2px"}}>
+                    style={{minWidth:26,height:26,borderRadius:13,border:v===verse?"none":`1px solid ${t.accentBorder}`,background:v===verse?`linear-gradient(135deg, ${t.accent}, ${t.tabActive})`:t.accentLight,color:v===verse?"#fff":t.text,fontFamily:t.heading,fontSize:10,fontWeight:v===verse?800:600,cursor:"pointer",transition:"all 0.15s",flexShrink:0,padding:"0 1px"}}>
                     {v}
                   </button>
                 ))}

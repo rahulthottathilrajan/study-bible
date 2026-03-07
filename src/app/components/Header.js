@@ -3,7 +3,7 @@ import { useApp } from "../context/AppContext";
 import { Btn, BackIcon, UserIcon, PrayerIcon } from "./ui";
 import GoToBar from "./GoToBar";
 
-export default function Header({ title, subtitle, onBack, right, theme }) {
+export default function Header({ title, subtitle, onBack, right, theme, hidePrayer }) {
   const { user, profile, t, setPrayerModal, handleLogout, nav } = useApp();
   const th = theme || t;
   return (
@@ -18,7 +18,7 @@ export default function Header({ title, subtitle, onBack, right, theme }) {
         </div>
         <div style={{ display:"flex",alignItems:"center",gap:6,flexShrink:0 }}>
           {right}
-          {user && <Btn onClick={() => setPrayerModal(true)} style={{color:th.headerText}} title="Prayer Journal"><PrayerIcon /></Btn>}
+          {!hidePrayer && user && <Btn onClick={() => setPrayerModal(true)} style={{color:th.headerText}} title="Prayer Journal"><PrayerIcon /></Btn>}
           <Btn onClick={() => user ? handleLogout() : nav("account")} style={{ color:th.headerText,background:user?"rgba(125,212,173,0.2)":"rgba(255,255,255,0.1)",padding:"6px 10px",borderRadius:8 }}>
             <UserIcon />
             {user && <span style={{ fontFamily:th.ui,fontSize:10,marginLeft:4,fontWeight:600 }}>{(profile?.display_name || user?.user_metadata?.display_name || '')?.split(' ')[0] || '•'}</span>}

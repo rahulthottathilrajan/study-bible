@@ -27,11 +27,25 @@ export function AppProvider({ children }) {
   const [fontSize, setFontSize] = useState("medium");
   const [bibleTranslation, setBibleTranslation] = useState("kjv");
 
-  // ─── Load dark mode + font size + translation preferences ───
+  // ─── Load preferences + restore nav state on refresh ───
   useEffect(() => {
     try { const dm = localStorage.getItem("darkMode"); if (dm === "true") setDarkMode(true); } catch {}
     try { const fs = localStorage.getItem("fontSize"); if (fs) setFontSize(fs); } catch {}
     try { const bt = localStorage.getItem("bibleTranslation"); if (bt) setBibleTranslation(bt); } catch {}
+    try {
+      const saved = localStorage.getItem("navState");
+      if (saved) {
+        const s = JSON.parse(saved);
+        if (s.view && s.view !== "home") {
+          setView(s.view);
+          if (s.testament) setTestament(s.testament);
+          if (s.book) setBook(s.book);
+          if (s.chapter) setChapter(s.chapter);
+          if (s.verse) setVerse(s.verse);
+          if (s.tab) setTab(s.tab);
+        }
+      }
+    } catch {}
   }, []);
   useEffect(() => {
     try { localStorage.setItem("darkMode", darkMode ? "true" : "false"); } catch {}
@@ -43,6 +57,10 @@ export function AppProvider({ children }) {
   useEffect(() => {
     try { localStorage.setItem("bibleTranslation", bibleTranslation); } catch {}
   }, [bibleTranslation]);
+  // ─── Persist nav state for refresh ───
+  useEffect(() => {
+    try { localStorage.setItem("navState", JSON.stringify({ view, testament, book, chapter, verse, tab })); } catch {}
+  }, [view, testament, book, chapter, verse, tab]);
 
   // ─── Service worker registration + install prompt ───
   useEffect(() => {
