@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS } from "../constants";
 import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
@@ -14,36 +14,18 @@ export default function BibleView() {
     user, userNote, savedNote, noteLoading, highlight, shareCopied, communityNotes,
     setPrayerModal, setPrayerTitle, setPrayerText, noteRef,
     isOT, currentVerse, verseNums, t, ht, darkMode, bookInfo,
-    saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
+    hasVerseId, saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage, nav, goBack,
     chapterReads, markChapterRead, quizScores, bibleTranslation,
   } = useApp();
 
   const [showColors, setShowColors] = useState(false);
-  const verseScrollRef = useRef(null);
   const currentTransDef = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
   const isRtl = currentTransDef?.rtl || false;
   const rtlStyle = isRtl ? { direction: "rtl", textAlign: "right" } : {};
 
   // Reset color picker when verse changes
   useEffect(() => { setShowColors(false); }, [verse]);
-
-  // Auto-scroll verse strip — works on both mount and verse change
-  const scrollVerseIntoView = (behavior = "smooth") => {
-    const el = verseScrollRef.current;
-    if (!el) return;
-    const active = el.querySelector('[data-active="true"]');
-    if (!active) return;
-    const left = active.offsetLeft - el.offsetWidth / 2 + active.offsetWidth / 2;
-    el.scrollTo({ left, behavior });
-  };
-  useEffect(() => {
-    // Double-raf ensures DOM has fully laid out after React render
-    const raf = requestAnimationFrame(() => {
-      requestAnimationFrame(() => scrollVerseIntoView("smooth"));
-    });
-    return () => cancelAnimationFrame(raf);
-  }, [verse, view]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ═══ BOOKS ═══
   const Books = () => {
@@ -394,26 +376,16 @@ export default function BibleView() {
               {currentVerse.kjv_text}
             </div>
 
-            {/* Verse picker — always-visible borderless strip with Prev/Next */}
+            {/* Prev / Next navigation */}
             {(() => { const idx = verseNums.indexOf(verse); const canPrev = idx > 0; const canNext = idx < verseNums.length - 1; return (
-            <div style={{display:"flex",alignItems:"center",gap:6,marginTop:6}}>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6}}>
               <button onClick={() => {if(canPrev){setVerse(verseNums[idx-1]);setTab("study")}}} disabled={!canPrev}
-                style={{flexShrink:0,padding:"5px 10px",borderRadius:16,border:`1px solid ${canPrev?t.accentBorder:"transparent"}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canPrev?t.accent:t.light,cursor:canPrev?"pointer":"default",opacity:canPrev?1:0.35,transition:"all 0.2s"}}>
+                style={{padding:"5px 10px",borderRadius:16,border:`1px solid ${canPrev?t.accentBorder:"transparent"}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canPrev?t.accent:t.light,cursor:canPrev?"pointer":"default",opacity:canPrev?1:0.35,transition:"all 0.2s"}}>
                 ‹ Prev
               </button>
-              <div ref={verseScrollRef} className="goto-wheel" style={{flex:1,display:"flex",alignItems:"center",overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",scrollSnapType:"x mandatory",padding:"4px 0",maskImage:"linear-gradient(90deg, transparent 1%, rgba(0,0,0,0.4) 8%, #000 20%, #000 80%, rgba(0,0,0,0.4) 92%, transparent 99%)",WebkitMaskImage:"linear-gradient(90deg, transparent 1%, rgba(0,0,0,0.4) 8%, #000 20%, #000 80%, rgba(0,0,0,0.4) 92%, transparent 99%)"}}>
-                {verseNums.map(v => {
-                  const isActive = v === verse;
-                  return (
-                    <button key={v} data-active={isActive?"true":undefined} onClick={() => {setVerse(v);setTab("study")}}
-                      style={{minWidth:34,height:30,border:"none",background:isActive?t.accent:"transparent",color:isActive?"#fff":t.muted,fontFamily:t.heading,fontSize:isActive?14:12,fontWeight:isActive?800:500,cursor:"pointer",borderRadius:8,transition:"all 0.15s",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",scrollSnapAlign:"center"}}>
-                      {v}
-                    </button>
-                  );
-                })}
-              </div>
+              <span style={{fontFamily:t.ui,fontSize:11,color:t.muted}}>{verse} of {verseNums.length}</span>
               <button onClick={() => {if(canNext){setVerse(verseNums[idx+1]);setTab("study")}}} disabled={!canNext}
-                style={{flexShrink:0,padding:"5px 10px",borderRadius:16,border:`1px solid ${canNext?t.accentBorder:"transparent"}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canNext?t.accent:t.light,cursor:canNext?"pointer":"default",opacity:canNext?1:0.35,transition:"all 0.2s"}}>
+                style={{padding:"5px 10px",borderRadius:16,border:`1px solid ${canNext?t.accentBorder:"transparent"}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canNext?t.accent:t.light,cursor:canNext?"pointer":"default",opacity:canNext?1:0.35,transition:"all 0.2s"}}>
                 Next ›
               </button>
             </div>
@@ -421,16 +393,17 @@ export default function BibleView() {
 
             {/* Always-visible action bar */}
             {user && (
-              <div style={{borderRadius:10,padding:"8px 4px",marginTop:8,background:`${t.accent}0A`,border:`1px solid ${t.accentBorder}`}}>
+              <div style={{borderRadius:10,padding:"8px 4px",marginTop:8,background:`${t.accent}0A`,border:`1px solid ${t.accentBorder}`,opacity:hasVerseId?1:0.4,pointerEvents:hasVerseId?"auto":"none"}}>
+                {!hasVerseId && <div style={{fontFamily:t.ui,fontSize:10,color:t.muted,textAlign:"center",padding:"4px 0 2px"}}>Features available for seeded chapters</div>}
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly"}}>
                   {[
-                    { label:"Highlight", active:showColors, onClick:() => setShowColors(c => !c),
+                    { label:"Highlight", active:showColors && hasVerseId, onClick:() => setShowColors(c => !c),
                       svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg>,
                       svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg> },
                     { label:"Bookmark", active:highlight?.is_bookmarked, onClick:toggleBookmarkHL, activeColor:"#ffd700",
                       svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
                       svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="#ffd700" stroke="#ffd700" strokeWidth="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> },
-                    { label:"Note", onClick:() => setTab("my"),
+                    { label:"Note", active:tab === "my", onClick:() => setTab("my"),
                       svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> },
                     { label:"Pray", onClick:() => { setPrayerTitle(`${book} ${chapter}:${verse}`); setPrayerText(""); setPrayerModal(true); },
                       svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21C12 21 8 16.5 5 12.5C3 9.5 4 6 7 5C9 4.2 11 5 12 7C13 5 15 4.2 17 5C20 6 21 9.5 19 12.5C16 16.5 12 21 12 21Z"/></svg> },

@@ -117,6 +117,7 @@ export function AppProvider({ children }) {
   const [savedNote, setSavedNote] = useState(null);
   const [noteLoading, setNoteLoading] = useState(false);
   const [highlight, setHighlight] = useState(null);
+  const [hasVerseId, setHasVerseId] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [communityNotes, setCommunityNotes] = useState([]);
   const [chapterHighlights, setChapterHighlights] = useState({});       // { verseNum: hlObj }
@@ -412,6 +413,7 @@ export function AppProvider({ children }) {
   useEffect(() => {
     if (!verse) return;
     setHighlight(chapterHighlights[verse] || null);
+    setHasVerseId(!!verseIdMap.current[verse]);
     const note = chapterNotes[verse];
     if (note) { setSavedNote(note); setUserNote(note.note_text); if (noteRef.current) noteRef.current.value = note.note_text; }
     else { setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = ""; }
@@ -421,7 +423,7 @@ export function AppProvider({ children }) {
   useEffect(() => {
     if (!user) {
       setSavedNote(null); setUserNote(""); if (noteRef.current) noteRef.current.value = "";
-      setHighlight(null); setCommunityNotes([]);
+      setHighlight(null); setHasVerseId(false); setCommunityNotes([]);
       setChapterHighlights({}); setChapterNotes({}); setChapterCommunityNotes({});
       verseIdMap.current = {};
     }
@@ -1397,7 +1399,7 @@ export function AppProvider({ children }) {
     // Auth handlers
     handleAuth, handleLogout, handleForgotPassword, handleGoogleSignIn,
     // User feature handlers
-    saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
+    hasVerseId, saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage,
     // Prayer handlers
     loadPrayers, addPrayer, togglePrayerAnswered, deletePrayer,
