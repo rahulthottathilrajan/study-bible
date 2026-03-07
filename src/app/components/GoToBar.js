@@ -4,12 +4,12 @@ import { useApp } from "../context/AppContext";
 import { BIBLE_BOOKS } from "../constants";
 
 // ─── Compact Scroll Wheel Constants ───
-const ITEM_H = 32;
-const VISIBLE = 3;
+const ITEM_H = 28;
+const VISIBLE = 5;
 const PAD = ITEM_H * Math.floor(VISIBLE / 2);
 const WHEEL_H = ITEM_H * VISIBLE;
 
-// ─── ScrollColumn (compact inline) ───
+// ─── ScrollColumn (inline, transparent) ───
 function ScrollColumn({ items, selectedIdx, onSelect, label }) {
   const scrollRef = useRef(null);
   const scrollTimer = useRef(null);
@@ -47,20 +47,20 @@ function ScrollColumn({ items, selectedIdx, onSelect, label }) {
         {/* Center highlight bar */}
         <div style={{
           position: "absolute", top: PAD, left: 3, right: 3, height: ITEM_H,
-          background: "rgba(212,168,83,0.12)",
-          border: "1.5px solid rgba(212,168,83,0.22)",
-          borderRadius: 7, zIndex: 1, pointerEvents: "none",
+          background: "rgba(255,255,255,0.08)",
+          border: "1px solid rgba(255,255,255,0.12)",
+          borderRadius: 6, zIndex: 1, pointerEvents: "none",
         }} />
-        {/* Top fade */}
+        {/* Top fade — subtle, lets items show through */}
         <div style={{
-          position: "absolute", top: 0, left: 0, right: 0, height: PAD + 6,
-          background: "linear-gradient(to bottom, #1A1714 30%, transparent)",
+          position: "absolute", top: 0, left: 0, right: 0, height: PAD + 4,
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.25) 10%, transparent)",
           zIndex: 2, pointerEvents: "none",
         }} />
         {/* Bottom fade */}
         <div style={{
-          position: "absolute", bottom: 0, left: 0, right: 0, height: PAD + 6,
-          background: "linear-gradient(to top, #1A1714 30%, transparent)",
+          position: "absolute", bottom: 0, left: 0, right: 0, height: PAD + 4,
+          background: "linear-gradient(to top, rgba(0,0,0,0.25) 10%, transparent)",
           zIndex: 2, pointerEvents: "none",
         }} />
         {/* Scrollable wheel */}
@@ -75,9 +75,9 @@ function ScrollColumn({ items, selectedIdx, onSelect, label }) {
               height: ITEM_H, scrollSnapAlign: "center",
               display: "flex", alignItems: "center", justifyContent: "center",
               fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: i === selectedIdx ? 14 : 11,
+              fontSize: i === selectedIdx ? 15 : 12,
               fontWeight: i === selectedIdx ? 700 : 400,
-              color: i === selectedIdx ? "#D4A853" : "rgba(255,255,255,0.2)",
+              color: i === selectedIdx ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.35)",
               cursor: "pointer",
               transition: "font-size 0.12s, color 0.12s",
               userSelect: "none",
@@ -101,10 +101,11 @@ function ScrollColumn({ items, selectedIdx, onSelect, label }) {
   );
 }
 
-// ─── GoToBar (inline scroll wheels) ───
+// ─── GoToBar (tap-to-expand inline wheels) ───
 export default function GoToBar() {
   const { book, chapter, verse, view, t, ht, darkMode, nav, testament } = useApp();
 
+  const [open, setOpen] = useState(false);
   const [goBook, setGoBook] = useState(book || "Genesis");
   const [goChapter, setGoChapter] = useState(chapter || 1);
   const [goVerse, setGoVerse] = useState(verse || 1);
@@ -148,6 +149,11 @@ export default function GoToBar() {
   const chapterIdx = Math.max(0, (goChapter || 1) - 1);
   const verseIdx = Math.max(0, Math.min((goVerse || 1) - 1, maxVerse - 1));
 
+  // Display values
+  const displayBook = book || goBook || "Select";
+  const displayCh = chapter || goChapter || "–";
+  const displayV = verse || goVerse || "–";
+
   // ── Handlers ──
   const handleBookChange = useCallback((idx) => {
     const name = BIBLE_BOOKS[idx]?.name;
@@ -175,87 +181,123 @@ export default function GoToBar() {
     const bi = BIBLE_BOOKS.find(b => b.name === goBook);
     const tst = bi?.testament || testament || "OT";
     nav("verse", { testament: tst, book: goBook, chapter: goChapter, verse: goVerse, tab: "study" });
+    setOpen(false);
   };
 
   return (
     <div style={{
       marginTop: 6,
-      background: "#1A1714",
-      borderRadius: 14,
-      padding: "10px 12px 8px",
-      border: "1px solid rgba(212,168,83,0.12)",
-      boxShadow: "0 2px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
+      background: "rgba(0,0,0,0.18)",
+      borderRadius: 10,
+      border: "1px solid rgba(255,255,255,0.08)",
+      overflow: "hidden",
+      transition: "all 0.2s ease",
     }}>
-      {/* Top row: GO TO label + reference + GO button */}
-      <div style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        marginBottom: 6,
+      {/* ── Compact Bar (collapsed) ── */}
+      <button onClick={() => setOpen(o => !o)} style={{
+        display: "flex", alignItems: "center", gap: 10,
+        width: "100%", padding: "7px 12px",
+        background: "transparent",
+        border: "none",
+        cursor: "pointer",
       }}>
         <span style={{
           fontFamily: "system-ui, sans-serif",
           fontSize: 9, fontWeight: 700,
           color: "rgba(255,255,255,0.5)",
           textTransform: "uppercase",
-          letterSpacing: "0.12em",
+          letterSpacing: "0.1em",
+          flexShrink: 0,
         }}>Go To</span>
 
-        {/* Reference preview */}
+        <div style={{ display: "flex", alignItems: "center", gap: 5, flex: 1, minWidth: 0 }}>
+          <span style={{ fontFamily: "system-ui", fontSize: 9, color: "rgba(255,255,255,0.3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Book:</span>
+          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.85)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{displayBook}</span>
+
+          <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 12, margin: "0 2px" }}>|</span>
+
+          <span style={{ fontFamily: "system-ui", fontSize: 9, color: "rgba(255,255,255,0.3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Ch:</span>
+          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.85)" }}>{displayCh}</span>
+
+          <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 12, margin: "0 2px" }}>|</span>
+
+          <span style={{ fontFamily: "system-ui", fontSize: 9, color: "rgba(255,255,255,0.3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>V:</span>
+          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.85)" }}>{displayV}</span>
+        </div>
+
         <span style={{
-          fontFamily: "'Playfair Display', Georgia, serif",
-          fontSize: 13, fontWeight: 600,
-          color: "#D4A853",
-          letterSpacing: "0.02em",
-        }}>
-          {goBook} {goChapter}:{goVerse}
-        </span>
+          fontSize: 10, color: "rgba(255,255,255,0.4)",
+          transform: open ? "rotate(180deg)" : "rotate(0deg)",
+          transition: "transform 0.25s ease",
+          display: "inline-block",
+        }}>▾</span>
+      </button>
 
-        {/* GO button */}
-        <button onClick={handleGo} style={{
-          padding: "5px 14px",
-          borderRadius: 8, border: "none",
-          background: "linear-gradient(135deg, #D4A853, #8B6914)",
-          color: "#fff",
-          fontFamily: "system-ui, sans-serif",
-          fontSize: 11, fontWeight: 700,
-          cursor: "pointer",
-          boxShadow: "0 2px 8px rgba(212,168,83,0.3)",
-          transition: "all 0.2s",
-          letterSpacing: "0.05em",
-          textTransform: "uppercase",
-        }}>
-          Go &rarr;
-        </button>
-      </div>
+      {/* ── Expanded Inline Wheels ── */}
+      {open && (
+        <div style={{ padding: "0 12px 10px", animation: "fadeIn 0.2s ease" }}>
+          {/* Divider */}
+          <div style={{
+            height: 1, margin: "0 16px 8px",
+            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)",
+          }} />
 
-      {/* Thin divider */}
-      <div style={{
-        height: 1, margin: "0 20px 6px",
-        background: "linear-gradient(90deg, transparent, rgba(212,168,83,0.15), transparent)",
-      }} />
+          {/* Reference preview + GO button */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            marginBottom: 8,
+          }}>
+            <span style={{
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontSize: 14, fontWeight: 600,
+              color: "rgba(255,255,255,0.9)",
+              letterSpacing: "0.02em",
+            }}>
+              {goBook} {goChapter}:{goVerse}
+            </span>
 
-      {/* Three inline scroll wheels */}
-      <div style={{ display: "flex", gap: 4 }}>
-        <ScrollColumn
-          items={bookItems}
-          selectedIdx={bookIdx}
-          onSelect={handleBookChange}
-          label="Book"
-        />
-        <ScrollColumn
-          key={`ch-${goBook}`}
-          items={chapterItems}
-          selectedIdx={chapterIdx}
-          onSelect={handleChapterChange}
-          label="Chapter"
-        />
-        <ScrollColumn
-          key={`v-${goBook}-${goChapter}`}
-          items={verseItems}
-          selectedIdx={verseIdx}
-          onSelect={handleVerseChange}
-          label="Verse"
-        />
-      </div>
+            <button onClick={handleGo} style={{
+              padding: "6px 16px",
+              borderRadius: 8, border: "none",
+              background: "rgba(255,255,255,0.15)",
+              color: "rgba(255,255,255,0.9)",
+              fontFamily: "system-ui, sans-serif",
+              fontSize: 11, fontWeight: 700,
+              cursor: "pointer",
+              transition: "all 0.2s",
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
+              backdropFilter: "blur(4px)",
+            }}>
+              Go &rarr;
+            </button>
+          </div>
+
+          {/* Three scroll wheels */}
+          <div style={{ display: "flex", gap: 4 }}>
+            <ScrollColumn
+              items={bookItems}
+              selectedIdx={bookIdx}
+              onSelect={handleBookChange}
+              label="Book"
+            />
+            <ScrollColumn
+              key={`ch-${goBook}`}
+              items={chapterItems}
+              selectedIdx={chapterIdx}
+              onSelect={handleChapterChange}
+              label="Chapter"
+            />
+            <ScrollColumn
+              key={`v-${goBook}-${goChapter}`}
+              items={verseItems}
+              selectedIdx={verseIdx}
+              onSelect={handleVerseChange}
+              label="Verse"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
