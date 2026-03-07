@@ -432,30 +432,36 @@ export default function BibleView() {
               </div>
             )}
 
-            {/* Verse nav strip — integrated gradient bar */}
-            <div style={{marginTop:10,background:t.headerGradient,borderRadius:10,border:"1px solid rgba(255,255,255,0.08)",display:"flex",alignItems:"center",overflow:"hidden"}}>
-              {/* Left arrow */}
-              <button onClick={()=>{const idx=verseNums.indexOf(verse);if(idx>0){setVerse(verseNums[idx-1]);setTab("study")}}} disabled={verseNums.indexOf(verse)<=0}
-                style={{flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",width:32,height:36,border:"none",background:"transparent",color:verseNums.indexOf(verse)>0?"rgba(255,255,255,0.7)":"rgba(255,255,255,0.15)",cursor:verseNums.indexOf(verse)>0?"pointer":"default",padding:0}}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              {/* Scrollable verse numbers */}
-              <div ref={verseScrollRef} style={{flex:1,display:"flex",alignItems:"center",gap:1,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",padding:"4px 0",maskImage:"linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",WebkitMaskImage:"linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)"}}>
-                {verseNums.map(v => {
-                  const isActive = v === verse;
-                  return (
-                    <button key={v} data-active={isActive?"true":undefined} onClick={()=>{setVerse(v);setTab("study")}}
-                      style={{minWidth:isActive?30:24,height:28,borderRadius:7,border:"none",background:isActive?"rgba(255,255,255,0.18)":"transparent",color:isActive?"rgba(255,255,255,0.95)":"rgba(255,255,255,0.35)",fontFamily:t.heading,fontSize:isActive?12:10,fontWeight:isActive?800:500,cursor:"pointer",transition:"all 0.15s",flexShrink:0,padding:"0 2px",display:"flex",alignItems:"center",justifyContent:"center"}}>
-                      {v}
-                    </button>
-                  );
-                })}
+            {/* Verse nav strip — Prev + scroller + Next */}
+            <div style={{marginTop:10,display:"flex",alignItems:"center",gap:6}}>
+              {/* Prev button */}
+              {(() => { const idx = verseNums.indexOf(verse); const canPrev = idx > 0; return (
+                <button onClick={()=>{if(canPrev){setVerse(verseNums[idx-1]);setTab("study")}}} disabled={!canPrev}
+                  style={{flexShrink:0,padding:"6px 12px",borderRadius:20,border:"none",background:canPrev?t.headerGradient:"rgba(128,128,128,0.1)",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canPrev?"rgba(255,255,255,0.9)":t.light,cursor:canPrev?"pointer":"default",opacity:canPrev?1:0.4,transition:"all 0.2s",letterSpacing:"0.02em"}}>
+                  ‹ Prev
+                </button>
+              ); })()}
+              {/* Center verse scroller */}
+              <div style={{flex:1,background:t.headerGradient,borderRadius:10,border:"1px solid rgba(255,255,255,0.08)",overflow:"hidden"}}>
+                <div ref={verseScrollRef} style={{display:"flex",alignItems:"center",gap:0,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",padding:"5px 4px",maskImage:"linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",WebkitMaskImage:"linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)"}}>
+                  {verseNums.map(v => {
+                    const isActive = v === verse;
+                    return (
+                      <button key={v} data-active={isActive?"true":undefined} onClick={()=>{setVerse(v);setTab("study")}}
+                        style={{minWidth:isActive?32:22,height:26,borderRadius:isActive?13:6,border:"none",background:isActive?"rgba(255,255,255,0.22)":"transparent",color:isActive?"#fff":"rgba(255,255,255,0.3)",fontFamily:t.heading,fontSize:isActive?13:10,fontWeight:isActive?800:500,cursor:"pointer",transition:"all 0.15s",flexShrink:0,padding:"0 2px",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:isActive?"0 0 8px rgba(255,255,255,0.15)":"none"}}>
+                        {v}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-              {/* Right arrow */}
-              <button onClick={()=>{const idx=verseNums.indexOf(verse);if(idx<verseNums.length-1){setVerse(verseNums[idx+1]);setTab("study")}}} disabled={verseNums.indexOf(verse)>=verseNums.length-1}
-                style={{flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",width:32,height:36,border:"none",background:"transparent",color:verseNums.indexOf(verse)<verseNums.length-1?"rgba(255,255,255,0.7)":"rgba(255,255,255,0.15)",cursor:verseNums.indexOf(verse)<verseNums.length-1?"pointer":"default",padding:0}}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
+              {/* Next button */}
+              {(() => { const idx = verseNums.indexOf(verse); const canNext = idx < verseNums.length - 1; return (
+                <button onClick={()=>{if(canNext){setVerse(verseNums[idx+1]);setTab("study")}}} disabled={!canNext}
+                  style={{flexShrink:0,padding:"6px 12px",borderRadius:20,border:"none",background:canNext?t.headerGradient:"rgba(128,128,128,0.1)",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canNext?"rgba(255,255,255,0.9)":t.light,cursor:canNext?"pointer":"default",opacity:canNext?1:0.4,transition:"all 0.2s",letterSpacing:"0.02em"}}>
+                  Next ›
+                </button>
+              ); })()}
             </div>
           </div>
 
