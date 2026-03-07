@@ -13,7 +13,7 @@ export default function BibleView() {
     chapterMeta, verses, wordStudies, crossRefs,
     user, userNote, savedNote, noteLoading, highlight, shareCopied, communityNotes,
     setPrayerModal, setPrayerTitle, setPrayerText, noteRef,
-    isOT, currentVerse, verseNums, curIdx, t, ht, darkMode, bookInfo,
+    isOT, currentVerse, verseNums, t, ht, darkMode, bookInfo,
     saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage, nav, goBack,
     chapterReads, markChapterRead, quizScores, bibleTranslation,
@@ -432,24 +432,37 @@ export default function BibleView() {
               </div>
             )}
 
-            {/* Prev / Verse Scroller / Next */}
-            <div style={{display:"flex",alignItems:"center",gap:6,marginTop:12,paddingTop:10,borderTop:`1px solid ${t.divider}`}}>
-              <button onClick={()=>{if(curIdx>0){setVerse(verseNums[curIdx-1]);setTab("study")}}} disabled={curIdx<=0}
-                style={{display:"flex",alignItems:"center",gap:4,padding:"7px 12px",borderRadius:20,border:"none",background:curIdx>0?`linear-gradient(135deg, ${t.accent}, ${t.tabActive})`:`linear-gradient(135deg, ${t.light}44, ${t.light}22)`,fontFamily:t.ui,fontSize:12,fontWeight:700,color:curIdx>0?"#fff":t.light,cursor:curIdx>0?"pointer":"default",opacity:curIdx>0?1:0.4,transition:"all 0.2s",flexShrink:0,letterSpacing:"0.02em"}}>
-                ‹ Prev
-              </button>
-              <div ref={verseScrollRef} style={{flex:1,display:"flex",gap:3,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",padding:"2px 0",maskImage:"linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",WebkitMaskImage:"linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)"}}>
-                {verseNums.map(v => (
-                  <button key={v} data-active={v===verse?"true":undefined} onClick={()=>{setVerse(v);setTab("study")}}
-                    style={{minWidth:26,height:26,borderRadius:13,border:v===verse?"none":`1px solid ${t.accentBorder}`,background:v===verse?`linear-gradient(135deg, ${t.accent}, ${t.tabActive})`:t.accentLight,color:v===verse?"#fff":t.text,fontFamily:t.heading,fontSize:10,fontWeight:v===verse?800:600,cursor:"pointer",transition:"all 0.15s",flexShrink:0,padding:"0 1px"}}>
-                    {v}
-                  </button>
-                ))}
+            {/* Verse scrubber — notch/slider style */}
+            <div style={{marginTop:12,paddingTop:10,borderTop:`1px solid ${t.divider}`}}>
+              <div ref={verseScrollRef} style={{position:"relative",overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",padding:"6px 0 4px",maskImage:"linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)",WebkitMaskImage:"linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)"}}>
+                {/* Track line */}
+                <div style={{position:"absolute",top:"50%",left:0,right:0,height:2,background:t.divider,transform:"translateY(-50%)",pointerEvents:"none"}} />
+                {/* Verse dots/notches */}
+                <div style={{display:"flex",alignItems:"center",gap:0,position:"relative"}}>
+                  {verseNums.map(v => {
+                    const isActive = v === verse;
+                    return (
+                      <button key={v} data-active={isActive?"true":undefined} onClick={()=>{setVerse(v);setTab("study")}}
+                        style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",border:"none",background:"transparent",cursor:"pointer",padding:isActive?"0 3px":"0 2px",flexShrink:0,transition:"all 0.2s",position:"relative"}}>
+                        {/* Dot or raised notch */}
+                        <div style={{
+                          width:isActive?30:8, height:isActive?30:8, borderRadius:isActive?15:4,
+                          background:isActive?`linear-gradient(135deg, ${t.accent}, ${t.tabActive})`:t.muted+"55",
+                          display:"flex",alignItems:"center",justifyContent:"center",
+                          transition:"all 0.2s",
+                          boxShadow:isActive?`0 2px 8px ${t.accent}44`:"none",
+                        }}>
+                          {isActive && <span style={{fontFamily:t.heading,fontSize:12,fontWeight:800,color:"#fff",lineHeight:1}}>{v}</span>}
+                        </div>
+                        {/* Number label below for every 5th verse (or first/last) */}
+                        {!isActive && (v % 5 === 0 || v === 1 || v === verseNums[verseNums.length-1]) && (
+                          <span style={{fontFamily:t.ui,fontSize:8,color:t.muted,marginTop:2,lineHeight:1}}>{v}</span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-              <button onClick={()=>{if(curIdx<verseNums.length-1){setVerse(verseNums[curIdx+1]);setTab("study")}}} disabled={curIdx>=verseNums.length-1}
-                style={{display:"flex",alignItems:"center",gap:4,padding:"7px 12px",borderRadius:20,border:"none",background:curIdx<verseNums.length-1?`linear-gradient(135deg, ${t.tabActive}, ${t.accent})`:`linear-gradient(135deg, ${t.light}22, ${t.light}44)`,fontFamily:t.ui,fontSize:12,fontWeight:700,color:curIdx<verseNums.length-1?"#fff":t.light,cursor:curIdx<verseNums.length-1?"pointer":"default",opacity:curIdx<verseNums.length-1?1:0.4,transition:"all 0.2s",flexShrink:0,letterSpacing:"0.02em"}}>
-                Next ›
-              </button>
             </div>
           </div>
 
