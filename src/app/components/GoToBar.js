@@ -186,7 +186,7 @@ export default function GoToBar() {
 
   return (
     <>
-    <style>{`@keyframes gotoGlow { 0%,100% { border-color: rgba(212,168,83,0.5); box-shadow: 0 0 6px rgba(212,168,83,0.15); } 50% { border-color: rgba(255,255,255,0.6); box-shadow: 0 0 10px rgba(212,168,83,0.25); } }`}</style>
+    <style>{`@keyframes gotoGlow { 0%,100% { border-color: rgba(212,168,83,0.5); box-shadow: 0 0 6px rgba(212,168,83,0.15); } 50% { border-color: rgba(255,255,255,0.6); box-shadow: 0 0 10px rgba(212,168,83,0.25); } } @keyframes gotoBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }`}</style>
     <div style={{
       marginTop: 6,
       background: "rgba(0,0,0,0.18)",
@@ -211,6 +211,7 @@ export default function GoToBar() {
           textTransform: "uppercase",
           letterSpacing: "0.1em",
           flexShrink: 0,
+          animation: "gotoBlink 2s ease-in-out infinite",
         }}>Go To</span>
 
         <div style={{ display: "flex", alignItems: "center", gap: 4, flex: 1, minWidth: 0 }}>

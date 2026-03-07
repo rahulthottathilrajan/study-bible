@@ -64,8 +64,8 @@ export default function HomeView() {
       <div style={{ padding:"22px 20px 40px" }}>
         <div style={{ maxWidth:520,margin:"0 auto" }}>
           {/* ── SEARCH BAR ── */}
-          <style>{`@keyframes searchGlow { 0%,100% { border-color: rgba(212,168,83,0.45); box-shadow: inset 0 1px 3px rgba(0,0,0,0.06), 0 0 6px rgba(212,168,83,0.12); } 50% { border-color: rgba(255,255,255,0.55); box-shadow: inset 0 1px 3px rgba(0,0,0,0.06), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
-          <button onClick={() => nav("search")} style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"14px 18px",borderRadius:14,border:"1.5px solid rgba(212,168,83,0.45)",background:ht.card,cursor:"pointer",marginBottom:16,animation:"searchGlow 3s ease-in-out infinite" }}>
+          <style>{`@keyframes searchGlow { 0%,100% { border-color: rgba(128,90,213,0.5); box-shadow: inset 0 1px 3px rgba(0,0,0,0.06), 0 0 6px rgba(128,90,213,0.15); } 50% { border-color: rgba(212,168,83,0.55); box-shadow: inset 0 1px 3px rgba(0,0,0,0.06), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
+          <button onClick={() => nav("search")} style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"14px 18px",borderRadius:14,border:"1.5px solid rgba(128,90,213,0.5)",background:ht.card,cursor:"pointer",marginBottom:16,animation:"searchGlow 3s ease-in-out infinite" }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <span style={{ fontFamily:ht.ui,fontSize:14,color:ht.light,fontWeight:500 }}>Search the Scriptures...</span>
           </button>
