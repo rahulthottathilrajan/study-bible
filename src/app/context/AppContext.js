@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../../lib/supabase";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP } from "../constants";
 
 // ─── Derive dbChapters from BIBLE_BOOKS (synchronous, no Supabase needed) ───
 const initDbChapters = {};
@@ -25,11 +25,13 @@ export function AppProvider({ children }) {
   const [dbLive, setDbLive] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [fontSize, setFontSize] = useState("medium");
+  const [bibleTranslation, setBibleTranslation] = useState("kjv");
 
-  // ─── Load dark mode + font size preferences ───
+  // ─── Load dark mode + font size + translation preferences ───
   useEffect(() => {
     try { const dm = localStorage.getItem("darkMode"); if (dm === "true") setDarkMode(true); } catch {}
     try { const fs = localStorage.getItem("fontSize"); if (fs) setFontSize(fs); } catch {}
+    try { const bt = localStorage.getItem("bibleTranslation"); if (bt) setBibleTranslation(bt); } catch {}
   }, []);
   useEffect(() => {
     try { localStorage.setItem("darkMode", darkMode ? "true" : "false"); } catch {}
@@ -38,6 +40,9 @@ export function AppProvider({ children }) {
   useEffect(() => {
     try { localStorage.setItem("fontSize", fontSize); } catch {}
   }, [fontSize]);
+  useEffect(() => {
+    try { localStorage.setItem("bibleTranslation", bibleTranslation); } catch {}
+  }, [bibleTranslation]);
 
   // ─── Service worker registration + install prompt ───
   useEffect(() => {
@@ -125,6 +130,7 @@ export function AppProvider({ children }) {
   const noteRef = useRef(null);
   const bookCache = useRef({}); // { "genesis": fullBookJSON, ... } — cached static JSON
   const verseIdMap = useRef({}); // { verseNumber: supabaseUUID } — for user data writes
+  const translationCache = useRef({}); // { "HINIRV": { "GEN:1": {1:"text",2:"text"} } }
 
   // ─── Wrapped verse setter — clears stale per-verse user data in same render batch ───
   const changeVerse = useCallback((v) => {
@@ -1081,6 +1087,38 @@ export function AppProvider({ children }) {
     })();
   }, []);
 
+  // ─── Fetch translated verse text from CDN and overlay onto verses ───
+  const fetchTranslatedVerses = useCallback(async (bookName, chNum, translationId) => {
+    if (translationId === "kjv") return null;
+    const tDef = BIBLE_TRANSLATIONS.find(t => t.id === translationId);
+    if (!tDef?.cdnId) return null;
+    const bookCode = BOOK_CODE_MAP[bookName];
+    if (!bookCode) return null;
+    const cacheKey = `${bookCode}:${chNum}`;
+
+    // Check translation cache
+    let translated = translationCache.current[translationId]?.[cacheKey];
+    if (translated) return translated;
+
+    try {
+      const res = await fetch(`https://bible.helloao.org/api/${tDef.cdnId}/${bookCode}/${chNum}.json`);
+      if (!res.ok) return null;
+      const data = await res.json();
+      translated = {};
+      (data.chapter?.content || [])
+        .filter(item => item.type === "verse")
+        .forEach(item => {
+          translated[item.number] = (item.content || [])
+            .filter(c => typeof c === 'string' || c.text)
+            .map(c => typeof c === 'string' ? c : c.text)
+            .join('');
+        });
+      if (!translationCache.current[translationId]) translationCache.current[translationId] = {};
+      translationCache.current[translationId][cacheKey] = translated;
+      return translated;
+    } catch { return null; }
+  }, []);
+
   const loadChapter = useCallback(async (bookName, chNum) => {
     setLoading(true);
     try {
@@ -1117,9 +1155,18 @@ export function AppProvider({ children }) {
             key_word_meaning: ch.meta.keyWordMeaning || null,
             outline: ch.meta.outline ? JSON.stringify(ch.meta.outline) : null,
           } : null);
-          setVerses(ch.verses || []);
+          let chVerses = ch.verses || [];
           setWordStudies(ch.wordStudies || {});
           setCrossRefs(ch.crossRefs || {});
+
+          // Overlay translated text if non-KJV translation selected
+          if (bibleTranslation !== "kjv") {
+            const translated = await fetchTranslatedVerses(bookName, chNum, bibleTranslation);
+            if (translated) {
+              chVerses = chVerses.map(v => ({ ...v, kjv_text: translated[v.verse_number] || v.kjv_text }));
+            }
+          }
+          setVerses(chVerses);
           setLoading(false);
           return;
         }
@@ -1143,7 +1190,7 @@ export function AppProvider({ children }) {
       setCrossRefs(crMap);
     } catch (e) { console.error('loadChapter error:', e); }
     setLoading(false);
-  }, []);
+  }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
   const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account" };
@@ -1191,6 +1238,34 @@ export function AppProvider({ children }) {
 
   useEffect(() => { if ((view === "verse" || view === "verses") && book && chapter) loadChapter(book, chapter); }, [view, book, chapter, loadChapter]);
   useEffect(() => { if (view === "verse" && !verse && verseNums.length > 0) changeVerse(verseNums[0]); }, [view, verse, verseNums, changeVerse]);
+
+  // ─── Re-overlay translation when user switches language mid-chapter ───
+  const prevTranslation = useRef(bibleTranslation);
+  useEffect(() => {
+    if (prevTranslation.current === bibleTranslation) return;
+    prevTranslation.current = bibleTranslation;
+    if (!(view === "verse" || view === "verses") || !book || !chapter) return;
+
+    const slug = book.toLowerCase().replace(/\s+/g, '-');
+    const cached = bookCache.current[slug];
+    if (!cached) return;
+    const ch = cached.chapters[String(chapter)];
+    if (!ch) return;
+    const kjvVerses = ch.verses || [];
+
+    if (bibleTranslation === "kjv") {
+      setVerses(kjvVerses);
+    } else {
+      (async () => {
+        const translated = await fetchTranslatedVerses(book, chapter, bibleTranslation);
+        if (translated) {
+          setVerses(kjvVerses.map(v => ({ ...v, kjv_text: translated[v.verse_number] || v.kjv_text })));
+        } else {
+          setVerses(kjvVerses);
+        }
+      })();
+    }
+  }, [bibleTranslation, view, book, chapter, fetchTranslatedVerses]);
 
   // ═══ SUPABASE READING POSITION SYNC ═══
   const savePositionToSupabase = useCallback(async (sectionKey, positionData) => {
@@ -1266,7 +1341,7 @@ export function AppProvider({ children }) {
     // Core
     view, setView, testament, setTestament, book, setBook, chapter, setChapter,
     verse, setVerse: changeVerse, tab, setTab, loading, setLoading,
-    dbLive, setDbLive, darkMode, setDarkMode, fontSize, setFontSize, FS,
+    dbLive, setDbLive, darkMode, setDarkMode, fontSize, setFontSize, FS, bibleTranslation, setBibleTranslation,
     // Bible data
     dbChapters, collapsed, setCollapsed, booksCollapsed, setBooksCollapsed,
     overviewOpen, setOverviewOpen, chapterMeta, verses, wordStudies, crossRefs,

@@ -1,6 +1,7 @@
 "use client";
+import { useState, useRef, useEffect } from "react";
 import { useApp } from "../context/AppContext";
-import { THEMES, BADGES } from "../constants";
+import { THEMES, BADGES, BIBLE_TRANSLATIONS } from "../constants";
 import { DBBadge, ChevIcon } from "../components/ui";
 import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
@@ -10,8 +11,22 @@ export default function HomeView() {
     ht, darkMode, setDarkMode, dbLive,
     user, profile, streak, earnedBadges,
     showInstall, setShowInstall, installPrompt,
-    setDonateModal, nav,
+    setDonateModal, nav, bibleTranslation, setBibleTranslation,
   } = useApp();
+  const [showLangMenu, setShowLangMenu] = useState(false);
+  const langRef = useRef(null);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    if (!showLangMenu) return;
+    const handler = (e) => { if (langRef.current && !langRef.current.contains(e.target)) setShowLangMenu(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [showLangMenu]);
+
+  const currentTrans = BIBLE_TRANSLATIONS.find(t => t.id === bibleTranslation) || BIBLE_TRANSLATIONS[0];
+  const groups = ["English", "Indian", "International"];
+  const groupLabels = { English: "English", Indian: "\u092D\u093E\u0930\u0924\u0940\u092F", International: "International" };
 
   return (
     <div style={{ minHeight:"100vh",background:ht.bg }}>
@@ -31,8 +46,32 @@ export default function HomeView() {
           </button>
         </div>
         <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6 }}>
-          <div style={{ display:"flex",alignItems:"center",gap:8 }}>
-            <span style={{ fontFamily:ht.ui,fontSize:10,color:ht.accent,letterSpacing:"0.15em",textTransform:"uppercase",fontWeight:700,opacity:0.9 }}>KJV</span>
+          <div style={{ display:"flex",alignItems:"center",gap:8,position:"relative" }} ref={langRef}>
+            <button onClick={() => setShowLangMenu(v => !v)} style={{ background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:6,padding:"3px 8px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }}>
+              <span style={{ fontFamily:ht.ui,fontSize:10,color:ht.accent,letterSpacing:"0.1em",fontWeight:700 }}>{currentTrans.label}</span>
+              <span style={{ fontSize:8,color:"rgba(255,255,255,0.5)",transform:showLangMenu?"rotate(180deg)":"rotate(0deg)",transition:"transform 0.2s" }}>▾</span>
+            </button>
+            {showLangMenu && (
+              <div style={{ position:"absolute",top:"100%",left:0,marginTop:6,background:darkMode?"#1E1C18":"#fff",border:`1px solid ${ht.divider}`,borderRadius:12,padding:"8px 0",minWidth:200,boxShadow:"0 8px 24px rgba(0,0,0,0.2)",zIndex:100,animation:"fadeIn 0.15s ease" }}>
+                {groups.map(g => {
+                  const items = BIBLE_TRANSLATIONS.filter(t => t.group === g);
+                  return (
+                    <div key={g}>
+                      <div style={{ padding:"6px 14px 4px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em" }}>{groupLabels[g]}</div>
+                      {items.map(t => (
+                        <button key={t.id} onClick={() => { setBibleTranslation(t.id); setShowLangMenu(false); }} style={{ width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"8px 14px",background:bibleTranslation===t.id ? (darkMode?"rgba(212,168,83,0.12)":"rgba(212,168,83,0.08)") : "transparent",border:"none",cursor:"pointer",textAlign:"left",transition:"background 0.15s" }}>
+                          <div>
+                            <span style={{ fontFamily:ht.ui,fontSize:13,fontWeight:bibleTranslation===t.id?700:500,color:bibleTranslation===t.id?ht.accent:(darkMode?"#D4C8B0":"#3A3028") }}>{t.label}</span>
+                            <span style={{ fontFamily:ht.ui,fontSize:10,color:ht.muted,marginLeft:8 }}>{t.name}</span>
+                          </div>
+                          {bibleTranslation===t.id && <span style={{ color:ht.accent,fontSize:12 }}>✓</span>}
+                        </button>
+                      ))}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
             <DBBadge live={dbLive} t={ht} />
           </div>
           <div style={{ display:"flex",alignItems:"center",gap:8 }}>

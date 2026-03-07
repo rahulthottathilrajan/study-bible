@@ -507,3 +507,38 @@ export const BADGES = [
   { id:"testimony",         category:"prayer", name:"Testimony",         icon:"✝️", description:"Share your first testimony" },
   { id:"community_builder", category:"prayer", name:"Community Builder", icon:"🤝", description:"Post 5 prayer requests" },
 ];
+
+// ═══════════════════════════════════════════════════
+// BIBLE TRANSLATIONS (multilingual CDN)
+// ═══════════════════════════════════════════════════
+export const BIBLE_TRANSLATIONS = [
+  { id: "kjv", label: "KJV", name: "King James Version", lang: "English", group: "English", local: true },
+  { id: "bsb", label: "BSB", name: "Berean Standard Bible", lang: "English", group: "English", cdnId: "bsb" },
+  { id: "HINIRV", label: "\u0939\u093F\u0928\u094D\u0926\u0940", name: "Hindi IRV", lang: "Hindi", group: "Indian", cdnId: "HINIRV" },
+  { id: "mal_irv", label: "\u0D2E\u0D32\u0D2F\u0D3E\u0D33\u0D02", name: "Malayalam IRV", lang: "Malayalam", group: "Indian", cdnId: "mal_irv" },
+  { id: "tam_irv", label: "\u0BA4\u0BAE\u0BBF\u0BB4\u0BCD", name: "Tamil IRV", lang: "Tamil", group: "Indian", cdnId: "tam_irv" },
+  { id: "tel_irv", label: "\u0C24\u0C46\u0C32\u0C41\u0C17\u0C41", name: "Telugu IRV", lang: "Telugu", group: "Indian", cdnId: "tel_irv" },
+  { id: "kan_irv", label: "\u0C95\u0CA8\u0CCD\u0CA8\u0CA1", name: "Kannada IRV", lang: "Kannada", group: "Indian", cdnId: "kan_irv" },
+  { id: "fra_lsg", label: "Fran\u00E7ais", name: "Louis Segond 1910", lang: "French", group: "International", cdnId: "fra_lsg" },
+  { id: "spa_r09", label: "Espa\u00F1ol", name: "Reina Valera 1909", lang: "Spanish", group: "International", cdnId: "spa_r09" },
+  { id: "cmn_cu1", label: "\u4E2D\u6587", name: "Chinese Union Version", lang: "Chinese", group: "International", cdnId: "cmn_cu1" },
+  { id: "ARBNAV", label: "\u0627\u0644\u0639\u0631\u0628\u064A\u0629", name: "New Arabic Version", lang: "Arabic", group: "International", cdnId: "ARBNAV", rtl: true },
+];
+
+export const BOOK_CODE_MAP = {
+  "Genesis":"GEN","Exodus":"EXO","Leviticus":"LEV","Numbers":"NUM","Deuteronomy":"DEU",
+  "Joshua":"JOS","Judges":"JDG","Ruth":"RUT","1 Samuel":"1SA","2 Samuel":"2SA",
+  "1 Kings":"1KI","2 Kings":"2KI","1 Chronicles":"1CH","2 Chronicles":"2CH",
+  "Ezra":"EZR","Nehemiah":"NEH","Esther":"EST","Job":"JOB","Psalms":"PSA",
+  "Proverbs":"PRO","Ecclesiastes":"ECC","Song of Solomon":"SNG","Isaiah":"ISA",
+  "Jeremiah":"JER","Lamentations":"LAM","Ezekiel":"EZK","Daniel":"DAN",
+  "Hosea":"HOS","Joel":"JOL","Amos":"AMO","Obadiah":"OBA","Jonah":"JON",
+  "Micah":"MIC","Nahum":"NAM","Habakkuk":"HAB","Zephaniah":"ZEP","Haggai":"HAG",
+  "Zechariah":"ZEC","Malachi":"MAL","Matthew":"MAT","Mark":"MRK","Luke":"LUK",
+  "John":"JHN","Acts":"ACT","Romans":"ROM","1 Corinthians":"1CO","2 Corinthians":"2CO",
+  "Galatians":"GAL","Ephesians":"EPH","Philippians":"PHP","Colossians":"COL",
+  "1 Thessalonians":"1TH","2 Thessalonians":"2TH","1 Timothy":"1TI","2 Timothy":"2TI",
+  "Titus":"TIT","Philemon":"PHM","Hebrews":"HEB","James":"JAS","1 Peter":"1PE",
+  "2 Peter":"2PE","1 John":"1JN","2 John":"2JN","3 John":"3JN","Jude":"JUD",
+  "Revelation":"REV",
+};

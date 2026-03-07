@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useApp } from "../context/AppContext";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS } from "../constants";
 import { ChevIcon, Badge, Label, Card, Btn, Spinner, DBBadge } from "../components/ui";
 import Header from "../components/Header";
 import BibleNavigator from "../components/BibleNavigator";
@@ -17,11 +17,14 @@ export default function BibleView() {
     isOT, currentVerse, verseNums, curIdx, t, ht, darkMode, bookInfo,
     saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage, nav, goBack,
-    chapterReads, markChapterRead, quizScores,
+    chapterReads, markChapterRead, quizScores, bibleTranslation,
   } = useApp();
 
   const [verseActive, setVerseActive] = useState(false);
   const [showColors, setShowColors] = useState(false);
+  const currentTransDef = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
+  const isRtl = currentTransDef?.rtl || false;
+  const rtlStyle = isRtl ? { direction: "rtl", textAlign: "right" } : {};
 
   // Reset toolbar when verse changes
   useEffect(() => { setVerseActive(false); setShowColors(false); }, [verse]);
@@ -210,6 +213,14 @@ export default function BibleView() {
         <div style={{ maxWidth:620,margin:"0 auto",padding:"16px 16px 40px" }}>
           <BibleNavigator />
 
+          {bibleTranslation !== "kjv" && currentTransDef && (
+            <div style={{display:"flex",alignItems:"center",gap:6,padding:"6px 10px",background:t.accentLight,borderRadius:8,marginBottom:10,border:`1px solid ${t.accentBorder}`}}>
+              <span style={{fontSize:12}}>🌐</span>
+              <span style={{fontFamily:t.ui,fontSize:11,fontWeight:600,color:t.accent}}>{currentTransDef.name}</span>
+              <span style={{fontFamily:t.ui,fontSize:10,color:t.muted}}>— Study notes in English (KJV)</span>
+            </div>
+          )}
+
           {/* Chapter Illustration */}
           {chapterMeta?.illustration_url && (
             <div style={{marginBottom:14,borderRadius:14,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.1)"}}>
@@ -303,7 +314,7 @@ export default function BibleView() {
                   minWidth:28,textAlign:"center",lineHeight:1.4
                 }}>{v.verse_number}</span>
                 <div style={{flex:1,minWidth:0}}>
-                  <div style={{fontFamily:t.body,fontSize:FS[fontSize].list,color:t.text,lineHeight:1.65}}>{v.kjv_text}</div>
+                  <div style={{fontFamily:t.body,fontSize:FS[fontSize].list,color:t.text,lineHeight:1.65,...rtlStyle}}>{v.kjv_text}</div>
                 </div>
                 <div style={{color:t.light,flexShrink:0,alignSelf:"center"}}><ChevIcon /></div>
               </button>
@@ -367,12 +378,12 @@ export default function BibleView() {
             transition:"background 0.3s,border-color 0.3s",
           }}>
             <div style={{position:"absolute",top:-1,left:40,right:40,height:2,background:`linear-gradient(90deg,transparent,${t.accent}66,transparent)`,borderRadius:"0 0 2px 2px"}}/>
-            <Label icon="📖" t={t}>KJV Text</Label>
+            <Label icon="📖" t={t}>{bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}</Label>
 
             {/* Tappable verse text */}
             <div onClick={() => user && setVerseActive(a => !a)}
-              style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.stoneText||t.dark,lineHeight:1.85,padding:"8px 0 12px",cursor:user?"pointer":"default",borderBottom:verseActive?`2px dotted ${t.accent}`:"2px solid transparent",transition:"border-color 0.2s",textShadow:darkMode?"0 1px 2px rgba(0,0,0,0.4)":"0 1px 0 rgba(255,255,255,0.7), 0 -0.5px 0 rgba(0,0,0,0.04)"}}>
-              <span style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.verseNum,float:"left",lineHeight:0.85,marginRight:8,marginTop:4,fontFamily:t.heading,textShadow:darkMode?"0 2px 4px rgba(0,0,0,0.5)":"0 1px 0 rgba(255,255,255,0.8), 0 -1px 0 rgba(0,0,0,0.05)"}}>{verse}</span>
+              style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.stoneText||t.dark,lineHeight:1.85,padding:"8px 0 12px",cursor:user?"pointer":"default",borderBottom:verseActive?`2px dotted ${t.accent}`:"2px solid transparent",transition:"border-color 0.2s",textShadow:darkMode?"0 1px 2px rgba(0,0,0,0.4)":"0 1px 0 rgba(255,255,255,0.7), 0 -0.5px 0 rgba(0,0,0,0.04)",...rtlStyle}}>
+              <span style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.verseNum,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:8,marginLeft:isRtl?8:0,marginTop:4,fontFamily:t.heading,textShadow:darkMode?"0 2px 4px rgba(0,0,0,0.5)":"0 1px 0 rgba(255,255,255,0.8), 0 -1px 0 rgba(0,0,0,0.05)"}}>{verse}</span>
               {currentVerse.kjv_text}
             </div>
 
