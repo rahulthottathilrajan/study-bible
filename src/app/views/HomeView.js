@@ -71,18 +71,18 @@ export default function HomeView() {
           </button>
           {/* ── QUICK NAV STRIPS ── */}
           <div style={{ display:"flex",gap:10,marginBottom:16 }}>
-            <button onClick={() => nav("books")} style={{ flex:1,display:"flex",alignItems:"center",gap:10,padding:"12px 14px",borderRadius:12,border:`1px solid ${ht.accentBorder}`,background:ht.card,cursor:"pointer",boxShadow:"0 2px 8px rgba(0,0,0,0.06)" }}>
-              <span style={{ fontSize:22 }}>📖</span>
+            <button onClick={() => nav("books")} style={{ flex:1,display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:12,border:"1px solid rgba(212,168,83,0.3)",background:ht.headerGradient,cursor:"pointer",boxShadow:"0 2px 8px rgba(0,0,0,0.12)" }}>
+              <span style={{ fontSize:18 }}>📖</span>
               <div>
-                <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:ht.dark,lineHeight:1.2 }}>The Holy Bible</div>
-                <div style={{ fontFamily:ht.ui,fontSize:9,color:ht.muted,marginTop:2 }}>66 Books · KJV</div>
+                <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>The Holy Bible</div>
+                <div style={{ fontFamily:ht.ui,fontSize:8,color:`${ht.headerText}77`,marginTop:1 }}>66 Books · KJV</div>
               </div>
             </button>
-            <button onClick={() => nav("learn-home")} style={{ flex:1,display:"flex",alignItems:"center",gap:10,padding:"12px 14px",borderRadius:12,border:`1px solid ${ht.accentBorder}`,background:ht.card,cursor:"pointer",boxShadow:"0 2px 8px rgba(0,0,0,0.06)" }}>
-              <span style={{ fontSize:22 }}>🎓</span>
+            <button onClick={() => nav("learn-home")} style={{ flex:1,display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:12,border:"1px solid rgba(212,168,83,0.3)",background:ht.headerGradient,cursor:"pointer",boxShadow:"0 2px 8px rgba(0,0,0,0.12)" }}>
+              <span style={{ fontSize:18 }}>🎓</span>
               <div>
-                <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:ht.dark,lineHeight:1.2 }}>Learning Centre</div>
-                <div style={{ fontFamily:ht.ui,fontSize:9,color:ht.muted,marginTop:2 }}>Languages · History</div>
+                <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>Learning Centre</div>
+                <div style={{ fontFamily:ht.ui,fontSize:8,color:`${ht.headerText}77`,marginTop:1 }}>Languages · History</div>
               </div>
             </button>
           </div>
