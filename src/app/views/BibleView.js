@@ -25,18 +25,25 @@ export default function BibleView() {
   const isRtl = currentTransDef?.rtl || false;
   const rtlStyle = isRtl ? { direction: "rtl", textAlign: "right" } : {};
 
-  // Reset color picker & auto-scroll verse strip when verse changes
+  // Reset color picker when verse changes
+  useEffect(() => { setShowColors(false); }, [verse]);
+
+  // Auto-scroll verse strip — works on both mount and verse change
+  const scrollVerseIntoView = (behavior = "smooth") => {
+    const el = verseScrollRef.current;
+    if (!el) return;
+    const active = el.querySelector('[data-active="true"]');
+    if (!active) return;
+    const left = active.offsetLeft - el.offsetWidth / 2 + active.offsetWidth / 2;
+    el.scrollTo({ left, behavior });
+  };
   useEffect(() => {
-    setShowColors(false);
-    // Defer scroll to next frame so React has rendered the new active pill
+    // Double-raf ensures DOM has fully laid out after React render
     const raf = requestAnimationFrame(() => {
-      if (verseScrollRef.current) {
-        const active = verseScrollRef.current.querySelector('[data-active="true"]');
-        if (active) active.scrollIntoView({ behavior:"smooth", inline:"center", block:"nearest" });
-      }
+      requestAnimationFrame(() => scrollVerseIntoView("smooth"));
     });
     return () => cancelAnimationFrame(raf);
-  }, [verse]);
+  }, [verse, view]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ═══ BOOKS ═══
   const Books = () => {
@@ -345,7 +352,7 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={book} subtitle={chapterMeta?.theme} onBack={goBack} hidePrayer />
+        <Header title={book} onBack={goBack} hidePrayer />
         <div style={{ maxWidth:620,margin:"0 auto",padding:"0 16px 40px" }}>
           {chapterMeta?.overview && (
             <div style={{margin:"14px 0"}}>
@@ -387,30 +394,41 @@ export default function BibleView() {
               {currentVerse.kjv_text}
             </div>
 
-            {/* Always-visible icon-only action bar */}
+            {/* Always-visible action bar — gradient strip with outlined SVG icons */}
             {user && (
-              <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:2,paddingTop:8,paddingBottom:4}}>
-                {[
-                  { icon:"🎨", active:showColors, onClick:() => setShowColors(c => !c), activeBg:t.accentLight, activeBorder:t.accentBorder },
-                  { icon:highlight?.is_bookmarked?"★":"☆", active:highlight?.is_bookmarked, onClick:toggleBookmarkHL, activeBg:"rgba(255,215,0,0.12)", activeBorder:"#ffd70066", activeColor:"#d4a017" },
-                  { icon:"✏️", onClick:() => setTab("my") },
-                  { icon:"🙏", onClick:() => { setPrayerTitle(`${book} ${chapter}:${verse}`); setPrayerText(""); setPrayerModal(true); } },
-                  { icon:shareCopied?"✓":"📋", active:shareCopied, onClick:copyVerseText, activeBg:"#22c55e12", activeBorder:"#22c55e", activeColor:"#22c55e" },
-                  { icon:"📤", onClick:shareVerseImage },
-                ].map((a,i) => (
-                  <button key={i} onClick={a.onClick}
-                    style={{width:38,height:38,borderRadius:10,border:`1px solid ${a.active?(a.activeBorder||t.accentBorder):t.divider}`,background:a.active?(a.activeBg||t.accentLight):"transparent",color:a.active?(a.activeColor||t.accent):t.muted,fontSize:16,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.15s",flexShrink:0}}>
-                    {a.icon}
-                  </button>
-                ))}
-              </div>
-            )}
+              <div style={{background:t.headerGradient,borderRadius:10,padding:"8px 4px",marginTop:8,border:"1px solid rgba(255,255,255,0.08)"}}>
+                <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly"}}>
+                  {[
+                    { label:"Highlight", active:showColors, onClick:() => setShowColors(c => !c),
+                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>,
+                      svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/></svg> },
+                    { label:"Bookmark", active:highlight?.is_bookmarked, onClick:toggleBookmarkHL, activeColor:"#ffd700",
+                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+                      svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="#ffd700" stroke="#ffd700" strokeWidth="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> },
+                    { label:"Note", onClick:() => setTab("my"),
+                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> },
+                    { label:"Pray", onClick:() => { setPrayerTitle(`${book} ${chapter}:${verse}`); setPrayerText(""); setPrayerModal(true); },
+                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21C12 21 8 16.5 5 12.5C3 9.5 4 6 7 5C9 4.2 11 5 12 7C13 5 15 4.2 17 5C20 6 21 9.5 19 12.5C16 16.5 12 21 12 21Z"/></svg> },
+                    { label:shareCopied?"Copied":"Copy", active:shareCopied, onClick:copyVerseText, activeColor:"#22c55e",
+                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>,
+                      svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg> },
+                    { label:"Share", onClick:shareVerseImage,
+                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> },
+                  ].map((a,i) => (
+                    <button key={i} onClick={a.onClick}
+                      style={{display:"flex",alignItems:"center",justifyContent:"center",width:36,height:36,borderRadius:8,border:"none",background:a.active?"rgba(255,255,255,0.15)":"transparent",color:a.active?(a.activeColor||"rgba(255,255,255,0.95)"):"rgba(255,255,255,0.55)",cursor:"pointer",transition:"all 0.15s",padding:0}}>
+                      {a.active && a.svgActive ? a.svgActive : a.svg}
+                    </button>
+                  ))}
+                </div>
 
-            {/* Highlight color picker — expands from action bar */}
-            {showColors && user && (
-              <div style={{display:"flex",gap:7,paddingTop:6,paddingBottom:2,animation:"fadeIn 0.15s ease",alignItems:"center",justifyContent:"center"}}>
-                {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} style={{width:28,height:28,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?`3px solid ${t.dark}`:`2px solid ${c}66`,cursor:"pointer",transition:"all 0.15s",transform:highlight?.highlight_color===c?"scale(1.15)":"scale(1)"}} />)}
-                {highlight?.highlight_color && <button onClick={() => toggleHighlight(highlight.highlight_color)} style={{fontFamily:t.ui,fontSize:10,color:t.muted,background:"none",border:"none",cursor:"pointer",textDecoration:"underline",marginLeft:4}}>Clear</button>}
+                {/* Highlight color picker — expands below */}
+                {showColors && (
+                  <div style={{display:"flex",gap:7,paddingTop:8,animation:"fadeIn 0.15s ease",alignItems:"center",justifyContent:"center"}}>
+                    {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} style={{width:26,height:26,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?"3px solid rgba(255,255,255,0.9)":`2px solid ${c}88`,cursor:"pointer",transition:"all 0.15s",transform:highlight?.highlight_color===c?"scale(1.15)":"scale(1)"}} />)}
+                    {highlight?.highlight_color && <button onClick={() => toggleHighlight(highlight.highlight_color)} style={{fontFamily:t.ui,fontSize:10,color:"rgba(255,255,255,0.5)",background:"none",border:"none",cursor:"pointer",textDecoration:"underline",marginLeft:4}}>Clear</button>}
+                  </div>
+                )}
               </div>
             )}
 
