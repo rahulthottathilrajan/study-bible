@@ -41,8 +41,12 @@ export default function HomeView() {
           </div>
           <button onClick={() => setDonateModal(true)} title="Support the Ministry" style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:10,padding:"5px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }}>
-              <path d="M12.5 3C11.2 3 10 4 10 5.5c0 .7.3 1.3.8 1.8L4 12.5s3.5-1 5.8-.2L12 16l2.2-3.7c2.3-.8 5.8.2 5.8.2l-6.8-5.2c.5-.5.8-1.1.8-1.8C14 4 12.8 3 12.5 3z" fill="rgba(212,168,83,0.85)" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5"/>
-              <path d="M10.5 16l-.8 4.5M13.5 16l.8 4.5" stroke="rgba(212,168,83,0.7)" strokeWidth="0.8" strokeLinecap="round"/>
+              {/* Body + head */}
+              <path d="M13 7c-1.2 0-2.2.8-2.2 2 0 .5.2 1 .6 1.4L5 15.5s3.2-1 5.3-.2L12 18l1.7-2.7c2.1-.8 5.3.2 5.3.2l-5.6-5.1c.4-.4.6-.9.6-1.4 0-1.2-1-2-2-2z" fill="rgba(255,255,255,0.9)" stroke="rgba(255,255,255,0.6)" strokeWidth="0.3"/>
+              {/* Olive branch from beak */}
+              <path d="M15 8.5c1.2-.8 3-1 4.5-.5" stroke="#6B8E4E" strokeWidth="0.8" strokeLinecap="round" fill="none"/>
+              <ellipse cx="18" cy="7.5" rx="1.5" ry="0.8" transform="rotate(-20 18 7.5)" fill="#7DA85C" opacity="0.9"/>
+              <ellipse cx="19.8" cy="7.8" rx="1.2" ry="0.7" transform="rotate(-10 19.8 7.8)" fill="#6B9E4E" opacity="0.8"/>
             </svg>
             <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.7)",letterSpacing:"0.05em" }}>GIVE</span>
           </button>
