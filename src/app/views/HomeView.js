@@ -47,6 +47,13 @@ export default function HomeView() {
             <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.7)",letterSpacing:"0.05em" }}>GIVE</span>
           </button>
         </div>
+        {/* ── ANIMATED RAINBOW LINE ── */}
+        <style>{`@keyframes rainbowFlow { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }`}</style>
+        <div style={{ height:2,background:"linear-gradient(90deg,#FF6B6B,#FFD93D,#6BCB77,#4D96FF,#9B59B6,#FF6B6B)",backgroundSize:"200% 100%",animation:"rainbowFlow 3s linear infinite",marginTop:6 }}/>
+        {/* GoToBar */}
+        <div style={{ paddingTop:4 }}>
+          <GoToBar />
+        </div>
         {/* ── UTILITY STRIP ── */}
         <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"6px 0 8px",borderTop:"1px solid rgba(255,255,255,0.08)",marginTop:2 }}>
           <div style={{ display:"flex",alignItems:"center",gap:8,position:"relative" }} ref={langRef}>
@@ -91,13 +98,6 @@ export default function HomeView() {
             {!user && <button onClick={() => nav("account")} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>Sign In</button>}
             {user && <span onClick={() => nav("account")} style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.9)",fontWeight:700,cursor:"pointer" }}>&#10003; {(profile?.display_name || user?.user_metadata?.display_name || "Reader")?.split(' ')[0]}</span>}
           </div>
-        </div>
-        {/* ── ANIMATED RAINBOW LINE ── */}
-        <style>{`@keyframes rainbowFlow { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }`}</style>
-        <div style={{ height:2,background:"linear-gradient(90deg,#FF6B6B,#FFD93D,#6BCB77,#4D96FF,#9B59B6,#FF6B6B)",backgroundSize:"200% 100%",animation:"rainbowFlow 3s linear infinite",marginTop:2 }}/>
-        {/* GoToBar */}
-        <div style={{ paddingTop:4 }}>
-          <GoToBar />
         </div>
       </div>
       {/* ── PWA INSTALL BANNER ── */}
