@@ -31,7 +31,7 @@ export default function BottomNav() {
             (item.id === "account" && view === "account");
           return (
             <button key={item.id} onClick={() => {
-              if (item.id === "bible") { if (BIBLE_VIEWS.includes(view)) { nav("books", { testament: testament || "OT" }); } else { try { const lr = JSON.parse(localStorage.getItem("lastRead")); if (lr?.book && lr?.chapter && lr?.verse) { nav("verse", { testament:lr.testament, book:lr.book, chapter:lr.chapter, verse:lr.verse }); } else { nav("books", { testament: testament || "OT" }); } } catch { nav("books", { testament: testament || "OT" }); } } }
+              if (item.id === "bible") { nav("books", { testament: testament || "OT" }); }
               else if (item.id === "learn") nav("learn-home");
               else if (item.id === "pray") { nav("prayer-home"); }
               else nav(item.id);

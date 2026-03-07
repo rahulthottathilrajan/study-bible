@@ -34,8 +34,43 @@ export default function BibleView() {
     const cats = {}; books.forEach(b => { if (!cats[b.category]) cats[b.category] = []; cats[b.category].push(b); });
     return (
       <div style={{ minHeight:"100vh",background:ht.bg }}>
-        <Header title={testament === "OT" ? "Old Testament" : "New Testament"} subtitle={`${books.length} Books`} onBack={goBack} theme={ht} />
+        <Header title="The Holy Scriptures" subtitle="66 Books · 1,189 Chapters · 31,102 Verses" onBack={goBack} theme={ht} />
         <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
+
+          {/* ── Testament Picker (Parchment Scrolls) ── */}
+          <div style={{ display:"flex", gap:12, marginBottom:20 }}>
+            {[
+              { t:"OT", l:"Old Testament", s:"39 Books", sub:"Genesis — Malachi", o:"בְּרֵאשִׁית", om:"In the Beginning", thm:"garden", icon:"📜" },
+              { t:"NT", l:"New Testament", s:"27 Books", sub:"Matthew — Revelation", o:"Καινὴ Διαθήκη", om:"The New Covenant", thm:"ocean", icon:"✝️" },
+            ].map(item => {
+              const isSel = testament === item.t;
+              const st = THEMES[item.thm];
+              return (
+                <button key={item.t} onClick={() => nav("books",{testament:item.t})}
+                  style={{ flex:1, cursor:"pointer", border:"none", background:"transparent", padding:0, display:"flex", flexDirection:"column", filter:`drop-shadow(0 4px 12px rgba(0,0,0,${isSel?0.2:0.1}))`, opacity:isSel?1:0.65, transition:"opacity 0.2s, filter 0.2s" }}>
+                  <div style={{ height:18, background:st.headerGradient, borderRadius:"10px 10px 0 0", position:"relative", overflow:"hidden" }}>
+                    <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"55%", height:6, background:"rgba(255,255,255,0.12)", borderRadius:10 }}/>
+                  </div>
+                  <div style={{ background:"linear-gradient(180deg,#FEF3D8 0%,#FAE8BB 40%,#FEF3D8 100%)", padding:"14px 8px 12px", borderLeft:`1px solid rgba(180,140,60,0.3)`, borderRight:`1px solid rgba(180,140,60,0.3)`, textAlign:"center", flex:1 }}>
+                    <div style={{ fontSize:26, marginBottom:6, filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.2))" }}>{item.icon}</div>
+                    <div style={{ fontFamily:ht.heading, fontSize:14, fontWeight:700, color:st.dark, lineHeight:1.3, marginBottom:4 }}>{item.l}</div>
+                    <div style={{ width:24, height:2, background:st.accent, borderRadius:2, margin:"0 auto 6px" }}/>
+                    <div style={{ fontFamily:ht.ui, fontSize:10, color:st.muted, letterSpacing:"0.02em" }}>{item.s}</div>
+                    <div style={{ fontFamily:"'Times New Roman',serif", fontSize:item.t==="OT"?15:12, color:st.accent, fontWeight:700, marginTop:6, direction:item.t==="OT"?"rtl":"ltr", lineHeight:1.4 }}>{item.o}</div>
+                    <div style={{ fontFamily:ht.body, fontSize:9.5, color:st.muted, fontStyle:"italic", lineHeight:1.5 }}>{item.om}</div>
+                  </div>
+                  <div style={{ height:18, background:st.headerGradient, borderRadius:"0 0 10px 10px", position:"relative", overflow:"hidden" }}>
+                    <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"55%", height:6, background:"rgba(255,255,255,0.12)", borderRadius:10 }}/>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* ── Selected Testament Label ── */}
+          <div style={{ fontFamily:ht.ui, fontSize:10, fontWeight:700, color:ht.muted, textTransform:"uppercase", letterSpacing:"0.12em", marginBottom:14, display:"flex", alignItems:"center", gap:8 }}>
+            <span>{testament === "OT" ? "📜" : "✝️"}</span> {testament === "OT" ? "Old Testament" : "New Testament"} · {books.length} Books
+          </div>
 
           {Object.entries(cats).map(([cat, catBooks]) => {
             const ct = THEMES[CATEGORY_THEME[cat] || "home"];
