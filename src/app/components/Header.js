@@ -12,7 +12,7 @@ export default function Header({ title, subtitle, onBack, right, theme }) {
         <div style={{ display:"flex",alignItems:"center",gap:8,flex:1,minWidth:0 }}>
           {onBack && <Btn onClick={onBack} style={{color:th.headerText,padding:"6px 10px 6px 6px",borderRadius:8,background:"rgba(255,255,255,0.08)"}}><BackIcon /></Btn>}
           <div style={{ minWidth:0 }}>
-            <h2 style={{ fontFamily:th.heading,fontSize:17,fontWeight:700,color:th.headerText,margin:0,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{title}</h2>
+            <h2 style={{ fontFamily:th.heading,fontSize:14,fontWeight:700,color:th.headerText,margin:0,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{title}</h2>
             {subtitle && <div style={{ fontFamily:th.ui,fontSize:11,color:`${th.headerText}99`,marginTop:1 }}>{subtitle}</div>}
           </div>
         </div>

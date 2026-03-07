@@ -210,19 +210,19 @@ export default function GoToBar() {
           flexShrink: 0,
         }}>Go To</span>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 5, flex: 1, minWidth: 0 }}>
-          <span style={{ fontFamily: "system-ui", fontSize: 9, color: "rgba(255,255,255,0.3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Book:</span>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.85)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{displayBook}</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 4, flex: 1, minWidth: 0 }}>
+          <span style={{ fontFamily: "system-ui", fontSize: 8, color: "rgba(255,255,255,0.3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Book:</span>
+          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.85)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{displayBook}</span>
 
-          <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 12, margin: "0 2px" }}>|</span>
+          <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 10, margin: "0 1px" }}>|</span>
 
-          <span style={{ fontFamily: "system-ui", fontSize: 9, color: "rgba(255,255,255,0.3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Ch:</span>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.85)" }}>{displayCh}</span>
+          <span style={{ fontFamily: "system-ui", fontSize: 8, color: "rgba(255,255,255,0.3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Ch:</span>
+          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.85)" }}>{displayCh}</span>
 
-          <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 12, margin: "0 2px" }}>|</span>
+          <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 10, margin: "0 1px" }}>|</span>
 
-          <span style={{ fontFamily: "system-ui", fontSize: 9, color: "rgba(255,255,255,0.3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>V:</span>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.85)" }}>{displayV}</span>
+          <span style={{ fontFamily: "system-ui", fontSize: 8, color: "rgba(255,255,255,0.3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>V:</span>
+          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.85)" }}>{displayV}</span>
         </div>
 
         <span style={{
