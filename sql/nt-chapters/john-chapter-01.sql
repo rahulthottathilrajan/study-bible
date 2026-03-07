@@ -1,0 +1,391 @@
+-- ═══════════════════════════════════════════════════
+-- JOHN CHAPTER 1 — The Word Made Flesh, the Baptist's Witness, and the First Disciples
+-- 51 verses · Greek text · Word studies · Cross-refs
+-- ═══════════════════════════════════════════════════
+
+-- Step 1: Insert chapter metadata
+INSERT INTO chapters (book_id, chapter_number, overview, theme, key_word_original, key_word_meaning, outline)
+SELECT b.id, 1,
+  'John 1 is the most theologically dense opening chapter in the Bible. The Prologue (vv.1-18) introduces Jesus as the eternal Logos (Word) — ''In the beginning was the Word, and the Word was with God, and the Word was God'' (v.1). The Word is the agent of all creation (v.3), the source of life and light (vv.4-5). John the Baptist appears as a witness to the light (vv.6-8). The true Light comes into the world but is rejected by ''his own'' (vv.10-11), yet those who receive him become ''sons of God'' (v.12). The climax of the Prologue is the Incarnation: ''And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth'' (v.14). ''Of his fulness have all we received, and grace for grace'' (v.16). ''The law was given by Moses, but grace and truth came by Jesus Christ'' (v.17). ''No man hath seen God at any time; the only begotten Son, which is in the bosom of the Father, he hath declared him'' (v.18). The Baptist''s testimony follows (vv.19-34): he denies being the Christ, Elijah, or the Prophet, identifying himself as ''the voice of one crying in the wilderness'' (v.23, quoting Isaiah 40:3). He testifies to One greater: ''the latchet of whose shoes I am not worthy to unloose'' (v.27). Seeing Jesus, he declares: ''Behold the Lamb of God, which taketh away the sin of the world'' (v.29). He witnesses the Spirit descending ''like a dove'' upon Jesus and testifies: ''this is the Son of God'' (v.34). The chapter concludes with the calling of the first disciples (vv.35-51): Andrew and an unnamed disciple follow Jesus. Andrew brings his brother Simon, whom Jesus renames Cephas/Peter (v.42). Philip is called, and he brings Nathanael, who confesses: ''Rabbi, thou art the Son of God; thou art the King of Israel'' (v.49). Jesus promises greater things: ''Ye shall see heaven open, and the angels of God ascending and descending upon the Son of man'' (v.51).',
+  'The Eternal Word Made Flesh — Light, Life, and the Lamb of God',
+  'λόγος (logos)',
+  'Word, reason, expression, divine communication — from legō (to speak, to say). Logos in John 1 is far more than speech: it is the eternal, personal, divine expression of God — God''s self-communication. In Greek philosophy, logos meant the rational principle governing the cosmos. In Hebrew thought, the ''word of the LORD'' was the creative, active agent of God (Genesis 1:3; Psalm 33:6; Isaiah 55:11). John fuses both traditions: the Logos is personal (''was with God''), divine (''was God''), creative (''all things were made by him''), and incarnate (''was made flesh''). The Logos is Jesus Christ — God''s ultimate and final Word to humanity.',
+  '["The Prologue: The Eternal Word (vv.1-5): In the beginning was the Word and the Word was with God and the Word was God. He was in the beginning with God. All things were made by him. In him was life and the life was the light of men. The light shineth in darkness and the darkness comprehended it not","The Witness of John and the Light (vv.6-13): A man sent from God named John comes as a witness to the Light. The true Light lighteth every man coming into the world. He was in the world and the world was made by him and the world knew him not. He came unto his own and his own received him not. But as many as received him to them gave he power to become the sons of God","The Word Made Flesh (vv.14-18): The Word was made flesh and dwelt among us full of grace and truth. We beheld his glory the glory as of the only begotten of the Father. Of his fulness have all we received grace for grace. The law was given by Moses but grace and truth came by Jesus Christ. No man hath seen God at any time — the only begotten Son in the bosom of the Father he hath declared him","The Baptist''s Testimony: Behold the Lamb of God (vv.19-34): The Jews send priests and Levites — Who art thou? John denies being Christ Elijah or the Prophet. He is the voice crying in the wilderness. He baptizes with water but One stands among them they do not know. Behold the Lamb of God which taketh away the sin of the world. John sees the Spirit descending as a dove — this is the Son of God","The First Disciples (vv.35-51): Two disciples follow Jesus — he asks What seek ye? Andrew finds his brother Simon — We have found the Messiah. Jesus renames him Cephas. Philip is called and brings Nathanael — Can any good thing come out of Nazareth? Jesus sees Nathanael and says Behold an Israelite in whom is no guile. Nathanael confesses — Thou art the Son of God thou art the King of Israel. Jesus promises — Ye shall see heaven open and angels ascending and descending upon the Son of man"]'
+FROM books b WHERE b.name = 'John';
+
+-- Step 2: Insert all 51 verses
+INSERT INTO verses (chapter_id, verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
+SELECT c.id, v.verse_number, v.kjv_text, v.original_text, v.transliteration, v.study_note, v.doctrinal_note
+FROM chapters c
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'In the beginning was the Word, and the Word was with God, and the Word was God.',
+   'ἐν ἀρχῇ ἦν ὁ λόγος καὶ ὁ λόγος ἦν πρὸς τὸν θεόν καὶ θεὸς ἦν ὁ λόγος',
+   'en archē ēn ho logos kai ho logos ēn pros ton theon kai theos ēn ho logos',
+   '''In the beginning'' (en archē — echoing Genesis 1:1; but while Genesis says ''in the beginning God created,'' John says ''in the beginning was'' — the Word already existed before creation). ''Was'' (ēn — imperfect tense: continuous existence in the past, no starting point). ''With God'' (pros ton theon — toward God, face to face with God; indicating personal relationship and distinction). ''Was God'' (theos ēn ho logos — the Word was God in nature/essence). Three propositions: the Word is eternal, the Word is in relationship with God, the Word is God.',
+   'John 1:1 is the most important verse in the NT for understanding the nature of Christ. Three affirmations: (1) ''In the beginning was the Word'' — the Logos is eternal, pre-existent, uncreated. He did not come into being at creation; he already ''was'' (ēn). (2) ''The Word was with God'' (pros ton theon) — the Logos is personally distinct from the Father. The preposition pros (toward, face to face with) implies intimate, personal relationship — two persons, not one. (3) ''The Word was God'' (theos ēn ho logos) — the Logos is fully divine, sharing God''s nature. The absence of the article (theos, not ho theos) does not mean ''a god'' but identifies the Word''s nature as divine. John establishes both the distinction of persons (with God) and the unity of essence (was God) that will later be formulated as the doctrine of the Trinity.'),
+  (2, 'The same was in the beginning with God.',
+   'οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν θεόν',
+   'houtos ēn en archē pros ton theon',
+   '''The same'' (houtos — this one, this very Word). The verse reaffirms v.1: the Word''s eternal existence and relationship with God are not incidental but essential. The repetition emphasises that the Word who became flesh (v.14) is the same Word who existed from eternity with God.',
+   NULL),
+  (3, 'All things were made by him; and without him was not any thing made that was made.',
+   'πάντα δι᾿ αὐτοῦ ἐγένετο καὶ χωρὶς αὐτοῦ ἐγένετο οὐδὲ ἕν ὃ γέγονεν',
+   'panta di autou egeneto kai chōris autou egeneto oude hen ho gegonen',
+   '''All things'' (panta — everything, without exception). ''By him'' (di autou — through him as the agent). ''Made'' (egeneto — came into being; a different verb from ēn in v.1 — the Word ''was'' [eternal existence]; creation ''came into being'' [had a beginning]). ''Not any thing'' (oude hen — not even one thing). The Word is the agent of all creation — nothing exists apart from his creative agency. This echoes Genesis 1 (''God said'' = the Word creating), Psalm 33:6, Proverbs 8:22-31, and anticipates Colossians 1:16.',
+   'This verse establishes the Logos as the creator of all things — not a created being but the uncreated creator. The distinction between ēn (v.1, continuous existence) and egeneto (v.3, coming into being) is crucial: the Word did not ''come into being'' — he eternally ''was.'' Everything else ''came into being'' through him. This places the Word on the creator''s side of the creator/creature divide. Colossians 1:16 parallels this: ''by him were all things created.'' The implication is staggering: the baby in the manger (v.14) is the architect of the universe.'),
+  (4, 'In him was life; and the life was the light of men.',
+   'ἐν αὐτῷ ζωὴ ἦν καὶ ἡ ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων',
+   'en autō zōē ēn kai hē zōē ēn to phōs tōn anthrōpōn',
+   '''Life'' (zōē — life in its fullest sense; not merely biological existence [bios] but divine, eternal, abundant life). ''Light of men'' (to phōs tōn anthrōpōn — the light that illuminates humanity). Two of John''s master metaphors are introduced: life and light. The Logos is the source of all life (biological and spiritual) and the source of all true illumination (intellectual, moral, and spiritual). These themes will dominate the entire Gospel.',
+   NULL),
+  (5, 'And the light shineth in darkness; and the darkness comprehended it not.',
+   'καὶ τὸ φῶς ἐν τῇ σκοτίᾳ φαίνει καὶ ἡ σκοτία αὐτὸ οὐ κατέλαβεν',
+   'kai to phōs en tē skotia phainei kai hē skotia auto ou katelaben',
+   '''Shineth'' (phainei — present tense: keeps on shining). ''Darkness'' (skotia — the realm of sin, ignorance, and spiritual death). ''Comprehended it not'' (ou katelaben — did not overcome/grasp it). The verb katalambanō has a double meaning: (1) to seize/overpower — the darkness could not extinguish the light; (2) to comprehend/understand — the darkness could not grasp/appreciate the light. Both meanings are operative: the light is both undefeated and uncomprehended by the world''s darkness.',
+   NULL),
+  (6, 'There was a man sent from God, whose name was John.',
+   'ἐγένετο ἄνθρωπος ἀπεσταλμένος παρὰ θεοῦ ὄνομα αὐτῷ Ἰωάννης',
+   'egeneto anthrōpos apestalmenos para theou onoma autō Iōannēs',
+   '''Sent from God'' (apestalmenos para theou — commissioned by God, divinely dispatched). ''John'' — the Baptist (never called ''the Baptist'' in John''s Gospel). Note the contrast: the Word ''was'' (ēn, v.1); John ''came into being'' (egeneto). The Baptist is a creature, not the Creator; a witness to the light, not the light itself. John''s Gospel carefully subordinates the Baptist to Jesus — possibly correcting overestimation of John by some followers (Acts 19:1-7).',
+   NULL),
+  (7, 'The same came for a witness, to bear witness of the Light, that all men through him might believe.',
+   'οὗτος ἦλθεν εἰς μαρτυρίαν ἵνα μαρτυρήσῃ περὶ τοῦ φωτός ἵνα πάντες πιστεύσωσιν δι᾿ αὐτοῦ',
+   'houtos ēlthen eis martyrian hina martyrēsē peri tou phōtos hina pantes pisteusōsin di autou',
+   '''Witness'' (martyrian — testimony; the root of ''martyr''). ''That all men... might believe'' (hina pantes pisteusōsin — the purpose is universal: that everyone might believe). The Baptist''s role is defined as witness — pointing away from himself toward the Light. His goal is not his own following but universal faith in Christ. John is the model for all Christian witness: pointing beyond ourselves to Jesus.',
+   NULL),
+  (8, 'He was not that Light, but was sent to bear witness of that Light.',
+   'οὐκ ἦν ἐκεῖνος τὸ φῶς ἀλλ᾿ ἵνα μαρτυρήσῃ περὶ τοῦ φωτός',
+   'ouk ēn ekeinos to phōs all hina martyrēsē peri tou phōtos',
+   '''He was not that Light'' — a clear subordination: John reflects the light; he is not its source. This emphatic denial may address a historical situation where some regarded John the Baptist as the Messiah (cf. Luke 3:15; Acts 19:1-4). The greatest human witness is still infinitely less than the Light he attests.',
+   NULL),
+  (9, 'That was the true Light, which lighteth every man that cometh into the world.',
+   'ἦν τὸ φῶς τὸ ἀληθινόν ὃ φωτίζει πάντα ἄνθρωπον ἐρχόμενον εἰς τὸν κόσμον',
+   'ēn to phōs to alēthinon ho phōtizei panta anthrōpon erchomenon eis ton kosmon',
+   '''True Light'' (to phōs to alēthinon — the genuine, authentic, real Light; alēthinos distinguishes the original from copies). ''Lighteth every man'' (phōtizei panta anthrōpon — illuminates every human being). ''Coming into the world'' — the phrase can modify ''Light'' (the true Light was coming into the world) or ''man'' (every person coming into the world). The Light''s illumination is universal: every person has some measure of divine light — conscience, reason, the sense of the divine — even before hearing the gospel.',
+   NULL),
+  (10, 'He was in the world, and the world was made by him, and the world knew him not.',
+   'ἐν τῷ κόσμῳ ἦν καὶ ὁ κόσμος δι᾿ αὐτοῦ ἐγένετο καὶ ὁ κόσμος αὐτὸν οὐκ ἔγνω',
+   'en tō kosmō ēn kai ho kosmos di autou egeneto kai ho kosmos auton ouk egnō',
+   '''In the world'' (en tō kosmō — present in the creation he made). ''The world was made by him'' (di autou egeneto — through him it came into being; repeating v.3). ''Knew him not'' (ouk egnō — did not recognise, did not acknowledge). The tragic irony: the Creator enters his own creation and is not recognised. The cosmos owes its existence to the Logos yet fails to identify him. This is the fundamental human problem: blindness to the divine reality standing before us.',
+   NULL),
+  (11, 'He came unto his own, and his own received him not.',
+   'εἰς τὰ ἴδια ἦλθεν καὶ οἱ ἴδιοι αὐτὸν οὐ παρέλαβον',
+   'eis ta idia ēlthen kai hoi idioi auton ou parelabon',
+   '''His own'' (ta idia — neuter: his own things, his own domain; hoi idioi — masculine: his own people). Israel was God''s special possession (Exodus 19:5); the temple was his house; the land was his inheritance. Jesus came to his own homeland, his own people, his own temple — and they refused to welcome him. ''Received him not'' (ou parelabon — did not accept, did not take to themselves). The rejection of Christ by Israel is the great tragedy of redemptive history.',
+   NULL),
+  (12, 'But as many as received him, to them gave he power to become the sons of God, even to them that believe on his name:',
+   'ὅσοι δὲ ἔλαβον αὐτόν ἔδωκεν αὐτοῖς ἐξουσίαν τέκνα θεοῦ γενέσθαι τοῖς πιστεύουσιν εἰς τὸ ὄνομα αὐτοῦ',
+   'hosoi de elabon auton edōken autois exousian tekna theou genesthai tois pisteuousin eis to onoma autou',
+   '''Received'' (elabon — accepted, welcomed). ''Power'' (exousian — right, authority, prerogative; not dynamis/ability but exousia/right). ''Sons of God'' (tekna theou — children of God; tekna emphasises birth and relationship rather than status). ''Believe on his name'' (pisteuousin eis to onoma — trust in his person and character). The universal offer: anyone — Jew or Gentile — who receives Christ receives the right to become God''s child. This is not by natural birth but by faith.',
+   'This verse is the Prologue''s gospel invitation. Against the backdrop of universal rejection (vv.10-11), there is a remnant who receive. ''Received'' and ''believe'' are parallel: receiving Christ is believing in his name. The result is not merely forgiveness or pardon but adoption — becoming God''s children (tekna theou). This is a new birth (v.13), a new identity, a new family. The ''right'' (exousia) is a gift: we do not earn the status of God''s children — we receive the right to become what we could never become on our own. This verse lays the foundation for the ''born again'' teaching of John 3.'),
+  (13, 'Which were born, not of blood, nor of the will of the flesh, nor of the will of man, but of God.',
+   'οἳ οὐκ ἐξ αἱμάτων οὐδὲ ἐκ θελήματος σαρκὸς οὐδὲ ἐκ θελήματος ἀνδρὸς ἀλλ᾿ ἐκ θεοῦ ἐγεννήθησαν',
+   'hoi ouk ex haimatōn oude ek thelēmatos sarkos oude ek thelēmatos andros all ek theou egennēthēsan',
+   '''Not of blood'' (ouk ex haimatōn — not by physical descent or bloodline). ''Nor of the will of the flesh'' (oude ek thelēmatos sarkos — not by human desire or natural procreation). ''Nor of the will of man'' (oude ek thelēmatos andros — not by a husband''s decision). ''But of God'' (ek theou — from God). Three negatives and one positive: divine birth excludes every form of human initiative. Becoming God''s child is not inherited, not achieved, not decided by human will — it is a divine act. This prepares for John 3:3-8.',
+   NULL),
+  (14, 'And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.',
+   'καὶ ὁ λόγος σὰρξ ἐγένετο καὶ ἐσκήνωσεν ἐν ἡμῖν καὶ ἐθεασάμεθα τὴν δόξαν αὐτοῦ δόξαν ὡς μονογενοῦς παρὰ πατρός πλήρης χάριτος καὶ ἀληθείας',
+   'kai ho logos sarx egeneto kai eskēnōsen en hēmin kai etheasametha tēn doxan autou doxan hōs monogenous para patros plērēs charitos kai alētheias',
+   '''The Word was made flesh'' (ho logos sarx egeneto — the Logos became flesh). ''Flesh'' (sarx — the full reality of human existence in all its weakness and mortality; not just a body but complete humanity). ''Dwelt'' (eskēnōsen — tabernacled, pitched his tent; from skēnē, tent — echoing the tabernacle where God''s glory dwelt among Israel, Exodus 40:34-35). ''We beheld his glory'' (etheasametha tēn doxan — we gazed upon his glory; the eyewitness claim). ''Only begotten'' (monogenous — unique, one-of-a-kind; from monos + genos). ''Full of grace and truth'' (plērēs charitos kai alētheias — echoing Exodus 34:6: ''abundant in lovingkindness and truth'').',
+   'John 1:14 is the central verse of the Prologue and one of the most important in all of Scripture. The Incarnation: the eternal, divine Logos ''became flesh'' — not appeared to be flesh, not inhabited flesh, but became flesh. This is the scandal of Christianity: the infinite God took on finite human nature. ''Dwelt among us'' (eskēnōsen) literally means ''tabernacled'' — God''s glory that filled the wilderness tabernacle (Exodus 40:34) now resides in a human body. ''Grace and truth'' (charis kai alētheia) echoes God''s self-revelation to Moses as ''abundant in steadfast love (chesed) and faithfulness (emet)'' (Exodus 34:6). Jesus is the new and greater tabernacle — the dwelling place of God among humanity.'),
+  (15, 'John bare witness of him, and cried, saying, This was he of whom I spake, He that cometh after me is preferred before me: for he was before me.',
+   'Ἰωάννης μαρτυρεῖ περὶ αὐτοῦ καὶ κέκραγεν λέγων οὗτος ἦν ὃν εἶπον ὁ ὀπίσω μου ἐρχόμενος ἔμπροσθέν μου γέγονεν ὅτι πρῶτός μου ἦν',
+   'Iōannēs martyrei peri autou kai kekragen legōn houtos ēn hon eipon ho opisō mou erchomenos emprosthen mou gegonen hoti prōtos mou ēn',
+   '''He that cometh after me is preferred before me: for he was before me'' — a paradox: Jesus was born after John (chronologically) but ranks above him (in status) because he existed before him (eternally). ''Was before me'' (prōtos mou ēn — existed prior to me). The Baptist testifies to Jesus'' pre-existence — the one born six months later is eternally prior.',
+   NULL),
+  (16, 'And of his fulness have all we received, and grace for grace.',
+   'καὶ ἐκ τοῦ πληρώματος αὐτοῦ ἡμεῖς πάντες ἐλάβομεν καὶ χάριν ἀντὶ χάριτος',
+   'kai ek tou plērōmatos autou hēmeis pantes elabomen kai charin anti charitos',
+   '''Fulness'' (plērōmatos — plenitude, completeness; the unlimited reservoir of Christ''s divine life). ''All we received'' (hēmeis pantes elabomen — every believer has drawn from this fulness). ''Grace for grace'' (charin anti charitos — grace upon grace, grace replacing grace, wave upon wave of grace). The preposition anti can mean ''in place of'' (new grace replacing previous grace) or ''upon'' (grace piled upon grace). The image is of an inexhaustible supply — each fresh need met by fresh grace.',
+   NULL),
+  (17, 'For the law was given by Moses, but grace and truth came by Jesus Christ.',
+   'ὅτι ὁ νόμος διὰ Μωσέως ἐδόθη ἡ χάρις καὶ ἡ ἀλήθεια διὰ Ἰησοῦ Χριστοῦ ἐγένετο',
+   'hoti ho nomos dia Mōseōs edothē hē charis kai hē alētheia dia Iēsou Christou egeneto',
+   '''The law was given by Moses'' (ho nomos dia Mōseōs edothē — Moses was the channel, God was the giver). ''Grace and truth came by Jesus Christ'' (hē charis kai hē alētheia dia Iēsou Christou egeneto — grace and truth came into being through Jesus Christ). The contrast is not between bad and good but between good and better. The law was God''s gift through Moses; grace and truth are God''s greater gift through Christ. This is the first mention of ''Jesus Christ'' in John''s Gospel — the name is delayed for maximum impact.',
+   NULL),
+  (18, 'No man hath seen God at any time; the only begotten Son, which is in the bosom of the Father, he hath declared him.',
+   'θεὸν οὐδεὶς ἑώρακεν πώποτε ὁ μονογενὴς υἱός ὁ ὢν εἰς τὸν κόλπον τοῦ πατρὸς ἐκεῖνος ἐξηγήσατο',
+   'theon oudeis heōraken pōpote ho monogenēs huios ho ōn eis ton kolpon tou patros ekeinos exēgēsato',
+   '''No man hath seen God'' (theon oudeis heōraken — God in his essence is invisible; cf. Exodus 33:20; 1 Timothy 6:16). ''The only begotten Son'' (ho monogenēs huios — the unique Son; some manuscripts read monogenēs theos, ''the unique God''). ''In the bosom of the Father'' (eis ton kolpon tou patros — in intimate relationship, face to face; the image of reclining at table in the position of closest fellowship). ''Declared him'' (exēgēsato — narrated, explained, interpreted; the root of ''exegesis''). The Son is the exegete of the Father — he ''reads'' God for us.',
+   'The Prologue''s final verse answers the fundamental human question: how can we know the invisible God? The answer: through the Son who is in the Father''s bosom. ''Declared'' (exēgēsato) means ''explained, interpreted, narrated'' — the Son has provided an authoritative exposition of the Father''s character. Every word Jesus speaks, every deed he performs, every response he gives is an ''exegesis'' of God. To see Jesus is to see the Father (14:9). The Incarnation is God''s self-interpretation in a language humanity can understand — the language of a human life.'),
+  (19, 'And this is the record of John, when the Jews sent priests and Levites from Jerusalem to ask him, Who art thou?',
+   'καὶ αὕτη ἐστὶν ἡ μαρτυρία τοῦ Ἰωάννου ὅτε ἀπέστειλαν οἱ Ἰουδαῖοι ἐξ Ἱεροσολύμων ἱερεῖς καὶ Λευΐτας ἵνα ἐρωτήσωσιν αὐτόν σὺ τίς εἶ',
+   'kai hautē estin hē martyria tou Iōannou hote apesteilan hoi Ioudaioi ex Hierosolymōn hiereis kai Leuitas hina erōtēsōsin auton sy tis ei',
+   '''The record'' (hē martyria — the testimony, the witness). ''The Jews'' — in John''s Gospel, ''the Jews'' (hoi Ioudaioi) typically refers to the Jewish religious leadership, especially the Jerusalem authorities. ''Priests and Levites'' — temple officials sent as an official delegation. ''Who art thou?'' — the question that opens the public ministry section: who is this man attracting crowds in the wilderness?',
+   NULL),
+  (20, 'And he confessed, and denied not; but confessed, I am not the Christ.',
+   'καὶ ὡμολόγησεν καὶ οὐκ ἠρνήσατο καὶ ὡμολόγησεν ὅτι ἐγὼ οὐκ εἰμὶ ὁ Χριστός',
+   'kai hōmologēsen kai ouk ērnēsato kai hōmologēsen hoti egō ouk eimi ho Christos',
+   '''Confessed, and denied not; but confessed'' — the triple emphasis underscores John''s honesty and clarity. ''I am not the Christ'' (ouk eimi ho Christos — emphatic: I am not the Messiah). John''s ''I am not'' (ouk eimi) stands in deliberate contrast to Jesus'' ''I am'' (egō eimi). The Baptist defines himself negatively — by what he is not — to point positively to the one who is.',
+   NULL),
+  (21, 'And they asked him, What then? Art thou Elias? And he saith, I am not. Art thou that prophet? And he answered, No.',
+   'καὶ ἠρώτησαν αὐτόν τί οὖν Ἠλίας εἶ σύ καὶ λέγει οὐκ εἰμί ὁ προφήτης εἶ σύ καὶ ἀπεκρίθη οὔ',
+   'kai ērōtēsan auton ti oun Ēlias ei sy kai legei ouk eimi ho prophētēs ei sy kai apekrithē ou',
+   '''Elias'' (Elijah — expected to return before the Messiah; Malachi 4:5). ''That prophet'' (ho prophētēs — the Prophet like Moses promised in Deuteronomy 18:15-18). John denies being Elijah in person (though Jesus says he fulfilled the Elijah role; Matthew 11:14) and denies being the Prophet. He strips away every messianic identification the delegation suggests.',
+   NULL),
+  (22, 'Then said they unto him, Who art thou? that we may give an answer to them that sent us. What sayest thou of thyself?',
+   'εἶπον οὖν αὐτῷ τίς εἶ ἵνα ἀπόκρισιν δῶμεν τοῖς πέμψασιν ἡμᾶς τί λέγεις περὶ σεαυτοῦ',
+   'eipon oun autō tis ei hina apokrisin dōmen tois pempsasin hēmas ti legeis peri seautou',
+   '''What sayest thou of thyself?'' — the delegation insists: they need a report. If John is not the Christ, not Elijah, and not the Prophet, then who is he? The question presses for a positive identification after three negatives.',
+   NULL),
+  (23, 'He said, I am the voice of one crying in the wilderness, Make straight the way of the Lord, as said the prophet Esaias.',
+   'ἔφη ἐγὼ φωνὴ βοῶντος ἐν τῇ ἐρήμῳ εὐθύνατε τὴν ὁδὸν κυρίου καθὼς εἶπεν Ἠσαΐας ὁ προφήτης',
+   'ephē egō phōnē boōntos en tē erēmō euthynate tēn hodon kyriou kathōs eipen Ēsaias ho prophētēs',
+   '''The voice'' (phōnē — a voice, a sound). ''Crying in the wilderness'' — quoting Isaiah 40:3. John defines himself not as a person of importance but as a voice — a medium for a message. A voice has no independent existence apart from its message. Once the message is delivered, the voice''s work is done. ''Make straight'' (euthynate — make straight, prepare the road) — in the ancient Near East, roads were prepared for a king''s arrival. The Baptist prepares for the coming King.',
+   NULL),
+  (24, 'And they which were sent were of the Pharisees.',
+   'καὶ οἱ ἀπεσταλμένοι ἦσαν ἐκ τῶν Φαρισαίων',
+   'kai hoi apestalmenoi ēsan ek tōn Pharisaiōn',
+   'The delegation included Pharisees — the party most concerned with ritual purity and proper religious practice. Their next question reveals their concern: if John is none of the expected figures, by what authority does he baptise?',
+   NULL),
+  (25, 'And they asked him, and said unto him, Why baptizest thou then, if thou be not that Christ, nor Elias, neither that prophet?',
+   'καὶ ἠρώτησαν αὐτὸν καὶ εἶπον αὐτῷ τί οὖν βαπτίζεις εἰ σὺ οὐκ εἶ ὁ Χριστὸς οὐδὲ Ἠλίας οὐδὲ ὁ προφήτης',
+   'kai ērōtēsan auton kai eipon autō ti oun baptizeis ei sy ouk ei ho Christos oude Ēlias oude ho prophētēs',
+   '''Why baptizest thou?'' — the question assumes that only a messianic figure would have the authority to baptise. If John is none of the expected end-times figures, what right does he have to initiate this new ritual? The Pharisees see baptism as an eschatological act — appropriate only for the Messiah or his forerunner.',
+   NULL),
+  (26, 'John answered them, saying, I baptize with water: but there standeth one among you, whom ye know not;',
+   'ἀπεκρίθη αὐτοῖς ὁ Ἰωάννης λέγων ἐγὼ βαπτίζω ἐν ὕδατι μέσος δὲ ὑμῶν ἕστηκεν ὃν ὑμεῖς οὐκ οἴδατε',
+   'apekrithē autois ho Iōannēs legōn egō baptizō en hydati mesos de hymōn hestēken hon hymeis ouk oidate',
+   '''I baptize with water'' — John''s baptism is preliminary, preparatory. ''There standeth one among you'' (mesos hymōn hestēken — he stands in your midst right now). ''Whom ye know not'' (hon hymeis ouk oidate — whom you do not recognise). The Messiah is already present — hidden in plain sight among the crowds. The religious experts cannot identify him. This is John 1''s great irony: the One they seek is standing among them unrecognised.',
+   NULL),
+  (27, 'He it is, who coming after me is preferred before me, whose shoe''s latchet I am not worthy to unloose.',
+   'αὐτός ἐστιν ὁ ὀπίσω μου ἐρχόμενος ὃς ἔμπροσθέν μου γέγονεν οὗ ἐγὼ οὐκ εἰμὶ ἄξιος ἵνα λύσω αὐτοῦ τὸν ἱμάντα τοῦ ὑποδήματος',
+   'autos estin ho opisō mou erchomenos hos emprosthen mou gegonen hou egō ouk eimi axios hina lysō autou ton himanta tou hypodēmatos',
+   '''Shoe''s latchet'' (ton himanta tou hypodēmatos — the strap of his sandal). ''Not worthy to unloose'' — untying a master''s sandal was a task considered too menial even for a Jewish slave. John places himself below the lowest slave in relation to Jesus. This is the Baptist''s supreme humility: the greatest prophet in Israel (Matthew 11:11) considers himself unworthy of the most degrading service for Jesus.',
+   NULL),
+  (28, 'These things were done in Bethabara beyond Jordan, where John was baptizing.',
+   'ταῦτα ἐν Βηθαβαρᾷ ἐγένετο πέραν τοῦ Ἰορδάνου ὅπου ἦν Ἰωάννης βαπτίζων',
+   'tauta en Bēthabara egeneto peran tou Iordanou hopou ēn Iōannēs baptizōn',
+   '''Bethabara'' (some manuscripts read ''Bethany'') — ''beyond Jordan'' (peran tou Iordanou — on the east bank of the Jordan). Not the Bethany near Jerusalem (11:1) but a site in the Jordan valley. John provides geographical precision — an eyewitness detail.',
+   NULL),
+  (29, 'The next day John seeth Jesus coming unto him, and saith, Behold the Lamb of God, which taketh away the sin of the world.',
+   'τῇ ἐπαύριον βλέπει ὁ Ἰωάννης τὸν Ἰησοῦν ἐρχόμενον πρὸς αὐτόν καὶ λέγει ἴδε ὁ ἀμνὸς τοῦ θεοῦ ὁ αἴρων τὴν ἁμαρτίαν τοῦ κόσμου',
+   'tē epaurion blepei ho Iōannēs ton Iēsoun erchomenon pros auton kai legei ide ho amnos tou theou ho airōn tēn hamartian tou kosmou',
+   '''Behold'' (ide — Look! See!). ''The Lamb of God'' (ho amnos tou theou — the Lamb that belongs to God, provided by God). ''Taketh away'' (ho airōn — lifts up and removes; present participle: continually removing). ''The sin of the world'' (tēn hamartian tou kosmou — the singular ''sin'' of the entire world). Multiple OT backgrounds converge: the Passover lamb (Exodus 12), the lamb of Isaiah 53:7, the daily temple sacrifice (Exodus 29:38-42), and the scapegoat that bears away sin (Leviticus 16:21-22).',
+   'This is one of the most important christological titles in the NT. ''The Lamb of God'' combines several OT strands: (1) The Passover lamb — whose blood protected Israel from death (Exodus 12). (2) Isaiah''s Suffering Servant — ''brought as a lamb to the slaughter'' who ''bare the sin of many'' (Isaiah 53:7, 12). (3) The daily temple sacrifice — the morning and evening lambs offered continually (Exodus 29:38-42). (4) The scapegoat — which carried Israel''s sins into the wilderness (Leviticus 16:21-22). The phrase ''taketh away the sin of the world'' is breathtaking in scope: not Israel''s sin only but the sin of the cosmos. The Lamb does not merely cover sin (as in the OT) but removes it entirely. John declares the gospel in a single sentence: God provides a Lamb who removes the world''s sin.'),
+  (30, 'This is he of whom I said, After me cometh a man which is preferred before me: for he was before me.',
+   'οὗτός ἐστιν ὑπὲρ οὗ ἐγὼ εἶπον ὀπίσω μου ἔρχεται ἀνὴρ ὃς ἔμπροσθέν μου γέγονεν ὅτι πρῶτός μου ἦν',
+   'houtos estin hyper hou egō eipon opisō mou erchetai anēr hos emprosthen mou gegonen hoti prōtos mou ēn',
+   'The Baptist reaffirms his earlier testimony (v.15): Jesus came after him chronologically but exists before him eternally. ''For he was before me'' (prōtos mou ēn — he existed prior to me). The Baptist points backward to eternity.',
+   NULL),
+  (31, 'And I knew him not: but that he should be made manifest to Israel, therefore am I come baptizing with water.',
+   'κἀγὼ οὐκ ᾔδειν αὐτόν ἀλλ᾿ ἵνα φανερωθῇ τῷ Ἰσραὴλ διὰ τοῦτο ἦλθον ἐγὼ ἐν τῷ ὕδατι βαπτίζων',
+   'kagō ouk ēdein auton all hina phanerōthē tō Israēl dia touto ēlthon egō en tō hydati baptizōn',
+   '''I knew him not'' (ouk ēdein auton — I did not recognise him as the Messiah). John''s entire baptising ministry was designed for one purpose: to make Jesus manifest to Israel. The water baptism was the stage; Jesus'' appearance was the event. John''s role is transitional — he points Israel to their Messiah.',
+   NULL),
+  (32, 'And John bare record, saying, I saw the Spirit descending from heaven like a dove, and it abode upon him.',
+   'καὶ ἐμαρτύρησεν Ἰωάννης λέγων ὅτι τεθέαμαι τὸ πνεῦμα καταβαῖνον ὡσεὶ περιστερὰν ἐξ οὐρανοῦ καὶ ἔμεινεν ἐπ᾿ αὐτόν',
+   'kai emartyēsen Iōannēs legōn hoti tetheamai to pneuma katabainon hōsei peristeran ex ouranou kai emeinen ep auton',
+   '''I saw'' (tetheamai — I have seen and continue to witness; perfect tense: the vision remains vivid). ''The Spirit descending like a dove'' (to pneuma katabainon hōsei peristeran — the dove-like descent symbolises gentleness, purity, and new creation; cf. the dove over the waters in Genesis 8:8-12). ''Abode upon him'' (emeinen ep auton — remained on him; the Spirit does not come and go but permanently rests on Jesus). This permanent anointing fulfils Isaiah 11:2; 42:1; 61:1.',
+   NULL),
+  (33, 'And I knew him not: but he that sent me to baptize with water, the same said unto me, Upon whom thou shalt see the Spirit descending, and remaining on him, the same is he which baptizeth with the Holy Ghost.',
+   'κἀγὼ οὐκ ᾔδειν αὐτόν ἀλλ᾿ ὁ πέμψας με βαπτίζειν ἐν ὕδατι ἐκεῖνός μοι εἶπεν ἐφ᾿ ὃν ἂν ἴδῃς τὸ πνεῦμα καταβαῖνον καὶ μένον ἐπ᾿ αὐτόν οὗτός ἐστιν ὁ βαπτίζων ἐν πνεύματι ἁγίῳ',
+   'kagō ouk ēdein auton all ho pempsas me baptizein en hydati ekeinos moi eipen eph hon an idēs to pneuma katabainon kai menon ep auton houtos estin ho baptizōn en pneumati hagiō',
+   '''He that sent me'' — God directly commissioned the Baptist and gave him a specific sign to identify the Messiah. ''The Spirit descending and remaining'' — the sign is not just the descent but the remaining. Many prophets received the Spirit temporarily; Jesus receives him permanently. ''Baptizeth with the Holy Ghost'' — Jesus'' baptism surpasses John''s: water versus Spirit, outward versus inward, symbolic versus transformative.',
+   NULL),
+  (34, 'And I saw, and bare record that this is the Son of God.',
+   'κἀγὼ ἑώρακα καὶ μεμαρτύρηκα ὅτι οὗτός ἐστιν ὁ υἱὸς τοῦ θεοῦ',
+   'kagō heōraka kai memartyēka hoti houtos estin ho huios tou theou',
+   '''I saw'' (heōraka — I have seen; perfect tense: permanent eyewitness testimony). ''Bare record'' (memartyēka — I have testified and continue to testify). ''The Son of God'' (ho huios tou theou — the definite article: THE Son of God, the unique Son). The Baptist''s testimony reaches its climax: Jesus is identified as the Son of God. This is the highest christological confession in the Baptist''s mouth — he declares what the centurion at the cross will later confirm (Mark 15:39).',
+   NULL),
+  (35, 'Again the next day after John stood, and two of his disciples;',
+   'τῇ ἐπαύριον πάλιν εἱστήκει ὁ Ἰωάννης καὶ ἐκ τῶν μαθητῶν αὐτοῦ δύο',
+   'tē epaurion palin heistēkei ho Iōannēs kai ek tōn mathētōn autou dyo',
+   '''The next day'' — the third day in John''s opening sequence (vv.19, 29, 35, 43). ''Two of his disciples'' — Andrew is named in v.40; the other is traditionally identified as the author, John the son of Zebedee, whose self-effacing style avoids naming himself.',
+   NULL),
+  (36, 'And looking upon Jesus as he walked, he saith, Behold the Lamb of God!',
+   'καὶ ἐμβλέψας τῷ Ἰησοῦ περιπατοῦντι λέγει ἴδε ὁ ἀμνὸς τοῦ θεοῦ',
+   'kai emblepsas tō Iēsou peripatounti legei ide ho amnos tou theou',
+   '''Looking upon'' (emblepsas — gazing intently at). ''Behold the Lamb of God!'' — the Baptist repeats his declaration (v.29) but in abbreviated form. This time the declaration is directed at his own disciples, effectively transferring them to Jesus. The Baptist''s greatest act of ministry is pointing his followers away from himself toward Christ.',
+   NULL),
+  (37, 'And the two disciples heard him speak, and they followed Jesus.',
+   'καὶ ἤκουσαν αὐτοῦ οἱ δύο μαθηταὶ λαλοῦντος καὶ ἠκολούθησαν τῷ Ἰησοῦ',
+   'kai ēkousan autou hoi dyo mathētai lalountos kai ēkolouthēsan tō Iēsou',
+   '''Followed Jesus'' (ēkolouthēsan tō Iēsou — began to follow; the beginning of discipleship). They heard the Baptist''s witness and responded by following Jesus. True witness produces followers of Christ, not followers of the witness. The two disciples leave John for Jesus — the intended outcome of all John''s preaching.',
+   NULL),
+  (38, 'Then Jesus turned, and saw them following, and saith unto them, What seek ye? They said unto him, Rabbi, (which is to say, being interpreted, Master,) where dwellest thou?',
+   'στραφεὶς δὲ ὁ Ἰησοῦς καὶ θεασάμενος αὐτοὺς ἀκολουθοῦντας λέγει αὐτοῖς τί ζητεῖτε οἱ δὲ εἶπον αὐτῷ ῥαββί ὃ λέγεται ἑρμηνευόμενον διδάσκαλε ποῦ μένεις',
+   'strapheis de ho Iēsous kai theasamenos autous akolouthountas legei autois ti zēteite hoi de eipon autō rhabbi ho legetai hermēneuomenon didaskale pou meneis',
+   '''What seek ye?'' (ti zēteite — what are you looking for?). Jesus'' first words in John''s Gospel are a question — not ''what do you want?'' but ''what are you seeking?'' The question probes their deepest desire. ''Rabbi'' (rhabbi — teacher). ''Where dwellest thou?'' (pou meneis — where are you staying?). They want more than information; they want relationship. ''Staying'' (meneis — from menō, to remain, to abide; a key Johannine word, used 40 times in this Gospel).',
+   NULL),
+  (39, 'He saith unto them, Come and see. They came and saw where he dwelt, and abode with him that day: for it was about the tenth hour.',
+   'λέγει αὐτοῖς ἔρχεσθε καὶ ἴδετε ἦλθον καὶ εἶδον ποῦ μένει καὶ παρ᾿ αὐτῷ ἔμειναν τὴν ἡμέραν ἐκείνην ὥρα δὲ ἦν ὡς δεκάτη',
+   'legei autois erchesthe kai idete ēlthon kai eidon pou menei kai par autō emeinan tēn hēmeran ekeinēn hōra de ēn hōs dekatē',
+   '''Come and see'' (erchesthe kai idete — Jesus'' invitation: come, experience for yourself). ''About the tenth hour'' — approximately 4 PM (Jewish reckoning) or 10 AM (Roman reckoning). The precise detail is an eyewitness memory — the unnamed disciple (likely John) remembers the exact hour his life changed. ''Come and see'' becomes a pattern in this chapter: Philip will repeat it to Nathanael (v.46).',
+   NULL),
+  (40, 'One of the two which heard John speak, and followed him, was Andrew, Simon Peter''s brother.',
+   'ἦν Ἀνδρέας ὁ ἀδελφὸς Σίμωνος Πέτρου εἷς ἐκ τῶν δύο τῶν ἀκουσάντων παρὰ Ἰωάννου καὶ ἀκολουθησάντων αὐτῷ',
+   'ēn Andreas ho adelphos Simōnos Petrou heis ek tōn dyo tōn akousantōn para Iōannou kai akolouthēsantōn autō',
+   '''Andrew'' (Andreas — meaning ''manly''). ''Simon Peter''s brother'' — Andrew is consistently identified in relation to Peter. He is the first named disciple to follow Jesus in John''s Gospel. Andrew''s characteristic action is bringing people to Jesus: he brings Peter (v.41), the boy with loaves and fish (6:8-9), and the Greeks (12:22).',
+   NULL),
+  (41, 'He first findeth his own brother Simon, and saith unto him, We have found the Messias, which is, being interpreted, the Christ.',
+   'εὑρίσκει οὗτος πρῶτος τὸν ἀδελφὸν τὸν ἴδιον Σίμωνα καὶ λέγει αὐτῷ εὑρήκαμεν τὸν Μεσσίαν ὅ ἐστιν μεθερμηνευόμενον ὁ Χριστός',
+   'heuriskei houtos prōtos ton adelphon ton idion Simōna kai legei autō heurēkamen ton Messian ho estin methermēneuomenon ho Christos',
+   '''First'' (prōtos — the first thing Andrew does is find his brother). ''We have found the Messiah'' (heurēkamen ton Messian — we have discovered the Anointed One). ''Messias'' (Messian — from Hebrew mashiach, ''anointed one''; the only uses of ''Messias'' in the NT are here and 4:25). ''Christ'' (Christos — the Greek translation of Messiah). Andrew''s excitement is infectious — he brings Simon to Jesus. One encounter with Jesus creates a witness.',
+   NULL),
+  (42, 'And he brought him to Jesus. And when Jesus beheld him, he said, Thou art Simon the son of Jona: thou shalt be called Cephas, which is by interpretation, A stone.',
+   'καὶ ἤγαγεν αὐτὸν πρὸς τὸν Ἰησοῦν ἐμβλέψας δὲ αὐτῷ ὁ Ἰησοῦς εἶπεν σὺ εἶ Σίμων ὁ υἱὸς Ἰωνᾶ σὺ κληθήσῃ Κηφᾶς ὃ ἑρμηνεύεται Πέτρος',
+   'kai ēgagen auton pros ton Iēsoun emblepsas de autō ho Iēsous eipen sy ei Simōn ho huios Iōna sy klēthēsē Kēphas ho hermēneuetai Petros',
+   '''Beheld him'' (emblepsas — looked at him intently, searchingly). ''Thou art Simon'' — Jesus knows him before being introduced. ''Cephas'' (Kēphas — Aramaic for ''rock''; Petros is the Greek equivalent). The renaming is prophetic: Jesus sees not who Simon is but who he will become. The impulsive fisherman will become the rock of the early church. Names in the Bible signify character and destiny.',
+   NULL),
+  (43, 'The day following Jesus would go forth into Galilee, and findeth Philip, and saith unto him, Follow me.',
+   'τῇ ἐπαύριον ἠθέλησεν ὁ Ἰησοῦς ἐξελθεῖν εἰς τὴν Γαλιλαίαν καὶ εὑρίσκει Φίλιππον καὶ λέγει αὐτῷ ἀκολούθει μοι',
+   'tē epaurion ēthelēsen ho Iēsous exelthein eis tēn Galilaian kai heuriskei Philippon kai legei autō akolouthei moi',
+   '''Follow me'' (akolouthei moi — keep following me; present imperative: continuous action). Philip is the only disciple in this chapter whom Jesus directly calls — the others come through intermediaries. ''Findeth'' (heuriskei — Jesus finds Philip; Philip does not find Jesus). The initiative is divine: Jesus seeks and finds.',
+   NULL),
+  (44, 'Now Philip was of Bethsaida, the city of Andrew and Peter.',
+   'ἦν δὲ ὁ Φίλιππος ἀπὸ Βηθσαϊδά ἐκ τῆς πόλεως Ἀνδρέου καὶ Πέτρου',
+   'ēn de ho Philippos apo Bēthsaida ek tēs poleōs Andreou kai Petrou',
+   '''Bethsaida'' (Bēthsaida — ''house of fishing''; a town on the north shore of the Sea of Galilee). Philip shares a hometown with Andrew and Peter — the Galilean fishing community that forms Jesus'' inner circle. The geographical note connects Philip to an existing network of disciples.',
+   NULL),
+  (45, 'Philip findeth Nathanael, and saith unto him, We have found him, of whom Moses in the law, and the prophets, did write, Jesus of Nazareth, the son of Joseph.',
+   'εὑρίσκει Φίλιππος τὸν Ναθαναὴλ καὶ λέγει αὐτῷ ὃν ἔγραψεν Μωσῆς ἐν τῷ νόμῳ καὶ οἱ προφῆται εὑρήκαμεν Ἰησοῦν τὸν υἱὸν τοῦ Ἰωσὴφ τὸν ἀπὸ Ναζαρέτ',
+   'heuriskei Philippos ton Nathanaēl kai legei autō hon egrapsen Mōsēs en tō nomō kai hoi prophētai heurēkamen Iēsoun ton huion tou Iōsēph ton apo Nazaret',
+   '''We have found him'' (heurēkamen — we have discovered). ''Moses in the law and the prophets'' — Philip identifies Jesus as the fulfilment of all OT prophecy. ''Jesus of Nazareth, the son of Joseph'' — Philip uses ordinary human identifiers. The chain of witness continues: the Baptist → Andrew → Peter → Philip → Nathanael. Each new disciple becomes a witness to the next.',
+   NULL),
+  (46, 'And Nathanael said unto him, Can there any good thing come out of Nazareth? Philip saith unto him, Come and see.',
+   'καὶ εἶπεν αὐτῷ Ναθαναήλ ἐκ Ναζαρὲτ δύναταί τι ἀγαθὸν εἶναι λέγει αὐτῷ Φίλιππος ἔρχου καὶ ἴδε',
+   'kai eipen autō Nathanaēl ek Nazaret dynatai ti agathon einai legei autō Philippos erchou kai ide',
+   '''Can any good thing come out of Nazareth?'' — Nathanael''s scepticism. Nazareth was an insignificant village in Galilee, unmentioned in the OT. ''Come and see'' (erchou kai ide — echoing Jesus'' own invitation in v.39). Philip does not argue; he invites experience. The best response to scepticism about Jesus is not debate but encounter.',
+   NULL),
+  (47, 'Jesus saw Nathanael coming to him, and saith of him, Behold an Israelite indeed, in whom is no guile!',
+   'εἶδεν ὁ Ἰησοῦς τὸν Ναθαναὴλ ἐρχόμενον πρὸς αὐτὸν καὶ λέγει περὶ αὐτοῦ ἴδε ἀληθῶς Ἰσραηλίτης ἐν ᾧ δόλος οὐκ ἔστιν',
+   'eiden ho Iēsous ton Nathanaēl erchomenon pros auton kai legei peri autou ide alēthōs Israēlitēs en hō dolos ouk estin',
+   '''An Israelite indeed'' (alēthōs Israēlitēs — a genuine Israelite). ''No guile'' (dolos ouk estin — no deceit, no duplicity). The contrast is with Jacob (whose name means ''supplanter/deceiver''), who was renamed Israel. Nathanael is an Israelite without Jacob''s deceptive character — a true son of Israel. Jesus reads Nathanael''s character before they have met — supernatural knowledge.',
+   NULL),
+  (48, 'Nathanael saith unto him, Whence knowest thou me? Jesus answered and said unto him, Before that Philip called thee, when thou wast under the fig tree, I saw thee.',
+   'λέγει αὐτῷ Ναθαναήλ πόθεν με γινώσκεις ἀπεκρίθη Ἰησοῦς καὶ εἶπεν αὐτῷ πρὸ τοῦ σε Φίλιππον φωνῆσαι ὄντα ὑπὸ τὴν συκῆν εἶδόν σε',
+   'legei autō Nathanaēl pothen me ginōskeis apekrithē Iēsous kai eipen autō pro tou se Philippon phōnēsai onta hypo tēn sykēn eidon se',
+   '''Whence knowest thou me?'' — Nathanael is astonished. ''Under the fig tree'' (hypo tēn sykēn — sitting under a fig tree was associated with study, meditation, and prayer in Jewish tradition). ''I saw thee'' — Jesus saw Nathanael in a private moment, possibly at prayer or study. This supernatural knowledge — seeing what was physically hidden — convinces Nathanael that Jesus is more than an ordinary teacher.',
+   NULL),
+  (49, 'Nathanael answered and saith unto him, Rabbi, thou art the Son of God; thou art the King of Israel.',
+   'ἀπεκρίθη Ναθαναὴλ καὶ λέγει αὐτῷ ῥαββί σὺ εἶ ὁ υἱὸς τοῦ θεοῦ σὺ εἶ ὁ βασιλεὺς τοῦ Ἰσραήλ',
+   'apekrithē Nathanaēl kai legei autō rhabbi sy ei ho huios tou theou sy ei ho basileus tou Israēl',
+   '''Son of God... King of Israel'' — two titles in one breath: divine identity and royal office. Nathanael''s scepticism (v.46) is completely overturned by a single encounter. ''Son of God'' echoes Psalm 2:7 (the messianic enthronement psalm); ''King of Israel'' echoes Zephaniah 3:15. The one who doubted that anything good could come from Nazareth now confesses the man from Nazareth as God''s Son and Israel''s King.',
+   NULL),
+  (50, 'Jesus answered and said unto him, Because I said unto thee, I saw thee under the fig tree, believest thou? thou shalt see greater things than these.',
+   'ἀπεκρίθη Ἰησοῦς καὶ εἶπεν αὐτῷ ὅτι εἶπόν σοι εἶδόν σε ὑποκάτω τῆς συκῆς πιστεύεις μείζω τούτων ὄψῃ',
+   'apekrithē Iēsous kai eipen autō hoti eipon soi eidon se hypokatō tēs sykēs pisteueis meizō toutōn opsē',
+   '''Greater things than these'' (meizō toutōn — greater things than the supernatural knowledge that convinced you). If seeing under the fig tree produced this confession, what will the miracles, the cross, and the resurrection produce? Jesus promises that the best is yet to come — faith born from a small sign will be rewarded with greater revelations.',
+   NULL),
+  (51, 'And he saith unto him, Verily, verily, I say unto you, Hereafter ye shall see heaven open, and the angels of God ascending and descending upon the Son of man.',
+   'καὶ λέγει αὐτῷ ἀμὴν ἀμὴν λέγω ὑμῖν ἀπ᾿ ἄρτι ὄψεσθε τὸν οὐρανὸν ἀνεῳγότα καὶ τοὺς ἀγγέλους τοῦ θεοῦ ἀναβαίνοντας καὶ καταβαίνοντας ἐπὶ τὸν υἱὸν τοῦ ἀνθρώπου',
+   'kai legei autō amēn amēn legō hymin ap arti opsesthe ton ouranon aneōgota kai tous angelous tou theou anabainontas kai katabainontas epi ton huion tou anthrōpou',
+   '''Verily, verily'' (amēn amēn — truly, truly; John''s distinctive double amen, used 25 times; Jesus'' most solemn formula of assertion). ''Heaven open'' (ton ouranon aneōgota — heaven standing open permanently; perfect participle). ''Angels ascending and descending'' — directly referencing Jacob''s ladder at Bethel (Genesis 28:12). ''Upon the Son of man'' — Jesus is the new Bethel (''house of God''), the meeting point between heaven and earth. He is the ladder that Jacob saw — the connection between God and humanity.',
+   'This verse is the climactic promise of John 1. Jesus identifies himself as Jacob''s ladder — the stairway between heaven and earth (Genesis 28:12). In Jacob''s dream, angels ascended and descended on a ladder connecting heaven to earth at Bethel. Jesus replaces the ladder: he is the point of intersection between the divine and human realms. ''Upon the Son of man'' — the angels do not ascend and descend on a place but on a person. Jesus is the new Bethel, the new temple, the permanent meeting place of God and humanity. This verse anticipates the entire Gospel of John: Jesus as the locus of divine revelation, the one through whom heaven is open and God is accessible.')
+) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
+WHERE b.name = 'John' AND c.chapter_number = 1;
+
+-- Step 3: Word studies for key verses
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.word_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  -- v.1 Logos/Word
+  ('λόγος', 'logos', 'G3056', 'Word, reason, expression, divine self-communication — from legō (to speak). In Greek philosophy, logos was the rational principle ordering the cosmos. In Hebrew thought, the ''word of the LORD'' was God''s creative power (Genesis 1:3; Psalm 33:6) and revelatory agent (Jeremiah 1:4). John fuses both traditions: the Logos is personal (''was with God''), divine (''was God''), eternal (''in the beginning''), creative (''all things were made by him''), and incarnate (''was made flesh,'' v.14). The Logos is not an abstract concept but a person — Jesus Christ. He is God''s final, definitive Word to humanity.', 1),
+  -- v.4 life
+  ('ζωή', 'zōē', 'G2222', 'Life — not mere biological existence (bios) but spiritual, eternal, abundant life. Zōē is one of John''s most important words, appearing 36 times in his Gospel. ''In him was life'' (en autō zōē ēn) — the Logos is not merely alive but is the source and reservoir of all life. Every living thing derives its life from him. John will develop this theme throughout the Gospel: Jesus is ''the bread of life'' (6:35), ''the resurrection and the life'' (11:25), ''the way, the truth, and the life'' (14:6). Zōē in John always means life as God intended it — full, abundant, eternal, and relational.', 2),
+  -- v.12 sons/children of God
+  ('τέκνον', 'teknon', 'G5043', 'Child, offspring — from tiktō (to give birth). Teknon emphasises the relationship of birth and family intimacy, as opposed to huios (son), which emphasises status and inheritance. Believers become tekna theou — God''s born children, members of God''s family by a new birth (v.13). This is not a metaphor for moral improvement but an ontological change — a new nature, a new family, a new identity. The right (exousia) to become God''s children is received, not earned. It comes through believing in Jesus'' name.', 3),
+  -- v.14 flesh
+  ('σάρξ', 'sarx', 'G4561', 'Flesh — the full reality of human existence: physical body, weakness, mortality, vulnerability. ''The Word was made flesh'' (ho logos sarx egeneto) is the most shocking statement in John''s Prologue. The eternal, divine Logos did not merely appear as human or inhabit a human shell — he became flesh. Sarx includes every aspect of human limitation except sin (Hebrews 4:15). The incarnation is not a disguise but a genuine assumption of human nature. God became what we are so that we might become what he is (2 Peter 1:4).', 4),
+  -- v.14 grace
+  ('χάρις', 'charis', 'G5485', 'Grace — from chairo (to rejoice). In classical Greek, charis meant beauty, charm, or a favour bestowed. In the NT, it becomes the central word for God''s unmerited, unearned, undeserved favour toward sinful humanity. The Word was ''full of grace and truth'' (plērēs charitos kai alētheias) — echoing Exodus 34:6 where God reveals himself to Moses as ''abundant in steadfast love (chesed) and faithfulness (emet).'' Grace in John means the generous, overflowing gift of God''s presence and favour through Jesus Christ. ''Grace for grace'' (v.16) means wave upon wave of grace — the supply never runs out.', 5),
+  -- v.29 Lamb of God
+  ('ἀμνός', 'amnos', 'G286', 'Lamb — a young sheep. ''The Lamb of God'' (ho amnos tou theou) combines multiple OT sacrificial images: (1) The Passover lamb whose blood saved Israel from death (Exodus 12). (2) The daily temple sacrifice — morning and evening lambs (Exodus 29:38-42). (3) Isaiah 53:7 — the Suffering Servant ''brought as a lamb to the slaughter.'' (4) The scapegoat bearing Israel''s sins into the wilderness (Leviticus 16). ''Of God'' (tou theou) means both ''provided by God'' and ''belonging to God.'' God himself supplies the sacrifice that removes the world''s sin. This title contains the entire atonement theology of the NT in two words.', 6),
+  -- v.41 Messiah/Christ
+  ('Μεσσίας', 'Messias', 'G3323', 'Messiah — from Hebrew/Aramaic mashiach, meaning ''anointed one.'' Used only twice in the NT (here and 4:25). The Greek translation is Christos (Christ). In the OT, kings (1 Samuel 16:13), priests (Exodus 29:7), and sometimes prophets (1 Kings 19:16) were anointed with oil as a sign of divine commissioning. ''The Messiah'' became the title for the ultimate anointed figure — the promised king from David''s line who would restore Israel and establish God''s kingdom. Andrew''s declaration ''We have found the Messiah'' is the joyful announcement that centuries of expectation have been fulfilled.', 7),
+  -- v.51 Son of Man
+  ('υἱὸς τοῦ ἀνθρώπου', 'huios tou anthrōpou', 'G5207/G444', 'Son of Man — Jesus'' most frequent self-designation. From Daniel 7:13-14, where a human-like figure receives universal, eternal dominion from the Ancient of Days. The title combines human identity (''son of man'' = human being) with divine authority (riding the clouds, receiving worship). In John 1:51, Jesus applies the title to himself as Jacob''s ladder — the bridge between heaven and earth, the point where God''s realm intersects with human reality. The Son of Man is the permanent, living connection between heaven and earth that Jacob''s ladder only symbolised.', 8)
+) AS ws(original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'John' AND c.chapter_number = 1
+  AND v.verse_number = CASE ws.word_order
+    WHEN 1 THEN 1
+    WHEN 2 THEN 4
+    WHEN 3 THEN 12
+    WHEN 4 THEN 14
+    WHEN 5 THEN 14
+    WHEN 6 THEN 29
+    WHEN 7 THEN 41
+    WHEN 8 THEN 51
+  END;
+
+-- Step 4: Cross references
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, cr.reference, cr.ref_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  -- v.1 In the beginning
+  (1, 'Genesis 1:1', 1),
+  (1, 'Proverbs 8:22-31', 2),
+  (1, '1 John 1:1-2', 3),
+  (1, 'Revelation 19:13', 4),
+  -- v.3 all things made by him
+  (3, 'Colossians 1:16-17', 5),
+  (3, 'Hebrews 1:2', 6),
+  (3, 'Psalm 33:6', 7),
+  -- v.4 life and light
+  (4, 'John 8:12', 8),
+  (4, 'John 14:6', 9),
+  -- v.5 light in darkness
+  (5, 'John 3:19-21', 10),
+  (5, 'Isaiah 9:2', 11),
+  -- v.9 true light
+  (9, 'John 8:12', 12),
+  (9, 'John 9:5', 13),
+  -- v.11 his own received him not
+  (11, 'Isaiah 53:3', 14),
+  (11, 'Matthew 23:37', 15),
+  -- v.12 sons of God
+  (12, 'Romans 8:14-16', 16),
+  (12, 'Galatians 3:26', 17),
+  (12, '1 John 3:1-2', 18),
+  -- v.13 born of God
+  (13, 'John 3:3-8', 19),
+  (13, '1 Peter 1:23', 20),
+  (13, 'James 1:18', 21),
+  -- v.14 Word made flesh
+  (14, 'Philippians 2:6-8', 22),
+  (14, '1 Timothy 3:16', 23),
+  (14, 'Hebrews 2:14', 24),
+  (14, 'Exodus 34:6', 25),
+  (14, 'Exodus 40:34-35', 26),
+  -- v.17 grace and truth
+  (17, 'Romans 6:14', 27),
+  (17, 'John 14:6', 28),
+  -- v.18 no man hath seen God
+  (18, 'Exodus 33:20', 29),
+  (18, '1 Timothy 6:16', 30),
+  (18, 'John 14:9', 31),
+  (18, 'Colossians 1:15', 32),
+  -- v.23 voice in wilderness
+  (23, 'Isaiah 40:3', 33),
+  (23, 'Matthew 3:3', 34),
+  -- v.29 Lamb of God
+  (29, 'Exodus 12:1-13', 35),
+  (29, 'Isaiah 53:7', 36),
+  (29, '1 Peter 1:18-19', 37),
+  (29, 'Revelation 5:6-12', 38),
+  -- v.32 Spirit like a dove
+  (32, 'Matthew 3:16', 39),
+  (32, 'Isaiah 11:2', 40),
+  (32, 'Isaiah 42:1', 41),
+  -- v.42 Cephas/Peter
+  (42, 'Matthew 16:18', 42),
+  -- v.45 Moses and prophets
+  (45, 'Deuteronomy 18:15-18', 43),
+  (45, 'Luke 24:27', 44),
+  -- v.49 Son of God King of Israel
+  (49, 'Psalm 2:7', 45),
+  (49, 'Zephaniah 3:15', 46),
+  -- v.51 Jacob's ladder
+  (51, 'Genesis 28:12', 47),
+  (51, 'Daniel 7:13-14', 48)
+) AS cr(verse_number, reference, ref_order)
+WHERE b.name = 'John' AND c.chapter_number = 1
+  AND v.verse_number = cr.verse_number;

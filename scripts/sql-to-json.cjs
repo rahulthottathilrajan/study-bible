@@ -253,7 +253,11 @@ function parseWordStudies(sql) {
 
       for (const t of tuples) {
         if (t.length < 5) continue;
-        const [word, trans, strongs, meaning, wordOrder] = t;
+        // Support both 5-field (word,trans,strongs,meaning,order) and
+        // 6-field (word,trans,strongs,definition,usage_note,order) tuples
+        const word = t[0], trans = t[1], strongs = t[2];
+        const wordOrder = t[t.length - 1]; // always last field
+        const meaning = t.length >= 6 ? t[3] + ' ' + t.slice(4, -1).join(' ') : t[3];
         const verseNum = mapping[wordOrder];
         if (verseNum === undefined) continue;
         const key = String(verseNum);
