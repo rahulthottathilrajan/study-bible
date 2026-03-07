@@ -34,3 +34,12 @@ body {
 button {
   font-family: inherit;
 }
+
+.goto-verse-input::-webkit-inner-spin-button,
+.goto-verse-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.goto-verse-input {
+  -moz-appearance: textfield;
+}

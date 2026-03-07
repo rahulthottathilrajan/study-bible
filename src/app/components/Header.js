@@ -1,12 +1,13 @@
 "use client";
 import { useApp } from "../context/AppContext";
 import { Btn, BackIcon, UserIcon, PrayerIcon } from "./ui";
+import GoToBar from "./GoToBar";
 
 export default function Header({ title, subtitle, onBack, right, theme }) {
   const { user, profile, t, setPrayerModal, handleLogout, nav } = useApp();
   const th = theme || t;
   return (
-    <div style={{ background:th.headerGradient,padding:"12px 16px 14px",position:"sticky",top:0,zIndex:10 }}>
+    <div style={{ background:th.headerGradient,padding:"12px 16px 10px",position:"sticky",top:0,zIndex:10 }}>
       <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between" }}>
         <div style={{ display:"flex",alignItems:"center",gap:8,flex:1,minWidth:0 }}>
           {onBack && <Btn onClick={onBack} style={{color:th.headerText,padding:"6px 10px 6px 6px",borderRadius:8,background:"rgba(255,255,255,0.08)"}}><BackIcon /></Btn>}
@@ -24,6 +25,7 @@ export default function Header({ title, subtitle, onBack, right, theme }) {
           </Btn>
         </div>
       </div>
+      <GoToBar />
     </div>
   );
 }

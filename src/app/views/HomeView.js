@@ -5,6 +5,7 @@ import { THEMES, BADGES, BIBLE_TRANSLATIONS } from "../constants";
 import { DBBadge, ChevIcon } from "../components/ui";
 import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
+import GoToBar from "../components/GoToBar";
 
 export default function HomeView() {
   const {
@@ -91,6 +92,7 @@ export default function HomeView() {
             {user && <span style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.9)",fontWeight:700 }}>✓ {(profile?.display_name || user?.user_metadata?.display_name || "Reader")?.split(' ')[0]}</span>}
           </div>
         </div>
+        <GoToBar />
       </div>
       {/* ── PWA INSTALL BANNER ── */}
       {showInstall && (
