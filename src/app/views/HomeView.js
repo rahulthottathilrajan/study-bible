@@ -1,8 +1,8 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { useApp } from "../context/AppContext";
-import { THEMES, BADGES, BIBLE_TRANSLATIONS } from "../constants";
-import { DBBadge, ChevIcon } from "../components/ui";
+import { THEMES, BIBLE_TRANSLATIONS } from "../constants";
+import { DBBadge } from "../components/ui";
 import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
 import GoToBar from "../components/GoToBar";
@@ -10,7 +10,7 @@ import GoToBar from "../components/GoToBar";
 export default function HomeView() {
   const {
     ht, darkMode, setDarkMode, dbLive,
-    user, profile, streak, earnedBadges,
+    user, profile, streak,
     showInstall, setShowInstall, installPrompt,
     setDonateModal, nav, bibleTranslation, setBibleTranslation,
   } = useApp();
@@ -32,22 +32,29 @@ export default function HomeView() {
   return (
     <div style={{ minHeight:"100vh",background:ht.bg }}>
       {/* ── MINIMAL TOP BAR ── */}
-      <div style={{ background:ht.headerGradient,padding:"10px 16px",position:"sticky",top:0,zIndex:10 }}>
+      <div style={{ background:ht.headerGradient,padding:"10px 16px 0",position:"sticky",top:0,zIndex:10 }}>
+        {/* Row 1: Logo + Title | Support Icon */}
         <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between" }}>
           <div style={{ display:"flex",alignItems:"center",gap:8 }}>
             <img src="/favicon.ico" alt="The Bible Scrollers" width={26} height={26} style={{ borderRadius:4,filter:"drop-shadow(0 0 6px rgba(212,168,83,0.3))" }} />
             <h1 style={{ fontFamily:ht.heading,fontSize:17,fontWeight:800,color:ht.headerText,margin:0 }}>The Bible Scrollers</h1>
           </div>
-          <button onClick={() => setDarkMode(!darkMode)} style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:8,padding:"4px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:5,transition:"background 0.2s" }} title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}>
-            <span style={{ fontSize:13 }}>{darkMode ? "☀️" : "🌙"}</span>
-            <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:600,color:"rgba(255,255,255,0.7)" }}>{darkMode ? "Light" : "Dark"}</span>
+          <button onClick={() => setDonateModal(true)} title="Support the Ministry" style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:10,padding:"5px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }}>
+              <path d="M12 3C10.5 1 7.5 1 5.5 3C3.5 5 3.5 8.5 5.5 10.5L12 17L18.5 10.5C20.5 8.5 20.5 5 18.5 3C16.5 1 13.5 1 12 3Z" fill="rgba(212,168,83,0.85)" stroke="rgba(255,255,255,0.5)" strokeWidth="0.5"/>
+              <path d="M9.5 8L11 6.5L12 8L13 6.5L14.5 8L12 11L9.5 8Z" fill="rgba(255,255,255,0.9)"/>
+            </svg>
+            <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.7)",letterSpacing:"0.05em" }}>GIVE</span>
           </button>
         </div>
-        <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6 }}>
+        {/* GoToBar */}
+        <GoToBar />
+        {/* ── UTILITY STRIP ── */}
+        <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",padding:"6px 0 8px",borderTop:"1px solid rgba(255,255,255,0.08)",marginTop:2 }}>
           <div style={{ display:"flex",alignItems:"center",gap:8,position:"relative" }} ref={langRef}>
-            <button onClick={() => setShowLangMenu(v => !v)} style={{ background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:6,padding:"3px 8px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }}>
+            <button onClick={() => setShowLangMenu(v => !v)} style={{ background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.12)",borderRadius:6,padding:"3px 8px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }}>
               <span style={{ fontFamily:ht.ui,fontSize:10,color:ht.accent,letterSpacing:"0.1em",fontWeight:700 }}>{currentTrans.label}</span>
-              <span style={{ fontSize:8,color:"rgba(255,255,255,0.5)",transform:showLangMenu?"rotate(180deg)":"rotate(0deg)",transition:"transform 0.2s" }}>▾</span>
+              <span style={{ fontSize:8,color:"rgba(255,255,255,0.5)",transform:showLangMenu?"rotate(180deg)":"rotate(0deg)",transition:"transform 0.2s" }}>&#9662;</span>
             </button>
             {showLangMenu && (
               <div style={{ position:"absolute",top:"100%",left:0,marginTop:6,background:darkMode?"#1E1C18":"#fff",border:`1px solid ${ht.divider}`,borderRadius:12,padding:"8px 0",minWidth:200,boxShadow:"0 8px 24px rgba(0,0,0,0.2)",zIndex:100,animation:"fadeIn 0.15s ease" }}>
@@ -62,7 +69,7 @@ export default function HomeView() {
                             <span style={{ fontFamily:ht.ui,fontSize:13,fontWeight:bibleTranslation===t.id?700:500,color:bibleTranslation===t.id?ht.accent:(darkMode?"#D4C8B0":"#3A3028") }}>{t.label}</span>
                             <span style={{ fontFamily:ht.ui,fontSize:10,color:ht.muted,marginLeft:8 }}>{t.name}</span>
                           </div>
-                          {bibleTranslation===t.id && <span style={{ color:ht.accent,fontSize:12 }}>✓</span>}
+                          {bibleTranslation===t.id && <span style={{ color:ht.accent,fontSize:12 }}>&#10003;</span>}
                         </button>
                       ))}
                     </div>
@@ -73,23 +80,20 @@ export default function HomeView() {
             <DBBadge live={dbLive} t={ht} />
           </div>
           <div style={{ display:"flex",alignItems:"center",gap:8 }}>
-            {user && Object.keys(earnedBadges).length > 0 && (
-              <div onClick={() => nav("account")} title="View Achievements" style={{ display:"flex",alignItems:"center",gap:4,background:darkMode?"#1e3a5f":"#dbeafe",border:"1px solid #3b82f6",borderRadius:20,padding:"3px 10px",cursor:"pointer" }}>
-                <span style={{ fontSize:12 }}>🏆</span>
-                <span style={{ fontFamily:ht.ui,fontSize:11,fontWeight:700,color:"#3b82f6" }}>{Object.keys(earnedBadges).length}/{BADGES.length}</span>
-              </div>
-            )}
             {user && streak?.current_streak >= 1 && (
-              <div title={`Best: ${streak.longest_streak} days`} style={{ display:"flex",alignItems:"center",gap:4,background:darkMode?"#78350f":"#fef3c7",border:"1px solid #d97706",borderRadius:20,padding:"3px 10px",cursor:"default" }}>
-                <span style={{ fontSize:12 }}>🔥</span>
-                <span style={{ fontFamily:ht.ui,fontSize:11,fontWeight:700,color:"#d97706" }}>{streak.current_streak}</span>
+              <div title={`Best: ${streak.longest_streak} days`} style={{ display:"flex",alignItems:"center",gap:3,cursor:"default" }}>
+                <span style={{ fontSize:11 }}>&#128293;</span>
+                <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#d97706" }}>{streak.current_streak}</span>
               </div>
             )}
-            {!user && <button onClick={() => nav("account")} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:8,padding:"4px 12px",fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>Sign In</button>}
-            {user && <span style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.9)",fontWeight:700 }}>✓ {(profile?.display_name || user?.user_metadata?.display_name || "Reader")?.split(' ')[0]}</span>}
+            <button onClick={() => setDarkMode(!darkMode)} style={{ background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.12)",borderRadius:6,padding:"3px 8px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }} title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}>
+              <span style={{ fontSize:11 }}>{darkMode ? "\u2600\uFE0F" : "\uD83C\uDF19"}</span>
+              <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:600,color:"rgba(255,255,255,0.6)" }}>{darkMode ? "Light" : "Dark"}</span>
+            </button>
+            {!user && <button onClick={() => nav("account")} style={{ background:"rgba(212,168,83,0.25)",border:"1px solid rgba(212,168,83,0.45)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#fff",cursor:"pointer",letterSpacing:"0.03em" }}>Sign In</button>}
+            {user && <span onClick={() => nav("account")} style={{ fontFamily:ht.ui,fontSize:10,color:"rgba(125,212,173,0.9)",fontWeight:700,cursor:"pointer" }}>&#10003; {(profile?.display_name || user?.user_metadata?.display_name || "Reader")?.split(' ')[0]}</span>}
           </div>
         </div>
-        <GoToBar />
       </div>
       {/* ── PWA INSTALL BANNER ── */}
       {showInstall && (
@@ -117,14 +121,6 @@ export default function HomeView() {
           </button>
           {/* ── VERSE OF THE DAY ── */}
           <VerseOfTheDay nav={nav} ht={ht} />
-          <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.1),rgba(184,134,11,0.04))",border:"1px solid rgba(212,168,83,0.25)",borderRadius:14,padding:"12px 16px",marginBottom:18,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
-            <div style={{ width:36,height:36,borderRadius:10,background:"linear-gradient(135deg,#4A90D9,#1A5C8A)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0,boxShadow:"0 2px 6px rgba(74,144,217,0.25)" }}>🕊️</div>
-            <div style={{ flex:1 }}>
-              <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:ht.dark }}>Support the Ministry</div>
-              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,lineHeight:1.5,marginTop:1 }}>Every feature is free. Your generosity keeps it that way.</div>
-            </div>
-            <div style={{ color:ht.light }}><ChevIcon /></div>
-          </button>
           {/* ── CONTINUE READING ── */}
           <ContinueReading nav={nav} ht={ht} user={user} />
 

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 
 // ── Curated Verses ──
 // 120 beloved passages — the day-of-year picks one deterministically
@@ -124,38 +124,72 @@ const VERSES = [
   { ref: "Psalm 86:15", text: "But thou, O Lord, art a God full of compassion, and gracious, longsuffering, and plenteous in mercy and truth." },
 ];
 
+// ── 5 gradient palettes for the carousel cards ──
+const VOTD_GRADIENTS = [
+  { bg: "linear-gradient(135deg, #2D1B4E 0%, #4A2D8E 40%, #1A1A3E 100%)", text: "#E8DFF5", ref: "#C9A0FF", quote: "rgba(201,160,255,0.15)", accent: "#9B6FD4", hint: "rgba(201,160,255,0.4)" },
+  { bg: "linear-gradient(135deg, #3A2410 0%, #6B4A28 40%, #2A1808 100%)", text: "#F5ECD8", ref: "#D4A853", quote: "rgba(212,168,83,0.15)", accent: "#D4A853", hint: "rgba(212,168,83,0.4)" },
+  { bg: "linear-gradient(135deg, #0A2A2A 0%, #1A5C5C 40%, #0A3A3A 100%)", text: "#D8F5F0", ref: "#5EC4B0", quote: "rgba(94,196,176,0.15)", accent: "#5EC4B0", hint: "rgba(94,196,176,0.4)" },
+  { bg: "linear-gradient(135deg, #1A2F1A 0%, #2D5A2D 40%, #102010 100%)", text: "#D8F0D8", ref: "#7DD47D", quote: "rgba(125,212,125,0.15)", accent: "#7DD47D", hint: "rgba(125,212,125,0.4)" },
+  { bg: "linear-gradient(135deg, #3A1A1A 0%, #8B2020 40%, #2A0A0A 100%)", text: "#F5DCD8", ref: "#E88A7A", quote: "rgba(232,138,122,0.15)", accent: "#E88A7A", hint: "rgba(232,138,122,0.4)" },
+];
+
+const CARD_COUNT = 5;
+
 function getDayOfYear() {
   const now = new Date();
   const start = new Date(now.getFullYear(), 0, 0);
-  const diff = now - start;
-  return Math.floor(diff / (1000 * 60 * 60 * 24));
+  return Math.floor((now - start) / (1000 * 60 * 60 * 24));
 }
 
 function parseRef(ref) {
-  // Parse "Book Chapter:Verse" or "Book Chapter:Verse-Verse"
   const m = ref.match(/^(.+?)\s+(\d+):(.+)$/);
   if (!m) return null;
   return { book: m[1], chapter: parseInt(m[2]), verse: m[3] };
 }
 
+const OT_BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi"];
+
 export default function VerseOfTheDay({ nav, ht }) {
-  const [refreshKey, setRefreshKey] = useState(0);
+  const scrollRef = useRef(null);
+  const [activeIdx, setActiveIdx] = useState(0);
 
-  const verse = useMemo(() => {
-    const idx = (getDayOfYear() + refreshKey) % VERSES.length;
-    return VERSES[idx];
-  }, [refreshKey]);
+  // Pick 5 consecutive verses starting from today's deterministic index
+  const verses = useMemo(() => {
+    const startIdx = getDayOfYear() % VERSES.length;
+    return Array.from({ length: CARD_COUNT }, (_, i) => VERSES[(startIdx + i) % VERSES.length]);
+  }, []);
 
-  const parsed = parseRef(verse.ref);
-
-  const OT_BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi"];
-
-  const handleNavigate = () => {
+  const handleNavigate = useCallback((verse) => {
+    const parsed = parseRef(verse.ref);
     if (!parsed) return;
     const testament = OT_BOOKS.includes(parsed.book) ? "OT" : "NT";
-    // Map book names that might differ (e.g. Psalms vs Psalm)
     const bookName = parsed.book === "Psalm" ? "Psalms" : parsed.book;
     nav("verse", { testament, book: bookName, chapter: parsed.chapter, verse: parseInt(parsed.verse) });
+  }, [nav]);
+
+  // Track active card via scroll position
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const idx = Math.round(el.scrollLeft / el.offsetWidth);
+        setActiveIdx(Math.min(idx, CARD_COUNT - 1));
+        ticking = false;
+      });
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Scroll to dot on tap
+  const scrollToIdx = (idx) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTo({ left: idx * el.offsetWidth, behavior: "smooth" });
   };
 
   return (
@@ -165,92 +199,112 @@ export default function VerseOfTheDay({ nav, ht }) {
         textTransform: "uppercase", letterSpacing: "0.14em", marginBottom: 12,
         display: "flex", alignItems: "center", gap: 8,
       }}>
-        <span>✨</span> Verse of the Day
+        <span>&#10024;</span> Verse of the Day
       </div>
 
+      {/* Scroll container */}
       <div
-        onClick={handleNavigate}
+        ref={scrollRef}
+        className="votd-scroll"
         style={{
-          cursor: "pointer",
-          background: `linear-gradient(135deg, ${ht.card} 0%, ${ht.accentLight || ht.card} 100%)`,
+          display: "flex",
+          overflowX: "auto",
+          scrollSnapType: "x mandatory",
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
           borderRadius: 18,
-          padding: "28px 24px 22px",
-          border: `1.5px solid ${ht.accentBorder || ht.divider}`,
-          boxShadow: `0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.1)`,
-          position: "relative",
-          overflow: "hidden",
-          animation: "fadeIn 0.4s ease",
+          gap: 0,
         }}
       >
-        {/* Decorative accent line */}
-        <div style={{
-          position: "absolute", top: 0, left: 0, right: 0, height: 4,
-          background: `linear-gradient(90deg, transparent, ${ht.accent}, transparent)`,
-        }} />
+        <style>{`.votd-scroll::-webkit-scrollbar { display: none; }`}</style>
+        {verses.map((verse, i) => {
+          const g = VOTD_GRADIENTS[i % VOTD_GRADIENTS.length];
+          return (
+            <div
+              key={i}
+              onClick={() => handleNavigate(verse)}
+              style={{
+                flex: "0 0 100%",
+                scrollSnapAlign: "start",
+                cursor: "pointer",
+                background: g.bg,
+                borderRadius: 18,
+                padding: "28px 24px 22px",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.08)",
+                position: "relative",
+                overflow: "hidden",
+                boxSizing: "border-box",
+              }}
+            >
+              {/* Top accent line */}
+              <div style={{
+                position: "absolute", top: 0, left: 0, right: 0, height: 4,
+                background: `linear-gradient(90deg, transparent, ${g.accent}, transparent)`,
+              }} />
 
-        {/* Opening quote mark */}
-        <div style={{
-          fontFamily: "Georgia, 'Times New Roman', serif",
-          fontSize: 64, lineHeight: 1, color: `${ht.accent}25`,
-          position: "absolute", top: 8, left: 16, userSelect: "none",
-        }}>{"\u201C"}</div>
+              {/* Opening quote mark */}
+              <div style={{
+                fontFamily: "Georgia, 'Times New Roman', serif",
+                fontSize: 64, lineHeight: 1, color: g.quote,
+                position: "absolute", top: 8, left: 16, userSelect: "none",
+              }}>{"\u201C"}</div>
 
-        {/* Verse text */}
-        <div style={{
-          fontFamily: ht.body,
-          fontSize: "clamp(17px, 4.5vw, 21px)",
-          color: ht.dark || ht.text,
-          lineHeight: 1.9,
-          fontStyle: "italic",
-          padding: "8px 0 16px 22px",
-        }}>
-          {verse.text}
-        </div>
+              {/* Verse text */}
+              <div style={{
+                fontFamily: ht.body,
+                fontSize: "clamp(17px, 4.5vw, 21px)",
+                color: g.text,
+                lineHeight: 1.9,
+                fontStyle: "italic",
+                padding: "8px 0 16px 22px",
+              }}>
+                {verse.text}
+              </div>
 
-        {/* Reference + refresh */}
-        <div style={{
-          display: "flex", alignItems: "center", justifyContent: "space-between",
-          paddingLeft: 22,
-        }}>
-          <div style={{
-            fontFamily: ht.heading,
-            fontSize: 15, fontWeight: 700,
-            color: ht.accent,
-            letterSpacing: "0.02em",
-          }}>
-            — {verse.ref}
-          </div>
+              {/* Reference */}
+              <div style={{
+                fontFamily: ht.heading,
+                fontSize: 15, fontWeight: 700,
+                color: g.ref,
+                letterSpacing: "0.02em",
+                paddingLeft: 22,
+              }}>
+                — {verse.ref}
+              </div>
 
+              {/* Tap hint */}
+              <div style={{
+                fontFamily: ht.ui, fontSize: 10, color: g.hint,
+                textAlign: "center", marginTop: 14,
+              }}>
+                Tap to read in context
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Dot indicators */}
+      <div style={{
+        display: "flex", justifyContent: "center", gap: 8, marginTop: 12,
+      }}>
+        {verses.map((_, i) => (
           <button
-            onClick={(e) => { e.stopPropagation(); setRefreshKey(k => k + 1); }}
-            title="Show another verse"
+            key={i}
+            onClick={() => scrollToIdx(i)}
             style={{
-              background: `${ht.accent}15`,
-              border: `1px solid ${ht.accent}30`,
-              borderRadius: 8,
-              padding: "6px 12px",
+              width: activeIdx === i ? 18 : 8,
+              height: 8,
+              borderRadius: 4,
+              background: activeIdx === i ? ht.accent : `${ht.accent}40`,
+              border: "none",
               cursor: "pointer",
-              display: "flex", alignItems: "center", gap: 5,
-              transition: "background 0.2s",
+              padding: 0,
+              transition: "all 0.3s ease",
             }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2.5" strokeLinecap="round">
-              <path d="M23 4v6h-6"/><path d="M1 20v-6h6"/>
-              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-            </svg>
-            <span style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.accent, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              Another
-            </span>
-          </button>
-        </div>
-
-        {/* Tap hint */}
-        <div style={{
-          fontFamily: ht.ui, fontSize: 10, color: ht.light || ht.muted,
-          textAlign: "center", marginTop: 12, opacity: 0.6,
-        }}>
-          Tap to read in context
-        </div>
+          />
+        ))}
       </div>
     </div>
   );
