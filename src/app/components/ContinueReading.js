@@ -113,14 +113,6 @@ const SECTIONS = [
   },
 ];
 
-// ─── Chevron icon (self-contained, no import needed) ───
-const Chev = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-    stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-    <polyline points="9 18 15 12 9 6"/>
-  </svg>
-);
-
 export default function ContinueReading({ nav, ht, user }) {
   const [positions, setPositions] = useState({});
   const scrollRef = useRef(null);
@@ -198,32 +190,18 @@ export default function ContinueReading({ nav, ht, user }) {
   if (active.length === 0) return null;
 
   return (
-    <div style={{ marginBottom: 18 }}>
-      {/* Hide scrollbar for webkit */}
-      <style>{`
-        .cr-scroll::-webkit-scrollbar { display: none; }
-      `}</style>
+    <div style={{ marginBottom: 16 }}>
+      <style>{`.cr-scroll::-webkit-scrollbar { display: none; }`}</style>
 
-      {/* Section label — matches home screen pattern */}
-      <div style={{
-        fontFamily: ht.ui, fontSize: 10, fontWeight: 700,
-        color: ht.muted, textTransform: "uppercase",
-        letterSpacing: "0.12em", marginBottom: 14,
-        display: "flex", alignItems: "center", gap: 8,
-      }}>
-        <span>📖</span> Continue Reading
-      </div>
-
-      {/* ── Horizontal scroll strip ── */}
+      {/* ── WhatsApp-style status circles ── */}
       <div
         ref={scrollRef}
         className="cr-scroll"
         style={{
           display: "flex",
-          gap: 12,
+          gap: 14,
           overflowX: "auto",
-          paddingBottom: 8,
-          scrollSnapType: "x mandatory",
+          paddingBottom: 4,
           WebkitOverflowScrolling: "touch",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -235,74 +213,55 @@ export default function ContinueReading({ nav, ht, user }) {
             <button
               key={section.id}
               onClick={() => section.go(data, nav)}
-              className="pressable"
               style={{
-                // Single card = full width; 2+ = peek next card
-                flex: active.length === 1 ? "1 1 100%" : "0 0 78%",
-                scrollSnapAlign: "start",
-                background: section.bg,
+                background: "none",
                 border: "none",
-                borderRadius: 16,
-                padding: "18px 18px 16px",
                 cursor: "pointer",
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "center",
-                gap: 14,
-                boxShadow: "0 4px 16px rgba(0,0,0,0.22)",
-                transition: "transform 0.15s, box-shadow 0.15s",
-                position: "relative",
-                overflow: "hidden",
-                textAlign: "left",
+                gap: 4,
+                padding: "2px 0",
+                flexShrink: 0,
+                width: 62,
               }}
             >
-              {/* Ambient light overlay */}
+              {/* Circle with colored ring */}
               <div style={{
-                position: "absolute", inset: 0,
-                background: "radial-gradient(ellipse at 20% 20%,rgba(255,255,255,0.08),transparent 60%)",
-                pointerEvents: "none",
-              }}/>
-
-              {/* Stone texture overlay */}
-              <div style={{
-                position: "absolute", inset: 0, opacity: 0.35, pointerEvents: "none",
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E")`,
-              }}/>
-
-              {/* Wax seal icon */}
-              <div style={{
-                width: 46, height: 46, borderRadius: "50%",
-                background: `radial-gradient(circle at 35% 35%,${section.sealLight},${section.seal} 60%)`,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                boxShadow: `0 0 0 3px rgba(255,255,255,0.85), 0 4px 12px rgba(0,0,0,0.35)`,
-                position: "relative", zIndex: 2, flexShrink: 0,
+                width: 50, height: 50, borderRadius: "50%",
+                padding: 2.5,
+                background: `linear-gradient(135deg, ${section.sealLight}, ${section.seal})`,
+                flexShrink: 0,
               }}>
-                <span style={{
-                  fontSize: 20, color: "rgba(255,255,255,0.9)",
-                  textShadow: "0 1px 2px rgba(0,0,0,0.3)",
-                }}>{section.icon}</span>
+                <div style={{
+                  width: "100%", height: "100%", borderRadius: "50%",
+                  background: section.bg,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  boxShadow: "inset 0 1px 3px rgba(0,0,0,0.3)",
+                }}>
+                  <span style={{
+                    fontSize: 22,
+                    filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))",
+                  }}>{section.icon}</span>
+                </div>
               </div>
 
-              {/* Label + subtitle */}
-              <div style={{ position: "relative", zIndex: 2, flex: 1, minWidth: 0 }}>
-                <div style={{
-                  fontFamily: ht.heading, fontSize: 15, fontWeight: 700,
-                  color: "#FFFFFFEE",
-                  textShadow: "0 1px 3px rgba(0,0,0,0.4)",
-                  letterSpacing: "0.02em",
-                }}>{section.label}</div>
-                <div style={{
-                  fontFamily: ht.ui, fontSize: 11.5,
-                  color: "rgba(255,255,255,0.6)",
-                  marginTop: 3,
-                  whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
-                }}>{section.subtitle(data)}</div>
-              </div>
-
-              {/* Chevron */}
+              {/* Label */}
               <div style={{
-                color: "rgba(255,255,255,0.4)", flexShrink: 0,
-                position: "relative", zIndex: 2,
-              }}><Chev /></div>
+                fontFamily: ht.ui, fontSize: 8, fontWeight: 700,
+                color: ht.muted, textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+                maxWidth: 62, textAlign: "center",
+              }}>{section.id === "ot" ? "OT" : section.id === "nt" ? "NT" : section.label.split(" ")[0]}</div>
+
+              {/* Position subtitle */}
+              <div style={{
+                fontFamily: ht.ui, fontSize: 9, fontWeight: 600,
+                color: ht.accent,
+                whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+                maxWidth: 62, textAlign: "center", lineHeight: 1.2,
+              }}>{section.subtitle(data)}</div>
             </button>
           );
         })}
