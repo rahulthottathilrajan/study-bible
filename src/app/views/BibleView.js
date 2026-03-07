@@ -432,37 +432,36 @@ export default function BibleView() {
               </div>
             )}
 
-            {/* Verse nav strip — Prev + scroller + Next */}
+            {/* Verse dialer — center-locked scroll picker */}
+            {(() => { const idx = verseNums.indexOf(verse); const canPrev = idx > 0; const canNext = idx < verseNums.length - 1; return (
             <div style={{marginTop:10,display:"flex",alignItems:"center",gap:6}}>
-              {/* Prev button */}
-              {(() => { const idx = verseNums.indexOf(verse); const canPrev = idx > 0; return (
-                <button onClick={()=>{if(canPrev){setVerse(verseNums[idx-1]);setTab("study")}}} disabled={!canPrev}
-                  style={{flexShrink:0,padding:"6px 12px",borderRadius:20,border:"none",background:canPrev?t.headerGradient:"rgba(128,128,128,0.1)",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canPrev?"rgba(255,255,255,0.9)":t.light,cursor:canPrev?"pointer":"default",opacity:canPrev?1:0.4,transition:"all 0.2s",letterSpacing:"0.02em"}}>
-                  ‹ Prev
-                </button>
-              ); })()}
-              {/* Center verse scroller */}
-              <div style={{flex:1,background:t.headerGradient,borderRadius:10,border:"1px solid rgba(255,255,255,0.08)",overflow:"hidden"}}>
-                <div ref={verseScrollRef} style={{display:"flex",alignItems:"center",gap:0,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",padding:"5px 4px",maskImage:"linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)",WebkitMaskImage:"linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)"}}>
+              <button onClick={()=>{if(canPrev){setVerse(verseNums[idx-1]);setTab("study")}}} disabled={!canPrev}
+                style={{flexShrink:0,padding:"6px 12px",borderRadius:20,border:"none",background:canPrev?`linear-gradient(135deg, ${t.accent}22, ${t.tabActive}22)`:`${t.muted}11`,fontFamily:t.ui,fontSize:11,fontWeight:700,color:canPrev?t.accent:t.light,cursor:canPrev?"pointer":"default",opacity:canPrev?1:0.4,transition:"all 0.2s",letterSpacing:"0.02em",border:`1px solid ${canPrev?t.accentBorder:"transparent"}`}}>
+                ‹ Prev
+              </button>
+              {/* Dialer container */}
+              <div style={{flex:1,position:"relative",background:`linear-gradient(135deg, ${t.accent}08, ${t.tabActive}0A)`,borderRadius:12,border:`1px solid ${t.accentBorder}`,overflow:"hidden"}}>
+                {/* Center highlight notch */}
+                <div style={{position:"absolute",top:3,bottom:3,left:"50%",transform:"translateX(-50%)",width:36,borderRadius:8,background:`linear-gradient(135deg, ${t.accent}20, ${t.tabActive}25)`,border:`1.5px solid ${t.accent}40`,pointerEvents:"none",zIndex:1}} />
+                {/* Scroll track */}
+                <div ref={verseScrollRef} style={{display:"flex",alignItems:"center",overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",scrollSnapType:"x mandatory",padding:"6px 0",maskImage:"linear-gradient(90deg, transparent 2%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.7) 30%, #000 42%, #000 58%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.3) 85%, transparent 98%)",WebkitMaskImage:"linear-gradient(90deg, transparent 2%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.7) 30%, #000 42%, #000 58%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.3) 85%, transparent 98%)"}}>
                   {verseNums.map(v => {
                     const isActive = v === verse;
                     return (
                       <button key={v} data-active={isActive?"true":undefined} onClick={()=>{setVerse(v);setTab("study")}}
-                        style={{minWidth:isActive?32:22,height:26,borderRadius:isActive?13:6,border:"none",background:isActive?"rgba(255,255,255,0.22)":"transparent",color:isActive?"#fff":"rgba(255,255,255,0.3)",fontFamily:t.heading,fontSize:isActive?13:10,fontWeight:isActive?800:500,cursor:"pointer",transition:"all 0.15s",flexShrink:0,padding:"0 2px",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:isActive?"0 0 8px rgba(255,255,255,0.15)":"none"}}>
+                        style={{minWidth:36,height:30,border:"none",background:"transparent",color:isActive?t.accent:t.muted,fontFamily:t.heading,fontSize:isActive?15:11,fontWeight:isActive?800:500,cursor:"pointer",transition:"all 0.15s",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",scrollSnapAlign:"center",opacity:isActive?1:0.45,padding:0}}>
                         {v}
                       </button>
                     );
                   })}
                 </div>
               </div>
-              {/* Next button */}
-              {(() => { const idx = verseNums.indexOf(verse); const canNext = idx < verseNums.length - 1; return (
-                <button onClick={()=>{if(canNext){setVerse(verseNums[idx+1]);setTab("study")}}} disabled={!canNext}
-                  style={{flexShrink:0,padding:"6px 12px",borderRadius:20,border:"none",background:canNext?t.headerGradient:"rgba(128,128,128,0.1)",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canNext?"rgba(255,255,255,0.9)":t.light,cursor:canNext?"pointer":"default",opacity:canNext?1:0.4,transition:"all 0.2s",letterSpacing:"0.02em"}}>
-                  Next ›
-                </button>
-              ); })()}
+              <button onClick={()=>{if(canNext){setVerse(verseNums[idx+1]);setTab("study")}}} disabled={!canNext}
+                style={{flexShrink:0,padding:"6px 12px",borderRadius:20,border:"none",background:canNext?`linear-gradient(135deg, ${t.accent}22, ${t.tabActive}22)`:`${t.muted}11`,fontFamily:t.ui,fontSize:11,fontWeight:700,color:canNext?t.accent:t.light,cursor:canNext?"pointer":"default",opacity:canNext?1:0.4,transition:"all 0.2s",letterSpacing:"0.02em",border:`1px solid ${canNext?t.accentBorder:"transparent"}`}}>
+                Next ›
+              </button>
             </div>
+            ); })()}
           </div>
 
           {/* Tabs */}
