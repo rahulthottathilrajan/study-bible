@@ -114,18 +114,17 @@ export default function HomeView() {
       <div style={{ padding:"22px 20px 40px" }}>
         <div style={{ maxWidth:520,margin:"0 auto" }}>
           {/* ── SEARCH BAR ── */}
-          <button onClick={() => nav("search")} style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"12px 16px",borderRadius:14,border:`1.5px solid ${ht.divider}`,background:ht.card,cursor:"pointer",marginBottom:16,boxShadow:"0 1px 4px rgba(0,0,0,0.04)",transition:"border 0.2s" }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={ht.muted} strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <button onClick={() => nav("search")} style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"14px 18px",borderRadius:14,border:`1.5px solid ${ht.accentBorder}`,background:ht.card,cursor:"pointer",marginBottom:16,boxShadow:`inset 0 1px 3px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)`,transition:"border 0.2s" }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <span style={{ fontFamily:ht.ui,fontSize:14,color:ht.light,fontWeight:500 }}>Search the Scriptures...</span>
           </button>
           {/* ── VERSE OF THE DAY ── */}
           <VerseOfTheDay nav={nav} ht={ht} />
-          <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.18),rgba(184,134,11,0.08))",border:"1px solid rgba(212,168,83,0.35)",borderRadius:14,padding:"14px 16px",marginBottom:18,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,boxShadow:"0 2px 8px rgba(212,168,83,0.12)",position:"relative",overflow:"hidden" }}>
-            <div style={{ position:"absolute",top:0,left:0,right:0,height:2,background:"linear-gradient(90deg,transparent,rgba(212,168,83,0.6),transparent)" }}/>
-            <div style={{ width:44,height:44,borderRadius:12,background:"linear-gradient(135deg,#4A90D9,#1A5C8A)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0,boxShadow:"0 2px 8px rgba(74,144,217,0.35)" }}>🕊️</div>
+          <button onClick={() => setDonateModal(true)} style={{ width:"100%",background:"linear-gradient(135deg,rgba(212,168,83,0.1),rgba(184,134,11,0.04))",border:"1px solid rgba(212,168,83,0.25)",borderRadius:14,padding:"12px 16px",marginBottom:18,cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
+            <div style={{ width:36,height:36,borderRadius:10,background:"linear-gradient(135deg,#4A90D9,#1A5C8A)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0,boxShadow:"0 2px 6px rgba(74,144,217,0.25)" }}>🕊️</div>
             <div style={{ flex:1 }}>
-              <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>Support the Ministry</div>
-              <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,lineHeight:1.5,marginTop:2 }}>Every feature is free. Your generosity keeps it that way.</div>
+              <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:ht.dark }}>Support the Ministry</div>
+              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,lineHeight:1.5,marginTop:1 }}>Every feature is free. Your generosity keeps it that way.</div>
             </div>
             <div style={{ color:ht.light }}><ChevIcon /></div>
           </button>
@@ -320,8 +319,9 @@ export default function HomeView() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🐑</span> Little Disciples
             </div>
-            <div onClick={() => nav("kids-curriculum-home")} style={{ background:"linear-gradient(135deg,rgba(212,168,83,0.08),rgba(139,92,246,0.06))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"20px 18px",display:"flex",alignItems:"center",gap:14,cursor:"pointer" }}>
-              <div style={{ width:52,height:52,borderRadius:14,background:"linear-gradient(135deg,rgba(212,168,83,0.3),rgba(139,92,246,0.3))",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,flexShrink:0 }}>🐑</div>
+            <div onClick={() => nav("kids-curriculum-home")} style={{ background:"linear-gradient(135deg,rgba(212,168,83,0.08),rgba(139,92,246,0.06))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"20px 18px",display:"flex",alignItems:"center",gap:14,cursor:"pointer",position:"relative",overflow:"hidden" }}>
+              <div style={{ position:"absolute",bottom:0,left:0,right:0,height:3,background:"linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF, #9B59B6)",borderRadius:"0 0 14px 14px" }}/>
+              <div style={{ width:56,height:56,borderRadius:14,background:"linear-gradient(135deg,rgba(212,168,83,0.3),rgba(139,92,246,0.3))",display:"flex",alignItems:"center",justifyContent:"center",fontSize:32,flexShrink:0 }}>🐑</div>
               <div style={{ flex:1 }}>
                 <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>Kids Church Curriculum</div>
                 <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.accent,fontWeight:600,marginTop:1 }}>52-Week Bible Study · Ages 3–12</div>
@@ -331,13 +331,20 @@ export default function HomeView() {
             </div>
           </div>
 
-          <div style={{ display:"flex",justifyContent:"center",gap:28,marginTop:22,padding:"14px 0",borderTop:`1px solid ${ht.divider}` }}>
-            {[{n:"66",l:"Books"},{n:"1,189",l:"Chapters"},{n:"31,102",l:"Verses"}].map((s,i) => (
-              <div key={i} style={{ textAlign:"center" }}>
-                <div style={{ fontFamily:ht.heading,fontSize:20,fontWeight:700,color:ht.dark }}>{s.n}</div>
-                <div style={{ fontFamily:ht.ui,fontSize:10,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.1em" }}>{s.l}</div>
-              </div>
-            ))}
+          <div style={{ marginTop:22,position:"relative" }}>
+            <div style={{ display:"flex",alignItems:"center",gap:8,marginBottom:14 }}>
+              <div style={{ flex:1,height:1,background:ht.divider }}/>
+              <span style={{ fontFamily:ht.heading,fontSize:12,color:ht.muted,letterSpacing:"0.05em" }}>✦</span>
+              <div style={{ flex:1,height:1,background:ht.divider }}/>
+            </div>
+            <div style={{ display:"flex",justifyContent:"center" }}>
+              {[{n:"66",l:"Books"},{n:"1,189",l:"Chapters"},{n:"31,102",l:"Verses"}].map((s,i) => (
+                <div key={i} style={{ textAlign:"center",flex:1,borderRight:i<2?`1px solid ${ht.divider}`:"none",padding:"0 8px" }}>
+                  <div style={{ fontFamily:ht.heading,fontSize:24,fontWeight:700,color:ht.dark,letterSpacing:"-0.02em" }}>{s.n}</div>
+                  <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:600,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.1em",marginTop:2 }}>{s.l}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -1373,7 +1373,8 @@ export function AppProvider({ children }) {
     authForgot, setAuthForgot, authForgotSent, setAuthForgotSent, profile, streak,
     // User features
     userNote, setUserNote, savedNote, setSavedNote, noteLoading, highlight,
-    shareCopied, communityNotes, prayerModal, setPrayerModal, prayers, prayerTitle,
+    shareCopied, communityNotes, chapterHighlights, chapterNotes, chapterCommunityNotes,
+    prayerModal, setPrayerModal, prayers, prayerTitle,
     setPrayerTitle, prayerText, setPrayerText, prayerLoading, allHighlights, hlLoading,
     donateModal, setDonateModal, prayerTab, setPrayerTab, noteRef,
     // Hebrew

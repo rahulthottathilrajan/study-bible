@@ -12,6 +12,7 @@ export default function BibleView() {
     booksCollapsed, setBooksCollapsed, overviewOpen, setOverviewOpen,
     chapterMeta, verses, wordStudies, crossRefs,
     user, userNote, savedNote, noteLoading, highlight, shareCopied, communityNotes,
+    chapterHighlights, chapterNotes, chapterCommunityNotes,
     setPrayerModal, setPrayerTitle, setPrayerText, noteRef,
     isOT, currentVerse, verseNums, t, ht, darkMode, bookInfo,
     hasVerseId, saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
@@ -54,18 +55,19 @@ export default function BibleView() {
                 {/* Books Drawer */}
                 {isOpen && (
                   <div style={{ border:`1px solid rgba(180,160,120,0.3)`,borderTop:"none",borderRadius:"0 0 12px 12px",overflow:"hidden",background:ht.card,boxShadow:"0 4px 10px rgba(0,0,0,0.06)" }}>
-                    {catBooks.map((b, bi) => (
-                      <button key={b.name} className="pressable" onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<catBooks.length-1?`1px solid ${ht.divider}`:"none",padding:"11px 14px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,borderLeft:`3px solid ${ct.accent}`,transition:"background 0.15s" }}>
-                        <div style={{ flex:1 }}>
-                          <div style={{ display:"flex",alignItems:"center",gap:7 }}>
-                            <span style={{ fontFamily:ct.heading,fontSize:14.5,fontWeight:600,color:ht.dark }}>{b.name}</span>
-                            {(dbChapters[b.name]?.length > 0) && <Badge t={ct}>Study Notes</Badge>}
+                    {catBooks.map((b, bi) => {
+                      const hasStudy = dbChapters[b.name]?.length > 0;
+                      return (
+                        <button key={b.name} className="pressable" onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<catBooks.length-1?`1px dashed ${ht.divider}`:"none",padding:"14px 16px",cursor:"pointer",textAlign:"left",transition:"background 0.15s" }}>
+                          <div style={{ display:"flex",alignItems:"baseline",justifyContent:"space-between",marginBottom:3 }}>
+                            <span style={{ fontFamily:ct.heading,fontSize:16,fontWeight:700,color:ht.dark }}>{b.name}</span>
+                            <span style={{ fontFamily:ct.ui,fontSize:10,fontWeight:700,color:ct.accent,background:`${ct.accent}15`,borderRadius:10,padding:"2px 8px" }}>{b.chapters} ch</span>
                           </div>
-                          <div style={{ fontFamily:ct.ui,fontSize:12,color:ht.muted,marginTop:2 }}><span style={{ fontStyle:"italic",color:ht.light }}>{b.original}</span> — {b.meaning} · {b.chapters} ch.</div>
-                        </div>
-                        <div style={{ color:ht.light }}><ChevIcon /></div>
-                      </button>
-                    ))}
+                          <div style={{ fontFamily:"'Times New Roman',serif",fontSize:13,color:ht.light,fontStyle:"italic",marginBottom:hasStudy?4:0 }}>{b.original} <span style={{ fontFamily:ct.ui,fontStyle:"normal",fontSize:11,color:ht.muted }}>· {b.meaning}</span></div>
+                          {hasStudy && <Badge t={ct}>Study Notes</Badge>}
+                        </button>
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -84,10 +86,6 @@ export default function BibleView() {
     const getTheme = (ch) => { const found = avail.find(a => a.num === ch); return found?.theme || null; };
     const groups = CHAPTER_GROUPS[book] || [{ label:"All Chapters", icon:"📖", chapters:Array.from({length:bookInfo.chapters},(_,i)=>i+1) }];
     const toggleGroup = (i) => setCollapsed(prev => ({...prev,[i]:!prev[i]}));
-
-    // Progress indicators — derive from existing state
-    const userNoteChapters = new Set([]);
-    const userBookmarkChapters = new Set([]);
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
@@ -142,33 +140,49 @@ export default function BibleView() {
                     {group.chapters.map((ch, ci) => {
                       const has = availNums.includes(ch);
                       const theme = getTheme(ch);
-                      const hasNote = userNoteChapters.has(ch);
-                      const hasBookmark = userBookmarkChapters.has(ch);
                       const isLast = ci === group.chapters.length - 1;
+                      const isRead = chapterReads.some(r => r.book_name === book && r.chapter_number === ch);
+                      const chKey = `${book}-${ch}`;
+                      const qScores = quizScores[chKey] || [];
+                      const bestPct = qScores.length > 0 ? Math.max(...qScores.map(s => s.percentage)) : null;
                       return (
                         <button key={ch}
                           className={has?"pressable":""}
                           onClick={() => { if (has) nav("verses",{chapter:ch,verse:null}); }}
-                          style={{ width:"100%",display:"flex",alignItems:"center",padding:"12px 14px",background:"transparent",border:"none",borderBottom:isLast ? "none" : `1px solid ${t.divider}`,cursor:has?"pointer":"default",opacity:has?1:0.4,textAlign:"left",transition:"background 0.15s",gap:12 }}>
+                          style={{ width:"100%",display:"flex",alignItems:"center",padding:"12px 14px",background:"transparent",border:"none",borderBottom:isLast ? "none" : `1px dashed ${t.divider}`,cursor:has?"pointer":"default",textAlign:"left",transition:"background 0.15s",gap:12 }}>
 
-                          {/* Chapter number with dot indicator */}
-                          <div style={{ position:"relative",flexShrink:0,width:32,height:32,display:"flex",alignItems:"center",justifyContent:"center" }}>
-                            <span style={{ fontFamily:t.heading,fontSize:15,fontWeight:has?700:400,color:has?t.accent:t.light }}>{ch}</span>
-                            {has && <span style={{ position:"absolute",top:0,right:0,width:7,height:7,borderRadius:"50%",background:t.accent,boxShadow:`0 0 0 2px ${t.bg}` }}/>}
+                          {/* Chapter number circle */}
+                          <div style={{ flexShrink:0,width:34,height:34,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",
+                            background:has ? (isRead ? "#22c55e" : t.accent) : "transparent",
+                            border:has ? "none" : `1.5px solid ${t.divider}`,
+                            boxShadow:has ? `0 2px 6px ${isRead ? "rgba(34,197,94,0.25)" : `${t.accent}30`}` : "none",
+                            position:"relative"
+                          }}>
+                            {has && isRead ? (
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            ) : (
+                              <span style={{ fontFamily:t.heading,fontSize:14,fontWeight:700,color:has ? "#fff" : t.light }}>{ch}</span>
+                            )}
                           </div>
 
-                          {/* Title */}
+                          {/* Two-line layout */}
                           <div style={{ flex:1,minWidth:0 }}>
-                            <div style={{ fontFamily:t.ui,fontSize:13,color:has?t.text:t.light,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",lineHeight:1.5 }}>
+                            <div style={{ fontFamily:t.ui,fontSize:14,fontWeight:has?600:400,color:has?t.dark:t.light,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",lineHeight:1.3 }}>
                               {theme || (has ? "Study available" : "Coming soon")}
+                            </div>
+                            <div style={{ fontFamily:t.ui,fontSize:11,color:t.muted,marginTop:2,opacity:has?1:0.5 }}>
+                              {has ? (isRead ? `Ch ${ch} · Completed` : `Ch ${ch} · Study available`) : `Ch ${ch}`}
                             </div>
                           </div>
 
                           {/* Progress badges */}
                           <div style={{ display:"flex",alignItems:"center",gap:5,flexShrink:0 }}>
-                            {chapterReads.some(r => r.book_name === book && r.chapter_number === ch) && <span style={{ fontSize:11,color:"#22c55e",fontWeight:700 }}>✓</span>}
-                            {hasNote && <span style={{ fontSize:11,opacity:0.8 }}>✏️</span>}
-                            {hasBookmark && <span style={{ fontSize:11,color:"#FFD700",opacity:0.9 }}>★</span>}
+                            {bestPct !== null && (
+                              <span style={{ fontFamily:t.ui,fontSize:10,fontWeight:700,padding:"2px 6px",borderRadius:6,
+                                background:bestPct >= 70 ? "rgba(34,197,94,0.12)" : "rgba(239,68,68,0.1)",
+                                color:bestPct >= 70 ? "#22c55e" : "#ef4444"
+                              }}>{bestPct}%</span>
+                            )}
                             {has && <div style={{ color:t.light }}><ChevIcon /></div>}
                           </div>
                         </button>
@@ -298,25 +312,44 @@ export default function BibleView() {
               );
             })()
           )}
-          <div style={{display:"flex",flexDirection:"column",gap:6}}>
-            {verses.map(v => (
-              <button key={v.verse_number} onClick={() => nav("verse",{verse:v.verse_number,tab:"study"})}
-                style={{
-                  background:t.card,border:`1px solid ${t.divider}`,borderRadius:12,
-                  padding:"14px 16px",textAlign:"left",cursor:"pointer",
-                  display:"flex",gap:12,alignItems:"flex-start",
-                  boxShadow:"0 1px 3px rgba(0,0,0,0.03)",transition:"all 0.15s"
-                }}>
-                <span style={{
-                  fontFamily:t.heading,fontSize:18,fontWeight:800,color:t.verseNum,
-                  minWidth:28,textAlign:"center",lineHeight:1.4
-                }}>{v.verse_number}</span>
-                <div style={{flex:1,minWidth:0}}>
-                  <div style={{fontFamily:t.body,fontSize:FS[fontSize].list,color:t.text,lineHeight:1.65,...rtlStyle}}>{v.kjv_text}</div>
-                </div>
-                <div style={{color:t.light,flexShrink:0,alignSelf:"center"}}><ChevIcon /></div>
-              </button>
-            ))}
+          <div style={{background:t.card,borderRadius:14,border:`1px solid ${t.divider}`,overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
+            {verses.map((v, vi) => {
+              const hl = chapterHighlights[v.verse_number];
+              const nt = chapterNotes[v.verse_number];
+              const cn = chapterCommunityNotes[v.verse_number];
+              const hlColor = hl?.highlight_color;
+              const isBookmarked = hl?.is_bookmarked;
+              const hasNote = !!nt;
+              const communityCount = cn?.length || 0;
+              const isLast = vi === verses.length - 1;
+              return (
+                <button key={v.verse_number} onClick={() => nav("verse",{verse:v.verse_number,tab:"study"})}
+                  style={{
+                    width:"100%",background:hlColor ? `${hlColor}08` : "transparent",
+                    borderLeft:hlColor ? `3px solid ${hlColor}` : "3px solid transparent",
+                    borderRight:"none",borderTop:"none",
+                    borderBottom:isLast ? "none" : `1px solid ${t.divider}`,
+                    padding:"14px 16px",textAlign:"left",cursor:"pointer",
+                    display:"flex",gap:12,alignItems:"flex-start",
+                    transition:"all 0.15s",position:"relative"
+                  }}>
+                  <span style={{
+                    fontFamily:t.heading,fontSize:22,fontWeight:800,color:hlColor || t.verseNum,
+                    minWidth:28,textAlign:"center",lineHeight:1.2,flexShrink:0
+                  }}>{v.verse_number}</span>
+                  <div style={{flex:1,minWidth:0}}>
+                    <div style={{fontFamily:t.body,fontSize:FS[fontSize].list,color:t.text,lineHeight:1.65,...rtlStyle}}>{v.kjv_text}</div>
+                  </div>
+                  {(isBookmarked || hasNote || communityCount > 0) && (
+                    <div style={{display:"flex",alignItems:"center",gap:4,flexShrink:0,alignSelf:"flex-start",marginTop:2}}>
+                      {isBookmarked && <span style={{fontSize:12,color:"#FFD700"}}>★</span>}
+                      {hasNote && <span style={{fontSize:11,color:t.muted}}>✏️</span>}
+                      {communityCount > 0 && <span style={{fontFamily:t.ui,fontSize:9,color:t.accent,fontWeight:700,background:`${t.accent}12`,borderRadius:4,padding:"1px 4px"}}>{communityCount}</span>}
+                    </div>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
