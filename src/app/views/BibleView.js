@@ -17,7 +17,7 @@ export default function BibleView() {
     isOT, currentVerse, verseNums, t, ht, darkMode, bookInfo,
     hasVerseId, saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage, nav, goBack,
-    chapterReads, markChapterRead, quizScores, bibleTranslation,
+    chapterReads, markChapterRead, quizScores, bibleTranslation, bp,
   } = useApp();
 
   const [showColors, setShowColors] = useState(false);
@@ -35,7 +35,7 @@ export default function BibleView() {
     return (
       <div style={{ minHeight:"100vh",background:ht.bg }}>
         <Header title="The Holy Scriptures" onBack={goBack} theme={ht} hidePrayer hideUser />
-        <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
+        <div style={{ padding:`20px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
 
           {/* ── Testament Picker (Parchment Scrolls) ── */}
           <div style={{ display:"flex", gap:12, marginBottom:20 }}>
@@ -133,7 +133,7 @@ export default function BibleView() {
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <Header title={book} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={goBack} />
-        <div style={{ padding:"18px 16px 40px",maxWidth:520,margin:"0 auto" }}>
+        <div style={{ padding:`18px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
 
           {/* Book info card */}
           {bookInfo.author && (
@@ -265,7 +265,7 @@ export default function BibleView() {
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <Header title={`${book} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} />
-        <div style={{ maxWidth:620,margin:"0 auto",padding:"16px 16px 40px" }}>
+        <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
 
 
           {bibleTranslation !== "kjv" && currentTransDef && (
@@ -411,7 +411,7 @@ export default function BibleView() {
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <Header title={book} onBack={goBack} hidePrayer />
-        <div style={{ maxWidth:620,margin:"0 auto",padding:"0 16px 40px" }}>
+        <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`0 ${bp.pad}px 40px` }}>
           {chapterMeta?.overview && (
             <div style={{margin:"14px 0"}}>
               <button

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useApp } from "../context/AppContext";
 
 const CATEGORY_COLORS = {
   "The Godhead":          { bg: "#F3E8FF", text: "#6B21A8", border: "#C084FC" },
@@ -204,6 +205,7 @@ const APOLOGETICS_TOPICS = [
 ];
 
 export default function Apologetics({ nav, onPositionSave, darkMode }) {
+  const { bp } = useApp();
   const catColors = darkMode ? DARK_CATEGORY_COLORS : CATEGORY_COLORS;
   const [selected, setSelected]   = useState(null);
   const [revealed, setRevealed]   = useState(false);
@@ -325,7 +327,7 @@ export default function Apologetics({ nav, onPositionSave, darkMode }) {
       </div>
 
       {/* ── GRID ── */}
-      <div style={{ padding:"20px 14px 48px", maxWidth:720, margin:"0 auto" }}>
+      <div style={{ padding:`20px ${bp.pad}px 48px`, maxWidth:bp.contentWide, margin:"0 auto" }}>
         <p style={{ fontFamily:"'Georgia', serif", fontSize:12, color: darkMode ? "#6A5840" : "#9CA3AF", margin:"0 0 14px", fontStyle:"italic" }}>
           {visible.length} defense{visible.length !== 1 ? "s" : ""} · tap a card to be challenged
         </p>
@@ -417,7 +419,7 @@ export default function Apologetics({ nav, onPositionSave, darkMode }) {
           <div
             onClick={e => e.stopPropagation()}
             style={{
-              width:"100%", maxWidth:680, margin:"0 auto",
+              width:"100%", maxWidth:bp.content, margin:"0 auto",
               background: darkMode ? "#1E1C18" : "#FFFFFF", borderRadius:"22px 22px 0 0",
               maxHeight:"88vh", overflowY:"auto",
               transform: animIn ? "translateY(0)" : "translateY(100%)",

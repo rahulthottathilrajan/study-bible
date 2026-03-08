@@ -19,7 +19,7 @@ export default function HebrewView() {
     vocabGroup, setVocabGroup,
     grammarLesson, setGrammarLesson, grammarLessonIds,
     nav, goBack,
-    markHebrewComplete, loadHebrewLesson,
+    markHebrewComplete, loadHebrewLesson, bp,
   } = useApp();
 
   const HebrewHome = () => {
@@ -36,7 +36,7 @@ export default function HebrewView() {
     return (
       <div style={{ minHeight:"100vh",background:ht2.bg,paddingBottom:80 }}>
         <Header title="Learn Hebrew" subtitle="Biblical Hebrew · עִבְרִית" onBack={goBack} theme={ht2} />
-        <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
+        <div style={{ padding:`20px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient,borderRadius:16,padding:"28px 20px",marginBottom:20,textAlign:"center",position:"relative",overflow:"hidden" }}>
             <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
@@ -243,7 +243,7 @@ export default function HebrewView() {
         <Header title={hebrewLesson.title} subtitle={hebrewLesson.subtitle} onBack={goBack} theme={ht2}
           right={isDone && <span style={{ fontFamily:ht2.ui,fontSize:11,color:"#7ED4AD",fontWeight:700,background:"#7ED4AD22",padding:"4px 10px",borderRadius:6 }}>✓ Complete</span>}
         />
-        <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
           {/* Big letter / word hero — adapts to alphabet vs vocabulary */}
           {hebrewLesson?.category === "vocabulary" ? (
             <div style={{ background:ht2.headerGradient,borderRadius:20,padding:"36px 20px",marginBottom:18,textAlign:"center",position:"relative",overflow:"hidden" }}>
@@ -418,7 +418,7 @@ export default function HebrewView() {
       return (
         <div style={{ minHeight:"100vh",background:ht2.bg }}>
           <Header title="Practice Complete!" theme={ht2} onBack={goBack}/>
-          <div style={{ maxWidth:520,margin:"0 auto",padding:"40px 20px",textAlign:"center" }}>
+          <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`40px ${bp.pad}px`,textAlign:"center" }}>
             <div style={{ fontSize:64,marginBottom:16 }}>🎉</div>
             <div style={{ fontFamily:ht2.heading,fontSize:30,color:ht2.dark,marginBottom:8 }}>Well Done!</div>
             <div style={{ fontFamily:"'Times New Roman',serif",fontSize:64,color:ht2.accent,direction:"rtl",marginBottom:20,lineHeight:1 }}>{content.letter}</div>
@@ -444,7 +444,7 @@ export default function HebrewView() {
     return (
       <div style={{ minHeight:"100vh",background:ht2.bg }}>
         <Header title={`Practice · ${hebrewLesson.title}`} subtitle={`Question ${hebrewPracticeIdx+1} of ${questions.length}`} onBack={goBack} theme={ht2}/>
-        <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
           {/* Progress bar */}
           <div style={{ background:ht2.divider,borderRadius:6,height:6,marginBottom:22,overflow:"hidden" }}>
             <div style={{ width:`${pct}%`,height:"100%",background:ht2.accent,borderRadius:6,transition:"width 0.4s ease" }}/>
@@ -535,7 +535,7 @@ export default function HebrewView() {
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
         <Header title="Hebrew Grammar" subtitle="How the language works" onBack={goBack} theme={ht2} />
-        <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`20px ${bp.pad}px 40px` }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient, borderRadius:16, padding:"28px 20px", marginBottom:20, textAlign:"center", position:"relative", overflow:"hidden" }}>
             <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
@@ -606,7 +606,7 @@ export default function HebrewView() {
         <Header title={grammarLesson.title} subtitle={grammarLesson.subtitle} onBack={goBack} theme={ht2}
           right={isDone && <span style={{ fontFamily:ht2.ui, fontSize:11, color:"#7ED4AD", fontWeight:700, background:"#7ED4AD22", padding:"4px 10px", borderRadius:6 }}>✓ Complete</span>}
         />
-        <div style={{ maxWidth:520, margin:"0 auto", padding:"16px 16px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient, borderRadius:20, padding:"32px 20px", marginBottom:18, textAlign:"center", position:"relative", overflow:"hidden" }}>
             <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.25),transparent 70%)" }}/>
@@ -798,7 +798,7 @@ export default function HebrewView() {
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg, paddingBottom:80 }}>
         <Header title="Reading" subtitle="Read Scripture in Hebrew" onBack={goBack} theme={ht2} />
-        <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`20px ${bp.pad}px 40px` }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient, borderRadius:16, padding:"24px 20px", marginBottom:22, textAlign:"center", position:"relative", overflow:"hidden" }}>
             <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
@@ -1235,7 +1235,7 @@ export default function HebrewView() {
     if (readingStep === 0) return (
       <div style={{ minHeight:"100vh", background:ht2.bg }}>
         <Header title={`Read ${VERSE.ref}`} subtitle="Word by Word · Letter by Letter" onBack={goBack} theme={ht2} />
-        <div style={{ maxWidth:520, margin:"0 auto", padding:"20px 20px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`20px ${bp.pad}px 40px` }}>
           {/* Hero */}
           <div style={{ background:ht2.headerGradient, borderRadius:20, padding:"32px 20px", marginBottom:22, textAlign:"center", position:"relative", overflow:"hidden" }}>
             <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
@@ -1277,7 +1277,7 @@ export default function HebrewView() {
     if (readingStep === totalWords + 1) return (
       <div style={{ minHeight:"100vh", background:ht2.bg }}>
         <Header title="You Read It!" subtitle={`${VERSE.ref} Complete`} onBack={() => setReadingStep(0)} theme={ht2} />
-        <div style={{ maxWidth:520, margin:"0 auto", padding:"24px 20px 40px", textAlign:"center" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`24px ${bp.pad}px 40px`, textAlign:"center" }}>
           <div style={{ fontSize:64, marginBottom:16 }}>🎉</div>
           <div style={{ fontFamily:ht2.heading, fontSize:28, color:ht2.dark, marginBottom:8 }}>Shalom!</div>
           <div style={{ fontFamily:ht2.body, fontSize:15, color:ht2.muted, fontStyle:"italic", marginBottom:24, lineHeight:1.7 }}>
@@ -1327,7 +1327,7 @@ export default function HebrewView() {
     return (
       <div style={{ minHeight:"100vh", background:ht2.bg }}>
         <Header title={`Word ${readingStep} of ${totalWords}`} subtitle={`${currentWord.transliteration} — ${currentWord.meaning}`} onBack={() => readingStep === 1 ? setReadingStep(0) : setReadingStep(s => s-1)} theme={ht2} />
-        <div style={{ maxWidth:520, margin:"0 auto", padding:"16px 16px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
           {/* Progress */}
           <div style={{ background:ht2.divider, borderRadius:6, height:6, marginBottom:20, overflow:"hidden" }}>
             <div style={{ width:`${((readingStep-1)/totalWords)*100}%`, height:"100%", background:ht2.accent, borderRadius:6, transition:"width 0.4s ease" }}/>

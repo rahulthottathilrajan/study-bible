@@ -17,7 +17,7 @@ const DIFFICULTIES = [
 export default function QuizView() {
   const { view, book, chapter, t, goBack, nav, user,
     quizScores, quizQuestions, quizLoading,
-    loadQuizQuestions, submitQuizScore } = useApp();
+    loadQuizQuestions, submitQuizScore, bp } = useApp();
 
   const [difficulty, setDifficulty] = useState(null);
   const [currentQ, setCurrentQ] = useState(0);
@@ -140,7 +140,7 @@ export default function QuizView() {
     return (
       <div style={{ minHeight: "100vh", background: t.bg }}>
         <Header title={`${book} ${chapter} Quiz`} onBack={goBack} />
-        <div style={{ maxWidth: 620, margin: "0 auto", padding: "16px 16px 40px" }}>
+        <div style={{ maxWidth: bp.contentWide, margin: "0 auto", padding: `16px ${bp.pad}px 40px` }}>
           <Card t={t} accent>
             <div style={{ textAlign: "center", marginBottom: 6 }}>
               <span style={{ fontSize: 40 }}>📝</span>
@@ -259,7 +259,7 @@ export default function QuizView() {
       <div style={{ minHeight: "100vh", background: t.bg }}>
         <Header title={`Question ${currentQ + 1}/${quizQuestions.length}`}
           subtitle={`${book} ${chapter} — ${difficulty}`} onBack={goBack} />
-        <div style={{ maxWidth: 620, margin: "0 auto", padding: "0 16px 40px" }}>
+        <div style={{ maxWidth: bp.contentWide, margin: "0 auto", padding: `0 ${bp.pad}px 40px` }}>
 
           {/* Progress bar */}
           <div style={{ height: 4, background: t.divider, borderRadius: 2, margin: "14px 0 18px", overflow: "hidden" }}>
@@ -341,7 +341,7 @@ export default function QuizView() {
     return (
       <div style={{ minHeight: "100vh", background: t.bg }}>
         <Header title="Quiz Results" subtitle={`${book} ${chapter}`} onBack={goBack} />
-        <div style={{ maxWidth: 620, margin: "0 auto", padding: "16px 16px 40px" }}>
+        <div style={{ maxWidth: bp.contentWide, margin: "0 auto", padding: `16px ${bp.pad}px 40px` }}>
 
           {/* Score card */}
           <Card t={t} accent>

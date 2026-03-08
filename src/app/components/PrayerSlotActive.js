@@ -8,7 +8,7 @@ export default function PrayerSlotActive() {
   const {
     ht, user, communityPrayers, communityPrayersLoading,
     loadCommunityPrayers, toggleReaction, userReactions,
-    mySlots, goBack,
+    mySlots, goBack, bp,
   } = useApp();
 
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -89,7 +89,7 @@ export default function PrayerSlotActive() {
     return (
       <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
         <Header title="Prayer Time" theme={ht} />
-        <div style={{ padding: "40px 20px", maxWidth: 520, margin: "0 auto", textAlign: "center" }}>
+        <div style={{ padding: `40px ${bp.pad}px`, maxWidth: bp.content, margin: "0 auto", textAlign: "center" }}>
           <div style={{ fontSize: 42, marginBottom: 14 }}>🕐</div>
           <div style={{ fontFamily: ht.heading, fontSize: 18, color: ht.dark, marginBottom: 8 }}>No Active Slot</div>
           <div style={{ fontFamily: ht.ui, fontSize: 13, color: ht.muted, lineHeight: 1.6 }}>Your prayer time hasn't started yet, or it has ended. Check your prayer clock for your scheduled times.</div>
@@ -103,7 +103,7 @@ export default function PrayerSlotActive() {
     return (
       <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
         <Header title="Prayer Time" theme={ht} />
-        <div style={{ padding: "40px 20px", maxWidth: 520, margin: "0 auto", textAlign: "center" }}>
+        <div style={{ padding: `40px ${bp.pad}px`, maxWidth: bp.content, margin: "0 auto", textAlign: "center" }}>
           <div style={{ fontSize: 52, marginBottom: 16 }}>🙏</div>
           <div style={{ fontFamily: ht.heading, fontSize: 22, color: ht.dark, marginBottom: 8 }}>Amen!</div>
           <div style={{ fontFamily: ht.body, fontSize: 15, color: ht.text, lineHeight: 1.6, marginBottom: 6 }}>
@@ -121,7 +121,7 @@ export default function PrayerSlotActive() {
   return (
     <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
       <Header title="Prayer Time" theme={ht} />
-      <div style={{ padding: "16px 20px 40px", maxWidth: 520, margin: "0 auto" }}>
+      <div style={{ padding: `16px ${bp.pad}px 40px`, maxWidth: bp.content, margin: "0 auto" }}>
         {/* Timer bar */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16, padding: "10px 14px", background: `${ht.accent}12`, borderRadius: 10, border: `1px solid ${ht.accentBorder}` }}>
           <div style={{ fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: ht.accent }}>

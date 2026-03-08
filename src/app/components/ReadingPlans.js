@@ -1,5 +1,6 @@
 "use client";
 import { useState, useCallback } from "react";
+import { useApp } from "../context/AppContext";
 import { supabase } from "../../lib/supabase";
 
 // ─── Theme ────────────────────────────────────────────────────────────────────
@@ -527,6 +528,7 @@ const SHELVES = [
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
+  const { bp } = useApp();
   const T = darkMode ? T_DARK : T_LIGHT;
 
   const [selectedPlan,  setSelectedPlan]  = useState(null);
@@ -858,7 +860,7 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
 
       {/* ── MY PLANS ── */}
       {activeTab === "myPlans" && (
-        <div style={{ padding:"24px 16px 60px", maxWidth:600, margin:"0 auto" }}>
+        <div style={{ padding:`24px ${bp.pad}px 60px`, maxWidth:bp.content, margin:"0 auto" }}>
           {myActivePlans.length === 0 ? (
             <div style={{ textAlign:"center", padding:"60px 24px" }}>
               <div style={{ fontSize:56, marginBottom:16 }}>📖</div>
@@ -1134,7 +1136,7 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
             </div>
 
             {/* Page body */}
-            <div style={{ flex:1, padding:"26px 22px 48px", maxWidth:640, margin:"0 auto", width:"100%" }}>
+            <div style={{ flex:1, padding:`26px ${bp.pad}px 48px`, maxWidth:bp.contentWide, margin:"0 auto", width:"100%" }}>
 
               {/* Active progress */}
               {activePlans[selectedPlan.id] && (() => {

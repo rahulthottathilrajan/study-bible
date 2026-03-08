@@ -14,7 +14,7 @@ const PRAYER_TABS = [
 
 export default function PrayerView() {
   const {
-    view, ht, user, prayerTab, setPrayerTab, nav,
+    view, ht, user, prayerTab, setPrayerTab, nav, bp,
     // Private journal (reused from existing)
     prayers, prayerLoading, prayerTitle, setPrayerTitle,
     prayerText, setPrayerText, addPrayer, togglePrayerAnswered, deletePrayer,
@@ -28,7 +28,7 @@ export default function PrayerView() {
   return (
     <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
       <Header title="Prayer" subtitle="Lift up one another" theme={ht} />
-      <div style={{ padding: "16px 20px 40px", maxWidth: 520, margin: "0 auto" }}>
+      <div style={{ padding: `16px ${bp.pad}px 40px`, maxWidth: bp.content, margin: "0 auto" }}>
         {/* Tab switcher */}
         <div style={{ display: "flex", background: ht.card, borderRadius: 10, padding: 3, marginBottom: 18, border: `1px solid ${ht.divider}` }}>
           {PRAYER_TABS.map(tb => (

@@ -27,6 +27,19 @@ export function AppProvider({ children }) {
   const [fontSize, setFontSize] = useState("medium");
   const [bibleTranslation, setBibleTranslation] = useState("kjv");
 
+  // ─── Responsive breakpoint ───
+  const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 375);
+  useEffect(() => {
+    const onResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  const bp = useMemo(() => {
+    const w = windowWidth;
+    const b = w >= 1024 ? "desktop" : w >= 600 ? "tablet" : "mobile";
+    return { bp: b, isMobile: b === "mobile", isTablet: b === "tablet", isDesktop: b === "desktop", w, shell: b === "desktop" ? 1200 : b === "tablet" ? 960 : 640, content: b === "desktop" ? 780 : b === "tablet" ? 680 : 520, contentWide: b === "desktop" ? 860 : b === "tablet" ? 780 : 620, cols: b === "desktop" ? 3 : b === "tablet" ? 2 : 1, pad: b === "desktop" ? 36 : b === "tablet" ? 28 : 20 };
+  }, [windowWidth]);
+
   // ─── Load preferences + restore nav state on refresh ───
   useEffect(() => {
     try { const dm = localStorage.getItem("darkMode"); if (dm === "true") setDarkMode(true); } catch {}
@@ -1359,6 +1372,7 @@ export function AppProvider({ children }) {
 
   const value = {
     // Core
+    bp,
     view, setView, testament, setTestament, book, setBook, chapter, setChapter,
     verse, setVerse: changeVerse, tab, setTab, loading, setLoading,
     dbLive, setDbLive, darkMode, setDarkMode, fontSize, setFontSize, FS, bibleTranslation, setBibleTranslation,

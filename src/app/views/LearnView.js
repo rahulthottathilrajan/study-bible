@@ -12,7 +12,7 @@ export default function LearnView() {
     timelineSearchQuery, setTimelineSearchQuery, timelineAllEvents,
     timelineSearchActive, setTimelineSearchActive,
     loadAllTimelineEvents, loadTimelineEvents,
-    trackLearnExploration,
+    trackLearnExploration, bp,
   } = useApp();
 
   const st = darkMode ? DARK_THEMES.sunrise : THEMES.sunrise;
@@ -35,7 +35,7 @@ export default function LearnView() {
     return (
       <div style={{ minHeight:"100vh", background:ht.bg, paddingBottom:80 }}>
         <Header title="Learn" subtitle="Languages · History · Theology" onBack={goBack} theme={ht} />
-        <div style={{ padding:"20px 20px 40px", maxWidth:520, margin:"0 auto" }}>
+        <div style={{ padding:`20px ${bp.pad}px 40px`, maxWidth:bp.content, margin:"0 auto" }}>
 
           {/* ── HEAR IT AS IT WAS WRITTEN ── */}
           <div style={{ marginBottom:6 }}>
@@ -213,7 +213,7 @@ export default function LearnView() {
     return (
       <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
         <Header title="Bible Timeline" subtitle="From Creation to Revelation" onBack={goBack} theme={st} />
-        <div style={{ padding:"20px 20px 40px", maxWidth:520, margin:"0 auto" }}>
+        <div style={{ padding:`20px ${bp.pad}px 40px`, maxWidth:bp.content, margin:"0 auto" }}>
 
           {/* Hero */}
           <div style={{ background:st.headerGradient, borderRadius:20, padding:"32px 20px", marginBottom:24, textAlign:"center", position:"relative", overflow:"hidden" }}>
@@ -316,7 +316,7 @@ export default function LearnView() {
     return (
       <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
         <Header title="Biblical Eras" subtitle="14 periods of redemptive history" onBack={goBack} theme={st} />
-        <div style={{ padding:"16px 16px 40px", maxWidth:520, margin:"0 auto" }}>
+        <div style={{ padding:`16px ${bp.pad}px 40px`, maxWidth:bp.content, margin:"0 auto" }}>
 
           {/* Search bar */}
           <div style={{ position:"relative", marginBottom:16 }}>
@@ -439,7 +439,7 @@ export default function LearnView() {
     return (
       <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
         <Header title={era.title} subtitle={era.year_display} onBack={goBack} theme={st} />
-        <div style={{ padding:"0 0 40px", maxWidth:520, margin:"0 auto" }}>
+        <div style={{ padding:"0 0 40px", maxWidth:bp.content, margin:"0 auto" }}>
 
           {/* Era hero banner */}
           <div style={{ background:`linear-gradient(165deg, #2D1B4E 0%, ${era.color}99 100%)`, padding:"28px 20px", textAlign:"center", position:"relative", overflow:"hidden" }}>

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useApp } from "../context/AppContext";
 import { st as stLight, ANIM_STYLE } from "./maps/shared";
 
 const stDark = {
@@ -125,6 +126,7 @@ function GalleryCard({ map, onSelect, st }) {
 
 // ─── MAIN EXPORT ─────────────────────────────────
 export default function TimelineMaps({ nav, darkMode }) {
+  const { bp } = useApp();
   const st = darkMode ? stDark : stLight;
   const [selectedMap,      setSelectedMap]      = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
@@ -158,7 +160,7 @@ export default function TimelineMaps({ nav, darkMode }) {
           </div>
         </div>
 
-        <div style={{ padding:"20px 16px 40px", maxWidth:520, margin:"0 auto" }}>
+        <div style={{ padding:`20px ${bp.pad}px 40px`, maxWidth:bp.content, margin:"0 auto" }}>
 
           {/* Hero */}
           <div style={{ background:st.headerGradient, borderRadius:20, padding:"28px 20px", marginBottom:24, textAlign:"center", position:"relative", overflow:"hidden" }}>
@@ -240,7 +242,7 @@ export default function TimelineMaps({ nav, darkMode }) {
         </div>
       </div>
 
-      <div style={{ padding:"16px 16px 40px", maxWidth:520, margin:"0 auto" }}>
+      <div style={{ padding:`16px ${bp.pad}px 40px`, maxWidth:bp.content, margin:"0 auto" }}>
 
         <div style={{ fontFamily:st.body, fontSize:13.5, color:st.muted, fontStyle:"italic", lineHeight:1.6, marginBottom:14, textAlign:"center" }}>
           {selectedMap.subtitle} — tap any location to learn more

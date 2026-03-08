@@ -15,13 +15,13 @@ const LEARN_VIEWS = ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice
 const PRAYER_VIEWS = ["prayer-home","prayer-community","prayer-clock","prayer-journal","prayer-testimony","prayer-slot-active"];
 
 export default function BottomNav() {
-  const { view, nav, testament, user, ht } = useApp();
+  const { view, nav, testament, user, ht, bp } = useApp();
 
   if (HIDDEN_VIEWS.includes(view)) return null;
 
   return (
     <div style={{ position:"fixed",bottom:0,left:0,right:0,zIndex:50,background:ht.card,borderTop:`1px solid ${ht.divider}`,boxShadow:"0 -2px 12px rgba(0,0,0,0.06)" }}>
-      <div style={{ maxWidth:640,margin:"0 auto",display:"flex",justifyContent:"space-around",alignItems:"center",padding:"6px 0 10px" }}>
+      <div style={{ maxWidth:bp.shell,margin:"0 auto",display:"flex",justifyContent:"space-around",alignItems:"center",padding:bp.isMobile?"6px 0 10px":"8px 0 12px" }}>
         {NAV_ITEMS.map(item => {
           const isActive =
             (item.id === "home" && view === "home") ||

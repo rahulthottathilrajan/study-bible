@@ -4,12 +4,12 @@ import { Card, Spinner, ChevIcon } from "../components/ui";
 import Header from "../components/Header";
 
 export default function JournalView() {
-  const { ht, user, allHighlights, hlLoading, nav } = useApp();
+  const { ht, user, allHighlights, hlLoading, nav, bp } = useApp();
 
   return (
     <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
       <Header title="My Highlights" subtitle={`${allHighlights.length} saved`} theme={ht} />
-      <div style={{ padding: "20px 20px 40px", maxWidth: 520, margin: "0 auto" }}>
+      <div style={{ padding: `20px ${bp.pad}px 40px`, maxWidth: bp.content, margin: "0 auto" }}>
         {!user ? (
           <Card t={ht} style={{ textAlign: "center", padding: 30 }}>
             <div style={{ fontSize: 36, marginBottom: 12 }}>🔐</div>

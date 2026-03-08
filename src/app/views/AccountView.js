@@ -12,13 +12,13 @@ export default function AccountView() {
     authForgot, setAuthForgot, authForgotSent,
     allHighlights, prayers, earnedBadges,
     handleAuth, handleLogout, handleForgotPassword, handleGoogleSignIn,
-    nav, setDonateModal,
+    nav, setDonateModal, bp,
   } = useApp();
 
   return (
     <div style={{ minHeight:"100vh",background:ht.bg,paddingBottom:80 }}>
       <Header title="My Account" theme={ht} />
-      <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
+      <div style={{ padding:`20px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
         {!user ? (
           <div style={{maxWidth:400,margin:"0 auto",paddingTop:8}}>
             {/* Hero */}

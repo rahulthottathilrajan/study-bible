@@ -18,7 +18,7 @@ export default function GreekView() {
     greekReadingVerse, setGreekReadingVerse,
     greekReadingStep, setGreekReadingStep,
     nav, goBack,
-    markGreekComplete, loadGreekLesson,
+    markGreekComplete, loadGreekLesson, bp,
   } = useApp();
 
   // ═══ GREEK HOME ═══
@@ -54,7 +54,7 @@ export default function GreekView() {
     return (
       <div style={{ minHeight:"100vh",background:gt.bg,paddingBottom:80 }}>
         <Header title="Learn Greek" subtitle="Biblical Greek · Ἑλληνική" onBack={goBack} theme={gt} />
-        <div style={{ padding:"20px 20px 40px",maxWidth:520,margin:"0 auto" }}>
+        <div style={{ padding:`20px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
           {/* Hero */}
           <div style={{ background:gt.headerGradient,borderRadius:16,padding:"28px 20px",marginBottom:20,textAlign:"center",position:"relative",overflow:"hidden" }}>
             <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(27,122,110,0.2),transparent 70%)" }}/>
@@ -225,7 +225,7 @@ export default function GreekView() {
         <Header title={greekLesson.title} subtitle={greekLesson.subtitle} onBack={goBack} theme={gt}
           right={isDone && <span style={{ fontFamily:gt.ui,fontSize:11,color:"#7ED4AD",fontWeight:700,background:"#7ED4AD22",padding:"4px 10px",borderRadius:6 }}>✓ Complete</span>}
         />
-        <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
           {/* Hero */}
           {isVocab ? (
             <div style={{ background:gt.headerGradient,borderRadius:20,padding:"36px 20px",marginBottom:18,textAlign:"center",position:"relative",overflow:"hidden" }}>
@@ -410,7 +410,7 @@ export default function GreekView() {
       return (
         <div style={{ minHeight:"100vh",background:gt.bg }}>
           <Header title="Practice Complete!" theme={gt} onBack={goBack}/>
-          <div style={{ maxWidth:520,margin:"0 auto",padding:"40px 20px",textAlign:"center" }}>
+          <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`40px ${bp.pad}px`,textAlign:"center" }}>
             <div style={{ fontSize:64,marginBottom:16 }}>🎉</div>
             <div style={{ fontFamily:gt.heading,fontSize:30,color:gt.dark,marginBottom:8 }}>Well Done!</div>
             <div style={{ fontFamily:"'Times New Roman',serif",fontSize:64,color:gt.accent,marginBottom:20,lineHeight:1 }}>{content.letter || content.word}</div>
@@ -436,7 +436,7 @@ export default function GreekView() {
     return (
       <div style={{ minHeight:"100vh",background:gt.bg }}>
         <Header title={`Practice · ${greekLesson.title}`} subtitle={`Question ${greekPracticeIdx+1} of ${questions.length}`} onBack={goBack} theme={gt}/>
-        <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
           <div style={{ background:gt.divider,borderRadius:6,height:6,marginBottom:22,overflow:"hidden" }}>
             <div style={{ width:`${pct}%`,height:"100%",background:gt.accent,borderRadius:6,transition:"width 0.4s ease" }}/>
           </div>
@@ -521,7 +521,7 @@ export default function GreekView() {
     return (
       <div style={{ minHeight:"100vh",background:gt.bg,paddingBottom:80 }}>
         <Header title="Greek Grammar" subtitle="How the language works" onBack={goBack} theme={gt} />
-        <div style={{ maxWidth:520,margin:"0 auto",padding:"20px 20px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`20px ${bp.pad}px 40px` }}>
           <div style={{ background:gt.headerGradient,borderRadius:16,padding:"28px 20px",marginBottom:20,textAlign:"center",position:"relative",overflow:"hidden" }}>
             <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(27,122,110,0.2),transparent 70%)" }}/>
             <div style={{ position:"relative",zIndex:1 }}>
@@ -589,7 +589,7 @@ export default function GreekView() {
         <Header title={greekGrammarLesson.title} subtitle={greekGrammarLesson.subtitle} onBack={goBack} theme={gt}
           right={isDone && <span style={{ fontFamily:gt.ui,fontSize:11,color:"#7ED4AD",fontWeight:700,background:"#7ED4AD22",padding:"4px 10px",borderRadius:6 }}>✓ Complete</span>}
         />
-        <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
           {/* Hero */}
           <div style={{ background:gt.headerGradient,borderRadius:20,padding:"32px 20px",marginBottom:18,textAlign:"center",position:"relative",overflow:"hidden" }}>
             <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(27,122,110,0.25),transparent 70%)" }}/>
@@ -724,7 +724,7 @@ export default function GreekView() {
     return (
       <div style={{ minHeight:"100vh",background:gt.bg,paddingBottom:80 }}>
         <Header title="Reading" subtitle="Read Scripture in Greek" onBack={goBack} theme={gt} />
-        <div style={{ maxWidth:520,margin:"0 auto",padding:"20px 20px 40px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`20px ${bp.pad}px 40px` }}>
           <div style={{ background:gt.headerGradient,borderRadius:16,padding:"24px 20px",marginBottom:22,textAlign:"center",position:"relative",overflow:"hidden" }}>
             <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(27,122,110,0.2),transparent 70%)" }}/>
             <div style={{ position:"relative",zIndex:1 }}>
@@ -794,7 +794,7 @@ export default function GreekView() {
     return (
       <div style={{ minHeight:"100vh",background:gt.bg }}>
         <Header title={VERSE.ref} subtitle={`Word ${greekReadingStep+1} of ${WORDS.length}`} onBack={goBack} theme={gt}/>
-        <div style={{ maxWidth:520,margin:"0 auto",padding:"16px 16px 60px" }}>
+        <div style={{ maxWidth:bp.content,margin:"0 auto",padding:`16px ${bp.pad}px 60px` }}>
           {/* Full verse */}
           <div style={{ background:gt.headerGradient,borderRadius:16,padding:"20px",marginBottom:18,position:"relative",overflow:"hidden" }}>
             <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 0%,rgba(27,122,110,0.2),transparent 70%)" }}/>
