@@ -22,14 +22,8 @@ export default function BottomNav() {
   if (HIDDEN_VIEWS.includes(view)) return null;
 
   return (
-    <div style={{ position:"fixed",bottom:0,left:0,right:0,zIndex:50,background:ht.card,borderTop:`1px solid ${ht.divider}`,boxShadow:"0 -2px 16px rgba(0,0,0,0.08)" }}>
-      <style>{`
-        @keyframes navActiveGlow {
-          0%,100% { box-shadow: 0 0 0 1.5px rgba(212,168,83,0.55), 0 2px 10px rgba(212,168,83,0.2); }
-          50%      { box-shadow: 0 0 0 1.5px rgba(139,92,246,0.55), 0 2px 10px rgba(139,92,246,0.2); }
-        }
-      `}</style>
-      <div style={{ maxWidth:bp.shell,margin:"0 auto",display:"flex",justifyContent:"space-around",alignItems:"center",padding:bp.isMobile?"6px 0 10px":"8px 0 12px" }}>
+    <div style={{ position:"fixed",bottom:0,left:0,right:0,zIndex:50,background:ht.card,borderTop:`1px solid ${ht.divider}`,boxShadow:"0 -1px 0 ${ht.divider}, 0 -4px 20px rgba(0,0,0,0.07)" }}>
+      <div style={{ maxWidth:bp.shell,margin:"0 auto",display:"flex",justifyContent:"space-around",alignItems:"center",padding:bp.isMobile?"5px 0 10px":"7px 0 11px" }}>
         {NAV_ITEMS.map(item => {
           const isActive =
             (item.id === "home" && view === "home") ||
@@ -45,26 +39,25 @@ export default function BottomNav() {
               else if (item.id === "pray") { nav("prayer-home"); }
               else if (item.id === "shop") { nav("shop-home"); }
               else nav(item.id);
-            }} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:1,background:"none",border:"none",cursor:"pointer",padding:"4px 6px",color:isActive?ht.accent:ht.muted,transition:"color 0.18s ease,opacity 0.18s ease",opacity:isActive?1:0.6 }}>
+            }} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,background:"none",border:"none",cursor:"pointer",padding:"2px 4px",color:isActive?ht.accent:ht.muted,transition:"color 0.2s ease,opacity 0.2s ease",opacity:isActive?1:0.55,minWidth:0,flex:1 }}>
+              {/* Icon pill */}
               <div style={{
-                display:"flex",flexDirection:"column",alignItems:"center",gap:2,
-                padding:"5px 15px 4px",borderRadius:22,
-                background: isActive ? "rgba(255,255,255,0.08)" : "transparent",
-                backdropFilter: isActive ? "blur(8px)" : "none",
-                WebkitBackdropFilter: isActive ? "blur(8px)" : "none",
-                animation: isActive ? "navActiveGlow 2.8s ease-in-out infinite" : "none",
-                transition:"background 0.2s ease",
+                display:"flex",alignItems:"center",justifyContent:"center",
+                width:44,height:30,borderRadius:15,
+                background: isActive ? `${ht.accent}22` : "transparent",
+                transition:"background 0.22s ease",
               }}>
-                <div style={{ transform:isActive?"scale(1.1)":"scale(1)",transition:"transform 0.18s",position:"relative" }}>
+                <div style={{ transform:isActive?"scale(1.08)":"scale(1)",transition:"transform 0.18s ease",position:"relative",lineHeight:0 }}>
                   {item.icon}
                   {item.id === "shop" && cartCount > 0 && (
-                    <span style={{ position:"absolute",top:-3,right:-4,minWidth:16,height:16,background:"#ef4444",color:"#fff",borderRadius:8,fontSize:9,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",padding:"0 3px",lineHeight:1 }}>
+                    <span style={{ position:"absolute",top:-3,right:-5,minWidth:16,height:16,background:"#ef4444",color:"#fff",borderRadius:8,fontSize:9,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",padding:"0 3px",lineHeight:1 }}>
                       {cartCount > 9 ? "9+" : cartCount}
                     </span>
                   )}
                 </div>
               </div>
-              <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:isActive?700:500,letterSpacing:"0.02em" }}>{item.label}</span>
+              {/* Label */}
+              <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:isActive?700:500,letterSpacing:"0.01em",lineHeight:1 }}>{item.label}</span>
             </button>
           );
         })}
