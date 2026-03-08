@@ -271,7 +271,6 @@ export default function BibleView() {
     const isRead = user && chapterReads.some(r => r.book_name === book && r.chapter_number === chapter);
     const chapterKey = `${book}-${chapter}`;
     const bestPct = (() => { const s = user ? (quizScores[chapterKey] || []) : []; return s.length > 0 ? Math.max(...s.map(x => x.percentage)) : null; })();
-    const divider = {width:1,alignSelf:"stretch",background:"rgba(255,255,255,0.1)",flexShrink:0};
     const isLastChapter = chapter >= bookInfo.chapters;
 
     return (
@@ -325,34 +324,48 @@ export default function BibleView() {
             })}
           </div>
 
-          {/* ── Bottom action bar: Mark Read | Take Quiz | Next Chapter ── */}
+          {/* ── Bottom action bar: premium engraved glass ── */}
           <div style={{marginTop:16}}>
-            <style>{`@keyframes actionGlow{0%,100%{border-color:rgba(212,168,83,0.45);box-shadow:0 0 7px rgba(212,168,83,0.12)}50%{border-color:rgba(147,51,234,0.45);box-shadow:0 0 7px rgba(147,51,234,0.12)}}`}</style>
-            <div style={{display:"flex",borderRadius:10,overflow:"hidden",border:"1px solid rgba(212,168,83,0.35)",animation:"actionGlow 3s ease-in-out infinite"}}>
-              {/* Mark Read */}
+            <style>{`@keyframes glassGlow{0%,100%{border-color:rgba(255,215,100,0.22);box-shadow:0 8px 32px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,0.1)}50%{border-color:rgba(139,92,246,0.24);box-shadow:0 8px 32px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,0.13)}}`}</style>
+            <div style={{display:"flex",borderRadius:14,overflow:"hidden",background:"rgba(0,0,0,0.2)",backdropFilter:"blur(24px)",WebkitBackdropFilter:"blur(24px)",border:"1px solid rgba(255,255,255,0.1)",animation:"glassGlow 3s ease-in-out infinite"}}>
+
+              {/* ── Green glass: Mark Read ── */}
               <button onClick={() => user ? (!isRead && markChapterRead(book, chapter)) : nav("account")}
-                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"10px 8px",background:isRead?"rgba(34,197,94,0.18)":"rgba(34,197,94,0.08)",border:"none",cursor:isRead?"default":"pointer",transition:"background 0.2s"}}>
-                {isRead
-                  ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  : <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                }
-                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,color:isRead?"#4ade80":"rgba(255,255,255,0.85)",letterSpacing:"0.05em",textTransform:"uppercase"}}>{isRead?"✓ Read":"Mark Read"}</span>
+                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:7,padding:"13px 8px",background:isRead?"linear-gradient(160deg,rgba(34,197,94,0.22),rgba(16,185,129,0.10))":"linear-gradient(160deg,rgba(34,197,94,0.10),rgba(16,185,129,0.04))",border:"none",boxShadow:"inset 0 1px 0 rgba(74,222,128,0.14),inset 0 -1px 0 rgba(0,0,0,0.12)",cursor:isRead?"default":"pointer",transition:"background 0.25s"}}>
+                <div style={{filter:"drop-shadow(0 1px 0.5px rgba(255,255,255,0.12)) drop-shadow(0 -1px 0.5px rgba(0,0,0,0.3))"}}>
+                  {isRead
+                    ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.9)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    : <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.65)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                  }
+                </div>
+                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,letterSpacing:"0.08em",textTransform:"uppercase",color:isRead?"rgba(74,222,128,0.92)":"rgba(255,255,255,0.65)",textShadow:"0 1px 1px rgba(255,255,255,0.1),0 -1px 0 rgba(0,0,0,0.45)"}}>{isRead?"✓ Read":"Mark Read"}</span>
               </button>
-              <div style={divider}/>
-              {/* Take Quiz */}
+
+              {/* etched divider */}
+              <div style={{width:1,alignSelf:"stretch",background:"linear-gradient(to bottom,transparent 5%,rgba(255,255,255,0.13) 40%,rgba(255,255,255,0.08) 60%,transparent 95%)",flexShrink:0}}/>
+
+              {/* ── Purple glass: Take Quiz ── */}
               <button onClick={() => nav("quiz-intro",{book,chapter})}
-                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"10px 8px",background:"rgba(147,51,234,0.10)",border:"none",cursor:"pointer"}}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.85)",letterSpacing:"0.05em",textTransform:"uppercase"}}>Take Quiz</span>
-                {bestPct !== null && <span style={{fontSize:8,padding:"1px 4px",borderRadius:3,background:bestPct>=70?"rgba(74,222,128,0.15)":"rgba(248,113,113,0.12)",color:bestPct>=70?"#4ade80":"#f87171",fontFamily:"system-ui",fontWeight:700,marginLeft:2}}>{bestPct}%</span>}
+                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:7,padding:"13px 8px",background:"linear-gradient(160deg,rgba(139,92,246,0.15),rgba(109,40,217,0.06))",border:"none",boxShadow:"inset 0 1px 0 rgba(167,139,250,0.14),inset 0 -1px 0 rgba(0,0,0,0.12)",cursor:"pointer"}}>
+                <div style={{filter:"drop-shadow(0 1px 0.5px rgba(255,255,255,0.1)) drop-shadow(0 -1px 0.5px rgba(0,0,0,0.3))"}}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,0.75)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,letterSpacing:"0.08em",textTransform:"uppercase",color:"rgba(255,255,255,0.65)",textShadow:"0 1px 1px rgba(255,255,255,0.1),0 -1px 0 rgba(0,0,0,0.45)"}}>Take Quiz</span>
+                {bestPct !== null && <span style={{fontSize:8,padding:"1px 4px",borderRadius:3,background:bestPct>=70?"rgba(74,222,128,0.14)":"rgba(248,113,113,0.12)",color:bestPct>=70?"rgba(74,222,128,0.85)":"rgba(248,113,113,0.85)",fontFamily:"system-ui",fontWeight:700,marginLeft:1}}>{bestPct}%</span>}
               </button>
-              <div style={divider}/>
-              {/* Next Chapter */}
+
+              {/* etched divider */}
+              <div style={{width:1,alignSelf:"stretch",background:"linear-gradient(to bottom,transparent 5%,rgba(255,255,255,0.13) 40%,rgba(255,255,255,0.08) 60%,transparent 95%)",flexShrink:0}}/>
+
+              {/* ── Gold glass: Next Chapter ── */}
               <button onClick={() => isLastChapter ? nav("chapter",{book}) : nav("verses",{book,chapter:chapter+1})}
-                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"10px 8px",background:"rgba(212,168,83,0.08)",border:"none",cursor:"pointer"}}>
-                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,color:"rgba(212,168,83,0.9)",letterSpacing:"0.05em",textTransform:"uppercase"}}>{isLastChapter?"All Chaps":"Next"}</span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(212,168,83,0.85)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:7,padding:"13px 8px",background:"linear-gradient(160deg,rgba(212,168,83,0.13),rgba(180,130,40,0.05))",border:"none",boxShadow:"inset 0 1px 0 rgba(255,215,100,0.14),inset 0 -1px 0 rgba(0,0,0,0.12)",cursor:"pointer"}}>
+                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,letterSpacing:"0.08em",textTransform:"uppercase",color:"rgba(212,168,83,0.85)",textShadow:"0 1px 1px rgba(255,255,255,0.14),0 -1px 0 rgba(0,0,0,0.45)"}}>{isLastChapter?"All Chaps":"Next"}</span>
+                <div style={{filter:"drop-shadow(0 1px 0.5px rgba(255,255,255,0.14)) drop-shadow(0 -1px 0.5px rgba(0,0,0,0.3))"}}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(212,168,83,0.75)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </div>
               </button>
+
             </div>
           </div>
 
