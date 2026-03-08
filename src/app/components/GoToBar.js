@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import { useApp } from "../context/AppContext";
-import { BIBLE_BOOKS } from "../constants";
+import { BIBLE_BOOKS, getBookName } from "../constants";
 
 // ─── Compact Scroll Wheel Constants ───
 const ITEM_H = 28;
@@ -103,7 +103,7 @@ function ScrollColumn({ items, selectedIdx, onSelect, label }) {
 
 // ─── GoToBar (tap-to-expand inline wheels) ───
 export default function GoToBar() {
-  const { book, chapter, verse, view, t, ht, darkMode, nav, testament } = useApp();
+  const { book, chapter, verse, view, t, ht, darkMode, nav, testament, bibleTranslation } = useApp();
 
   const [open, setOpen] = useState(false);
   const [goBook, setGoBook] = useState(book || "Genesis");
@@ -128,8 +128,8 @@ export default function GoToBar() {
 
   // ── Derived data ──
   const bookItems = useMemo(() =>
-    BIBLE_BOOKS.map(b => ({ value: b.name, label: b.name })),
-  []);
+    BIBLE_BOOKS.map(b => ({ value: b.name, label: getBookName(b.name, bibleTranslation) })),
+  [bibleTranslation]);
 
   const bookInfo = useMemo(() => BIBLE_BOOKS.find(b => b.name === goBook), [goBook]);
 
@@ -150,7 +150,7 @@ export default function GoToBar() {
   const verseIdx = Math.max(0, Math.min((goVerse || 1) - 1, maxVerse - 1));
 
   // Display values
-  const displayBook = book || goBook || "Select";
+  const displayBook = getBookName(book || goBook || "Genesis", bibleTranslation);
   const displayCh = chapter || goChapter || "–";
   const displayV = verse || goVerse || "–";
 
@@ -257,7 +257,7 @@ export default function GoToBar() {
               color: "rgba(255,255,255,0.9)",
               letterSpacing: "0.02em",
             }}>
-              {goBook} {goChapter}:{goVerse}
+              {getBookName(goBook, bibleTranslation)} {goChapter}:{goVerse}
             </span>
 
             <button onClick={handleGo} style={{

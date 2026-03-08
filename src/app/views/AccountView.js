@@ -7,7 +7,7 @@ import { BADGES, BADGE_CATEGORIES, BIBLE_TRANSLATIONS } from "../constants";
 
 export default function AccountView() {
   const {
-    user, profile, streak, darkMode, setDarkMode, fontSize, setFontSize, ht, bibleTranslation, setBibleTranslation,
+    user, profile, streak, darkMode, setDarkMode, fontSize, setFontSize, ht, bibleTranslation,
     authMode, setAuthMode, authEmail, setAuthEmail, authPass, setAuthPass,
     authName, setAuthName, authError, authLoading, authShowPass, setAuthShowPass,
     authForgot, setAuthForgot, authForgotSent,
@@ -261,36 +261,6 @@ export default function AccountView() {
                     }}>{label}</button>
                   ))}
                 </div>
-              </div>
-              <div style={{padding:"12px 14px",border:`1px solid ${ht.divider}`,borderRadius:10,marginBottom:6}}>
-                <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:10}}>
-                  <span style={{fontSize:18}}>🌐</span>
-                  <span style={{fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark}}>Bible Translation</span>
-                </div>
-                {["English","Indian","International"].map(group => {
-                  const items = BIBLE_TRANSLATIONS.filter(t => t.group === group);
-                  return (
-                    <div key={group} style={{marginBottom:8}}>
-                      <div style={{fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:5}}>{group === "Indian" ? "\u092D\u093E\u0930\u0924\u0940\u092F" : group}</div>
-                      <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
-                        {items.map(t => (
-                          <button key={t.id} onClick={() => setBibleTranslation(t.id)} style={{
-                            padding:"6px 10px",borderRadius:7,border:`1.5px solid ${bibleTranslation===t.id ? ht.accent : ht.divider}`,
-                            background:bibleTranslation===t.id ? ht.accent : "transparent",
-                            color:bibleTranslation===t.id ? "#fff" : ht.muted,
-                            fontFamily:ht.ui,fontSize:12,fontWeight:700,cursor:"pointer",
-                            transition:"all 0.15s"
-                          }}>{t.label}</button>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
-                {bibleTranslation !== "kjv" && (
-                  <div style={{fontFamily:ht.ui,fontSize:10,color:ht.light,marginTop:4,lineHeight:1.4}}>
-                    {BIBLE_TRANSLATIONS.find(t => t.id === bibleTranslation)?.name} — Study notes remain in English (KJV)
-                  </div>
-                )}
               </div>
 
               {/* Audio Playback */}

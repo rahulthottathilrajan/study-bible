@@ -1,8 +1,11 @@
 "use client";
 import { useState, useRef, useCallback } from "react";
 import { supabase } from "../../lib/supabase";
+import { useApp } from "../context/AppContext";
+import { getBookName } from "../constants";
 
 export default function BibleSearch({ nav, ht }) {
+  const { bibleTranslation } = useApp();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -180,7 +183,7 @@ export default function BibleSearch({ nav, ht }) {
           const chapNum = v.chapters?.chapter_number;
           const verseNum = v.verse_number;
           const text = v.kjv_text || "";
-          const ref = `${bookName} ${chapNum}:${verseNum}`;
+          const ref = `${getBookName(bookName, bibleTranslation)} ${chapNum}:${verseNum}`;
           const snippet = truncateAround(text, query);
 
           return (

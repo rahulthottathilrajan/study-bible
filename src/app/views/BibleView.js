@@ -37,7 +37,7 @@ export default function BibleView() {
     const cats = {}; books.forEach(b => { if (!cats[b.category]) cats[b.category] = []; cats[b.category].push(b); });
     return (
       <div style={{ minHeight:"100vh",background:ht.bg }}>
-        <Header title="The Holy Scriptures" onBack={goBack} theme={ht} hidePrayer hideUser />
+        <Header title="The Holy Scriptures" onBack={goBack} theme={ht} hidePrayer hideUser showLangPicker />
         <div style={{ padding:`20px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
 
           {/* ── Testament Picker (Parchment Scrolls) ── */}
@@ -135,7 +135,7 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={getBookName(book, bibleTranslation)} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={goBack} />
+        <Header title={getBookName(book, bibleTranslation)} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={goBack} showLangPicker />
         <div style={{ padding:`18px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
 
           {/* Book info card */}
@@ -263,23 +263,16 @@ export default function BibleView() {
   };
 
   // ═══ VERSE LIST ═══
+  const isEnglishTrans = bibleTranslation === "kjv" || bibleTranslation === "bsb";
   const VerseList = () => {
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle="Loading verses..." onBack={goBack} /><Spinner t={t} /></div>;
-    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle="Loading verses..." onBack={goBack} showLangPicker /><Spinner t={t} /></div>;
+    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showLangPicker /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} />
+        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} showLangPicker />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
 
-
-          {bibleTranslation !== "kjv" && currentTransDef && (
-            <div style={{display:"flex",alignItems:"center",gap:6,padding:"6px 10px",background:t.accentLight,borderRadius:8,marginBottom:10,border:`1px solid ${t.accentBorder}`}}>
-              <span style={{fontSize:12}}>🌐</span>
-              <span style={{fontFamily:t.ui,fontSize:11,fontWeight:600,color:t.accent}}>{currentTransDef.name}</span>
-              <span style={{fontFamily:t.ui,fontSize:10,color:t.muted}}>— Study notes in English (KJV)</span>
-            </div>
-          )}
 
           {/* Chapter Illustration */}
           {chapterMeta?.illustration_url && (
@@ -288,8 +281,8 @@ export default function BibleView() {
             </div>
           )}
 
-          {/* Chapter Overview (compact) */}
-          {chapterMeta?.overview && (
+          {/* Chapter Overview (compact) — English only */}
+          {isEnglishTrans && chapterMeta?.overview && (
             <Card accent t={t} style={{marginBottom:14}}>
               <Label icon="📋" t={t}>Overview</Label>
               <div style={{fontFamily:t.body,fontSize:13.5,color:t.text,lineHeight:1.6,display:"-webkit-box",WebkitLineClamp:3,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{chapterMeta.overview}</div>
@@ -407,8 +400,10 @@ export default function BibleView() {
   // ═══ VERSE STUDY ═══
   const VerseStudy = () => {
     const bookDisplayName = getBookName(book, bibleTranslation);
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
-    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
+    // Auto-switch away from Study Notes tab when non-English translation is active
+    useEffect(() => { if (!isEnglishTrans && tab === "study") setTab("original"); }, [isEnglishTrans]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer showLangPicker /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
+    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer showLangPicker /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
 
     const vWords = wordStudies[String(verse)] || [];
     const vRefs = crossRefs[String(verse)] || [];
@@ -417,9 +412,9 @@ export default function BibleView() {
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <AudioPlayer />
-        <Header title={bookDisplayName} onBack={goBack} hidePrayer />
+        <Header title={bookDisplayName} onBack={goBack} hidePrayer showLangPicker />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`0 ${bp.pad}px ${audioVisible?68:40}px` }}>
-          {chapterMeta?.overview && (
+          {isEnglishTrans && chapterMeta?.overview && (
             <div style={{margin:"14px 0"}}>
               <button
                 onClick={() => setOverviewOpen(o => !o)}
@@ -531,7 +526,7 @@ export default function BibleView() {
           {/* Tabs */}
           <div style={{ display:"flex",background:t.card,borderRadius:10,padding:3,marginBottom:14,border:`1px solid ${t.divider}`,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none" }}>
             {[
-              {id:"study",label:"Study Notes"},
+              ...(isEnglishTrans ? [{id:"study",label:"Study Notes"}] : []),
               {id:"original",label:isOT?"Hebrew":"Greek"},
               {id:"cross",label:`Cross-Refs${vRefs.length?` (${vRefs.length})`:""}`},
               ...(user ? [{id:"my",label:"My Notes"}] : [])
@@ -540,8 +535,8 @@ export default function BibleView() {
             ))}
           </div>
 
-          {/* Study Notes Tab */}
-          {tab === "study" && <div style={{display:"flex",flexDirection:"column",gap:12}}>
+          {/* Study Notes Tab — English translations only */}
+          {isEnglishTrans && tab === "study" && <div style={{display:"flex",flexDirection:"column",gap:12}}>
             {currentVerse.study_note && <Card t={t}><Label icon="📝" t={t}>Study Note</Label><div style={{fontFamily:t.body,fontSize:15,color:t.text,lineHeight:1.75}}>{currentVerse.study_note}</div></Card>}
             {currentVerse.doctrinal_note && <Card accent t={t}><Label icon="⛪" t={t} color={t.dark}>Doctrinal Note</Label><div style={{fontFamily:t.body,fontSize:14.5,color:t.text,lineHeight:1.7,fontStyle:"italic"}}>{currentVerse.doctrinal_note}</div></Card>}
             {!currentVerse.study_note && !currentVerse.doctrinal_note && <Card t={t}><div style={{fontFamily:t.ui,fontSize:14,color:t.muted,textAlign:"center",padding:16}}>Study notes coming soon.</div></Card>}

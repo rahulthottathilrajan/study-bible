@@ -542,3 +542,91 @@ export const BOOK_CODE_MAP = {
   "2 Peter":"2PE","1 John":"1JN","2 John":"2JN","3 John":"3JN","Jude":"JUD",
   "Revelation":"REV",
 };
+
+// ═══════════════════════════════════════════════════
+// MULTILINGUAL BOOK NAMES
+// Keys: hi=Hindi, ml=Malayalam, ta=Tamil, te=Telugu,
+//       kn=Kannada, fr=French, es=Spanish, zh=Chinese, ar=Arabic
+// ═══════════════════════════════════════════════════
+export const BOOK_NAMES_I18N = {
+  "Genesis":         { hi:"उत्पत्ति",        ml:"ഉൽപ്പത്തി",        ta:"ஆதியாகமம்",      te:"ఆదికాండము",            kn:"ಆದಿಕಾಂಡ",             fr:"Genèse",                 es:"Génesis",         zh:"创世记",      ar:"سفر التكوين" },
+  "Exodus":          { hi:"निर्गमन",          ml:"പുറപ്പാട്",        ta:"யாத்திராகமம்",   te:"నిర్గమకాండము",         kn:"ವಿಮೋಚನಕಾಂಡ",          fr:"Exode",                  es:"Éxodo",           zh:"出埃及记",    ar:"سفر الخروج" },
+  "Leviticus":       { hi:"लेवीय",            ml:"ലേവ്യപുസ്തകം",    ta:"லேவியராகமம்",    te:"లేవీయకాండము",          kn:"ಯಾಜಕಕಾಂಡ",            fr:"Lévitique",              es:"Levítico",        zh:"利未记",      ar:"سفر اللاويين" },
+  "Numbers":         { hi:"गिनती",            ml:"സംഖ്യ",            ta:"எண்ணாகமம்",      te:"సంఖ్యాకాండము",         kn:"ಅರಣ್ಯಕಾಂಡ",           fr:"Nombres",                es:"Números",         zh:"民数记",      ar:"سفر العدد" },
+  "Deuteronomy":     { hi:"व्यवस्थाविवरण",   ml:"ആവർത്തനം",        ta:"உபாகமம்",         te:"ద్వితీయోపదేశకాండము",  kn:"ಧರ್ಮೋಪದೇಶಕಾಂಡ",       fr:"Deutéronome",            es:"Deuteronomio",    zh:"申命记",      ar:"سفر التثنية" },
+  "Joshua":          { hi:"यहोशू",            ml:"യോശുവ",            ta:"யோசுவா",          te:"యెహోషువ",              kn:"ಯೆಹೋಶುವ",             fr:"Josué",                  es:"Josué",           zh:"约书亚记",    ar:"سفر يشوع" },
+  "Judges":          { hi:"न्यायियों",        ml:"ന്യായാധിപന്മാർ",  ta:"நியாயாதிபதிகள்", te:"న్యాయాధిపతులు",        kn:"ನ್ಯಾಯಾಧಿಪತಿಗಳು",      fr:"Juges",                  es:"Jueces",          zh:"士师记",      ar:"سفر القضاة" },
+  "Ruth":            { hi:"रूत",              ml:"രൂത്ത്",           ta:"ரூத்",            te:"రూతు",                 kn:"ರೂತ್",                 fr:"Ruth",                   es:"Rut",             zh:"路得记",      ar:"سفر راعوث" },
+  "1 Samuel":        { hi:"1 शमूएल",          ml:"1 ശമൂവേൽ",        ta:"1 சாமுவேல்",      te:"1 సమూయేలు",            kn:"1 ಸಮುವೇಲ",            fr:"1 Samuel",               es:"1 Samuel",        zh:"撒母耳记上",  ar:"سفر صموئيل الأول" },
+  "2 Samuel":        { hi:"2 शमूएल",          ml:"2 ശമൂവേൽ",        ta:"2 சாமுவேல்",      te:"2 సమూయేలు",            kn:"2 ಸಮುವೇಲ",            fr:"2 Samuel",               es:"2 Samuel",        zh:"撒母耳记下",  ar:"سفر صموئيل الثاني" },
+  "1 Kings":         { hi:"1 राजा",           ml:"1 രാജാക്കന്മാർ",  ta:"1 இராஜாக்கள்",   te:"1 రాజులు",             kn:"1 ರಾಜರು",              fr:"1 Rois",                 es:"1 Reyes",         zh:"列王纪上",    ar:"سفر الملوك الأول" },
+  "2 Kings":         { hi:"2 राजा",           ml:"2 രാജാക്കന്മാർ",  ta:"2 இராஜாக்கள்",   te:"2 రాజులు",             kn:"2 ರಾಜರು",              fr:"2 Rois",                 es:"2 Reyes",         zh:"列王纪下",    ar:"سفر الملوك الثاني" },
+  "1 Chronicles":    { hi:"1 इतिहास",         ml:"1 ദിനവൃത്താന്തം", ta:"1 நாளாகமம்",     te:"1 దినవృత్తాంతములు",   kn:"1 ಪೂರ್ವಕಾಲವೃತ್ತಾಂತ",fr:"1 Chroniques",           es:"1 Crónicas",      zh:"历代志上",    ar:"سفر أخبار الأيام الأول" },
+  "2 Chronicles":    { hi:"2 इतिहास",         ml:"2 ദിനവൃത്താന്തം", ta:"2 நாளாகமம்",     te:"2 దినవృత్తాంతములు",   kn:"2 ಪೂರ್ವಕಾಲವೃತ್ತಾಂತ",fr:"2 Chroniques",           es:"2 Crónicas",      zh:"历代志下",    ar:"سفر أخبار الأيام الثاني" },
+  "Ezra":            { hi:"एज्रा",            ml:"എസ്ര",             ta:"எஸ்றா",           te:"ఎజ్రా",                kn:"ಎಜ್ರಾ",               fr:"Esdras",                 es:"Esdras",          zh:"以斯拉记",    ar:"سفر عزرا" },
+  "Nehemiah":        { hi:"नहेमायाह",         ml:"നെഹെമ്യാ",         ta:"நெகேமியா",        te:"నెహెమ్యా",             kn:"ನೆಹೆಮಿಯ",              fr:"Néhémie",                es:"Nehemías",        zh:"尼希米记",    ar:"سفر نحميا" },
+  "Esther":          { hi:"एस्तेर",           ml:"എസ്ഥേർ",           ta:"எஸ்தர்",          te:"ఎస్తేరు",              kn:"ಎಸ್ತೇರ್",              fr:"Esther",                 es:"Ester",           zh:"以斯帖记",    ar:"سفر إستير" },
+  "Job":             { hi:"अय्यूब",           ml:"ഇയ്യോബ്",          ta:"யோபு",            te:"యోబు",                 kn:"ಯೋಬ",                  fr:"Job",                    es:"Job",             zh:"约伯记",      ar:"سفر أيوب" },
+  "Psalms":          { hi:"भजन संहिता",       ml:"സങ്കീർത്തനം",     ta:"சங்கீதம்",        te:"కీర్తనలు",             kn:"ಕೀರ್ತನೆ",              fr:"Psaumes",                es:"Salmos",          zh:"诗篇",        ar:"سفر المزامير" },
+  "Proverbs":        { hi:"नीतिवचन",          ml:"സദൃശ്യവാക്യങ്ങൾ", ta:"நீதிமொழிகள்",    te:"సామెతలు",              kn:"ಜ್ಞಾನೋಕ್ತಿಗಳು",       fr:"Proverbes",              es:"Proverbios",      zh:"箴言",        ar:"سفر الأمثال" },
+  "Ecclesiastes":    { hi:"उपदेशक",           ml:"സഭാപ്രസംഗി",       ta:"பிரசங்கி",        te:"ప్రసంగి",              kn:"ಪ್ರಸಂಗಿ",              fr:"Ecclésiaste",            es:"Eclesiastés",     zh:"传道书",      ar:"سفر الجامعة" },
+  "Song of Solomon": { hi:"श्रेष्ठगीत",      ml:"ഉത്തമഗീതം",        ta:"உன்னதப்பாட்டு",  te:"పరమగీతము",             kn:"ಪರಮಗೀತ",               fr:"Cantique des Cantiques", es:"Cantares",        zh:"雅歌",        ar:"نشيد الأناشيد" },
+  "Isaiah":          { hi:"यशायाह",           ml:"യെശയ്യാ",          ta:"ஏசாயா",           te:"యెషయా",                kn:"ಯೆಶಾಯ",               fr:"Ésaïe",                  es:"Isaías",          zh:"以赛亚书",    ar:"سفر إشعياء" },
+  "Jeremiah":        { hi:"यिर्मयाह",         ml:"യിരെമ്യാ",         ta:"எரேமியா",         te:"యిర్మీయా",             kn:"ಯೆರೆಮಿಯ",              fr:"Jérémie",                es:"Jeremías",        zh:"耶利米书",    ar:"سفر إرميا" },
+  "Lamentations":    { hi:"विलापगीत",         ml:"വിലാപങ്ങൾ",        ta:"புலம்பல்",        te:"విలాపవాక్యములు",       kn:"ವಿಲಾಪಸಂಹಿತೆ",         fr:"Lamentations",           es:"Lamentaciones",   zh:"耶利米哀歌",  ar:"مراثي إرميا" },
+  "Ezekiel":         { hi:"यहेजकेल",          ml:"യഹസ്കേൽ",          ta:"எசேக்கியேல்",     te:"యెహెజ్కేలు",           kn:"ಯೆಹೆಜ್ಕೇಲ",           fr:"Ézéchiel",               es:"Ezequiel",        zh:"以西结书",    ar:"سفر حزقيال" },
+  "Daniel":          { hi:"दानिय्येल",        ml:"ദാനിയേൽ",          ta:"தானியேல்",        te:"దానియేలు",             kn:"ದಾನಿಯೇಲ",              fr:"Daniel",                 es:"Daniel",          zh:"但以理书",    ar:"سفر دانيال" },
+  "Hosea":           { hi:"होशे",             ml:"ഹോശേയ",            ta:"ஓசேயா",           te:"హోషేయ",                kn:"ಹೋಶೇಯ",               fr:"Osée",                   es:"Oseas",           zh:"何西阿书",    ar:"سفر هوشع" },
+  "Joel":            { hi:"योएल",             ml:"യോവേൽ",            ta:"யோவேல்",          te:"యోవేలు",               kn:"ಯೋವೇಲ",               fr:"Joël",                   es:"Joel",            zh:"约珥书",      ar:"سفر يوئيل" },
+  "Amos":            { hi:"आमोस",             ml:"ആമോസ്",            ta:"ஆமோஸ்",           te:"ఆమోసు",                kn:"ಆಮೋಸ",                 fr:"Amos",                   es:"Amós",            zh:"阿摩司书",    ar:"سفر عاموس" },
+  "Obadiah":         { hi:"ओबद्याह",          ml:"ഓബദ്യാ",           ta:"ஒபதியா",          te:"ఓబద్యా",               kn:"ಓಬದ್ಯ",                fr:"Abdias",                 es:"Abdías",          zh:"俄巴底亚书",  ar:"سفر عوبديا" },
+  "Jonah":           { hi:"योना",             ml:"യോനാ",             ta:"யோனா",            te:"యోనా",                 kn:"ಯೋನ",                  fr:"Jonas",                  es:"Jonás",           zh:"约拿书",      ar:"سفر يونان" },
+  "Micah":           { hi:"मीका",             ml:"മീഖാ",             ta:"மீகா",             te:"మీకా",                 kn:"ಮೀಕ",                  fr:"Michée",                 es:"Miqueas",         zh:"弥迦书",      ar:"سفر ميخا" },
+  "Nahum":           { hi:"नाहूम",            ml:"നഹൂം",             ta:"நாகூம்",           te:"నాహూము",               kn:"ನಾಹೂಮ",                fr:"Nahoum",                 es:"Nahúm",           zh:"那鸿书",      ar:"سفر ناحوم" },
+  "Habakkuk":        { hi:"हबक्कूक",          ml:"ഹബക്കൂക്ക്",       ta:"ஆபகூக்",          te:"హబక్కూకు",             kn:"ಹಬಕ್ಕೂಕ",              fr:"Habacuc",                es:"Habacuc",         zh:"哈巴谷书",    ar:"سفر حبقوق" },
+  "Zephaniah":       { hi:"सपन्याह",          ml:"സെഫന്യാ",          ta:"செப்பனியா",        te:"సెఫన్యా",              kn:"ಸೆಫನ್ಯ",               fr:"Sophonie",               es:"Sofonías",        zh:"西番雅书",    ar:"سفر صفنيا" },
+  "Haggai":          { hi:"हाग्गै",           ml:"ഹഗ്ഗായി",          ta:"ஆகாய்",           te:"హగ్గయి",               kn:"ಹಗ್ಗಾಯ",               fr:"Aggée",                  es:"Hageo",           zh:"哈该书",      ar:"سفر حجي" },
+  "Zechariah":       { hi:"जकर्याह",          ml:"സെഖര്യ",           ta:"சகரியா",          te:"జెకర్యా",              kn:"ಜೆಕರ್ಯ",               fr:"Zacharie",               es:"Zacarías",        zh:"撒迦利亚书",  ar:"سفر زكريا" },
+  "Malachi":         { hi:"मलाकी",            ml:"മലാഖി",            ta:"மல்கியா",         te:"మలాకీ",                kn:"ಮಲಾಕಿ",                fr:"Malachie",               es:"Malaquías",       zh:"玛拉基书",    ar:"سفر ملاخي" },
+  "Matthew":         { hi:"मत्ती",            ml:"മത്തായി",          ta:"மத்தேயு",         te:"మత్తయి",               kn:"ಮತ್ತಾಯ",               fr:"Matthieu",               es:"Mateo",           zh:"马太福音",    ar:"إنجيل متى" },
+  "Mark":            { hi:"मरकुस",            ml:"മർക്കൊസ്",         ta:"மாற்கு",          te:"మార్కు",               kn:"ಮಾರ್ಕ",                fr:"Marc",                   es:"Marcos",          zh:"马可福音",    ar:"إنجيل مرقس" },
+  "Luke":            { hi:"लूका",             ml:"ലൂക്കൊസ്",         ta:"லூக்கா",          te:"లూకా",                 kn:"ಲೂಕ",                  fr:"Luc",                    es:"Lucas",           zh:"路加福音",    ar:"إنجيل لوقا" },
+  "John":            { hi:"यूहन्ना",          ml:"യോഹന്നാൻ",         ta:"யோவான்",          te:"యోహాను",               kn:"ಯೋಹಾನ",               fr:"Jean",                   es:"Juan",            zh:"约翰福音",    ar:"إنجيل يوحنا" },
+  "Acts":            { hi:"प्रेरितों के काम",ml:"അ.പ്ര.",            ta:"அப்போஸ்தலர்",     te:"అపొస్తలుల కార్యములు", kn:"ಅಪೊಸ್ತಲರ ಕೃತ್ಯ",      fr:"Actes",                  es:"Hechos",          zh:"使徒行传",    ar:"سفر أعمال الرسل" },
+  "Romans":          { hi:"रोमियों",          ml:"റോമർ",             ta:"ரோமர்",           te:"రోమీయులకు",            kn:"ರೋಮನ್ನರಿಗೆ",           fr:"Romains",                es:"Romanos",         zh:"罗马书",      ar:"رسالة رومية" },
+  "1 Corinthians":   { hi:"1 कुरिन्थियों",   ml:"1 കൊരിന്ത്യർ",    ta:"1 கொரிந்தியர்",  te:"1 కొరింథీయులకు",       kn:"1 ಕೊರಿಂಥದವರಿಗೆ",     fr:"1 Corinthiens",          es:"1 Corintios",     zh:"哥林多前书",  ar:"رسالة كورنثوس الأولى" },
+  "2 Corinthians":   { hi:"2 कुरिन्थियों",   ml:"2 കൊരിന്ത്യർ",    ta:"2 கொரிந்தியர்",  te:"2 కొరింథీయులకు",       kn:"2 ಕೊರಿಂಥದವರಿಗೆ",     fr:"2 Corinthiens",          es:"2 Corintios",     zh:"哥林多后书",  ar:"رسالة كورنثوس الثانية" },
+  "Galatians":       { hi:"गलातियों",         ml:"ഗലാത്യർ",          ta:"கலாத்தியர்",      te:"గలతియులకు",            kn:"ಗಲಾತ್ಯರಿಗೆ",           fr:"Galates",                es:"Gálatas",         zh:"加拉太书",    ar:"رسالة غلاطية" },
+  "Ephesians":       { hi:"इफिसियों",         ml:"എഫേസ്യർ",          ta:"எபேசியர்",        te:"ఎఫెసీయులకు",           kn:"ಎಫೆಸಿಯರಿಗೆ",           fr:"Éphésiens",              es:"Efesios",         zh:"以弗所书",    ar:"رسالة أفسس" },
+  "Philippians":     { hi:"फिलिप्पियों",      ml:"ഫിലിപ്പ്യർ",      ta:"பிலிப்பியர்",     te:"ఫిలిప్పీయులకు",        kn:"ಫಿಲಿಪ್ಪಿಯರಿಗೆ",       fr:"Philippiens",            es:"Filipenses",      zh:"腓立比书",    ar:"رسالة فيلبي" },
+  "Colossians":      { hi:"कुलुस्सियों",      ml:"കൊലൊസ്സ്യർ",      ta:"கொலோசெயர்",       te:"కొలొస్సీయులకు",        kn:"ಕೊಲೊಸ್ಸೆಯರಿಗೆ",       fr:"Colossiens",             es:"Colosenses",      zh:"歌罗西书",    ar:"رسالة كولوسي" },
+  "1 Thessalonians": { hi:"1 थिस्सलुनीकियों",ml:"1 തെസ്സലൊ.",       ta:"1 தெசலோனிக்கேயர்",te:"1 థెస్సలొనీకయులకు",   kn:"1 ಥೆಸಲೋನಿಕದವರಿಗೆ",   fr:"1 Thessaloniciens",      es:"1 Tesalonicenses",zh:"帖撒罗尼迦前书",ar:"رسالة تسالونيكي الأولى" },
+  "2 Thessalonians": { hi:"2 थिस्सलुनीकियों",ml:"2 തെസ്സലൊ.",       ta:"2 தெசலோனிக்கேயர்",te:"2 థెస్సలొనీకయులకు",   kn:"2 ಥೆಸಲೋನಿಕದವರಿಗೆ",   fr:"2 Thessaloniciens",      es:"2 Tesalonicenses",zh:"帖撒罗尼迦后书",ar:"رسالة تسالونيكي الثانية" },
+  "1 Timothy":       { hi:"1 तीमुथियुस",      ml:"1 തിമൊഥെ.",        ta:"1 தீமோத்தேயு",   te:"1 తిమోతికి",           kn:"1 ತಿಮೋತಿಗೆ",           fr:"1 Timothée",             es:"1 Timoteo",       zh:"提摩太前书",  ar:"رسالة تيموثاوس الأولى" },
+  "2 Timothy":       { hi:"2 तीमुथियुस",      ml:"2 തിമൊഥെ.",        ta:"2 தீமோத்தேயு",   te:"2 తిమోతికి",           kn:"2 ತಿಮೋತಿಗೆ",           fr:"2 Timothée",             es:"2 Timoteo",       zh:"提摩太后书",  ar:"رسالة تيموثاوس الثانية" },
+  "Titus":           { hi:"तीतुस",            ml:"തീത്തൊസ്",         ta:"தீத்து",          te:"తీతుకు",               kn:"ತೀತನಿಗೆ",              fr:"Tite",                   es:"Tito",            zh:"提多书",      ar:"رسالة تيطس" },
+  "Philemon":        { hi:"फिलेमोन",          ml:"ഫിലേമോൻ",          ta:"பிலேமோன்",        te:"ఫిలేమోనుకు",           kn:"ಫಿಲೆಮೋನನಿಗೆ",         fr:"Philémon",               es:"Filemón",         zh:"腓利门书",    ar:"رسالة فليمون" },
+  "Hebrews":         { hi:"इब्रानियों",       ml:"എബ്രായർ",          ta:"எபிரெயர்",        te:"హెబ్రీయులకు",          kn:"ಇಬ್ರಾಯರಿಗೆ",           fr:"Hébreux",                es:"Hebreos",         zh:"希伯来书",    ar:"رسالة العبرانيين" },
+  "James":           { hi:"याकूब",            ml:"യാക്കോബ്",         ta:"யாக்கோபு",        te:"యాకోబు",               kn:"ಯಾಕೋಬ",                fr:"Jacques",                es:"Santiago",        zh:"雅各书",      ar:"رسالة يعقوب" },
+  "1 Peter":         { hi:"1 पतरस",           ml:"1 പത്രൊസ്",        ta:"1 பேதுரு",        te:"1 పేతురు",             kn:"1 ಪೇತ್ರ",              fr:"1 Pierre",               es:"1 Pedro",         zh:"彼得前书",    ar:"رسالة بطرس الأولى" },
+  "2 Peter":         { hi:"2 पतरस",           ml:"2 പത്രൊസ്",        ta:"2 பேதுரு",        te:"2 పేతురు",             kn:"2 ಪೇತ್ರ",              fr:"2 Pierre",               es:"2 Pedro",         zh:"彼得后书",    ar:"رسالة بطرس الثانية" },
+  "1 John":          { hi:"1 यूहन्ना",        ml:"1 യോഹന്നാൻ",       ta:"1 யோவான்",        te:"1 యోహాను",             kn:"1 ಯೋಹಾನ",              fr:"1 Jean",                 es:"1 Juan",          zh:"约翰一书",    ar:"رسالة يوحنا الأولى" },
+  "2 John":          { hi:"2 यूहन्ना",        ml:"2 യോഹന്നാൻ",       ta:"2 யோவான்",        te:"2 యోహాను",             kn:"2 ಯೋಹಾನ",              fr:"2 Jean",                 es:"2 Juan",          zh:"约翰二书",    ar:"رسالة يوحنا الثانية" },
+  "3 John":          { hi:"3 यूहन्ना",        ml:"3 യോഹന്നാൻ",       ta:"3 யோவான்",        te:"3 యోహాను",             kn:"3 ಯೋಹಾನ",              fr:"3 Jean",                 es:"3 Juan",          zh:"约翰三书",    ar:"رسالة يوحنا الثالثة" },
+  "Jude":            { hi:"यहूदा",            ml:"യൂദാ",             ta:"யூதா",            te:"యూదా",                 kn:"ಯೂದ",                  fr:"Jude",                   es:"Judas",           zh:"犹大书",      ar:"رسالة يهوذا" },
+  "Revelation":      { hi:"प्रकाशितवाक्य",   ml:"വെളിപ്പാട്",       ta:"வெளிப்படுத்தல்", te:"ప్రకటన గ్రంథము",      kn:"ಪ್ರಕಟಣೆ",              fr:"Apocalypse",             es:"Apocalipsis",     zh:"启示录",      ar:"سفر الرؤيا" },
+};
+
+// Maps BIBLE_TRANSLATIONS id → BOOK_NAMES_I18N language key
+const _LANG_MAP = {
+  HINIRV:"hi", mal_irv:"ml", tam_irv:"ta", tel_irv:"te",
+  kan_irv:"kn", fra_lsg:"fr", spa_r09:"es", cmn_cu1:"zh", ARBNAV:"ar",
+};
+
+/** Returns the localised book name for the active translation, falling back to English. */
+export function getBookName(englishName, translationId) {
+  if (!translationId || !englishName) return englishName || "";
+  const lang = _LANG_MAP[translationId];
+  if (!lang) return englishName;
+  return BOOK_NAMES_I18N[englishName]?.[lang] || englishName;
+}

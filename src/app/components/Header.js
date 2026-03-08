@@ -6,7 +6,7 @@ import UtilityStrip from "./UtilityStrip";
 
 const hex2rgba = (hex, a) => { const v = parseInt(hex.replace("#",""),16); return `rgba(${(v>>16)&255},${(v>>8)&255},${v&255},${a})`; };
 
-export default function Header({ title, subtitle, onBack, right, theme, hidePrayer, hideUser }) {
+export default function Header({ title, subtitle, onBack, right, theme, hidePrayer, hideUser, showLangPicker = false }) {
   const { user, profile, t, bp, setPrayerModal, handleLogout, nav } = useApp();
   const th = theme || t;
   const ac = th.accent, ht = th.headerText;
@@ -32,7 +32,7 @@ export default function Header({ title, subtitle, onBack, right, theme, hidePray
       {/* ── ANIMATED ACCENT LINE ── */}
       <div style={{ height:2,background:`linear-gradient(90deg,${hex2rgba(ac,0.6)},${hex2rgba(ht,0.9)},${hex2rgba(ac,0.8)},${hex2rgba(ht,0.95)},${hex2rgba(ac,0.6)})`,backgroundSize:"200% 100%",animation:"goldFlow 3s linear infinite",marginTop:6 }}/>
       <GoToBar />
-      <UtilityStrip theme={th} />
+      <UtilityStrip theme={th} showLangPicker={showLangPicker} />
     </div>
   );
 }
