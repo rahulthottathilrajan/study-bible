@@ -234,6 +234,23 @@ export function AppProvider({ children }) {
   const [quizQuestions, setQuizQuestions] = useState([]);
   const [quizLoading, setQuizLoading] = useState(false);
 
+  // ─── Audio state ───
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const [audioVisible, setAudioVisible] = useState(false);
+  const [listenedChapters, setListenedChapters] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("listenedChapters") || "[]"); } catch { return []; }
+  });
+
+  const markChapterListened = useCallback((bookName, chapterNum) => {
+    const key = `${bookName}:${chapterNum}`;
+    setListenedChapters(prev => {
+      if (prev.includes(key)) return prev;
+      const next = [...prev, key];
+      try { localStorage.setItem("listenedChapters", JSON.stringify(next)); } catch {}
+      return next;
+    });
+  }, []);
+
   useEffect(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("learnExploration") || "{}");
@@ -1443,6 +1460,9 @@ export function AppProvider({ children }) {
     // Quiz
     quizScores, quizQuestions, quizLoading,
     loadQuizQuestions, submitQuizScore,
+    // Audio
+    audioPlaying, setAudioPlaying, audioVisible, setAudioVisible,
+    listenedChapters, markChapterListened,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

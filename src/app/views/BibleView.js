@@ -4,6 +4,7 @@ import { useApp } from "../context/AppContext";
 import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS } from "../constants";
 import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
 import Header from "../components/Header";
+import AudioPlayer from "../components/AudioPlayer";
 
 export default function BibleView() {
   const {
@@ -18,6 +19,8 @@ export default function BibleView() {
     hasVerseId, saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage, nav, goBack,
     chapterReads, markChapterRead, quizScores, bibleTranslation, bp,
+    audioPlaying, audioVisible, setAudioPlaying, setAudioVisible,
+    listenedChapters,
   } = useApp();
 
   const [showColors, setShowColors] = useState(false);
@@ -185,6 +188,7 @@ export default function BibleView() {
                       const theme = getTheme(ch);
                       const isLast = ci === group.chapters.length - 1;
                       const isRead = chapterReads.some(r => r.book_name === book && r.chapter_number === ch);
+                      const isListened = listenedChapters.includes(`${book}:${ch}`);
                       const chKey = `${book}-${ch}`;
                       const qScores = quizScores[chKey] || [];
                       const bestPct = qScores.length > 0 ? Math.max(...qScores.map(s => s.percentage)) : null;
@@ -226,6 +230,7 @@ export default function BibleView() {
                                 color:bestPct >= 70 ? "#22c55e" : "#ef4444"
                               }}>{bestPct}%</span>
                             )}
+                            {isListened && <span style={{ fontSize:12,opacity:0.75 }} title="Listened">🎧</span>}
                             {has && <div style={{ color:t.light }}><ChevIcon /></div>}
                           </div>
                         </button>
@@ -410,8 +415,9 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
+        <AudioPlayer />
         <Header title={book} onBack={goBack} hidePrayer />
-        <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`0 ${bp.pad}px 40px` }}>
+        <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`0 ${bp.pad}px ${audioVisible?68:40}px` }}>
           {chapterMeta?.overview && (
             <div style={{margin:"14px 0"}}>
               <button
@@ -440,11 +446,24 @@ export default function BibleView() {
           <div style={{
             margin:"12px 0 14px",position:"relative",borderRadius:16,padding:"22px 22px 18px",
             background:highlight?.highlight_color ? `${highlight.highlight_color}15` : `linear-gradient(170deg, ${t.bg}, ${t.card} 40%, ${t.bg} 100%)`,
-            border:`1.5px solid ${highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider}`,
+            border:`1.5px solid ${audioPlaying ? t.accent : highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider}`,
             boxShadow:`inset 0 1px 2px rgba(255,255,255,${darkMode?0.02:0.3}), 0 2px 8px rgba(0,0,0,${darkMode?0.25:0.06})`,
             transition:"background 0.3s,border-color 0.3s",
           }}>
-            <Label icon="📖" t={t}>{bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}</Label>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+              <Label icon="📖" t={t}>{bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}</Label>
+              <button
+                onClick={() => { if (audioPlaying) { setAudioPlaying(false); } else { setAudioVisible(true); setAudioPlaying(true); } }}
+                title={audioPlaying ? "Pause" : "Listen to this verse"}
+                style={{ display:"flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:16,border:`1px solid ${audioPlaying?t.accent:t.accentBorder}`,background:audioPlaying?`${t.accent}15`:"transparent",color:audioPlaying?t.accent:t.muted,cursor:"pointer",transition:"all 0.15s",fontFamily:t.ui,fontSize:11,fontWeight:600 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                  {audioPlaying && <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>}
+                </svg>
+                {audioPlaying ? "Playing" : "Listen"}
+              </button>
+            </div>
 
             {/* Verse text */}
             <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.85,padding:"8px 0 12px",...rtlStyle}}>

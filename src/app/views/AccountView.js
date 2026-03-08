@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 import Header from "../components/Header";
 import { Card, Label, CrossIcon, ChevIcon } from "../components/ui";
@@ -10,10 +11,42 @@ export default function AccountView() {
     authMode, setAuthMode, authEmail, setAuthEmail, authPass, setAuthPass,
     authName, setAuthName, authError, authLoading, authShowPass, setAuthShowPass,
     authForgot, setAuthForgot, authForgotSent,
-    allHighlights, prayers, earnedBadges,
+    allHighlights, prayers, earnedBadges, listenedChapters,
     handleAuth, handleLogout, handleForgotPassword, handleGoogleSignIn,
     nav, setDonateModal, bp,
   } = useApp();
+
+  // Audio settings local state
+  const [audioSpeed, setAudioSpeed] = useState(() => {
+    try { return parseFloat(localStorage.getItem("audioSpeed") || "1"); } catch { return 1; }
+  });
+  const [acctVoices, setAcctVoices] = useState([]);
+
+  // Load voices for current translation language
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    const transDef = BIBLE_TRANSLATIONS.find(t => t.id === bibleTranslation);
+    const langPrefix = (transDef?.lang || "en-US").split("-")[0];
+    const load = () => {
+      setAcctVoices(window.speechSynthesis.getVoices().filter(v => v.lang.startsWith(langPrefix)));
+    };
+    load();
+    window.speechSynthesis.onvoiceschanged = load;
+    return () => { if (window.speechSynthesis) window.speechSynthesis.onvoiceschanged = null; };
+  }, [bibleTranslation]);
+
+  const testVoice = () => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const transDef = BIBLE_TRANSLATIONS.find(t => t.id === bibleTranslation);
+    const lang = transDef?.lang || "en-US";
+    const u = new SpeechSynthesisUtterance("For God so loved the world, that he gave his only begotten Son.");
+    u.lang = lang;
+    u.rate = audioSpeed;
+    const voices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith(lang.split("-")[0]));
+    if (voices.length > 0) u.voice = voices[0];
+    window.speechSynthesis.speak(u);
+  };
 
   return (
     <div style={{ minHeight:"100vh",background:ht.bg,paddingBottom:80 }}>
@@ -148,6 +181,15 @@ export default function AccountView() {
                   <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted }}>🔥 Open a verse to start your reading streak!</div>
                 </div>
               )}
+              {listenedChapters.length > 0 && (
+                <div style={{ marginTop:10,background:ht.accentLight,borderRadius:10,padding:"12px 16px",border:`1px solid ${ht.accentBorder}`,display:"flex",alignItems:"center",gap:10 }}>
+                  <span style={{ fontSize:18 }}>🎧</span>
+                  <div>
+                    <div style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>{listenedChapters.length} chapter{listenedChapters.length !== 1 ? "s" : ""} listened</div>
+                    <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:1 }}>~{listenedChapters.length * 3} min estimated listening time</div>
+                  </div>
+                </div>
+              )}
             </Card>
 
             {/* Achievements */}
@@ -249,6 +291,63 @@ export default function AccountView() {
                     {BIBLE_TRANSLATIONS.find(t => t.id === bibleTranslation)?.name} — Study notes remain in English (KJV)
                   </div>
                 )}
+              </div>
+
+              {/* Audio Playback */}
+              <div style={{padding:"12px 14px",border:`1px solid ${ht.divider}`,borderRadius:10,marginBottom:6}}>
+                <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:10}}>
+                  <span style={{fontSize:18}}>🎧</span>
+                  <span style={{fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark}}>Audio Playback</span>
+                </div>
+
+                {/* Speed selector */}
+                <div style={{marginBottom:10}}>
+                  <div style={{fontFamily:ht.ui,fontSize:11,fontWeight:600,color:ht.muted,marginBottom:6,textTransform:"uppercase",letterSpacing:"0.07em"}}>Default Speed</div>
+                  <div style={{display:"flex",gap:5}}>
+                    {[{v:0.75,l:"0.75×"},{v:1,l:"1×"},{v:1.25,l:"1.25×"},{v:1.5,l:"1.5×"},{v:2,l:"2×"}].map(({v,l}) => (
+                      <button key={v} onClick={() => { setAudioSpeed(v); try { localStorage.setItem("audioSpeed", String(v)); } catch {} }}
+                        style={{ flex:1,padding:"7px 0",borderRadius:8,
+                          border:`1.5px solid ${audioSpeed===v ? ht.accent : ht.divider}`,
+                          background:audioSpeed===v ? ht.accent : "transparent",
+                          color:audioSpeed===v ? "#fff" : ht.muted,
+                          fontFamily:ht.ui,fontSize:11,fontWeight:700,cursor:"pointer",transition:"all 0.15s" }}>
+                        {l}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Available voices */}
+                <div style={{marginBottom:10}}>
+                  <div style={{fontFamily:ht.ui,fontSize:11,fontWeight:600,color:ht.muted,marginBottom:6,textTransform:"uppercase",letterSpacing:"0.07em"}}>
+                    Voices — {BIBLE_TRANSLATIONS.find(t => t.id === bibleTranslation)?.name || "KJV (English)"}
+                  </div>
+                  {acctVoices.length === 0 ? (
+                    <div style={{fontFamily:ht.ui,fontSize:12,color:"#92400e",background:"#92400e15",borderRadius:8,padding:"8px 10px",lineHeight:1.5}}>
+                      No voices found for this language. Go to <strong>Settings → Accessibility → Spoken Content → Voices</strong> to download one.
+                    </div>
+                  ) : (
+                    <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
+                      {acctVoices.slice(0,5).map((v,i) => (
+                        <span key={i} style={{padding:"4px 9px",borderRadius:6,fontFamily:ht.ui,fontSize:11,
+                          background:ht.accentLight,color:ht.accent,border:`1px solid ${ht.accentBorder}`}}>
+                          {v.name.length > 22 ? v.name.slice(0,22)+"…" : v.name}
+                        </span>
+                      ))}
+                      {acctVoices.length > 5 && (
+                        <span style={{fontFamily:ht.ui,fontSize:10,color:ht.muted,padding:"4px 0"}}>+{acctVoices.length-5} more</span>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Test voice button */}
+                <button onClick={testVoice}
+                  style={{padding:"8px 16px",borderRadius:8,border:`1px solid ${ht.divider}`,
+                    background:"transparent",color:ht.accent,fontFamily:ht.ui,fontSize:12,
+                    fontWeight:600,cursor:"pointer"}}>
+                  🔊 Test Voice
+                </button>
               </div>
             </Card>
 
