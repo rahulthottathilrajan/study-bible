@@ -6,12 +6,13 @@ import UtilityStrip from "./UtilityStrip";
 
 const hex2rgba = (hex, a) => { const v = parseInt(hex.replace("#",""),16); return `rgba(${(v>>16)&255},${(v>>8)&255},${v&255},${a})`; };
 
-export default function Header({ title, subtitle, onBack, right, theme, hidePrayer, hideUser, showLangPicker = false }) {
+export default function Header({ title, subtitle, onBack, right, theme, hidePrayer, hideUser, showLangPicker = false, bottomSlot }) {
   const { user, profile, t, bp, setPrayerModal, handleLogout, nav } = useApp();
   const th = theme || t;
   const ac = th.accent, ht = th.headerText;
+  const hPad = bp.isMobile?16:bp.isTablet?24:32;
   return (
-    <div style={{ background:th.headerGradient,padding:`12px ${bp.isMobile?16:bp.isTablet?24:32}px 0`,position:"sticky",top:0,zIndex:10 }}>
+    <div style={{ background:th.headerGradient,padding:`12px ${hPad}px 0`,position:"sticky",top:0,zIndex:10 }}>
       <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between" }}>
         <div style={{ display:"flex",alignItems:"center",gap:8,flex:1,minWidth:0 }}>
           {onBack && <Btn onClick={onBack} style={{color:ht,padding:"6px 10px 6px 6px",borderRadius:8,background:"rgba(255,255,255,0.08)"}}><BackIcon /></Btn>}
@@ -33,6 +34,7 @@ export default function Header({ title, subtitle, onBack, right, theme, hidePray
       <div style={{ height:2,background:`linear-gradient(90deg,${hex2rgba(ac,0.6)},${hex2rgba(ht,0.9)},${hex2rgba(ac,0.8)},${hex2rgba(ht,0.95)},${hex2rgba(ac,0.6)})`,backgroundSize:"200% 100%",animation:"goldFlow 3s linear infinite",marginTop:6 }}/>
       <GoToBar />
       <UtilityStrip theme={th} showLangPicker={showLangPicker} />
+      {bottomSlot && <div style={{ padding:`6px 0 8px` }}>{bottomSlot}</div>}
     </div>
   );
 }
