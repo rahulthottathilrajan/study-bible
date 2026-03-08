@@ -272,44 +272,11 @@ export default function BibleView() {
     const chapterKey = `${book}-${chapter}`;
     const bestPct = (() => { const s = user ? (quizScores[chapterKey] || []) : []; return s.length > 0 ? Math.max(...s.map(x => x.percentage)) : null; })();
     const divider = {width:1,alignSelf:"stretch",background:"rgba(255,255,255,0.1)",flexShrink:0};
-    const actionStrip = (
-      <>
-        <style>{`@keyframes actionGlow{0%,100%{border-color:rgba(212,168,83,0.45);box-shadow:0 0 7px rgba(212,168,83,0.12)}50%{border-color:rgba(147,51,234,0.45);box-shadow:0 0 7px rgba(147,51,234,0.12)}}`}</style>
-        <div style={{display:"flex",borderRadius:10,overflow:"hidden",border:"1px solid rgba(212,168,83,0.35)",animation:"actionGlow 3s ease-in-out infinite"}}>
-          {/* Block 1 — Mark Read: frosted green */}
-          <button onClick={() => user ? (!isRead && markChapterRead(book, chapter)) : nav("account")}
-            style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"7px 8px",background:isRead?"rgba(34,197,94,0.2)":"rgba(34,197,94,0.10)",border:"none",cursor:isRead?"default":"pointer",transition:"background 0.2s"}}>
-            {isRead
-              ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              : <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.85)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            }
-            <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,color:isRead?"#4ade80":"rgba(255,255,255,0.85)",letterSpacing:"0.05em",textTransform:"uppercase"}}>{isRead?"✓ Read":"Mark Read"}</span>
-          </button>
-          <div style={divider}/>
-          {/* Block 2 — Take Quiz: frosted purple */}
-          <button onClick={() => nav("quiz-intro", { book, chapter })}
-            style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"7px 8px",background:"rgba(147,51,234,0.12)",border:"none",cursor:"pointer"}}>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.85)",letterSpacing:"0.05em",textTransform:"uppercase"}}>Take Quiz</span>
-            {bestPct !== null && <span style={{fontSize:8,padding:"1px 4px",borderRadius:3,background:bestPct>=70?"rgba(74,222,128,0.15)":"rgba(248,113,113,0.12)",color:bestPct>=70?"#4ade80":"#f87171",fontFamily:"system-ui",fontWeight:700,marginLeft:2}}>{bestPct}%</span>}
-          </button>
-          <div style={divider}/>
-          {/* Block 3 — Text Size: frosted blue */}
-          <div style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:5,padding:"7px 8px",background:"rgba(59,130,246,0.10)"}}>
-            <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.45)",letterSpacing:"0.06em",flexShrink:0}}>Aa</span>
-            <div style={{display:"flex",alignItems:"center",gap:1}}>
-              {["small","medium","large","xlarge"].map((s,i) => (
-                <button key={s} onClick={() => setFontSize(s)} style={{fontFamily:"Georgia,serif",fontWeight:800,border:"none",cursor:"pointer",borderRadius:4,padding:"2px 5px",lineHeight:1,fontSize:[9,11,13,15][i],background:fontSize===s?"rgba(255,255,255,0.2)":"transparent",color:fontSize===s?"#fff":"rgba(255,255,255,0.35)",transition:"all 0.18s"}}>A</button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </>
-    );
+    const isLastChapter = chapter >= bookInfo.chapters;
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showLangPicker hideUser hidePrayer bottomSlot={actionStrip} />
+        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showLangPicker showFontSize hideUser hidePrayer />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px 100px` }}>
 
           {/* Chapter Illustration */}
@@ -357,6 +324,38 @@ export default function BibleView() {
               );
             })}
           </div>
+
+          {/* ── Bottom action bar: Mark Read | Take Quiz | Next Chapter ── */}
+          <div style={{marginTop:16}}>
+            <style>{`@keyframes actionGlow{0%,100%{border-color:rgba(212,168,83,0.45);box-shadow:0 0 7px rgba(212,168,83,0.12)}50%{border-color:rgba(147,51,234,0.45);box-shadow:0 0 7px rgba(147,51,234,0.12)}}`}</style>
+            <div style={{display:"flex",borderRadius:10,overflow:"hidden",border:"1px solid rgba(212,168,83,0.35)",animation:"actionGlow 3s ease-in-out infinite"}}>
+              {/* Mark Read */}
+              <button onClick={() => user ? (!isRead && markChapterRead(book, chapter)) : nav("account")}
+                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"10px 8px",background:isRead?"rgba(34,197,94,0.18)":"rgba(34,197,94,0.08)",border:"none",cursor:isRead?"default":"pointer",transition:"background 0.2s"}}>
+                {isRead
+                  ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  : <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                }
+                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,color:isRead?"#4ade80":"rgba(255,255,255,0.85)",letterSpacing:"0.05em",textTransform:"uppercase"}}>{isRead?"✓ Read":"Mark Read"}</span>
+              </button>
+              <div style={divider}/>
+              {/* Take Quiz */}
+              <button onClick={() => nav("quiz-intro",{book,chapter})}
+                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"10px 8px",background:"rgba(147,51,234,0.10)",border:"none",cursor:"pointer"}}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.85)",letterSpacing:"0.05em",textTransform:"uppercase"}}>Take Quiz</span>
+                {bestPct !== null && <span style={{fontSize:8,padding:"1px 4px",borderRadius:3,background:bestPct>=70?"rgba(74,222,128,0.15)":"rgba(248,113,113,0.12)",color:bestPct>=70?"#4ade80":"#f87171",fontFamily:"system-ui",fontWeight:700,marginLeft:2}}>{bestPct}%</span>}
+              </button>
+              <div style={divider}/>
+              {/* Next Chapter */}
+              <button onClick={() => isLastChapter ? nav("chapter",{book}) : nav("verses",{book,chapter:chapter+1})}
+                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"10px 8px",background:"rgba(212,168,83,0.08)",border:"none",cursor:"pointer"}}>
+                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,color:"rgba(212,168,83,0.9)",letterSpacing:"0.05em",textTransform:"uppercase"}}>{isLastChapter?"All Chaps":"Next"}</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(212,168,83,0.85)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     );

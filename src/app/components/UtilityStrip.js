@@ -4,11 +4,12 @@ import { useApp } from "../context/AppContext";
 import { BIBLE_TRANSLATIONS } from "../constants";
 import { DBBadge } from "./ui";
 
-export default function UtilityStrip({ theme, showLangPicker = false }) {
+export default function UtilityStrip({ theme, showLangPicker = false, showFontSize = false }) {
   const {
     ht, darkMode, setDarkMode, dbLive,
     user, profile, streak,
     nav, bibleTranslation, setBibleTranslation,
+    fontSize, setFontSize,
   } = useApp();
   const th = theme || ht;
   const [showLangMenu, setShowLangMenu] = useState(false);
@@ -65,6 +66,13 @@ export default function UtilityStrip({ theme, showLangPicker = false }) {
           <div title={`Best: ${streak.longest_streak} days`} style={{ display:"flex",alignItems:"center",gap:3,cursor:"default" }}>
             <span style={{ fontSize:11 }}>&#128293;</span>
             <span style={{ fontFamily:th.ui,fontSize:10,fontWeight:700,color:"#d97706" }}>{streak.current_streak}</span>
+          </div>
+        )}
+        {showFontSize && (
+          <div style={{ display:"flex",alignItems:"center",background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:16,padding:"2px 4px",gap:1 }}>
+            {["small","medium","large","xlarge"].map((s,i) => (
+              <button key={s} onClick={() => setFontSize(s)} style={{ fontFamily:"Georgia,serif",fontWeight:800,border:"none",cursor:"pointer",borderRadius:12,padding:"2px 5px",lineHeight:1,fontSize:[9,11,13,15][i],background:fontSize===s?"rgba(255,255,255,0.18)":"transparent",color:fontSize===s?"#fff":"rgba(255,255,255,0.35)",transition:"all 0.18s" }}>A</button>
+            ))}
           </div>
         )}
         <button onClick={() => setDarkMode(!darkMode)} style={{ background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.12)",borderRadius:6,padding:"3px 8px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }} title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}>
