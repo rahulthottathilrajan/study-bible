@@ -86,6 +86,19 @@ export default function HomeView() {
               </div>
             </button>
           </div>
+          {/* ── THE STORE CARD ── */}
+          <button onClick={() => nav("shop-home")} className="pressable" style={{ width:"100%",display:"flex",alignItems:"center",gap:14,padding:"14px 16px",borderRadius:14,border:`1px solid ${ht.accentBorder}`,background:`linear-gradient(135deg,${ht.accent}10,${ht.accent}05)`,cursor:"pointer",marginBottom:16,textAlign:"left" }}>
+            <div style={{ width:44,height:44,borderRadius:12,background:`${ht.accent}18`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+              </svg>
+            </div>
+            <div style={{ flex:1 }}>
+              <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:ht.dark,lineHeight:1.2 }}>The Store</div>
+              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:2 }}>Books · Clothing · Stickers</div>
+            </div>
+            <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.accent,background:`${ht.accent}15`,padding:"3px 8px",borderRadius:20,textTransform:"uppercase",letterSpacing:"0.06em",flexShrink:0 }}>New</span>
+          </button>
           {/* ── CONTINUE READING (WhatsApp status bar) ── */}
           <ContinueReading nav={nav} ht={ht} user={user} />
           {/* ── VERSE OF THE DAY ── */}

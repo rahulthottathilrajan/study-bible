@@ -1,0 +1,137 @@
+{
+  "categories": [
+    {
+      "id": "clothing",
+      "name": "Clothing",
+      "tag": "Modest & Faith-inspired",
+      "icon": "shirt",
+      "fulfillment": "printful",
+      "status": "coming-soon",
+      "description": "Clean, modest clothing for the faithful. Every piece carries a quiet witness."
+    },
+    {
+      "id": "books-digital",
+      "name": "Digital Books",
+      "tag": "Instant download",
+      "icon": "book",
+      "fulfillment": "digital",
+      "status": "coming-soon",
+      "description": "Curated eBooks by trusted Christian authors. Download instantly, read anywhere."
+    },
+    {
+      "id": "books-physical",
+      "name": "Physical Books",
+      "tag": "Globally shipped",
+      "icon": "book-open",
+      "fulfillment": "dropship",
+      "status": "coming-soon",
+      "description": "Faith-building books by globally respected Christian writers, shipped to your door."
+    },
+    {
+      "id": "stickers",
+      "name": "Stickers & Prints",
+      "tag": "Scripture art",
+      "icon": "sticker",
+      "fulfillment": "printful",
+      "status": "coming-soon",
+      "description": "Weatherproof vinyl stickers and art prints featuring beloved Bible verses."
+    }
+  ],
+  "products": [
+    {
+      "id": "white-tee-001",
+      "category_id": "clothing",
+      "name": "The Scrollers White Tee",
+      "tagline": "Clean, classic, faithful",
+      "description": "100% combed cotton unisex tee. A subtle cross emblem on the chest — faith worn quietly. True to size, pre-shrunk.",
+      "price_usd": 29.99,
+      "images": [],
+      "fulfillment": "printful",
+      "printful_variant_id": null,
+      "status": "coming-soon",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "tags": ["clothing", "unisex", "tee"]
+    },
+    {
+      "id": "navy-hoodie-001",
+      "category_id": "clothing",
+      "name": "The Scrollers Navy Hoodie",
+      "tagline": "Warm, modest, faithful",
+      "description": "Heavyweight fleece pullover hoodie. Small cross emblem embroidered on the left chest. Unisex fit.",
+      "price_usd": 54.99,
+      "images": [],
+      "fulfillment": "printful",
+      "printful_variant_id": null,
+      "status": "coming-soon",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "tags": ["clothing", "unisex", "hoodie"]
+    },
+    {
+      "id": "verse-sticker-jn316",
+      "category_id": "stickers",
+      "name": "John 3:16 — Vinyl Sticker",
+      "tagline": "For your Bible, laptop, or water bottle",
+      "description": "Durable weatherproof vinyl. 3\" × 3\". UV-resistant ink. Adhesive-backed, easy peel.",
+      "price_usd": 4.99,
+      "images": [],
+      "fulfillment": "printful",
+      "printful_variant_id": null,
+      "status": "coming-soon",
+      "sizes": [],
+      "tags": ["sticker", "john", "scripture"]
+    },
+    {
+      "id": "verse-sticker-ps23",
+      "category_id": "stickers",
+      "name": "Psalm 23 — Vinyl Sticker",
+      "tagline": "The Lord is my shepherd",
+      "description": "Durable weatherproof vinyl. 3\" × 3\". Classic calligraphy style lettering.",
+      "price_usd": 4.99,
+      "images": [],
+      "fulfillment": "printful",
+      "printful_variant_id": null,
+      "status": "coming-soon",
+      "sizes": [],
+      "tags": ["sticker", "psalm", "scripture"]
+    },
+    {
+      "id": "mere-christianity",
+      "category_id": "books-physical",
+      "name": "Mere Christianity",
+      "tagline": "C.S. Lewis",
+      "description": "One of the most influential Christian books of the 20th century. Lewis presents a rational case for the Christian faith with clarity and warmth.",
+      "price_usd": 14.99,
+      "images": [],
+      "fulfillment": "dropship",
+      "status": "coming-soon",
+      "sizes": [],
+      "tags": ["book", "apologetics", "cs-lewis", "classic"]
+    },
+    {
+      "id": "purpose-driven-life",
+      "category_id": "books-physical",
+      "name": "The Purpose Driven Life",
+      "tagline": "Rick Warren",
+      "description": "A 40-day spiritual journey that answers the question: What on earth am I here for? One of the best-selling Christian books of all time.",
+      "price_usd": 15.99,
+      "images": [],
+      "fulfillment": "dropship",
+      "status": "coming-soon",
+      "sizes": [],
+      "tags": ["book", "devotional", "rick-warren"]
+    },
+    {
+      "id": "knowing-god-ebook",
+      "category_id": "books-digital",
+      "name": "Knowing God — eBook",
+      "tagline": "J.I. Packer",
+      "description": "A classic work on the attributes of God and what it means to know Him personally. Instant PDF download.",
+      "price_usd": 9.99,
+      "images": [],
+      "fulfillment": "digital",
+      "status": "coming-soon",
+      "sizes": [],
+      "tags": ["ebook", "theology", "ji-packer", "digital"]
+    }
+  ]
+}
