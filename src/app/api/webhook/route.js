@@ -25,6 +25,24 @@ export async function POST(request) {
     switch (event.type) {
       case 'checkout.session.completed': {
         const session = event.data.object;
+
+        // Shop order — store in shop_orders table
+        if (session.metadata?.type === 'shop_order') {
+          const { userId, cart } = session.metadata;
+          if (userId && cart) {
+            const items = JSON.parse(cart);
+            const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+            await supabaseAdmin.from('shop_orders').insert({
+              user_id: userId,
+              stripe_session_id: session.id,
+              items,
+              total_usd: parseFloat(total.toFixed(2)),
+              status: 'confirmed',
+            });
+          }
+          break;
+        }
+
         const userId = session.metadata?.userId;
         const plan = session.metadata?.plan;
 

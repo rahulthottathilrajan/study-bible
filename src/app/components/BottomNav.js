@@ -14,10 +14,10 @@ const HIDDEN_VIEWS = ["verse","hebrew-lesson","hebrew-practice","greek-lesson","
 const BIBLE_VIEWS = ["books","chapter","verses","verse"];
 const LEARN_VIEWS = ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson","greek-home","greek-lesson","greek-practice","greek-reading-home","greek-reading","greek-grammar-home","greek-grammar-lesson","timeline-home","timeline-era","timeline-era-detail","timeline-maps","timeline-books","timeline-archaeology","prophecy-home","apologetics-home","reading-plans-home"];
 const PRAYER_VIEWS = ["prayer-home","prayer-community","prayer-clock","prayer-journal","prayer-testimony","prayer-slot-active"];
-const SHOP_VIEWS = ["shop-home","shop-category","shop-product"];
+const SHOP_VIEWS = ["shop-home","shop-category","shop-product","shop-cart","shop-order-success"];
 
 export default function BottomNav() {
-  const { view, nav, testament, user, ht, bp } = useApp();
+  const { view, nav, testament, user, ht, bp, cartCount } = useApp();
 
   if (HIDDEN_VIEWS.includes(view)) return null;
 
@@ -41,7 +41,14 @@ export default function BottomNav() {
               else nav(item.id);
             }} style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:1,background:"none",border:"none",cursor:"pointer",padding:"4px 6px",color:isActive?ht.accent:ht.muted,transition:"all 0.18s ease",opacity:isActive?1:0.65 }}>
               <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 14px 3px",borderRadius:20,background:isActive?`${ht.accent}18`:"transparent",transition:"background 0.18s ease" }}>
-                <div style={{ transform:isActive?"scale(1.08)":"scale(1)",transition:"transform 0.15s" }}>{item.icon}</div>
+                <div style={{ transform:isActive?"scale(1.08)":"scale(1)",transition:"transform 0.15s",position:"relative" }}>
+                {item.icon}
+                {item.id === "shop" && cartCount > 0 && (
+                  <span style={{ position:"absolute",top:-3,right:-4,minWidth:16,height:16,background:"#ef4444",color:"#fff",borderRadius:8,fontSize:9,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",padding:"0 3px",lineHeight:1 }}>
+                    {cartCount > 9 ? "9+" : cartCount}
+                  </span>
+                )}
+              </div>
               </div>
               <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:isActive?700:500,letterSpacing:"0.02em" }}>{item.label}</span>
             </button>

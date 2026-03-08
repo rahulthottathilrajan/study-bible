@@ -23,6 +23,8 @@ export function AppProvider({ children }) {
   const [tab, setTab] = useState("study");
   const [shopCategory, setShopCategory] = useState(null);
   const [shopProduct, setShopProduct] = useState(null);
+  const [cart, setCart] = useState([]);
+  const [shopOrderSession, setShopOrderSession] = useState(null);
   const [loading, setLoading] = useState(false);
   const [dbLive, setDbLive] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -59,6 +61,18 @@ export function AppProvider({ children }) {
           if (s.verse) setVerse(s.verse);
           if (s.tab) setTab(s.tab);
         }
+      }
+    } catch {}
+    // Handle Stripe return URLs
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("shop_order") === "success") {
+        setShopOrderSession(params.get("session_id") || null);
+        setView("shop-order-success");
+        window.history.replaceState({}, "", "/");
+      } else if (params.get("shop_order") === "cancelled") {
+        setView("shop-cart");
+        window.history.replaceState({}, "", "/");
       }
     } catch {}
   }, []);
@@ -1246,7 +1260,25 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category" };
+  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home" };
+
+  const addToCart = (product, qty = 1, size = null) => {
+    setCart(prev => {
+      const key = product.id + (size || "");
+      const existing = prev.find(i => i.product.id + (i.size || "") === key);
+      if (existing) return prev.map(i => i.product.id + (i.size || "") === key ? {...i, qty: i.qty + qty} : i);
+      return [...prev, { product, qty, size }];
+    });
+  };
+  const removeFromCart = (productId, size = null) => {
+    setCart(prev => prev.filter(i => !(i.product.id === productId && (i.size || null) === (size || null))));
+  };
+  const updateQty = (productId, size, qty) => {
+    if (qty < 1) { removeFromCart(productId, size); return; }
+    setCart(prev => prev.map(i => i.product.id === productId && (i.size || null) === (size || null) ? {...i, qty} : i));
+  };
+  const clearCart = () => setCart([]);
+  const cartCount = cart.reduce((s, i) => s + i.qty, 0);
   const goBack = () => {
     const target = BACK_MAP[view] || "home";
     if (navStack.current.length > 1) navStack.current.pop();
@@ -1398,6 +1430,8 @@ export function AppProvider({ children }) {
     view, setView, testament, setTestament, book, setBook, chapter, setChapter,
     verse, setVerse: changeVerse, tab, setTab, loading, setLoading,
     shopCategory, setShopCategory, shopProduct, setShopProduct,
+    cart, addToCart, removeFromCart, updateQty, clearCart, cartCount,
+    shopOrderSession,
     dbLive, setDbLive, darkMode, setDarkMode, fontSize, setFontSize, FS, bibleTranslation, setBibleTranslation,
     // Bible data
     dbChapters, collapsed, setCollapsed, booksCollapsed, setBooksCollapsed,
