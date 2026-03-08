@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useApp } from "../context/AppContext";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS, getBookName } from "../constants";
 import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
 import Header from "../components/Header";
 import AudioPlayer from "../components/AudioPlayer";
@@ -107,7 +107,7 @@ export default function BibleView() {
                       return (
                         <button key={b.name} className="pressable" onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<catBooks.length-1?`1px dashed ${ht.divider}`:"none",padding:"12px 16px",cursor:"pointer",textAlign:"left",transition:"background 0.15s" }}>
                           <div style={{ display:"flex",alignItems:"baseline",justifyContent:"space-between",marginBottom:3 }}>
-                            <span style={{ fontFamily:ct.heading,fontSize:13,fontWeight:700,color:ht.dark }}>{b.name}</span>
+                            <span style={{ fontFamily:ct.heading,fontSize:13,fontWeight:700,color:ht.dark }}>{getBookName(b.name, bibleTranslation)}</span>
                             <span style={{ fontFamily:ct.ui,fontSize:10,fontWeight:700,color:ct.accent,background:`${ct.accent}15`,borderRadius:10,padding:"2px 8px" }}>{b.chapters} ch</span>
                           </div>
                           <div style={{ fontFamily:"'Times New Roman',serif",fontSize:12,color:ht.light,fontStyle:"italic" }}>{b.original} <span style={{ fontFamily:ct.ui,fontStyle:"normal",fontSize:10,color:ht.muted }}>· {b.meaning}</span></div>
@@ -135,7 +135,7 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={book} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={goBack} />
+        <Header title={getBookName(book, bibleTranslation)} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={goBack} />
         <div style={{ padding:`18px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
 
           {/* Book info card */}
@@ -264,12 +264,12 @@ export default function BibleView() {
 
   // ═══ VERSE LIST ═══
   const VerseList = () => {
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} subtitle="Loading verses..." onBack={goBack} /><Spinner t={t} /></div>;
-    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${book} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle="Loading verses..." onBack={goBack} /><Spinner t={t} /></div>;
+    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={`${book} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} />
+        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
 
 
@@ -406,8 +406,9 @@ export default function BibleView() {
 
   // ═══ VERSE STUDY ═══
   const VerseStudy = () => {
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={book} onBack={goBack} hidePrayer /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
-    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={book} onBack={goBack} hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
+    const bookDisplayName = getBookName(book, bibleTranslation);
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
+    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
 
     const vWords = wordStudies[String(verse)] || [];
     const vRefs = crossRefs[String(verse)] || [];
@@ -416,7 +417,7 @@ export default function BibleView() {
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <AudioPlayer />
-        <Header title={book} onBack={goBack} hidePrayer />
+        <Header title={bookDisplayName} onBack={goBack} hidePrayer />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`0 ${bp.pad}px ${audioVisible?68:40}px` }}>
           {chapterMeta?.overview && (
             <div style={{margin:"14px 0"}}>
@@ -453,7 +454,7 @@ export default function BibleView() {
             <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
               <Label icon="📖" t={t}>{bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}</Label>
               <button
-                onClick={() => { if (audioPlaying) { setAudioPlaying(false); } else { setAudioVisible(true); setAudioPlaying(true); } }}
+                onClick={() => { if (audioPlaying) { setAudioPlaying(false); } else { if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel(); setAudioVisible(true); setAudioPlaying(true); } }}
                 title={audioPlaying ? "Pause" : "Listen to this verse"}
                 style={{ display:"flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:16,border:`1px solid ${audioPlaying?t.accent:t.accentBorder}`,background:audioPlaying?`${t.accent}15`:"transparent",color:audioPlaying?t.accent:t.muted,cursor:"pointer",transition:"all 0.15s",fontFamily:t.ui,fontSize:11,fontWeight:600 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
