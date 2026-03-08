@@ -16,10 +16,10 @@ const DIFFICULTIES = [
 
 export default function QuizView() {
   const { view, book, chapter, t, goBack, nav, user,
-    quizScores, quizQuestions, quizLoading,
+    quizScores, quizQuestions, quizLoading, quizDifficulty,
     loadQuizQuestions, submitQuizScore, bp } = useApp();
 
-  const [difficulty, setDifficulty] = useState(null);
+  const [difficulty, setDifficulty] = useState(quizDifficulty || null);
   const [currentQ, setCurrentQ] = useState(0);
   const [selected, setSelected] = useState(null);
   const [revealed, setRevealed] = useState(false);

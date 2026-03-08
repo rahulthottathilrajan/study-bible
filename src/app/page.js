@@ -22,6 +22,7 @@ import JournalView from "./views/JournalView";
 import PrayerView from "./views/PrayerView";
 import LearnView from "./views/LearnView";
 import QuizView from "./views/QuizView";
+import QuizBrowserView from "./views/QuizBrowserView";
 import ShopView from "./views/ShopView";
 
 // ═══════════════════════════════════════════════════
@@ -51,7 +52,8 @@ function StudyBibleContent() {
       {view === "apologetics-home" && <ErrorBoundary theme={ht} label="Apologetics"><Apologetics nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} /></ErrorBoundary>}
       {view === "reading-plans-home" && <ErrorBoundary theme={ht} label="Reading Plans"><ReadingPlans nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} /></ErrorBoundary>}
       {view === "kids-curriculum-home" && <ErrorBoundary theme={ht} label="Kids Curriculum"><KidsCurriculum nav={nav} darkMode={darkMode} /></ErrorBoundary>}
-      {view.startsWith("quiz-") && <ErrorBoundary theme={ht} label="Quiz"><QuizView /></ErrorBoundary>}
+      {view === "quiz-browser" && <ErrorBoundary theme={ht} label="Quiz Browser"><QuizBrowserView /></ErrorBoundary>}
+      {view.startsWith("quiz-") && view !== "quiz-browser" && <ErrorBoundary theme={ht} label="Quiz"><QuizView /></ErrorBoundary>}
       {view.startsWith("shop-") && <ErrorBoundary theme={ht} label="Shop"><ShopView /></ErrorBoundary>}
 
       <BadgeToast />

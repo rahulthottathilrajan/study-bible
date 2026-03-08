@@ -623,6 +623,17 @@ const _LANG_MAP = {
   kan_irv:"kn", fra_lsg:"fr", spa_r09:"es", cmn_cu1:"zh", ARBNAV:"ar",
 };
 
+// Books that have quiz JSON files in /public/data/quizzes/
+export const QUIZ_BOOKS = [
+  "Genesis", "Exodus", "Leviticus",
+  "Mark", "John",
+  "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
+  "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
+  "1 Timothy", "2 Timothy", "Titus", "Philemon",
+  "Hebrews", "James", "1 Peter", "2 Peter",
+  "1 John", "2 John", "3 John", "Jude",
+];
+
 /** Returns the localised book name for the active translation, falling back to English. */
 export function getBookName(englishName, translationId) {
   if (!translationId || !englishName) return englishName || "";
