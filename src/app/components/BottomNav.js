@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { id:"account", label:"Account", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> },
 ];
 
-const HIDDEN_VIEWS = ["verse","verses","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice","quiz-active"];
+const HIDDEN_VIEWS = ["verse","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice","quiz-active"];
 const BIBLE_VIEWS = ["books","chapter","verses","verse"];
 const LEARN_VIEWS = ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson","greek-home","greek-lesson","greek-practice","greek-reading-home","greek-reading","greek-grammar-home","greek-grammar-lesson","timeline-home","timeline-era","timeline-era-detail","timeline-maps","timeline-books","timeline-archaeology","prophecy-home","apologetics-home","reading-plans-home"];
 const PRAYER_VIEWS = ["prayer-home","prayer-community","prayer-clock","prayer-journal","prayer-testimony","prayer-slot-active"];

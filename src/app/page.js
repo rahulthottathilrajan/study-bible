@@ -29,7 +29,7 @@ import QuizView from "./views/QuizView";
 function StudyBibleContent() {
   const { view, darkMode, nav, ht, bp, updateSectionPosition, trackLearnExploration } = useApp();
 
-  const showNav = !["verse","verses","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice"].includes(view);
+  const showNav = !["verse","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice"].includes(view);
 
   return (
     <div style={{ maxWidth:bp.shell,margin:"0 auto",minHeight:"100vh",paddingBottom:showNav?68:0 }}>

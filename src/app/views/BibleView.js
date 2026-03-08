@@ -270,9 +270,8 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} showLangPicker />
-        <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px 40px` }}>
-
+        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} showLangPicker hideUser hidePrayer />
+        <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px 100px` }}>
 
           {/* Chapter Illustration */}
           {chapterMeta?.illustration_url && (
@@ -281,33 +280,27 @@ export default function BibleView() {
             </div>
           )}
 
-          {/* Chapter Overview (compact) — English only */}
-          {isEnglishTrans && chapterMeta?.overview && (
-            <Card accent t={t} style={{marginBottom:14}}>
-              <Label icon="📋" t={t}>Overview</Label>
-              <div style={{fontFamily:t.body,fontSize:13.5,color:t.text,lineHeight:1.6,display:"-webkit-box",WebkitLineClamp:3,WebkitBoxOrient:"vertical",overflow:"hidden"}}>{chapterMeta.overview}</div>
-            </Card>
-          )}
-
-          {/* All Verses */}
-          <div style={{padding:"8px 12px",background:t.accentLight,borderRadius:8,marginBottom:10,display:"flex",alignItems:"center",justifyContent:"space-between",gap:8}}>
-            <div style={{display:"flex",alignItems:"center",gap:8}}>
-              <span style={{fontSize:14}}>✨</span>
-              <span style={{fontFamily:t.ui,fontSize:12,color:t.muted}}>Tap any verse to explore study notes, {isOT ? "Hebrew" : "Greek"} text & cross-references</span>
-            </div>
-            <div style={{display:"flex",alignItems:"center",gap:3,flexShrink:0}}>
+          {/* Hint strip + Font size selector */}
+          <div style={{display:"flex",alignItems:"center",gap:6,padding:"5px 10px",background:darkMode?"rgba(255,255,255,0.04)":"rgba(0,0,0,0.03)",borderRadius:8,marginBottom:10,border:`1px solid ${t.divider}`}}>
+            <span style={{fontSize:10,opacity:0.5,flexShrink:0}}>✨</span>
+            <span style={{fontFamily:t.ui,fontSize:10,color:t.muted,flex:1,lineHeight:1.3}}>Tap verse · study notes & {isOT ? "Hebrew" : "Greek"} text</span>
+            {/* Font size pill control */}
+            <div style={{display:"flex",alignItems:"center",background:darkMode?"rgba(255,255,255,0.08)":"rgba(0,0,0,0.06)",borderRadius:20,padding:"2px 3px",gap:1,flexShrink:0}}>
               {["small","medium","large","xlarge"].map((s,i) => (
                 <button key={s} onClick={() => setFontSize(s)} style={{
-                  fontFamily:t.ui,fontWeight:700,border:"none",cursor:"pointer",borderRadius:6,
-                  padding:"2px 6px",lineHeight:1,
-                  fontSize:[10,12,14,17][i],
+                  fontFamily:t.heading,fontWeight:800,border:"none",cursor:"pointer",
+                  borderRadius:16,padding:"3px 7px",lineHeight:1,
+                  fontSize:[9,11,13,16][i],
                   background:fontSize===s ? t.accent : "transparent",
                   color:fontSize===s ? "#fff" : t.muted,
-                  transition:"all 0.15s"
+                  transition:"all 0.2s",minWidth:[20,22,24,26][i],textAlign:"center",
+                  boxShadow:fontSize===s ? `0 1px 4px ${t.accent}40` : "none",
                 }}>A</button>
               ))}
             </div>
           </div>
+
+          {/* Mark Read + Take Quiz — gradient tile strip */}
           {user && (
             (() => {
               const isRead = chapterReads.some(r => r.book_name === book && r.chapter_number === chapter);
@@ -315,41 +308,31 @@ export default function BibleView() {
               const qScores = quizScores[chapterKey] || [];
               const bestPct = qScores.length > 0 ? Math.max(...qScores.map(s => s.percentage)) : null;
               return (
-                <>
+                <div style={{display:"flex",gap:0,borderRadius:14,overflow:"hidden",background:`linear-gradient(135deg,${t.accentLight},${t.card})`,border:`1px solid ${t.accentBorder}`,boxShadow:`0 2px 10px ${t.accent}18`,marginBottom:12}}>
+                  {/* Mark Read tile */}
                   <button onClick={() => { if (!isRead) markChapterRead(book, chapter); }}
-                    style={{
-                      width:"100%",padding:"10px 14px",borderRadius:10,marginBottom:10,
-                      border:`1px solid ${isRead ? "#22c55e" : t.accentBorder}`,
-                      background:isRead ? "rgba(34,197,94,0.08)" : t.accentLight,
-                      fontFamily:t.ui,fontSize:13,fontWeight:700,cursor:isRead?"default":"pointer",
-                      color:isRead ? "#22c55e" : t.accent,
-                      display:"flex",alignItems:"center",justifyContent:"center",gap:8,
-                      transition:"all 0.2s",
-                    }}>
-                    {isRead ? "✓ Chapter Read" : "📖 Mark Chapter as Read"}
+                    style={{flex:1,padding:"14px 8px",cursor:isRead?"default":"pointer",background:isRead?"rgba(34,197,94,0.08)":"transparent",border:"none",borderRight:`1px solid ${t.accentBorder}`,display:"flex",flexDirection:"column",alignItems:"center",gap:5,transition:"all 0.2s"}}>
+                    <div style={{width:38,height:38,borderRadius:11,background:isRead?"rgba(34,197,94,0.14)":`${t.accent}14`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:isRead?"0 2px 8px rgba(34,197,94,0.22)":`0 2px 8px ${t.accent}22`}}>
+                      {isRead ? (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      ) : (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={t.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                      )}
+                    </div>
+                    <span style={{fontFamily:t.ui,fontSize:11,fontWeight:700,color:isRead?"#22c55e":t.accent}}>{isRead?"Read ✓":"Mark Read"}</span>
                   </button>
+                  {/* Take Quiz tile */}
                   <button onClick={() => nav("quiz-intro", { book, chapter })}
-                    style={{
-                      width:"100%",padding:"10px 14px",borderRadius:10,marginBottom:10,
-                      border:`1px solid ${t.accentBorder}`,
-                      background:t.accentLight,
-                      fontFamily:t.ui,fontSize:13,fontWeight:700,cursor:"pointer",
-                      color:t.accent,
-                      display:"flex",alignItems:"center",justifyContent:"center",gap:8,
-                      transition:"all 0.2s",
-                    }}>
-                    📝 Take Quiz
+                    style={{flex:1,padding:"14px 8px",cursor:"pointer",background:"transparent",border:"none",display:"flex",flexDirection:"column",alignItems:"center",gap:5,transition:"all 0.2s"}}>
+                    <div style={{width:38,height:38,borderRadius:11,background:`${t.accent}14`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:`0 2px 8px ${t.accent}22`}}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={t.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <span style={{fontFamily:t.ui,fontSize:11,fontWeight:700,color:t.accent}}>Take Quiz</span>
                     {bestPct !== null && (
-                      <span style={{
-                        fontSize:11,padding:"2px 7px",borderRadius:6,marginLeft:4,
-                        background:bestPct >= 70 ? "rgba(34,197,94,0.12)" : "rgba(239,68,68,0.1)",
-                        color:bestPct >= 70 ? "#22c55e" : "#ef4444",
-                      }}>
-                        Best: {bestPct}%
-                      </span>
+                      <span style={{fontSize:9,padding:"1px 6px",borderRadius:5,background:bestPct>=70?"rgba(34,197,94,0.12)":"rgba(239,68,68,0.1)",color:bestPct>=70?"#22c55e":"#ef4444",fontFamily:t.ui,fontWeight:700}}>Best: {bestPct}%</span>
                     )}
                   </button>
-                </>
+                </div>
               );
             })()
           )}
