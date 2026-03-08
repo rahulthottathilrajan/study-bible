@@ -300,7 +300,7 @@ export default function BibleView() {
             </div>
           </div>
 
-          {/* Mark Read + Take Quiz — gradient tile strip */}
+          {/* Mark Read + Take Quiz — GoToBar-style compact strip */}
           {user && (
             (() => {
               const isRead = chapterReads.some(r => r.book_name === book && r.chapter_number === chapter);
@@ -308,31 +308,27 @@ export default function BibleView() {
               const qScores = quizScores[chapterKey] || [];
               const bestPct = qScores.length > 0 ? Math.max(...qScores.map(s => s.percentage)) : null;
               return (
-                <div style={{display:"flex",gap:0,borderRadius:14,overflow:"hidden",background:`linear-gradient(135deg,${t.accentLight},${t.card})`,border:`1px solid ${t.accentBorder}`,boxShadow:`0 2px 10px ${t.accent}18`,marginBottom:12}}>
-                  {/* Mark Read tile */}
-                  <button onClick={() => { if (!isRead) markChapterRead(book, chapter); }}
-                    style={{flex:1,padding:"14px 8px",cursor:isRead?"default":"pointer",background:isRead?"rgba(34,197,94,0.08)":"transparent",border:"none",borderRight:`1px solid ${t.accentBorder}`,display:"flex",flexDirection:"column",alignItems:"center",gap:5,transition:"all 0.2s"}}>
-                    <div style={{width:38,height:38,borderRadius:11,background:isRead?"rgba(34,197,94,0.14)":`${t.accent}14`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:isRead?"0 2px 8px rgba(34,197,94,0.22)":`0 2px 8px ${t.accent}22`}}>
-                      {isRead ? (
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      ) : (
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={t.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                <>
+                  <style>{`@keyframes actionGlow { 0%,100% { border-color: rgba(212,168,83,0.55); box-shadow: 0 0 7px rgba(212,168,83,0.18); } 50% { border-color: rgba(147,51,234,0.55); box-shadow: 0 0 7px rgba(147,51,234,0.18); } }`}</style>
+                  <div style={{display:"flex",alignItems:"center",background:"rgba(0,0,0,0.18)",borderRadius:10,border:"1px solid rgba(212,168,83,0.4)",marginBottom:10,overflow:"hidden",animation:"actionGlow 3s ease-in-out infinite"}}>
+                    <button onClick={() => { if (!isRead) markChapterRead(book, chapter); }}
+                      style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:7,padding:"7px 12px",background:isRead?"rgba(34,197,94,0.06)":"transparent",border:"none",borderRight:"1px solid rgba(255,255,255,0.08)",cursor:isRead?"default":"pointer"}}>
+                      {isRead
+                        ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        : <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(212,168,83,0.85)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                      }
+                      <span style={{fontFamily:"system-ui,sans-serif",fontSize:10,fontWeight:700,color:isRead?"#22c55e":"rgba(255,255,255,0.8)",letterSpacing:"0.02em"}}>{isRead ? "✓ Read" : "Mark Read"}</span>
+                    </button>
+                    <button onClick={() => nav("quiz-intro", { book, chapter })}
+                      style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:7,padding:"7px 12px",background:"transparent",border:"none",cursor:"pointer"}}>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,0.85)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                      <span style={{fontFamily:"system-ui,sans-serif",fontSize:10,fontWeight:700,color:"rgba(255,255,255,0.8)",letterSpacing:"0.02em"}}>Take Quiz</span>
+                      {bestPct !== null && (
+                        <span style={{fontSize:9,padding:"1px 5px",borderRadius:4,background:bestPct>=70?"rgba(34,197,94,0.15)":"rgba(239,68,68,0.12)",color:bestPct>=70?"#4ade80":"#f87171",fontFamily:"system-ui",fontWeight:700}}>{bestPct}%</span>
                       )}
-                    </div>
-                    <span style={{fontFamily:t.ui,fontSize:11,fontWeight:700,color:isRead?"#22c55e":t.accent}}>{isRead?"Read ✓":"Mark Read"}</span>
-                  </button>
-                  {/* Take Quiz tile */}
-                  <button onClick={() => nav("quiz-intro", { book, chapter })}
-                    style={{flex:1,padding:"14px 8px",cursor:"pointer",background:"transparent",border:"none",display:"flex",flexDirection:"column",alignItems:"center",gap:5,transition:"all 0.2s"}}>
-                    <div style={{width:38,height:38,borderRadius:11,background:`${t.accent}14`,display:"flex",alignItems:"center",justifyContent:"center",boxShadow:`0 2px 8px ${t.accent}22`}}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={t.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                    </div>
-                    <span style={{fontFamily:t.ui,fontSize:11,fontWeight:700,color:t.accent}}>Take Quiz</span>
-                    {bestPct !== null && (
-                      <span style={{fontSize:9,padding:"1px 6px",borderRadius:5,background:bestPct>=70?"rgba(34,197,94,0.12)":"rgba(239,68,68,0.1)",color:bestPct>=70?"#22c55e":"#ef4444",fontFamily:t.ui,fontWeight:700}}>Best: {bestPct}%</span>
-                    )}
-                  </button>
-                </div>
+                    </button>
+                  </div>
+                </>
               );
             })()
           )}
