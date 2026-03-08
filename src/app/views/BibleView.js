@@ -309,7 +309,7 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle={chapterMeta?.theme || `${verses.length} Verses`} onBack={goBack} showLangPicker hideUser hidePrayer bottomSlot={actionStrip} />
+        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showLangPicker hideUser hidePrayer bottomSlot={actionStrip} />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px 100px` }}>
 
           {/* Chapter Illustration */}
