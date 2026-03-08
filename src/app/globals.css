@@ -40,6 +40,11 @@ button {
   to { transform: translateY(0); }
 }
 
+@keyframes goldFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
 .goto-wheel {
   scrollbar-width: none;
   -ms-overflow-style: none;

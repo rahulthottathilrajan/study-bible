@@ -34,8 +34,7 @@ export default function HomeView() {
             <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.7)",letterSpacing:"0.05em" }}>GIVE</span>
           </button>
         </div>
-        {/* ── ANIMATED RAINBOW LINE ── */}
-        <style>{`@keyframes goldFlow { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }`}</style>
+        {/* ── ANIMATED ACCENT LINE ── */}
         <div style={{ height:2,background:"linear-gradient(90deg,rgba(212,168,83,0.6),rgba(255,255,255,0.9),rgba(212,168,83,0.8),rgba(255,245,220,0.95),rgba(212,168,83,0.6))",backgroundSize:"200% 100%",animation:"goldFlow 3s linear infinite",marginTop:6 }}/>
         {/* GoToBar */}
         <div style={{ paddingTop:4 }}>
