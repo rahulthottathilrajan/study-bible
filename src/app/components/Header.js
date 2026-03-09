@@ -26,7 +26,7 @@ export default function Header({ title, subtitle, onBack, right, theme, hidePray
           {!hidePrayer && user && <Btn onClick={() => setPrayerModal(true)} style={{color:ht}} title="Prayer Journal"><PrayerIcon /></Btn>}
           {!hideUser && <Btn onClick={() => nav("account")} style={{ color:ht,background:user?"rgba(125,212,173,0.2)":"rgba(255,255,255,0.1)",padding:"6px 10px",borderRadius:8 }}>
             <UserIcon />
-            <span style={{ fontFamily:th.ui,fontSize:10,marginLeft:4,fontWeight:600 }}>{(profile?.display_name || user?.user_metadata?.display_name || '')?.split(' ')[0] || 'Reader'}</span>
+            <span style={{ fontFamily:th.ui,fontSize:10,marginLeft:4,fontWeight:600 }}>{profile?.nickname || (profile?.display_name || user?.user_metadata?.display_name || '')?.split(' ')[0] || 'Reader'}</span>
           </Btn>}
         </div>
       </div>

@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect, useRef } from "react";
 import { useApp } from "../context/AppContext";
 import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
@@ -8,10 +9,33 @@ import HymnOfTheDay from "../components/HymnOfTheDay";
 
 export default function HomeView() {
   const {
-    ht, darkMode, user, bp,
+    ht, darkMode, user, profile, bp,
     showInstall, setShowInstall, installPrompt,
     setDonateModal, nav,
   } = useApp();
+
+  // ─── Welcome-back banner ───
+  const [welcomeMsg, setWelcomeMsg] = useState(null);
+  const [welcomeVisible, setWelcomeVisible] = useState(false);
+  const welcomeRan = useRef(false);
+
+  useEffect(() => {
+    if (welcomeRan.current) return;
+    welcomeRan.current = true;
+    try {
+      const last = localStorage.getItem("lastVisit");
+      if (last && user) {
+        const name = profile?.nickname || (profile?.display_name || user?.user_metadata?.display_name || "").split(" ")[0];
+        if (name) {
+          setWelcomeMsg(`Welcome back, ${name}!`);
+          setWelcomeVisible(true);
+          setTimeout(() => setWelcomeVisible(false), 3000);
+          setTimeout(() => setWelcomeMsg(null), 3500);
+        }
+      }
+      localStorage.setItem("lastVisit", String(Date.now()));
+    } catch {}
+  }, [user, profile]);
 
   return (
     <div style={{ minHeight:"100vh",background:ht.bg }}>
@@ -59,6 +83,12 @@ export default function HomeView() {
             style={{ background:"transparent",border:"none",color:ht.muted,fontSize:16,cursor:"pointer",padding:"0 4px" }}>
             ✕
           </button>
+        </div>
+      )}
+      {/* ── WELCOME BACK BANNER ── */}
+      {welcomeMsg && (
+        <div style={{ position:"fixed",top:90,left:"50%",transform:"translateX(-50%)",zIndex:20,background:ht.headerGradient,color:ht.headerText||"#fff",fontFamily:ht.heading,fontSize:14,fontWeight:700,padding:"10px 24px",borderRadius:20,boxShadow:"0 4px 16px rgba(0,0,0,0.15)",opacity:welcomeVisible?1:0,transition:"opacity 0.5s ease",pointerEvents:"none",whiteSpace:"nowrap" }}>
+          {welcomeMsg}
         </div>
       )}
       <div style={{ padding:`22px ${bp.pad}px 40px` }}>

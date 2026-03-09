@@ -330,6 +330,17 @@ export function AppProvider({ children }) {
     setProfile(data || null);
   };
 
+  const saveProfile = useCallback(async (fields) => {
+    if (!user) return { data: null, error: "Not signed in" };
+    const { data, error } = await supabase
+      .from("user_profiles")
+      .upsert({ id: user.id, ...fields }, { onConflict: "id" })
+      .select()
+      .single();
+    if (data) setProfile(data);
+    return { data, error };
+  }, [user]);
+
   const loadStreak = async (uid) => {
     const { data } = await supabase
       .from("user_reading_streaks")
@@ -1445,7 +1456,7 @@ export function AppProvider({ children }) {
     // Auth
     user, authMode, setAuthMode, authEmail, setAuthEmail, authPass, setAuthPass,
     authName, setAuthName, authError, setAuthError, authLoading, authShowPass, setAuthShowPass,
-    authForgot, setAuthForgot, authForgotSent, setAuthForgotSent, profile, streak,
+    authForgot, setAuthForgot, authForgotSent, setAuthForgotSent, profile, saveProfile, streak,
     // User features
     userNote, setUserNote, savedNote, setSavedNote, noteLoading, highlight,
     shareCopied, communityNotes, chapterHighlights, chapterNotes, chapterCommunityNotes,

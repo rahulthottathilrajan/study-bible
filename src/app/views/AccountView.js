@@ -7,7 +7,7 @@ import { BADGES, BADGE_CATEGORIES, BIBLE_TRANSLATIONS } from "../constants";
 
 export default function AccountView() {
   const {
-    user, profile, streak, darkMode, setDarkMode, fontSize, setFontSize, ht, bibleTranslation,
+    user, profile, saveProfile, streak, darkMode, setDarkMode, fontSize, setFontSize, ht, bibleTranslation,
     authMode, setAuthMode, authEmail, setAuthEmail, authPass, setAuthPass,
     authName, setAuthName, authError, authLoading, authShowPass, setAuthShowPass,
     authForgot, setAuthForgot, authForgotSent,
@@ -15,6 +15,31 @@ export default function AccountView() {
     handleAuth, handleLogout, handleForgotPassword, handleGoogleSignIn,
     nav, setDonateModal, bp,
   } = useApp();
+
+  // ─── Profile form state ───
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [profileForm, setProfileForm] = useState({ full_name:"", date_of_birth:"", gender:"", phone_country_code:"+1", phone_number:"", nickname:"" });
+  const [profileSaving, setProfileSaving] = useState(false);
+  const [profileMsg, setProfileMsg] = useState(null);
+
+  useEffect(() => {
+    if (profile) setProfileForm({
+      full_name: profile.full_name || "",
+      date_of_birth: profile.date_of_birth || "",
+      gender: profile.gender || "",
+      phone_country_code: profile.phone_country_code || "+1",
+      phone_number: profile.phone_number || "",
+      nickname: profile.nickname || "",
+    });
+  }, [profile]);
+
+  const handleSaveProfile = async () => {
+    setProfileSaving(true); setProfileMsg(null);
+    const { error } = await saveProfile(profileForm);
+    setProfileMsg(error ? `Error: ${error.message || error}` : "Profile saved!");
+    setProfileSaving(false);
+    setTimeout(() => setProfileMsg(null), 3000);
+  };
 
   // Audio settings local state
   const [audioSpeed, setAudioSpeed] = useState(() => {
@@ -142,6 +167,66 @@ export default function AccountView() {
                   <div style={{fontFamily:ht.ui,fontSize:10,color:ht.light,marginTop:2}}>Joined {new Date(user.created_at).toLocaleDateString()}</div>
                 </div>
               </div>
+            </Card>
+
+            {/* Profile Info (collapsible) */}
+            <Card t={ht}>
+              <button onClick={() => setProfileOpen(o => !o)} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",padding:0}}>
+                <Label icon="📝" t={ht} color={ht.muted}>Profile Info</Label>
+                <div style={{color:ht.light,transform:profileOpen?"rotate(90deg)":"rotate(0)",transition:"transform 0.2s"}}><ChevIcon /></div>
+              </button>
+              {profileOpen && (
+                <div style={{display:"flex",flexDirection:"column",gap:10,marginTop:8}}>
+                  {/* Nickname */}
+                  <div>
+                    <div style={{fontFamily:ht.ui,fontSize:11,fontWeight:600,color:ht.muted,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.07em"}}>Nickname / Pseudo Name</div>
+                    <input value={profileForm.nickname} onChange={e => setProfileForm(f => ({...f, nickname: e.target.value}))} placeholder="e.g. Appu" style={{width:"100%",padding:"11px 14px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box"}} />
+                  </div>
+                  {/* Full Name */}
+                  <div>
+                    <div style={{fontFamily:ht.ui,fontSize:11,fontWeight:600,color:ht.muted,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.07em"}}>Full Name</div>
+                    <input value={profileForm.full_name} onChange={e => setProfileForm(f => ({...f, full_name: e.target.value}))} placeholder="Your full name" style={{width:"100%",padding:"11px 14px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box"}} />
+                  </div>
+                  {/* Date of Birth */}
+                  <div>
+                    <div style={{fontFamily:ht.ui,fontSize:11,fontWeight:600,color:ht.muted,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.07em"}}>Date of Birth</div>
+                    <input type="date" value={profileForm.date_of_birth} onChange={e => setProfileForm(f => ({...f, date_of_birth: e.target.value}))} style={{width:"100%",padding:"11px 14px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box"}} />
+                  </div>
+                  {/* Gender */}
+                  <div>
+                    <div style={{fontFamily:ht.ui,fontSize:11,fontWeight:600,color:ht.muted,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.07em"}}>Gender</div>
+                    <select value={profileForm.gender} onChange={e => setProfileForm(f => ({...f, gender: e.target.value}))} style={{width:"100%",padding:"11px 14px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box",appearance:"auto"}}>
+                      <option value="">Select...</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+                  </div>
+                  {/* Phone */}
+                  <div>
+                    <div style={{fontFamily:ht.ui,fontSize:11,fontWeight:600,color:ht.muted,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.07em"}}>Phone Number</div>
+                    <div style={{display:"flex",gap:8}}>
+                      <select value={profileForm.phone_country_code} onChange={e => setProfileForm(f => ({...f, phone_country_code: e.target.value}))} style={{width:100,padding:"11px 8px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:13,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box",appearance:"auto"}}>
+                        {[
+                          {code:"+1",label:"US +1"},{code:"+44",label:"UK +44"},{code:"+91",label:"IN +91"},
+                          {code:"+61",label:"AU +61"},{code:"+49",label:"DE +49"},{code:"+33",label:"FR +33"},
+                          {code:"+86",label:"CN +86"},{code:"+81",label:"JP +81"},{code:"+82",label:"KR +82"},
+                          {code:"+55",label:"BR +55"},{code:"+234",label:"NG +234"},{code:"+27",label:"ZA +27"},
+                          {code:"+971",label:"AE +971"},{code:"+966",label:"SA +966"},{code:"+63",label:"PH +63"},
+                        ].map(c => <option key={c.code} value={c.code}>{c.label}</option>)}
+                      </select>
+                      <input type="tel" value={profileForm.phone_number} onChange={e => setProfileForm(f => ({...f, phone_number: e.target.value}))} placeholder="Phone number" style={{flex:1,padding:"11px 14px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box"}} />
+                    </div>
+                  </div>
+                  {/* Save */}
+                  <button onClick={handleSaveProfile} disabled={profileSaving} style={{width:"100%",padding:"13px",borderRadius:10,border:"none",background:ht.headerGradient,color:ht.headerText||"#fff",fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer",marginTop:4,opacity:profileSaving?0.7:1}}>
+                    {profileSaving ? "Saving..." : "Save Profile"}
+                  </button>
+                  {profileMsg && (
+                    <div style={{fontFamily:ht.ui,fontSize:12,color:profileMsg.startsWith("Error")?"#E8625C":"#34A853",textAlign:"center",padding:"4px 0"}}>{profileMsg}</div>
+                  )}
+                </div>
+              )}
             </Card>
 
             {/* Stats */}
