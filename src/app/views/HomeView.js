@@ -4,6 +4,7 @@ import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
 import GoToBar from "../components/GoToBar";
 import UtilityStrip from "../components/UtilityStrip";
+import HymnOfTheDay from "../components/HymnOfTheDay";
 
 export default function HomeView() {
   const {
@@ -103,6 +104,9 @@ export default function HomeView() {
           <ContinueReading nav={nav} ht={ht} user={user} />
           {/* ── VERSE OF THE DAY ── */}
           <VerseOfTheDay nav={nav} ht={ht} />
+
+          {/* ── HYMN OF THE DAY ── */}
+          <HymnOfTheDay nav={nav} ht={ht} />
 
           {/* ── QUIZ MASTER ── */}
           <div style={{ marginBottom: 22 }}>

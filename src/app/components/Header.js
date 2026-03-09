@@ -7,7 +7,7 @@ import UtilityStrip from "./UtilityStrip";
 const hex2rgba = (hex, a) => { const v = parseInt(hex.replace("#",""),16); return `rgba(${(v>>16)&255},${(v>>8)&255},${v&255},${a})`; };
 
 export default function Header({ title, subtitle, onBack, right, theme, hidePrayer, hideUser, showLangPicker = false, showFontSize = false, bottomSlot }) {
-  const { user, profile, t, bp, setPrayerModal, handleLogout, nav } = useApp();
+  const { user, profile, t, bp, setPrayerModal, nav } = useApp();
   const th = theme || t;
   const ac = th.accent, ht = th.headerText;
   const hPad = bp.isMobile?16:bp.isTablet?24:32;
@@ -24,9 +24,9 @@ export default function Header({ title, subtitle, onBack, right, theme, hidePray
         <div style={{ display:"flex",alignItems:"center",gap:6,flexShrink:0 }}>
           {right}
           {!hidePrayer && user && <Btn onClick={() => setPrayerModal(true)} style={{color:ht}} title="Prayer Journal"><PrayerIcon /></Btn>}
-          {!hideUser && <Btn onClick={() => user ? handleLogout() : nav("account")} style={{ color:ht,background:user?"rgba(125,212,173,0.2)":"rgba(255,255,255,0.1)",padding:"6px 10px",borderRadius:8 }}>
+          {!hideUser && <Btn onClick={() => nav("account")} style={{ color:ht,background:user?"rgba(125,212,173,0.2)":"rgba(255,255,255,0.1)",padding:"6px 10px",borderRadius:8 }}>
             <UserIcon />
-            {user && <span style={{ fontFamily:th.ui,fontSize:10,marginLeft:4,fontWeight:600 }}>{(profile?.display_name || user?.user_metadata?.display_name || '')?.split(' ')[0] || '•'}</span>}
+            <span style={{ fontFamily:th.ui,fontSize:10,marginLeft:4,fontWeight:600 }}>{(profile?.display_name || user?.user_metadata?.display_name || '')?.split(' ')[0] || 'Reader'}</span>
           </Btn>}
         </div>
       </div>
