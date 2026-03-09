@@ -10,6 +10,7 @@ const PRAYER_TABS = [
   { id: "community", label: "Community", icon: "🙏" },
   { id: "clock", label: "Clock", icon: "🕐" },
   { id: "journal", label: "Journal", icon: "📖" },
+  { id: "songs", label: "Songs", icon: "🎵" },
 ];
 
 export default function PrayerView() {
@@ -27,7 +28,7 @@ export default function PrayerView() {
 
   return (
     <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
-      <Header title="Prayer" subtitle="Lift up one another" theme={ht} />
+      <Header title="Worship" subtitle="Prayer & Praise" theme={ht} />
       <div style={{ padding: `16px ${bp.pad}px 40px`, maxWidth: bp.content, margin: "0 auto" }}>
         {/* Tab switcher */}
         <div style={{ display: "flex", background: ht.card, borderRadius: 10, padding: 3, marginBottom: 18, border: `1px solid ${ht.divider}` }}>
@@ -44,6 +45,16 @@ export default function PrayerView() {
 
         {/* CLOCK TAB */}
         {currentTab === "clock" && <PrayerClock />}
+
+        {/* SONGS TAB — Navigate to songs section */}
+        {currentTab === "songs" && (
+          <div style={{ textAlign: "center", padding: 30 }}>
+            <div style={{ fontSize: 48, marginBottom: 16 }}>🎵</div>
+            <div style={{ fontFamily: ht.heading, fontSize: 20, color: ht.dark, marginBottom: 8 }}>Hymns & Songs</div>
+            <div style={{ fontFamily: ht.body, fontSize: 14, color: ht.muted, marginBottom: 18, lineHeight: 1.7 }}>Explore a curated collection of public domain Protestant hymns — classic, Pentecostal, seasonal, and more.</div>
+            <button onClick={() => nav("songs-home")} style={{ padding: "14px 32px", borderRadius: 12, border: "none", background: ht.headerGradient, color: ht.headerText, fontFamily: ht.ui, fontSize: 15, fontWeight: 700, cursor: "pointer", letterSpacing: "0.02em" }}>Browse Hymns</button>
+          </div>
+        )}
 
         {/* JOURNAL TAB — Private prayer journal (reused from JournalView prayers) */}
         {currentTab === "journal" && (

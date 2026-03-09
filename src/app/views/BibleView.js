@@ -54,7 +54,7 @@ export default function BibleView() {
                   <div style={{ height:18, background:st.headerGradient, borderRadius:"10px 10px 0 0", position:"relative", overflow:"hidden" }}>
                     <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"55%", height:6, background:"rgba(255,255,255,0.12)", borderRadius:10 }}/>
                   </div>
-                  <div style={{ background:"linear-gradient(180deg,#FEF3D8 0%,#FAE8BB 40%,#FEF3D8 100%)", padding:"14px 8px 12px", borderLeft:`1px solid rgba(180,140,60,0.3)`, borderRight:`1px solid rgba(180,140,60,0.3)`, textAlign:"center", flex:1 }}>
+                  <div style={{ background:darkMode?"linear-gradient(180deg,#2A2620 0%,#231F1A 40%,#2A2620 100%)":"linear-gradient(180deg,#FEF3D8 0%,#FAE8BB 40%,#FEF3D8 100%)", padding:"14px 8px 12px", borderLeft:`1px solid rgba(180,140,60,0.3)`, borderRight:`1px solid rgba(180,140,60,0.3)`, textAlign:"center", flex:1 }}>
                     <div style={{ fontSize:26, marginBottom:6, filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.2))" }}>{item.icon}</div>
                     <div style={{ fontFamily:ht.heading, fontSize:14, fontWeight:700, color:st.dark, lineHeight:1.3, marginBottom:4 }}>{item.l}</div>
                     <div style={{ width:24, height:2, background:st.accent, borderRadius:2, margin:"0 auto 6px" }}/>
@@ -423,10 +423,13 @@ export default function BibleView() {
             margin:"12px 0 14px",position:"relative",borderRadius:16,padding:"22px 22px 18px",
             background:highlight?.highlight_color ? `${highlight.highlight_color}15` : `linear-gradient(170deg, ${t.bg}, ${t.card} 40%, ${t.bg} 100%)`,
             border:`1.5px solid ${audioPlaying ? t.accent : highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider}`,
+            borderTop:`3px solid ${highlight?.highlight_color || t.accent}`,
             boxShadow:`inset 0 1px 2px rgba(255,255,255,${darkMode?0.02:0.3}), 0 2px 8px rgba(0,0,0,${darkMode?0.25:0.06})`,
-            transition:"background 0.3s,border-color 0.3s",
+            transition:"background 0.3s,border-color 0.3s",overflow:"hidden",
           }}>
-            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+            {/* Decorative quote mark watermark */}
+            <div style={{position:"absolute",top:2,right:14,fontSize:90,color:`${t.accent}07`,fontFamily:t.heading,lineHeight:1,pointerEvents:"none",userSelect:"none",zIndex:0}}>❝</div>
+            <div style={{position:"relative",zIndex:1,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
               <Label icon="📖" t={t}>{bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}</Label>
               <button
                 onClick={() => { if (audioPlaying) { setAudioPlaying(false); } else { if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel(); setAudioVisible(true); setAudioPlaying(true); } }}
@@ -442,8 +445,8 @@ export default function BibleView() {
             </div>
 
             {/* Verse text */}
-            <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:1.85,padding:"8px 0 12px",...rtlStyle}}>
-              <span style={{fontSize:"clamp(22px,7vw,30px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:8,marginLeft:isRtl?8:0,marginTop:4,fontFamily:t.heading}}>{verse}</span>
+            <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:2.0,padding:"12px 0 16px",...rtlStyle}}>
+              <span style={{fontSize:"clamp(28px,8vw,36px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:10,marginLeft:isRtl?10:0,marginTop:2,fontFamily:t.heading,textShadow:`0 0 20px ${t.accent}45`}}>{verse}</span>
               {currentVerse.kjv_text}
             </div>
 
@@ -485,8 +488,9 @@ export default function BibleView() {
                       svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> },
                   ].map((a,i) => (
                     <button key={i} onClick={a.onClick}
-                      style={{display:"flex",alignItems:"center",justifyContent:"center",width:36,height:36,borderRadius:8,border:"none",background:a.active?`${a.activeColor||t.accent}15`:"transparent",color:a.active?(a.activeColor||t.accent):t.muted,cursor:"pointer",transition:"all 0.15s",padding:0}}>
+                      style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:3,minWidth:44,padding:"5px 4px",borderRadius:8,border:"none",background:a.active?`${a.activeColor||t.accent}15`:"transparent",color:a.active?(a.activeColor||t.accent):t.muted,cursor:"pointer",transition:"all 0.15s"}}>
                       {a.active && a.svgActive ? a.svgActive : a.svg}
+                      <span style={{fontFamily:t.ui,fontSize:8,fontWeight:600,lineHeight:1,letterSpacing:"0.02em"}}>{a.label}</span>
                     </button>
                   ))}
                 </div>

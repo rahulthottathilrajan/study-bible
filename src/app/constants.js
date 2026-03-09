@@ -470,6 +470,7 @@ export const BADGE_CATEGORIES = [
   { id:"greek",  label:"Greek",  icon:"📘" },
   { id:"learn",  label:"Learn",  icon:"📚" },
   { id:"prayer", label:"Prayer", icon:"🙏" },
+  { id:"songs",  label:"Songs",  icon:"🎵" },
 ];
 
 export const BADGES = [
@@ -506,6 +507,28 @@ export const BADGES = [
   { id:"prayer_warrior",    category:"prayer", name:"Prayer Warrior",    icon:"⚔️", description:"Complete 5 prayer slots" },
   { id:"testimony",         category:"prayer", name:"Testimony",         icon:"✝️", description:"Share your first testimony" },
   { id:"community_builder", category:"prayer", name:"Community Builder", icon:"🤝", description:"Post 5 prayer requests" },
+  // Songs (4)
+  { id:"first_hymn",           category:"songs",  name:"First Hymn",           icon:"🎵", description:"Read your first hymn" },
+  { id:"hymnist",              category:"songs",  name:"Hymnist",              icon:"🎶", description:"Read 25 hymns" },
+  { id:"hymn_collector",       category:"songs",  name:"Hymn Collector",       icon:"📚", description:"Favorite 10 hymns" },
+  { id:"multilingual_singer",  category:"songs",  name:"Multilingual Singer",  icon:"🌍", description:"Read a hymn in 3 languages" },
+];
+
+// ═══════════════════════════════════════════════════
+// HYMN CATEGORIES
+// ═══════════════════════════════════════════════════
+export const HYMN_CATEGORIES = [
+  { id:"classic",     label:"Classic Protestant",      icon:"\u271D\uFE0F" },
+  { id:"pentecostal", label:"Holy Spirit & Revival",   icon:"\uD83D\uDD25" },
+  { id:"christmas",   label:"Christmas & Advent",      icon:"\u2B50" },
+  { id:"easter",      label:"Easter & Resurrection",   icon:"\uD83C\uDF05" },
+  { id:"children",    label:"Children's Hymns",        icon:"\uD83D\uDC11" },
+  { id:"worship",     label:"Worship & Adoration",     icon:"\uD83C\uDFB5" },
+  { id:"grace",       label:"Grace & Mercy",           icon:"\uD83D\uDCA7" },
+  { id:"praise",      label:"Praise & Thanksgiving",   icon:"\uD83D\uDE4C" },
+  { id:"comfort",     label:"Comfort & Hope",          icon:"\uD83D\uDD4A\uFE0F" },
+  { id:"communion",   label:"Communion & Fellowship",  icon:"\uD83C\uDF5E" },
+  { id:"mission",     label:"Mission & Evangelism",     icon:"\uD83C\uDF0D" },
 ];
 
 // ═══════════════════════════════════════════════════

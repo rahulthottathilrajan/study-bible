@@ -24,6 +24,7 @@ import LearnView from "./views/LearnView";
 import QuizView from "./views/QuizView";
 import QuizBrowserView from "./views/QuizBrowserView";
 import ShopView from "./views/ShopView";
+import SongsView from "./views/SongsView";
 
 // ═══════════════════════════════════════════════════
 // MAIN APP
@@ -55,6 +56,7 @@ function StudyBibleContent() {
       {view === "quiz-browser" && <ErrorBoundary theme={ht} label="Quiz Browser"><QuizBrowserView /></ErrorBoundary>}
       {view.startsWith("quiz-") && view !== "quiz-browser" && <ErrorBoundary theme={ht} label="Quiz"><QuizView /></ErrorBoundary>}
       {view.startsWith("shop-") && <ErrorBoundary theme={ht} label="Shop"><ShopView /></ErrorBoundary>}
+      {view.startsWith("songs-") && <ErrorBoundary theme={ht} label="Songs"><SongsView /></ErrorBoundary>}
 
       <BadgeToast />
       <BottomNav />
