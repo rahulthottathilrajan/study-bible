@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useApp } from "../context/AppContext";
-import Header from "../components/Header";
+import { BackIcon } from "../components/ui";
 
 // ── Category icons ────────────────────────────────────────────────────────────
 function ShirtIcon({ color, size = 28 }) {
@@ -86,6 +86,56 @@ function getCategoryIcon(iconId, color, size) {
   return <BagIcon color={color} size={size} />;
 }
 
+// ── Shop Header (one strip: back + title + dark/light + account) ─────────────
+function ShopHeader({ title, subtitle, onBack, t }) {
+  const { user, profile, darkMode, setDarkMode, nav, bp } = useApp();
+  const hPad = bp.isMobile ? 16 : bp.isTablet ? 24 : 32;
+  const ht = t.headerText;
+  const firstName = (profile?.display_name || user?.user_metadata?.display_name || "")?.split(" ")[0];
+
+  return (
+    <div style={{ background: t.headerGradient, padding: `10px ${hPad}px 0`, position: "sticky", top: 0, zIndex: 10 }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        {/* Left: back + title */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flex: 1, minWidth: 0 }}>
+          {onBack && (
+            <button onClick={onBack} style={{ color: ht, padding: "6px 10px 6px 6px", borderRadius: 8, background: "rgba(255,255,255,0.08)", border: "none", cursor: "pointer", display: "flex", alignItems: "center" }}>
+              <BackIcon />
+            </button>
+          )}
+          <div style={{ minWidth: 0 }}>
+            <h2 style={{ fontFamily: t.heading, fontSize: 14, fontWeight: 700, color: ht, margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{title}</h2>
+            {subtitle && <div style={{ fontFamily: t.ui, fontSize: 11, color: `${ht}99`, marginTop: 1 }}>{subtitle}</div>}
+          </div>
+        </div>
+        {/* Right: dark/light + account */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 6, padding: "3px 8px", cursor: "pointer", display: "flex", alignItems: "center", gap: 4 }}
+            title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            <span style={{ fontSize: 11 }}>{darkMode ? "\u2600\uFE0F" : "\uD83C\uDF19"}</span>
+            <span style={{ fontFamily: t.ui, fontSize: 9, fontWeight: 600, color: "rgba(255,255,255,0.6)" }}>{darkMode ? "Light" : "Dark"}</span>
+          </button>
+          {!user && (
+            <button onClick={() => nav("account")} style={{ background: "rgba(212,168,83,0.25)", border: "1px solid rgba(212,168,83,0.45)", borderRadius: 6, padding: "3px 10px", fontFamily: t.ui, fontSize: 9, fontWeight: 700, color: "#fff", cursor: "pointer", letterSpacing: "0.03em" }}>
+              Sign In
+            </button>
+          )}
+          {user && (
+            <span onClick={() => nav("account")} style={{ fontFamily: t.ui, fontSize: 10, color: "rgba(125,212,173,0.9)", fontWeight: 700, cursor: "pointer" }}>
+              ✓ {firstName}
+            </span>
+          )}
+        </div>
+      </div>
+      {/* Animated gold+white accent line */}
+      <div style={{ height: 2, background: "linear-gradient(90deg, rgba(139,92,246,0.6), rgba(255,255,255,0.9), rgba(212,168,83,0.8), rgba(255,255,255,0.95), rgba(139,92,246,0.6))", backgroundSize: "200% 100%", animation: "goldFlow 3s linear infinite", marginTop: 8, marginBottom: 0 }} />
+    </div>
+  );
+}
+
 // ── Shared UI ─────────────────────────────────────────────────────────────────
 const GOLD_BORDER = {
   background: "linear-gradient(90deg, rgba(139,92,246,0.7), rgba(212,168,83,0.9), rgba(255,255,255,0.95), rgba(212,168,83,0.8), rgba(139,92,246,0.7))",
@@ -158,7 +208,7 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart }) {
 
   return (
     <div style={{ minHeight: "100vh", background: t.bg, paddingBottom: 40 }}>
-      <Header title="The Store" subtitle="Faith-inspired goods" onBack={goBack} theme={t} hidePrayer hideUser />
+      <ShopHeader title="The Store" subtitle="Faith-inspired goods" onBack={goBack} t={t} />
 
       <div style={{ padding: `0 ${bp.pad}px` }}>
         <div style={{ maxWidth: bp.content, margin: "0 auto" }}>
@@ -316,7 +366,7 @@ function ShopCategory({ catalogue, shopCategory, t, nav, goBack, bp, addToCart }
 
   return (
     <div style={{ minHeight: "100vh", background: t.bg, paddingBottom: 40 }}>
-      <Header title={cat.name} subtitle={cat.tag} onBack={goBack} theme={t} hidePrayer hideUser />
+      <ShopHeader title={cat.name} subtitle={cat.tag} onBack={goBack} t={t} />
 
       {/* Sticky filter bar */}
       <div style={{ position: "sticky", top: 0, zIndex: 10, background: t.bg, borderBottom: `1px solid ${t.divider}`, padding: `10px ${bp.pad}px` }}>
@@ -432,7 +482,7 @@ function ShopProduct({ catalogue, shopProduct: shopProductId, t, nav, goBack, bp
 
   return (
     <div style={{ minHeight: "100vh", background: t.bg, paddingBottom: 90 }}>
-      <Header title={product.name} onBack={goBack} theme={t} hidePrayer hideUser />
+      <ShopHeader title={product.name} onBack={goBack} t={t} />
 
       <div style={{ padding: `0 ${bp.pad}px` }}>
         <div style={{ maxWidth: bp.content, margin: "0 auto" }}>
@@ -639,7 +689,7 @@ function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user })
 
   return (
     <div style={{ minHeight: "100vh", background: t.bg, paddingBottom: cart.length > 0 ? 140 : 40 }}>
-      <Header title="Your Cart" subtitle={cart.length > 0 ? `${itemCount} item${itemCount !== 1 ? "s" : ""}` : undefined} onBack={goBack} theme={t} hidePrayer hideUser />
+      <ShopHeader title="Your Cart" subtitle={cart.length > 0 ? `${itemCount} item${itemCount !== 1 ? "s" : ""}` : undefined} onBack={goBack} t={t} />
 
       <div style={{ padding: `16px ${bp.pad}px` }}>
         <div style={{ maxWidth: bp.content, margin: "0 auto" }}>
