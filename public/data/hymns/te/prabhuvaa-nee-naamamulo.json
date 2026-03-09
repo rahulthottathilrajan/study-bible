@@ -1,0 +1,76 @@
+{
+  "id": "prabhuvaa-nee-naamamulo",
+  "lang": "te",
+  "title": "ప్రభువా నీ నామములో",
+  "titleRomanized": "Prabhuvaa Nee Naamamulo",
+  "author": "Traditional",
+  "composer": "Traditional Telugu melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Philippians 2:10",
+      "note": "That at the name of Jesus every knee should bow"
+    },
+    {
+      "ref": "Acts 4:12",
+      "note": "Neither is there salvation in any other: for there is none other name"
+    }
+  ],
+  "story": "A powerful worship hymn exalting the name of the Lord Jesus Christ. This traditional Telugu keerthanamu reflects the deep reverence for the name of Jesus found in Andhra Christian worship. It has been sung in churches, prayer halls, and revival meetings throughout the Telugu-speaking regions for many generations.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ప్రభువా నీ నామములో శక్తి ఉన్నది",
+          "ప్రభువా నీ నామములో జయము ఉన్నది",
+          "యేసు నామములో మహిమ ఉన్నది"
+        ],
+        "linesRomanized": [
+          "Prabhuvaa nee naamamulo shakthi unnadi",
+          "Prabhuvaa nee naamamulo jayamu unnadi",
+          "Yesu naamamulo mahima unnadi"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "రోగములను బాపు నామము",
+          "దయ్యములను పారద్రోలు నామము",
+          "బంధకములు తెంచు నామము",
+          "యేసు నామము మహా శక్తిగల నామము"
+        ],
+        "linesRomanized": [
+          "Rogamulanu baapu naamamu",
+          "Dayyamulanu paaradrolu naamamu",
+          "Bandhakamulu tenchu naamamu",
+          "Yesu naamamu mahaa shakthigala naamamu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "మోకాళ్ళన్నీ ఆ నామమునకు వంగును",
+          "నాలుకలన్నీ ఆ నామమును ఒప్పుకొనును",
+          "పరలోకంలో భూలోకంలో మహిమ గల నామము",
+          "యేసు నామము సర్వోన్నతమైన నామము"
+        ],
+        "linesRomanized": [
+          "Mokaallanee aa naamamunaku vangunu",
+          "Naalukallannee aa naamamunu oppukonunu",
+          "Paralokamlo bhulokamlo mahima gala naamamu",
+          "Yesu naamamu sarvonnathamaina naamamu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Telugu Christian Heritage"
+}

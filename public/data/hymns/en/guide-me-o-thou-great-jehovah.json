@@ -1,0 +1,74 @@
+{
+  "lang": "en",
+  "id": "guide-me-o-thou-great-jehovah",
+  "title": "Guide Me, O Thou Great Jehovah",
+  "author": "William Williams",
+  "composer": "John Hughes (CWM RHONDDA)",
+  "year": 1745,
+  "categories": [
+    "classic",
+    "guidance",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Exodus 13:21",
+      "note": "The LORD went before them by day in a pillar of cloud, to lead them the way"
+    },
+    {
+      "ref": "Psalm 48:14",
+      "note": "This God is our God for ever and ever: he will be our guide even unto death"
+    },
+    {
+      "ref": "Joshua 3:17",
+      "note": "The priests that bare the ark stood firm on dry ground in the midst of Jordan"
+    }
+  ],
+  "story": "William Williams, known as the 'Sweet Singer of Wales,' originally wrote this hymn in Welsh in 1745 under the title 'Arglwydd, arwain trwy'r anialwch.' He later translated one verse into English, and Peter Williams completed the translation in 1771. The powerful tune CWM RHONDDA by John Hughes (1907) has made this one of the most recognizable hymns in the world. It is the unofficial anthem of Welsh rugby and is sung at major sporting events throughout Wales.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Guide me, O Thou great Jehovah,",
+          "Pilgrim through this barren land;",
+          "I am weak, but Thou art mighty;",
+          "Hold me with Thy powerful hand;",
+          "Bread of heaven, bread of heaven,",
+          "Feed me till I want no more,",
+          "Feed me till I want no more."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Open now the crystal fountain,",
+          "Whence the healing stream doth flow;",
+          "Let the fire and cloudy pillar",
+          "Lead me all my journey through;",
+          "Strong Deliverer, strong Deliverer,",
+          "Be Thou still my Strength and Shield,",
+          "Be Thou still my Strength and Shield."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "When I tread the verge of Jordan,",
+          "Bid my anxious fears subside;",
+          "Death of death, and hell's Destruction,",
+          "Land me safe on Canaan's side;",
+          "Songs of praises, songs of praises,",
+          "I will ever give to Thee,",
+          "I will ever give to Thee."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

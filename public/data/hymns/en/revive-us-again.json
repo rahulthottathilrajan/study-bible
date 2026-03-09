@@ -1,0 +1,72 @@
+{
+  "lang": "en",
+  "id": "revive-us-again",
+  "title": "Revive Us Again",
+  "author": "William P. Mackay",
+  "composer": "John J. Husband",
+  "year": 1863,
+  "categories": [
+    "pentecostal",
+    "revival",
+    "praise"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 85:6",
+      "note": "Wilt thou not revive us again: that thy people may rejoice in thee?"
+    },
+    {
+      "ref": "Habakkuk 3:2",
+      "note": "O Lord, revive thy work in the midst of the years"
+    }
+  ],
+  "story": "William Paton Mackay was a Scottish physician and minister who wrote this hymn around 1863. The hymn was inspired by Psalm 85:6 and became closely associated with the great revival movements of the nineteenth century. It was popularized during Dwight L. Moody's evangelistic campaigns in Britain and America. The tune, composed by John J. Husband, gave the hymn its joyful, marching character that made it a natural fit for revival gatherings.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "We praise Thee, O God, for the Son of Thy love,",
+          "For Jesus who died and is now gone above."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Hallelujah! Thine the glory,",
+          "Hallelujah! Amen!",
+          "Hallelujah! Thine the glory,",
+          "Revive us again."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "We praise Thee, O God, for Thy Spirit of light,",
+          "Who has shown us our Savior and scattered our night."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "All glory and praise to the Lamb that was slain,",
+          "Who has borne all our sins and has cleansed every stain."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "Revive us again; fill each heart with Thy love;",
+          "May each soul be rekindled with fire from above."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

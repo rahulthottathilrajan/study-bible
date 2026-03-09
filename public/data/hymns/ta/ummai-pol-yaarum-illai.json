@@ -1,0 +1,78 @@
+{
+  "id": "ummai-pol-yaarum-illai",
+  "lang": "ta",
+  "title": "உம்மைப் போல் யாரும் இல்லை",
+  "titleRomanized": "Ummai Pol Yaarum Illai",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Exodus 15:11",
+      "note": "Who is like unto thee, O LORD, among the gods?"
+    },
+    {
+      "ref": "Psalm 86:8",
+      "note": "Among the gods there is none like unto thee, O Lord"
+    }
+  ],
+  "story": "A traditional Tamil worship hymn that extols the incomparable nature of God. Drawing from the song of Moses after the crossing of the Red Sea, this hymn declares the uniqueness and sovereignty of the Lord. It has been a beloved part of Tamil Christian worship, especially during times of corporate adoration and revival meetings.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "உம்மைப் போல் யாரும் இல்லை",
+          "தேவா உம்மைப் போல் யாரும் இல்லை",
+          "வானிலும் பூமியிலும்",
+          "உம்மைப் போல் யாரும் இல்லை"
+        ],
+        "linesRomanized": [
+          "Ummaip pol yaarum illai",
+          "Daevaa ummaip pol yaarum illai",
+          "Vaanilum boomiyilum",
+          "Ummaip pol yaarum illai"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "பரிசுத்தத்தில் உமக்கு நிகர் யார்",
+          "வல்லமையில் உமக்கு ஈடு யார்",
+          "அதிசயங்கள் செய்யும் தேவா",
+          "உம்மைப் போல் யாரும் இல்லை"
+        ],
+        "linesRomanized": [
+          "Parisuthatthil umakku nigar yaar",
+          "Vallamaiyil umakku eedu yaar",
+          "Athisayangal seyyum daevaa",
+          "Ummaip pol yaarum illai"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "மலைகளை அசைக்கும் தேவா",
+          "கடல்களை வற்றச் செய்யும் தேவா",
+          "இருளை ஒளியாக மாற்றும் தேவா",
+          "உம்மைப் போல் யாரும் இல்லை"
+        ],
+        "linesRomanized": [
+          "Malaigalai asaikkum daevaa",
+          "Kadalgalai vatrach seyyum daevaa",
+          "Irulai oliyaaga maatrum daevaa",
+          "Ummaip pol yaarum illai"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

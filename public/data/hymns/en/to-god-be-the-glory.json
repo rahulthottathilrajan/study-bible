@@ -1,0 +1,94 @@
+{
+  "lang": "en",
+  "id": "to-god-be-the-glory",
+  "title": "To God Be the Glory",
+  "author": "Fanny Crosby",
+  "composer": "William Howard Doane",
+  "year": 1875,
+  "categories": [
+    "classic",
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "John 3:16",
+      "note": "For God so loved the world, that he gave his only begotten Son"
+    },
+    {
+      "ref": "Ephesians 3:20-21",
+      "note": "Unto him be glory in the church by Christ Jesus throughout all ages"
+    }
+  ],
+  "story": "Fanny Crosby wrote this hymn in 1875, and it was set to music by her frequent collaborator William Howard Doane. Although it was published in Brightest and Best (1875), it was largely forgotten in America for decades. The hymn gained international fame when it was rediscovered by the Billy Graham Evangelistic Association and performed at the 1954 Harringay Crusade in London, England. It has since become one of the most widely sung hymns in evangelical churches worldwide.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "To God be the glory, great things He hath done;",
+          "So loved He the world that He gave us His Son,",
+          "Who yielded His life an atonement for sin,",
+          "And opened the life gate that all may go in."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Praise the Lord, praise the Lord,",
+          "Let the earth hear His voice!",
+          "Praise the Lord, praise the Lord,",
+          "Let the people rejoice!",
+          "O come to the Father, through Jesus the Son,",
+          "And give Him the glory, great things He hath done."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "O perfect redemption, the purchase of blood,",
+          "To every believer the promise of God;",
+          "The vilest offender who truly believes,",
+          "That moment from Jesus a pardon receives."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Praise the Lord, praise the Lord,",
+          "Let the earth hear His voice!",
+          "Praise the Lord, praise the Lord,",
+          "Let the people rejoice!",
+          "O come to the Father, through Jesus the Son,",
+          "And give Him the glory, great things He hath done."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Great things He hath taught us, great things He hath done,",
+          "And great our rejoicing through Jesus the Son;",
+          "But purer, and higher, and greater will be",
+          "Our wonder, our transport, when Jesus we see."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Praise the Lord, praise the Lord,",
+          "Let the earth hear His voice!",
+          "Praise the Lord, praise the Lord,",
+          "Let the people rejoice!",
+          "O come to the Father, through Jesus the Son,",
+          "And give Him the glory, great things He hath done."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

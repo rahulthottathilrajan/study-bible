@@ -1,0 +1,78 @@
+{
+  "id": "hallelujah-stuti-karo",
+  "lang": "hi",
+  "title": "हालेलूयाह स्तुति करो",
+  "titleRomanized": "Hallelujah Stuti Karo",
+  "author": "Traditional",
+  "composer": "Traditional Hindi melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "pentecostal"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 150:6",
+      "note": "Let every thing that hath breath praise the LORD"
+    },
+    {
+      "ref": "Psalm 113:3",
+      "note": "From the rising of the sun unto the going down of the same the LORD's name is to be praised"
+    }
+  ],
+  "story": "An energetic praise hymn popular in Pentecostal and charismatic Hindi-speaking congregations across North India. The word 'Hallelujah' is woven together with Hindi expressions of praise, creating a powerful song that unites believers in exuberant worship. It has been passed down through oral tradition in revival meetings for many decades.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "हालेलूयाह स्तुति करो",
+          "हालेलूयाह स्तुति करो",
+          "प्रभु की स्तुति सब मिलकर करो",
+          "हालेलूयाह स्तुति करो"
+        ],
+        "linesRomanized": [
+          "Hallelujah stuti karo",
+          "Hallelujah stuti karo",
+          "Prabhu ki stuti sab milkar karo",
+          "Hallelujah stuti karo"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ताली बजाओ गीत गाओ",
+          "ऊँचे स्वर में जयकार करो",
+          "वह योग्य है सब स्तुति के",
+          "हालेलूयाह स्तुति करो"
+        ],
+        "linesRomanized": [
+          "Taali bajaao geet gaao",
+          "Oonche swar mein jaikaar karo",
+          "Woh yogya hai sab stuti ke",
+          "Hallelujah stuti karo"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "सूरज चाँद सितारे गाएँ",
+          "पहाड़ नदियाँ गुणगान करें",
+          "सारी सृष्टि पुकारे उसको",
+          "हालेलूयाह स्तुति करो"
+        ],
+        "linesRomanized": [
+          "Sooraj chaand sitaare gaaein",
+          "Pahaad nadiyaan gungaan karein",
+          "Saari srishti pukaare usko",
+          "Hallelujah stuti karo"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Christian Heritage"
+}

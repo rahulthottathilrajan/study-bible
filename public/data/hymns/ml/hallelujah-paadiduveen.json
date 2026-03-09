@@ -1,0 +1,72 @@
+{
+  "id": "hallelujah-paadiduveen",
+  "lang": "ml",
+  "title": "ഹാലെലൂയ്യ പാടിടുവീൻ",
+  "titleRomanized": "Hallelujah Paadiduveen",
+  "author": "Traditional",
+  "composer": "Traditional Kerala melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 146:1",
+      "note": "Praise ye the LORD. Praise the LORD, O my soul"
+    },
+    {
+      "ref": "Revelation 19:1",
+      "note": "Alleluia; Salvation, and glory, and honour, and power, unto the Lord"
+    }
+  ],
+  "story": "An exuberant praise hymn that has been a cornerstone of joyful worship in Kerala churches. The word 'Hallelujah' transcends all languages, and this hymn weaves it beautifully with Malayalam poetry to create an uplifting congregational song.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ഹാലെലൂയ്യ പാടിടുവീൻ",
+          "ഹാലെലൂയ്യ പാടിടുവീൻ",
+          "ദൈവത്തിനു സ്തുതി പാടിടുവീൻ"
+        ],
+        "linesRomanized": [
+          "Hallelujah paadiduveen",
+          "Hallelujah paadiduveen",
+          "Daivatthinu sthuthi paadiduveen"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ആകാശം ഭൂമിയും സൃഷ്ടിച്ചവൻ",
+          "സകലരെയും നിലനിർത്തുന്നവൻ",
+          "അവനു സ്തുതി പാടിടുവീൻ"
+        ],
+        "linesRomanized": [
+          "Aakasham bhoomiyum srushtichavan",
+          "Sakareyum nilanirthunnavan",
+          "Avanu sthuthi paadiduveen"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "പാപികളാമ് നമ്മെ സ്നേഹിച്ചവൻ",
+          "ക്രൂശിൽ രക്തം ചിന്തിച്ചവൻ",
+          "അവനു സ്തുതി പാടിടുവീൻ"
+        ],
+        "linesRomanized": [
+          "Paapikalaam namme snehichavan",
+          "Krooshil raktham chinthichavan",
+          "Avanu sthuthi paadiduveen"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kerala Christian Heritage"
+}

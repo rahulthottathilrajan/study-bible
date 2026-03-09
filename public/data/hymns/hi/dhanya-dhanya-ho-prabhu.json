@@ -1,0 +1,76 @@
+{
+  "id": "dhanya-dhanya-ho-prabhu",
+  "lang": "hi",
+  "title": "धन्य धन्य हो प्रभु",
+  "titleRomanized": "Dhanya Dhanya Ho Prabhu",
+  "author": "Traditional",
+  "composer": "Traditional Hindi melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 103:1",
+      "note": "Bless the LORD, O my soul: and all that is within me, bless his holy name"
+    },
+    {
+      "ref": "1 Chronicles 29:13",
+      "note": "Now therefore, our God, we thank thee, and praise thy glorious name"
+    }
+  ],
+  "story": "A traditional Hindi worship bhajan expressing gratitude and blessing to the Lord. This hymn has been a treasured part of North Indian Christian worship for generations, sung in churches from Punjab to Bihar. Its meditative quality makes it suitable for both congregational worship and personal devotion.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "धन्य धन्य हो प्रभु धन्य धन्य हो",
+          "तेरी करुणा का कोई अंत नहीं",
+          "धन्य धन्य हो प्रभु धन्य धन्य हो"
+        ],
+        "linesRomanized": [
+          "Dhanya dhanya ho Prabhu dhanya dhanya ho",
+          "Teri karuna ka koi ant nahin",
+          "Dhanya dhanya ho Prabhu dhanya dhanya ho"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "तूने हमें बनाया तूने हमें सँवारा",
+          "तूने हमें अपना जाना",
+          "कितना बड़ा है तेरा प्यार",
+          "धन्य धन्य हो प्रभु"
+        ],
+        "linesRomanized": [
+          "Tune hamein banaayaa tune hamein sanvaaraa",
+          "Tune hamein apnaa jaanaa",
+          "Kitnaa badaa hai tera pyaar",
+          "Dhanya dhanya ho Prabhu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "पापों से हमें छुड़ाया",
+          "अँधेरे से उजाले में लाया",
+          "नया जीवन हमें दिया",
+          "धन्य धन्य हो प्रभु"
+        ],
+        "linesRomanized": [
+          "Paapon se hamein chhudaayaa",
+          "Andhere se ujaale mein laayaa",
+          "Nayaa jeevan hamein diyaa",
+          "Dhanya dhanya ho Prabhu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Christian Heritage"
+}

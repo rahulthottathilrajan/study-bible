@@ -531,6 +531,16 @@ export const HYMN_CATEGORIES = [
   { id:"mission",     label:"Mission & Evangelism",     icon:"\uD83C\uDF0D" },
 ];
 
+export const HYMN_LANGUAGES = [
+  { id: "all", label: "All",       nativeLabel: "All" },
+  { id: "en",  label: "English",   nativeLabel: "English" },
+  { id: "ml",  label: "Malayalam",  nativeLabel: "\u0D2E\u0D32\u0D2F\u0D3E\u0D33\u0D02" },
+  { id: "ta",  label: "Tamil",     nativeLabel: "\u0BA4\u0BAE\u0BBF\u0BB4\u0BCD" },
+  { id: "te",  label: "Telugu",    nativeLabel: "\u0C24\u0C46\u0C32\u0C41\u0C17\u0C41" },
+  { id: "hi",  label: "Hindi",     nativeLabel: "\u0939\u093F\u0928\u094D\u0926\u0940" },
+  { id: "kn",  label: "Kannada",   nativeLabel: "\u0C95\u0CA8\u0CCD\u0CA8\u0CA1" },
+];
+
 // ═══════════════════════════════════════════════════
 // BIBLE TRANSLATIONS (multilingual CDN)
 // ═══════════════════════════════════════════════════

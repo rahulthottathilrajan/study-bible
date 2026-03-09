@@ -1,0 +1,70 @@
+{
+  "lang": "en",
+  "id": "leaning-on-the-everlasting-arms",
+  "title": "Leaning on the Everlasting Arms",
+  "author": "Elisha A. Hoffman",
+  "composer": "Anthony J. Showalter",
+  "year": 1887,
+  "categories": [
+    "pentecostal",
+    "trust",
+    "comfort"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Deuteronomy 33:27",
+      "note": "The eternal God is thy refuge, and underneath are the everlasting arms"
+    },
+    {
+      "ref": "Isaiah 26:4",
+      "note": "Trust ye in the Lord for ever: for in the Lord Jehovah is everlasting strength"
+    }
+  ],
+  "story": "Anthony Showalter, a music teacher in Dalton, Georgia, received letters from two former students on the same day in 1887, each telling of the death of their wives. As he searched the Scriptures for words of comfort, he found Deuteronomy 33:27 and composed the chorus melody that evening. Feeling that the verses needed a more skilled hand, he sent the chorus to his friend Elisha Hoffman, who wrote the three stanzas. The collaboration produced one of the most comforting hymns in the revival tradition.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "What a fellowship, what a joy divine,",
+          "Leaning on the everlasting arms;",
+          "What a blessedness, what a peace is mine,",
+          "Leaning on the everlasting arms."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Leaning, leaning,",
+          "Safe and secure from all alarms;",
+          "Leaning, leaning,",
+          "Leaning on the everlasting arms."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "O how sweet to walk in this pilgrim way,",
+          "Leaning on the everlasting arms;",
+          "O how bright the path grows from day to day,",
+          "Leaning on the everlasting arms."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "What have I to dread, what have I to fear,",
+          "Leaning on the everlasting arms?",
+          "I have blessed peace with my Lord so near,",
+          "Leaning on the everlasting arms."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

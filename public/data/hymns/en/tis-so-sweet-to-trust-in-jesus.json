@@ -1,0 +1,80 @@
+{
+  "lang": "en",
+  "id": "tis-so-sweet-to-trust-in-jesus",
+  "title": "'Tis So Sweet to Trust in Jesus",
+  "author": "Louisa M. R. Stead",
+  "composer": "William J. Kirkpatrick",
+  "year": 1882,
+  "categories": [
+    "pentecostal",
+    "trust",
+    "faith"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Proverbs 3:5",
+      "note": "Trust in the Lord with all thine heart; and lean not unto thine own understanding"
+    },
+    {
+      "ref": "Isaiah 12:2",
+      "note": "I will trust, and not be afraid: for the Lord Jehovah is my strength and my song"
+    }
+  ],
+  "story": "Louisa Stead wrote this hymn around 1882 following a devastating personal tragedy. She and her husband witnessed a boy drowning at a beach on Long Island, and her husband drowned trying to save the child. Left a widow with a young daughter and no income, Stead clung to her faith in God. Out of that crucible of suffering came this tender hymn of trust. William Kirkpatrick composed the melody, and the hymn has comforted countless believers facing their own trials.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "'Tis so sweet to trust in Jesus,",
+          "Just to take Him at His word;",
+          "Just to rest upon His promise,",
+          "Just to know, \"Thus saith the Lord.\""
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Jesus, Jesus, how I trust Him!",
+          "How I've proved Him o'er and o'er!",
+          "Jesus, Jesus, precious Jesus!",
+          "O for grace to trust Him more!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "O how sweet to trust in Jesus,",
+          "Just to trust His cleansing blood;",
+          "Just in simple faith to plunge me",
+          "'Neath the healing, cleansing flood!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Yes, 'tis sweet to trust in Jesus,",
+          "Just from sin and self to cease;",
+          "Just from Jesus simply taking",
+          "Life and rest, and joy and peace."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "I'm so glad I learned to trust Thee,",
+          "Precious Jesus, Savior, Friend;",
+          "And I know that Thou art with me,",
+          "Wilt be with me to the end."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

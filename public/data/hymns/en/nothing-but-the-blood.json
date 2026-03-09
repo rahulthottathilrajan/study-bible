@@ -1,0 +1,84 @@
+{
+  "lang": "en",
+  "id": "nothing-but-the-blood",
+  "title": "Nothing but the Blood of Jesus",
+  "author": "Robert Lowry",
+  "composer": "Robert Lowry",
+  "year": 1876,
+  "categories": [
+    "pentecostal",
+    "salvation",
+    "grace"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Hebrews 9:22",
+      "note": "Without shedding of blood is no remission"
+    },
+    {
+      "ref": "Ephesians 1:7",
+      "note": "In whom we have redemption through his blood, the forgiveness of sins"
+    },
+    {
+      "ref": "Romans 5:9",
+      "note": "Being now justified by his blood, we shall be saved from wrath through him"
+    }
+  ],
+  "story": "Robert Lowry was a Baptist pastor and prolific hymn writer who served churches in Pennsylvania, New York, and New Jersey. He wrote 'Nothing but the Blood of Jesus' in 1876, emphasizing the central Reformation doctrine that salvation comes solely through the atoning sacrifice of Christ. Lowry also wrote the well-known hymns 'Shall We Gather at the River' and 'Low in the Grave He Lay.' This hymn's simple, repetitive structure made it ideal for revival meetings and altar calls.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "What can wash away my sin?",
+          "Nothing but the blood of Jesus;",
+          "What can make me whole again?",
+          "Nothing but the blood of Jesus."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "O precious is the flow",
+          "That makes me white as snow;",
+          "No other fount I know,",
+          "Nothing but the blood of Jesus."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "For my pardon this I see—",
+          "Nothing but the blood of Jesus;",
+          "For my cleansing this my plea—",
+          "Nothing but the blood of Jesus."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Nothing can for sin atone—",
+          "Nothing but the blood of Jesus;",
+          "Naught of good that I have done—",
+          "Nothing but the blood of Jesus."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "This is all my hope and peace—",
+          "Nothing but the blood of Jesus;",
+          "This is all my righteousness—",
+          "Nothing but the blood of Jesus."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

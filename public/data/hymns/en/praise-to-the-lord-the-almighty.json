@@ -1,0 +1,71 @@
+{
+  "lang": "en",
+  "id": "praise-to-the-lord-the-almighty",
+  "title": "Praise to the Lord, the Almighty",
+  "author": "Joachim Neander",
+  "composer": "Stralsund Gesangbuch (LOBE DEN HERREN)",
+  "year": 1680,
+  "categories": [
+    "classic",
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 103:1-2",
+      "note": "Bless the LORD, O my soul: and all that is within me, bless his holy name"
+    },
+    {
+      "ref": "Psalm 150:6",
+      "note": "Let every thing that hath breath praise the LORD"
+    }
+  ],
+  "story": "Joachim Neander, a German Reformed pastor and schoolteacher, wrote this hymn in 1680. He was the most important German Reformed hymn writer of the 17th century, composing about 60 hymns during his short life of only 30 years. The Neanderthal valley near Dusseldorf, where he often walked and composed, was named after him. Catherine Winkworth produced the well-known English translation in 1863.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Praise to the Lord, the Almighty, the King of creation!",
+          "O my soul, praise Him, for He is thy health and salvation!",
+          "All ye who hear, now to His temple draw near;",
+          "Join me in glad adoration!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Praise to the Lord, who o'er all things so wondrously reigneth,",
+          "Shelters thee under His wings, yea, so gently sustaineth!",
+          "Hast thou not seen how thy desires e'er have been",
+          "Granted in what He ordaineth?"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Praise to the Lord, who doth prosper thy work and defend thee;",
+          "Surely His goodness and mercy here daily attend thee.",
+          "Ponder anew what the Almighty can do,",
+          "If with His love He befriend thee."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "Praise to the Lord! O let all that is in me adore Him!",
+          "All that hath life and breath, come now with praises before Him!",
+          "Let the amen sound from His people again;",
+          "Gladly for aye we adore Him."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

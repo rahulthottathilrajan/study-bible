@@ -1,0 +1,78 @@
+{
+  "id": "sthothra-maado-nanna-manave",
+  "lang": "kn",
+  "title": "ಸ್ತೋತ್ರ ಮಾಡೊ ನನ್ನ ಮನವೇ",
+  "titleRomanized": "Sthothra Maado Nanna Manave",
+  "author": "Traditional",
+  "composer": "Traditional Kannada melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 103:1",
+      "note": "Bless the LORD, O my soul: and all that is within me"
+    },
+    {
+      "ref": "Psalm 146:1",
+      "note": "Praise ye the LORD. Praise the LORD, O my soul"
+    }
+  ],
+  "story": "One of the most cherished Kannada Christian hymns, this keerthane is a direct echo of David's Psalms calling the soul to praise the Lord. It has been a staple in Karnataka Protestant churches since the Basel Mission era, sung with deep devotion as an opening or closing hymn in worship services.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ಸ್ತೋತ್ರ ಮಾಡೊ ನನ್ನ ಮನವೇ",
+          "ಸ್ತೋತ್ರ ಮಾಡೊ ದೇವರಿಗೆ",
+          "ಆತನ ಕೃಪೆ ಎಂದೆಂದಿಗೂ",
+          "ಸ್ತೋತ್ರ ಮಾಡೊ ನನ್ನ ಮನವೇ"
+        ],
+        "linesRomanized": [
+          "Sthothra maado nanna manave",
+          "Sthothra maado devarige",
+          "Aatana krupe endendigoo",
+          "Sthothra maado nanna manave"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಪಾಪಗಳ ಕ್ಷಮಿಸಿದಾತನು",
+          "ರೋಗಗಳ ವಾಸಿ ಮಾಡಿದನು",
+          "ನಾಶನದಿಂದ ಬಿಡಿಸಿದನು",
+          "ಕೃಪೆ ಕರುಣೆ ಮುಕುಟ ಇಟ್ಟನು"
+        ],
+        "linesRomanized": [
+          "Paapagala kshamishidaatanu",
+          "Rogagala vaasi maadidanu",
+          "Naashanadinda bidisidanu",
+          "Krupe karune mukuta ittanu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ಅಪ್ಪನು ಮಕ್ಕಳ ಕರುಣಿಸುವಂತೆ",
+          "ದೇವರು ನಮ್ಮನು ಕರುಣಿಸುವನು",
+          "ನಾವು ಮಣ್ಣೆಂದು ಬಲ್ಲವನು",
+          "ಆತನ ಕೃಪೆ ಶಾಶ್ವತವು"
+        ],
+        "linesRomanized": [
+          "Appanu makkala karunisuvante",
+          "Devaru nammanu karunisuvanu",
+          "Naavu mannendu ballavanu",
+          "Aatana krupe shaashwatavu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

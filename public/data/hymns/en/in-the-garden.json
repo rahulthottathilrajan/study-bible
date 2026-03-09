@@ -1,0 +1,74 @@
+{
+  "lang": "en",
+  "id": "in-the-garden",
+  "title": "In the Garden",
+  "author": "C. Austin Miles",
+  "composer": "C. Austin Miles",
+  "year": 1912,
+  "categories": [
+    "pentecostal",
+    "devotion",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "John 20:15-16",
+      "note": "Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni"
+    },
+    {
+      "ref": "Song of Solomon 2:1",
+      "note": "I am the rose of Sharon, and the lily of the valleys"
+    },
+    {
+      "ref": "Genesis 3:8",
+      "note": "They heard the voice of the Lord God walking in the garden in the cool of the day"
+    }
+  ],
+  "story": "C. Austin Miles wrote both the words and music of this hymn in March 1912. He later recounted that one day while reading the twentieth chapter of John, describing Mary Magdalene's encounter with the risen Christ in the garden, the scene became so vivid in his imagination that he seemed to be standing at the garden tomb himself. Under this spiritual inspiration, he wrote the words and then went to the organ and composed the melody. The hymn became one of the most beloved devotional songs of the twentieth century, expressing the intimate personal relationship with Christ that is central to Pentecostal spirituality.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "I come to the garden alone,",
+          "While the dew is still on the roses;",
+          "And the voice I hear, falling on my ear,",
+          "The Son of God discloses."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "And He walks with me, and He talks with me,",
+          "And He tells me I am His own;",
+          "And the joy we share as we tarry there,",
+          "None other has ever known."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "He speaks, and the sound of His voice",
+          "Is so sweet the birds hush their singing,",
+          "And the melody that He gave to me",
+          "Within my heart is ringing."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "I'd stay in the garden with Him",
+          "Though the night around me be falling,",
+          "But He bids me go; through the voice of woe",
+          "His voice to me is calling."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

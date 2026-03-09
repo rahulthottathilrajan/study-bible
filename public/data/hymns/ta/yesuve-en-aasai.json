@@ -1,0 +1,78 @@
+{
+  "id": "yesuve-en-aasai",
+  "lang": "ta",
+  "title": "இயேசுவே என் ஆசை",
+  "titleRomanized": "Yesuve En Aasai",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "grace"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 42:1",
+      "note": "As the hart panteth after the water brooks, so panteth my soul after thee"
+    },
+    {
+      "ref": "Philippians 3:8",
+      "note": "I count all things but loss for the excellency of the knowledge of Christ"
+    }
+  ],
+  "story": "A deeply personal devotional hymn from the Tamil Christian tradition expressing the soul's longing for Jesus. This keerthanaigal captures the intimate spirituality that characterizes much of Tamil Christian worship poetry. It has been a staple of evening prayer meetings and personal devotion in Tamil churches for generations.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "இயேசுவே என் ஆசை",
+          "இயேசுவே என் நேசம்",
+          "இயேசுவே என் வாழ்வின் பொருள்",
+          "இயேசுவே என் எல்லாம்"
+        ],
+        "linesRomanized": [
+          "Yesuvae en aasai",
+          "Yesuvae en naesam",
+          "Yesuvae en vaazhvin porul",
+          "Yesuvae en ellaam"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "உம்மைப் போல் யாரும் இல்லை",
+          "உம் அன்பைப் போல் ஒன்றும் இல்லை",
+          "என் உள்ளம் உம்மைத் தேடுதே",
+          "என் ஆவி உம்மை நாடுதே"
+        ],
+        "linesRomanized": [
+          "Ummaip pol yaarum illai",
+          "Um anbaip pol ondrum illai",
+          "En ullam ummaith thaeduthae",
+          "En aavi ummai naaduthae"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "சிலுவையில் என்னை நேசித்தீர்",
+          "உம் இரத்தத்தால் மீட்டெடுத்தீர்",
+          "அழியாத அன்பு தந்தீர்",
+          "நிலையான வாழ்வு தந்தீர்"
+        ],
+        "linesRomanized": [
+          "Siluvayil ennai naesitheer",
+          "Um irathathaal meetedutheer",
+          "Azhiyaatha anbu thantheer",
+          "Nilaiyaana vaazhvu thantheer"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

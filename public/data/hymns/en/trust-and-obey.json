@@ -1,0 +1,126 @@
+{
+  "lang": "en",
+  "id": "trust-and-obey",
+  "title": "Trust and Obey",
+  "author": "John Henry Sammis",
+  "composer": "Daniel Brink Towner",
+  "year": 1887,
+  "categories": [
+    "classic",
+    "faith",
+    "obedience"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "1 John 1:7",
+      "note": "If we walk in the light, as he is in the light, we have fellowship one with another"
+    },
+    {
+      "ref": "John 14:15",
+      "note": "If ye love me, keep my commandments"
+    }
+  ],
+  "story": "This hymn grew out of a testimony at one of D.L. Moody's evangelistic meetings in Brockton, Massachusetts, in 1886. A young man stood and said, 'I am not quite sure, but I am going to trust, and I am going to obey.' Daniel Towner, the song leader, was so struck by the words that he jotted them down and sent them to John Sammis, a Presbyterian minister, who developed them into this beloved hymn.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "When we walk with the Lord",
+          "In the light of His Word,",
+          "What a glory He sheds on our way!",
+          "While we do His good will,",
+          "He abides with us still,",
+          "And with all who will trust and obey."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Trust and obey, for there's no other way",
+          "To be happy in Jesus, but to trust and obey."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Not a shadow can rise,",
+          "Not a cloud in the skies,",
+          "But His smile quickly drives it away;",
+          "Not a doubt or a fear,",
+          "Not a sigh or a tear,",
+          "Can abide while we trust and obey."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Trust and obey, for there's no other way",
+          "To be happy in Jesus, but to trust and obey."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Not a burden we bear,",
+          "Not a sorrow we share,",
+          "But our toil He doth richly repay;",
+          "Not a grief or a loss,",
+          "Not a frown or a cross,",
+          "But is blest if we trust and obey."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Trust and obey, for there's no other way",
+          "To be happy in Jesus, but to trust and obey."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "But we never can prove",
+          "The delights of His love",
+          "Until all on the altar we lay;",
+          "For the favor He shows,",
+          "For the joy He bestows,",
+          "Are for them who will trust and obey."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Trust and obey, for there's no other way",
+          "To be happy in Jesus, but to trust and obey."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 5,
+        "lines": [
+          "Then in fellowship sweet",
+          "We will sit at His feet,",
+          "Or we'll walk by His side in the way;",
+          "What He says we will do,",
+          "Where He sends we will go;",
+          "Never fear, only trust and obey."
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Trust and obey, for there's no other way",
+          "To be happy in Jesus, but to trust and obey."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

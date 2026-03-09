@@ -1,0 +1,76 @@
+{
+  "id": "prabhu-ki-stuti-gao",
+  "lang": "hi",
+  "title": "प्रभु की स्तुति गाओ",
+  "titleRomanized": "Prabhu Ki Stuti Gao",
+  "author": "Traditional",
+  "composer": "Traditional Hindi melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 96:1",
+      "note": "O sing unto the LORD a new song: sing unto the LORD, all the earth"
+    },
+    {
+      "ref": "Psalm 100:2",
+      "note": "Serve the LORD with gladness: come before his presence with singing"
+    }
+  ],
+  "story": "A joyful congregational hymn calling all believers to sing praises to the Lord. This traditional Hindi bhajan has been sung in churches across North India for many generations. Its uplifting melody and call to worship make it a natural opening hymn for Sunday services and prayer gatherings.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "प्रभु की स्तुति गाओ सब मिलकर गाओ",
+          "ऊँचे स्वर में उसका नाम बुलाओ",
+          "प्रभु की स्तुति गाओ सब मिलकर गाओ"
+        ],
+        "linesRomanized": [
+          "Prabhu ki stuti gaao sab milkar gaao",
+          "Oonche swar mein uska naam bulaao",
+          "Prabhu ki stuti gaao sab milkar gaao"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "वह अच्छा है वह भला है",
+          "उसकी दया सदा की है",
+          "उसकी सच्चाई पीढ़ी पीढ़ी तक है",
+          "प्रभु की स्तुति गाओ"
+        ],
+        "linesRomanized": [
+          "Woh achhaa hai woh bhalaa hai",
+          "Uski dayaa sadaa ki hai",
+          "Uski sachchaai peedhi peedhi tak hai",
+          "Prabhu ki stuti gaao"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "आनंद से उसके द्वार में आओ",
+          "धन्यवाद से उसके आँगन में आओ",
+          "उसका नाम लेकर स्तुति करो",
+          "प्रभु की स्तुति गाओ"
+        ],
+        "linesRomanized": [
+          "Aanand se uske dwaar mein aao",
+          "Dhanyavaad se uske aangan mein aao",
+          "Uska naam lekar stuti karo",
+          "Prabhu ki stuti gaao"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Christian Heritage"
+}

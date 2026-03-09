@@ -1,0 +1,83 @@
+{
+  "lang": "en",
+  "id": "my-faith-looks-up-to-thee",
+  "title": "My Faith Looks Up to Thee",
+  "author": "Ray Palmer",
+  "composer": "Lowell Mason (OLIVET)",
+  "year": 1830,
+  "categories": [
+    "classic",
+    "faith",
+    "devotion"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Hebrews 12:2",
+      "note": "Looking unto Jesus the author and finisher of our faith"
+    },
+    {
+      "ref": "John 1:29",
+      "note": "Behold the Lamb of God, which taketh away the sin of the world"
+    }
+  ],
+  "story": "Ray Palmer, a 22-year-old teacher in New York City, wrote this hymn in 1830 while struggling with loneliness and doubt. He later met Lowell Mason on a street in Boston, and Mason asked if he had anything that could be set to music. Palmer showed him this poem, and Mason composed the tune OLIVET on the spot. After reading it, Mason told Palmer, 'Mr. Palmer, you may live many years and do many good things, but I think you will be best known to posterity as the author of these words.'",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "My faith looks up to Thee,",
+          "Thou Lamb of Calvary,",
+          "Saviour divine!",
+          "Now hear me while I pray,",
+          "Take all my guilt away,",
+          "O let me from this day",
+          "Be wholly Thine!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "May Thy rich grace impart",
+          "Strength to my fainting heart,",
+          "My zeal inspire!",
+          "As Thou hast died for me,",
+          "O may my love to Thee",
+          "Pure, warm, and changeless be,",
+          "A living fire!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "While life's dark maze I tread,",
+          "And griefs around me spread,",
+          "Be Thou my guide;",
+          "Bid darkness turn to day,",
+          "Wipe sorrow's tears away,",
+          "Nor let me ever stray",
+          "From Thee aside."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "When ends life's transient dream,",
+          "When death's cold, sullen stream",
+          "Shall o'er me roll;",
+          "Blest Saviour, then in love,",
+          "Fear and distrust remove;",
+          "O bear me safe above,",
+          "A ransomed soul!"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

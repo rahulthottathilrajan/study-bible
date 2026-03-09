@@ -1,0 +1,79 @@
+{
+  "id": "karune-toro-devaa",
+  "lang": "kn",
+  "title": "ಕರುಣೆ ತೋರೊ ದೇವಾ",
+  "titleRomanized": "Karune Toro Devaa",
+  "author": "Traditional",
+  "composer": "Traditional Kannada melody",
+  "year": null,
+  "categories": [
+    "grace",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 51:1",
+      "note": "Have mercy upon me, O God, according to thy lovingkindness"
+    },
+    {
+      "ref": "Lamentations 3:22",
+      "note": "It is of the LORD's mercies that we are not consumed"
+    }
+  ],
+  "story": "A penitential hymn rooted in the Karnataka Christian heritage, echoing the spirit of David's prayer in Psalm 51. This keerthane is sung during Lent and times of repentance in Kannada-speaking churches. Its plaintive melody and humble lyrics have made it a powerful vehicle for expressing contrition and seeking God's mercy across generations of Karnataka Christians.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಕರುಣೆ ತೋರೊ ದೇವಾ",
+          "ನನ್ನ ಮೇಲೆ ಕರುಣೆ ತೋರು",
+          "ನಿನ್ನ ವಾತ್ಸಲ್ಯದ ಪ್ರಕಾರ",
+          "ನನ್ನ ಪಾಪ ಕ್ಷಮಿಸು ದೇವಾ"
+        ],
+        "linesRomanized": [
+          "Karune toro devaa",
+          "Nanna mele karune thoru",
+          "Ninna vaatsalyadha prakaara",
+          "Nanna paapa kshamisu devaa"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ನನ್ನ ಅಪರಾಧಗಳ ತೊಳೆದು",
+          "ಶುದ್ಧ ಹೃದಯವ ಕೊಡು ನನಗೆ",
+          "ನಿನ್ನ ಆತ್ಮವ ತೆಗೆಯಬೇಡ",
+          "ರಕ್ಷಣೆಯ ಆನಂದ ಕೊಡು"
+        ],
+        "linesRomanized": [
+          "Nanna aparaadhagala toledu",
+          "Shuddha hrudayava kodu nanage",
+          "Ninna aatmava tegeyabeda",
+          "Rakshaneya aananda kodu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "ಮುರಿದ ಮನಸ್ಸನು ತಿರಸ್ಕರಿಸೆ",
+          "ನೀನೆಂದಿಗೂ ಮಾಡುವುದಿಲ್ಲ",
+          "ನಿನ್ನ ಕೃಪೆ ಚಿರಕಾಲವು",
+          "ಕರುಣೆ ತೋರೊ ದೇವಾ ನನಗೆ"
+        ],
+        "linesRomanized": [
+          "Murida manassanu thiraskarisey",
+          "Neenendigoo maaduvudilla",
+          "Ninna krupe chirakaalavu",
+          "Karune toro devaa nanage"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

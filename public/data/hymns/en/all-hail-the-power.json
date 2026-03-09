@@ -1,0 +1,79 @@
+{
+  "lang": "en",
+  "id": "all-hail-the-power",
+  "title": "All Hail the Power of Jesus' Name",
+  "author": "Edward Perronet",
+  "composer": "Oliver Holden (CORONATION) / James Ellor (DIADEM)",
+  "year": 1779,
+  "categories": [
+    "classic",
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Philippians 2:9-11",
+      "note": "That at the name of Jesus every knee should bow"
+    },
+    {
+      "ref": "Revelation 19:12",
+      "note": "On his head were many crowns"
+    }
+  ],
+  "story": "Edward Perronet, a friend and associate of John and Charles Wesley, published this hymn in 1779 in The Gospel Magazine. Perronet was the son of a Church of England vicar and joined the Methodist revival. The hymn has been set to several beloved tunes, most notably CORONATION by Oliver Holden (1793) and DIADEM by James Ellor (1838). It has been called 'the National Anthem of Christendom.'",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "All hail the power of Jesus' name!",
+          "Let angels prostrate fall;",
+          "Bring forth the royal diadem,",
+          "And crown Him Lord of all!",
+          "Bring forth the royal diadem,",
+          "And crown Him Lord of all!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Ye chosen seed of Israel's race,",
+          "Ye ransomed from the fall,",
+          "Hail Him who saves you by His grace,",
+          "And crown Him Lord of all!",
+          "Hail Him who saves you by His grace,",
+          "And crown Him Lord of all!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Let every kindred, every tribe",
+          "On this terrestrial ball,",
+          "To Him all majesty ascribe,",
+          "And crown Him Lord of all!",
+          "To Him all majesty ascribe,",
+          "And crown Him Lord of all!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "O that with yonder sacred throng",
+          "We at His feet may fall!",
+          "We'll join the everlasting song,",
+          "And crown Him Lord of all!",
+          "We'll join the everlasting song,",
+          "And crown Him Lord of all!"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

@@ -1,0 +1,85 @@
+{
+  "lang": "en",
+  "id": "amazing-grace",
+  "title": "Amazing Grace",
+  "author": "John Newton",
+  "composer": "Traditional / Virginia Harmony",
+  "year": 1779,
+  "categories": [
+    "grace",
+    "classic",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Ephesians 2:8-9",
+      "note": "For by grace are ye saved through faith"
+    },
+    {
+      "ref": "1 Chronicles 17:16-17",
+      "note": "Who am I, O Lord God, and what is mine house"
+    },
+    {
+      "ref": "John 9:25",
+      "note": "I was blind, but now I see"
+    }
+  ],
+  "story": "John Newton wrote this hymn in 1772 for a New Year's Day sermon in Olney, England. Newton had been a slave trader before his dramatic conversion during a violent storm at sea in 1748. The hymn reflects his personal testimony of God's transforming grace and became one of the most recognizable songs in the English-speaking world.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Amazing grace! how sweet the sound,",
+          "That saved a wretch like me!",
+          "I once was lost, but now am found,",
+          "Was blind, but now I see."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "'Twas grace that taught my heart to fear,",
+          "And grace my fears relieved;",
+          "How precious did that grace appear",
+          "The hour I first believed!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Through many dangers, toils, and snares,",
+          "I have already come;",
+          "'Tis grace hath brought me safe thus far,",
+          "And grace will lead me home."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "The Lord has promised good to me,",
+          "His word my hope secures;",
+          "He will my shield and portion be",
+          "As long as life endures."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 5,
+        "lines": [
+          "When we've been there ten thousand years,",
+          "Bright shining as the sun,",
+          "We've no less days to sing God's praise",
+          "Than when we first begun."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

@@ -1,0 +1,84 @@
+{
+  "lang": "en",
+  "id": "blessed-be-the-name",
+  "title": "Blessed Be the Name",
+  "author": "Charles Wesley",
+  "composer": "Ralph E. Hudson",
+  "year": 1885,
+  "categories": [
+    "pentecostal",
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 113:2",
+      "note": "Blessed be the name of the Lord from this time forth and for evermore"
+    },
+    {
+      "ref": "Psalm 72:19",
+      "note": "Blessed be his glorious name for ever: and let the whole earth be filled with his glory"
+    },
+    {
+      "ref": "Acts 4:12",
+      "note": "There is none other name under heaven given among men, whereby we must be saved"
+    }
+  ],
+  "story": "The verses of this hymn are adapted from a poem by Charles Wesley, the great Methodist hymn writer, while Ralph E. Hudson arranged the hymn and added the well-known chorus in 1885. Hudson was a Union Army veteran who became an influential gospel song compiler in Alliance, Ohio. The hymn's exuberant praise of the name of Jesus made it a natural fit for the enthusiastic worship style of Pentecostal and revival services. It remains one of the most recognizable praise hymns in the tradition.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "All praise to Him who reigns above",
+          "In majesty supreme,",
+          "Who gave His Son for man to die,",
+          "That He might man redeem!"
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Blessed be the name, blessed be the name,",
+          "Blessed be the name of the Lord!",
+          "Blessed be the name, blessed be the name,",
+          "Blessed be the name of the Lord!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "His name above all names shall stand,",
+          "Exalted more and more,",
+          "At God the Father's own right hand,",
+          "Where angel hosts adore."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Redeemer, Savior, Friend of man",
+          "Once ruined by the fall,",
+          "Thou hast devised salvation's plan,",
+          "For Thou hast died for all."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "His name shall be the Counselor,",
+          "The mighty Prince of Peace,",
+          "Of all earth's kingdoms Conqueror,",
+          "Whose reign shall never cease."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

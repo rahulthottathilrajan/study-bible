@@ -1,0 +1,79 @@
+{
+  "id": "ente-yeshu-ennude-yeshu",
+  "lang": "ml",
+  "title": "എന്റെ യേശു എന്നുടെ യേശു",
+  "titleRomanized": "Ente Yeshu Ennude Yeshu",
+  "author": "Traditional",
+  "composer": "Traditional Kerala melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "grace"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Philippians 3:8",
+      "note": "I count all things but loss for the excellency of the knowledge of Christ"
+    },
+    {
+      "ref": "Galatians 2:20",
+      "note": "I live; yet not I, but Christ liveth in me"
+    }
+  ],
+  "story": "A deeply personal devotional hymn expressing intimate love and devotion to Jesus Christ. This traditional keerthanam captures the heart of Kerala Christian spirituality—a personal, loving relationship with the Saviour. Sung in both worship services and personal devotion times.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "എന്റെ യേശു എന്നുടെ യേശു",
+          "എന്റെ സ്നേഹം എന്നുടെ രക്ഷ",
+          "എൻ ജീവനത്തിൻ സർവ്വം",
+          "എന്റെ യേശു മാത്രം"
+        ],
+        "linesRomanized": [
+          "Ente Yeshu ennude Yeshu",
+          "Ente sneham ennude raksha",
+          "En jeevanthinte sarvvam",
+          "Ente Yeshu maathram"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ക്രൂശിൽ എനിക്കായി മരിച്ചു",
+          "മൂന്നാം നാളിൽ ഉയിർത്തു",
+          "പാപത്തിൽ നിന്നു മോചിച്ചു",
+          "നിത്യജീവൻ നൽകുന്നു"
+        ],
+        "linesRomanized": [
+          "Krooshil enikkayi marichu",
+          "Moonnaam naalil uyirthu",
+          "Paapathil ninnu mochichu",
+          "Nithyajeevan nalkunnu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "എന്റെ നല്ല ഇടയനായി",
+          "എന്റെ സ്നേഹിതനായി",
+          "എൻ ഹൃദയത്തിൽ വാഴുന്നു",
+          "എന്റെ യേശു സ്നേഹം"
+        ],
+        "linesRomanized": [
+          "Ente nalla idayanayi",
+          "Ente snehithanayi",
+          "En hrudayathil vaazhunnu",
+          "Ente Yeshu sneham"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kerala Christian Heritage"
+}

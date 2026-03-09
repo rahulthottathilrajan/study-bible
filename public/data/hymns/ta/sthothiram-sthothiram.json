@@ -1,0 +1,78 @@
+{
+  "id": "sthothiram-sthothiram",
+  "lang": "ta",
+  "title": "ஸ்தோத்திரம் ஸ்தோத்திரம்",
+  "titleRomanized": "Sthothiram Sthothiram",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 150:6",
+      "note": "Let every thing that hath breath praise the LORD"
+    },
+    {
+      "ref": "Psalm 103:1",
+      "note": "Bless the LORD, O my soul: and all that is within me, bless his holy name"
+    }
+  ],
+  "story": "A jubilant Tamil praise hymn that has been a staple of thanksgiving services and festive worship across Tamil Nadu and Sri Lanka. The repeated declaration of 'Sthothiram' (praise/thanksgiving) creates a powerful atmosphere of corporate gratitude. This traditional hymn is often sung at the conclusion of worship services as a final expression of praise.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ஸ்தோத்திரம் ஸ்தோத்திரம் இயேசுவே",
+          "ஸ்தோத்திரம் ஸ்தோத்திரம் இயேசுவே",
+          "கோடான கோடி ஸ்தோத்திரம்",
+          "என் இயேசு ராஜனுக்கே ஸ்தோத்திரம்"
+        ],
+        "linesRomanized": [
+          "Sthothiram sthothiram Yesuvae",
+          "Sthothiram sthothiram Yesuvae",
+          "Kodaana kodi sthothiram",
+          "En Yesu raajanukkae sthothiram"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "பாவியாம் என்னை மீட்டதற்கு",
+          "கிருபையால் என்னைக் காத்ததற்கு",
+          "உம் இரத்தத்தால் கழுவியதற்கு",
+          "ஸ்தோத்திரம் ஸ்தோத்திரம் இயேசுவே"
+        ],
+        "linesRomanized": [
+          "Paaviyaam ennai meettatharku",
+          "Kirupaiyaal ennaik kaathatharkku",
+          "Um irathathaal kazhuviyatharkku",
+          "Sthothiram sthothiram Yesuvae"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "நோய்களை நீக்கி குணமளித்தீர்",
+          "வறுமையை நீக்கி நிரப்பினீர்",
+          "கண்ணீரைத் துடைத்து மகிழ்ச்சி தந்தீர்",
+          "ஸ்தோத்திரம் ஸ்தோத்திரம் இயேசுவே"
+        ],
+        "linesRomanized": [
+          "Noigalai neekki kunamalitheer",
+          "Varumaiyai neekki nirappineer",
+          "Kanneerai thudaithu magizchi thantheer",
+          "Sthothiram sthothiram Yesuvae"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

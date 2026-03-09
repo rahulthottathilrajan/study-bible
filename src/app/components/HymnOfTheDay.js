@@ -34,7 +34,8 @@ export default function HymnOfTheDay({ nav, ht }) {
         <div style={{ width: 52, height: 52, borderRadius: 14, background: `${ht.accent}20`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, flexShrink: 0 }}>🎵</div>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: ht.heading, fontSize: 16, fontWeight: 700, color: ht.dark, lineHeight: 1.3 }}>{dailyHymn.title}</div>
-          <div style={{ fontFamily: ht.body, fontSize: 12, color: ht.muted, fontStyle: "italic", marginTop: 3, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{dailyHymn.firstLine}</div>
+          {dailyHymn.titleRomanized && <div style={{ fontFamily: ht.ui, fontSize: 12, color: ht.light, marginTop: 1 }}>{dailyHymn.titleRomanized}</div>}
+          <div style={{ fontFamily: ht.body, fontSize: 12, color: ht.muted, fontStyle: "italic", marginTop: 3, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{dailyHymn.firstLineRomanized || dailyHymn.firstLine}</div>
           <div style={{ fontFamily: ht.ui, fontSize: 11, color: ht.light, marginTop: 3 }}>{dailyHymn.author}{dailyHymn.year ? ` \u00B7 ${dailyHymn.year}` : ""}</div>
         </div>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>

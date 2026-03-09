@@ -1,0 +1,71 @@
+{
+  "lang": "en",
+  "id": "fairest-lord-jesus",
+  "title": "Fairest Lord Jesus",
+  "author": "Anonymous (German, Munster Gesangbuch)",
+  "composer": "Silesian folk tune (CRUSADERS' HYMN / SCHONSTER HERR JESU)",
+  "year": 1677,
+  "categories": [
+    "classic",
+    "worship",
+    "praise"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 27:4",
+      "note": "To behold the beauty of the LORD"
+    },
+    {
+      "ref": "Song of Solomon 5:16",
+      "note": "He is altogether lovely"
+    }
+  ],
+  "story": "This beloved hymn first appeared in the Munster Gesangbuch of 1677, though its origins are uncertain. It was once attributed to 12th-century Crusaders, earning the alternate title 'Crusaders' Hymn,' but this legend has no historical basis. The hymn was translated from German to English by several hands, most notably by Joseph August Seiss in 1873. The Silesian folk melody perfectly matches the text's adoring spirit.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Fairest Lord Jesus, Ruler of all nature,",
+          "O Thou of God and man the Son,",
+          "Thee will I cherish, Thee will I honor,",
+          "Thou, my soul's glory, joy, and crown."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Fair are the meadows, fairer still the woodlands,",
+          "Robed in the blooming garb of spring:",
+          "Jesus is fairer, Jesus is purer,",
+          "Who makes the woeful heart to sing."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Fair is the sunshine, fairer still the moonlight,",
+          "And all the twinkling starry host:",
+          "Jesus shines brighter, Jesus shines purer",
+          "Than all the angels heaven can boast."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "Beautiful Saviour! Lord of all the nations!",
+          "Son of God and Son of Man!",
+          "Glory and honor, praise, adoration,",
+          "Now and forevermore be Thine."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

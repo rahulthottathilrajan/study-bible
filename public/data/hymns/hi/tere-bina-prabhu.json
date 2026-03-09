@@ -1,0 +1,78 @@
+{
+  "id": "tere-bina-prabhu",
+  "lang": "hi",
+  "title": "तेरे बिना प्रभु",
+  "titleRomanized": "Tere Bina Prabhu",
+  "author": "Traditional",
+  "composer": "Traditional Hindi melody",
+  "year": null,
+  "categories": [
+    "comfort",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "John 15:5",
+      "note": "Without me ye can do nothing"
+    },
+    {
+      "ref": "Psalm 73:25",
+      "note": "Whom have I in heaven but thee? and there is none upon earth that I desire beside thee"
+    }
+  ],
+  "story": "A tender devotional bhajan expressing complete dependence on God. This hymn speaks to the heart of every believer who has known loneliness and found solace only in the Lord. Widely sung in Hindi-speaking churches and home prayer meetings, its gentle melody and honest lyrics have brought comfort to countless believers.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "तेरे बिना प्रभु जी नहीं सकते",
+          "तेरे बिना प्रभु कुछ नहीं कर सकते",
+          "तू ही हमारा सहारा है",
+          "तेरे बिना प्रभु कौन हमारा"
+        ],
+        "linesRomanized": [
+          "Tere bina Prabhu jee nahin sakte",
+          "Tere bina Prabhu kuchh nahin kar sakte",
+          "Tu hi hamaaraa sahaaraa hai",
+          "Tere bina Prabhu kaun hamaaraa"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "जब अँधेरा घिर आता है",
+          "जब राह कोई नज़र नहीं आता",
+          "तू ही दीपक बनकर आता है",
+          "तेरे बिना प्रभु कौन हमारा"
+        ],
+        "linesRomanized": [
+          "Jab andheraa ghir aataa hai",
+          "Jab raah koi nazar nahin aataa",
+          "Tu hi deepak bankar aataa hai",
+          "Tere bina Prabhu kaun hamaaraa"
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "तू ही सब कुछ है मेरा प्रभु",
+          "तू ही आशा तू ही सहारा",
+          "इस जीवन में और उस पार भी",
+          "तेरे बिना प्रभु कौन हमारा"
+        ],
+        "linesRomanized": [
+          "Tu hi sab kuchh hai mera Prabhu",
+          "Tu hi aashaa tu hi sahaaraa",
+          "Is jeevan mein aur us paar bhi",
+          "Tere bina Prabhu kaun hamaaraa"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Christian Heritage"
+}

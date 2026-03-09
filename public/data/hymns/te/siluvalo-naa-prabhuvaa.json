@@ -1,0 +1,76 @@
+{
+  "id": "siluvalo-naa-prabhuvaa",
+  "lang": "te",
+  "title": "సిలువలో నా ప్రభువా",
+  "titleRomanized": "Siluvalo Naa Prabhuvaa",
+  "author": "Traditional",
+  "composer": "Traditional Telugu melody",
+  "year": null,
+  "categories": [
+    "easter",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Isaiah 53:5",
+      "note": "But he was wounded for our transgressions, he was bruised for our iniquities"
+    },
+    {
+      "ref": "Galatians 6:14",
+      "note": "God forbid that I should glory, save in the cross of our Lord Jesus Christ"
+    }
+  ],
+  "story": "A deeply moving Passion hymn from the Telugu Christian tradition, sung especially during Good Friday services and the Lenten season. This keerthanamu meditates on the suffering of Christ on the cross and the immense sacrifice He made for the redemption of humanity. It has been a central part of Easter worship in Andhra and Telangana churches for generations.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "సిలువలో నా ప్రభువా నా కొరకై బలియైనావా",
+          "ముళ్ళ కిరీటము ధరించి నా కొరకై బాధపడినావా",
+          "నీ చేతులకు మేకులు నా పాపముల కొరకై",
+          "సిలువలో నా ప్రభువా నిన్ను స్మరిస్తున్నా"
+        ],
+        "linesRomanized": [
+          "Siluvalo naa prabhuvaa naa korakai baliyainava",
+          "Mulla kireetamu dharinchi naa korakai baadhapadinava",
+          "Nee chethulaku mekulu naa paapamula korakai",
+          "Siluvalo naa prabhuvaa ninnu smaristhunnaa"
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "కృతజ్ఞతలు కృతజ్ఞతలు నీకే ప్రభువా",
+          "నీ సిలువ బలి వలన నాకు రక్షణ",
+          "నీ రక్తము వలన నాకు విమోచన"
+        ],
+        "linesRomanized": [
+          "Kruthagnathalu kruthagnathalu neeke prabhuvaa",
+          "Nee siluva bali valana naaku rakshana",
+          "Nee rakthamu valana naaku vimochana"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "నీ ప్రక్కలో పొడిచిన బల్లెపు గాయము",
+          "నా పాపముల శిక్షను నీవు భరించినావు",
+          "మూడవ దినమున లేచి జయము పొందినావు",
+          "సిలువలో నా ప్రభువా నిన్ను ఘనపరుస్తున్నా"
+        ],
+        "linesRomanized": [
+          "Nee prakkalo podichina ballepu gaayamu",
+          "Naa paapamula shikshanu neevu bharincinavu",
+          "Moodava dinamuna lechi jayamu pondinavu",
+          "Siluvalo naa prabhuvaa ninnu ghanaparusthunna"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Telugu Christian Heritage"
+}

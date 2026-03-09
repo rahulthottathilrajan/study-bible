@@ -1,0 +1,76 @@
+{
+  "id": "yesu-ennai-nesikkindrar",
+  "lang": "ta",
+  "title": "இயேசு என்னை நேசிக்கிறார்",
+  "titleRomanized": "Yesu Ennai Nesikkindrar",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "children",
+    "comfort"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Mark 10:14",
+      "note": "Suffer the little children to come unto me, and forbid them not"
+    },
+    {
+      "ref": "John 3:16",
+      "note": "For God so loved the world, that he gave his only begotten Son"
+    }
+  ],
+  "story": "One of the first Tamil Christian songs taught to children in Sunday Schools across Tamil Nadu and Sri Lanka. This simple yet profound hymn affirms the personal love of Jesus for each child. Its easy melody and repetitive structure have made it a cherished part of Tamil Christian childhood for over a century.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "இயேசு என்னை நேசிக்கிறார்",
+          "இயேசு என்னை நேசிக்கிறார்",
+          "ஆம் ஆம் ஆம் இயேசு என்னை நேசிக்கிறார்"
+        ],
+        "linesRomanized": [
+          "Yesu ennai naesikkindrar",
+          "Yesu ennai naesikkindrar",
+          "Aam aam aam Yesu ennai naesikkindrar"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "வேதம் எனக்குச் சொல்லுகிறது",
+          "சிறுவர்களை அவர் அழைக்கிறார்",
+          "அவர் அன்பில் பலவீனர் வலிமை பெறுவார்",
+          "இயேசு என்னை நேசிக்கிறார்"
+        ],
+        "linesRomanized": [
+          "Vaedam enakkuch sollugirathu",
+          "Siruvargalai avar azhaikkindrar",
+          "Avar anbil balaveennar valimai peruvaar",
+          "Yesu ennai naesikkindrar"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "என் கூடவே நடந்திடுவார்",
+          "என் கையைப் பிடித்திடுவார்",
+          "வானமும் பூமியும் மாறிப் போனாலும்",
+          "இயேசு என்னை நேசிக்கிறார்"
+        ],
+        "linesRomanized": [
+          "En koodavae nadanthiduvaar",
+          "En kaiyaip pidithiduvaar",
+          "Vaanamum boomiyum maarip ponaalum",
+          "Yesu ennai naesikkindrar"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "devan-enakkul-irukkirar",
+  "lang": "ta",
+  "title": "தேவன் எனக்குள் இருக்கிறார்",
+  "titleRomanized": "Devan Enakkul Irukkirar",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "comfort",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "1 Corinthians 3:16",
+      "note": "Know ye not that ye are the temple of God, and that the Spirit of God dwelleth in you?"
+    },
+    {
+      "ref": "Psalm 46:1",
+      "note": "God is our refuge and strength, a very present help in trouble"
+    }
+  ],
+  "story": "A comforting Tamil hymn that affirms the indwelling presence of God in the believer's life. This keerthanaigal draws from the Pauline teaching that believers are temples of the Holy Spirit. It has been a source of encouragement and strength for Tamil Christians facing trials and difficulties, reminding them that they are never alone.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "தேவன் எனக்குள் இருக்கிறார்",
+          "பரிசுத்த ஆவி எனில் வாழுகிறார்",
+          "நான் பயப்படேன் கலங்கிடேன்",
+          "தேவன் எனக்குள் இருக்கிறார்"
+        ],
+        "linesRomanized": [
+          "Daevan enakkul irukkirar",
+          "Parisutha aavi enil vaazhugirar",
+          "Naan bayappadaen kalangidaen",
+          "Daevan enakkul irukkirar"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "இருளின் பள்ளத்தாக்கிலும்",
+          "சோதனை வேளைகளிலும்",
+          "நோய் வேதனை நேரத்திலும்",
+          "தேவன் எனக்குள் இருக்கிறார்"
+        ],
+        "linesRomanized": [
+          "Irulin pallathaakkilum",
+          "Sothanai vaelaigalilum",
+          "Noi vaethanai naeratthilum",
+          "Daevan enakkul irukkirar"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "அவர் என் கோட்டையும் அரணும்",
+          "அவர் என் கேடகமும் பெலனும்",
+          "அவர் என் மீட்பரும் துணையும்",
+          "தேவன் எனக்குள் இருக்கிறார்"
+        ],
+        "linesRomanized": [
+          "Avar en kottaiyum aranum",
+          "Avar en kaedagamum belanum",
+          "Avar en meetparum thunaiyum",
+          "Daevan enakkul irukkirar"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useApp } from "../context/AppContext";
-import { HYMN_CATEGORIES } from "../constants";
+import { HYMN_CATEGORIES, HYMN_LANGUAGES } from "../constants";
 import Header from "../components/Header";
 import { Card, Spinner } from "../components/ui";
 
@@ -23,6 +23,8 @@ export default function SongsView() {
   const [favorites, setFavorites] = useState([]);
   const [recentHymns, setRecentHymns] = useState([]);
   const [storyExpanded, setStoryExpanded] = useState(false);
+  const [langFilter, setLangFilter] = useState("all");
+  const [showRomanized, setShowRomanized] = useState(false);
   const hymnCache = useRef({});
   const searchTimer = useRef(null);
 
@@ -37,7 +39,7 @@ export default function SongsView() {
       .finally(() => setIndexLoading(false));
   }, [hymnIndex]);
 
-  // ─── Load favorites from localStorage ───
+  // ─── Load favorites + lang pref from localStorage ───
   useEffect(() => {
     try {
       const saved = localStorage.getItem("hymnFavorites");
@@ -46,6 +48,10 @@ export default function SongsView() {
     try {
       const saved = localStorage.getItem("recentHymns");
       if (saved) setRecentHymns(JSON.parse(saved));
+    } catch {}
+    try {
+      const saved = localStorage.getItem("hymnLangFilter");
+      if (saved) setLangFilter(saved);
     } catch {}
   }, []);
 
@@ -67,19 +73,20 @@ export default function SongsView() {
     });
   }, []);
 
-  // ─── Load individual hymn ───
-  const loadHymn = useCallback(async (hymnId) => {
-    if (hymnCache.current[hymnId]) {
-      setSelectedHymn(hymnCache.current[hymnId]);
+  // ─── Load individual hymn (multi-lang) ───
+  const loadHymn = useCallback(async (hymnId, lang = "en") => {
+    const cacheKey = `${lang}/${hymnId}`;
+    if (hymnCache.current[cacheKey]) {
+      setSelectedHymn(hymnCache.current[cacheKey]);
       trackRecent(hymnId);
       return;
     }
     setHymnLoading(true);
     try {
-      const r = await fetch(`/data/hymns/en/${hymnId}.json`);
+      const r = await fetch(`/data/hymns/${lang}/${hymnId}.json`);
       if (r.ok) {
         const data = await r.json();
-        hymnCache.current[hymnId] = data;
+        hymnCache.current[cacheKey] = data;
         setSelectedHymn(data);
         trackRecent(hymnId);
       }
@@ -90,16 +97,30 @@ export default function SongsView() {
   // ─── Load hymn when navigating to detail ───
   useEffect(() => {
     if (view === "songs-detail" && songsHymn && (!selectedHymn || selectedHymn.id !== songsHymn)) {
-      loadHymn(songsHymn);
+      setShowRomanized(false);
+      setStoryExpanded(false);
+      const entry = hymnIndex?.hymns?.find(h => h.id === songsHymn);
+      loadHymn(songsHymn, entry?.lang || "en");
     }
-  }, [view, songsHymn, selectedHymn, loadHymn]);
+  }, [view, songsHymn, selectedHymn, loadHymn, hymnIndex]);
 
-  // ─── Search ───
-  const filteredHymns = hymnIndex?.hymns?.filter(h => {
+  // ─── Persist lang filter ───
+  const setLang = useCallback((l) => {
+    setLangFilter(l);
+    try { localStorage.setItem("hymnLangFilter", l); } catch {}
+  }, []);
+
+  // ─── Filter by language, then search ───
+  const visibleHymns = hymnIndex?.hymns?.filter(h => langFilter === "all" || (h.lang || "en") === langFilter) || [];
+  const filteredHymns = visibleHymns.filter(h => {
     if (!searchQuery.trim()) return true;
     const q = searchQuery.toLowerCase();
-    return h.title.toLowerCase().includes(q) || h.firstLine.toLowerCase().includes(q) || h.author.toLowerCase().includes(q);
-  }) || [];
+    return h.title.toLowerCase().includes(q)
+      || (h.titleRomanized || "").toLowerCase().includes(q)
+      || h.firstLine.toLowerCase().includes(q)
+      || (h.firstLineRomanized || "").toLowerCase().includes(q)
+      || h.author.toLowerCase().includes(q);
+  });
 
   // ─── Palette ───
   const catColors = darkMode ? {
@@ -134,11 +155,12 @@ export default function SongsView() {
   // ═══════════════════════════════════════════════
   if (view === "songs-home") {
     const catCounts = {};
-    hymnIndex?.hymns?.forEach(h => h.categories?.forEach(c => { catCounts[c] = (catCounts[c] || 0) + 1; }));
+    visibleHymns.forEach(h => h.categories?.forEach(c => { catCounts[c] = (catCounts[c] || 0) + 1; }));
+    const activeLangs = hymnIndex?.languages || [];
 
     return (
       <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
-        <Header title="Hymns & Songs" subtitle={`${hymnIndex?.count || 0} public domain hymns`} theme={ht} />
+        <Header title="Hymns & Songs" subtitle={langFilter === "all" ? `${hymnIndex?.count || 0} public domain hymns` : `${visibleHymns.length} ${HYMN_LANGUAGES.find(l => l.id === langFilter)?.label || ""} hymns`} theme={ht} />
         <div style={{ padding: `16px ${bp.pad}px 40px`, maxWidth: bp.content, margin: "0 auto" }}>
           {indexLoading ? <Spinner t={ht} /> : !hymnIndex ? (
             <Card t={ht} style={{ textAlign: "center", padding: 30 }}>
@@ -168,6 +190,21 @@ export default function SongsView() {
                 )}
               </div>
 
+              {/* ── LANGUAGE FILTER ── */}
+              {activeLangs.length > 1 && (
+                <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4, marginBottom: 16, WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none" }}>
+                  {[{ id: "all", nativeLabel: "All" }, ...activeLangs].map(lang => {
+                    const active = langFilter === lang.id;
+                    return (
+                      <button key={lang.id} onClick={() => setLang(lang.id)}
+                        style={{ padding: "7px 16px", borderRadius: 20, whiteSpace: "nowrap", border: `1px solid ${active ? ht.accent : ht.divider}`, background: active ? ht.accent : ht.card, color: active ? "#fff" : ht.muted, fontFamily: ht.ui, fontSize: 13, fontWeight: 600, cursor: "pointer", flexShrink: 0 }}>
+                        {lang.nativeLabel}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
               {/* ── SEARCH RESULTS ── */}
               {searchQuery.trim() ? (
                 <div>
@@ -182,9 +219,9 @@ export default function SongsView() {
               ) : (
                 <>
                   {/* ── HYMN OF THE DAY (inline mini) ── */}
-                  {hymnIndex.hymns.length > 0 && (() => {
+                  {visibleHymns.length > 0 && (() => {
                     const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
-                    const dailyHymn = hymnIndex.hymns[dayOfYear % hymnIndex.hymns.length];
+                    const dailyHymn = visibleHymns[dayOfYear % visibleHymns.length];
                     return (
                       <div
                         onClick={() => { setSongsHymn(dailyHymn.id); nav("songs-detail", { songsHymn: dailyHymn.id }); }}
@@ -193,8 +230,9 @@ export default function SongsView() {
                       >
                         <div style={{ position: "absolute", top: 0, right: 0, width: 120, height: 120, background: "radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent)", borderRadius: "0 16px 0 120px" }} />
                         <div style={{ fontFamily: ht.ui, fontSize: 9, fontWeight: 700, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 8 }}>Hymn of the Day</div>
-                        <div style={{ fontFamily: ht.heading, fontSize: 20, fontWeight: 700, color: ht.headerText, lineHeight: 1.3, marginBottom: 6 }}>{dailyHymn.title}</div>
-                        <div style={{ fontFamily: ht.body, fontSize: 13, color: "rgba(255,255,255,0.7)", fontStyle: "italic", lineHeight: 1.6, marginBottom: 8 }}>{dailyHymn.firstLine}</div>
+                        <div style={{ fontFamily: ht.heading, fontSize: 20, fontWeight: 700, color: ht.headerText, lineHeight: 1.3, marginBottom: dailyHymn.titleRomanized ? 2 : 6 }}>{dailyHymn.title}</div>
+                        {dailyHymn.titleRomanized && <div style={{ fontFamily: ht.ui, fontSize: 13, color: "rgba(255,255,255,0.55)", marginBottom: 6 }}>{dailyHymn.titleRomanized}</div>}
+                        <div style={{ fontFamily: ht.body, fontSize: 13, color: "rgba(255,255,255,0.7)", fontStyle: "italic", lineHeight: 1.6, marginBottom: 8 }}>{dailyHymn.firstLineRomanized || dailyHymn.firstLine}</div>
                         <div style={{ fontFamily: ht.ui, fontSize: 11, color: "rgba(255,255,255,0.5)" }}>{dailyHymn.author}{dailyHymn.year ? `, ${dailyHymn.year}` : ""}</div>
                       </div>
                     );
@@ -225,17 +263,21 @@ export default function SongsView() {
                   </div>
 
                   {/* ── FAVORITES ── */}
-                  {favorites.length > 0 && (
-                    <>
-                      <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
-                        <span>❤️</span> Your Favorites
-                      </div>
-                      {hymnIndex.hymns.filter(h => favorites.includes(h.id)).map(h => (
-                        <HymnCard key={h.id} hymn={h} ht={ht} nav={nav} favorites={favorites} toggleFavorite={toggleFavorite} getCatColor={getCatColor} setSongsHymn={setSongsHymn} />
-                      ))}
-                      <div style={{ marginBottom: 24 }} />
-                    </>
-                  )}
+                  {favorites.length > 0 && (() => {
+                    const favHymns = visibleHymns.filter(h => favorites.includes(h.id));
+                    if (!favHymns.length) return null;
+                    return (
+                      <>
+                        <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
+                          <span>&#10084;&#65039;</span> Your Favorites
+                        </div>
+                        {favHymns.map(h => (
+                          <HymnCard key={h.id} hymn={h} ht={ht} nav={nav} favorites={favorites} toggleFavorite={toggleFavorite} getCatColor={getCatColor} setSongsHymn={setSongsHymn} />
+                        ))}
+                        <div style={{ marginBottom: 24 }} />
+                      </>
+                    );
+                  })()}
 
                   {/* ── RECENT ── */}
                   {recentHymns.length > 0 && (
@@ -254,9 +296,9 @@ export default function SongsView() {
 
                   {/* ── ALL HYMNS ── */}
                   <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
-                    <span>📜</span> All Hymns ({hymnIndex.hymns.length})
+                    <span>&#128220;</span> {langFilter === "all" ? "All Hymns" : `${HYMN_LANGUAGES.find(l => l.id === langFilter)?.label || ""} Hymns`} ({visibleHymns.length})
                   </div>
-                  {hymnIndex.hymns.map(h => (
+                  {visibleHymns.map(h => (
                     <HymnCard key={h.id} hymn={h} ht={ht} nav={nav} favorites={favorites} toggleFavorite={toggleFavorite} getCatColor={getCatColor} setSongsHymn={setSongsHymn} />
                   ))}
                 </>
@@ -273,7 +315,7 @@ export default function SongsView() {
   // ═══════════════════════════════════════════════
   if (view === "songs-category") {
     const cat = HYMN_CATEGORIES.find(c => c.id === songsCategory);
-    const categoryHymns = hymnIndex?.hymns?.filter(h => h.categories?.includes(songsCategory)) || [];
+    const categoryHymns = hymnIndex?.hymns?.filter(h => h.categories?.includes(songsCategory) && (langFilter === "all" || (h.lang || "en") === langFilter)) || [];
 
     return (
       <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
@@ -314,7 +356,8 @@ export default function SongsView() {
               {/* ── HYMN HEADER ── */}
               <div style={{ background: ht.headerGradient, borderRadius: 16, padding: "22px 20px 18px", marginBottom: 16, position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: 0, right: 0, width: 150, height: 150, background: "radial-gradient(circle at top right, rgba(255,255,255,0.06), transparent)", borderRadius: "0 16px 0 150px" }} />
-                <div style={{ fontFamily: ht.heading, fontSize: 22, fontWeight: 700, color: ht.headerText, lineHeight: 1.3, marginBottom: 6 }}>{hymn.title}</div>
+                <div style={{ fontFamily: ht.heading, fontSize: 22, fontWeight: 700, color: ht.headerText, lineHeight: 1.3, marginBottom: hymn.titleRomanized ? 2 : 6 }}>{hymn.title}</div>
+                {hymn.titleRomanized && <div style={{ fontFamily: ht.ui, fontSize: 14, color: "rgba(255,255,255,0.6)", marginBottom: 6 }}>{hymn.titleRomanized}</div>}
                 <div style={{ fontFamily: ht.ui, fontSize: 12, color: "rgba(255,255,255,0.6)" }}>
                   {hymn.author}{hymn.year ? ` (${hymn.year})` : ""}
                   {hymn.composer ? ` \u00B7 Music: ${hymn.composer}` : ""}
@@ -331,27 +374,46 @@ export default function SongsView() {
               </div>
 
               {/* ── ACTION BAR ── */}
-              <div style={{ display: "flex", gap: 8, marginBottom: 18 }}>
-                <button onClick={() => toggleFavorite(hymn.id)} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "10px 12px", borderRadius: 10, border: `1px solid ${isFav ? ht.accent : ht.divider}`, background: isFav ? `${ht.accent}15` : ht.card, cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: isFav ? ht.accent : ht.muted }}>
-                  {isFav ? "❤️" : "🤍"} {isFav ? "Saved" : "Save"}
-                </button>
-                <button onClick={() => {
-                  const text = `${hymn.title}\n${hymn.author}${hymn.year ? ` (${hymn.year})` : ""}\n\n${hymn.lyrics?.structure?.map(s => s.lines.join("\n")).join("\n\n") || ""}`;
-                  if (navigator.share) navigator.share({ title: hymn.title, text }).catch(() => {});
-                  else { navigator.clipboard?.writeText(text); }
-                }} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "10px 12px", borderRadius: 10, border: `1px solid ${ht.divider}`, background: ht.card, cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: ht.muted }}>
-                  📤 Share
-                </button>
-                <button onClick={() => {
-                  const text = `${hymn.title}\n${hymn.author}\n\n${hymn.lyrics?.structure?.map(s => s.lines.join("\n")).join("\n\n") || ""}`;
-                  navigator.clipboard?.writeText(text);
-                }} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "10px 12px", borderRadius: 10, border: `1px solid ${ht.divider}`, background: ht.card, cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: ht.muted }}>
-                  📋 Copy
-                </button>
-              </div>
+              {(() => {
+                const getLines = (s) => showRomanized && s.linesRomanized ? s.linesRomanized : s.lines;
+                const titleText = showRomanized && hymn.titleRomanized ? hymn.titleRomanized : hymn.title;
+                return (
+                  <div style={{ display: "flex", gap: 8, marginBottom: 18 }}>
+                    <button onClick={() => toggleFavorite(hymn.id)} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "10px 12px", borderRadius: 10, border: `1px solid ${isFav ? ht.accent : ht.divider}`, background: isFav ? `${ht.accent}15` : ht.card, cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: isFav ? ht.accent : ht.muted }}>
+                      {isFav ? "\u2764\uFE0F" : "\uD83E\uDD0D"} {isFav ? "Saved" : "Save"}
+                    </button>
+                    <button onClick={() => {
+                      const text = `${titleText}\n${hymn.author}${hymn.year ? ` (${hymn.year})` : ""}\n\n${hymn.lyrics?.structure?.map(s => getLines(s).join("\n")).join("\n\n") || ""}`;
+                      if (navigator.share) navigator.share({ title: titleText, text }).catch(() => {});
+                      else { navigator.clipboard?.writeText(text); }
+                    }} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "10px 12px", borderRadius: 10, border: `1px solid ${ht.divider}`, background: ht.card, cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: ht.muted }}>
+                      \uD83D\uDCE4 Share
+                    </button>
+                    <button onClick={() => {
+                      const text = `${titleText}\n${hymn.author}\n\n${hymn.lyrics?.structure?.map(s => getLines(s).join("\n")).join("\n\n") || ""}`;
+                      navigator.clipboard?.writeText(text);
+                    }} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "10px 12px", borderRadius: 10, border: `1px solid ${ht.divider}`, background: ht.card, cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: ht.muted }}>
+                      \uD83D\uDCCB Copy
+                    </button>
+                  </div>
+                );
+              })()}
 
               {/* ── LYRICS ── */}
               <Card t={ht} style={{ padding: "22px 20px", marginBottom: 16 }}>
+                {/* Script toggle for native-language hymns */}
+                {hymn.lyrics?.structure?.some(s => s.linesRomanized) && (
+                  <div style={{ display: "flex", borderRadius: 10, border: `1px solid ${ht.divider}`, overflow: "hidden", marginBottom: 18 }}>
+                    <button onClick={() => setShowRomanized(false)}
+                      style={{ flex: 1, padding: "9px 0", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, border: "none", cursor: "pointer", background: !showRomanized ? ht.accent : ht.card, color: !showRomanized ? "#fff" : ht.muted }}>
+                      Native Script
+                    </button>
+                    <button onClick={() => setShowRomanized(true)}
+                      style={{ flex: 1, padding: "9px 0", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, border: "none", cursor: "pointer", background: showRomanized ? ht.accent : ht.card, color: showRomanized ? "#fff" : ht.muted }}>
+                      Romanized
+                    </button>
+                  </div>
+                )}
                 {hymn.lyrics?.structure?.map((section, idx) => (
                   <div key={idx} style={{ marginBottom: idx < hymn.lyrics.structure.length - 1 ? 22 : 0 }}>
                     {/* Section label */}
@@ -360,7 +422,7 @@ export default function SongsView() {
                     </div>
                     {/* Lines */}
                     <div style={{ fontFamily: ht.body, fontSize: 16, lineHeight: 1.85, color: ht.text, paddingLeft: section.type === "chorus" ? 16 : 0, borderLeft: section.type === "chorus" ? `3px solid ${ht.accent}40` : "none", fontStyle: section.type === "chorus" ? "italic" : "normal" }}>
-                      {section.lines.map((line, li) => (
+                      {(showRomanized && section.linesRomanized ? section.linesRomanized : section.lines).map((line, li) => (
                         <div key={li}>{line}</div>
                       ))}
                     </div>
@@ -425,8 +487,9 @@ function HymnCard({ hymn, ht, nav, favorites, toggleFavorite, getCatColor, setSo
     >
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontFamily: ht.heading, fontSize: 15, fontWeight: 600, color: ht.dark, lineHeight: 1.3, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{hymn.title}</div>
+        {hymn.titleRomanized && <div style={{ fontFamily: ht.ui, fontSize: 11, color: ht.light, marginTop: 1 }}>{hymn.titleRomanized}</div>}
         <div style={{ fontFamily: ht.ui, fontSize: 11, color: ht.muted, marginTop: 2 }}>{hymn.author}{hymn.year ? ` \u00B7 ${hymn.year}` : ""}</div>
-        <div style={{ fontFamily: ht.body, fontSize: 12, color: ht.light, marginTop: 4, fontStyle: "italic", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{hymn.firstLine}</div>
+        <div style={{ fontFamily: ht.body, fontSize: 12, color: ht.light, marginTop: 4, fontStyle: "italic", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{hymn.firstLineRomanized || hymn.firstLine}</div>
       </div>
       <button
         onClick={e => { e.stopPropagation(); toggleFavorite(hymn.id); }}

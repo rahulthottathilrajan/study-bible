@@ -1,0 +1,84 @@
+{
+  "lang": "en",
+  "id": "send-the-light",
+  "title": "Send the Light",
+  "author": "Charles H. Gabriel",
+  "composer": "Charles H. Gabriel",
+  "year": 1890,
+  "categories": [
+    "pentecostal",
+    "missions",
+    "evangelism"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Matthew 28:19",
+      "note": "Go ye therefore, and teach all nations"
+    },
+    {
+      "ref": "John 8:12",
+      "note": "I am the light of the world: he that followeth me shall not walk in darkness"
+    },
+    {
+      "ref": "Isaiah 60:1",
+      "note": "Arise, shine; for thy light is come, and the glory of the Lord is risen upon thee"
+    }
+  ],
+  "story": "Charles Hutchinson Gabriel was one of the most prolific gospel songwriters of the late nineteenth and early twentieth centuries, composing over 7,000 hymns. He wrote 'Send the Light' in 1890 as a missions hymn calling Christians to spread the gospel to every corner of the world. The hymn captured the missionary zeal that was a defining feature of both the Holiness movement and the emerging Pentecostal movement. Its stirring melody and urgent call made it popular at missionary conventions and revival gatherings.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "There's a call comes ringing o'er the restless wave,",
+          "\"Send the light! Send the light!\"",
+          "There are souls to rescue, there are souls to save,",
+          "Send the light! Send the light!"
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "Send the light, the blessed gospel light;",
+          "Let it shine from shore to shore!",
+          "Send the light, the blessed gospel light;",
+          "Let it shine forevermore!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "We have heard the Macedonian call today,",
+          "\"Send the light! Send the light!\"",
+          "And a golden off'ring at the cross we lay,",
+          "Send the light! Send the light!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Let us pray that grace may everywhere abound,",
+          "\"Send the light! Send the light!\"",
+          "And a Christlike spirit everywhere be found,",
+          "Send the light! Send the light!"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "Let us not grow weary in the work of love,",
+          "\"Send the light! Send the light!\"",
+          "Let us gather jewels for a crown above,",
+          "Send the light! Send the light!"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Public Domain"
+}

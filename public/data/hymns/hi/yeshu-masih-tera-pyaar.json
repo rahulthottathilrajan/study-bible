@@ -1,0 +1,78 @@
+{
+  "id": "yeshu-masih-tera-pyaar",
+  "lang": "hi",
+  "title": "यीशु मसीह तेरा प्यार",
+  "titleRomanized": "Yeshu Masih Tera Pyaar",
+  "author": "Traditional",
+  "composer": "Traditional Hindi melody",
+  "year": null,
+  "categories": [
+    "grace",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Romans 5:8",
+      "note": "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us"
+    },
+    {
+      "ref": "1 John 4:19",
+      "note": "We love him, because he first loved us"
+    }
+  ],
+  "story": "A deeply moving Hindi bhajan about the sacrificial love of Jesus Christ. Born from the devotional tradition of North Indian Christianity, this hymn meditates on the cross and the incomparable love that led Christ to lay down His life. It is often sung during Lent and Good Friday services.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "यीशु मसीह तेरा प्यार अनमोल है",
+          "क्रूस पर तूने सब कुछ दे दिया",
+          "पापी थे हम फिर भी तूने प्यार किया",
+          "यीशु मसीह तेरा प्यार अनमोल है"
+        ],
+        "linesRomanized": [
+          "Yeshu Masih tera pyaar anmol hai",
+          "Kroos par tune sab kuchh de diyaa",
+          "Paapi the ham phir bhi tune pyaar kiyaa",
+          "Yeshu Masih tera pyaar anmol hai"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "तेरे लहू से धोए गए हम",
+          "तेरी कृपा से बचाए गए हम",
+          "कोई और ऐसा प्रेम कहाँ",
+          "यीशु मसीह तेरा प्यार अनमोल है"
+        ],
+        "linesRomanized": [
+          "Tere lahoo se dhoye gaye ham",
+          "Teri krupaa se bachaaye gaye ham",
+          "Koi aur aisaa prem kahaan",
+          "Yeshu Masih tera pyaar anmol hai"
+        ]
+      },
+      {
+        "type": "chorus",
+        "lines": [
+          "अनमोल है अनमोल है",
+          "तेरा प्यार प्रभु अनमोल है",
+          "संसार में कुछ भी इसकी तुलना नहीं",
+          "तेरा प्यार प्रभु अनमोल है"
+        ],
+        "linesRomanized": [
+          "Anmol hai anmol hai",
+          "Tera pyaar Prabhu anmol hai",
+          "Sansaar mein kuchh bhi iski tulnaa nahin",
+          "Tera pyaar Prabhu anmol hai"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Christian Heritage"
+}
