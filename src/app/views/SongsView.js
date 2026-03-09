@@ -315,13 +315,16 @@ export default function SongsView() {
   // ═══════════════════════════════════════════════
   if (view === "songs-category") {
     const cat = HYMN_CATEGORIES.find(c => c.id === songsCategory);
-    const categoryHymns = hymnIndex?.hymns?.filter(h => h.categories?.includes(songsCategory) && (langFilter === "all" || (h.lang || "en") === langFilter)) || [];
+    const allCatHymns = hymnIndex?.hymns?.filter(h => h.categories?.includes(songsCategory)) || [];
+    const categoryHymns = allCatHymns.filter(h => langFilter === "all" || (h.lang || "en") === langFilter);
+    const catLangs = [...new Set(allCatHymns.map(h => h.lang || "en"))];
+    const activeCatLangs = (hymnIndex?.languages || []).filter(l => catLangs.includes(l.id));
 
     return (
       <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
         <Header title={cat?.label || "Category"} subtitle={`${categoryHymns.length} hymn${categoryHymns.length !== 1 ? "s" : ""}`} theme={ht} />
         <div style={{ padding: `16px ${bp.pad}px 40px`, maxWidth: bp.content, margin: "0 auto" }}>
-          {indexLoading ? <Spinner t={ht} /> : categoryHymns.length === 0 ? (
+          {indexLoading ? <Spinner t={ht} /> : allCatHymns.length === 0 ? (
             <div style={{ textAlign: "center", padding: 30, fontFamily: ht.body, fontSize: 15, color: ht.muted, fontStyle: "italic" }}>No hymns in this category yet</div>
           ) : (
             <>
@@ -330,6 +333,23 @@ export default function SongsView() {
                 <div style={{ fontSize: 36, marginBottom: 6 }}>{cat?.icon}</div>
                 <div style={{ fontFamily: ht.heading, fontSize: 18, fontWeight: 700, color: getCatColor(songsCategory).text }}>{cat?.label}</div>
               </div>
+              {/* Language filter within category */}
+              {activeCatLangs.length > 1 && (
+                <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4, marginBottom: 16, WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none" }}>
+                  {[{ id: "all", nativeLabel: "All" }, ...activeCatLangs].map(lang => {
+                    const active = langFilter === lang.id;
+                    return (
+                      <button key={lang.id} onClick={() => setLang(lang.id)}
+                        style={{ padding: "7px 16px", borderRadius: 20, whiteSpace: "nowrap", border: `1px solid ${active ? ht.accent : ht.divider}`, background: active ? ht.accent : ht.card, color: active ? "#fff" : ht.muted, fontFamily: ht.ui, fontSize: 13, fontWeight: 600, cursor: "pointer", flexShrink: 0 }}>
+                        {lang.nativeLabel}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+              {categoryHymns.length === 0 ? (
+                <div style={{ textAlign: "center", padding: 30, fontFamily: ht.body, fontSize: 15, color: ht.muted, fontStyle: "italic" }}>No hymns in this language for this category</div>
+              ) : null}
               {categoryHymns.map(h => (
                 <HymnCard key={h.id} hymn={h} ht={ht} nav={nav} favorites={favorites} toggleFavorite={toggleFavorite} getCatColor={getCatColor} setSongsHymn={setSongsHymn} />
               ))}
@@ -387,13 +407,13 @@ export default function SongsView() {
                       if (navigator.share) navigator.share({ title: titleText, text }).catch(() => {});
                       else { navigator.clipboard?.writeText(text); }
                     }} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "10px 12px", borderRadius: 10, border: `1px solid ${ht.divider}`, background: ht.card, cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: ht.muted }}>
-                      \uD83D\uDCE4 Share
+                      {"\uD83D\uDCE4"} Share
                     </button>
                     <button onClick={() => {
                       const text = `${titleText}\n${hymn.author}\n\n${hymn.lyrics?.structure?.map(s => getLines(s).join("\n")).join("\n\n") || ""}`;
                       navigator.clipboard?.writeText(text);
                     }} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "10px 12px", borderRadius: 10, border: `1px solid ${ht.divider}`, background: ht.card, cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: ht.muted }}>
-                      \uD83D\uDCCB Copy
+                      {"\uD83D\uDCCB"} Copy
                     </button>
                   </div>
                 );
