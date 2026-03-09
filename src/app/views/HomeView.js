@@ -30,7 +30,7 @@ export default function HomeView() {
       sessionStorage.setItem("appOpened", "1");
       localStorage.setItem("lastVisit", String(Date.now()));
       if (alreadyInSession || !hasVisitedBefore) return;
-      const name = profile?.nickname || (profile?.display_name || user?.user_metadata?.display_name || "").split(" ")[0];
+      const name = profile?.nickname || (profile?.full_name || profile?.display_name || user?.user_metadata?.display_name || "").split(" ")[0] || "Reader";
       if (!name) return;
       setSplashName(name);
       setShowSplash(true);
