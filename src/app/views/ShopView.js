@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useApp } from "../context/AppContext";
 import { BackIcon } from "../components/ui";
 
@@ -197,7 +197,6 @@ function SectionLabel({ t, label, action, onAction }) {
 function ShopHome({ catalogue, t, nav, goBack, bp, addToCart }) {
   const featured = catalogue.products.slice(0, 6);
   const [addedIds, setAddedIds] = useState({});
-  const scrollRef = useRef(null);
 
   const handleQuickAdd = (p) => {
     if (p.status === "coming-soon") return;
@@ -206,6 +205,10 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart }) {
     setTimeout(() => setAddedIds(prev => ({ ...prev, [p.id]: false })), 1200);
   };
 
+  // Purple accent for shop headings
+  const purple = "#5B2D8E";
+  const purpleLight = "rgba(91,45,142,0.08)";
+
   return (
     <div style={{ minHeight: "100vh", background: t.bg, paddingBottom: 40 }}>
       <ShopHeader title="The Store" subtitle="Faith-inspired goods" onBack={goBack} t={t} />
@@ -213,65 +216,53 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart }) {
       <div style={{ padding: `0 ${bp.pad}px` }}>
         <div style={{ maxWidth: bp.content, margin: "0 auto" }}>
 
-          {/* ── Hero Banner ── */}
+          {/* ── Hero Banner (light) ── */}
           <div style={{ marginTop: 16, marginBottom: 24, borderRadius: 20, overflow: "hidden", position: "relative" }}>
             {/* Gold+purple animated border */}
-            <div style={{ position: "absolute", inset: 0, borderRadius: 20, padding: 2, zIndex: 0 }}>
-              <div style={{ position: "absolute", inset: 0, borderRadius: 20, ...GOLD_BORDER }} />
-            </div>
-            {/* Inner content */}
-            <div style={{ position: "relative", zIndex: 1, margin: 2, borderRadius: 18, background: `linear-gradient(135deg, ${t.dark}F8, ${t.dark}EE)`, padding: "28px 22px 24px", display: "flex", flexDirection: "column", gap: 10 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontSize: 20 }}>✦</span>
-                <span style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 700, color: "rgba(212,168,83,0.8)", textTransform: "uppercase", letterSpacing: "0.15em" }}>The Bible Scrollers Store</span>
+            <div style={{ position: "absolute", inset: 0, borderRadius: 20, ...GOLD_BORDER }} />
+            {/* Inner content — light */}
+            <div style={{ position: "relative", margin: 2, borderRadius: 18, background: t.card, padding: "28px 22px 24px", display: "flex", flexDirection: "column", gap: 8 }}>
+              <div style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 700, color: t.accent, textTransform: "uppercase", letterSpacing: "0.15em" }}>✦ The Bible Scrollers Store</div>
+              <div style={{ fontFamily: t.heading, fontSize: 26, fontWeight: 800, color: purple, lineHeight: 1.15 }}>
+                Faith-Inspired Goods
               </div>
-              <div style={{ fontFamily: t.heading, fontSize: 24, fontWeight: 800, color: "#F0E8D8", lineHeight: 1.2 }}>
-                Faith-Inspired{"\n"}Goods
-              </div>
-              <div style={{ fontFamily: t.ui, fontSize: 13, color: "rgba(240,232,216,0.65)", lineHeight: 1.5 }}>
-                Modest clothing, curated books & scripture art — every purchase keeps the app free.
+              <div style={{ fontFamily: t.ui, fontSize: 13, color: t.muted, lineHeight: 1.55 }}>
+                Modest clothing, curated books & scripture art — made for the faithful.
               </div>
               <button
                 onClick={() => {
                   const el = document.getElementById("shop-categories");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                style={{ alignSelf: "flex-start", marginTop: 4, background: "rgba(212,168,83,0.9)", color: "#1C1612", border: "none", borderRadius: 10, padding: "9px 20px", fontFamily: t.ui, fontSize: 13, fontWeight: 700, cursor: "pointer" }}
+                style={{ alignSelf: "flex-start", marginTop: 4, background: purple, color: "#fff", border: "none", borderRadius: 10, padding: "9px 20px", fontFamily: t.ui, fontSize: 13, fontWeight: 700, cursor: "pointer" }}
               >
                 Browse Collection
               </button>
             </div>
           </div>
 
-          {/* ── Category Pills (horizontal scroll) ── */}
+          {/* ── Categories (2×2 grid blocks) ── */}
           <div id="shop-categories">
             <SectionLabel t={t} label="Categories" />
           </div>
-          <div
-            ref={scrollRef}
-            style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 6, marginBottom: 28, scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 28 }}>
             {catalogue.categories.map(cat => (
               <button
                 key={cat.id}
                 className="pressable"
                 onClick={() => nav("shop-category", { shopCategory: cat.id })}
                 style={{
-                  flexShrink: 0,
-                  display: "flex", alignItems: "center", gap: 8,
-                  background: t.card, border: `1.5px solid ${t.accentBorder}`,
-                  borderRadius: 28, padding: "8px 16px 8px 10px",
-                  cursor: "pointer",
-                  transition: "all 0.15s",
+                  background: t.card, border: `1.5px solid ${t.divider}`,
+                  borderRadius: 16, padding: "18px 14px",
+                  display: "flex", flexDirection: "column", alignItems: "center",
+                  gap: 8, cursor: "pointer", textAlign: "center",
                 }}
               >
-                <div style={{ width: 34, height: 34, borderRadius: "50%", background: `${t.accent}12`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  {getCategoryIcon(cat.icon, t.accent, 18)}
+                <div style={{ width: 48, height: 48, borderRadius: 14, background: purpleLight, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  {getCategoryIcon(cat.icon, purple, 24)}
                 </div>
-                <div style={{ textAlign: "left" }}>
-                  <div style={{ fontFamily: t.ui, fontSize: 13, fontWeight: 700, color: t.dark, whiteSpace: "nowrap" }}>{cat.name}</div>
-                  <div style={{ fontFamily: t.ui, fontSize: 10, color: t.muted, whiteSpace: "nowrap" }}>{cat.tag}</div>
-                </div>
+                <div style={{ fontFamily: t.ui, fontSize: 13, fontWeight: 700, color: t.dark }}>{cat.name}</div>
+                <div style={{ fontFamily: t.ui, fontSize: 10, color: t.muted, lineHeight: 1.3 }}>{cat.tag}</div>
               </button>
             ))}
           </div>
@@ -290,8 +281,8 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart }) {
                   style={{ background: t.card, border: `1px solid ${t.divider}`, borderRadius: 16, padding: 0, cursor: "pointer", textAlign: "left", overflow: "hidden", display: "flex", flexDirection: "column" }}
                 >
                   {/* Image area */}
-                  <div style={{ width: "100%", aspectRatio: "1", background: `linear-gradient(145deg, ${t.accent}12, ${t.accent}06)`, display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-                    <BagIcon color={`${t.accent}35`} size={40} />
+                  <div style={{ width: "100%", aspectRatio: "1", background: `linear-gradient(145deg, rgba(91,45,142,0.06), rgba(91,45,142,0.02))`, display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+                    <BagIcon color="rgba(91,45,142,0.25)" size={40} />
                     {isComingSoon && (
                       <div style={{ position: "absolute", top: 8, left: 8 }}>
                         <ComingSoonBadge small />
@@ -303,10 +294,10 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart }) {
                     <div style={{ fontFamily: t.ui, fontSize: 12, fontWeight: 700, color: t.dark, lineHeight: 1.3, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.name}</div>
                     <div style={{ fontFamily: t.ui, fontSize: 10, color: t.muted, lineHeight: 1.3 }}>{p.tagline}</div>
                     <div style={{ marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 6 }}>
-                      <span style={{ fontFamily: t.ui, fontSize: 15, fontWeight: 800, color: t.dark }}>${p.price_usd.toFixed(2)}</span>
+                      <span style={{ fontFamily: t.ui, fontSize: 15, fontWeight: 800, color: purple }}>${p.price_usd.toFixed(2)}</span>
                       {isComingSoon ? (
-                        <div style={{ width: 30, height: 30, borderRadius: 8, background: `${t.accent}10`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                          <BagIcon color={`${t.accent}40`} size={14} />
+                        <div style={{ width: 30, height: 30, borderRadius: 8, background: purpleLight, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <BagIcon color="rgba(91,45,142,0.35)" size={14} />
                         </div>
                       ) : (
                         <QuickAddBtn t={t} onClick={() => handleQuickAdd(p)} added={addedIds[p.id]} />
@@ -322,10 +313,12 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart }) {
           <div style={{ borderRadius: 16, overflow: "hidden", position: "relative" }}>
             <div style={{ position: "absolute", inset: 0, borderRadius: 16, ...GOLD_BORDER, opacity: 0.5 }} />
             <div style={{ margin: 1.5, borderRadius: 14.5, background: t.card, padding: "18px 16px", display: "flex", gap: 14, alignItems: "flex-start", position: "relative" }}>
-              <div style={{ width: 40, height: 40, borderRadius: 10, background: `${t.accent}10`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: 18 }}>✦</div>
+              <div style={{ width: 40, height: 40, borderRadius: 10, background: purpleLight, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <span style={{ fontSize: 16, color: purple }}>✦</span>
+              </div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontFamily: t.heading, fontSize: 14, fontWeight: 700, color: t.dark, marginBottom: 4 }}>No ads. No pressure.</div>
-                <div style={{ fontFamily: t.ui, fontSize: 12, color: t.muted, lineHeight: 1.6 }}>Every purchase keeps The Bible Scrollers free for everyone. No subscriptions, no upselling — just goods you choose.</div>
+                <div style={{ fontFamily: t.heading, fontSize: 14, fontWeight: 700, color: purple, marginBottom: 4 }}>Wear your faith. Share the Word.</div>
+                <div style={{ fontFamily: t.ui, fontSize: 12, color: t.muted, lineHeight: 1.6 }}>Thoughtfully made goods for believers — no ads, no subscriptions, just things worth having.</div>
               </div>
             </div>
           </div>
