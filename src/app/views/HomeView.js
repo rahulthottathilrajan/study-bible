@@ -14,26 +14,28 @@ export default function HomeView() {
     setDonateModal, nav,
   } = useApp();
 
-  // ─── Welcome-back banner ───
-  const [welcomeMsg, setWelcomeMsg] = useState(null);
-  const [welcomeVisible, setWelcomeVisible] = useState(false);
-  const welcomeRan = useRef(false);
+  // ─── Welcome-back splash (only on fresh app open, not refresh/in-app nav) ───
+  const [showSplash, setShowSplash] = useState(false);
+  const [splashFading, setSplashFading] = useState(false);
+  const [splashName, setSplashName] = useState("");
+  const splashRan = useRef(false);
 
   useEffect(() => {
-    if (welcomeRan.current) return;
-    welcomeRan.current = true;
+    if (splashRan.current) return;
+    if (!user) return;
+    splashRan.current = true;
     try {
-      const last = localStorage.getItem("lastVisit");
-      if (last && user) {
-        const name = profile?.nickname || (profile?.display_name || user?.user_metadata?.display_name || "").split(" ")[0];
-        if (name) {
-          setWelcomeMsg(`Welcome back, ${name}!`);
-          setWelcomeVisible(true);
-          setTimeout(() => setWelcomeVisible(false), 3000);
-          setTimeout(() => setWelcomeMsg(null), 3500);
-        }
-      }
+      const alreadyInSession = sessionStorage.getItem("appOpened");
+      const hasVisitedBefore = localStorage.getItem("lastVisit");
+      sessionStorage.setItem("appOpened", "1");
       localStorage.setItem("lastVisit", String(Date.now()));
+      if (alreadyInSession || !hasVisitedBefore) return;
+      const name = profile?.nickname || (profile?.display_name || user?.user_metadata?.display_name || "").split(" ")[0];
+      if (!name) return;
+      setSplashName(name);
+      setShowSplash(true);
+      setTimeout(() => setSplashFading(true), 2400);
+      setTimeout(() => { setShowSplash(false); setSplashFading(false); }, 3000);
     } catch {}
   }, [user, profile]);
 
@@ -85,10 +87,17 @@ export default function HomeView() {
           </button>
         </div>
       )}
-      {/* ── WELCOME BACK BANNER ── */}
-      {welcomeMsg && (
-        <div style={{ position:"fixed",top:90,left:"50%",transform:"translateX(-50%)",zIndex:20,background:ht.headerGradient,color:ht.headerText||"#fff",fontFamily:ht.heading,fontSize:14,fontWeight:700,padding:"10px 24px",borderRadius:20,boxShadow:"0 4px 16px rgba(0,0,0,0.15)",opacity:welcomeVisible?1:0,transition:"opacity 0.5s ease",pointerEvents:"none",whiteSpace:"nowrap" }}>
-          {welcomeMsg}
+      {/* ── WELCOME BACK SPLASH ── */}
+      {showSplash && (
+        <div style={{ position:"fixed",inset:0,zIndex:100,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:ht.headerGradient,opacity:splashFading?0:1,transition:"opacity 0.6s ease",pointerEvents:"none" }}>
+          <div style={{ fontSize:48,marginBottom:16,animation:"dropIn 0.5s ease" }}>✝</div>
+          <div style={{ fontFamily:ht.heading,fontSize:26,fontWeight:800,color:ht.headerText||"#fff",textAlign:"center",marginBottom:8,animation:"fadeIn 0.6s ease" }}>
+            Welcome back, {splashName}!
+          </div>
+          <div style={{ fontFamily:ht.ui,fontSize:14,color:`${ht.headerText||"#fff"}cc`,textAlign:"center",maxWidth:280,lineHeight:1.7,animation:"fadeIn 0.8s ease" }}>
+            May God bless you and guide your study today.
+          </div>
+          <div style={{ marginTop:24,width:40,height:3,borderRadius:2,background:`${ht.headerText||"#fff"}44`,animation:"fadeIn 1s ease" }}/>
         </div>
       )}
       <div style={{ padding:`22px ${bp.pad}px 40px` }}>
