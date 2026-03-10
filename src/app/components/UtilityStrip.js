@@ -13,7 +13,7 @@ export default function UtilityStrip({ theme, showFontSize = false }) {
       <div style={{ flex: 1, overflow: "hidden", minWidth: 0, maskImage: "linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)", WebkitMaskImage: "linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)" }}>
         <div style={{
           display: "inline-block", whiteSpace: "nowrap",
-          animation: "scrollTicker 28s linear infinite",
+          animation: "scrollTicker 56s linear infinite",
           fontFamily: "'Lora', Georgia, serif",
           fontSize: 10, fontStyle: "italic",
           color: "rgba(240,232,216,0.55)",
