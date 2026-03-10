@@ -471,6 +471,7 @@ export const BADGE_CATEGORIES = [
   { id:"learn",  label:"Learn",  icon:"📚" },
   { id:"prayer", label:"Prayer", icon:"🙏" },
   { id:"songs",  label:"Songs",  icon:"🎵" },
+  { id:"community", label:"Community", icon:"🤝" },
 ];
 
 export const BADGES = [
@@ -512,6 +513,8 @@ export const BADGES = [
   { id:"hymnist",              category:"songs",  name:"Hymnist",              icon:"🎶", description:"Read 25 hymns" },
   { id:"hymn_collector",       category:"songs",  name:"Hymn Collector",       icon:"📚", description:"Favorite 10 hymns" },
   { id:"multilingual_singer",  category:"songs",  name:"Multilingual Singer",  icon:"🌍", description:"Read a hymn in 3 languages" },
+  // Community (1)
+  { id:"birthday_blessed", category:"community", name:"Birthday Blessed", icon:"🎂", description:"Open the app on your birthday" },
 ];
 
 // ═══════════════════════════════════════════════════
@@ -539,6 +542,24 @@ export const HYMN_LANGUAGES = [
   { id: "te",  label: "Telugu",    nativeLabel: "\u0C24\u0C46\u0C32\u0C41\u0C17\u0C41" },
   { id: "hi",  label: "Hindi",     nativeLabel: "\u0939\u093F\u0928\u094D\u0926\u0940" },
   { id: "kn",  label: "Kannada",   nativeLabel: "\u0C95\u0CA8\u0CCD\u0CA8\u0CA1" },
+];
+
+// ═══════════════════════════════════════════════════
+// BIRTHDAY BLESSING VERSES (KJV)
+// ═══════════════════════════════════════════════════
+export const BIRTHDAY_VERSES = [
+  { ref: "Jeremiah 29:11", text: "For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end." },
+  { ref: "Psalm 139:14", text: "I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works; and that my soul knoweth right well." },
+  { ref: "Numbers 6:24-26", text: "The LORD bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace." },
+  { ref: "Psalm 118:24", text: "This is the day which the LORD hath made; we will rejoice and be glad in it." },
+  { ref: "Psalm 20:4", text: "Grant thee according to thine own heart, and fulfil all thy counsel." },
+  { ref: "Psalm 37:4", text: "Delight thyself also in the LORD; and he shall give thee the desires of thine heart." },
+  { ref: "Psalm 90:12", text: "So teach us to number our days, that we may apply our hearts unto wisdom." },
+  { ref: "Proverbs 9:11", text: "For by me thy days shall be multiplied, and the years of thy life shall be increased." },
+  { ref: "Lamentations 3:22-23", text: "It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness." },
+  { ref: "Psalm 91:16", text: "With long life will I satisfy him, and shew him my salvation." },
+  { ref: "3 John 1:2", text: "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth." },
+  { ref: "Isaiah 46:4", text: "And even to your old age I am he; and even to hoar hairs will I carry you: I have made, and I will bear; even I will carry, and will deliver you." },
 ];
 
 // ═══════════════════════════════════════════════════

@@ -33,6 +33,8 @@ export default function PrayerCommunity() {
     userReactions, toggleReaction,
     // Expiry
     expiringPrayers, keepCommunityPrayer,
+    // Birthday
+    birthdayUsers,
   } = useApp();
 
   const [showForm, setShowForm] = useState(false);
@@ -73,6 +75,33 @@ export default function PrayerCommunity() {
           </button>
         ))}
       </div>
+
+      {/* Birthday Blessings */}
+      {feedView === "active" && birthdayUsers && birthdayUsers.length > 0 && (
+        <div style={{ marginBottom: 14 }}>
+          <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: "#D4A853", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
+            🎂 Birthday Blessings Today
+          </div>
+          {birthdayUsers.filter(bu => !user || bu.id !== user.id).map(bu => {
+            const displayName = bu.nickname || (bu.full_name || "").split(" ")[0] || bu.display_name || "A Believer";
+            return (
+              <div key={bu.id} style={{ background: "linear-gradient(135deg, rgba(212,168,83,0.08), rgba(139,92,246,0.06))", border: "1.5px solid rgba(212,168,83,0.3)", borderRadius: 12, padding: "16px", marginBottom: 8 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                  <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg, #D4A853, #FFD700)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🎂</div>
+                  <div>
+                    <div style={{ fontFamily: ht.heading, fontSize: 15, fontWeight: 700, color: ht.dark }}>Happy Birthday, {displayName}!</div>
+                    <div style={{ fontFamily: ht.ui, fontSize: 11, color: ht.muted }}>Celebrating a child of God today</div>
+                  </div>
+                </div>
+                <div style={{ fontFamily: ht.body || ht.ui, fontSize: 13, fontStyle: "italic", color: ht.text, lineHeight: 1.6, padding: "8px 12px", background: "rgba(212,168,83,0.06)", borderRadius: 8, borderLeft: "3px solid rgba(212,168,83,0.4)" }}>
+                  &ldquo;The LORD bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee.&rdquo;
+                  <span style={{ display: "block", fontFamily: ht.ui, fontSize: 10, color: ht.muted, fontStyle: "normal", marginTop: 4 }}>&mdash; Numbers 6:24-25</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       {/* Expiry prompt banner */}
       {expiringPrayers && expiringPrayers.length > 0 && (
