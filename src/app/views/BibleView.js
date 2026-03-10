@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useApp } from "../context/AppContext";
 import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS, getBookName } from "../constants";
 import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
@@ -20,6 +20,7 @@ export default function BibleView() {
     copyVerseText, shareVerseImage, nav, goBack,
     chapterReads, markChapterRead, quizScores, bibleTranslation, bp,
     audioPlaying, audioVisible, setAudioPlaying, setAudioVisible,
+    audioMode, audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
     listenedChapters,
   } = useApp();
 
@@ -264,6 +265,36 @@ export default function BibleView() {
 
   // ═══ VERSE LIST ═══
   const isEnglishTrans = bibleTranslation === "kjv" || bibleTranslation === "bsb";
+  // Auto-scroll refs for VerseList audio playback
+  const verseRefs = useRef({});
+  const [autoScrollEnabled, setAutoScrollEnabled] = useState(true);
+  const userScrolledRef = useRef(false);
+
+  // Auto-scroll to current verse during playback
+  useEffect(() => {
+    if (!audioPlaying || audioSource !== "verseList" || !autoScrollEnabled) return;
+    if (audioCurrentVerse && verseRefs.current[audioCurrentVerse]) {
+      verseRefs.current[audioCurrentVerse].scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [audioCurrentVerse, audioPlaying, audioSource, autoScrollEnabled]);
+
+  // Detect manual scroll to pause auto-scroll
+  useEffect(() => {
+    if (!audioPlaying || audioSource !== "verseList") { setAutoScrollEnabled(true); return; }
+    let scrollTimeout;
+    const handleScroll = () => {
+      userScrolledRef.current = true;
+      setAutoScrollEnabled(false);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => { userScrolledRef.current = false; }, 4000);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => { window.removeEventListener("scroll", handleScroll); clearTimeout(scrollTimeout); };
+  }, [audioPlaying, audioSource]);
+
+  // Re-enable auto-scroll when playback stops
+  useEffect(() => { if (!audioPlaying) setAutoScrollEnabled(true); }, [audioPlaying]);
+
   const VerseList = () => {
     if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle="Loading verses..." onBack={goBack} /><Spinner t={t} /></div>;
     if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
@@ -272,11 +303,13 @@ export default function BibleView() {
     const chapterKey = `${book}-${chapter}`;
     const bestPct = (() => { const s = user ? (quizScores[chapterKey] || []) : []; return s.length > 0 ? Math.max(...s.map(x => x.percentage)) : null; })();
     const isLastChapter = chapter >= bookInfo.chapters;
+    const isListeningHere = audioPlaying && audioSource === "verseList";
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
+        <AudioPlayer />
         <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showFontSize hideUser hidePrayer />
-        <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px 100px` }}>
+        <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px ${audioVisible ? 160 : 100}px` }}>
 
           {/* Chapter Illustration */}
           {chapterMeta?.illustration_url && (
@@ -294,16 +327,21 @@ export default function BibleView() {
               const hasNote = !!nt;
               const communityCount = cn?.length || 0;
               const isLast = vi === verses.length - 1;
+              const isPlayingVerse = isListeningHere && audioCurrentVerse === v.verse_number;
               return (
-                <button key={v.verse_number} onClick={() => nav("verse",{verse:v.verse_number,tab:"study"})}
+                <button key={v.verse_number}
+                  ref={el => { verseRefs.current[v.verse_number] = el; }}
+                  onClick={() => nav("verse",{verse:v.verse_number,tab:"study"})}
                   style={{
-                    width:"100%",background:hlColor ? `${hlColor}08` : "transparent",
-                    borderLeft:hlColor ? `3px solid ${hlColor}` : "3px solid transparent",
+                    width:"100%",
+                    background: isPlayingVerse ? `${t.accent}10` : hlColor ? `${hlColor}08` : "transparent",
+                    borderLeft: isPlayingVerse ? `3px solid ${t.accent}` : hlColor ? `3px solid ${hlColor}` : "3px solid transparent",
                     borderRight:"none",borderTop:"none",
                     borderBottom:isLast ? "none" : `1px solid ${t.divider}`,
                     padding:"14px 16px",textAlign:"left",cursor:"pointer",
                     display:"flex",gap:12,alignItems:"flex-start",
-                    transition:"all 0.15s",position:"relative"
+                    transition:"all 0.25s",position:"relative",
+                    animation: isPlayingVerse ? "verseGlow 2s ease-in-out infinite" : "none",
                   }}>
                   <span style={{
                     fontFamily:t.heading,fontSize:22,fontWeight:800,color:hlColor || t.verseNum,
@@ -352,6 +390,31 @@ export default function BibleView() {
 
               <div style={{width:1,alignSelf:"stretch",background:"rgba(255,255,255,0.07)",flexShrink:0}}/>
 
+              {/* ── Listen ── */}
+              <button onClick={() => {
+                if (isListeningHere) { setAudioPlaying(false); } else {
+                  setAudioSource("verseList");
+                  setAudioVisible(true);
+                  setAudioPlaying(true);
+                }
+              }}
+                style={{flex:1.1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"13px 8px",
+                  background:isListeningHere ? "linear-gradient(160deg,#1a1002,#2a1a00)" : "linear-gradient(160deg,#0d1218,#1a2230)",
+                  border:"none",cursor:"pointer"}}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                  {isListeningHere && <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>}
+                </svg>
+                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,letterSpacing:"0.08em",textTransform:"uppercase",
+                  color:isListeningHere ? "#f59e0b" : "#fff",
+                  textShadow:`0 0 8px rgba(245,158,11,${isListeningHere?0.7:0.3})`}}>
+                  {isListeningHere ? "Listening" : "Listen"}
+                </span>
+              </button>
+
+              <div style={{width:1,alignSelf:"stretch",background:"rgba(255,255,255,0.07)",flexShrink:0}}/>
+
               {/* ── Take Quiz ── */}
               <button onClick={() => nav("quiz-intro",{book,chapter})}
                 style={{flex:1.2,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"13px 8px",background:"linear-gradient(160deg,#0d0820,#1a1040)",border:"none",cursor:"pointer"}}>
@@ -372,6 +435,25 @@ export default function BibleView() {
             </div>
           </div>
 
+          {/* Back to playing FAB */}
+          {isListeningHere && !autoScrollEnabled && (
+            <button onClick={() => {
+              setAutoScrollEnabled(true);
+              if (audioCurrentVerse && verseRefs.current[audioCurrentVerse]) {
+                verseRefs.current[audioCurrentVerse].scrollIntoView({ behavior:"smooth", block:"center" });
+              }
+            }}
+              style={{ position:"fixed",bottom:audioVisible?130:80,right:16,zIndex:100,
+                display:"flex",alignItems:"center",gap:6,padding:"8px 14px",borderRadius:20,
+                background:t.accent,color:"#fff",fontFamily:t.ui,fontSize:11,fontWeight:700,
+                border:"none",cursor:"pointer",boxShadow:"0 4px 16px rgba(0,0,0,0.25)",
+                animation:"fadeIn 0.2s ease-out" }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              </svg>
+              Back to V.{audioCurrentVerse}
+            </button>
+          )}
         </div>
       </div>
     );
@@ -432,7 +514,7 @@ export default function BibleView() {
             <div style={{position:"relative",zIndex:1,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
               <Label icon="📖" t={t}>{bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}</Label>
               <button
-                onClick={() => { if (audioPlaying) { setAudioPlaying(false); } else { if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel(); setAudioVisible(true); setAudioPlaying(true); } }}
+                onClick={() => { if (audioPlaying) { setAudioPlaying(false); } else { setAudioSource("verseStudy"); if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel(); setAudioVisible(true); setAudioPlaying(true); } }}
                 title={audioPlaying ? "Pause" : "Listen to this verse"}
                 style={{ display:"flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:16,border:`1px solid ${audioPlaying?t.accent:t.accentBorder}`,background:audioPlaying?`${t.accent}15`:"transparent",color:audioPlaying?t.accent:t.muted,cursor:"pointer",transition:"all 0.15s",fontFamily:t.ui,fontSize:11,fontWeight:600 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">

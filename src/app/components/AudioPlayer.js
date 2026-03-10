@@ -1,12 +1,23 @@
 "use client";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useApp } from "../context/AppContext";
-import { BIBLE_TRANSLATIONS } from "../constants";
+import { BIBLE_TRANSLATIONS, CDN_NARRATORS } from "../constants";
+
+const formatTime = (s) => {
+  if (!s || !isFinite(s)) return "0:00";
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return `${m}:${sec < 10 ? "0" : ""}${sec}`;
+};
 
 export default function AudioPlayer() {
   const {
     audioPlaying, setAudioPlaying,
     audioVisible, setAudioVisible,
+    audioMode, audioNarrator, setAudioNarrator,
+    audioChapterLinks,
+    sleepTimer, setSleepTimer,
+    audioSource, audioCurrentVerse, setAudioCurrentVerse,
     verses, verse, verseNums,
     setVerse: changeVerse,
     book, chapter, bibleTranslation,
@@ -19,24 +30,31 @@ export default function AudioPlayer() {
   });
   const [currentIdx, setCurrentIdx] = useState(0);
 
-  // Phase 2: voice state
+  // TTS voice state
   const [availableVoices, setAvailableVoices] = useState([]);
   const [voiceIdx, setVoiceIdx] = useState(0);
   const [voiceWarning, setVoiceWarning] = useState(false);
 
-  // Phase 3: resume nudge
-  const [resumeNudge, setResumeNudge] = useState(null); // verseNum or null
+  // Resume nudge
+  const [resumeNudge, setResumeNudge] = useState(null);
 
-  // Refs to avoid stale closures in TTS callbacks
-  const idxRef          = useRef(0);
-  const playingRef      = useRef(false);
-  const speedRef        = useRef(speed);
-  const versesRef       = useRef(verses);
-  const verseNumsRef    = useRef(verseNums);
-  const voiceIdxRef     = useRef(0);
-  const availVoicesRef  = useRef([]);
-  const langRef         = useRef("en-US");
-  const langPrefixRef   = useRef("en");
+  // CDN audio state
+  const [cdnProgress, setCdnProgress] = useState(0);
+  const [cdnDuration, setCdnDuration] = useState(0);
+  const [cdnCurrentTime, setCdnCurrentTime] = useState(0);
+
+  // Refs to avoid stale closures
+  const idxRef         = useRef(0);
+  const playingRef     = useRef(false);
+  const speedRef       = useRef(speed);
+  const versesRef      = useRef(verses);
+  const verseNumsRef   = useRef(verseNums);
+  const voiceIdxRef    = useRef(0);
+  const langRef        = useRef("en-US");
+  const langPrefixRef  = useRef("en");
+  const audioElRef     = useRef(null); // HTML5 Audio element for CDN
+  const sleepTimerRef  = useRef(null);
+  const modeRef        = useRef(audioMode);
 
   // Derive lang from active translation
   const transDef   = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
@@ -48,33 +66,33 @@ export default function AudioPlayer() {
   useEffect(() => { verseNumsRef.current = verseNums; }, [verseNums]);
   useEffect(() => { speedRef.current     = speed;     }, [speed]);
   useEffect(() => { voiceIdxRef.current  = voiceIdx;  }, [voiceIdx]);
-  useEffect(() => { availVoicesRef.current = availableVoices; }, [availableVoices]);
   useEffect(() => { langRef.current = lang; langPrefixRef.current = langPrefix; }, [lang, langPrefix]);
+  useEffect(() => { modeRef.current = audioMode; }, [audioMode]);
 
-  // Sync idx when verse changes externally (user taps Prev/Next)
+  // Sync idx when verse changes externally
   useEffect(() => {
     const idx = verseNums.indexOf(verse);
     if (idx !== -1) { idxRef.current = idx; setCurrentIdx(idx); }
   }, [verse, verseNums]);
 
-  // Phase 2: load voices for current translation language
+  // ─── TTS Voice Loading ───
   const loadVoices = useCallback(() => {
     if (typeof window === "undefined" || !window.speechSynthesis) return;
     const all = window.speechSynthesis.getVoices();
     const matching = all.filter(v => v.lang.startsWith(langPrefixRef.current));
     setAvailableVoices(matching);
-    setVoiceWarning(matching.length === 0);
+    setVoiceWarning(matching.length === 0 && modeRef.current === "tts");
     setVoiceIdx(prev => (prev >= matching.length ? 0 : prev));
-  }, []); // refs are always current — no deps needed
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined" || !window.speechSynthesis) return;
     loadVoices();
     window.speechSynthesis.onvoiceschanged = loadVoices;
     return () => { if (window.speechSynthesis) window.speechSynthesis.onvoiceschanged = null; };
-  }, [loadVoices, langPrefix]); // re-run when language changes
+  }, [loadVoices, langPrefix]);
 
-  // Phase 3: check for saved position when player opens
+  // ─── Resume nudge on player open ───
   useEffect(() => {
     if (!audioVisible) return;
     try {
@@ -85,28 +103,30 @@ export default function AudioPlayer() {
       }
     } catch {}
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [audioVisible]); // only check on open, not on every verseNums change
+  }, [audioVisible]);
 
-  // Stop audio when user leaves verse view
+  // ─── Stop audio when user leaves Bible reading views ───
   useEffect(() => {
-    if (view !== "verse") {
+    if (view !== "verse" && view !== "verses") {
       playingRef.current = false;
       setAudioPlaying(false);
       setAudioVisible(false);
+      if (audioElRef.current) { audioElRef.current.pause(); }
       if (typeof window !== "undefined" && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
     }
   }, [view, setAudioPlaying, setAudioVisible]);
 
-  // Phase 3: save position helper
+  // ─── Save position helper ───
   const savePosition = useCallback((verseNum) => {
     try { localStorage.setItem("audioPosition", JSON.stringify({ book, chapter, verseNum })); } catch {}
   }, [book, chapter]);
 
-  // Cleanup on unmount — cancel TTS + save position
+  // ─── Cleanup on unmount ───
   useEffect(() => {
     return () => {
+      if (audioElRef.current) { audioElRef.current.pause(); audioElRef.current.src = ""; }
       if (typeof window !== "undefined" && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
@@ -118,13 +138,67 @@ export default function AudioPlayer() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [book, chapter]);
 
+  // ═══ CDN AUDIO ENGINE ═══
+  const playCDN = useCallback(() => {
+    if (!audioChapterLinks) return;
+    const url = audioChapterLinks[audioNarrator] || audioChapterLinks[Object.keys(audioChapterLinks)[0]];
+    if (!url) return;
+
+    if (!audioElRef.current) {
+      audioElRef.current = new Audio();
+      audioElRef.current.preload = "auto";
+    }
+    const audio = audioElRef.current;
+
+    // Only change src if different
+    if (!audio.src || !audio.src.includes(url.split("/").pop())) {
+      audio.src = url;
+      audio.load();
+    }
+    audio.playbackRate = speedRef.current;
+
+    audio.ontimeupdate = () => {
+      setCdnCurrentTime(audio.currentTime);
+      setCdnProgress(audio.duration ? audio.currentTime / audio.duration : 0);
+      // Estimate current verse from time position
+      const vNums = verseNumsRef.current;
+      if (vNums.length > 0 && audio.duration > 0) {
+        const fraction = audio.currentTime / audio.duration;
+        const verseIdx = Math.min(Math.floor(fraction * vNums.length), vNums.length - 1);
+        const vNum = vNums[verseIdx];
+        setAudioCurrentVerse(vNum);
+        changeVerse(vNum);
+        idxRef.current = verseIdx;
+        setCurrentIdx(verseIdx);
+        try { localStorage.setItem("audioPosition", JSON.stringify({ book, chapter, verseNum: vNum })); } catch {}
+      }
+    };
+    audio.ondurationchange = () => setCdnDuration(audio.duration || 0);
+    audio.onended = () => {
+      playingRef.current = false;
+      setAudioPlaying(false);
+      if (markChapterListened) markChapterListened(book, chapter);
+    };
+    audio.onerror = () => {
+      // Fallback: if CDN fails, the user can still close or we just stop
+      playingRef.current = false;
+      setAudioPlaying(false);
+    };
+
+    audio.play().catch(() => {
+      // Autoplay blocked — user needs to tap again
+      playingRef.current = false;
+      setAudioPlaying(false);
+    });
+  }, [audioChapterLinks, audioNarrator, book, chapter, markChapterListened, setAudioPlaying, setAudioCurrentVerse, changeVerse]);
+
+  // ═══ TTS ENGINE ═══
   const speakVerse = useCallback((idx) => {
     if (!playingRef.current) return;
     const vNums = verseNumsRef.current;
     const vList = versesRef.current;
 
     if (idx >= vNums.length) {
-      // Reached end of chapter — mark as listened
       playingRef.current = false;
       setAudioPlaying(false);
       if (markChapterListened) markChapterListened(book, chapter);
@@ -136,17 +210,17 @@ export default function AudioPlayer() {
     if (!verseObj) { speakVerse(idx + 1); return; }
 
     changeVerse(verseNum);
+    setAudioCurrentVerse(verseNum);
     idxRef.current = idx;
     setCurrentIdx(idx);
-
-    // Phase 3: persist position as we progress
     try { localStorage.setItem("audioPosition", JSON.stringify({ book, chapter, verseNum })); } catch {}
+
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
 
     const u = new SpeechSynthesisUtterance(verseObj.kjv_text);
     u.rate = speedRef.current;
     u.lang = langRef.current;
 
-    // Phase 2: pick the selected voice from available voices
     const voices = window.speechSynthesis.getVoices();
     const matching = voices.filter(v => v.lang.startsWith(langPrefixRef.current));
     if (matching.length > 0) {
@@ -158,29 +232,37 @@ export default function AudioPlayer() {
     u.onerror = (e) => { if (e.error !== "interrupted" && playingRef.current) speakVerse(idx + 1); };
 
     window.speechSynthesis.speak(u);
-  }, [bibleTranslation, changeVerse, setAudioPlaying, book, chapter, markChapterListened]);
+  }, [changeVerse, setAudioPlaying, setAudioCurrentVerse, book, chapter, markChapterListened]);
 
+  // ═══ UNIFIED PLAY / STOP ═══
   const play = useCallback(() => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
     playingRef.current = true;
     setAudioPlaying(true);
     setResumeNudge(null);
-    speakVerse(idxRef.current);
-  }, [speakVerse, setAudioPlaying]);
+
+    if (modeRef.current === "cdn") {
+      playCDN();
+    } else {
+      if (typeof window === "undefined" || !window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      // Small delay after cancel to ensure clean state
+      setTimeout(() => speakVerse(idxRef.current), 100);
+    }
+  }, [playCDN, speakVerse, setAudioPlaying]);
 
   const stop = useCallback(() => {
     playingRef.current = false;
     setAudioPlaying(false);
-    // Phase 3: save position on pause
     const verseNum = verseNumsRef.current[idxRef.current];
     if (verseNum) savePosition(verseNum);
+
+    if (audioElRef.current) { audioElRef.current.pause(); }
     if (typeof window !== "undefined" && window.speechSynthesis) {
       window.speechSynthesis.cancel();
     }
   }, [setAudioPlaying, savePosition]);
 
-  // React to external audioPlaying toggle (from speaker button in BibleView)
+  // React to external audioPlaying toggle
   useEffect(() => {
     if (audioPlaying && !playingRef.current) {
       play();
@@ -190,46 +272,121 @@ export default function AudioPlayer() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [audioPlaying]);
 
+  // ─── Sleep Timer ───
+  useEffect(() => {
+    if (sleepTimerRef.current) { clearTimeout(sleepTimerRef.current); sleepTimerRef.current = null; }
+    if (sleepTimer > 0 && audioPlaying) {
+      sleepTimerRef.current = setTimeout(() => {
+        stop();
+        setSleepTimer(0);
+      }, sleepTimer * 60 * 1000);
+    }
+    return () => { if (sleepTimerRef.current) clearTimeout(sleepTimerRef.current); };
+  }, [sleepTimer, audioPlaying, stop, setSleepTimer]);
+
+  // ─── Media Session API ───
+  useEffect(() => {
+    if (typeof navigator === "undefined" || !("mediaSession" in navigator)) return;
+    if (!audioVisible) return;
+
+    try {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: `${book} ${chapter}:${verse || 1}`,
+        artist: "The Bible Scrollers",
+        album: book,
+      });
+      navigator.mediaSession.setActionHandler("play", () => { if (!playingRef.current) play(); });
+      navigator.mediaSession.setActionHandler("pause", () => { if (playingRef.current) stop(); });
+      navigator.mediaSession.setActionHandler("previoustrack", () => prevVerse());
+      navigator.mediaSession.setActionHandler("nexttrack", () => nextVerse());
+    } catch {}
+    return () => {
+      try {
+        navigator.mediaSession.setActionHandler("play", null);
+        navigator.mediaSession.setActionHandler("pause", null);
+        navigator.mediaSession.setActionHandler("previoustrack", null);
+        navigator.mediaSession.setActionHandler("nexttrack", null);
+      } catch {}
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [audioVisible, book, chapter, verse]);
+
+  // ─── Speed ───
   const cycleSpeed = () => {
     const steps = [0.75, 1, 1.25, 1.5, 2];
-    const next  = steps[(steps.indexOf(speed) + 1) % steps.length];
+    const next = steps[(steps.indexOf(speed) + 1) % steps.length];
     setSpeed(next);
+    speedRef.current = next;
     try { localStorage.setItem("audioSpeed", String(next)); } catch {}
+
     if (playingRef.current) {
-      window.speechSynthesis.cancel();
-      setTimeout(() => speakVerse(idxRef.current), 80);
+      if (modeRef.current === "cdn" && audioElRef.current) {
+        audioElRef.current.playbackRate = next;
+      } else {
+        if (typeof window !== "undefined" && window.speechSynthesis) {
+          window.speechSynthesis.cancel();
+          setTimeout(() => speakVerse(idxRef.current), 80);
+        }
+      }
     }
   };
 
-  // Phase 2: cycle through available voices for this language
+  // ─── TTS Voice cycle ───
   const cycleVoice = () => {
     if (availableVoices.length <= 1) return;
     const next = (voiceIdx + 1) % availableVoices.length;
     setVoiceIdx(next);
     voiceIdxRef.current = next;
-    if (playingRef.current) {
-      window.speechSynthesis.cancel();
-      setTimeout(() => speakVerse(idxRef.current), 80);
+    if (playingRef.current && modeRef.current === "tts") {
+      if (typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        setTimeout(() => speakVerse(idxRef.current), 80);
+      }
     }
   };
 
+  // ─── Sleep timer cycle ───
+  const cycleSleepTimer = () => {
+    const steps = [0, 15, 30, 45, 60];
+    const next = steps[(steps.indexOf(sleepTimer) + 1) % steps.length];
+    setSleepTimer(next);
+  };
+
+  // ─── Prev / Next verse ───
   const prevVerse = () => {
     const newIdx = Math.max(0, idxRef.current - 1);
     idxRef.current = newIdx;
     setResumeNudge(null);
-    if (playingRef.current) { window.speechSynthesis.cancel(); speakVerse(newIdx); }
-    else { changeVerse(verseNumsRef.current[newIdx]); setCurrentIdx(newIdx); }
+    const vNum = verseNumsRef.current[newIdx];
+
+    if (modeRef.current === "cdn" && audioElRef.current && audioElRef.current.duration) {
+      // Seek CDN audio proportionally
+      const fraction = newIdx / verseNumsRef.current.length;
+      audioElRef.current.currentTime = fraction * audioElRef.current.duration;
+    } else if (playingRef.current) {
+      if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
+      speakVerse(newIdx);
+    }
+    if (vNum) { changeVerse(vNum); setCurrentIdx(newIdx); setAudioCurrentVerse(vNum); }
   };
 
   const nextVerse = () => {
     const newIdx = Math.min(verseNumsRef.current.length - 1, idxRef.current + 1);
     idxRef.current = newIdx;
     setResumeNudge(null);
-    if (playingRef.current) { window.speechSynthesis.cancel(); speakVerse(newIdx); }
-    else { changeVerse(verseNumsRef.current[newIdx]); setCurrentIdx(newIdx); }
+    const vNum = verseNumsRef.current[newIdx];
+
+    if (modeRef.current === "cdn" && audioElRef.current && audioElRef.current.duration) {
+      const fraction = newIdx / verseNumsRef.current.length;
+      audioElRef.current.currentTime = fraction * audioElRef.current.duration;
+    } else if (playingRef.current) {
+      if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
+      speakVerse(newIdx);
+    }
+    if (vNum) { changeVerse(vNum); setCurrentIdx(newIdx); setAudioCurrentVerse(vNum); }
   };
 
-  // Phase 3: resume from saved position
+  // ─── Resume from saved position ───
   const handleResume = () => {
     if (resumeNudge) {
       const idx = verseNums.indexOf(resumeNudge);
@@ -241,6 +398,25 @@ export default function AudioPlayer() {
     }
     setResumeNudge(null);
     play();
+  };
+
+  // ─── CDN narrator switch ───
+  const switchNarrator = (narratorId) => {
+    setAudioNarrator(narratorId);
+    if (playingRef.current && modeRef.current === "cdn" && audioElRef.current && audioChapterLinks) {
+      const newUrl = audioChapterLinks[narratorId];
+      if (newUrl) {
+        const savedTime = audioElRef.current.currentTime;
+        audioElRef.current.src = newUrl;
+        audioElRef.current.load();
+        audioElRef.current.onloadeddata = () => {
+          audioElRef.current.currentTime = savedTime;
+          audioElRef.current.playbackRate = speedRef.current;
+          audioElRef.current.play().catch(() => {});
+          audioElRef.current.onloadeddata = null;
+        };
+      }
+    }
   };
 
   const close = () => { stop(); setAudioVisible(false); };
@@ -258,6 +434,15 @@ export default function AudioPlayer() {
   const displayNum = verseNums[currentIdx] ?? verse;
   const canPrev    = currentIdx > 0;
   const canNext    = currentIdx < total - 1;
+  const isCDN      = audioMode === "cdn";
+
+  // Progress calculation
+  const progressPct = isCDN
+    ? cdnProgress * 100
+    : total > 0 ? ((currentIdx + 1) / total) * 100 : 0;
+
+  // Bottom offset: account for BottomNav when in verses (chapter) view
+  const bottomOffset = view === "verses" ? 56 : 0;
 
   const iconBtn = (onClick, disabled, children) => (
     <button onClick={disabled ? undefined : onClick}
@@ -271,13 +456,33 @@ export default function AudioPlayer() {
 
   return (
     <div style={{
-      position:"fixed", bottom:0, left:0, right:0, zIndex:200,
+      position:"fixed", bottom:bottomOffset, left:0, right:0, zIndex:200,
       background:bg, borderTop:`1.5px solid ${accent}50`,
       boxShadow:`0 -4px 24px rgba(0,0,0,${darkMode?0.45:0.13})`,
       display:"flex", flexDirection:"column",
+      animation:"playerSlideUp 0.3s ease-out",
     }}>
 
-      {/* Phase 3: Resume nudge */}
+      {/* ── Progress bar ── */}
+      <div style={{ height:3, background:`${accent}20`, position:"relative" }}>
+        <div style={{
+          height:"100%", background:accent,
+          width:`${progressPct}%`,
+          transition: isCDN ? "width 0.3s linear" : "width 0.4s ease",
+          borderRadius:"0 2px 2px 0",
+        }} />
+      </div>
+
+      {/* ── CDN time display ── */}
+      {isCDN && cdnDuration > 0 && (
+        <div style={{ display:"flex",justifyContent:"space-between",padding:"2px 16px 0",
+          fontFamily:uiFont,fontSize:9,color:muted }}>
+          <span>{formatTime(cdnCurrentTime)}</span>
+          <span>-{formatTime(cdnDuration - cdnCurrentTime)}</span>
+        </div>
+      )}
+
+      {/* ── Resume nudge ── */}
       {resumeNudge && (
         <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",
           padding:"6px 16px", background:`${accent}15`,
@@ -302,17 +507,17 @@ export default function AudioPlayer() {
         </div>
       )}
 
-      {/* Phase 2: No-voice warning */}
-      {voiceWarning && (
+      {/* ── TTS No-voice warning ── */}
+      {!isCDN && voiceWarning && (
         <div style={{ padding:"5px 16px",background:"#92400e20",
           borderBottom:"1px solid #92400e30" }}>
           <span style={{ fontFamily:uiFont,fontSize:10,color:"#92400e",fontWeight:600 }}>
-            No {transDef?.name || "matching"} voice installed — go to Settings → Accessibility → Spoken Content → Voices to download it. Falling back to default.
+            No {transDef?.name || "matching"} voice installed. Go to device Settings to download it.
           </span>
         </div>
       )}
 
-      {/* Main bar */}
+      {/* ── Main bar ── */}
       <div style={{ display:"flex",alignItems:"center",gap:8,
         padding:"0 16px",height:54 }}>
 
@@ -326,12 +531,12 @@ export default function AudioPlayer() {
             }} />
             <span style={{ fontFamily:uiFont,fontSize:9.5,fontWeight:700,
               color:audioPlaying?accent:muted,letterSpacing:"0.06em",textTransform:"uppercase" }}>
-              {audioPlaying ? "Playing" : "Paused"}
+              {audioPlaying ? (isCDN ? "Streaming" : "Playing") : "Paused"}
             </span>
           </div>
           <div style={{ fontFamily:uiFont,fontSize:12,fontWeight:600,
             color:textCol,lineHeight:1.2,whiteSpace:"nowrap",
-            maxWidth:120,overflow:"hidden",textOverflow:"ellipsis" }}>
+            maxWidth:140,overflow:"hidden",textOverflow:"ellipsis" }}>
             {book} {chapter} · V.{displayNum}/{total}
           </div>
         </div>
@@ -378,11 +583,26 @@ export default function AudioPlayer() {
             border:`1px solid ${accent}45`,background:`${accent}12`,
             fontFamily:uiFont,fontSize:11,fontWeight:700,
             color:accent,cursor:"pointer",flexShrink:0,whiteSpace:"nowrap" }}>
-          {speed === 1 ? "1×" : `${speed}×`}
+          {speed === 1 ? "1\u00D7" : `${speed}\u00D7`}
         </button>
 
-        {/* Phase 2: Voice cycle (only if multiple voices available) */}
-        {availableVoices.length > 1 && (
+        {/* CDN Narrator picker OR TTS Voice cycle */}
+        {isCDN ? (
+          <div style={{ display:"flex",gap:3,flexShrink:0 }}>
+            {CDN_NARRATORS.map(n => (
+              <button key={n.id} onClick={() => switchNarrator(n.id)}
+                title={n.description}
+                style={{ padding:"3px 7px",borderRadius:5,
+                  border:`1px solid ${audioNarrator === n.id ? accent : `${accent}35`}`,
+                  background:audioNarrator === n.id ? `${accent}18` : "transparent",
+                  fontFamily:uiFont,fontSize:9,fontWeight:600,
+                  color:audioNarrator === n.id ? accent : muted,
+                  cursor:"pointer",transition:"all 0.15s" }}>
+                {n.label}
+              </button>
+            ))}
+          </div>
+        ) : availableVoices.length > 1 ? (
           <button onClick={cycleVoice}
             title={`Voice: ${availableVoices[voiceIdx]?.name || "default"} (tap to cycle)`}
             style={{ width:28,height:28,borderRadius:6,
@@ -394,7 +614,23 @@ export default function AudioPlayer() {
               <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1 1.93c-3.94-.49-7-3.85-7-7.93h2c0 3.31 2.69 6 6 6s6-2.69 6-6h2c0 4.08-3.06 7.44-7 7.93V22h-2v-6.07z"/>
             </svg>
           </button>
-        )}
+        ) : null}
+
+        {/* Sleep Timer */}
+        <button onClick={cycleSleepTimer}
+          title={sleepTimer > 0 ? `Sleep in ${sleepTimer}m` : "Set sleep timer"}
+          style={{ padding:"4px 7px",borderRadius:6,
+            border:`1px solid ${sleepTimer > 0 ? accent : `${accent}35`}`,
+            background:sleepTimer > 0 ? `${accent}12` : "transparent",
+            fontFamily:uiFont,fontSize:10,fontWeight:700,
+            color:sleepTimer > 0 ? accent : muted,
+            cursor:"pointer",flexShrink:0,whiteSpace:"nowrap",
+            display:"flex",alignItems:"center",gap:3 }}>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          {sleepTimer > 0 ? `${sleepTimer}m` : ""}
+        </button>
 
         {/* ✕ Close */}
         <button onClick={close}
