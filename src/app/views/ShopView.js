@@ -88,7 +88,7 @@ function getCategoryIcon(iconId, color, size) {
 
 // ── Shop Header (one strip: back + title + dark/light + account) ─────────────
 function ShopHeader({ title, subtitle, onBack, t }) {
-  const { user, profile, darkMode, setDarkMode, nav, bp } = useApp();
+  const { user, profile, darkMode, setDarkMode, nav, bp, setWelcomeModal } = useApp();
   const hPad = bp.isMobile ? 16 : bp.isTablet ? 24 : 32;
   const ht = t.headerText;
   const firstName = (profile?.display_name || user?.user_metadata?.display_name || "")?.split(" ")[0];
@@ -119,7 +119,7 @@ function ShopHeader({ title, subtitle, onBack, t }) {
             <span style={{ fontFamily: t.ui, fontSize: 9, fontWeight: 600, color: "rgba(255,255,255,0.6)" }}>{darkMode ? "Light" : "Dark"}</span>
           </button>
           {!user && (
-            <button onClick={() => nav("account")} style={{ background: "rgba(212,168,83,0.25)", border: "1px solid rgba(212,168,83,0.45)", borderRadius: 6, padding: "3px 10px", fontFamily: t.ui, fontSize: 9, fontWeight: 700, color: "#fff", cursor: "pointer", letterSpacing: "0.03em" }}>
+            <button onClick={() => setWelcomeModal(true)} style={{ background: "rgba(212,168,83,0.25)", border: "1px solid rgba(212,168,83,0.45)", borderRadius: 6, padding: "3px 10px", fontFamily: t.ui, fontSize: 9, fontWeight: 700, color: "#fff", cursor: "pointer", letterSpacing: "0.03em" }}>
               Sign In
             </button>
           )}
@@ -442,7 +442,7 @@ function ShopCategory({ catalogue, shopCategory, t, nav, goBack, bp, addToCart }
 }
 
 // ── SHOP PRODUCT ──────────────────────────────────────────────────────────────
-function ShopProduct({ catalogue, shopProduct: shopProductId, t, nav, goBack, bp, user, addToCart }) {
+function ShopProduct({ catalogue, shopProduct: shopProductId, t, nav, goBack, bp, user, addToCart, setWelcomeModal }) {
   const [selectedSize, setSelectedSize] = useState(null);
   const [added, setAdded] = useState(false);
   const [activeTab, setActiveTab] = useState("description");
@@ -612,7 +612,7 @@ function ShopProduct({ catalogue, shopProduct: shopProductId, t, nav, goBack, bp
         <div style={{ maxWidth: bp.content, margin: "0 auto" }}>
           {isActive ? (
             !user ? (
-              <button onClick={() => nav("account")} style={{ width: "100%", padding: "14px", borderRadius: 14, background: t.accent, color: "#fff", border: "none", fontFamily: t.ui, fontSize: 15, fontWeight: 700, cursor: "pointer" }}>
+              <button onClick={() => setWelcomeModal(true)} style={{ width: "100%", padding: "14px", borderRadius: 14, background: t.accent, color: "#fff", border: "none", fontFamily: t.ui, fontSize: 15, fontWeight: 700, cursor: "pointer" }}>
                 Sign in to Purchase
               </button>
             ) : (
@@ -888,7 +888,7 @@ function ShopOrderSuccess({ t, nav, bp, clearCart, shopOrderSession }) {
 // ── MAIN SHOPVIEW ─────────────────────────────────────────────────────────────
 export default function ShopView() {
   const { view, ht, darkMode, nav, goBack, bp, shopCategory, shopProduct,
-          user, cart, addToCart, removeFromCart, updateQty, clearCart, shopOrderSession } = useApp();
+          user, cart, addToCart, removeFromCart, updateQty, clearCart, shopOrderSession, setWelcomeModal } = useApp();
   const [catalogue, setCatalogue] = useState(null);
   const [loadError, setLoadError] = useState(false);
 
@@ -932,7 +932,7 @@ export default function ShopView() {
     return <ShopCategory catalogue={catalogue} shopCategory={shopCategory} t={ht} nav={nav} goBack={goBack} bp={bp} addToCart={addToCart} />;
   }
   if (view === "shop-product") {
-    return <ShopProduct catalogue={catalogue} shopProduct={shopProduct} t={ht} nav={nav} goBack={goBack} bp={bp} user={user} addToCart={addToCart} />;
+    return <ShopProduct catalogue={catalogue} shopProduct={shopProduct} t={ht} nav={nav} goBack={goBack} bp={bp} user={user} addToCart={addToCart} setWelcomeModal={setWelcomeModal} />;
   }
 
   return <ShopHome catalogue={catalogue} t={ht} nav={nav} goBack={goBack} darkMode={darkMode} bp={bp} addToCart={addToCart} cart={cart} />;

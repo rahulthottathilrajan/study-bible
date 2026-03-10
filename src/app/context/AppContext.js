@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../../lib/supabase";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP } from "../constants";
 
 // ─── Derive dbChapters from BIBLE_BOOKS (synchronous, no Supabase needed) ───
 const initDbChapters = {};
@@ -143,6 +143,16 @@ export function AppProvider({ children }) {
   const [profile, setProfile] = useState(null);
   const [streak, setStreak] = useState(null);
 
+  // ─── Birthday detection ───
+  const isBirthdayToday = useMemo(() => {
+    if (!profile?.date_of_birth) return false;
+    try {
+      const dob = new Date(profile.date_of_birth + "T00:00:00");
+      const today = new Date();
+      return dob.getMonth() === today.getMonth() && dob.getDate() === today.getDate();
+    } catch { return false; }
+  }, [profile]);
+
   // ─── User features state ───
   const [userNote, setUserNote] = useState("");
   const [savedNote, setSavedNote] = useState(null);
@@ -162,6 +172,7 @@ export function AppProvider({ children }) {
   const [allHighlights, setAllHighlights] = useState([]);
   const [hlLoading, setHlLoading] = useState(false);
   const [donateModal, setDonateModal] = useState(false);
+  const [welcomeModal, setWelcomeModal] = useState(false);
   const [prayerTab, setPrayerTab] = useState("community");
 
   // ─── Community Prayer state ───
@@ -324,6 +335,29 @@ export function AppProvider({ children }) {
     });
     return () => subscription.unsubscribe();
   }, []);
+
+  // ─── Welcome modal for first-time visitors ───
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      try {
+        const hasVisited = localStorage.getItem("lastVisit");
+        const dismissed = localStorage.getItem("welcomeDismissed");
+        if (!hasVisited && !dismissed && !user) setWelcomeModal(true);
+      } catch {}
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [user]);
+
+  // Close welcome modal on successful auth
+  useEffect(() => {
+    if (user && welcomeModal) setWelcomeModal(false);
+  }, [user, welcomeModal]);
+
+  const requireAuth = useCallback(() => {
+    if (user) return true;
+    setWelcomeModal(true);
+    return false;
+  }, [user]);
 
   const loadProfile = async (uid) => {
     const { data } = await supabase.from("user_profiles").select("*").eq("id", uid).single();
@@ -787,6 +821,24 @@ export function AppProvider({ children }) {
     loadCommunityPrayers();
   };
 
+  // ─── Birthday community users ───
+  const [birthdayUsers, setBirthdayUsers] = useState([]);
+
+  const loadBirthdayUsers = useCallback(async () => {
+    try {
+      const today = new Date();
+      const mmdd = `-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+      const { data } = await supabase
+        .from("user_profiles")
+        .select("id, display_name, nickname, full_name")
+        .eq("share_birthday", true)
+        .filter("date_of_birth::text", "like", `%${mmdd}`);
+      setBirthdayUsers(data || []);
+    } catch { setBirthdayUsers([]); }
+  }, []);
+
+  useEffect(() => { if (view === "prayer-home" && user) loadBirthdayUsers(); }, [view, user, loadBirthdayUsers]);
+
   const toggleReaction = async (prayerId, reactionType) => {
     if (!user) return;
     const existing = userReactions[prayerId]?.[reactionType];
@@ -1029,6 +1081,9 @@ export function AppProvider({ children }) {
     if (myPrayers.some(p => p.is_answered && p.testimony_text) && !earned.testimony) awardBadge("testimony");
     if (myPrayers.length >= 5 && !earned.community_builder) awardBadge("community_builder");
 
+    // Community badges — birthday
+    if (isBirthdayToday && profile?.date_of_birth && !earned.birthday_blessed) awardBadge("birthday_blessed");
+
     // Quiz badges
     const allScores = Object.values(quizScores).flat();
     if (allScores.length >= 1 && !earned.quiz_starter) awardBadge("quiz_starter");
@@ -1036,7 +1091,7 @@ export function AppProvider({ children }) {
     if (allScores.length >= 50 && !earned.quiz_master) awardBadge("quiz_master");
     if (allScores.some(s => s.percentage >= 100) && !earned.perfect_score) awardBadge("perfect_score");
   }, [user, chapterReads, allHighlights, notesCount, streak, hebrewProgress, hebrewLessons,
-      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, awardBadge]);
+      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, awardBadge]);
 
   useEffect(() => { checkBadges(); }, [checkBadges]);
 
@@ -1273,7 +1328,7 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "songs-home":"prayer-home", "songs-category":"songs-home", "songs-detail":"songs-category" };
+  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "songs-home":"prayer-home", "songs-category":"songs-home", "songs-detail":"songs-category" };
 
   const addToCart = (product, qty = 1, size = null) => {
     setCart(prev => {
@@ -1462,7 +1517,7 @@ export function AppProvider({ children }) {
     shareCopied, communityNotes, chapterHighlights, chapterNotes, chapterCommunityNotes,
     prayerModal, setPrayerModal, prayers, prayerTitle,
     setPrayerTitle, prayerText, setPrayerText, prayerLoading, allHighlights, hlLoading,
-    donateModal, setDonateModal, prayerTab, setPrayerTab, noteRef,
+    donateModal, setDonateModal, welcomeModal, setWelcomeModal, requireAuth, prayerTab, setPrayerTab, noteRef,
     // Hebrew
     hebrewLessons, hebrewLesson, setHebrewLesson, hebrewAlphabet, setHebrewAlphabet, hebrewVocab, setHebrewVocab,
     hebrewCategory, setHebrewCategory, hebrewProgress, hebrewPracticeMode, setHebrewPracticeMode,
@@ -1520,6 +1575,8 @@ export function AppProvider({ children }) {
     listenedChapters, markChapterListened,
     // Songs
     songsCategory, setSongsCategory, songsHymn, setSongsHymn,
+    // Birthday
+    isBirthdayToday, birthdayUsers,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

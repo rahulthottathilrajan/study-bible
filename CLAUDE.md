@@ -83,6 +83,9 @@ supabase.from("verses")
 4. Added Verse of the Day feature (`VerseOfTheDay.js`) with 120 curated verses
 5. Replaced large Home header with minimal sticky top bar, made VOTD the hero element
 
+## Brand
+See `brandguideline.md` for brand identity, colors, typography, and tone of voice.
+
 ## Known Issues / TODO
 - Sub-components (TimelineMaps, ArchaeologyCards, Apologetics, etc.) have hardcoded light theme colors — need dark mode support
 - page.js is still ~3,483 lines — further extraction needs React Context for shared state

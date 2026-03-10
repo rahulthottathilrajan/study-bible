@@ -11,6 +11,7 @@ import BibleSearch from "./components/BibleSearch";
 import ErrorBoundary from "./components/ErrorBoundary";
 import BottomNav from "./components/BottomNav";
 import DonateModal from "./components/DonateModal";
+import WelcomeModal from "./components/WelcomeModal";
 import PrayerModal from "./components/PrayerModal";
 import BadgeToast from "./components/BadgeToast";
 import HomeView from "./views/HomeView";
@@ -25,6 +26,7 @@ import QuizView from "./views/QuizView";
 import QuizBrowserView from "./views/QuizBrowserView";
 import ShopView from "./views/ShopView";
 import SongsView from "./views/SongsView";
+import TermsView from "./views/TermsView";
 
 // ═══════════════════════════════════════════════════
 // MAIN APP
@@ -57,9 +59,11 @@ function StudyBibleContent() {
       {view.startsWith("quiz-") && view !== "quiz-browser" && <ErrorBoundary theme={ht} label="Quiz"><QuizView /></ErrorBoundary>}
       {view.startsWith("shop-") && <ErrorBoundary theme={ht} label="Shop"><ShopView /></ErrorBoundary>}
       {view.startsWith("songs-") && <ErrorBoundary theme={ht} label="Songs"><SongsView /></ErrorBoundary>}
+      {view === "terms" && <ErrorBoundary theme={ht} label="Terms"><TermsView /></ErrorBoundary>}
 
       <BadgeToast />
       <BottomNav />
+      <WelcomeModal />
       <DonateModal />
       <PrayerModal />
     </div>

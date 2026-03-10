@@ -7,7 +7,7 @@ import { BADGES, BADGE_CATEGORIES, BIBLE_TRANSLATIONS } from "../constants";
 
 export default function AccountView() {
   const {
-    user, profile, saveProfile, streak, darkMode, setDarkMode, fontSize, setFontSize, ht, bibleTranslation,
+    user, profile, saveProfile, streak, darkMode, setDarkMode, fontSize, setFontSize, ht, bibleTranslation, isBirthdayToday,
     authMode, setAuthMode, authEmail, setAuthEmail, authPass, setAuthPass,
     authName, setAuthName, authError, authLoading, authShowPass, setAuthShowPass,
     authForgot, setAuthForgot, authForgotSent,
@@ -18,7 +18,7 @@ export default function AccountView() {
 
   // ─── Profile form state ───
   const [profileOpen, setProfileOpen] = useState(false);
-  const [profileForm, setProfileForm] = useState({ full_name:"", date_of_birth:"", gender:"", phone_country_code:"+1", phone_number:"", nickname:"" });
+  const [profileForm, setProfileForm] = useState({ full_name:"", date_of_birth:"", gender:"", phone_country_code:"+1", phone_number:"", nickname:"", share_birthday:false });
   const [profileSaving, setProfileSaving] = useState(false);
   const [profileMsg, setProfileMsg] = useState(null);
 
@@ -30,6 +30,7 @@ export default function AccountView() {
       phone_country_code: profile.phone_country_code || "+1",
       phone_number: profile.phone_number || "",
       nickname: profile.nickname || "",
+      share_birthday: profile.share_birthday || false,
     });
   }, [profile]);
 
@@ -162,7 +163,10 @@ export default function AccountView() {
                   {(profile?.display_name || user?.user_metadata?.display_name || "R")[0].toUpperCase()}
                 </div>
                 <div>
-                  <div style={{fontFamily:ht.heading,fontSize:18,fontWeight:700,color:ht.dark}}>{profile?.display_name || user?.user_metadata?.display_name || "Reader"}</div>
+                  <div style={{fontFamily:ht.heading,fontSize:18,fontWeight:700,color:ht.dark,display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
+                    {profile?.display_name || user?.user_metadata?.display_name || "Reader"}
+                    {isBirthdayToday && <span style={{display:"inline-block",padding:"2px 10px",borderRadius:20,background:"linear-gradient(135deg,#D4A853,#FFD700)",color:"#5B2D0E",fontFamily:ht.ui,fontSize:10,fontWeight:800,letterSpacing:"0.05em",animation:"pulseGlow 2s ease-in-out infinite"}}>🎂 Happy Birthday!</span>}
+                  </div>
                   <div style={{fontFamily:ht.ui,fontSize:12,color:ht.muted}}>{user.email}</div>
                   <div style={{fontFamily:ht.ui,fontSize:10,color:ht.light,marginTop:2}}>Joined {new Date(user.created_at).toLocaleDateString()}</div>
                 </div>
@@ -217,6 +221,17 @@ export default function AccountView() {
                       </select>
                       <input type="tel" value={profileForm.phone_number} onChange={e => setProfileForm(f => ({...f, phone_number: e.target.value}))} placeholder="Phone number" style={{flex:1,padding:"11px 14px",borderRadius:10,border:`1.5px solid ${ht.divider}`,fontFamily:ht.ui,fontSize:14,outline:"none",background:ht.bg,color:ht.dark,boxSizing:"border-box"}} />
                     </div>
+                  </div>
+                  {/* Share Birthday */}
+                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 0"}}>
+                    <div>
+                      <div style={{fontFamily:ht.ui,fontSize:12,fontWeight:600,color:ht.dark}}>Share my birthday</div>
+                      <div style={{fontFamily:ht.ui,fontSize:10,color:ht.muted,marginTop:2}}>Show a birthday card in the Community feed</div>
+                    </div>
+                    <button onClick={() => setProfileForm(f => ({...f, share_birthday: !f.share_birthday}))}
+                      style={{width:48,height:26,borderRadius:13,border:"none",cursor:"pointer",position:"relative",background:profileForm.share_birthday?ht.accent:ht.divider,transition:"background 0.25s",padding:0}}>
+                      <div style={{width:22,height:22,borderRadius:11,background:"#fff",position:"absolute",top:2,left:profileForm.share_birthday?24:2,transition:"left 0.25s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)"}}/>
+                    </button>
                   </div>
                   {/* Save */}
                   <button onClick={handleSaveProfile} disabled={profileSaving} style={{width:"100%",padding:"13px",borderRadius:10,border:"none",background:ht.headerGradient,color:ht.headerText||"#fff",fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer",marginTop:4,opacity:profileSaving?0.7:1}}>
@@ -412,6 +427,7 @@ export default function AccountView() {
               {[
                 {label:"My Highlights",icon:"🎨",action:()=>nav("highlights")},
                 {label:"Prayer Community",icon:"🙏",action:()=>nav("prayer-home")},
+                {label:"Terms & Privacy Policy",icon:"📋",action:()=>nav("terms")},
               ].map((a,i) => (
                 <button key={i} onClick={a.action} style={{width:"100%",display:"flex",alignItems:"center",gap:12,padding:"12px 14px",background:"transparent",border:`1px solid ${ht.divider}`,borderRadius:10,cursor:"pointer",marginBottom:6,textAlign:"left"}}>
                   <span style={{fontSize:18}}>{a.icon}</span>
