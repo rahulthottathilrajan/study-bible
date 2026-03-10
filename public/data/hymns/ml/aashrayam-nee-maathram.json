@@ -1,0 +1,79 @@
+{
+  "id": "aashrayam-nee-maathram",
+  "lang": "ml",
+  "title": "ആശ്രയം നീ മാത്രം",
+  "titleRomanized": "Aashrayam Nee Maathram",
+  "author": "Traditional",
+  "composer": "Traditional Kerala melody",
+  "year": null,
+  "categories": [
+    "grace",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 46:1",
+      "note": "God is our refuge and strength, a very present help in trouble"
+    },
+    {
+      "ref": "Psalm 91:2",
+      "note": "I will say of the LORD, He is my refuge and my fortress"
+    }
+  ],
+  "story": "A powerful declaration of total dependence on God as the only refuge. This traditional keerthanam resonates deeply in times of crisis and calamity, reminding Kerala Christians that their security lies not in worldly things but in the everlasting arms of God. It is often sung during storm seasons and times of community distress.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ആശ്രയം നീ മാത്രം ദൈവമേ",
+          "സങ്കേതം നീ മാത്രം",
+          "കോട്ടയും കൊത്തളവും നീ",
+          "എൻ ബലവും പെലനും നീ"
+        ],
+        "linesRomanized": [
+          "Aashrayam nee maathram Daivame",
+          "Sanketham nee maathram",
+          "Kottayum kotthalavum nee",
+          "En balavum pelanum nee"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ആയിരം വീണാലും ഇടത്ത്",
+          "പതിനായിരം വലത്ത്",
+          "അത് നിന്നെ തൊടുകയില്ല",
+          "ദൈവം നിന്റെ മറവിടം"
+        ],
+        "linesRomanized": [
+          "Aayiram veenaalum idathu",
+          "Pathinaayiram valathu",
+          "Ath ninne thodukayilla",
+          "Daivam ninte maravidam"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "രാത്രിയിലെ ഭയത്തെ",
+          "പകലിലെ അസ്ത്രത്തെ",
+          "ഭയപ്പെടുകയില്ല ഞാൻ",
+          "ദൈവം എന്റെ ആശ്രയം"
+        ],
+        "linesRomanized": [
+          "Raathriyile bhayaththe",
+          "Pakalile asthraththe",
+          "Bhayappedukayilla njaan",
+          "Daivam ente aashrayam"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kerala Christian Heritage"
+}

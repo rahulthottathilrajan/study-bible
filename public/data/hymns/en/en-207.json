@@ -1,0 +1,69 @@
+{
+  "lang": "en",
+  "id": "en-207",
+  "title": "The First Noel",
+  "author": "Traditional English",
+  "composer": "Traditional English",
+  "year": null,
+  "categories": [
+    "christmas",
+    "praise"
+  ],
+  "scriptureRefs": [
+    "Luke 2:8-20",
+    "Matthew 2:1-2"
+  ],
+  "story": "An English carol from as early as the 13th century, first published in 1823. It narrates the Christmas story from the shepherds' perspective through the visit of the Magi.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "The first Noel the angel did say Was to certain poor shepherds in fields as they lay",
+          "In fields where they lay tending their sheep, On a cold winter's night that was so deep",
+          "Noel, Noel, Noel, Noel, Born is the King of Israel"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "They look�d up and saw a star Shining in the east, beyond them far",
+          "And to the earth it gave great light, And so it continued both day and night",
+          "Noel, Noel, Noel, Noel, Born is the King of Israel"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "And by the light of that same star Three Wise Men came from country far",
+          "To seek for a King was their intent, And to follow the star wherever it went",
+          "Noel, Noel, Noel, Noel, Born is the King of Israel"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "This star drew nigh to the northwest, Over Bethlehem it took its rest",
+          "And there it did both stop and stay, Right over the place where Jesus lay",
+          "Noel, Noel, Noel, Noel, Born is the King of Israel"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 5,
+        "lines": [
+          "Then did they know assuredly Within that house the King did lie",
+          "One entered it them for to see, And found the Babe in poverty",
+          "Noel, Noel, Noel, Noel, Born is the King of Israel"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — The_First_Noel"
+}

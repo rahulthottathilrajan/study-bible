@@ -1,0 +1,78 @@
+{
+  "id": "bethlehem-oorile",
+  "lang": "ta",
+  "title": "பெத்லகேம் ஊரிலே",
+  "titleRomanized": "Bethlehem Oorile",
+  "author": "Traditional",
+  "composer": "Traditional Tamil Christmas melody",
+  "year": null,
+  "categories": [
+    "christmas",
+    "praise"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Luke 2:7",
+      "note": "And she brought forth her firstborn son, and wrapped him in swaddling clothes"
+    },
+    {
+      "ref": "Micah 5:2",
+      "note": "But thou, Bethlehem Ephratah, though thou be little among the thousands of Judah"
+    }
+  ],
+  "story": "One of the most cherished Tamil Christmas carols, sung in churches and homes across Tamil Nadu during the Advent season. This traditional nativity hymn paints a vivid picture of the birth of Christ in Bethlehem and has been passed down through generations of Tamil Christian families. Children especially love its simple, memorable melody.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "பெத்லகேம் ஊரிலே",
+          "தொழுவத்தில் பிறந்தார்",
+          "உலக இரட்சகர்",
+          "இயேசு கிறிஸ்து பிறந்தார்"
+        ],
+        "linesRomanized": [
+          "Bethlakeem oorilae",
+          "Thozhuvathil piRandhaar",
+          "Ulaga iratcahagar",
+          "Yaesu Kiristhu piRandhaar"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "வானதூதர்கள் பாடினார்",
+          "மேய்ப்பர்கள் ஓடி வந்தார்",
+          "நட்சத்திரம் வழிகாட்ட",
+          "ஞானிகளும் வந்தார்"
+        ],
+        "linesRomanized": [
+          "Vaanadhootharkal paadinaar",
+          "Maeipparkal odi vandhaar",
+          "Natchaththiram vazhikaatta",
+          "Gnaanigalum vandhaar"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ஏழ்மையில் பிறந்தார்",
+          "மாட்டுத் தொழுவில் வந்தார்",
+          "மனிதரை மீட்கவே",
+          "தேவகுமாரன் வந்தார்"
+        ],
+        "linesRomanized": [
+          "Ezhmaiyil piRandhaar",
+          "Maattuth thozhuvil vandhaar",
+          "Manitharai meetkavae",
+          "Thaevakumaaran vandhaar"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "pavitra-aatma-aa",
+  "lang": "hi",
+  "title": "पवित्र आत्मा आ",
+  "titleRomanized": "Pavitra Aatma Aa",
+  "author": "Traditional",
+  "composer": "Traditional Hindi Pentecostal melody",
+  "year": null,
+  "categories": [
+    "pentecostal",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Acts 2:1-4",
+      "note": "And they were all filled with the Holy Ghost, and began to speak with other tongues"
+    },
+    {
+      "ref": "John 14:16",
+      "note": "And I will pray the Father, and he shall give you another Comforter"
+    }
+  ],
+  "story": "A powerful invocation bhajan sung across Pentecostal and charismatic churches in North India. This traditional hymn is a staple at revival meetings and prayer gatherings, calling upon the Holy Spirit to descend with power and fire. Its passionate melody has accompanied countless moments of spiritual awakening.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "पवित्र आत्मा आ, आ",
+          "हम पर उँड़ेल दे",
+          "अग्नि बनकर उतर आ",
+          "सामर्थ से भर दे"
+        ],
+        "linesRomanized": [
+          "Pavitra Aatma aa, aa",
+          "Ham par undel de",
+          "Agni bankar utar aa",
+          "Saamarth se bhar de"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "पिन्तेकुस्त के दिन जैसे",
+          "अग्नि की जीभों जैसे",
+          "उतर आ पवित्र आत्मा",
+          "हमें अपना बना ले"
+        ],
+        "linesRomanized": [
+          "Pintekust ke din jaise",
+          "Agni ki jeebhon jaise",
+          "Utar aa Pavitra Aatma",
+          "Hamein apnaa banaa le"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "वरदान दे हमें प्रभु",
+          "शक्ति दे गवाही की",
+          "साक्षी बना संसार में",
+          "पवित्र आत्मा आ"
+        ],
+        "linesRomanized": [
+          "Vardaan de hamein Prabhu",
+          "Shakti de gawaahi ki",
+          "Saakshi banaa sansaar mein",
+          "Pavitra Aatma aa"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Pentecostal Heritage"
+}

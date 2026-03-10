@@ -1,0 +1,78 @@
+{
+  "id": "yehova-yireh-hi",
+  "lang": "hi",
+  "title": "यहोवा यीरे",
+  "titleRomanized": "Yehova Yireh",
+  "author": "Traditional",
+  "composer": "Traditional Hindi melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Genesis 22:14",
+      "note": "Abraham called the name of that place Jehovahjireh"
+    },
+    {
+      "ref": "Philippians 4:19",
+      "note": "My God shall supply all your need"
+    }
+  ],
+  "story": "A bhajan celebrating God's names and His faithful provision. Drawing from Abraham's encounter on Mount Moriah, this traditional hymn declares that God sees and provides for every need. It is a beloved testimony hymn in Hindi-speaking churches.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "यहोवा यीरे पूरा करेगा",
+          "यहोवा शालोम शान्ति देगा",
+          "यहोवा निस्सी जय देगा",
+          "यहोवा मेरा देव है"
+        ],
+        "linesRomanized": [
+          "Yehovaa Yeereh pooraa karegaa",
+          "Yehovaa Shaalom shaanti degaa",
+          "Yehovaa Nissi jay degaa",
+          "Yehovaa meraa Dev hai"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ज़रूरतें सब जानता है वो",
+          "सही समय पर देता है",
+          "महिमा के धन में से",
+          "सब कुछ देगा देव"
+        ],
+        "linesRomanized": [
+          "Zarooraten sab jaantaa hai wo",
+          "Sahi samay par detaa hai",
+          "Mahimaa ke dhan mein se",
+          "Sab kuchh degaa Dev"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "अब्राहम का देव",
+          "इसहाक का देव",
+          "याकूब का देव",
+          "आज भी जीवित देव"
+        ],
+        "linesRomanized": [
+          "Abraham kaa Dev",
+          "Ishaak kaa Dev",
+          "Yakoob kaa Dev",
+          "Aaj bhi jeevit Dev"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Christian Heritage"
+}

@@ -1,0 +1,54 @@
+{
+  "lang": "en",
+  "id": "en-235",
+  "title": "More Love to Thee O Christ",
+  "author": "Elizabeth Prentiss",
+  "composer": "William Doane",
+  "year": 1856,
+  "categories": [
+    "worship",
+    "grace"
+  ],
+  "scriptureRefs": [
+    "Philippians 3:8-10",
+    "1 John 4:19"
+  ],
+  "story": "Prentiss wrote this during a period of deep grief after losing two children. She kept it hidden for years before her husband discovered and published it. Its honest prayer for deeper love through suffering resonates with all who grieve.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "More love to Thee, O Christ",
+          "More love to Thee",
+          "Hear Thou the pray'r I make On bended knee",
+          "This is my earnest plea, More love, O Christ, to Thee, More love to Thee",
+          "More love to Thee"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Once earthly joy I craved, Sought peace and rest",
+          "Now thee a lone I seek, Give what is best",
+          "This all my pray'r shall be, More love, O Christ, to Thee, More love to Thee",
+          "More love to Thee"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Then shall my latest breath, Whisper Thy praise, This be the parting cry My heart shall raise",
+          "This still its pray'r shall be, More love, O Christ, to Thee, More love to Thee",
+          "More love to Thee"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — More_Love_To_Thee"
+}

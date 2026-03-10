@@ -1,0 +1,78 @@
+{
+  "id": "uyirthezhunnettu-nadhan",
+  "lang": "ml",
+  "title": "ഉയിർത്തെഴുന്നേറ്റു നാഥൻ",
+  "titleRomanized": "Uyirthezhunnettu Nadhan",
+  "author": "Traditional",
+  "composer": "Traditional Kerala Easter melody",
+  "year": null,
+  "categories": [
+    "easter",
+    "praise"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Matthew 28:6",
+      "note": "He is not here: for he is risen, as he said"
+    },
+    {
+      "ref": "1 Corinthians 15:55",
+      "note": "O death, where is thy sting? O grave, where is thy victory?"
+    }
+  ],
+  "story": "A triumphant Easter keerthanam sung during sunrise services across Kerala. This traditional resurrection hymn celebrates Christ's victory over death and the grave. Its joyful melody has echoed through generations of Easter celebrations in Kerala churches, filling believers with the hope of eternal life.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ഉയിർത്തെഴുന്നേറ്റു നാഥൻ",
+          "മരണത്തെ ജയിച്ചു നാഥൻ",
+          "ഹല്ലേലൂയ്യാ ഹല്ലേലൂയ്യാ",
+          "ജയം ജയം യേശുവിന്"
+        ],
+        "linesRomanized": [
+          "Uyirthezhunnettu Naadhan",
+          "Maranaththe jayichu Naadhan",
+          "Halleluyya halleluyya",
+          "Jayam jayam Yeshuvin"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "കല്ലറ തുറന്നു നാഥൻ",
+          "മൃത്യുവിൻ ശക്തി തകർത്തു",
+          "ജീവന്റെ പ്രഭു ഉയിർത്തു",
+          "ഹല്ലേലൂയ്യാ ഹല്ലേലൂയ്യാ"
+        ],
+        "linesRomanized": [
+          "Kallara thurannu Naadhan",
+          "Mruthyuvin shakthi thakarthu",
+          "Jeevante Prabhu uyirthu",
+          "Halleluyya halleluyya"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "മൂന്നാം നാൾ ഉയിർത്തെഴുന്നേറ്റു",
+          "വാഗ്ദാനം നിറവേറ്റി",
+          "മരണത്തിന് അന്ത്യമായി",
+          "നിത്യജീവൻ നമുക്കായി"
+        ],
+        "linesRomanized": [
+          "Moonnaam naal uyirthezhunnettu",
+          "Vaagdaanam niravetti",
+          "Maranathinu anthyamaayi",
+          "Nithyajeevan namukkaayi"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kerala Christian Heritage"
+}

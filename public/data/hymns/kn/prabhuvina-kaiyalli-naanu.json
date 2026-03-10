@@ -1,0 +1,79 @@
+{
+  "id": "prabhuvina-kaiyalli-naanu",
+  "lang": "kn",
+  "title": "ಪ್ರಭುವಿನ ಕೈಯಲ್ಲಿ ನಾನು",
+  "titleRomanized": "Prabhuvina Kaiyalli Naanu",
+  "author": "Traditional",
+  "composer": "Traditional Kannada melody",
+  "year": null,
+  "categories": [
+    "comfort",
+    "grace"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Isaiah 49:16",
+      "note": "I have graven thee upon the palms of my hands"
+    },
+    {
+      "ref": "John 10:28",
+      "note": "Neither shall any man pluck them out of my hand"
+    }
+  ],
+  "story": "A keerthane of deep assurance reminding believers they are held safely in God's hands. This traditional hymn draws from Isaiah's tender image of God engraving His children on His palms. It has brought immeasurable comfort during funerals and times of loss in Karnataka Christian communities.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಪ್ರಭುವಿನ ಕೈಯಲ್ಲಿ ನಾನು",
+          "ಸುರಕ್ಷಿತ ಎಂದೆಂದಿಗೂ",
+          "ಯಾರೂ ಕಿತ್ತುಕೊಳ್ಳಲಾರರು",
+          "ನನ್ನನ್ನು ಆತನ ಕೈಯಿಂದ"
+        ],
+        "linesRomanized": [
+          "Prabhuvina kaiyalli naanu",
+          "Surakshitha endendigoo",
+          "Yaaroo kiththukollararu",
+          "Nannannu aathana kaiyinda"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ಅಂಗೈಯಲ್ಲಿ ಕೊರೆದಿಟ್ಟಿದ್ದಾನೆ",
+          "ನನ್ನ ಹೆಸರನ್ನು ಆತನು",
+          "ಮರೆಯನೇ ಎಂದಿಗೂ",
+          "ನನ್ನನ್ನು ಆತನು ಪ್ರೀತಿಸುವನು"
+        ],
+        "linesRomanized": [
+          "Angaiyalli koreditiddaane",
+          "Nanna hesarannu aathanu",
+          "Mareyane endigoo",
+          "Nannannu aathanu preethisuvanu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "ಬಿರುಗಾಳಿ ಬಂದರೂ",
+          "ಪ್ರವಾಹ ಬಂದರೂ",
+          "ಪ್ರಭುವಿನ ಕೈ ನನ್ನನ್ನು ಹಿಡಿಯುವುದು",
+          "ನಾನು ಭಯಪಡೆನು"
+        ],
+        "linesRomanized": [
+          "Birugaali bandaroo",
+          "Pravaaha bandaroo",
+          "Prabhuvina kai nannannu hidiyuvudu",
+          "Naanu bhayapadenu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

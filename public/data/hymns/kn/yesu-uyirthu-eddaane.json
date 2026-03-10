@@ -1,0 +1,78 @@
+{
+  "id": "yesu-uyirthu-eddaane",
+  "lang": "kn",
+  "title": "ಯೇಸು ಉಯಿರ್ತು ಎದ್ದಾನೆ",
+  "titleRomanized": "Yesu Uyirthu Eddaane",
+  "author": "Traditional",
+  "composer": "Traditional Kannada Easter melody",
+  "year": null,
+  "categories": [
+    "easter",
+    "praise"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Matthew 28:6",
+      "note": "He is not here: for he is risen, as he said"
+    },
+    {
+      "ref": "Luke 24:34",
+      "note": "The Lord is risen indeed"
+    }
+  ],
+  "story": "A triumphant Easter keerthane that rings through Karnataka churches on Resurrection Sunday. This traditional hymn celebrates Christ's victory over death and the empty tomb. Its joyful melody has been a cornerstone of Easter sunrise services in Kannada-speaking congregations for generations.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ಯೇಸು ಉಯಿರ್ತು ಎದ್ದಾನೆ",
+          "ಮರಣವನ್ನು ಜಯಿಸಿದಾನೆ",
+          "ಹಲ್ಲೆಲೂಯ ಹಲ್ಲೆಲೂಯ",
+          "ಜಯ ಜಯ ಯೇಸುವಿಗೆ"
+        ],
+        "linesRomanized": [
+          "Yesu uyirthu eddaane",
+          "Maranavannu jayisidaane",
+          "Halleluya halleluya",
+          "Jaya jaya Yesuvige"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಸಮಾಧಿ ತೆರೆಯಿತು",
+          "ಮೃತ್ಯುವಿನ ಶಕ್ತಿ ಮುರಿಯಿತು",
+          "ಜೀವದ ಪ್ರಭು ಎದ್ದನು",
+          "ಹಲ್ಲೆಲೂಯ ಹಲ್ಲೆಲೂಯ"
+        ],
+        "linesRomanized": [
+          "Samaadhi tereyithu",
+          "Mruthyuvina shakthi muriyithu",
+          "Jeevada Prabhu eddanu",
+          "Halleluya halleluya"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ಮೂರನೆಯ ದಿನ ಎದ್ದನು",
+          "ವಾಗ್ದಾನ ನೆರವೇರಿಸಿದನು",
+          "ಮರಣಕ್ಕೆ ಅಂತ್ಯವಾಯಿತು",
+          "ನಿತ್ಯಜೀವ ನಮಗಾಯಿತು"
+        ],
+        "linesRomanized": [
+          "Mooraneya dina eddanu",
+          "Vaagdaana neraaverisidanu",
+          "Maranakke anthyavaayithu",
+          "Nithyajeeva namagaayithu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

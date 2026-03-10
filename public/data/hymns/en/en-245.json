@@ -1,0 +1,59 @@
+{
+  "lang": "en",
+  "id": "en-245",
+  "title": "Glorious Things of Thee Are Spoken",
+  "author": "John Newton",
+  "composer": "Franz Joseph Haydn",
+  "year": 1779,
+  "categories": [
+    "classic",
+    "praise"
+  ],
+  "scriptureRefs": [
+    "Psalm 87:3",
+    "Isaiah 33:20-21"
+  ],
+  "story": "Newton, the former slave trader who wrote Amazing Grace, composed this celebration of Zion as God's dwelling place. Haydn's Austrian Hymn melody lends it a grandeur befitting the New Jerusalem.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Glorious things of thee are spoken, Zion city of our God",
+          "He, Whose Word cannot be broken Formed thee for His Own abode: On the Rock of Ages founded, What can shake thy sure repose",
+          "With salvation's walls surrounded, Thou mayst smile at all thy foes"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "See, the streams of living waters, Springing from Eternal Love, Well supply thy sons and daughters, And all fear of want remove: Who can faint, while such a river Ever will their thirst assuage",
+          "Grace, which, like the Lord the Giver, Never fails from age to age"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Round each habitation hov'ring, See the cloud and fire appear, For a glory and a cov'ring: Showing that the Lord is near",
+          "Thus deriving from their banner Light by night, and shade by day, Safe they feed upon the manna, Which He gives them on their way"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "Savior, if of Zion's city I",
+          "through grace, a member am",
+          "Let the world deride or pity, I will glory in Thy Name: Fading is the worldling's pleasure",
+          "All his boasted pomp and show: Solid joys and lasting treasure None but Zion's children know."
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — Glorious_Things_of_Thee_Are_Spoken"
+}

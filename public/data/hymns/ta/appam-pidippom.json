@@ -1,0 +1,79 @@
+{
+  "id": "appam-pidippom",
+  "lang": "ta",
+  "title": "அப்பம் பிடிப்போம்",
+  "titleRomanized": "Appam Pidippom",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "communion",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "1 Corinthians 11:24-25",
+      "note": "This do in remembrance of me"
+    },
+    {
+      "ref": "Acts 2:42",
+      "note": "They continued stedfastly in the apostles' doctrine and fellowship, and in breaking of bread"
+    }
+  ],
+  "story": "A reverent communion hymn from the Tamil Protestant tradition. This keerthanaigal is sung during the breaking of bread in CSI, Brethren, and other Tamil churches. Its solemn melody and simple words guide the congregation into a sacred remembrance of Christ's sacrifice on the cross.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "அப்பம் பிடிப்போம் நினைவாக",
+          "கர்த்தர் தந்த திருவிருந்து",
+          "சிலுவையில் சிந்திய இரத்தம்",
+          "நமக்காக சிந்தினார்"
+        ],
+        "linesRomanized": [
+          "Appam pidippom ninaivaga",
+          "Karthar thantha thiruvirundu",
+          "Siluvayil sindhiya iraththam",
+          "Namakkaga sindhinar"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "இந்த அப்பம் அவர் சரீரம்",
+          "இந்த பாத்திரம் அவர் இரத்தம்",
+          "நினைவுகூர்ந்து புசிப்போம்",
+          "கர்த்தர் வரும் நாள் வரை"
+        ],
+        "linesRomanized": [
+          "Indha appam avar sareeram",
+          "Indha paathiram avar iraththam",
+          "Ninaivukoornthu pusippom",
+          "Karthar varum naal varai"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "நன்றியோடு வருகின்றோம்",
+          "தாழ்மையோடு பங்கேற்கின்றோம்",
+          "உம் மரணம் நினைக்கின்றோம்",
+          "உம் வருகை எதிர்பார்க்கின்றோம்"
+        ],
+        "linesRomanized": [
+          "Nandriyodu varuginrom",
+          "Thaazhmaiyodu pangaerginrom",
+          "Um maranam ninaikkinrom",
+          "Um varugai edhirpaarginrom"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

@@ -182,6 +182,9 @@ export default function HomeView() {
 
           {/* ── HYMN OF THE DAY ── */}
           <HymnOfTheDay nav={nav} ht={ht} />
+          <div style={{ marginTop: -12, marginBottom: 22, textAlign: "right", paddingRight: 4 }}>
+            <button onClick={() => nav("songs-home")} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: ht.accent, padding: "4px 0", letterSpacing: "0.01em" }}>Browse All Hymns &rarr;</button>
+          </div>
 
           {/* ── QUIZ MASTER ── */}
           <div style={{ marginBottom: 22 }}>

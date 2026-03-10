@@ -1,0 +1,78 @@
+{
+  "id": "nanni-nanni-yeshuve",
+  "lang": "ml",
+  "title": "നന്ദി നന്ദി യേശുവേ",
+  "titleRomanized": "Nanni Nanni Yeshuve",
+  "author": "Traditional",
+  "composer": "Traditional Kerala melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 107:1",
+      "note": "O give thanks unto the LORD, for he is good"
+    },
+    {
+      "ref": "1 Thessalonians 5:18",
+      "note": "In every thing give thanks"
+    }
+  ],
+  "story": "A heartfelt thanksgiving keerthanam known across all Kerala church denominations. This simple yet powerful hymn of gratitude is often sung at the close of worship services and thanksgiving gatherings. Its warm melody and repetitive refrain make it a favorite among all age groups, from children to elders.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "നന്ദി നന്ദി യേശുവേ",
+          "നന്ദി നന്ദി നാഥനേ",
+          "എല്ലാറ്റിനും നന്ദി",
+          "അങ്ങേക്ക് നന്ദി യേശുവേ"
+        ],
+        "linesRomanized": [
+          "Nandi nandi Yeshuve",
+          "Nandi nandi Naathane",
+          "Ellaattinum nandi",
+          "Angekku nandi Yeshuve"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ജീവൻ തന്നതിന് നന്ദി",
+          "ശ്വാസം തന്നതിന് നന്ദി",
+          "ആരോഗ്യം തന്നതിന് നന്ദി",
+          "എല്ലാറ്റിനും നന്ദി"
+        ],
+        "linesRomanized": [
+          "Jeevan thannathinu nandi",
+          "Shvaasam thannathinu nandi",
+          "Aarogyam thannathinu nandi",
+          "Ellaattinum nandi"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "കുടുംബം തന്നതിന് നന്ദി",
+          "സ്നേഹം തന്നതിന് നന്ദി",
+          "രക്ഷ തന്നതിന് നന്ദി",
+          "എല്ലാറ്റിനും നന്ദി"
+        ],
+        "linesRomanized": [
+          "Kudumbam thannathinu nandi",
+          "Sneham thannathinu nandi",
+          "Raksha thannathinu nandi",
+          "Ellaattinum nandi"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kerala Christian Heritage"
+}

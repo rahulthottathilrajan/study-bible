@@ -1,0 +1,78 @@
+{
+  "id": "vazhiyum-unmaiyum",
+  "lang": "ta",
+  "title": "வழியும் உண்மையும் ஜீவனும்",
+  "titleRomanized": "Vazhiyum Unmaiyum Jeevanum",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "John 14:6",
+      "note": "I am the way, the truth, and the life"
+    },
+    {
+      "ref": "John 11:25",
+      "note": "I am the resurrection, and the life"
+    }
+  ],
+  "story": "A profound Tamil keerthanaigal meditating on Christ's great 'I Am' declarations. This hymn invites believers into a deeper understanding of who Jesus is — the Way, the Truth, and the Life. It has been a cornerstone of Tamil Christian worship, sung with reverence and conviction.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "வழியும் உண்மையும் ஜீவனும்",
+          "நீரே இயேசுவே",
+          "உம் மூலமாயன்றி",
+          "பிதாவினிடத்தில் யாரும் வரமுடியாது"
+        ],
+        "linesRomanized": [
+          "Vazhiyum unmaiyum jeevanum",
+          "Neerae Yaesuvae",
+          "Um moolamaaiyanrri",
+          "Pithaavinidathil yaarum varamudiyaathu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "நான் நல்ல மேய்ப்பன்",
+          "ஆடுகளுக்காக ஜீவன் கொடுப்பேன்",
+          "நான் உயிர்த்தெழுதலும் ஜீவனும்",
+          "விசுவாசிக்கிறவன் பிழைப்பான்"
+        ],
+        "linesRomanized": [
+          "Naan nalla meippan",
+          "Aadugalukkaga jeevan koduppean",
+          "Naan uyirthezhudalum jeevanum",
+          "Visuvaasikkiiravan pizhippaan"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "நான் உலகத்தின் ஒளி",
+          "என்னைப் பின்பற்றுகிறவன்",
+          "இருளில் நடக்க மாட்டான்",
+          "ஜீவ ஒளியைப் பெறுவான்"
+        ],
+        "linesRomanized": [
+          "Naan ulagaththin oli",
+          "Ennaip pinpatrrugirravan",
+          "Irulil nadakka maattaan",
+          "Jeeva oliyaip perruvaan"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

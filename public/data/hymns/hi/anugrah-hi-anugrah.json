@@ -1,0 +1,78 @@
+{
+  "id": "anugrah-hi-anugrah",
+  "lang": "hi",
+  "title": "अनुग्रह ही अनुग्रह",
+  "titleRomanized": "Anugrah Hi Anugrah",
+  "author": "Traditional",
+  "composer": "Traditional Hindi melody",
+  "year": null,
+  "categories": [
+    "grace",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "John 1:16",
+      "note": "And of his fulness have all we received, and grace for grace"
+    },
+    {
+      "ref": "Ephesians 2:8-9",
+      "note": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God"
+    }
+  ],
+  "story": "A deeply moving Hindi bhajan celebrating God's overflowing grace. This traditional hymn reminds believers that salvation is entirely a gift of God's unmerited favor. It is widely sung in churches, home fellowships, and prayer meetings across North India, touching hearts with its simple yet profound message of grace upon grace.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "अनुग्रह ही अनुग्रह",
+          "प्रभु का अनुग्रह ही अनुग्रह",
+          "जो कुछ है सब अनुग्रह",
+          "मेरा जीवन अनुग्रह"
+        ],
+        "linesRomanized": [
+          "Anugrah hi anugrah",
+          "Prabhu kaa anugrah hi anugrah",
+          "Jo kuchh hai sab anugrah",
+          "Meraa jeevan anugrah"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "पापी था मैं खोया हुआ",
+          "अनुग्रह से बचाया मुझे",
+          "क्रूस पर लहू बहाकर",
+          "मुक्ति का दान दिया मुझे"
+        ],
+        "linesRomanized": [
+          "Paapee thaa main khoyaa huaa",
+          "Anugrah se bachaayaa mujhe",
+          "Kroos par lahoo bahaakar",
+          "Mukti kaa daan diyaa mujhe"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "योग्य नहीं था मैं कभी",
+          "फिर भी प्रभु ने चुना मुझे",
+          "अनन्त जीवन दिया मुझे",
+          "अनुग्रह ही अनुग्रह"
+        ],
+        "linesRomanized": [
+          "Yogya nahin thaa main kabhi",
+          "Phir bhi Prabhu ne chunaa mujhe",
+          "Anant jeevan diyaa mujhe",
+          "Anugrah hi anugrah"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Christian Heritage"
+}

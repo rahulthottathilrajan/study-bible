@@ -1,0 +1,64 @@
+{
+  "lang": "en",
+  "id": "en-216",
+  "title": "Jesus Loves Me",
+  "author": "Anna Bartlett Warner",
+  "composer": "William Bradbury",
+  "year": 1860,
+  "categories": [
+    "children",
+    "comfort"
+  ],
+  "scriptureRefs": [
+    "Mark 10:14",
+    "John 3:16"
+  ],
+  "story": "Originally a poem in Susan Warner's novel 'Say and Seal,' spoken to comfort a dying child. Bradbury added the chorus 'Yes, Jesus loves me!' It became the most widely sung children's hymn in history.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Jesus loves me",
+          "This I know, For the Bible tells me so",
+          "Little ones to Him belong",
+          "They are weak, but He is strong",
+          "Yes, Jesus loves me",
+          "Yes, Jesus loves me",
+          "Yes, Jesus loves me",
+          "The Bible tells me so"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Jesus loves me",
+          "He who died Heaven's gate to open wide",
+          "He will wash away my sin, Let His little child come in",
+          "Yes, Jesus loves me",
+          "Yes, Jesus loves me",
+          "Yes, Jesus loves me",
+          "The Bible tells me so"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Jesus loves me",
+          "He will stay Close beside me all the way",
+          "Thou hast bled and died for me, I will henceforth live for Thee",
+          "Yes, Jesus loves me",
+          "Yes, Jesus loves me",
+          "Yes, Jesus loves me",
+          "The Bible tells me so"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — Jesus_Loves_Me"
+}

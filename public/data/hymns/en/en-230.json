@@ -1,0 +1,72 @@
+{
+  "lang": "en",
+  "id": "en-230",
+  "title": "Saviour Like a Shepherd Lead Us",
+  "author": "Dorothy A. Thrupp (attr.)",
+  "composer": "William Bradbury",
+  "year": 1836,
+  "categories": [
+    "comfort",
+    "grace"
+  ],
+  "scriptureRefs": [
+    "Psalm 23",
+    "John 10:11-14"
+  ],
+  "story": "Published anonymously in Thrupp's 'Hymns for the Young.' The shepherd imagery weaves Psalm 23 and John 10 into a tender prayer for guidance.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Savior, like a shepherd lead us, much we need Thy tender care",
+          "In Thy pleasant pastures feed us, for our use Thy folds prepare",
+          "Bless�d Jesus, bless�d Jesus",
+          "Thou hast bought us, Thine we are",
+          "Bless�d Jesus, bless�d Jesus",
+          "Thou hast bought us, Thine we are"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "We are Thine, Thou dost befriend us, be the guardian of our way",
+          "Keep Thy flock, from sin defend us, seek us when we go astray",
+          "Bless�d Jesus, bless�d Jesus",
+          "Hear, O hear us when we pray",
+          "Bless�d Jesus, bless�d Jesus",
+          "Hear, O hear us when we pray"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Thou hast promised to receive us, poor and sinful though we be",
+          "Thou hast mercy to relieve us, grace to cleanse and pow'r to free",
+          "Bless�d Jesus, bless�d Jesus",
+          "We will early turn to Thee",
+          "Bless�d Jesus, bless�d Jesus",
+          "We will early turn to Thee"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "Early let us seek Thy favor, early let us do Thy will",
+          "Bless�d Lord and only Savior, with Thy love our bosoms fill",
+          "Bless�d Jesus, bless�d Jesus",
+          "Thou hast loved us, love us still",
+          "Bless�d Jesus, bless�d Jesus",
+          "Thou hast loved us, love us still"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — Savior_Like_A_Shepherd_Lead_Us"
+}

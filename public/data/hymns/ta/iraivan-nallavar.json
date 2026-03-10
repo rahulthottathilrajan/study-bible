@@ -1,0 +1,78 @@
+{
+  "id": "iraivan-nallavar",
+  "lang": "ta",
+  "title": "இறைவன் நல்லவர்",
+  "titleRomanized": "Iraivan Nallavar",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 100:5",
+      "note": "For the LORD is good; his mercy is everlasting"
+    },
+    {
+      "ref": "Nahum 1:7",
+      "note": "The LORD is good, a strong hold in the day of trouble"
+    }
+  ],
+  "story": "A classic Tamil praise hymn affirming the goodness of God in all circumstances. This traditional keerthanaigal has been a beloved opener for corporate worship in CSI and other Tamil churches for over a century. Its confident declaration of God's unchanging goodness encourages congregations to begin worship with thankful hearts.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "இறைவன் நல்லவர் என்றும் நல்லவர்",
+          "அவர் கிருபை என்றுமுள்ளது",
+          "தலைமுறை தலைமுறையாய்",
+          "அவர் உண்மை நிலைத்திருக்கும்"
+        ],
+        "linesRomanized": [
+          "Iraivan nallavar endrum nallavar",
+          "Avar kirupai endrumulllathu",
+          "Thalaimurai thalaimuraiyaay",
+          "Avar unmai nilaithirukkum"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ஸ்தோத்திரத்தோடு வருவோம்",
+          "துதிப்பாட்டோடு நுழைவோம்",
+          "அவர் கரங்கள் நம்மை செய்தது",
+          "அவர் ஜனம் நாம் ஆனோம்"
+        ],
+        "linesRomanized": [
+          "Sthoththiraththodu varuvom",
+          "Thudhippaattodu nuzhaivom",
+          "Avar karangal nammai seithadhu",
+          "Avar janam naam aanom"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "நெருக்கடியிலும் நல்லவர்",
+          "சோதனையிலும் நல்லவர்",
+          "இன்பத்திலும் துன்பத்திலும்",
+          "என்றும் மாறாத நல்லவர்"
+        ],
+        "linesRomanized": [
+          "Nerukkadiyilum nallavar",
+          "Sothanaiiyilum nallavar",
+          "Inbaththilum thunbaththilum",
+          "Endrum maaraatha nallavar"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "parisuthaathmaave-vaarum",
+  "lang": "ta",
+  "title": "பரிசுத்த ஆவியே வாரும்",
+  "titleRomanized": "Parisuthaathmaave Vaarum",
+  "author": "Traditional",
+  "composer": "Traditional Tamil Pentecostal melody",
+  "year": null,
+  "categories": [
+    "pentecostal",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Acts 2:4",
+      "note": "And they were all filled with the Holy Ghost"
+    },
+    {
+      "ref": "Joel 2:28",
+      "note": "I will pour out my spirit upon all flesh"
+    }
+  ],
+  "story": "A fervent invocation hymn sung across Pentecostal and charismatic churches in Tamil Nadu. This traditional keerthanaigal calls upon the Holy Spirit to fill the congregation with power and fire. It is often the opening song at revival meetings and prayer gatherings, setting the tone for an encounter with the Spirit.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "பரிசுத்த ஆவியே வாரும்",
+          "எங்களை நிரப்பும் வாரும்",
+          "அக்கினியாய் இறங்கி வாரும்",
+          "வல்லமையால் நிரப்பும்"
+        ],
+        "linesRomanized": [
+          "Parisutha aaviyae vaarum",
+          "Engalai nirappum vaarum",
+          "Akkiniyaay irangi vaarum",
+          "Vallamaiyaal nirappum"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "பெந்தகொஸ்தே நாளில் போல",
+          "அக்கினி நாவுகள் போல",
+          "இறங்கி வாரும் ஆவியே",
+          "எங்களை ஆட்கொள்ளும்"
+        ],
+        "linesRomanized": [
+          "Penthakosthae naalil pola",
+          "Akkini naavugal pola",
+          "Irangi vaarum aaviyae",
+          "Engalai aatkolum"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "வரங்களை ஈந்திடும்",
+          "ஆற்றலை அருளிடும்",
+          "சாட்சிகளாய் மாற்றிடும்",
+          "பரிசுத்த ஆவியே வாரும்"
+        ],
+        "linesRomanized": [
+          "Varangalai eenthidum",
+          "Aatrralai arulidum",
+          "Saatchiigalaay maatridum",
+          "Parisutha aaviyae vaarum"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Pentecostal Heritage"
+}

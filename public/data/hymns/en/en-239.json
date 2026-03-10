@@ -1,0 +1,76 @@
+{
+  "lang": "en",
+  "id": "en-239",
+  "title": "We Give Thee But Thine Own",
+  "author": "William Walsham How",
+  "composer": "Robert A. Smith",
+  "year": 1858,
+  "categories": [
+    "mission",
+    "worship"
+  ],
+  "scriptureRefs": [
+    "1 Chronicles 29:14",
+    "2 Corinthians 9:7"
+  ],
+  "story": "Bishop How, known as 'the poor man's bishop' for his work in London's East End, wrote this stewardship hymn reminding Christians that all we have belongs to God.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "We give Thee but Thine own, Whate'er the gift may be",
+          "All that we have is Thine alone, A trust, O Lord, from Thee",
+          "6",
+          "And we believe Thy Word, Though dim our faith may be",
+          "Whate'er for Thine we do, O Lord, We do it unto Thee"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "May we Thy bounties thus As stewards true receive, And gladly, as Thou blessest us, To Thee our firstfruits give",
+          "6",
+          "And we believe Thy Word, Though dim our faith may be",
+          "Whate'er for Thine we do, O Lord, We do it unto Thee"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "O hearts are bruised and dead, And homes are bare and cold, And lambs for whom the Shepherd bled Are straying from the fold",
+          "6",
+          "And we believe Thy Word, Though dim our faith may be",
+          "Whate'er for Thine we do, O Lord, We do it unto Thee"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "To comfort and to bless, To find a balm for woe, To tend the lone and fatherless Is angels' work below",
+          "6",
+          "And we believe Thy Word, Though dim our faith may be",
+          "Whate'er for Thine we do, O Lord, We do it unto Thee"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 5,
+        "lines": [
+          "The captive to release, To God the lost to bring, To teach the way of life and peace",
+          "It is a Christlike thing",
+          "6",
+          "And we believe Thy Word, Though dim our faith may be",
+          "Whate'er for Thine we do, O Lord, We do it unto Thee"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — We_Give_Thee_But_Thine_Own"
+}

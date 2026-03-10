@@ -1,0 +1,77 @@
+{
+  "lang": "en",
+  "id": "en-214",
+  "title": "Were You There",
+  "author": "Traditional African American Spiritual",
+  "composer": "Traditional",
+  "year": null,
+  "categories": [
+    "easter",
+    "worship"
+  ],
+  "scriptureRefs": [
+    "Matthew 27:35-50",
+    "Matthew 28:1-6"
+  ],
+  "story": "An African American spiritual dating to the early 19th century. Its haunting simplicity invites personal witness of the crucifixion and resurrection.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Were you there when they crucified my Lord",
+          "Were you there when they crucified my Lord",
+          "Sometimes it causes me to tremble, tremble, tremble",
+          "Were you there when they laid Him in the tomb"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Were you there when they nailed Him to the tree",
+          "Were you there when they nailed Him to the tree",
+          "Were you there when they crucified my Lord",
+          "6",
+          "Were you there when God raised Him from the tomb"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Were you there when they pierced Him in the side",
+          "Were you there when they pierced Him in the side",
+          "Oh",
+          "Were you there when they nailed Him to the tree",
+          "Were you there when God raised Him from the tomb"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "Were you there when the sun refused to shine",
+          "Were you there when the sun refused to shine",
+          "Were you there when they pierced Him in the side",
+          "Oh",
+          "Sometimes it causes me to tremble, tremble, tremble"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 5,
+        "lines": [
+          "Were you there when they laid Him in the tomb",
+          "Were you there when they laid Him in the tomb",
+          "Were you there when the sun refused to shine",
+          "Were you there when God raised Him from the tomb"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — Were_You_There"
+}

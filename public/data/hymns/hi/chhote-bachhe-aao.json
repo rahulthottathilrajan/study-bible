@@ -1,0 +1,78 @@
+{
+  "id": "chhote-bachhe-aao",
+  "lang": "hi",
+  "title": "छोटे बच्चे आओ",
+  "titleRomanized": "Chhote Bachhe Aao",
+  "author": "Traditional",
+  "composer": "Traditional Hindi children's melody",
+  "year": null,
+  "categories": [
+    "children",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Mark 10:14",
+      "note": "Suffer the little children to come unto me, and forbid them not"
+    },
+    {
+      "ref": "Matthew 18:3",
+      "note": "Except ye be converted, and become as little children, ye shall not enter into the kingdom of heaven"
+    }
+  ],
+  "story": "A joyful Hindi Sunday School bhajan that has introduced generations of children to the love of Jesus. This simple, catchy song is a staple of children's church programs and Vacation Bible School across Hindi-speaking India. Its easy-to-remember lyrics and cheerful tune make it a favorite among the youngest believers.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "छोटे बच्चे आओ आओ",
+          "यीशु के पास आओ",
+          "वो तुमसे प्यार करता है",
+          "यीशु के पास आओ"
+        ],
+        "linesRomanized": [
+          "Chhote bachhe aao aao",
+          "Yeshu ke paas aao",
+          "Wo tumse pyaar kartaa hai",
+          "Yeshu ke paas aao"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "छोटे छोटे हाथों से",
+          "प्रभु को स्तुति करो",
+          "छोटी छोटी आवाज़ से",
+          "प्रभु के गीत गाओ"
+        ],
+        "linesRomanized": [
+          "Chhote chhote haathon se",
+          "Prabhu ko stuti karo",
+          "Chhoti chhoti aawaaz se",
+          "Prabhu ke geet gaao"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "यीशु तुमसे प्रेम करता",
+          "यीशु तुम्हें रखवाली करता",
+          "उसका राज्य तुम्हारा है",
+          "बच्चों खुशी मनाओ"
+        ],
+        "linesRomanized": [
+          "Yeshu tumse prem kartaa",
+          "Yeshu tumhein rakhwaali kartaa",
+          "Uskaa raajya tumhaaraa hai",
+          "Bachchon khushi manaao"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Christian Heritage"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "yesu-en-meedpar",
+  "lang": "ta",
+  "title": "இயேசு என் மீட்பர்",
+  "titleRomanized": "Yesu En Meedpar",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Isaiah 43:11",
+      "note": "I, even I, am the LORD; and beside me there is no saviour"
+    },
+    {
+      "ref": "Titus 2:13",
+      "note": "Looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ"
+    }
+  ],
+  "story": "A powerful declaration of Christ as the only Redeemer, deeply rooted in Tamil Christian worship. This keerthanaigal has been sung across CSI and Brethren congregations in Tamil Nadu for generations, expressing the believer's complete trust in Jesus as Lord and Saviour.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "இயேசு என் மீட்பர் என் இரட்சகர்",
+          "இயேசு என் ஆண்டவர் என் நாதர்",
+          "அவரே என் சர்வவல்லவர்",
+          "அவரை நான் துதிப்பேன்"
+        ],
+        "linesRomanized": [
+          "Yaesu en meetpar en iratchagar",
+          "Yaesu en aandavar en naathar",
+          "Avarae en sarvavalavar",
+          "Avarai naan thuthippean"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "இருளில் ஒளியானவர்",
+          "வனாந்தரத்தில் வழிகாட்டியவர்",
+          "புயலில் சமாதானமானவர்",
+          "இயேசு என் மீட்பர்"
+        ],
+        "linesRomanized": [
+          "Irulil oliyaanavar",
+          "Vanaandharathil vazhikaattiyavar",
+          "Puyalil samaadhaanamaaavar",
+          "Yaesu en meetpar"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "நோயில் சுகமானவர்",
+          "துயரத்தில் ஆறுதலானவர்",
+          "மரணத்தில் ஜீவனானவர்",
+          "இயேசு என் மீட்பர்"
+        ],
+        "linesRomanized": [
+          "Noiyil sugamaaanavar",
+          "Thuyarathil aarudhalaaanavar",
+          "Maranathil jeevanaaanavar",
+          "Yaesu en meetpar"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

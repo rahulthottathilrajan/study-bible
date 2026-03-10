@@ -1,0 +1,49 @@
+{
+  "lang": "en",
+  "id": "en-217",
+  "title": "I Am Jesus' Little Lamb",
+  "author": "Henrietta von Hayn",
+  "composer": "Traditional German",
+  "year": 1778,
+  "categories": [
+    "children",
+    "comfort"
+  ],
+  "scriptureRefs": [
+    "John 10:14",
+    "Psalm 23:1"
+  ],
+  "story": "Written by a Moravian deaconess for the children in her care. Its tender imagery of Jesus as the Good Shepherd carrying His little lamb speaks to the heart of childlike faith.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "I am Jesus' little lamb, Ever glad at heart I am",
+          "For my Shepherd gently guides me, Knows my need, and well provides me, Loves me ev'ry day the same, Even calls me by my name"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Day by day, at home, away, Jesus is my Staff and Stay",
+          "When I hunger, Jesus feeds me, Into pleasant pastures leads me",
+          "When I thirst, He bids me go Where the quiet waters flow"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Who so happy as I am, Even now the Shepherd's lamb",
+          "And when my short life is ended, By His angel host attended, He shall fold me to His breast, There within His arms to rest"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — I_Am_Jesus_Little_Lamb"
+}

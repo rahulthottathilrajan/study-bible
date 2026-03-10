@@ -1,0 +1,78 @@
+{
+  "id": "parishudhatma-raave",
+  "lang": "te",
+  "title": "పరిశుద్ధాత్మ రావే",
+  "titleRomanized": "Parishudhatma Raave",
+  "author": "Traditional",
+  "composer": "Traditional Telugu Pentecostal melody",
+  "year": null,
+  "categories": [
+    "pentecostal",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Acts 1:8",
+      "note": "Ye shall receive power, after that the Holy Ghost is come upon you"
+    },
+    {
+      "ref": "John 16:13",
+      "note": "When he, the Spirit of truth, is come, he will guide you into all truth"
+    }
+  ],
+  "story": "A powerful invocation keerthanamu sung across Pentecostal and charismatic churches in Andhra Pradesh and Telangana. This traditional hymn is the centerpiece of revival meetings, calling upon the Holy Spirit to descend with power and fire. Its stirring melody has accompanied countless moments of spiritual renewal.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "పరిశుద్ధాత్మ రావే రావే",
+          "మా మీద కుమ్మరించు",
+          "అగ్నిగా దిగి రావే",
+          "బలముతో నింపుమా"
+        ],
+        "linesRomanized": [
+          "Parishudhatma raave raave",
+          "Maa meeda kummarinchu",
+          "Agnigaa digi raave",
+          "Balamutho nimpumaa"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "పెంతేకొస్తు దినమందు వలె",
+          "అగ్ని నాలుకలు వలె",
+          "దిగి రావే ఆత్మమా",
+          "మమ్ములను ఆవరించు"
+        ],
+        "linesRomanized": [
+          "Penthekostu dinamandu vale",
+          "Agni naalukalu vale",
+          "Digi raave aathmamaa",
+          "Mammulanu aavarainchu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "వరములను దయచేయుము",
+          "శక్తిని అనుగ్రహించు",
+          "సాక్షులుగా మార్చుము",
+          "పరిశుద్ధాత్మ రావే"
+        ],
+        "linesRomanized": [
+          "Varamulanu dayacheyumu",
+          "Shakthini anugrahainchu",
+          "Saakshulugaa maarchumu",
+          "Parishudhatma raave"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Telugu Pentecostal Heritage"
+}

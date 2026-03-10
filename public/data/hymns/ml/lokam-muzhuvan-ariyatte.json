@@ -1,0 +1,78 @@
+{
+  "id": "lokam-muzhuvan-ariyatte",
+  "lang": "ml",
+  "title": "ലോകം മുഴുവൻ അറിയട്ടെ",
+  "titleRomanized": "Lokam Muzhuvan Ariyatte",
+  "author": "Traditional",
+  "composer": "Traditional Kerala missionary melody",
+  "year": null,
+  "categories": [
+    "mission",
+    "praise"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Matthew 28:19",
+      "note": "Go ye therefore, and teach all nations"
+    },
+    {
+      "ref": "Mark 16:15",
+      "note": "Go ye into all the world, and preach the gospel"
+    }
+  ],
+  "story": "A stirring missionary hymn from the Kerala church tradition, sung at mission conventions and sending services. This keerthanam reflects the deep missionary heritage of Kerala Christianity, which has sent missionaries throughout India and beyond. Its energetic melody inspires believers to share the good news with all nations.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ലോകം മുഴുവൻ അറിയട്ടെ",
+          "യേശുവിൻ സ്നേഹം അറിയട്ടെ",
+          "സകല ജാതികൾ കേൾക്കട്ടെ",
+          "രക്ഷയുടെ സന്ദേശം"
+        ],
+        "linesRomanized": [
+          "Lokam muzhuvan ariyatte",
+          "Yeshuvin sneham ariyatte",
+          "Sakala jaathikal kelkkatte",
+          "Rakshayude sandesham"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "പോകുവിൻ ലോകമെങ്ങും",
+          "സുവിശേഷം അറിയിക്കുവിൻ",
+          "ഇരുളിൽ വെളിച്ചം വീശുവിൻ",
+          "യേശുവിൻ നാമം ഘോഷിക്കുവിൻ"
+        ],
+        "linesRomanized": [
+          "Pokuvin lokamengum",
+          "Suvishesham ariyikkuvin",
+          "Irulil velicham veeshuvin",
+          "Yeshuvin naamam ghoshikkuvin"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "മലകളും കടലും കടന്ന്",
+          "ദൂരദേശങ്ങളിൽ ചെന്ന്",
+          "കർത്താവിൻ വേല ചെയ്യാം",
+          "ആത്മാക്കൾ നേടിടാം"
+        ],
+        "linesRomanized": [
+          "Malakalum kadalum kadannu",
+          "Dooradeshangalil chennu",
+          "Karthaavin vela cheyyaam",
+          "Aathmakkal nedidaam"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kerala Christian Heritage"
+}

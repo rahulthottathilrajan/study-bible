@@ -1,0 +1,78 @@
+{
+  "id": "daivathin-sneham",
+  "lang": "ml",
+  "title": "ദൈവത്തിൻ സ്നേഹം",
+  "titleRomanized": "Daivathin Sneham",
+  "author": "Traditional",
+  "composer": "Traditional Kerala melody",
+  "year": null,
+  "categories": [
+    "comfort",
+    "grace"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Romans 8:38-39",
+      "note": "Nor height, nor depth, nor any other creature, shall be able to separate us from the love of God"
+    },
+    {
+      "ref": "Jeremiah 31:3",
+      "note": "I have loved thee with an everlasting love"
+    }
+  ],
+  "story": "A deeply comforting keerthanam celebrating God's unchanging love. This traditional hymn has brought solace to Kerala Christians through times of hardship and grief. Sung at prayer meetings and home gatherings, its gentle melody carries the assurance that nothing can separate believers from the unfailing love of God.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ദൈവത്തിൻ സ്നേഹം എത്ര മഹത്",
+          "മാറ്റമില്ലാത്ത സ്നേഹം",
+          "നിത്യമാം സ്നേഹം അനന്തമാം സ്നേഹം",
+          "ദൈവത്തിൻ സ്നേഹം എത്ര മഹത്"
+        ],
+        "linesRomanized": [
+          "Daivathin sneham ethra mahathu",
+          "Maattamillaatha sneham",
+          "Nithyamaam sneham ananthamaam sneham",
+          "Daivathin sneham ethra mahathu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ഉയരമോ ആഴമോ",
+          "വേർപിരിക്കുകയില്ല",
+          "മരണമോ ജീവനോ",
+          "വേർപിരിക്കുകയില്ല"
+        ],
+        "linesRomanized": [
+          "Uyaramo aazhamo",
+          "Verpirikkukayilla",
+          "Maranamo jeevano",
+          "Verpirikkukayilla"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "കഷ്ടതയിൽ ദുഃഖത്തിൽ",
+          "കൂടെയുണ്ട് നാഥൻ",
+          "ഏകാന്തതയിൽ ഭയത്തിൽ",
+          "കൂടെയുണ്ട് നാഥൻ"
+        ],
+        "linesRomanized": [
+          "Kashtatayil duhkhathil",
+          "Koodeyundu Naadhan",
+          "Ekaanthatayil bhayathil",
+          "Koodeyundu Naadhan"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kerala Christian Heritage"
+}

@@ -1,0 +1,92 @@
+{
+  "lang": "en",
+  "id": "en-223",
+  "title": "For the Beauty of the Earth",
+  "author": "Folliot S. Pierpoint",
+  "composer": "Conrad Kocher",
+  "year": 1864,
+  "categories": [
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    "Psalm 19:1",
+    "Genesis 1:31"
+  ],
+  "story": "Pierpoint wrote this at age 29, inspired by the beautiful countryside around Bath, England. Originally a communion hymn, its grateful celebration of creation has made it one of the most beloved hymns of thanksgiving.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "For the beauty of the earth For the glory of the skies, Friends on earth and friends above, For all gentle thoughts and mild",
+          "7",
+          "For Thy virgins' robes of snow, Flowers of earth and buds of Heaven"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "For the beauty of each hour, Of the day and of the night, Off'ring up on every shore Her pure sacrifice of love",
+          "For Thy maiden mother mild, Flowers of earth and buds of Heaven"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "For the joy of ear and eye, For the heart and mind's delight, Lord of all, to Thee we raise, This our hymn of grateful praise",
+          "For Thyself, with hearts aglow, Flowers of earth and buds of Heaven"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "For the joy of human love, Brother, sister, parent, child, 6",
+          "For the martyrs' crown of light, Jesu, Victim undefiled",
+          "Flowers of earth and buds of Heaven"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 5,
+        "lines": [
+          "For Thy Church, that evermore Lifteth holy hands above",
+          "For Thy prophets' eagle eye, Flowers of earth and buds of Heaven."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 6,
+        "lines": [
+          "For the love which from our birth Over and around us lies",
+          "For Thy bold confessors' might, 8",
+          "For each perfect gift of Thine, Flowers of earth and buds of Heaven"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 7,
+        "lines": [
+          "Hill and vale, and tree and flow'r, Sun and moon, and stars of light",
+          "For the lips of infancy",
+          "To our race so freely given, Flowers of earth and buds of Heaven"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 8,
+        "lines": [
+          "For the mystic harmony Linking sense to sound and sight",
+          "Graces human and divine, Flowers of earth and buds of Heaven"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — For_The_Beauty_Of_The_Earth"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "mahima-mahima",
+  "lang": "te",
+  "title": "మహిమ మహిమ",
+  "titleRomanized": "Mahima Mahima",
+  "author": "Traditional",
+  "composer": "Traditional Telugu praise melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Revelation 4:11",
+      "note": "Thou art worthy, O Lord, to receive glory and honour and power"
+    },
+    {
+      "ref": "Psalm 29:2",
+      "note": "Give unto the LORD the glory due unto his name"
+    }
+  ],
+  "story": "An exuberant praise keerthanamu declaring God's glory and majesty. This congregational hymn draws from heavenly worship in Revelation, calling believers in Andhra Pradesh and Telangana to ascribe all glory to God. Its powerful melody lifts hearts in united adoration.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "మహిమ మహిమ దేవునికి",
+          "ఘనత ఘనత ప్రభువునికి",
+          "స్తుతి స్తుతి యేసునికి",
+          "ఎల్లప్పుడు మహిమ"
+        ],
+        "linesRomanized": [
+          "Mahima mahima Devuniki",
+          "Ghanatha ghanatha Prabhuvuniki",
+          "Sthuthi sthuthi Yesuniki",
+          "Ellappudu mahima"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ఆకాశమును భూమిని",
+          "సృష్టించిన దేవునికి",
+          "సమస్తమును చేసిన దేవునికి",
+          "మహిమ మహిమ"
+        ],
+        "linesRomanized": [
+          "Aakaashamunu bhoomini",
+          "Srushtinchina Devuniki",
+          "Samasthamunu chesina Devuniki",
+          "Mahima mahima"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "దేవదూతలు ఆరాధించు",
+          "సకల సృష్టి కీర్తించు",
+          "సమస్తము పాడును",
+          "మహిమ మహిమ"
+        ],
+        "linesRomanized": [
+          "Devadoothalu aaradhinchu",
+          "Sakala srushti keerthinchu",
+          "Samastamu paadunu",
+          "Mahima mahima"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Telugu Christian Heritage"
+}

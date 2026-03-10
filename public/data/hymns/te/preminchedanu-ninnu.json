@@ -1,0 +1,79 @@
+{
+  "id": "preminchedanu-ninnu",
+  "lang": "te",
+  "title": "ప్రేమించెదను నిన్ను",
+  "titleRomanized": "Preminchedanu Ninnu",
+  "author": "Traditional",
+  "composer": "Traditional Telugu devotional melody",
+  "year": null,
+  "categories": [
+    "grace",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "1 John 4:19",
+      "note": "We love him, because he first loved us"
+    },
+    {
+      "ref": "Psalm 18:1",
+      "note": "I will love thee, O LORD, my strength"
+    }
+  ],
+  "story": "An intimate devotional keerthanamu expressing the believer's love for Christ in response to His first love. This tender hymn captures the depth of Telugu Christian devotion — a heart overwhelmed by grace pouring out love in return. It is a favorite during evening prayer and personal worship.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ప్రేమించెదను నిన్ను యేసువా",
+          "నీవు మొదట ప్రేమించితివి",
+          "నా ప్రాణము నీకై అర్పించెదను",
+          "నా సర్వస్వము నీకే"
+        ],
+        "linesRomanized": [
+          "Preminchedanu ninnu Yesuvaa",
+          "Neevu modata premincithivi",
+          "Naa praanamau neekai arpinchedanu",
+          "Naa sarvasvamu neeke"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "సిలువలో నీ ప్రేమ చూశాను",
+          "నన్ను మరచి నీవు మరణించితివి",
+          "ఆ ప్రేమకు ప్రతిగా",
+          "నా హృదయము నీకే"
+        ],
+        "linesRomanized": [
+          "Siluvalo nee prema chooshanu",
+          "Nannu marachi neevu maranincithivi",
+          "Aa premaku prathiga",
+          "Naa hrudayamu neeke"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "లోకమంతా ఇచ్చినను",
+          "నీ ప్రేమకు సాటిరాదు",
+          "ప్రేమించెదను నిన్ను",
+          "ఎల్లప్పుడు ప్రేమించెదను"
+        ],
+        "linesRomanized": [
+          "Lokamanthaa ichchinanu",
+          "Nee premaku saathiraadu",
+          "Preminchedanu ninnu",
+          "Ellappudu preminchedanu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Telugu Christian Heritage"
+}

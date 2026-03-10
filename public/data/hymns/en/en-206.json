@@ -1,0 +1,63 @@
+{
+  "lang": "en",
+  "id": "en-206",
+  "title": "Angels We Have Heard on High",
+  "author": "Traditional French",
+  "composer": "Traditional French",
+  "year": null,
+  "categories": [
+    "christmas",
+    "praise"
+  ],
+  "scriptureRefs": [
+    "Luke 2:13-14"
+  ],
+  "story": "This French carol dates to at least the 18th century. The soaring 'Gloria in excelsis Deo' refrain captures the angels' announcement to the shepherds.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Angels we have heard on high Sweetly singing o'er the plains, And the mountains in reply Echoing their joyous strains",
+          "Gloria, in excelsis Deo",
+          "Gloria, in excelsis Deo"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Shepherds, why this jubilee",
+          "Why your joyous strains prolong",
+          "What the gladsome tidings be Which inspire your heav'nly song",
+          "Gloria, in excelsis Deo",
+          "Gloria, in excelsis Deo"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Come to Bethlehem and see Christ Whose birth the angels sing",
+          "Come, adore on bended knee, Christ the Lord, the newborn King",
+          "Gloria, in excelsis Deo",
+          "Gloria, in excelsis Deo"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "See Him in a manger laid, Whom the choirs of angels praise",
+          "Mary, Joseph, lend your aid, While our hearts in love we raise",
+          "Gloria, in excelsis Deo",
+          "Gloria, in excelsis Deo"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — Angels_We_Have_Heard_On_High"
+}

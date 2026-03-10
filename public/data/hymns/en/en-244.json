@@ -1,0 +1,75 @@
+{
+  "lang": "en",
+  "id": "en-244",
+  "title": "The Church's One Foundation",
+  "author": "Samuel John Stone",
+  "composer": "Samuel Sebastian Wesley",
+  "year": 1866,
+  "categories": [
+    "classic",
+    "worship"
+  ],
+  "scriptureRefs": [
+    "1 Corinthians 3:11",
+    "Ephesians 2:20"
+  ],
+  "story": "Stone wrote this during a bitter theological controversy to affirm what unites Christians: Jesus Christ. Wesley's noble 'Aurelia' tune (meaning 'golden') gave these words of unity their enduring power.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "The Church's one foundation Is Jesus Christ her Lord, She is His new creation By water and the Word",
+          "From heav'n He came and sought her To be His holy bride",
+          "With His own blood He bought her And for her life He died",
+          "6",
+          "Yet she on earth hath union Who, by the Master's hand Lord, give us grace that we With Thee by living fountains Forever shall abide"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "She is from every nation, Yet one o'er all the earth",
+          "Her charter of salvation, One Lord, one faith, one birth",
+          "One holy Name she blesses, Partakes one holy food, And to one hope she presses, With every grace endued",
+          "With God the Three in One, Led through the deathly waters, Like them, the meek and lowly, With Thee by living fountains Forever shall abide"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "The Church shall never perish",
+          "Her dear Lord to defend, To guide, sustain, and cherish, Is with her to the end: Though there be those who hate her, And false sons in her pale, Against or foe or traitor She ever shall prevail",
+          "And mystic sweet communion Repose in Eden land",
+          "On high may dwell with Thee: With Thee by living fountains Forever shall abide"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "Though with a scornful wonder Men see her sore oppressed, By schisms rent asunder, By heresies distressed: Yet saints their watch are keeping, Their cry goes up, 'How long",
+          "' And soon the night of weeping Shall be the morn of song",
+          "With those whose rest is won, There, past the border mountains, With Thee by living fountains Forever shall abide"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 5,
+        "lines": [
+          "'Mid toil and tribulation, And tumult of her war, She waits the consummation Of peace forevermore",
+          "Till, with the vision glorious, Her longing eyes are blest, And the great Church victorious Shall be the Church at rest",
+          "With all her sons and daughters 7",
+          "O happy ones and holy",
+          "Where in sweet vales the Bride With Thee by living fountains Forever shall abide"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — The_Churchs_One_Foundation"
+}

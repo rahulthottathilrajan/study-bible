@@ -1,0 +1,78 @@
+{
+  "id": "yehova-yireh-ta",
+  "lang": "ta",
+  "title": "யேகோவா யீரே",
+  "titleRomanized": "Yehova Yireh",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Genesis 22:14",
+      "note": "Abraham called the name of that place Jehovahjireh"
+    },
+    {
+      "ref": "Philippians 4:19",
+      "note": "My God shall supply all your need according to his riches in glory"
+    }
+  ],
+  "story": "A keerthanaigal celebrating God's names and His faithful provision. Drawing from Abraham's encounter on Mount Moriah, this traditional hymn declares that God sees and provides for every need of His children. It is a beloved testimony hymn in Tamil churches.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "யேகோவா யீரே சகலமும் தருவார்",
+          "யேகோவா ஷாலோம் சமாதானம் தருவார்",
+          "யேகோவா நிசி ஜெயம் தருவார்",
+          "யேகோவா என் தேவன்"
+        ],
+        "linesRomanized": [
+          "Yehovaa yeerae sagalamum tharuvaar",
+          "Yehovaa shaalom samaadhaanam tharuvaar",
+          "Yehovaa nisi jeyam tharuvaar",
+          "Yehovaa en thaevan"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "தேவைகள் எல்லாம் அறிபவர்",
+          "தக்க நேரத்தில் தருபவர்",
+          "மகிமையின் ஐசுவரியத்திலிருந்து",
+          "சகலமும் தருவார் தேவன்"
+        ],
+        "linesRomanized": [
+          "Thaeivaigal ellaam aripavar",
+          "Thakka naerathil tharupavar",
+          "Magimaiiyin aisuvariayathilirundu",
+          "Sagalamum tharuvaar thaevan"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ஆபிரகாமின் தேவன்",
+          "ஈசாக்கின் தேவன்",
+          "யாக்கோபின் தேவன்",
+          "இன்றும் ஜீவிக்கும் தேவன்"
+        ],
+        "linesRomanized": [
+          "Aabiragaamin thaevan",
+          "Eesaakkin thaevan",
+          "Yaakkobin thaevan",
+          "Indrum jeevikkum thaevan"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

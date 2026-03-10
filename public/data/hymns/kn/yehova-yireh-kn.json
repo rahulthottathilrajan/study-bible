@@ -1,0 +1,78 @@
+{
+  "id": "yehova-yireh-kn",
+  "lang": "kn",
+  "title": "ಯೆಹೋವ ಯೀರೆ",
+  "titleRomanized": "Yehova Yireh",
+  "author": "Traditional",
+  "composer": "Traditional Kannada melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Genesis 22:14",
+      "note": "Abraham called the name of that place Jehovahjireh"
+    },
+    {
+      "ref": "Philippians 4:19",
+      "note": "My God shall supply all your need"
+    }
+  ],
+  "story": "A keerthane celebrating God's names and faithful provision. Drawing from Abraham's encounter on Mount Moriah, this traditional hymn declares that God sees and provides for every need. It is a beloved testimony hymn in Kannada-speaking churches.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ಯೆಹೋವ ಯೀರೆ ಒದಗಿಸುವ ದೇವರು",
+          "ಯೆಹೋವ ಶಾಲೋಮ್ ಶಾಂತಿ",
+          "ಯೆಹೋವ ನಿಸ್ಸಿ ಜಯ ಕೊಡುವನು",
+          "ಯೆಹೋವ ನನ್ನ ದೇವರು"
+        ],
+        "linesRomanized": [
+          "Yehova Yeereh odagisva Devaru",
+          "Yehova Shaalom shaanthi",
+          "Yehova Nissi jaya koduvanu",
+          "Yehova nanna Devaru"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಅಗತ್ಯಗಳೆಲ್ಲ ಬಲ್ಲವನು",
+          "ತಕ್ಕ ಸಮಯದಲ್ಲಿ ಕೊಡುವವನು",
+          "ಮಹಿಮೆಯ ಐಶ್ವರ್ಯದಿಂದ",
+          "ಎಲ್ಲವನ್ನೂ ಕೊಡುವನು ದೇವರು"
+        ],
+        "linesRomanized": [
+          "Agathyagalella ballavanu",
+          "Thakka samayadalli koduvavanu",
+          "Mahimeya aishwaryadinda",
+          "Ellavannoo koduvanu Devaru"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ಅಬ್ರಹಾಮನ ದೇವರು",
+          "ಇಸಾಕನ ದೇವರು",
+          "ಯಾಕೋಬನ ದೇವರು",
+          "ಇಂದಿಗೂ ಜೀವಿಸುವ ದೇವರು"
+        ],
+        "linesRomanized": [
+          "Abrahaama Devaru",
+          "Isaakana Devaru",
+          "Yaakobana Devaru",
+          "Indigoo jeevivuva Devaru"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

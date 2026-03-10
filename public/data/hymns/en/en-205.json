@@ -1,0 +1,48 @@
+{
+  "lang": "en",
+  "id": "en-205",
+  "title": "Away in a Manger",
+  "author": "Anonymous",
+  "composer": "James R. Murray",
+  "year": 1885,
+  "categories": [
+    "christmas",
+    "children"
+  ],
+  "scriptureRefs": [
+    "Luke 2:7",
+    "Luke 2:12"
+  ],
+  "story": "Long attributed to Martin Luther, scholars now believe it was written by American Lutherans. Its gentle simplicity made it a favorite children's Christmas hymn worldwide.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Away in a manger, no crib for a bed, The little Lord Jesus laid down His sweet head",
+          "The stars in the sky looked down where He lay, The little Lord Jesus, asleep on the hay"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "The cattle are lowing, the Baby awakes, But little Lord Jesus, no crying He makes",
+          "I love Thee, Lord Jesus, look down from the sky And stay by my cradle til morning is nigh"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "Be near me, Lord Jesus, I ask Thee to stay Close by me for ever, and love me, I pray",
+          "Bless all the dear children in Thy tender care, And fit us for Heaven to live with Thee there"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — Away_In_A_Manger"
+}

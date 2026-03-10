@@ -1,0 +1,79 @@
+{
+  "id": "preethisuve-ninnannu",
+  "lang": "kn",
+  "title": "ಪ್ರೀತಿಸುವೆ ನಿನ್ನನ್ನು",
+  "titleRomanized": "Preethisuve Ninnannu",
+  "author": "Traditional",
+  "composer": "Traditional Kannada devotional melody",
+  "year": null,
+  "categories": [
+    "grace",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "1 John 4:19",
+      "note": "We love him, because he first loved us"
+    },
+    {
+      "ref": "Psalm 18:1",
+      "note": "I will love thee, O LORD, my strength"
+    }
+  ],
+  "story": "An intimate devotional keerthane expressing the believer's love for Christ in response to His first love. This tender hymn captures the depth of Kannada Christian devotion — a heart overwhelmed by grace pouring out love in return.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಪ್ರೀತಿಸುವೆ ನಿನ್ನನ್ನು ಯೇಸುವೇ",
+          "ನೀನು ಮೊದಲು ಪ್ರೀತಿಸಿದೆ",
+          "ನನ್ನ ಜೀವ ನಿನಗಾಗಿ ಅರ್ಪಿಸುವೆ",
+          "ನನ್ನ ಸರ್ವಸ್ವ ನಿನಗೆ"
+        ],
+        "linesRomanized": [
+          "Preethisuve ninnannu Yesuve",
+          "Neenu modalu preethiside",
+          "Nanna jeeva ninagaagi arpisuve",
+          "Nanna sarvasva ninage"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ಶಿಲುಬೆಯಲ್ಲಿ ನಿನ್ನ ಪ್ರೀತಿ ಕಂಡೆ",
+          "ನನ್ನ ಮರೆತು ನೀನು ಮರಣಿಸಿದೆ",
+          "ಆ ಪ್ರೀತಿಗೆ ಪ್ರತಿಯಾಗಿ",
+          "ನನ್ನ ಹೃದಯ ನಿನಗೆ"
+        ],
+        "linesRomanized": [
+          "Shilubeyalli ninna preethi kande",
+          "Nanna marethu neenu maranisde",
+          "Aa preethige prathiyaagi",
+          "Nanna hrudaya ninage"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "ಲೋಕವೆಲ್ಲಾ ಕೊಟ್ಟರೂ",
+          "ನಿನ್ನ ಪ್ರೀತಿಗೆ ಸಮವಲ್ಲ",
+          "ಪ್ರೀತಿಸುವೆ ನಿನ್ನನ್ನು",
+          "ಎಂದೆಂದಿಗೂ ಪ್ರೀತಿಸುವೆ"
+        ],
+        "linesRomanized": [
+          "Lokavellaa kottaroo",
+          "Ninna preethige samavalla",
+          "Preethisuve ninnannu",
+          "Endendigoo preethisuve"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

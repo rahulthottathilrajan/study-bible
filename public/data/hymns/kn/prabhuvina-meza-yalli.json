@@ -1,0 +1,79 @@
+{
+  "id": "prabhuvina-meza-yalli",
+  "lang": "kn",
+  "title": "ಪ್ರಭುವಿನ ಮೇಜಿನಲ್ಲಿ",
+  "titleRomanized": "Prabhuvina Meza Yalli",
+  "author": "Traditional",
+  "composer": "Traditional Kannada melody",
+  "year": null,
+  "categories": [
+    "communion",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "1 Corinthians 11:24-26",
+      "note": "This do in remembrance of me"
+    },
+    {
+      "ref": "Acts 20:7",
+      "note": "The disciples came together to break bread"
+    }
+  ],
+  "story": "A sacred communion keerthane from the Karnataka Christian tradition. This reverent hymn accompanies the breaking of bread in Basel Mission, CSI, and other Kannada-speaking churches. Its solemn melody and humble words guide the congregation into a deep remembrance of Christ's sacrifice on the cross.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಪ್ರಭುವಿನ ಮೇಜಿನಲ್ಲಿ ಕೂಡಿ ಬಂದೆವು",
+          "ಆತನ ಜ್ಞಾಪಕಾರ್ಥವಾಗಿ ಸೇರಿದೆವು",
+          "ಈ ರೊಟ್ಟಿ ಆತನ ದೇಹವು",
+          "ಈ ಪಾತ್ರೆ ಆತನ ರಕ್ತವು"
+        ],
+        "linesRomanized": [
+          "Prabhuvina mezinalli koodi bandevu",
+          "Aatana gnaapakarthavaagi seridevu",
+          "Ee rotti aatana dehavu",
+          "Ee paatre aatana rakthavu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ಶಿಲುಬೆಯಲ್ಲಿ ಬಲಿಯಾದ ಪ್ರಭುವೇ",
+          "ನಿನ್ನ ಮರಣವನ್ನು ಜ್ಞಾಪಿಸುತ್ತೇವೆ",
+          "ನಿನ್ನ ರಕ್ತದಿಂದ ಕ್ಷಮಾಪಣೆ",
+          "ನಿನ್ನ ಬಲಿಯಿಂದ ವಿಮೋಚನೆ"
+        ],
+        "linesRomanized": [
+          "Shilubeyalli baliyaada Prabhuve",
+          "Ninna maranavannu gnaapisiittheve",
+          "Ninna rakthadinda kshamaapane",
+          "Ninna baliyinda vimochane"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "ಮತ್ತೆ ಬರುವ ದಿನದವರೆಗೆ",
+          "ಈ ಜ್ಞಾಪಕ ಕಾಪಾಡುವೆವು",
+          "ಕೃತಜ್ಞತೆಯಿಂದ ಹಂಚುವೆವು",
+          "ಪ್ರಭುವಿನ ಮೇಜಿನಲ್ಲಿ ಒಂದಾಗುವೆವು"
+        ],
+        "linesRomanized": [
+          "Matthe baruva dinadavarege",
+          "Ee gnaapaka kaapaaduvavu",
+          "Kruthagnateyinda hanchuvavu",
+          "Prabhuvina mezinalli ondaaguvavu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

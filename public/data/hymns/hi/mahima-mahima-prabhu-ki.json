@@ -1,0 +1,78 @@
+{
+  "id": "mahima-mahima-prabhu-ki",
+  "lang": "hi",
+  "title": "महिमा महिमा प्रभु की",
+  "titleRomanized": "Mahima Mahima Prabhu Ki",
+  "author": "Traditional",
+  "composer": "Traditional Hindi praise melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Revelation 4:11",
+      "note": "Thou art worthy, O Lord, to receive glory and honour and power"
+    },
+    {
+      "ref": "Psalm 29:2",
+      "note": "Give unto the LORD the glory due unto his name"
+    }
+  ],
+  "story": "An exuberant praise bhajan declaring God's glory and majesty. This congregational hymn draws from the heavenly worship scenes in Revelation, calling believers across North India to ascribe all glory to the Almighty.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "महिमा महिमा प्रभु की",
+          "आदर आदर देव का",
+          "स्तुति स्तुति यीशु की",
+          "सदा सर्वदा महिमा"
+        ],
+        "linesRomanized": [
+          "Mahimaa mahimaa Prabhu ki",
+          "Aadar aadar Dev kaa",
+          "Stuti stuti Yeshu ki",
+          "Sadaa sarvadaa mahimaa"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "आकाश और पृथ्वी को",
+          "बनाने वाले का",
+          "सब कुछ रचने वाले का",
+          "महिमा महिमा"
+        ],
+        "linesRomanized": [
+          "Aakaash aur prithvi ko",
+          "Banaane waale kaa",
+          "Sab kuchh rachne waale kaa",
+          "Mahimaa mahimaa"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "स्वर्गदूत आराधना करें",
+          "सराफीन स्तुति करें",
+          "सारी सृष्टि गाए",
+          "महिमा महिमा"
+        ],
+        "linesRomanized": [
+          "Swargadoot aaraadhana karein",
+          "Saraapheen stuti karein",
+          "Saari srishti gaaye",
+          "Mahimaa mahimaa"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Hindi Christian Heritage"
+}

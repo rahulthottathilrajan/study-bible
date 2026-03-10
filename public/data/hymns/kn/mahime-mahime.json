@@ -1,0 +1,78 @@
+{
+  "id": "mahime-mahime",
+  "lang": "kn",
+  "title": "ಮಹಿಮೆ ಮಹಿಮೆ",
+  "titleRomanized": "Mahime Mahime",
+  "author": "Traditional",
+  "composer": "Traditional Kannada praise melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Revelation 4:11",
+      "note": "Thou art worthy, O Lord, to receive glory and honour and power"
+    },
+    {
+      "ref": "Psalm 29:2",
+      "note": "Give unto the LORD the glory due unto his name"
+    }
+  ],
+  "story": "An exuberant praise keerthane declaring God's glory and majesty. Drawing from the heavenly worship in Revelation, this traditional Kannada hymn calls the church to ascribe all glory to God. Its powerful melody lifts hearts in united adoration across Karnataka congregations.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ಮಹಿಮೆ ಮಹಿಮೆ ದೇವರಿಗೆ",
+          "ಘನತೆ ಘನತೆ ಪ್ರಭುವಿಗೆ",
+          "ಸ್ತುತಿ ಸ್ತುತಿ ಯೇಸುವಿಗೆ",
+          "ಎಂದೆಂದಿಗೂ ಮಹಿಮೆ"
+        ],
+        "linesRomanized": [
+          "Mahime mahime Devarige",
+          "Ghanate ghanate Prabhuvige",
+          "Stuthi stuthi Yesuvige",
+          "Endendigoo mahime"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಆಕಾಶ ಮತ್ತು ಭೂಮಿಯನ್ನು",
+          "ಸೃಷ್ಟಿಸಿದ ದೇವರಿಗೆ",
+          "ಸಮಸ್ತವನ್ನು ರಚಿಸಿದ ದೇವರಿಗೆ",
+          "ಮಹಿಮೆ ಮಹಿಮೆ"
+        ],
+        "linesRomanized": [
+          "Aakaasha matthu bhoomiyannnu",
+          "Srushtisida Devarige",
+          "Samastavannu rachisida Devarige",
+          "Mahime mahime"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ದೇವದೂತರು ಆರಾಧಿಸುವರು",
+          "ಸಕಲ ಸೃಷ್ಟಿ ಕೀರ್ತಿಸುವುದು",
+          "ಎಲ್ಲವೂ ಹಾಡುವುದು",
+          "ಮಹಿಮೆ ಮಹಿಮೆ"
+        ],
+        "linesRomanized": [
+          "Devadootharu aaradhisuvaru",
+          "Sakala srushti keerthisuvudu",
+          "Ellavoo haaduvudu",
+          "Mahime mahime"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

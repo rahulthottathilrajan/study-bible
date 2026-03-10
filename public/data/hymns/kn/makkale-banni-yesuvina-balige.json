@@ -1,0 +1,78 @@
+{
+  "id": "makkale-banni-yesuvina-balige",
+  "lang": "kn",
+  "title": "ಮಕ್ಕಳೇ ಬನ್ನಿ ಯೇಸುವಿನ ಬಳಿಗೆ",
+  "titleRomanized": "Makkale Banni Yesuvina Balige",
+  "author": "Traditional",
+  "composer": "Traditional Kannada children's melody",
+  "year": null,
+  "categories": [
+    "children",
+    "praise"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Mark 10:14",
+      "note": "Suffer the little children to come unto me, and forbid them not"
+    },
+    {
+      "ref": "Matthew 18:10",
+      "note": "In heaven their angels do always behold the face of my Father"
+    }
+  ],
+  "story": "A beloved Kannada Sunday School keerthane that has brought generations of children to know the love of Jesus. This simple, joyful song uses repetitive phrases and a catchy tune that children can easily learn and sing. It is a highlight of children's church services and VBS programs across Karnataka.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ಮಕ್ಕಳೇ ಬನ್ನಿ ಯೇಸುವಿನ ಬಳಿಗೆ",
+          "ಮಕ್ಕಳನ್ನು ಯೇಸು ಪ್ರೀತಿಸುತ್ತಾನೆ",
+          "ಬನ್ನಿ ಬನ್ನಿ ಮಕ್ಕಳೇ",
+          "ಯೇಸುವಿನ ಬಳಿಗೆ ಬನ್ನಿ"
+        ],
+        "linesRomanized": [
+          "Makkale banni Yesuvina balige",
+          "Makkalannu Yesu preethisuttaane",
+          "Banni banni makkale",
+          "Yesuvina balige banni"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಚಿಕ್ಕ ಚಿಕ್ಕ ಕೈಗಳಿಂದ",
+          "ದೇವರನ್ನು ಸ್ತುತಿಸಿರಿ",
+          "ಚಿಕ್ಕ ಚಿಕ್ಕ ಧ್ವನಿಯಿಂದ",
+          "ಹಾಡಿ ಹೊಗಳಿರಿ"
+        ],
+        "linesRomanized": [
+          "Chikka chikka kaigalinda",
+          "Devarannu sthuthisiri",
+          "Chikka chikka dhvaniyinda",
+          "Haadi hogaliri"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ಯೇಸು ನಿಮ್ಮನ್ನು ಪ್ರೀತಿಸುವನು",
+          "ಯೇಸು ನಿಮ್ಮನ್ನು ಕಾಪಾಡುವನು",
+          "ಆತನ ರಾಜ್ಯ ನಿಮ್ಮದೇ",
+          "ಮಕ್ಕಳೇ ಸಂತೋಷಿಸಿರಿ"
+        ],
+        "linesRomanized": [
+          "Yesu nimmannu preethisuvanu",
+          "Yesu nimmannu kaapaaduvanu",
+          "Aatana raajya nimmade",
+          "Makkale santhoshisiri"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

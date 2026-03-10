@@ -1,0 +1,75 @@
+{
+  "lang": "en",
+  "id": "en-241",
+  "title": "'Twas on That Dark That Doleful Night",
+  "author": "Isaac Watts",
+  "composer": "Freeman Lewis",
+  "year": 1709,
+  "categories": [
+    "communion",
+    "classic"
+  ],
+  "scriptureRefs": [
+    "1 Corinthians 11:23-26",
+    "Luke 22:19-20"
+  ],
+  "story": "Watts based this communion hymn directly on Paul's account of the Last Supper. Its solemn retelling of that final evening reminds believers why they gather at the Lord's Table.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "'Twas on that dark, that doleful night When pow'rs of earth and hell arose Against the Son of God's delight, And friends betrayed Him to His foes: 6",
+          "\"Do this,\" He cried, \"till time shall end, 7",
+          "Jesus, Thy feast we celebrate, We show Thy death, we sing Thy name, Till Thou return, and we shall eat The marriage supper of the Lamb"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "Before the mournful scene began, He took the bread, and blessed, and brake: What love through all His actions ran",
+          "What wondrous words of grace He spake",
+          "In memory of your dying friend",
+          "7",
+          "Jesus, Thy feast we celebrate, We show Thy death, we sing Thy name, Till Thou return, and we shall eat The marriage supper of the Lamb"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "\"This is My body, broke for sin",
+          "Receive and eat the living food:\" Then took the cup, and blessed the wine",
+          "\"'Tis the new cov'nant in My blood",
+          "\" Meet at My table, and record 7",
+          "Jesus, Thy feast we celebrate, We show Thy death, we sing Thy name, Till Thou return, and we shall eat The marriage supper of the Lamb"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "For us His flesh with nails was torn, He bore the scourge, He felt the thorn",
+          "And justice poured up on His head Its heavy vengeance in our stead",
+          "The love of your departed Lord",
+          "\" 7",
+          "Jesus, Thy feast we celebrate, We show Thy death, we sing Thy name, Till Thou return, and we shall eat The marriage supper of the Lamb"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 5,
+        "lines": [
+          "For us His vital blood was spilt, To buy the pardon of our guilt, When, for black crimes of biggest size, He gave His soul a sacrifice",
+          "7",
+          "Jesus, Thy feast we celebrate, We show Thy death, we sing Thy name, Till Thou return, and we shall eat The marriage supper of the Lamb"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — Twas_On_That_Dark_That_Doleful_Night"
+}

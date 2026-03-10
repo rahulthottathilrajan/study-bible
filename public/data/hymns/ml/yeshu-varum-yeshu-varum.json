@@ -1,0 +1,78 @@
+{
+  "id": "yeshu-varum-yeshu-varum",
+  "lang": "ml",
+  "title": "യേശു വരും യേശു വരും",
+  "titleRomanized": "Yeshu Varum Yeshu Varum",
+  "author": "Traditional",
+  "composer": "Traditional Kerala melody",
+  "year": null,
+  "categories": [
+    "praise",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Acts 1:11",
+      "note": "This same Jesus, which is taken up from you into heaven, shall so come in like manner"
+    },
+    {
+      "ref": "Revelation 22:20",
+      "note": "Surely I come quickly. Amen. Even so, come, Lord Jesus"
+    }
+  ],
+  "story": "A keerthanam of eager anticipation for the Second Coming of Christ. This traditional hymn reflects the eschatological hope that is central to Kerala Christian worship. Sung with rising excitement, it reminds believers to live in readiness for the glorious return of the Lord.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "യേശു വരും യേശു വരും",
+          "മേഘങ്ങളിൽ വരും",
+          "മഹത്വത്തോടെ വരും",
+          "വേഗം വരും പ്രഭു"
+        ],
+        "linesRomanized": [
+          "Yeshu varum Yeshu varum",
+          "Meghangalil varum",
+          "Mahathwathode varum",
+          "Vegam varum Prabhu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "കാഹളം മുഴങ്ങും നാളിൽ",
+          "മരിച്ചവർ ഉയിർക്കും",
+          "ജീവനുള്ളവർ മാറ്റപ്പെടും",
+          "പ്രഭുവിനോടു ചേരും"
+        ],
+        "linesRomanized": [
+          "Kaahalam muzhangum naalil",
+          "Marichavar uyirkkum",
+          "Jeevanullavar maattapppedum",
+          "Prabhuvinodu cherum"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ഒരുങ്ങിയിരിക്കുവിൻ",
+          "വിളക്ക് കത്തിച്ചിരിക്കുവിൻ",
+          "മണവാളൻ വരുന്നു",
+          "ആമേൻ വരേണമേ പ്രഭുവേ"
+        ],
+        "linesRomanized": [
+          "Orungiyirikkuvin",
+          "Vilakku kathichirikkuvin",
+          "Manavaalan varunnu",
+          "Aaamen varename Prabhuve"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kerala Christian Heritage"
+}

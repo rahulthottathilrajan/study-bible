@@ -1,0 +1,79 @@
+{
+  "id": "anbu-koorum-yesuve",
+  "lang": "ta",
+  "title": "அன்பு கூரும் இயேசுவே",
+  "titleRomanized": "Anbu Koorum Yesuve",
+  "author": "Traditional",
+  "composer": "Traditional Tamil devotional melody",
+  "year": null,
+  "categories": [
+    "grace",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "1 John 4:19",
+      "note": "We love him, because he first loved us"
+    },
+    {
+      "ref": "Romans 8:38-39",
+      "note": "Nothing shall be able to separate us from the love of God"
+    }
+  ],
+  "story": "An intimate devotional keerthanaigal expressing the believer's love response to Christ's first love. This tender hymn captures the heart of Tamil Christian devotion — a soul overwhelmed by grace and pouring out love in return. It is a favorite at evening prayer meetings and personal worship times.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "அன்பு கூரும் இயேசுவே",
+          "நீர் முதலில் அன்பு செய்ததால்",
+          "என் ஜீவன் உமக்காக அர்ப்பணிக்கிறேன்",
+          "என் எல்லாம் உமக்கே"
+        ],
+        "linesRomanized": [
+          "Anbu koorum Yaesuvae",
+          "Neer mudhalil anbu seidhadaal",
+          "En jeevan umakkaaga arppanikkirean",
+          "En ellaam umakkae"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "சிலுவையில் உம் அன்பை கண்டேன்",
+          "என்னை மறந்து நீர் மரித்தீர்",
+          "அந்த அன்புக்கு பதிலாக",
+          "என் இருதயம் உமக்கே"
+        ],
+        "linesRomanized": [
+          "Siluvayil um anbai kandean",
+          "Ennai marandhu neer mariththeer",
+          "Andha anbukku padhilaga",
+          "En irudhayam umakkae"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "உலகமே கொடுத்தாலும்",
+          "உம் அன்புக்கு ஈடல்ல",
+          "அன்பு கூருகிறேன் உம்மை",
+          "என்றென்றும் அன்பு கூருவேன்"
+        ],
+        "linesRomanized": [
+          "Ulagamae koduththaalum",
+          "Um anbukku eedalla",
+          "Anbu koorugirean ummai",
+          "Endrendrum anbu kooruvean"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

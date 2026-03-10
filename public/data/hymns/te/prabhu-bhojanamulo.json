@@ -1,0 +1,79 @@
+{
+  "id": "prabhu-bhojanamulo",
+  "lang": "te",
+  "title": "ప్రభు భోజనములో",
+  "titleRomanized": "Prabhu Bhojanamulo",
+  "author": "Traditional",
+  "composer": "Traditional Telugu melody",
+  "year": null,
+  "categories": [
+    "communion",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "1 Corinthians 11:26",
+      "note": "For as often as ye eat this bread, and drink this cup, ye do shew the Lord's death till he come"
+    },
+    {
+      "ref": "Luke 22:19-20",
+      "note": "This is my body which is given for you: this do in remembrance of me"
+    }
+  ],
+  "story": "A sacred communion keerthanamu from the Telugu Protestant tradition. This reverent hymn accompanies the Lord's Supper in churches across Andhra Pradesh and Telangana. Its solemn melody guides believers into a spirit of gratitude and remembrance as they partake of the bread and cup together.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ప్రభు భోజనములో కూడి వచ్చాము",
+          "ఆయన జ్ఞాపకార్థముగా చేరాము",
+          "ఈ రొట్టె ఆయన శరీరము",
+          "ఈ పాత్ర ఆయన రక్తము"
+        ],
+        "linesRomanized": [
+          "Prabhu bhojanamulo koodi vachhamu",
+          "Aayana gnaapakarthamuga cheraamu",
+          "Ee rotte aayana shareeramau",
+          "Ee paatra aayana rakthamau"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "సిలువలో బలియైన ప్రభువా",
+          "నీ మరణము జ్ఞాపకం చేస్తున్నాము",
+          "నీ రక్తము వలన క్షమాపణ",
+          "నీ బలి వలన విమోచన"
+        ],
+        "linesRomanized": [
+          "Siluvalo baliyaina prabhuvaa",
+          "Nee maranamu gnaapakam chesthunnamu",
+          "Nee rakthamu valana kshamapana",
+          "Nee bali valana vimochana"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "తిరిగి వచ్చు నాళ్ళ వరకు",
+          "ఈ జ్ఞాపకము కాపాడుదుము",
+          "కృతజ్ఞతతో పంచుకొందుము",
+          "ప్రభు భోజనములో ఐక్యమందుము"
+        ],
+        "linesRomanized": [
+          "Thirigi vachhu naallu varaku",
+          "Ee gnaapakamu kaapaadudumu",
+          "Kruthagnathato panchukondumu",
+          "Prabhu bhojanamulo aikyamandumu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Telugu Christian Heritage"
+}

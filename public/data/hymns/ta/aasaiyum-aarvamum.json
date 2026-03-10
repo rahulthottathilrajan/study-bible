@@ -1,0 +1,79 @@
+{
+  "id": "aasaiyum-aarvamum",
+  "lang": "ta",
+  "title": "ஆசையும் ஆர்வமும்",
+  "titleRomanized": "Aasaiyum Aarvamum",
+  "author": "Traditional",
+  "composer": "Traditional Tamil devotional melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "grace"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 42:1",
+      "note": "As the hart panteth after the water brooks, so panteth my soul after thee, O God"
+    },
+    {
+      "ref": "Psalm 63:1",
+      "note": "My soul thirsteth for thee, my flesh longeth for thee"
+    }
+  ],
+  "story": "A deeply devotional keerthanaigal expressing the soul's intense longing for God's presence. Based on the psalmist's cry in Psalm 42, this traditional Tamil hymn captures the thirst of a heart that finds rest only in God. It is a favorite during Lenten devotions and quiet evening worship gatherings.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ஆசையும் ஆர்வமும் உம் மேல்",
+          "மான் நீரை நாடுவது போல",
+          "என் ஆத்மா உம்மை நாடுதே",
+          "ஜீவனுள்ள தேவனே"
+        ],
+        "linesRomanized": [
+          "Aasaiyum aarvamum um mel",
+          "Maan neerai naaduvadhu pola",
+          "En aathma ummai naaduthae",
+          "Jeevanulla thaevanae"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "எப்போது வருவேன் நான்",
+          "தேவ சமூகத்தில் நிற்பேன்",
+          "கண்ணீர் என் உணவாயிற்று",
+          "உம் முகம் தேடுகிறேன்"
+        ],
+        "linesRomanized": [
+          "Eppothu varuvean naan",
+          "Thaeva samoogathil nirppean",
+          "Kanneer en unavaaiyitru",
+          "Um mugam thaedugirean"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "ஏன் கலங்குகிறாய் என் ஆத்மா",
+          "தேவனை நம்பு",
+          "அவர் முகத்தின் இரட்சிப்பை",
+          "இன்னும் துதிப்பேன் நான்"
+        ],
+        "linesRomanized": [
+          "Ean kalangugiraay en aathmaa",
+          "Thaevanai nambu",
+          "Avar mugathin iratchippai",
+          "Innum thuthippean naan"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

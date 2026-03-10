@@ -1,0 +1,78 @@
+{
+  "id": "maargavu-sathyavu-jeevavu",
+  "lang": "kn",
+  "title": "ಮಾರ್ಗವೂ ಸತ್ಯವೂ ಜೀವವೂ",
+  "titleRomanized": "Maargavu Sathyavu Jeevavu",
+  "author": "Traditional",
+  "composer": "Traditional Kannada melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "John 14:6",
+      "note": "I am the way, the truth, and the life"
+    },
+    {
+      "ref": "John 11:25",
+      "note": "I am the resurrection, and the life"
+    }
+  ],
+  "story": "A profound keerthane based on Christ's 'I Am' declarations in the Gospel of John. This traditional Kannada hymn invites believers into deep meditation on who Jesus truly is — the Way, the Truth, and the Life. It has been sung with reverence across Karnataka churches.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ಮಾರ್ಗವೂ ಸತ್ಯವೂ ಜೀವವೂ",
+          "ನೀನೇ ಯೇಸುವೇ",
+          "ನಿನ್ನ ಮೂಲಕವಲ್ಲದೆ",
+          "ತಂದೆಯ ಬಳಿಗೆ ಯಾರೂ ಬರಲಾರರು"
+        ],
+        "linesRomanized": [
+          "Maargavoo sathyavoo jeevavoo",
+          "Neene Yesuve",
+          "Ninna moolakavallde",
+          "Thandeya balige yaaroo baralaararu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ನಾನೇ ಒಳ್ಳೆಯ ಕುರುಬನು",
+          "ಕುರಿಗಳಿಗಾಗಿ ಪ್ರಾಣ ಕೊಡುವೆನು",
+          "ನಾನೇ ಪುನರುತ್ಥಾನ ಮತ್ತು ಜೀವ",
+          "ನಂಬುವವನು ಬದುಕುವನು"
+        ],
+        "linesRomanized": [
+          "Naane olleya kurubanu",
+          "Kurigaligaagi praana koduvenu",
+          "Naane punaruththaana mattu jeeva",
+          "Nambuvavanu badukuvanu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ನಾನೇ ಲೋಕದ ಬೆಳಕು",
+          "ನನ್ನನ್ನು ಹಿಂಬಾಲಿಸುವವನು",
+          "ಕತ್ತಲೆಯಲ್ಲಿ ನಡೆಯನು",
+          "ಜೀವದ ಬೆಳಕು ಪಡೆಯುವನು"
+        ],
+        "linesRomanized": [
+          "Naane lokada belaku",
+          "Nannannu himbaalisuvavanu",
+          "Kaththaleyalli nadeyanu",
+          "Jeevada belaku padeyuvanu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

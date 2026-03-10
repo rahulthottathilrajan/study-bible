@@ -1,0 +1,78 @@
+{
+  "id": "yeshu-en-rakshakan",
+  "lang": "ml",
+  "title": "യേശു എൻ രക്ഷകൻ",
+  "titleRomanized": "Yeshu En Rakshakan",
+  "author": "Traditional",
+  "composer": "Traditional Kerala melody",
+  "year": null,
+  "categories": [
+    "worship",
+    "classic"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Isaiah 43:11",
+      "note": "I, even I, am the LORD; and beside me there is no saviour"
+    },
+    {
+      "ref": "Acts 4:12",
+      "note": "Neither is there salvation in any other"
+    }
+  ],
+  "story": "A deeply personal devotional keerthanam declaring Jesus as the one true Saviour. Widely sung in Kerala's Marthoma and CSI congregations, this hymn expresses the intimate relationship between the believer and Christ. Its simple confession of faith has strengthened generations of Kerala Christians.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "യേശു എൻ രക്ഷകൻ",
+          "യേശു എൻ നാഥൻ",
+          "യേശു എൻ സർവ്വസ്വം",
+          "അവനെ ഞാൻ സ്തുതിക്കും"
+        ],
+        "linesRomanized": [
+          "Yeshu en rakshakan",
+          "Yeshu en naadhan",
+          "Yeshu en sarvvasvam",
+          "Avane njaan sthuthikkum"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ഇരുളിൽ വെളിച്ചമായവൻ",
+          "മരുഭൂമിയിൽ വഴികാട്ടിയവൻ",
+          "കൊടുങ്കാറ്റിൽ ശാന്തിയായവൻ",
+          "യേശു എൻ രക്ഷകൻ"
+        ],
+        "linesRomanized": [
+          "Irulil velichamaayavan",
+          "Marubhoomiyil vazhikaattiyavan",
+          "Kodunkaattil shaanthiyaayavan",
+          "Yeshu en rakshakan"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "രോഗത്തിൽ സൗഖ്യമായവൻ",
+          "ദുഃഖത്തിൽ ആശ്വാസമായവൻ",
+          "മരണത്തിൽ ജീവനായവൻ",
+          "യേശു എൻ രക്ഷകൻ"
+        ],
+        "linesRomanized": [
+          "Rogathil saukhyamaayavan",
+          "Duhkhathil aashwasamaayavan",
+          "Maranathil jeevanaayavan",
+          "Yeshu en rakshakan"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kerala Christian Heritage"
+}

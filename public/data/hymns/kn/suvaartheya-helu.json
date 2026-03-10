@@ -1,0 +1,78 @@
+{
+  "id": "suvaartheya-helu",
+  "lang": "kn",
+  "title": "ಸುವಾರ್ತೆಯ ಹೇಳು",
+  "titleRomanized": "Suvaartheya Helu",
+  "author": "Traditional",
+  "composer": "Traditional Kannada missionary melody",
+  "year": null,
+  "categories": [
+    "mission",
+    "praise"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Mark 16:15",
+      "note": "Go ye into all the world, and preach the gospel to every creature"
+    },
+    {
+      "ref": "Romans 10:15",
+      "note": "How beautiful are the feet of them that preach the gospel of peace"
+    }
+  ],
+  "story": "A rousing missionary keerthane from the Karnataka church heritage. This hymn reflects the deep missionary tradition of Kannada Christianity, inspired by Basel Mission and other evangelical movements. It has been sung at mission conferences and sending services, calling believers to carry the light of the gospel to every nation.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "chorus",
+        "lines": [
+          "ಸುವಾರ್ತೆಯ ಹೇಳು ಲೋಕಕ್ಕೆ",
+          "ಯೇಸುವಿನ ಪ್ರೀತಿ ಹೇಳು",
+          "ಎಲ್ಲಾ ಜನಾಂಗಕ್ಕೆ ತಿಳಿಸು",
+          "ರಕ್ಷಣೆಯ ಸುದ್ದಿ ಹೇಳು"
+        ],
+        "linesRomanized": [
+          "Suvaartheya helu lokakke",
+          "Yesuvina preethi helu",
+          "Ellaa janaangakke tilisu",
+          "Rakshaneya suddi helu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "ಎಲ್ಲಾ ಭಾಷೆಗಳಲ್ಲಿ",
+          "ಎಲ್ಲಾ ದೇಶಗಳಲ್ಲಿ",
+          "ಮುಕ್ತಿಯ ಸಂದೇಶ ಹೇಳು",
+          "ಯೇಸುವಿನ ಹೆಸರ ಎತ್ತು"
+        ],
+        "linesRomanized": [
+          "Ellaa bhaashegalalli",
+          "Ellaa deshagalalli",
+          "Mukthiya sandesha helu",
+          "Yesuvina hesara ettu"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "ಬೆಟ್ಟಗಳನ್ನು ದಾಟಿ",
+          "ಸಮುದ್ರಗಳನ್ನು ದಾಟಿ",
+          "ಪ್ರಭುವಿನ ಕೆಲಸ ಮಾಡು",
+          "ಆತ್ಮಗಳನ್ನು ಗೆಲ್ಲು"
+        ],
+        "linesRomanized": [
+          "Bettagalannu daati",
+          "Samudragalannu daati",
+          "Prabhuvina kelasa maadu",
+          "Aathmagalannu gellu"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Kannada Christian Heritage"
+}

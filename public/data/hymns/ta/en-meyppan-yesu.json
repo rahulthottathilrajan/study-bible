@@ -1,0 +1,79 @@
+{
+  "id": "en-meyppan-yesu",
+  "lang": "ta",
+  "title": "என் மேய்ப்பன் இயேசு",
+  "titleRomanized": "En Meippan Yesu",
+  "author": "Traditional",
+  "composer": "Traditional Tamil melody",
+  "year": null,
+  "categories": [
+    "comfort",
+    "worship"
+  ],
+  "scriptureRefs": [
+    {
+      "ref": "Psalm 23:1-2",
+      "note": "The LORD is my shepherd; I shall not want"
+    },
+    {
+      "ref": "John 10:11",
+      "note": "I am the good shepherd: the good shepherd giveth his life for the sheep"
+    }
+  ],
+  "story": "A tender shepherd-psalm keerthanaigal based on Psalm 23. This beloved Tamil hymn has brought comfort to countless believers during times of grief and uncertainty. Its gentle melody and reassuring words paint a picture of Christ's caring presence through every valley and beside every still water.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "என் மேய்ப்பன் இயேசு",
+          "எனக்கு குறைவில்லை",
+          "புல்வெளியில் மேய்ப்பார்",
+          "அமர்ந்த நீர் அருகில் நடத்துவார்"
+        ],
+        "linesRomanized": [
+          "En meippan Yaesu",
+          "Enakku kuraivellai",
+          "Pulveliyil meippaar",
+          "Amarnda neer arugil nadathuvaar"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "மரண இருளின் பள்ளத்தாக்கிலும்",
+          "நான் பயப்படேன்",
+          "நீர் என்னோடு இருக்கிறீர்",
+          "உம் கோலும் தடியும் என்னை தேற்றும்"
+        ],
+        "linesRomanized": [
+          "Marana irulin pallathaakkilum",
+          "Naan bayappadaen",
+          "Neer ennodu irukkiReer",
+          "Um kolum thadiyum ennai thaetrum"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "நன்மையும் கிருபையும்",
+          "என் நாட்கள் எல்லாம்",
+          "என்னை தொடரும்",
+          "கர்த்தர் வீட்டில் நான் தங்குவேன்"
+        ],
+        "linesRomanized": [
+          "Nanmaiyum kirupaiyum",
+          "En naatkal ellaam",
+          "Ennai thodarum",
+          "Karthar veettil naan thanguvean"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "Traditional Tamil Christian Heritage"
+}

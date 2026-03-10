@@ -1,0 +1,66 @@
+{
+  "lang": "en",
+  "id": "en-246",
+  "title": "Beneath the Cross of Jesus",
+  "author": "Elizabeth Clephane",
+  "composer": "Frederick Maker",
+  "year": 1868,
+  "categories": [
+    "grace",
+    "worship"
+  ],
+  "scriptureRefs": [
+    "Galatians 6:14",
+    "John 19:25"
+  ],
+  "story": "Clephane, a Scottish poet known for her generosity to the poor, wrote this shortly before her death at 39. Its vivid imagery of standing beneath the cross as 'a mighty Rock within a weary land' is deeply personal.",
+  "lyrics": {
+    "structure": [
+      {
+        "type": "verse",
+        "number": 1,
+        "lines": [
+          "Beneath the cross of Jesus I fain would take my stand, The shadow of a mighty rock within a weary land",
+          "A home within the wilderness, a rest upon the way, From the burning of the noontide heat, and the burden of the day"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 2,
+        "lines": [
+          "O safe and happy shelter, O refuge tried and sweet, O trysting place where Heaven's love and Heaven's justice meet",
+          "As to the holy patriarch that wondrous dream was giv'n, So seems my Savior's cross to me, a ladder up to heav'n"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 3,
+        "lines": [
+          "There lies beneath its shadow but on the further side The darkness of an awful grave that gapes both deep and wide And there",
+          "between us stands the cross two arms outstretched to save A watchman set to guard the way from that eternal grave."
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 4,
+        "lines": [
+          "Upon that cross of Jesus mine eye at times can see The very dying form of One Who suffered there for me",
+          "And from my stricken heart with tears two wonders I confess",
+          "The wonders of redeeming love and my unworthiness"
+        ]
+      },
+      {
+        "type": "verse",
+        "number": 5,
+        "lines": [
+          "I take, O cross, thy shadow for my abiding place",
+          "I ask no other sunshine than the sunshine of His face",
+          "Content to let the world go by to know no gain or loss, My sinful self my only shame, my glory all the cross"
+        ]
+      }
+    ]
+  },
+  "translations": [],
+  "publicDomain": true,
+  "source": "OpenHymnal Project (public domain) — Beneath_The_Cross_Of_Jesus"
+}
