@@ -37,7 +37,7 @@ export default function BibleView() {
     const cats = {}; books.forEach(b => { if (!cats[b.category]) cats[b.category] = []; cats[b.category].push(b); });
     return (
       <div style={{ minHeight:"100vh",background:ht.bg }}>
-        <Header title="The Holy Scriptures" onBack={goBack} theme={ht} hidePrayer hideUser showLangPicker />
+        <Header title="The Holy Scriptures" onBack={goBack} theme={ht} hidePrayer hideUser />
         <div style={{ padding:`20px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
 
           {/* ── Testament Picker (Parchment Scrolls) ── */}
@@ -135,7 +135,7 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={getBookName(book, bibleTranslation)} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={goBack} showLangPicker />
+        <Header title={getBookName(book, bibleTranslation)} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={goBack} />
         <div style={{ padding:`18px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
 
           {/* Book info card */}
@@ -265,8 +265,8 @@ export default function BibleView() {
   // ═══ VERSE LIST ═══
   const isEnglishTrans = bibleTranslation === "kjv" || bibleTranslation === "bsb";
   const VerseList = () => {
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle="Loading verses..." onBack={goBack} showLangPicker /><Spinner t={t} /></div>;
-    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showLangPicker /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle="Loading verses..." onBack={goBack} /><Spinner t={t} /></div>;
+    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
 
     const isRead = user && chapterReads.some(r => r.book_name === book && r.chapter_number === chapter);
     const chapterKey = `${book}-${chapter}`;
@@ -275,7 +275,7 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showLangPicker showFontSize hideUser hidePrayer />
+        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showFontSize hideUser hidePrayer />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px 100px` }}>
 
           {/* Chapter Illustration */}
@@ -382,8 +382,8 @@ export default function BibleView() {
     const bookDisplayName = getBookName(book, bibleTranslation);
     // Auto-switch away from Study Notes tab when non-English translation is active
     useEffect(() => { if (!isEnglishTrans && tab === "study") setTab("original"); }, [isEnglishTrans]); // eslint-disable-line react-hooks/exhaustive-deps
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer showLangPicker /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
-    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer showLangPicker /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
+    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
+    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
 
     const vWords = wordStudies[String(verse)] || [];
     const vRefs = crossRefs[String(verse)] || [];
@@ -392,7 +392,7 @@ export default function BibleView() {
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <AudioPlayer />
-        <Header title={bookDisplayName} onBack={goBack} hidePrayer showLangPicker />
+        <Header title={bookDisplayName} onBack={goBack} hidePrayer />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`0 ${bp.pad}px ${audioVisible?68:40}px` }}>
           {isEnglishTrans && chapterMeta?.overview && (
             <div style={{margin:"14px 0"}}>

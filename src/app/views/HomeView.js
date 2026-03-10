@@ -6,18 +6,21 @@ import VerseOfTheDay from "../components/VerseOfTheDay";
 import GoToBar from "../components/GoToBar";
 import UtilityStrip from "../components/UtilityStrip";
 import HymnOfTheDay from "../components/HymnOfTheDay";
+import { BIRTHDAY_VERSES } from "../constants";
 
 export default function HomeView() {
   const {
-    ht, darkMode, user, profile, bp,
+    ht, darkMode, user, profile, bp, isBirthdayToday,
     showInstall, setShowInstall, installPrompt,
     setDonateModal, nav,
   } = useApp();
 
-  // ─── Welcome-back splash (only on fresh app open, not refresh/in-app nav) ───
+  // ─── Welcome-back / Birthday splash (only on fresh app open, not refresh/in-app nav) ───
   const [showSplash, setShowSplash] = useState(false);
   const [splashFading, setSplashFading] = useState(false);
   const [splashName, setSplashName] = useState("");
+  const [splashIsBirthday, setSplashIsBirthday] = useState(false);
+  const [birthdayVerse, setBirthdayVerse] = useState(null);
   const splashRan = useRef(false);
 
   useEffect(() => {
@@ -33,11 +36,19 @@ export default function HomeView() {
       const name = profile?.nickname || (profile?.full_name || profile?.display_name || user?.user_metadata?.display_name || "").split(" ")[0] || "Reader";
       if (!name) return;
       setSplashName(name);
+      // Birthday splash replaces welcome-back
+      if (isBirthdayToday) {
+        setSplashIsBirthday(true);
+        const now = new Date();
+        const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+        setBirthdayVerse(BIRTHDAY_VERSES[dayOfYear % BIRTHDAY_VERSES.length]);
+      }
       setShowSplash(true);
-      setTimeout(() => setSplashFading(true), 2400);
-      setTimeout(() => { setShowSplash(false); setSplashFading(false); }, 3000);
+      const showDuration = isBirthdayToday ? 3600 : 2400;
+      setTimeout(() => setSplashFading(true), showDuration);
+      setTimeout(() => { setShowSplash(false); setSplashFading(false); }, showDuration + 600);
     } catch {}
-  }, [user, profile]);
+  }, [user, profile, isBirthdayToday]);
 
   return (
     <div style={{ minHeight:"100vh",background:ht.bg }}>
@@ -65,9 +76,9 @@ export default function HomeView() {
         <div style={{ height:2,background:"linear-gradient(90deg,rgba(212,168,83,0.6),rgba(255,255,255,0.9),rgba(212,168,83,0.8),rgba(255,245,220,0.95),rgba(212,168,83,0.6))",backgroundSize:"200% 100%",animation:"goldFlow 3s linear infinite",marginTop:6 }}/>
         {/* GoToBar */}
         <div style={{ paddingTop:4 }}>
-          <GoToBar />
+          <GoToBar showUtilities />
         </div>
-        {/* ── UTILITY STRIP ── */}
+        {/* ── UTILITY STRIP (LIVE badge only) ── */}
         <UtilityStrip theme={ht} />
       </div>
       {/* ── PWA INSTALL BANNER ── */}
@@ -87,17 +98,42 @@ export default function HomeView() {
           </button>
         </div>
       )}
-      {/* ── WELCOME BACK SPLASH ── */}
+      {/* ── SPLASH (Birthday or Welcome-Back) ── */}
       {showSplash && (
-        <div style={{ position:"fixed",inset:0,zIndex:100,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:ht.headerGradient,opacity:splashFading?0:1,transition:"opacity 0.6s ease",pointerEvents:"none" }}>
-          <div style={{ fontSize:48,marginBottom:16,animation:"dropIn 0.5s ease" }}>✝</div>
-          <div style={{ fontFamily:ht.heading,fontSize:26,fontWeight:800,color:ht.headerText||"#fff",textAlign:"center",marginBottom:8,animation:"fadeIn 0.6s ease" }}>
-            Welcome back, {splashName}!
-          </div>
-          <div style={{ fontFamily:ht.ui,fontSize:14,color:`${ht.headerText||"#fff"}cc`,textAlign:"center",maxWidth:280,lineHeight:1.7,animation:"fadeIn 0.8s ease" }}>
-            May God bless you and guide your study today.
-          </div>
-          <div style={{ marginTop:24,width:40,height:3,borderRadius:2,background:`${ht.headerText||"#fff"}44`,animation:"fadeIn 1s ease" }}/>
+        <div style={{ position:"fixed",inset:0,zIndex:100,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:splashIsBirthday?"linear-gradient(165deg,#2D1B4E 0%,#5B2D8E 40%,#D4A853 100%)":ht.headerGradient,opacity:splashFading?0:1,transition:"opacity 0.6s ease",pointerEvents:"none" }}>
+          {splashIsBirthday ? (
+            <>
+              <div style={{ fontSize:56,marginBottom:16,animation:"dropIn 0.5s ease" }}>🎂</div>
+              <div style={{ fontFamily:ht.heading,fontSize:28,fontWeight:800,color:"#F0E8D8",textAlign:"center",marginBottom:8,animation:"fadeIn 0.6s ease" }}>
+                Happy Birthday, {splashName}!
+              </div>
+              {birthdayVerse && (
+                <div style={{ fontFamily:ht.body||ht.ui,fontSize:14,fontStyle:"italic",color:"rgba(240,232,216,0.85)",textAlign:"center",maxWidth:300,lineHeight:1.7,marginBottom:6,animation:"fadeIn 0.8s ease",padding:"0 20px" }}>
+                  &ldquo;{birthdayVerse.text}&rdquo;
+                </div>
+              )}
+              {birthdayVerse && (
+                <div style={{ fontFamily:ht.ui,fontSize:11,fontWeight:600,color:"rgba(212,168,83,0.9)",textAlign:"center",animation:"fadeIn 1s ease" }}>
+                  &mdash; {birthdayVerse.ref}
+                </div>
+              )}
+              <div style={{ marginTop:20,fontFamily:ht.ui,fontSize:12,color:"rgba(240,232,216,0.6)",textAlign:"center",animation:"fadeIn 1.2s ease" }}>
+                May God richly bless your new year of life.
+              </div>
+              <div style={{ marginTop:20,width:40,height:3,borderRadius:2,background:"rgba(212,168,83,0.4)",animation:"fadeIn 1.4s ease" }}/>
+            </>
+          ) : (
+            <>
+              <div style={{ fontSize:48,marginBottom:16,animation:"dropIn 0.5s ease" }}>✝</div>
+              <div style={{ fontFamily:ht.heading,fontSize:26,fontWeight:800,color:ht.headerText||"#fff",textAlign:"center",marginBottom:8,animation:"fadeIn 0.6s ease" }}>
+                Welcome back, {splashName}!
+              </div>
+              <div style={{ fontFamily:ht.ui,fontSize:14,color:`${ht.headerText||"#fff"}cc`,textAlign:"center",maxWidth:280,lineHeight:1.7,animation:"fadeIn 0.8s ease" }}>
+                May God bless you and guide your study today.
+              </div>
+              <div style={{ marginTop:24,width:40,height:3,borderRadius:2,background:`${ht.headerText||"#fff"}44`,animation:"fadeIn 1s ease" }}/>
+            </>
+          )}
         </div>
       )}
       <div style={{ padding:`22px ${bp.pad}px 40px` }}>
