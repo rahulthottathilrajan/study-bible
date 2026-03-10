@@ -220,6 +220,17 @@ export default function HomeView() {
               </div>
               <div style={{ background:"rgba(16,185,129,0.12)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>New ✦</div>
             </div>
+            {/* Teens Deep Study */}
+            <div onClick={() => nav("teens-curriculum-home")} style={{ background:"linear-gradient(135deg,rgba(79,70,229,0.08),rgba(124,58,237,0.06))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"20px 18px",display:"flex",alignItems:"center",gap:14,cursor:"pointer",position:"relative",overflow:"hidden",marginTop:10 }}>
+              <div style={{ position:"absolute",bottom:0,left:0,right:0,height:3,background:"linear-gradient(90deg, #4F46E5, #7C3AED, #818CF8)",borderRadius:"0 0 14px 14px" }}/>
+              <div style={{ width:56,height:56,borderRadius:14,background:"linear-gradient(135deg,rgba(79,70,229,0.3),rgba(124,58,237,0.3))",display:"flex",alignItems:"center",justifyContent:"center",fontSize:32,flexShrink:0 }}>{"\uD83D\uDD25"}</div>
+              <div style={{ flex:1 }}>
+                <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>Teens Bible Study</div>
+                <div style={{ fontFamily:ht.ui,fontSize:11,color:"#4F46E5",fontWeight:600,marginTop:1 }}>52-Week Deep Study · Ages 13–18</div>
+                <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>Two-hour sessions with word studies, prophecy, apologetics, and faith stories.</div>
+              </div>
+              <div style={{ background:"rgba(79,70,229,0.12)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#4F46E5",textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>New ✦</div>
+            </div>
           </div>
 
           <div style={{ marginTop:22,position:"relative" }}>

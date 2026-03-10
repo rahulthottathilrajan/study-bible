@@ -471,6 +471,7 @@ export const BADGE_CATEGORIES = [
   { id:"learn",  label:"Learn",  icon:"📚" },
   { id:"prayer", label:"Prayer", icon:"🙏" },
   { id:"songs",  label:"Songs",  icon:"🎵" },
+  { id:"audio",  label:"Audio",  icon:"🎧" },
   { id:"community", label:"Community", icon:"🤝" },
 ];
 
@@ -513,6 +514,15 @@ export const BADGES = [
   { id:"hymnist",              category:"songs",  name:"Hymnist",              icon:"🎶", description:"Read 25 hymns" },
   { id:"hymn_collector",       category:"songs",  name:"Hymn Collector",       icon:"📚", description:"Favorite 10 hymns" },
   { id:"multilingual_singer",  category:"songs",  name:"Multilingual Singer",  icon:"🌍", description:"Read a hymn in 3 languages" },
+  // Audio (3)
+  { id:"first_listen",    category:"audio", name:"First Listen",    icon:"🎧", description:"Listen to your first chapter" },
+  { id:"audio_scholar",   category:"audio", name:"Audio Scholar",   icon:"📻", description:"Listen to 10 chapters" },
+  { id:"audio_marathon",  category:"audio", name:"Audio Marathon",  icon:"🏅", description:"Listen to 50 chapters" },
+  // Teens (4)
+  { id:"first_lesson_teen", category:"learn", name:"First Lesson",     icon:"\uD83D\uDCD6", description:"Complete your first teens lesson" },
+  { id:"term_complete_teen",category:"learn", name:"Term Complete",    icon:"\uD83C\uDFAF", description:"Complete all 13 lessons in a term" },
+  { id:"journaler",         category:"learn", name:"Journaler",        icon:"\uD83D\uDCD3", description:"Write 10 journal entries" },
+  { id:"graduate_teen",     category:"learn", name:"Graduate",         icon:"\uD83C\uDF93", description:"Complete all 52 teens lessons" },
   // Community (1)
   { id:"birthday_blessed", category:"community", name:"Birthday Blessed", icon:"🎂", description:"Open the app on your birthday" },
 ];
@@ -577,6 +587,12 @@ export const BIBLE_TRANSLATIONS = [
   { id: "spa_r09", label: "Espa\u00F1ol", name: "Reina Valera 1909", lang: "Spanish", group: "International", cdnId: "spa_r09" },
   { id: "cmn_cu1", label: "\u4E2D\u6587", name: "Chinese Union Version", lang: "Chinese", group: "International", cdnId: "cmn_cu1" },
   { id: "ARBNAV", label: "\u0627\u0644\u0639\u0631\u0628\u064A\u0629", name: "New Arabic Version", lang: "Arabic", group: "International", cdnId: "ARBNAV", rtl: true },
+];
+
+export const CDN_NARRATORS = [
+  { id: "gilbert", label: "Gilbert", description: "Clear, measured reading" },
+  { id: "hays",    label: "Hays",    description: "Warm, pastoral tone" },
+  { id: "souer",   label: "Souer",   description: "Traditional narration" },
 ];
 
 export const BOOK_CODE_MAP = {

@@ -31,6 +31,7 @@ export default function LearnView() {
       { id:"apologetics", icon:"🛡️", label:"Apologetics", sub:"Defend & understand the faith", color:"#1B7A6E", bg:"rgba(27,122,110,0.1)", active:true, action:() => nav("apologetics-home") },
       { id:"prophecy", icon:"🔭", label:"Prophecy & Fulfilment", sub:"300+ Messianic Predictions", color:"#8B5CF6", bg:"rgba(139,92,246,0.1)", active:true, action:() => nav("prophecy-home") },
       { id:"reading", icon:"🗓️", label:"Reading Plans", sub:"Guided Bible journeys", color:"#D4A853", bg:"rgba(212,168,83,0.1)", active:true, action:() => nav("reading-plans-home") },
+      { id:"teens", icon:"\uD83D\uDD25", label:"Teens Deep Study", sub:"52-week · 2hr sessions · Word studies", color:"#4F46E5", bg:"rgba(79,70,229,0.1)", active:true, action:() => nav("teens-curriculum-home") },
     ];
     return (
       <div style={{ minHeight:"100vh", background:ht.bg, paddingBottom:80 }}>

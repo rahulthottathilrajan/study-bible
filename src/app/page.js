@@ -7,6 +7,7 @@ import ArchaeologyCards from "./components/ArchaeologyCards";
 import Apologetics from "./components/Apologetics";
 import ReadingPlans from "./components/ReadingPlans";
 import KidsCurriculum from "./components/KidsCurriculum";
+import TeensCurriculum from "./components/TeensCurriculum";
 import BibleSearch from "./components/BibleSearch";
 import ErrorBoundary from "./components/ErrorBoundary";
 import BottomNav from "./components/BottomNav";
@@ -55,6 +56,7 @@ function StudyBibleContent() {
       {view === "apologetics-home" && <ErrorBoundary theme={ht} label="Apologetics"><Apologetics nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} /></ErrorBoundary>}
       {view === "reading-plans-home" && <ErrorBoundary theme={ht} label="Reading Plans"><ReadingPlans nav={nav} onPositionSave={updateSectionPosition} darkMode={darkMode} /></ErrorBoundary>}
       {view === "kids-curriculum-home" && <ErrorBoundary theme={ht} label="Kids Curriculum"><KidsCurriculum nav={nav} darkMode={darkMode} /></ErrorBoundary>}
+      {view === "teens-curriculum-home" && <ErrorBoundary theme={ht} label="Teens Curriculum"><TeensCurriculum nav={nav} darkMode={darkMode} /></ErrorBoundary>}
       {view === "quiz-browser" && <ErrorBoundary theme={ht} label="Quiz Browser"><QuizBrowserView /></ErrorBoundary>}
       {view.startsWith("quiz-") && view !== "quiz-browser" && <ErrorBoundary theme={ht} label="Quiz"><QuizView /></ErrorBoundary>}
       {view.startsWith("shop-") && <ErrorBoundary theme={ht} label="Shop"><ShopView /></ErrorBoundary>}

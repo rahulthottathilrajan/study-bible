@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../../lib/supabase";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP, CDN_NARRATORS } from "../constants";
 
 // ─── Derive dbChapters from BIBLE_BOOKS (synchronous, no Supabase needed) ───
 const initDbChapters = {};
@@ -192,6 +192,7 @@ export function AppProvider({ children }) {
   const bookCache = useRef({}); // { "genesis": fullBookJSON, ... } — cached static JSON
   const verseIdMap = useRef({}); // { verseNumber: supabaseUUID } — for user data writes
   const translationCache = useRef({}); // { "HINIRV": { "GEN:1": {1:"text",2:"text"} } }
+  const audioLinksCache = useRef({}); // { "BSB:GEN:1": { gilbert:"url", ... } }
 
   // ─── Wrapped verse setter — clears stale per-verse user data in same render batch ───
   const changeVerse = useCallback((v) => {
@@ -267,6 +268,14 @@ export function AppProvider({ children }) {
   // ─── Audio state ───
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [audioVisible, setAudioVisible] = useState(false);
+  const [audioMode, setAudioMode] = useState("tts"); // "tts" | "cdn"
+  const [audioNarrator, setAudioNarrator] = useState(() => {
+    try { return localStorage.getItem("audioNarrator") || "gilbert"; } catch { return "gilbert"; }
+  });
+  const [audioChapterLinks, setAudioChapterLinks] = useState(null);
+  const [sleepTimer, setSleepTimer] = useState(0); // 0=off, 15, 30, 45, 60 minutes
+  const [audioSource, setAudioSource] = useState("verseStudy"); // "verseStudy" | "verseList"
+  const [audioCurrentVerse, setAudioCurrentVerse] = useState(null);
   const [listenedChapters, setListenedChapters] = useState(() => {
     try { return JSON.parse(localStorage.getItem("listenedChapters") || "[]"); } catch { return []; }
   });
@@ -280,6 +289,43 @@ export function AppProvider({ children }) {
       return next;
     });
   }, []);
+
+  // Persist narrator preference
+  useEffect(() => {
+    try { localStorage.setItem("audioNarrator", audioNarrator); } catch {}
+  }, [audioNarrator]);
+
+  // Fetch CDN audio links (BSB has narrated audio via helloao)
+  const fetchAudioLinks = useCallback(async (bookName, chNum) => {
+    const bookCode = BOOK_CODE_MAP[bookName];
+    if (!bookCode) return null;
+    const cacheKey = `BSB:${bookCode}:${chNum}`;
+    if (audioLinksCache.current[cacheKey]) return audioLinksCache.current[cacheKey];
+    try {
+      const res = await fetch(`https://bible.helloao.org/api/BSB/${bookCode}/${chNum}.json`);
+      if (!res.ok) return null;
+      const data = await res.json();
+      const links = data.thisChapterAudioLinks;
+      if (links && Object.keys(links).length > 0) {
+        audioLinksCache.current[cacheKey] = links;
+        return links;
+      }
+      return null;
+    } catch { return null; }
+  }, []);
+
+  // Update audio mode when translation changes
+  useEffect(() => {
+    if (bibleTranslation === "bsb" && book && chapter) {
+      fetchAudioLinks(book, chapter).then(links => {
+        setAudioChapterLinks(links);
+        setAudioMode(links && Object.keys(links).length > 0 ? "cdn" : "tts");
+      });
+    } else {
+      setAudioChapterLinks(null);
+      setAudioMode("tts");
+    }
+  }, [bibleTranslation, book, chapter, fetchAudioLinks]);
 
   useEffect(() => {
     try {
@@ -1090,8 +1136,14 @@ export function AppProvider({ children }) {
     if (allScores.length >= 10 && !earned.quiz_whiz) awardBadge("quiz_whiz");
     if (allScores.length >= 50 && !earned.quiz_master) awardBadge("quiz_master");
     if (allScores.some(s => s.percentage >= 100) && !earned.perfect_score) awardBadge("perfect_score");
+
+    // Audio badges
+    const listenCount = listenedChapters.length;
+    if (listenCount >= 1 && !earned.first_listen) awardBadge("first_listen");
+    if (listenCount >= 10 && !earned.audio_scholar) awardBadge("audio_scholar");
+    if (listenCount >= 50 && !earned.audio_marathon) awardBadge("audio_marathon");
   }, [user, chapterReads, allHighlights, notesCount, streak, hebrewProgress, hebrewLessons,
-      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, awardBadge]);
+      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, listenedChapters, awardBadge]);
 
   useEffect(() => { checkBadges(); }, [checkBadges]);
 
@@ -1328,7 +1380,7 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "songs-home":"home", "songs-category":"songs-home", "songs-detail":"songs-category" };
+  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "songs-home":"home", "songs-category":"songs-home", "songs-detail":"songs-category" };
 
   const addToCart = (product, qty = 1, size = null) => {
     setCart(prev => {
@@ -1572,7 +1624,10 @@ export function AppProvider({ children }) {
     loadQuizQuestions, submitQuizScore,
     // Audio
     audioPlaying, setAudioPlaying, audioVisible, setAudioVisible,
-    listenedChapters, markChapterListened,
+    audioMode, setAudioMode, audioNarrator, setAudioNarrator,
+    audioChapterLinks, sleepTimer, setSleepTimer,
+    audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
+    listenedChapters, markChapterListened, fetchAudioLinks,
     // Songs
     songsCategory, setSongsCategory, songsHymn, setSongsHymn,
     // Birthday
