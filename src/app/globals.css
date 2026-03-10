@@ -52,3 +52,8 @@ button {
 .goto-wheel::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes scrollTicker {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
