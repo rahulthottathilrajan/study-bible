@@ -577,6 +577,61 @@ export function AppProvider({ children }) {
     }
   }, [user, dbLive, view, book, chapter, loadUserChapterData]);
 
+  // ─── Helpers for continuous reading (multi-chapter) ───
+  // Sync read from bookCache — returns { verses, meta, wordStudies, crossRefs } or null
+  const getChapterFromCache = useCallback((bookName, chNum) => {
+    const slug = bookName.toLowerCase().replace(/\s+/g, '-');
+    const bookData = bookCache.current[slug];
+    if (!bookData) return null;
+    const ch = bookData.chapters[String(chNum)];
+    if (!ch) return null;
+    return {
+      verses: ch.verses || [],
+      meta: ch.meta ? {
+        overview: ch.meta.overview || null,
+        theme: ch.meta.theme || null,
+        key_word_original: ch.meta.keyWordOriginal || null,
+        key_word_meaning: ch.meta.keyWordMeaning || null,
+        outline: ch.meta.outline ? JSON.stringify(ch.meta.outline) : null,
+      } : null,
+      wordStudies: ch.wordStudies || {},
+      crossRefs: ch.crossRefs || {},
+    };
+  }, []);
+
+  // Async load user data for a specific chapter — returns { highlights, notes, communityNotes } without setting global state
+  const loadUserDataForChapter = useCallback(async (bookName, chNum) => {
+    if (!user || !dbLive) return { highlights: {}, notes: {}, communityNotes: {} };
+    try {
+      const { data: rows } = await supabase.from("verses")
+        .select("id, verse_number, chapters!inner(chapter_number, books!inner(name))")
+        .eq("chapters.chapter_number", chNum)
+        .eq("chapters.books.name", bookName);
+      const idMap = {};
+      rows?.forEach(v => { idMap[v.verse_number] = v.id; });
+      if (!Object.keys(idMap).length) return { highlights: {}, notes: {}, communityNotes: {} };
+
+      const vIds = Object.values(idMap);
+      const [hlRes, ntRes, cnRes] = await Promise.all([
+        supabase.from("user_highlights").select("*").eq("user_id", user.id).in("verse_id", vIds),
+        supabase.from("user_notes").select("*").eq("user_id", user.id).in("verse_id", vIds),
+        supabase.from("user_notes").select("*").eq("is_public", true).neq("user_id", user.id).in("verse_id", vIds),
+      ]);
+      const rev = {};
+      Object.entries(idMap).forEach(([vn, id]) => { rev[id] = Number(vn); });
+      const highlights = {};
+      (hlRes.data || []).forEach(h => { const vn = rev[h.verse_id]; if (vn) highlights[vn] = h; });
+      const notes = {};
+      (ntRes.data || []).forEach(n => { const vn = rev[n.verse_id]; if (vn) notes[vn] = n; });
+      const communityNotes = {};
+      (cnRes.data || []).forEach(n => { const vn = rev[n.verse_id]; if (vn) { if (!communityNotes[vn]) communityNotes[vn] = []; communityNotes[vn].push(n); } });
+      return { highlights, notes, communityNotes };
+    } catch (e) {
+      console.error('loadUserDataForChapter error:', e);
+      return { highlights: {}, notes: {}, communityNotes: {} };
+    }
+  }, [user, dbLive]);
+
   // Synchronous per-verse lookup from chapter maps (zero network calls)
   useEffect(() => {
     if (!verse) return;
@@ -1409,7 +1464,7 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", };
+  const BACK_MAP = { "verse":"verses", "verses":"books", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", };
 
   const addToCart = (product, qty = 1, size = null) => {
     setCart(prev => {
@@ -1641,7 +1696,7 @@ export function AppProvider({ children }) {
     // Timeline handlers
     loadTimelineEras, loadAllTimelineEvents, loadTimelineEvents,
     // Navigation
-    loadChapter, goBack, nav, savePositionToSupabase, updateSectionPosition,
+    loadChapter, getChapterFromCache, loadUserDataForChapter, fetchTranslatedVerses, goBack, nav, savePositionToSupabase, updateSectionPosition,
     updateStreak,
     // Gamification
     earnedBadges, chapterReads, badgeToast, setBadgeToast,

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { useApp } from "../context/AppContext";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS, getBookName } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS, getBookName } from "../constants"; // CAT_ICONS used in Chapters view
 import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
 import Header from "../components/Header";
 import AudioPlayer from "../components/AudioPlayer";
@@ -10,7 +10,7 @@ export default function BibleView() {
   const {
     view, book, chapter, verse, setVerse, tab, setTab, loading,
     testament, fontSize, setFontSize, FS, dbChapters, collapsed, setCollapsed,
-    booksCollapsed, setBooksCollapsed, overviewOpen, setOverviewOpen,
+    overviewOpen, setOverviewOpen,
     chapterMeta, verses, wordStudies, crossRefs,
     user, userNote, savedNote, noteLoading, highlight, shareCopied, communityNotes,
     chapterHighlights, chapterNotes, chapterCommunityNotes,
@@ -22,6 +22,7 @@ export default function BibleView() {
     audioPlaying, audioVisible, setAudioPlaying, setAudioVisible,
     audioMode, audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
     listenedChapters,
+    getChapterFromCache, loadUserDataForChapter, fetchTranslatedVerses,
   } = useApp();
 
   const [showColors, setShowColors] = useState(false);
@@ -40,7 +41,6 @@ export default function BibleView() {
   // ═══ BOOKS ═══
   const Books = () => {
     const books = BIBLE_BOOKS.filter(b => b.testament === testament);
-    const cats = {}; books.forEach(b => { if (!cats[b.category]) cats[b.category] = []; cats[b.category].push(b); });
     return (
       <div style={{ minHeight:"100vh",background:ht.bg }}>
         <Header title="The Holy Scriptures" onBack={goBack} theme={ht} hidePrayer hideUser />
@@ -91,40 +91,25 @@ export default function BibleView() {
             <span>{testament === "OT" ? "📜" : "✝️"}</span> {testament === "OT" ? "Old Testament" : "New Testament"} · {books.length} Books
           </div>
 
-          {Object.entries(cats).map(([cat, catBooks]) => {
-            const ct = THEMES[CATEGORY_THEME[cat] || "home"];
-            const isOpen = booksCollapsed[cat] === true;
-            return (
-              <div key={cat} style={{ marginBottom:14 }}>
-                {/* Stone Tablet Header */}
-                <button onClick={() => setBooksCollapsed(prev => ({...prev,[cat]:!prev[cat]}))}
-                  style={{ width:"100%",display:"flex",alignItems:"center",gap:12,padding:"14px 16px",background:`linear-gradient(135deg,${ct.accentLight},${ct.card})`,border:`1px solid ${ct.accentBorder}`,borderLeft:`4px solid ${ct.accent}`,borderRadius:isOpen?"12px 12px 0 0":12,cursor:"pointer",textAlign:"left",boxShadow:`0 3px 8px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.7)`,transition:"all 0.2s" }}>
-                  <span style={{ fontSize:22,flexShrink:0 }}>{CAT_ICONS[cat]}</span>
-                  <div style={{ flex:1 }}>
-                    <div style={{ fontFamily:ct.ui,fontSize:13,fontWeight:700,color:ct.dark,textTransform:"uppercase",letterSpacing:"0.1em" }}>{cat}</div>
-                    <div style={{ fontFamily:ct.ui,fontSize:11,color:ct.muted,marginTop:2 }}>{catBooks.length} books · tap to {isOpen?"collapse":"explore"}</div>
+          {/* ── Flat Book List with Category Tags ── */}
+          <div style={{ background:ht.card, borderRadius:14, border:`1px solid ${ht.divider}`, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
+            {books.map((b, bi) => {
+              const ct = THEMES[CATEGORY_THEME[b.category] || "home"];
+              return (
+                <button key={b.name} className="pressable" onClick={() => nav("verses",{book:b.name,chapter:1})}
+                  style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<books.length-1?`1px solid ${ht.divider}`:"none",padding:"14px 16px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,transition:"background 0.15s" }}>
+                  <div style={{ flex:1,minWidth:0 }}>
+                    <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:3 }}>
+                      <span style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>{getBookName(b.name, bibleTranslation)}</span>
+                      <span style={{ fontFamily:ct.ui,fontSize:9,fontWeight:700,color:ct.accent,background:`${ct.accent}15`,borderRadius:10,padding:"2px 8px",textTransform:"uppercase",letterSpacing:"0.04em",flexShrink:0 }}>{b.category}</span>
+                    </div>
+                    <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted }}>{b.chapters} chapters · {b.original} <span style={{ fontStyle:"italic",fontSize:10 }}>· {b.meaning}</span></div>
                   </div>
-                  <span style={{ fontSize:16,color:ct.accent,transform:isOpen?"rotate(0deg)":"rotate(-90deg)",transition:"transform 0.25s",display:"inline-block",flexShrink:0 }}>▾</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={ht.light} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{flexShrink:0}}><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
-                {/* Books Drawer */}
-                {isOpen && (
-                  <div style={{ border:`1px solid rgba(180,160,120,0.3)`,borderTop:"none",borderRadius:"0 0 12px 12px",overflow:"hidden",background:ht.card,boxShadow:"0 4px 10px rgba(0,0,0,0.06)" }}>
-                    {catBooks.map((b, bi) => {
-                      return (
-                        <button key={b.name} className="pressable" onClick={() => nav("chapter",{book:b.name})} style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<catBooks.length-1?`1px dashed ${ht.divider}`:"none",padding:"12px 16px",cursor:"pointer",textAlign:"left",transition:"background 0.15s" }}>
-                          <div style={{ display:"flex",alignItems:"baseline",justifyContent:"space-between",marginBottom:3 }}>
-                            <span style={{ fontFamily:ct.heading,fontSize:13,fontWeight:700,color:ht.dark }}>{getBookName(b.name, bibleTranslation)}</span>
-                            <span style={{ fontFamily:ct.ui,fontSize:10,fontWeight:700,color:ct.accent,background:`${ct.accent}15`,borderRadius:10,padding:"2px 8px" }}>{b.chapters} ch</span>
-                          </div>
-                          <div style={{ fontFamily:"'Times New Roman',serif",fontSize:12,color:ht.light,fontStyle:"italic" }}>{b.original} <span style={{ fontFamily:ct.ui,fontStyle:"normal",fontSize:10,color:ht.muted }}>· {b.meaning}</span></div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     );
@@ -299,144 +284,273 @@ export default function BibleView() {
   // Re-enable auto-scroll when playback stops
   useEffect(() => { if (!audioPlaying) setAutoScrollEnabled(true); }, [audioPlaying]);
 
-  const VerseList = () => {
-    if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} subtitle="Loading verses..." onBack={goBack} /><Spinner t={t} /></div>;
-    if (!verses.length) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
+  // ═══ CONTINUOUS READING STATE ═══
+  const [chaptersData, setChaptersData] = useState([]);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [visibleChNum, setVisibleChNum] = useState(chapter);
+  const loadedSetRef = useRef(new Set());
+  const bottomSentinelRef = useRef(null);
+  const chapterHeaderRefs = useRef({});
+  const initBookRef = useRef(null); // track which book we initialized for
 
-    const isRead = user && chapterReads.some(r => r.book_name === book && r.chapter_number === chapter);
-    const chapterKey = `${book}-${chapter}`;
-    const bestPct = (() => { const s = user ? (quizScores[chapterKey] || []) : []; return s.length > 0 ? Math.max(...s.map(x => x.percentage)) : null; })();
-    const isLastChapter = chapter >= bookInfo.chapters;
+  // Load a chapter into the continuous reading state (from bookCache)
+  const appendChapter = useCallback(async (chNum) => {
+    if (!bookInfo || chNum < 1 || chNum > bookInfo.chapters) return;
+    if (loadedSetRef.current.has(chNum)) return;
+    loadedSetRef.current.add(chNum);
+
+    const chData = getChapterFromCache(book, chNum);
+    if (!chData) return;
+
+    let chVerses = [...chData.verses];
+    if (bibleTranslation !== "kjv") {
+      const translated = await fetchTranslatedVerses(book, chNum, bibleTranslation);
+      if (translated) chVerses = chVerses.map(v => ({ ...v, kjv_text: translated[v.verse_number] || v.kjv_text }));
+    }
+
+    const userData = await loadUserDataForChapter(book, chNum);
+
+    setChaptersData(prev => {
+      if (prev.some(c => c.chNum === chNum)) return prev;
+      return [...prev, { chNum, verses: chVerses, meta: chData.meta, ...userData }].sort((a, b) => a.chNum - b.chNum);
+    });
+  }, [book, bookInfo, bibleTranslation, getChapterFromCache, fetchTranslatedVerses, loadUserDataForChapter]);
+
+  // Initialize continuous reading when loadChapter finishes (bookCache populated)
+  useEffect(() => {
+    if (view !== "verses" || loading || !book || !chapter || !bookInfo) return;
+    // Only re-init when book changes (not on every chapter scroll)
+    if (initBookRef.current === book && loadedSetRef.current.size > 0) return;
+    initBookRef.current = book;
+    loadedSetRef.current = new Set();
+    setChaptersData([]);
+    setVisibleChNum(chapter);
+    appendChapter(chapter);
+  }, [view, loading, book, chapter, bookInfo]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Reset when translation changes (re-overlay all chapters)
+  const prevTransRef = useRef(bibleTranslation);
+  useEffect(() => {
+    if (prevTransRef.current === bibleTranslation) return;
+    prevTransRef.current = bibleTranslation;
+    if (view !== "verses" || !book) return;
+    initBookRef.current = null; // force re-init
+    loadedSetRef.current = new Set();
+    setChaptersData([]);
+    appendChapter(chapter);
+  }, [bibleTranslation]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // IntersectionObserver: load next chapter when bottom sentinel is near viewport
+  useEffect(() => {
+    if (view !== "verses" || chaptersData.length === 0) return;
+    const sentinel = bottomSentinelRef.current;
+    if (!sentinel) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        const lastCh = Math.max(...chaptersData.map(c => c.chNum));
+        if (lastCh < (bookInfo?.chapters || 0)) {
+          appendChapter(lastCh + 1);
+        }
+      }
+    }, { rootMargin: "600px" });
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [view, chaptersData, bookInfo, appendChapter]);
+
+  // IntersectionObserver: track which chapter header is visible (for dynamic title)
+  useEffect(() => {
+    if (view !== "verses" || chaptersData.length === 0) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const ch = parseInt(entry.target.dataset.chapter);
+          if (ch && !isNaN(ch)) setVisibleChNum(ch);
+        }
+      });
+    }, { rootMargin: "-20% 0px -75% 0px" });
+    const refs = chapterHeaderRefs.current;
+    Object.values(refs).forEach(el => { if (el) observer.observe(el); });
+    return () => observer.disconnect();
+  }, [view, chaptersData]);
+
+  const VerseList = () => {
+    const bookDisplayName = getBookName(book, bibleTranslation);
+    if (loading && chaptersData.length === 0) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${bookDisplayName}`} subtitle="Loading..." onBack={goBack} showFontSize hideUser hidePrayer /><Spinner t={t} /></div>;
+    if (!loading && chaptersData.length === 0) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${bookDisplayName}`} onBack={goBack} showFontSize hideUser hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
+
     const isListeningHere = audioPlaying && audioSource === "verseList";
+    const totalChapters = bookInfo?.chapters || 1;
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showFontSize hideUser hidePrayer />
+        <Header title={`${bookDisplayName} ${visibleChNum}`} onBack={goBack} showFontSize hideUser hidePrayer />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px ${audioVisible ? 160 : 100}px` }}>
 
-          {/* Chapter Illustration */}
-          {chapterMeta?.illustration_url && (
-            <div style={{marginBottom:14,borderRadius:14,overflow:"hidden",boxShadow:"0 2px 12px rgba(0,0,0,0.1)"}}>
-              <img src={chapterMeta.illustration_url} alt={`${book} ${chapter}`} style={{width:"100%",height:200,objectFit:"cover",display:"block"}} />
-            </div>
-          )}
-          <div style={{background:t.card,borderRadius:14,border:`1px solid ${t.divider}`,overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
-            {verses.map((v, vi) => {
-              const hl = chapterHighlights[v.verse_number];
-              const nt = chapterNotes[v.verse_number];
-              const cn = chapterCommunityNotes[v.verse_number];
-              const hlColor = hl?.highlight_color;
-              const isBookmarked = hl?.is_bookmarked;
-              const hasNote = !!nt;
-              const communityCount = cn?.length || 0;
-              const isLast = vi === verses.length - 1;
-              const isPlayingVerse = isListeningHere && audioCurrentVerse === v.verse_number;
-              return (
-                <button key={v.verse_number}
-                  ref={el => { verseRefs.current[v.verse_number] = el; }}
-                  onClick={() => nav("verse",{verse:v.verse_number,tab:"study"})}
+          {chaptersData.map((chEntry, ci) => {
+            const { chNum, verses: chVerses, meta: chMeta, highlights: chHL, notes: chNT, communityNotes: chCN } = chEntry;
+            const isRead = user && chapterReads.some(r => r.book_name === book && r.chapter_number === chNum);
+            const chapterKey = `${book}-${chNum}`;
+            const bestPct = (() => { const s = user ? (quizScores[chapterKey] || []) : []; return s.length > 0 ? Math.max(...s.map(x => x.percentage)) : null; })();
+
+            return (
+              <div key={chNum} style={{ marginBottom: 24 }}>
+
+                {/* ── Chapter Header Card ── */}
+                <div
+                  ref={el => { chapterHeaderRefs.current[chNum] = el; }}
+                  data-chapter={chNum}
                   style={{
-                    width:"100%",
-                    background: isPlayingVerse ? `${t.accent}10` : hlColor ? `${hlColor}08` : "transparent",
-                    borderLeft: isPlayingVerse ? `3px solid ${t.accent}` : hlColor ? `3px solid ${hlColor}` : "3px solid transparent",
-                    borderRight:"none",borderTop:"none",
-                    borderBottom:isLast ? "none" : `1px solid ${t.divider}`,
-                    padding:"14px 16px",textAlign:"left",cursor:"pointer",
-                    display:"flex",gap:12,alignItems:"flex-start",
-                    transition:"all 0.25s",position:"relative",
-                    animation: isPlayingVerse ? "verseGlow 2s ease-in-out infinite" : "none",
+                    textAlign:"center", padding:"28px 20px 20px",
+                    background: t.accentLight, border:`1px solid ${t.accentBorder}`,
+                    borderRadius: 16, marginBottom: 14,
+                    boxShadow: `0 2px 8px rgba(0,0,0,0.05)`,
                   }}>
-                  <span style={{
-                    fontFamily:t.heading,fontSize:22,fontWeight:800,color:hlColor || t.verseNum,
-                    minWidth:28,textAlign:"center",lineHeight:1.2,flexShrink:0
-                  }}>{v.verse_number}</span>
-                  <div style={{flex:1,minWidth:0}}>
-                    <div style={{fontFamily:t.body,fontSize:FS[fontSize].list,color:t.text,lineHeight:1.65,...rtlStyle}}>{v.kjv_text}</div>
+                  <div style={{ fontFamily:t.ui, fontSize:11, fontWeight:700, color:t.accent, textTransform:"uppercase", letterSpacing:"0.28em", marginBottom:6 }}>
+                    {"CHAPTER " + String(chNum).split("").join(" ")}
                   </div>
-                  {(isBookmarked || hasNote || communityCount > 0) && (
-                    <div style={{display:"flex",alignItems:"center",gap:4,flexShrink:0,alignSelf:"flex-start",marginTop:2}}>
-                      {isBookmarked && <span style={{fontSize:12,color:"#FFD700"}}>★</span>}
-                      {hasNote && <span style={{fontSize:11,color:t.muted}}>✏️</span>}
-                      {communityCount > 0 && <span style={{fontFamily:t.ui,fontSize:9,color:t.accent,fontWeight:700,background:`${t.accent}12`,borderRadius:4,padding:"1px 4px"}}>{communityCount}</span>}
+                  {chMeta?.theme && (
+                    <div style={{ fontFamily:t.heading, fontSize:16, fontWeight:600, color:t.dark, lineHeight:1.4, marginBottom:10 }}>
+                      {chMeta.theme}
                     </div>
                   )}
-                </button>
-              );
-            })}
-          </div>
+                  <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8 }}>
+                    <div style={{ width:28, height:1, background:t.accentBorder }} />
+                    <span style={{ fontSize:10, color:t.accent }}>✦</span>
+                    <div style={{ width:28, height:1, background:t.accentBorder }} />
+                  </div>
+                </div>
 
-          {/* ── Bottom action bar: dark glass with scan line ── */}
-          <div style={{marginTop:16}}>
-            <style>{`@keyframes scanLine{0%{background-position:150% 0}100%{background-position:-50% 0}}`}</style>
-            <div style={{position:"relative",display:"flex",borderRadius:14,overflow:"hidden",border:"1px solid rgba(255,255,255,0.12)",boxShadow:"0 4px 28px rgba(0,0,0,0.55)"}}>
-              {/* shimmer scan line */}
-              <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:"linear-gradient(90deg,transparent 0%,transparent 42%,rgba(255,255,255,0.18) 50%,transparent 58%,transparent 100%)",backgroundSize:"300% 100%",animation:"scanLine 2.6s linear infinite",pointerEvents:"none",zIndex:5}}/>
+                {/* ── Verses Card ── */}
+                {chVerses.length > 0 && (
+                  <div style={{background:t.card,borderRadius:14,border:`1px solid ${t.divider}`,overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
+                    {chVerses.map((v, vi) => {
+                      const hl = (chHL || {})[v.verse_number];
+                      const nt = (chNT || {})[v.verse_number];
+                      const cn = (chCN || {})[v.verse_number];
+                      const hlColor = hl?.highlight_color;
+                      const isBookmarked = hl?.is_bookmarked;
+                      const hasNote = !!nt;
+                      const communityCount = cn?.length || 0;
+                      const isLast = vi === chVerses.length - 1;
+                      const isPlayingVerse = isListeningHere && audioCurrentVerse === v.verse_number && visibleChNum === chNum;
+                      const refKey = `${chNum}-${v.verse_number}`;
+                      return (
+                        <button key={refKey}
+                          ref={el => { verseRefs.current[refKey] = el; }}
+                          onClick={() => nav("verse",{verse:v.verse_number,chapter:chNum,tab:"study"})}
+                          style={{
+                            width:"100%",
+                            background: isPlayingVerse ? `${t.accent}10` : hlColor ? `${hlColor}08` : "transparent",
+                            borderLeft: isPlayingVerse ? `3px solid ${t.accent}` : hlColor ? `3px solid ${hlColor}` : "3px solid transparent",
+                            borderRight:"none",borderTop:"none",
+                            borderBottom:isLast ? "none" : `1px solid ${t.divider}`,
+                            padding:"14px 16px",textAlign:"left",cursor:"pointer",
+                            display:"flex",gap:12,alignItems:"flex-start",
+                            transition:"all 0.25s",position:"relative",
+                            animation: isPlayingVerse ? "verseGlow 2s ease-in-out infinite" : "none",
+                          }}>
+                          <span style={{
+                            fontFamily:t.heading,fontSize:22,fontWeight:800,color:hlColor || t.verseNum,
+                            minWidth:28,textAlign:"center",lineHeight:1.2,flexShrink:0
+                          }}>{v.verse_number}</span>
+                          <div style={{flex:1,minWidth:0}}>
+                            <div style={{fontFamily:t.body,fontSize:FS[fontSize].list,color:t.text,lineHeight:1.65,...rtlStyle}}>{v.kjv_text}</div>
+                          </div>
+                          {(isBookmarked || hasNote || communityCount > 0) && (
+                            <div style={{display:"flex",alignItems:"center",gap:4,flexShrink:0,alignSelf:"flex-start",marginTop:2}}>
+                              {isBookmarked && <span style={{fontSize:12,color:"#FFD700"}}>★</span>}
+                              {hasNote && <span style={{fontSize:11,color:t.muted}}>✏️</span>}
+                              {communityCount > 0 && <span style={{fontFamily:t.ui,fontSize:9,color:t.accent,fontWeight:700,background:`${t.accent}12`,borderRadius:4,padding:"1px 4px"}}>{communityCount}</span>}
+                            </div>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
 
-              {/* ── Prev Chapter ── */}
-              <button onClick={() => chapter > 1 ? nav("verses",{book,chapter:chapter-1}) : null}
-                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:5,padding:"13px 6px",background:"linear-gradient(160deg,#0d1520,#18253a)",border:"none",cursor:chapter>1?"pointer":"default",opacity:chapter>1?1:0.32,transition:"opacity 0.2s"}}>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,letterSpacing:"0.09em",textTransform:"uppercase",color:"#fff",textShadow:"0 0 8px rgba(96,165,250,0.55)"}}>Prev</span>
-              </button>
+                {/* ── Between-Chapter Action Strip ── */}
+                <div style={{ marginTop:16, display:"flex", flexDirection:"column", gap:10 }}>
+                  {/* Mark as Read */}
+                  <button
+                    onClick={() => user ? (!isRead && markChapterRead(book, chNum)) : nav("account")}
+                    style={{
+                      width:"100%", display:"flex", alignItems:"center", justifyContent:"center", gap:8,
+                      padding:"12px 16px", borderRadius:12,
+                      background: isRead ? (darkMode ? "rgba(74,222,128,0.12)" : "rgba(74,222,128,0.08)") : (darkMode ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)"),
+                      border: `1px solid ${isRead ? "rgba(74,222,128,0.3)" : t.divider}`,
+                      cursor: isRead ? "default" : "pointer", transition:"all 0.2s",
+                    }}>
+                    {isRead
+                      ? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      : <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={t.muted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    }
+                    <span style={{ fontFamily:t.ui, fontSize:13, fontWeight:700, color: isRead ? "#4ade80" : t.muted }}>
+                      {isRead ? "Chapter Read" : "Mark as Read"}
+                    </span>
+                  </button>
 
-              <div style={{width:1,alignSelf:"stretch",background:"rgba(255,255,255,0.07)",flexShrink:0}}/>
+                  {/* Quiz Hero CTA */}
+                  <button
+                    onClick={() => nav("quiz-intro",{book,chapter:chNum})}
+                    style={{
+                      width:"100%", padding:"18px 20px", borderRadius:14,
+                      background: darkMode
+                        ? "linear-gradient(135deg, #312e81 0%, #4c1d95 50%, #581c87 100%)"
+                        : "linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #5b21b6 100%)",
+                      border:"none", cursor:"pointer",
+                      boxShadow: "0 4px 20px rgba(124,58,237,0.3)",
+                      textAlign:"left", position:"relative", overflow:"hidden",
+                    }}>
+                    {/* Shimmer overlay */}
+                    <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:"linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.08) 50%,transparent 100%)",backgroundSize:"200% 100%",animation:"scanLine 3s linear infinite",pointerEvents:"none"}} />
+                    <div style={{ position:"relative", display:"flex", alignItems:"center", gap:12 }}>
+                      <div style={{ fontSize:28, flexShrink:0 }}>🎯</div>
+                      <div style={{ flex:1 }}>
+                        <div style={{ fontFamily:t.ui, fontSize:10, fontWeight:700, color:"rgba(255,255,255,0.7)", textTransform:"uppercase", letterSpacing:"0.14em", marginBottom:3 }}>
+                          TEST YOUR KNOWLEDGE
+                        </div>
+                        <div style={{ fontFamily:t.heading, fontSize:15, fontWeight:700, color:"#fff" }}>
+                          Take the Chapter {chNum} Quiz
+                        </div>
+                      </div>
+                      {bestPct !== null && (
+                        <div style={{ padding:"4px 10px", borderRadius:8, background:bestPct >= 70 ? "rgba(74,222,128,0.25)" : "rgba(248,113,113,0.25)", flexShrink:0 }}>
+                          <span style={{ fontFamily:t.ui, fontSize:12, fontWeight:700, color:bestPct >= 70 ? "#4ade80" : "#f87171" }}>{bestPct}%</span>
+                        </div>
+                      )}
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{flexShrink:0}}><polyline points="9 18 15 12 9 6"/></svg>
+                    </div>
+                  </button>
+                </div>
 
-              {/* ── Mark Read ── */}
-              <button onClick={() => user ? (!isRead && markChapterRead(book, chapter)) : nav("account")}
-                style={{flex:1.2,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"13px 8px",background:isRead?"linear-gradient(160deg,#0a2518,#0f3d25)":"linear-gradient(160deg,#071612,#0d2218)",border:"none",cursor:isRead?"default":"pointer",transition:"background 0.3s"}}>
-                {isRead
-                  ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  : <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                }
-                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,letterSpacing:"0.08em",textTransform:"uppercase",color:isRead?"#4ade80":"#fff",textShadow:isRead?"0 0 10px rgba(74,222,128,0.7)":"0 0 8px rgba(74,222,128,0.3)"}}>{isRead?"✓ Read":"Mark Read"}</span>
-              </button>
+              </div>
+            );
+          })}
 
-              <div style={{width:1,alignSelf:"stretch",background:"rgba(255,255,255,0.07)",flexShrink:0}}/>
+          {/* ── Bottom Sentinel (triggers next chapter load) ── */}
+          <div ref={bottomSentinelRef} style={{ height:1 }} />
 
-              {/* ── Listen ── */}
-              <button onClick={() => {
-                if (isListeningHere) { setAudioPlaying(false); } else {
-                  setAudioSource("verseList");
-                  setAudioVisible(true);
-                  setAudioPlaying(true);
-                }
-              }}
-                style={{flex:1.1,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"13px 8px",
-                  background:isListeningHere ? "linear-gradient(160deg,#1a1002,#2a1a00)" : "linear-gradient(160deg,#0d1218,#1a2230)",
-                  border:"none",cursor:"pointer"}}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                  {isListeningHere && <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>}
-                </svg>
-                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,letterSpacing:"0.08em",textTransform:"uppercase",
-                  color:isListeningHere ? "#f59e0b" : "#fff",
-                  textShadow:`0 0 8px rgba(245,158,11,${isListeningHere?0.7:0.3})`}}>
-                  {isListeningHere ? "Listening" : "Listen"}
-                </span>
-              </button>
-
-              <div style={{width:1,alignSelf:"stretch",background:"rgba(255,255,255,0.07)",flexShrink:0}}/>
-
-              {/* ── Take Quiz ── */}
-              <button onClick={() => nav("quiz-intro",{book,chapter})}
-                style={{flex:1.2,display:"flex",alignItems:"center",justifyContent:"center",gap:6,padding:"13px 8px",background:"linear-gradient(160deg,#0d0820,#1a1040)",border:"none",cursor:"pointer"}}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,letterSpacing:"0.08em",textTransform:"uppercase",color:"#fff",textShadow:"0 0 8px rgba(167,139,250,0.6)"}}>Quiz</span>
-                {bestPct !== null && <span style={{fontSize:8,padding:"1px 4px",borderRadius:3,background:bestPct>=70?"rgba(74,222,128,0.22)":"rgba(248,113,113,0.2)",color:bestPct>=70?"#4ade80":"#f87171",fontFamily:"system-ui",fontWeight:700,marginLeft:1}}>{bestPct}%</span>}
-              </button>
-
-              <div style={{width:1,alignSelf:"stretch",background:"rgba(255,255,255,0.07)",flexShrink:0}}/>
-
-              {/* ── Next Chapter ── */}
-              <button onClick={() => isLastChapter ? nav("chapter",{book}) : nav("verses",{book,chapter:chapter+1})}
-                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:5,padding:"13px 6px",background:"linear-gradient(160deg,#1a1002,#2a1a00)",border:"none",cursor:"pointer"}}>
-                <span style={{fontFamily:"system-ui",fontSize:9,fontWeight:700,letterSpacing:"0.09em",textTransform:"uppercase",color:"#d4a853",textShadow:"0 0 10px rgba(212,168,83,0.7)"}}>{isLastChapter?"Chaps":"Next"}</span>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a853" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-
+          {/* ── Loading More Indicator ── */}
+          {(loadingMore || chaptersData.length > 0 && chaptersData[chaptersData.length - 1].chNum < totalChapters) && (
+            <div style={{ textAlign:"center", padding:"20px 0" }}>
+              <Spinner t={t} />
+              <div style={{ fontFamily:t.ui, fontSize:11, color:t.muted, marginTop:6 }}>Loading next chapter...</div>
             </div>
-          </div>
+          )}
+
+          {/* ── End of Book ── */}
+          {chaptersData.length > 0 && chaptersData[chaptersData.length - 1].chNum >= totalChapters && (
+            <div style={{ textAlign:"center", padding:"32px 20px", margin:"8px 0" }}>
+              <div style={{ fontSize:32, marginBottom:8 }}>📖</div>
+              <div style={{ fontFamily:t.heading, fontSize:16, fontWeight:700, color:t.dark, marginBottom:4 }}>
+                End of {bookDisplayName}
+              </div>
+              <div style={{ fontFamily:t.ui, fontSize:12, color:t.muted }}>
+                {totalChapters} chapters · You made it!
+              </div>
+            </div>
+          )}
 
           {/* Back to playing FAB */}
           {isListeningHere && !autoScrollEnabled && (

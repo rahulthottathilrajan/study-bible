@@ -234,6 +234,21 @@ function ProductImg({ product, size = "full", accent }) {
       />
     );
   }
+  // Branded "Coming Soon" placeholder
+  if (product.status === "coming-soon") {
+    const labelSize = size === "small" ? 8 : size === "medium" ? 9 : 11;
+    const iconSize = size === "small" ? 24 : size === "medium" ? 32 : 40;
+    return (
+      <div style={{ width: "100%", height: "100%", background: "#2D1052", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: size === "small" ? 4 : 8 }}>
+        <svg width={iconSize} height={iconSize} viewBox="0 0 40 40" fill="none">
+          <path d="M20 4L20 36M12 20L28 20" stroke="rgba(212,168,83,0.3)" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M8 8C8 8 14 12 20 12C26 12 32 8 32 8" stroke="rgba(212,168,83,0.3)" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M8 32C8 32 14 28 20 28C26 28 32 32 32 32" stroke="rgba(212,168,83,0.3)" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <span style={{ fontFamily: "system-ui, sans-serif", fontSize: labelSize, fontWeight: 700, color: "#D4A853", letterSpacing: "0.08em", textTransform: "uppercase" }}>Coming Soon</span>
+      </div>
+    );
+  }
   const bg = product.colorBg || (accent ? `${accent}10` : "rgba(91,45,142,0.06)");
   const emojiSize = size === "small" ? 26 : size === "medium" ? 38 : 54;
   return (
@@ -322,7 +337,10 @@ function ProductCard({ p, t, nav, wishlist, toggleWishlist, onQuickAdd, addedIds
           <div style={{ fontFamily: t.ui, fontSize: 12, fontWeight: 700, color: t.dark, lineHeight: 1.3, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.name}</div>
           <div style={{ fontFamily: t.ui, fontSize: 10, color: t.muted, lineHeight: 1.3 }}>{p.tagline}</div>
           {p.rating && <StarRating rating={p.rating} count={p.rating_count} t={t} />}
-          <div style={{ marginTop: "auto", paddingTop: 6 }}>
+          <div style={{ marginTop: "auto", paddingTop: 6, display: "flex", alignItems: "baseline", gap: 5 }}>
+            {p.price_original_usd && (
+              <span style={{ fontFamily: t.ui, fontSize: 11, fontWeight: 500, color: t.muted, textDecoration: "line-through" }}>${p.price_original_usd.toFixed(2)}</span>
+            )}
             <span style={{ fontFamily: t.ui, fontSize: 15, fontWeight: 800, color: purple }}>${p.price_usd.toFixed(2)}</span>
           </div>
         </div>
@@ -349,7 +367,10 @@ function HorizontalProductStrip({ products, t, nav, label }) {
             </div>
             <div style={{ padding: "7px 9px 9px" }}>
               <div style={{ fontFamily: t.ui, fontSize: 11, fontWeight: 700, color: t.dark, lineHeight: 1.3, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.name}</div>
-              <div style={{ fontFamily: t.ui, fontSize: 12, fontWeight: 800, color: "#5B2D8E", marginTop: 3 }}>${p.price_usd.toFixed(2)}</div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginTop: 3 }}>
+                {p.price_original_usd && <span style={{ fontFamily: t.ui, fontSize: 9, color: t.muted, textDecoration: "line-through" }}>${p.price_original_usd.toFixed(2)}</span>}
+                <span style={{ fontFamily: t.ui, fontSize: 12, fontWeight: 800, color: "#5B2D8E" }}>${p.price_usd.toFixed(2)}</span>
+              </div>
             </div>
           </button>
         ))}
@@ -526,6 +547,40 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart, wishlist, toggleWi
               </div>
             </div>
           )}
+
+          {/* ── How It Works ── */}
+          <div style={{ marginTop: 20, marginBottom: 0 }}>
+            <SectionLabel t={t} label="How It Works" />
+            <div style={{ background: t.card, border: "1.5px solid rgba(212,168,83,0.35)", borderRadius: 16, padding: "18px 14px" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {/* Step 1 */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, flex: 1 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(212,168,83,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 22, lineHeight: 1 }}>🛍️</span>
+                  </div>
+                  <span style={{ fontFamily: t.ui, fontSize: 11, fontWeight: 700, color: "#5B2D8E", textAlign: "center", lineHeight: 1.2 }}>Browse &amp; Save</span>
+                </div>
+                {/* Arrow 1 */}
+                <span style={{ fontSize: 16, color: "#D4A853", fontWeight: 700, flexShrink: 0, marginTop: -14 }}>›</span>
+                {/* Step 2 */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, flex: 1 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(212,168,83,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 22, lineHeight: 1 }}>🛒</span>
+                  </div>
+                  <span style={{ fontFamily: t.ui, fontSize: 11, fontWeight: 700, color: "#5B2D8E", textAlign: "center", lineHeight: 1.2 }}>Add to Cart</span>
+                </div>
+                {/* Arrow 2 */}
+                <span style={{ fontSize: 16, color: "#D4A853", fontWeight: 700, flexShrink: 0, marginTop: -14 }}>›</span>
+                {/* Step 3 */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, flex: 1 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(212,168,83,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 22, lineHeight: 1 }}>✉️</span>
+                  </div>
+                  <span style={{ fontFamily: t.ui, fontSize: 11, fontWeight: 700, color: "#5B2D8E", textAlign: "center", lineHeight: 1.2 }}>Order Confirmed</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* ── Search Bar ── */}
           <SearchBar value={searchQuery} onChange={setSearchQuery} t={t} />
@@ -889,6 +944,7 @@ function ShopProduct({ catalogue, shopProduct: shopProductId, t, nav, goBack, bp
   const [activeTab, setActiveTab] = useState("description");
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [notifyToast, setNotifyToast] = useState(false);
+  const [addedIds, setAddedIds] = useState({});
   const product = catalogue.products.find(p => p.id === shopProductId);
   if (!product) { goBack(); return null; }
 
@@ -911,6 +967,17 @@ function ShopProduct({ catalogue, shopProduct: shopProductId, t, nav, goBack, bp
     setAdded(true);
     setTimeout(() => { nav("shop-cart"); }, 600);
   };
+
+  const handleQuickAdd = (p) => {
+    if (p.status === "coming-soon") return;
+    addToCart(p, 1, null);
+    setAddedIds(prev => ({ ...prev, [p.id]: true }));
+    setTimeout(() => setAddedIds(prev => ({ ...prev, [p.id]: false })), 1200);
+  };
+
+  // Similar items: same category, exclude current product. Fall back to all products if < 2 in category.
+  const sameCat = catalogue.products.filter(p => p.id !== product.id && p.category_id === product.category_id);
+  const similarItems = sameCat.length >= 2 ? sameCat : catalogue.products.filter(p => p.id !== product.id);
 
   const handleToggleNotify = () => {
     toggleNotify(product.id);
@@ -981,7 +1048,10 @@ function ShopProduct({ catalogue, shopProduct: shopProductId, t, nav, goBack, bp
           )}
 
           <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 20 }}>
-            <span style={{ fontFamily: t.heading, fontSize: 28, fontWeight: 800, color: t.dark }}>${product.price_usd.toFixed(2)}</span>
+            {product.price_original_usd && (
+              <span style={{ fontFamily: t.ui, fontSize: 16, fontWeight: 500, color: t.muted, textDecoration: "line-through" }}>${product.price_original_usd.toFixed(2)}</span>
+            )}
+            <span style={{ fontFamily: t.heading, fontSize: 28, fontWeight: 800, color: "#5B2D8E" }}>${product.price_usd.toFixed(2)}</span>
             <span style={{ fontFamily: t.ui, fontSize: 12, color: t.muted }}>USD</span>
             {product.fulfillment === "digital" && (
               <span style={{ fontFamily: t.ui, fontSize: 11, fontWeight: 600, color: "#059669", background: "rgba(16,185,129,0.1)", padding: "3px 10px", borderRadius: 20 }}>Instant download</span>
@@ -1073,6 +1143,20 @@ function ShopProduct({ catalogue, shopProduct: shopProductId, t, nav, goBack, bp
               </div>
             )}
           </div>
+
+          {/* ── You May Also Like ── */}
+          {similarItems.length > 0 && (
+            <div style={{ marginBottom: 20 }}>
+              <SectionLabel t={t} label="You May Also Like" />
+              <div className="shop-scroll-hide" style={{ display: "flex", gap: 12, overflowX: "auto", paddingBottom: 4 }}>
+                {similarItems.map(p => (
+                  <div key={p.id} style={{ flexShrink: 0, width: 170 }}>
+                    <ProductCard p={p} t={t} nav={nav} wishlist={wishlist} toggleWishlist={toggleWishlist} onQuickAdd={handleQuickAdd} addedIds={addedIds} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
         </div>
       </div>
