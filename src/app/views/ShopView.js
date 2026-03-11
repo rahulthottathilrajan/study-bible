@@ -572,11 +572,16 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart, wishlist, toggleWi
 
 // ── SHOP CATEGORY ─────────────────────────────────────────────────────────────
 function ShopCategory({ catalogue, shopCategory, t, nav, goBack, bp, addToCart, wishlist, toggleWishlist }) {
+  const { darkMode } = useApp();
   const cat = catalogue.categories.find(c => c.id === shopCategory);
   const allProducts = catalogue.products.filter(p => p.category_id === shopCategory);
   const [sort, setSort] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
+  const [subFilter, setSubFilter] = useState("all");
   const [addedIds, setAddedIds] = useState({});
+
+  // Reset sub-filter when category changes
+  useEffect(() => { setSubFilter("all"); }, [shopCategory]);
 
   if (!cat) { goBack(); return null; }
 
@@ -587,9 +592,20 @@ function ShopCategory({ catalogue, shopCategory, t, nav, goBack, bp, addToCart, 
     setTimeout(() => setAddedIds(prev => ({ ...prev, [p.id]: false })), 1200);
   };
 
-  let sorted = statusFilter !== "all"
-    ? allProducts.filter(p => p.status === statusFilter)
-    : allProducts;
+  // Build subcategories from products
+  const subcategories = [];
+  const seenSubs = new Set();
+  allProducts.forEach(p => {
+    if (p.subcategory && !seenSubs.has(p.subcategory)) {
+      seenSubs.add(p.subcategory);
+      subcategories.push({ name: p.subcategory, emoji: p.emoji, colorBg: p.colorBg });
+    }
+  });
+
+  // Apply filters
+  let sorted = allProducts;
+  if (subFilter !== "all") sorted = sorted.filter(p => p.subcategory === subFilter);
+  if (statusFilter !== "all") sorted = sorted.filter(p => p.status === statusFilter);
   if (sort === "price-asc") sorted = [...sorted].sort((a, b) => a.price_usd - b.price_usd);
   if (sort === "price-desc") sorted = [...sorted].sort((a, b) => b.price_usd - a.price_usd);
 
@@ -604,71 +620,178 @@ function ShopCategory({ catalogue, shopCategory, t, nav, goBack, bp, addToCart, 
     { id: "coming-soon", label: "Coming Soon" },
   ];
 
+  const purple = "#5B2D8E";
+  const gold = "#D4A853";
+  const railBg = darkMode ? t.card : "#FAF6F0";
+
   return (
-    <div style={{ minHeight: "100vh", background: t.bg, paddingBottom: 40 }}>
+    <div style={{ minHeight: "100vh", background: t.bg }}>
       <ShopHeader title={cat.name} subtitle={cat.tag} onBack={goBack} t={t} />
 
-      <div style={{ position: "sticky", top: 0, zIndex: 10, background: t.bg, borderBottom: `1px solid ${t.divider}`, padding: `10px ${bp.pad}px` }}>
-        <div style={{ maxWidth: bp.content, margin: "0 auto" }}>
-          <div style={{ display: "flex", gap: 6, alignItems: "center", marginBottom: 7 }}>
-            <span style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 600, color: t.muted, minWidth: 28 }}>Sort</span>
-            {sortOptions.map(o => (
+      <div style={{ display: "flex" }}>
+        {/* ── Left-rail category navigator ── */}
+        <div style={{
+          width: 72, flexShrink: 0,
+          position: "sticky", top: 44, alignSelf: "flex-start",
+          height: "calc(100vh - 44px)",
+          background: railBg,
+          borderRight: `1px solid ${t.divider}`,
+          display: "flex", flexDirection: "column",
+          paddingTop: 12, gap: 2,
+          overflowY: "auto",
+        }}>
+          {catalogue.categories.map(c => {
+            const isActive = c.id === shopCategory;
+            return (
               <button
-                key={o.id}
-                onClick={() => setSort(o.id)}
+                key={c.id}
+                onClick={() => nav("shop-category", { shopCategory: c.id })}
                 style={{
-                  padding: "5px 12px", borderRadius: 20,
-                  background: sort === o.id ? t.accent : "transparent",
-                  color: sort === o.id ? "#fff" : t.muted,
-                  border: sort === o.id ? "none" : `1px solid ${t.divider}`,
-                  fontFamily: t.ui, fontSize: 11, fontWeight: 600,
-                  cursor: "pointer", transition: "all 0.15s",
+                  display: "flex", flexDirection: "column", alignItems: "center",
+                  gap: 3, padding: "10px 4px",
+                  background: "none", border: "none", cursor: "pointer",
+                  borderLeft: isActive ? `3px solid ${purple}` : "3px solid transparent",
+                  transition: "all 0.15s",
                 }}
               >
-                {o.label}
+                <span style={{ fontSize: 28, lineHeight: 1 }}>{c.emoji || "🛍"}</span>
+                <span style={{
+                  fontFamily: t.ui, fontSize: 9, fontWeight: isActive ? 700 : 500,
+                  color: isActive ? purple : t.muted,
+                  lineHeight: 1.1, textAlign: "center",
+                  maxWidth: 60, overflow: "hidden", textOverflow: "ellipsis",
+                }}>
+                  {c.name.length > 10 ? c.name.split(" ")[0] : c.name}
+                </span>
               </button>
-            ))}
-            <span style={{ marginLeft: "auto", fontFamily: t.ui, fontSize: 11, color: t.muted }}>{sorted.length} items</span>
-          </div>
-          <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-            <span style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 600, color: t.muted, minWidth: 28 }}>Show</span>
-            {statusOptions.map(o => (
-              <button
-                key={o.id}
-                onClick={() => setStatusFilter(o.id)}
-                style={{
-                  padding: "5px 12px", borderRadius: 20,
-                  background: statusFilter === o.id ? "#5B2D8E" : "transparent",
-                  color: statusFilter === o.id ? "#fff" : t.muted,
-                  border: statusFilter === o.id ? "none" : `1px solid ${t.divider}`,
-                  fontFamily: t.ui, fontSize: 11, fontWeight: 600,
-                  cursor: "pointer", transition: "all 0.15s",
-                }}
-              >
-                {o.label}
-              </button>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </div>
 
-      <div style={{ padding: `16px ${bp.pad}px 40px` }}>
-        <div style={{ maxWidth: bp.content, margin: "0 auto" }}>
-          <div style={{ fontFamily: t.ui, fontSize: 12, color: t.muted, marginBottom: 18, lineHeight: 1.6 }}>{cat.description}</div>
+        {/* ── Main content ── */}
+        <div style={{ flex: 1, minWidth: 0, paddingBottom: 40 }}>
 
-          {sorted.length === 0 ? (
-            <div style={{ textAlign: "center", padding: "60px 20px" }}>
-              <div style={{ fontSize: 40, marginBottom: 12 }}>🛍</div>
-              <div style={{ fontFamily: t.heading, fontSize: 16, fontWeight: 700, color: t.dark, marginBottom: 6 }}>No products match this filter</div>
-              <div style={{ fontFamily: t.ui, fontSize: 13, color: t.muted }}>Try a different filter or check back soon.</div>
+          {/* ── Category header banner ── */}
+          <div style={{
+            background: "linear-gradient(145deg, #2D1052 0%, #5B2D8E 60%, #7C3AED 100%)",
+            padding: "18px 16px",
+            borderBottomLeftRadius: 20, borderBottomRightRadius: 20,
+            minHeight: 130, display: "flex", flexDirection: "column", justifyContent: "center",
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <span style={{ fontSize: 48, lineHeight: 1, flexShrink: 0 }}>{cat.emoji || "🛍"}</span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 22, fontWeight: 800, color: gold, marginBottom: 6, lineHeight: 1.15 }}>{cat.name}</div>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  <span style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 600, color: "#fff", background: "rgba(255,255,255,0.15)", padding: "2px 8px", borderRadius: 20 }}>{cat.tag}</span>
+                  <span style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 600, color: "#fff", background: "rgba(255,255,255,0.15)", padding: "2px 8px", borderRadius: 20 }}>{allProducts.length} item{allProducts.length !== 1 ? "s" : ""}</span>
+                </div>
+              </div>
             </div>
-          ) : (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-              {sorted.map(p => (
-                <ProductCard key={p.id} p={p} t={t} nav={nav} wishlist={wishlist} toggleWishlist={toggleWishlist} onQuickAdd={handleQuickAdd} addedIds={addedIds} />
-              ))}
+            <div style={{ fontFamily: t.ui, fontSize: 11, color: "rgba(255,255,255,0.6)", marginTop: 10, lineHeight: 1.4 }}>{cat.description}</div>
+          </div>
+
+          {/* ── Sub-category circular grid ── */}
+          {subcategories.length > 0 && (
+            <div style={{ padding: "16px 12px 8px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10, justifyItems: "center" }}>
+                {/* "All" pill */}
+                <button
+                  onClick={() => setSubFilter("all")}
+                  style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", padding: 4 }}
+                >
+                  <div style={{
+                    width: 80, height: 80, borderRadius: "50%",
+                    background: subFilter === "all" ? `${purple}18` : `${t.muted}0A`,
+                    border: subFilter === "all" ? `2px solid ${purple}` : `2px solid transparent`,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    transition: "all 0.15s",
+                  }}>
+                    <span style={{ fontSize: 28 }}>✦</span>
+                  </div>
+                  <span style={{ fontFamily: t.ui, fontSize: 10, fontWeight: subFilter === "all" ? 700 : 500, color: subFilter === "all" ? purple : t.muted }}>All</span>
+                </button>
+                {subcategories.map(sub => (
+                  <button
+                    key={sub.name}
+                    onClick={() => setSubFilter(sub.name)}
+                    style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", padding: 4 }}
+                  >
+                    <div style={{
+                      width: 80, height: 80, borderRadius: "50%",
+                      background: subFilter === sub.name ? `${purple}18` : (sub.colorBg || `${t.muted}0A`),
+                      border: subFilter === sub.name ? `2px solid ${purple}` : `2px solid transparent`,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      transition: "all 0.15s",
+                    }}>
+                      <span style={{ fontSize: 28 }}>{sub.emoji}</span>
+                    </div>
+                    <span style={{ fontFamily: t.ui, fontSize: 10, fontWeight: subFilter === sub.name ? 700 : 500, color: subFilter === sub.name ? purple : t.muted }}>{sub.name}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           )}
+
+          {/* ── Sort / filter bar ── */}
+          <div style={{ position: "sticky", top: 0, zIndex: 9, background: t.bg, borderBottom: `1px solid ${t.divider}`, padding: "10px 12px" }}>
+            <div style={{ display: "flex", gap: 6, alignItems: "center", marginBottom: 7 }}>
+              <span style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 600, color: t.muted, minWidth: 28 }}>Sort</span>
+              {sortOptions.map(o => (
+                <button
+                  key={o.id}
+                  onClick={() => setSort(o.id)}
+                  style={{
+                    padding: "5px 12px", borderRadius: 20,
+                    background: sort === o.id ? t.accent : "transparent",
+                    color: sort === o.id ? "#fff" : t.muted,
+                    border: sort === o.id ? "none" : `1px solid ${t.divider}`,
+                    fontFamily: t.ui, fontSize: 11, fontWeight: 600,
+                    cursor: "pointer", transition: "all 0.15s",
+                  }}
+                >
+                  {o.label}
+                </button>
+              ))}
+              <span style={{ marginLeft: "auto", fontFamily: t.ui, fontSize: 11, color: t.muted }}>{sorted.length} items</span>
+            </div>
+            <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+              <span style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 600, color: t.muted, minWidth: 28 }}>Show</span>
+              {statusOptions.map(o => (
+                <button
+                  key={o.id}
+                  onClick={() => setStatusFilter(o.id)}
+                  style={{
+                    padding: "5px 12px", borderRadius: 20,
+                    background: statusFilter === o.id ? purple : "transparent",
+                    color: statusFilter === o.id ? "#fff" : t.muted,
+                    border: statusFilter === o.id ? "none" : `1px solid ${t.divider}`,
+                    fontFamily: t.ui, fontSize: 11, fontWeight: 600,
+                    cursor: "pointer", transition: "all 0.15s",
+                  }}
+                >
+                  {o.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Product grid ── */}
+          <div style={{ padding: "16px 12px" }}>
+            {sorted.length === 0 ? (
+              <div style={{ textAlign: "center", padding: "60px 20px" }}>
+                <div style={{ fontSize: 40, marginBottom: 12 }}>🛍</div>
+                <div style={{ fontFamily: t.heading, fontSize: 16, fontWeight: 700, color: t.dark, marginBottom: 6 }}>No products match this filter</div>
+                <div style={{ fontFamily: t.ui, fontSize: 13, color: t.muted }}>Try a different filter or check back soon.</div>
+              </div>
+            ) : (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                {sorted.map(p => (
+                  <ProductCard key={p.id} p={p} t={t} nav={nav} wishlist={wishlist} toggleWishlist={toggleWishlist} onQuickAdd={handleQuickAdd} addedIds={addedIds} />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
