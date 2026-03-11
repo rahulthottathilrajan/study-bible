@@ -28,6 +28,7 @@ export default function BibleView() {
   const currentTransDef = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
   const isRtl = currentTransDef?.rtl || false;
   const rtlStyle = isRtl ? { direction: "rtl", textAlign: "right" } : {};
+  const isEnglishTrans = bibleTranslation === "kjv" || bibleTranslation === "bsb";
 
   // Reset color picker when verse changes
   useEffect(() => { setShowColors(false); }, [verse]);
@@ -268,7 +269,6 @@ export default function BibleView() {
   };
 
   // ═══ VERSE LIST ═══
-  const isEnglishTrans = bibleTranslation === "kjv" || bibleTranslation === "bsb";
   // Auto-scroll refs for VerseList audio playback
   const verseRefs = useRef({});
   const [autoScrollEnabled, setAutoScrollEnabled] = useState(true);
