@@ -29,30 +29,35 @@ export async function POST(request) {
     quantity: item.qty,
   }));
 
-  const session = await stripe.checkout.sessions.create({
-    payment_method_types: ['card'],
-    mode: 'payment',
-    line_items,
-    customer_email: userEmail || undefined,
-    success_url: `${process.env.NEXT_PUBLIC_SITE_URL}?shop_order=success&session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}?shop_order=cancelled`,
-    metadata: {
-      type: 'shop_order',
-      userId,
-      cart: JSON.stringify(
-        cart.map(i => ({
-          id: i.product.id,
-          name: i.product.name,
-          qty: i.qty,
-          size: i.size || null,
-          price: i.product.price_usd,
-        }))
-      ),
-    },
-    shipping_address_collection: {
-      allowed_countries: ['AE', 'IN', 'GB', 'US', 'AU', 'CA', 'SG', 'DE', 'FR', 'NL', 'NZ'],
-    },
-  });
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      line_items,
+      customer_email: userEmail || undefined,
+      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}?shop_order=success&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}?shop_order=cancelled`,
+      metadata: {
+        type: 'shop_order',
+        userId,
+        cart: JSON.stringify(
+          cart.map(i => ({
+            id: i.product.id,
+            name: i.product.name,
+            qty: i.qty,
+            size: i.size || null,
+            price: i.product.price_usd,
+          }))
+        ),
+      },
+      shipping_address_collection: {
+        allowed_countries: ['AE', 'IN', 'GB', 'US', 'AU', 'CA', 'SG', 'DE', 'FR', 'NL', 'NZ'],
+      },
+    });
 
-  return Response.json({ url: session.url });
+    return Response.json({ url: session.url });
+  } catch (error) {
+    console.error('Shop checkout error:', error);
+    return Response.json({ error: error.message }, { status: 500 });
+  }
 }
