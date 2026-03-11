@@ -6,6 +6,8 @@ const PRICES = {
   lifetime: process.env.STRIPE_PRICE_LIFETIME,
 };
 
+const VALID_PLANS = ['monthly', 'yearly', 'lifetime'];
+
 export async function POST(request) {
   const Stripe = (await import('stripe')).default;
   const { createClient } = await import('@supabase/supabase-js');
@@ -16,17 +18,37 @@ export async function POST(request) {
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
+  // ── Verify auth token — never trust userId from request body ──
+  const authHeader = request.headers.get('authorization');
+  const token = authHeader?.split(' ')[1];
+  if (!token) {
+    return Response.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(token);
+  if (authError || !user) {
+    return Response.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  const userId = user.id;
+  const email = user.email;
+
+  let body;
   try {
-    const { plan, userId, email } = await request.json();
+    body = await request.json();
+  } catch {
+    return Response.json({ error: 'Invalid request body' }, { status: 400 });
+  }
 
-    if (!plan || !userId || !email) {
-      return Response.json({ error: 'Missing required fields' }, { status: 400 });
-    }
+  const { plan } = body;
 
-    if (!PRICES[plan]) {
-      return Response.json({ error: 'Invalid plan' }, { status: 400 });
-    }
+  if (!plan || !VALID_PLANS.includes(plan)) {
+    return Response.json({ error: 'Invalid plan' }, { status: 400 });
+  }
 
+  if (!PRICES[plan]) {
+    return Response.json({ error: 'Plan not configured' }, { status: 400 });
+  }
+
+  try {
     const { data: sub } = await supabaseAdmin
       .from('subscriptions')
       .select('stripe_customer_id')
@@ -66,7 +88,7 @@ export async function POST(request) {
 
     return Response.json({ url: session.url });
   } catch (error) {
-    console.error('Stripe checkout error:', error);
-    return Response.json({ error: error.message }, { status: 500 });
+    console.error('[checkout] Error:', error);
+    return Response.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
   }
 }

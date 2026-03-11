@@ -61,8 +61,11 @@ export default function DonateModal() {
         body: JSON.stringify({ amount, label, currency: currency.toLowerCase() }),
       });
       const data = await res.json();
-      if (data.url) { window.location.href = data.url; }
-      else { setError(data.error || "Something went wrong. Please try again."); setLoadingTier(null); }
+      if (data.url && data.url.startsWith("https://checkout.stripe.com")) {
+        window.location.href = data.url;
+      } else if (data.url) {
+        setError("Invalid redirect. Please try again."); setLoadingTier(null);
+      } else { setError(data.error || "Something went wrong. Please try again."); setLoadingTier(null); }
     } catch {
       setError("Network error. Please try again.");
       setLoadingTier(null);

@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useApp } from "../context/AppContext";
 import { BackIcon } from "../components/ui";
+import { supabase } from "../../lib/supabase";
 
 // ── Category icons ─────────────────────────────────────────────────────────────
 function ShirtIcon({ color, size = 28 }) {
@@ -181,40 +182,42 @@ function ComingSoonBadge({ small }) {
   );
 }
 
-function QuickAddBtn({ t, onClick, disabled, added }) {
+const BADGE_CONFIGS = {
+  new:         { label: "New ✨",       bg: "#D4A853", color: "#fff" },
+  featured:    { label: "Featured 🔥",  bg: "#7C3AED", color: "#fff" },
+  best_seller: { label: "Best Seller",  bg: "#D97706", color: "#fff" },
+};
+
+function BadgePill({ badge }) {
+  const cfg = BADGE_CONFIGS[badge];
+  if (!cfg) return null;
   return (
-    <button
-      onClick={e => { e.stopPropagation(); onClick(); }}
-      disabled={disabled}
-      style={{
-        width: 30, height: 30, borderRadius: 8,
-        background: added ? "#059669" : t.accent,
-        border: "none", color: "#fff",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        cursor: disabled ? "default" : "pointer",
-        fontSize: 18, fontWeight: 700, lineHeight: 1,
-        transition: "all 0.2s",
-        opacity: disabled ? 0.5 : 1,
-        flexShrink: 0,
-      }}
-    >
-      {added ? "✓" : "+"}
-    </button>
+    <div style={{
+      position: "absolute", top: 8, left: 8, zIndex: 2,
+      background: cfg.bg, color: cfg.color,
+      fontFamily: "system-ui, sans-serif", fontSize: 9, fontWeight: 700,
+      letterSpacing: "0.04em", padding: "3px 8px", borderRadius: 20,
+      boxShadow: "0 1px 4px rgba(0,0,0,0.22)",
+      whiteSpace: "nowrap",
+    }}>
+      {cfg.label}
+    </div>
   );
 }
 
+
 function SectionLabel({ t, label, action, onAction }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-        <div style={{ width: 3, height: 16, borderRadius: 2, background: t.accent }} />
-        <span style={{ fontFamily: t.heading, fontSize: 16, fontWeight: 700, color: t.dark }}>{label}</span>
+    <div style={{ marginBottom: 14 }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+        <span style={{ fontFamily: t.heading, fontSize: 13, fontWeight: 700, color: "#5B2D8E" }}>{label}</span>
+        {action && (
+          <button onClick={onAction} style={{ background: "none", border: "none", fontFamily: t.ui, fontSize: 12, fontWeight: 600, color: t.accent, cursor: "pointer", display: "flex", alignItems: "center", gap: 2 }}>
+            {action} <ChevRightIcon color={t.accent} size={12} />
+          </button>
+        )}
       </div>
-      {action && (
-        <button onClick={onAction} style={{ background: "none", border: "none", fontFamily: t.ui, fontSize: 12, fontWeight: 600, color: t.accent, cursor: "pointer", display: "flex", alignItems: "center", gap: 2 }}>
-          {action} <ChevRightIcon color={t.accent} size={12} />
-        </button>
-      )}
+      <div style={{ height: 2, borderRadius: 1, ...GOLD_BORDER }} />
     </div>
   );
 }
@@ -286,25 +289,41 @@ function ProductCard({ p, t, nav, wishlist, toggleWishlist, onQuickAdd, addedIds
       >
         <div style={{ width: "100%", aspectRatio: "4/3", position: "relative", overflow: "hidden" }}>
           <ProductImg product={p} accent={t.accent} />
-          {isComingSoon && (
+          {isComingSoon ? (
             <div style={{ position: "absolute", top: 8, left: 8 }}>
               <ComingSoonBadge small />
             </div>
-          )}
+          ) : p.badge ? (
+            <BadgePill badge={p.badge} />
+          ) : null}
+          {/* Quick Add overlay — bottom-right of image */}
+          <button
+            key={addedIds[p.id] ? "added" : "add"}
+            onClick={e => { e.stopPropagation(); if (!isComingSoon) onQuickAdd(p); }}
+            disabled={isComingSoon}
+            style={{
+              position: "absolute", bottom: 8, right: 8, zIndex: 2,
+              width: 32, height: 32, borderRadius: "50%",
+              background: addedIds[p.id] ? "#059669" : isComingSoon ? "rgba(156,163,175,0.65)" : "rgba(91,45,142,0.9)",
+              border: "none",
+              cursor: isComingSoon ? "default" : "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.22)",
+              animation: "scaleIn 0.25s cubic-bezier(0.34,1.56,0.64,1) both",
+              transition: "background 0.2s",
+            }}
+          >
+            {addedIds[p.id]
+              ? <span style={{ color: "#fff", fontSize: 13, fontWeight: 700, lineHeight: 1 }}>✓</span>
+              : <BagIcon color="#fff" size={13} />}
+          </button>
         </div>
         <div style={{ padding: "10px 12px 12px", flex: 1, display: "flex", flexDirection: "column", gap: 3 }}>
           <div style={{ fontFamily: t.ui, fontSize: 12, fontWeight: 700, color: t.dark, lineHeight: 1.3, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.name}</div>
           <div style={{ fontFamily: t.ui, fontSize: 10, color: t.muted, lineHeight: 1.3 }}>{p.tagline}</div>
           {p.rating && <StarRating rating={p.rating} count={p.rating_count} t={t} />}
-          <div style={{ marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 6 }}>
+          <div style={{ marginTop: "auto", paddingTop: 6 }}>
             <span style={{ fontFamily: t.ui, fontSize: 15, fontWeight: 800, color: purple }}>${p.price_usd.toFixed(2)}</span>
-            {isComingSoon ? (
-              <div style={{ width: 30, height: 30, borderRadius: 8, background: "rgba(91,45,142,0.08)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <BagIcon color="rgba(91,45,142,0.35)" size={14} />
-              </div>
-            ) : (
-              <QuickAddBtn t={t} onClick={() => onQuickAdd(p)} added={!!addedIds[p.id]} />
-            )}
           </div>
         </div>
       </button>
@@ -941,7 +960,7 @@ function DetailRow({ t, label, value }) {
 }
 
 // ── SHOP CART ─────────────────────────────────────────────────────────────────
-function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user }) {
+function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user, wishlist, catalogue }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [promoCode, setPromoCode] = useState("");
@@ -954,14 +973,19 @@ function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user })
     setLoading(true);
     setError(null);
     try {
+      const session = await supabase.auth.getSession();
+      const token = session.data.session?.access_token;
       const res = await fetch("/api/shop-checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cart, userId: user.id, userEmail: user.email }),
+        headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        body: JSON.stringify({ cart, userEmail: user.email }),
       });
       const data = await res.json();
-      if (data.url) { window.location.href = data.url; }
-      else setError(data.error || "Checkout failed. Please try again.");
+      if (data.url && data.url.startsWith("https://checkout.stripe.com")) {
+        window.location.href = data.url;
+      } else if (data.url) {
+        setError("Invalid redirect. Please try again.");
+      } else setError(data.error || "Checkout failed. Please try again.");
     } catch {
       setError("Network error. Please try again.");
     }
@@ -976,15 +1000,68 @@ function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user })
         <div style={{ maxWidth: bp.content, margin: "0 auto" }}>
 
           {cart.length === 0 ? (
-            <div style={{ textAlign: "center", padding: "60px 20px" }}>
-              <div style={{ width: 80, height: 80, borderRadius: "50%", background: `${t.accent}0C`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                <BagIcon color={`${t.accent}50`} size={36} />
+            <div>
+              {/* Empty state illustration */}
+              <div style={{ textAlign: "center", padding: "52px 20px 32px" }}>
+                <div style={{ width: 80, height: 80, borderRadius: "50%", background: `${t.accent}0C`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
+                  <BagIcon color={`${t.accent}50`} size={36} />
+                </div>
+                <div style={{ fontFamily: t.heading, fontSize: 18, fontWeight: 700, color: t.dark, marginBottom: 8 }}>Your cart is empty</div>
+                <div style={{ fontFamily: t.ui, fontSize: 13, color: t.muted, marginBottom: 24, lineHeight: 1.6 }}>Browse the store and add something faithful.</div>
+                <button onClick={() => nav("shop-home")} style={{ background: t.accent, color: "#fff", border: "none", borderRadius: 12, padding: "12px 28px", fontFamily: t.ui, fontSize: 14, fontWeight: 700, cursor: "pointer" }}>
+                  Browse Store
+                </button>
               </div>
-              <div style={{ fontFamily: t.heading, fontSize: 18, fontWeight: 700, color: t.dark, marginBottom: 8 }}>Your cart is empty</div>
-              <div style={{ fontFamily: t.ui, fontSize: 13, color: t.muted, marginBottom: 24, lineHeight: 1.6 }}>Browse the store and add something faithful.</div>
-              <button onClick={() => nav("shop-home")} style={{ background: t.accent, color: "#fff", border: "none", borderRadius: 12, padding: "12px 28px", fontFamily: t.ui, fontSize: 14, fontWeight: 700, cursor: "pointer" }}>
-                Browse Store
-              </button>
+
+              {/* Discovery: Saved Items */}
+              {catalogue && wishlist && wishlist.length > 0 && (() => {
+                const saved = wishlist.map(id => catalogue.products.find(p => p.id === id)).filter(Boolean);
+                if (!saved.length) return null;
+                return (
+                  <div style={{ marginBottom: 28 }}>
+                    <SectionLabel t={t} label="❤ Saved Items" />
+                    <div className="shop-scroll-hide" style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 4 }}>
+                      {saved.map(p => (
+                        <button key={p.id} onClick={() => nav("shop-product", { shopCategory: p.category_id, shopProduct: p.id })}
+                          style={{ flexShrink: 0, width: 110, background: t.card, border: `1px solid ${t.divider}`, borderRadius: 14, padding: 0, cursor: "pointer", textAlign: "left", overflow: "hidden" }}>
+                          <div style={{ width: "100%", aspectRatio: "1", overflow: "hidden" }}>
+                            <ProductImg product={p} accent={t.accent} size="small" />
+                          </div>
+                          <div style={{ padding: "7px 9px 9px" }}>
+                            <div style={{ fontFamily: t.ui, fontSize: 11, fontWeight: 700, color: t.dark, lineHeight: 1.3, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.name}</div>
+                            <div style={{ fontFamily: t.ui, fontSize: 12, fontWeight: 800, color: "#5B2D8E", marginTop: 3 }}>${p.price_usd.toFixed(2)}</div>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Discovery: You Might Like */}
+              {catalogue && (() => {
+                const active = catalogue.products.filter(p => p.status === "active");
+                if (!active.length) return null;
+                return (
+                  <div style={{ marginBottom: 28 }}>
+                    <SectionLabel t={t} label="You Might Like" />
+                    <div className="shop-scroll-hide" style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 4 }}>
+                      {active.map(p => (
+                        <button key={p.id} onClick={() => nav("shop-product", { shopCategory: p.category_id, shopProduct: p.id })}
+                          style={{ flexShrink: 0, width: 110, background: t.card, border: `1px solid ${t.divider}`, borderRadius: 14, padding: 0, cursor: "pointer", textAlign: "left", overflow: "hidden" }}>
+                          <div style={{ width: "100%", aspectRatio: "1", overflow: "hidden" }}>
+                            <ProductImg product={p} accent={t.accent} size="small" />
+                          </div>
+                          <div style={{ padding: "7px 9px 9px" }}>
+                            <div style={{ fontFamily: t.ui, fontSize: 11, fontWeight: 700, color: t.dark, lineHeight: 1.3, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{p.name}</div>
+                            <div style={{ fontFamily: t.ui, fontSize: 12, fontWeight: 800, color: "#5B2D8E", marginTop: 3 }}>${p.price_usd.toFixed(2)}</div>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           ) : (
             <>
@@ -1227,7 +1304,7 @@ export default function ShopView() {
     return <ShopOrderSuccess t={ht} nav={nav} bp={bp} clearCart={clearCart} shopOrderSession={shopOrderSession} />;
   }
   if (view === "shop-cart") {
-    return <ShopCart t={ht} nav={nav} goBack={goBack} bp={bp} cart={cart} removeFromCart={removeFromCart} updateQty={updateQty} user={user} />;
+    return <ShopCart t={ht} nav={nav} goBack={goBack} bp={bp} cart={cart} removeFromCart={removeFromCart} updateQty={updateQty} user={user} wishlist={wishlist} catalogue={catalogue} />;
   }
 
   if (loadError) {

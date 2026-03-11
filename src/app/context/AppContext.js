@@ -494,7 +494,17 @@ export function AppProvider({ children }) {
     setAuthLoading(false);
   };
 
-  const handleLogout = async () => { await supabase.auth.signOut(); setProfile(null); };
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    // Clear all user-specific state
+    setProfile(null); setCart([]); setEarnedBadges({}); setChapterReads([]);
+    setNotesCount(0); setQuizScores({}); setStreak(null);
+    setChapterHighlights({}); setChapterNotes({}); setChapterCommunityNotes({});
+    setAllHighlights([]); setPrayers([]); setCommunityPrayers([]);
+    badgesLoadedRef.current = false;
+    // Clear user-specific localStorage keys
+    ['cart', 'navState', 'currency'].forEach(k => { try { localStorage.removeItem(k); } catch {} });
+  };
 
   const handleForgotPassword = async () => {
     setAuthLoading(true); setAuthError("");
@@ -780,7 +790,7 @@ export function AppProvider({ children }) {
   // ═══ COMMUNITY PRAYER ═══
   const loadCommunityPrayers = useCallback(async () => {
     setCommunityPrayersLoading(true);
-    let query = supabase.from("community_prayers").select("*").order("created_at", { ascending: false });
+    let query = supabase.from("community_prayers").select("*").order("created_at", { ascending: false }).limit(50);
     if (communityPrayerCategory !== "all") query = query.eq("category", communityPrayerCategory);
     const { data } = await query;
     if (!data) { setCommunityPrayers([]); setCommunityPrayersLoading(false); return; }

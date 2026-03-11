@@ -17,7 +17,7 @@ export async function POST(request) {
   try {
     event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET);
   } catch (err) {
-    console.error('Webhook signature verification failed:', err.message);
+    console.error('[webhook] Signature verification failed:', err.message);
     return Response.json({ error: 'Invalid signature' }, { status: 400 });
   }
 
@@ -30,15 +30,35 @@ export async function POST(request) {
         if (session.metadata?.type === 'shop_order') {
           const { userId, cart } = session.metadata;
           if (userId && cart) {
-            const items = JSON.parse(cart);
-            const total = items.reduce((s, i) => s + i.price * i.qty, 0);
-            await supabaseAdmin.from('shop_orders').insert({
-              user_id: userId,
-              stripe_session_id: session.id,
-              items,
-              total_usd: parseFloat(total.toFixed(2)),
-              status: 'confirmed',
-            });
+            // ── Idempotency: skip if this session was already processed ──
+            const { data: existing } = await supabaseAdmin
+              .from('shop_orders')
+              .select('id')
+              .eq('stripe_session_id', session.id)
+              .single();
+
+            if (!existing) {
+              // ── Recalculate total from actual Stripe line items (not client metadata) ──
+              let totalUsd = 0;
+              try {
+                const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 100 });
+                totalUsd = lineItems.data.reduce((sum, item) => {
+                  return sum + (item.amount_total / 100);
+                }, 0);
+              } catch {
+                // Fallback to metadata total if Stripe call fails
+                const items = JSON.parse(cart);
+                totalUsd = items.reduce((s, i) => s + i.price * i.qty, 0);
+              }
+
+              await supabaseAdmin.from('shop_orders').insert({
+                user_id: userId,
+                stripe_session_id: session.id,
+                items: JSON.parse(cart),
+                total_usd: parseFloat(totalUsd.toFixed(2)),
+                status: 'confirmed',
+              });
+            }
           }
           break;
         }
@@ -121,7 +141,7 @@ export async function POST(request) {
 
     return Response.json({ received: true });
   } catch (error) {
-    console.error('Webhook error:', error);
-    return Response.json({ error: error.message }, { status: 500 });
+    console.error('[webhook] Processing error:', error);
+    return Response.json({ error: 'Webhook processing failed' }, { status: 500 });
   }
 }
