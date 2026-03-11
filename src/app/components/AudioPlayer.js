@@ -52,9 +52,11 @@ export default function AudioPlayer() {
   const voiceIdxRef    = useRef(0);
   const langRef        = useRef("en-US");
   const langPrefixRef  = useRef("en");
-  const audioElRef     = useRef(null); // HTML5 Audio element for CDN
-  const sleepTimerRef  = useRef(null);
-  const modeRef        = useRef(audioMode);
+  const audioElRef      = useRef(null); // HTML5 Audio element for CDN
+  const sleepTimerRef   = useRef(null);
+  const modeRef         = useRef(audioMode);
+  const audioSourceRef  = useRef(audioSource);
+  const lastCdnVerseRef = useRef(null);
 
   // Derive lang from active translation
   const transDef   = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
@@ -68,6 +70,7 @@ export default function AudioPlayer() {
   useEffect(() => { voiceIdxRef.current  = voiceIdx;  }, [voiceIdx]);
   useEffect(() => { langRef.current = lang; langPrefixRef.current = langPrefix; }, [lang, langPrefix]);
   useEffect(() => { modeRef.current = audioMode; }, [audioMode]);
+  useEffect(() => { audioSourceRef.current = audioSource; }, [audioSource]);
 
   // Sync idx when verse changes externally
   useEffect(() => {
@@ -166,11 +169,18 @@ export default function AudioPlayer() {
         const fraction = audio.currentTime / audio.duration;
         const verseIdx = Math.min(Math.floor(fraction * vNums.length), vNums.length - 1);
         const vNum = vNums[verseIdx];
-        setAudioCurrentVerse(vNum);
-        changeVerse(vNum);
-        idxRef.current = verseIdx;
-        setCurrentIdx(verseIdx);
-        try { localStorage.setItem("audioPosition", JSON.stringify({ book, chapter, verseNum: vNum })); } catch {}
+        // Only update state when verse actually changes (throttle)
+        if (vNum !== lastCdnVerseRef.current) {
+          lastCdnVerseRef.current = vNum;
+          setAudioCurrentVerse(vNum);
+          idxRef.current = verseIdx;
+          setCurrentIdx(verseIdx);
+          // Only navigate verse in VerseStudy mode (avoid re-render loop in VerseList)
+          if (audioSourceRef.current === "verseStudy") {
+            changeVerse(vNum);
+          }
+          try { localStorage.setItem("audioPosition", JSON.stringify({ book, chapter, verseNum: vNum })); } catch {}
+        }
       }
     };
     audio.ondurationchange = () => setCdnDuration(audio.duration || 0);
@@ -186,9 +196,7 @@ export default function AudioPlayer() {
     };
 
     audio.play().catch(() => {
-      // Autoplay blocked — user needs to tap again
-      playingRef.current = false;
-      setAudioPlaying(false);
+      // Silently handle — don't auto-pause; user can tap play again if needed
     });
   }, [audioChapterLinks, audioNarrator, book, chapter, markChapterListened, setAudioPlaying, setAudioCurrentVerse, changeVerse]);
 
@@ -209,7 +217,10 @@ export default function AudioPlayer() {
     const verseObj = vList.find(v => v.verse_number === verseNum);
     if (!verseObj) { speakVerse(idx + 1); return; }
 
-    changeVerse(verseNum);
+    // Only navigate verse in VerseStudy mode (avoid re-render loop in VerseList)
+    if (audioSourceRef.current === "verseStudy") {
+      changeVerse(verseNum);
+    }
     setAudioCurrentVerse(verseNum);
     idxRef.current = idx;
     setCurrentIdx(idx);
@@ -236,6 +247,7 @@ export default function AudioPlayer() {
 
   // ═══ UNIFIED PLAY / STOP ═══
   const play = useCallback(() => {
+    if (playingRef.current) return; // Already playing, don't restart
     playingRef.current = true;
     setAudioPlaying(true);
     setResumeNudge(null);
@@ -253,6 +265,7 @@ export default function AudioPlayer() {
   const stop = useCallback(() => {
     playingRef.current = false;
     setAudioPlaying(false);
+    lastCdnVerseRef.current = null;
     const verseNum = verseNumsRef.current[idxRef.current];
     if (verseNum) savePosition(verseNum);
 

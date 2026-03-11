@@ -32,6 +32,10 @@ export default function BibleView() {
   // Reset color picker when verse changes
   useEffect(() => { setShowColors(false); }, [verse]);
 
+  // Auto-switch away from Study Notes tab when non-English translation is active
+  // (moved from VerseStudy inner function to BibleView level for stable hook ordering)
+  useEffect(() => { if (!isEnglishTrans && tab === "study") setTab("original"); }, [isEnglishTrans]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // ═══ BOOKS ═══
   const Books = () => {
     const books = BIBLE_BOOKS.filter(b => b.testament === testament);
@@ -307,7 +311,6 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <AudioPlayer />
         <Header title={`${getBookName(book, bibleTranslation)} ${chapter}`} onBack={goBack} showFontSize hideUser hidePrayer />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px ${audioVisible ? 160 : 100}px` }}>
 
@@ -462,8 +465,6 @@ export default function BibleView() {
   // ═══ VERSE STUDY ═══
   const VerseStudy = () => {
     const bookDisplayName = getBookName(book, bibleTranslation);
-    // Auto-switch away from Study Notes tab when non-English translation is active
-    useEffect(() => { if (!isEnglishTrans && tab === "study") setTab("original"); }, [isEnglishTrans]); // eslint-disable-line react-hooks/exhaustive-deps
     if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
     if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
 
@@ -473,7 +474,6 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <AudioPlayer />
         <Header title={bookDisplayName} onBack={goBack} hidePrayer />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`0 ${bp.pad}px ${audioVisible?68:40}px` }}>
           {isEnglishTrans && chapterMeta?.overview && (
@@ -677,9 +677,19 @@ export default function BibleView() {
   };
 
 
-  if (view === "books") return <Books />;
-  if (view === "chapter") return <Chapters />;
-  if (view === "verses") return <VerseList />;
-  if (view === "verse") return <VerseStudy />;
-  return null;
+  // Render inner views as function calls (not <Component />) to prevent
+  // unmount/remount on every parent re-render — inner functions get new
+  // references each render, which React treats as different component types.
+  const content = view === "books" ? Books()
+    : view === "chapter" ? Chapters()
+    : view === "verses" ? VerseList()
+    : view === "verse" ? VerseStudy()
+    : null;
+
+  return (
+    <>
+      {content}
+      {(view === "verses" || view === "verse") && <AudioPlayer />}
+    </>
+  );
 }
