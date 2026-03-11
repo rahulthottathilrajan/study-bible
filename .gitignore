@@ -40,6 +40,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# seeder log (local state, not needed in git)
+scripts/.seed-log.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
