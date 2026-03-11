@@ -2,6 +2,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../../lib/supabase";
 import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP, CDN_NARRATORS } from "../constants";
+import { detectCurrency } from "../utils/currency";
 
 // ─── Derive dbChapters from BIBLE_BOOKS (synchronous, no Supabase needed) ───
 const initDbChapters = {};
@@ -23,13 +24,18 @@ export function AppProvider({ children }) {
   const [tab, setTab] = useState("study");
   const [shopCategory, setShopCategory] = useState(null);
   const [shopProduct, setShopProduct] = useState(null);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    try { const s = localStorage.getItem("cart"); return s ? JSON.parse(s) : []; } catch { return []; }
+  });
   const [shopOrderSession, setShopOrderSession] = useState(null);
   const [loading, setLoading] = useState(false);
   const [dbLive, setDbLive] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [fontSize, setFontSize] = useState("medium");
   const [bibleTranslation, setBibleTranslation] = useState("kjv");
+  const [currency, setCurrency] = useState(() => {
+    try { return localStorage.getItem("currency") || detectCurrency(); } catch { return detectCurrency(); }
+  });
 
   // ─── Responsive breakpoint ───
   const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 375);
@@ -73,9 +79,19 @@ export function AppProvider({ children }) {
       } else if (params.get("shop_order") === "cancelled") {
         setView("shop-cart");
         window.history.replaceState({}, "", "/");
+      } else if (params.get("donate") === "success") {
+        setDonateSuccess(true);
+        setDonateModal(true);
+        window.history.replaceState({}, "", "/");
+      } else if (params.get("donate") === "cancelled") {
+        setDonateModal(true);
+        window.history.replaceState({}, "", "/");
       }
     } catch {}
   }, []);
+  useEffect(() => {
+    try { localStorage.setItem("cart", JSON.stringify(cart)); } catch {}
+  }, [cart]);
   useEffect(() => {
     try { localStorage.setItem("darkMode", darkMode ? "true" : "false"); } catch {}
     document.body.style.background = darkMode ? "#141210" : "#f7f2e8";
@@ -86,6 +102,9 @@ export function AppProvider({ children }) {
   useEffect(() => {
     try { localStorage.setItem("bibleTranslation", bibleTranslation); } catch {}
   }, [bibleTranslation]);
+  useEffect(() => {
+    try { localStorage.setItem("currency", currency); } catch {}
+  }, [currency]);
   // ─── Persist nav state for refresh ───
   useEffect(() => {
     try { localStorage.setItem("navState", JSON.stringify({ view, testament, book, chapter, verse, tab })); } catch {}
@@ -170,6 +189,7 @@ export function AppProvider({ children }) {
   const [allHighlights, setAllHighlights] = useState([]);
   const [hlLoading, setHlLoading] = useState(false);
   const [donateModal, setDonateModal] = useState(false);
+  const [donateSuccess, setDonateSuccess] = useState(false);
   const [welcomeModal, setWelcomeModal] = useState(false);
   const [prayerTab, setPrayerTab] = useState("community");
 
@@ -375,7 +395,7 @@ export function AppProvider({ children }) {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
       if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); loadQuizScores(); }
-      else { setProfile(null); setStreak(null); setEarnedBadges({}); setChapterReads([]); setNotesCount(0); setQuizScores({}); }
+      else { setProfile(null); setStreak(null); setEarnedBadges({}); badgesLoadedRef.current = false; setChapterReads([]); setNotesCount(0); setQuizScores({}); }
     });
     return () => subscription.unsubscribe();
   }, []);
@@ -949,11 +969,11 @@ export function AppProvider({ children }) {
   const loadEarnedBadges = useCallback(async () => {
     if (!user) return;
     const { data } = await supabase.from("user_badges").select("badge_id, earned_at").eq("user_id", user.id);
-    if (data) {
-      const map = {};
-      data.forEach(b => { map[b.badge_id] = { earned_at: b.earned_at }; });
-      setEarnedBadges(map);
-    }
+    const map = {};
+    if (data) data.forEach(b => { map[b.badge_id] = { earned_at: b.earned_at }; });
+    badgeAwardRef.current = map;
+    setEarnedBadges(map);
+    badgesLoadedRef.current = true;
   }, [user]);
 
   const loadChapterReads = useCallback(async () => {
@@ -1045,6 +1065,7 @@ export function AppProvider({ children }) {
   }, []);
 
   const badgeAwardRef = useRef(earnedBadges);
+  const badgesLoadedRef = useRef(false);
   useEffect(() => { badgeAwardRef.current = earnedBadges; }, [earnedBadges]);
 
   const awardBadge = useCallback(async (badgeId) => {
@@ -1064,7 +1085,7 @@ export function AppProvider({ children }) {
   }, [user]);
 
   const checkBadges = useCallback(() => {
-    if (!user) return;
+    if (!user || !badgesLoadedRef.current) return;
     const earned = badgeAwardRef.current;
 
     // Bible badges
@@ -1378,7 +1399,7 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", };
+  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", };
 
   const addToCart = (product, qty = 1, size = null) => {
     setCart(prev => {
@@ -1550,7 +1571,7 @@ export function AppProvider({ children }) {
     shopCategory, setShopCategory, shopProduct, setShopProduct,
     cart, addToCart, removeFromCart, updateQty, clearCart, cartCount,
     shopOrderSession,
-    dbLive, setDbLive, darkMode, setDarkMode, fontSize, setFontSize, FS, bibleTranslation, setBibleTranslation,
+    dbLive, setDbLive, darkMode, setDarkMode, fontSize, setFontSize, FS, bibleTranslation, setBibleTranslation, currency, setCurrency,
     // Bible data
     dbChapters, collapsed, setCollapsed, booksCollapsed, setBooksCollapsed,
     overviewOpen, setOverviewOpen, chapterMeta, verses, wordStudies, crossRefs,
@@ -1565,7 +1586,7 @@ export function AppProvider({ children }) {
     shareCopied, communityNotes, chapterHighlights, chapterNotes, chapterCommunityNotes,
     prayerModal, setPrayerModal, prayers, prayerTitle,
     setPrayerTitle, prayerText, setPrayerText, prayerLoading, allHighlights, hlLoading,
-    donateModal, setDonateModal, welcomeModal, setWelcomeModal, requireAuth, prayerTab, setPrayerTab, noteRef,
+    donateModal, setDonateModal, donateSuccess, setDonateSuccess, welcomeModal, setWelcomeModal, requireAuth, prayerTab, setPrayerTab, noteRef,
     // Hebrew
     hebrewLessons, hebrewLesson, setHebrewLesson, hebrewAlphabet, setHebrewAlphabet, hebrewVocab, setHebrewVocab,
     hebrewCategory, setHebrewCategory, hebrewProgress, hebrewPracticeMode, setHebrewPracticeMode,

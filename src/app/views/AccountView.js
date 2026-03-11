@@ -4,6 +4,7 @@ import { useApp } from "../context/AppContext";
 import Header from "../components/Header";
 import { Card, Label, CrossIcon, ChevIcon } from "../components/ui";
 import { BADGES, BADGE_CATEGORIES, BIBLE_TRANSLATIONS } from "../constants";
+import { SUPPORTED_CURRENCIES } from "../utils/currency";
 
 export default function AccountView() {
   const {
@@ -13,7 +14,7 @@ export default function AccountView() {
     authForgot, setAuthForgot, authForgotSent,
     allHighlights, prayers, earnedBadges, listenedChapters,
     handleAuth, handleLogout, handleForgotPassword, handleGoogleSignIn,
-    nav, setDonateModal, bp,
+    nav, setDonateModal, bp, currency, setCurrency,
   } = useApp();
 
   // ─── Profile form state ───
@@ -418,6 +419,36 @@ export default function AccountView() {
                     fontWeight:600,cursor:"pointer"}}>
                   🔊 Test Voice
                 </button>
+              </div>
+
+              {/* Currency */}
+              <div style={{padding:"12px 14px",border:`1px solid ${ht.divider}`,borderRadius:10}}>
+                <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:10}}>
+                  <span style={{fontSize:18}}>💱</span>
+                  <span style={{fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark}}>Donation Currency</span>
+                </div>
+                <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+                  {Object.entries(SUPPORTED_CURRENCIES).map(([code, cfg]) => {
+                    const active = currency === code;
+                    return (
+                      <button key={code} onClick={() => setCurrency(code)} style={{
+                        padding:"6px 12px",borderRadius:8,cursor:"pointer",
+                        border:`1.5px solid ${active ? ht.accent : ht.divider}`,
+                        background: active ? ht.accent : "transparent",
+                        color: active ? "#fff" : ht.dark,
+                        fontFamily:ht.ui,fontSize:12,fontWeight:600,
+                        display:"flex",alignItems:"center",gap:5,
+                        transition:"all 0.15s",
+                      }}>
+                        <span>{cfg.flag}</span>
+                        <span>{code}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <div style={{fontFamily:ht.ui,fontSize:10,color:ht.muted,marginTop:8}}>
+                  Auto-detected from your timezone. Affects donation amounts only.
+                </div>
               </div>
             </Card>
 
