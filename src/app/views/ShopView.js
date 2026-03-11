@@ -335,7 +335,7 @@ function ProductCard({ p, t, nav, wishlist, toggleWishlist, onQuickAdd, addedIds
 function HorizontalProductStrip({ products, t, nav, label }) {
   if (!products.length) return null;
   return (
-    <div style={{ marginBottom: 24 }}>
+    <div style={{ marginBottom: 20 }}>
       <SectionLabel t={t} label={label} />
       <div className="shop-scroll-hide" style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 4 }}>
         {products.map(p => (
@@ -360,7 +360,7 @@ function HorizontalProductStrip({ products, t, nav, label }) {
 
 function SearchBar({ value, onChange, t }) {
   return (
-    <div style={{ position: "relative", marginBottom: 20, marginTop: 16 }}>
+    <div style={{ position: "relative", marginBottom: 20, marginTop: 20 }}>
       <div style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}>
         <SearchIcon color={t.muted} size={16} />
       </div>
@@ -402,10 +402,12 @@ function ScriptureCard({ t }) {
 }
 
 // ── SHOP HOME ─────────────────────────────────────────────────────────────────
-function ShopHome({ catalogue, t, nav, goBack, bp, addToCart, wishlist, toggleWishlist, recent }) {
+function ShopHome({ catalogue, t, nav, goBack, bp, addToCart, wishlist, toggleWishlist, recent, notified, toggleNotify }) {
   const [addedIds, setAddedIds] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const [notifyToast, setNotifyToast] = useState(false);
+  const [promoDismissed, setPromoDismissed] = useState(false);
+  const [promoNotifyToast, setPromoNotifyToast] = useState(false);
 
   const handleQuickAdd = (p) => {
     if (p.status === "coming-soon") return;
@@ -433,6 +435,11 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart, wishlist, toggleWi
   const isSearching = searchQuery.trim().length > 0;
   const featured = catalogue.products.slice(0, 6);
 
+  // Promo strips
+  const mostLoved = [...catalogue.products].sort((a, b) => (b.rating_count || 0) - (a.rating_count || 0)).slice(0, 4);
+  const underFifteen = catalogue.products.filter(p => p.price_usd < 15);
+  const newArrivals = catalogue.products.filter(p => p.badge === "new");
+
   return (
     <div style={{ minHeight: "100vh", background: t.bg, paddingBottom: 40 }}>
       <ShopHeader title="The Store" subtitle="Faith-inspired goods" onBack={goBack} t={t} />
@@ -441,7 +448,7 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart, wishlist, toggleWi
         <div style={{ maxWidth: bp.content, margin: "0 auto" }}>
 
           {/* ── Promotional Hero ── */}
-          <div style={{ marginTop: 16, marginBottom: 4, borderRadius: 20, overflow: "hidden", position: "relative" }}>
+          <div style={{ marginTop: 16, marginBottom: 0, borderRadius: 20, overflow: "hidden", position: "relative" }}>
             <div style={{ position: "absolute", inset: 0, borderRadius: 20, ...GOLD_BORDER }} />
             <div style={{
               position: "relative", margin: 2, borderRadius: 18,
@@ -481,6 +488,45 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart, wishlist, toggleWi
             </div>
           </div>
 
+          {/* ── Seasonal Promo Banner ── */}
+          {catalogue.promo?.active && !promoDismissed && (
+            <div style={{ marginTop: 20, borderRadius: 16, overflow: "hidden", position: "relative", animation: "fadeIn 0.3s ease" }}>
+              <div style={{
+                background: `linear-gradient(135deg, ${catalogue.promo.color || "#5B2D8E"} 0%, #7C3AED 55%, #D4A853 100%)`,
+                padding: "20px 18px",
+                position: "relative",
+              }}>
+                <button
+                  onClick={() => setPromoDismissed(true)}
+                  style={{ position: "absolute", top: 10, right: 10, background: "rgba(255,255,255,0.15)", border: "none", borderRadius: "50%", width: 28, height: 28, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(255,255,255,0.8)", fontSize: 15, fontWeight: 700, lineHeight: 1 }}
+                >
+                  ✕
+                </button>
+                <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 20, fontWeight: 700, color: "#fff", lineHeight: 1.2, marginBottom: 6, paddingRight: 30 }}>
+                  {catalogue.promo.title}
+                </div>
+                <div style={{ fontFamily: "'Lora', Georgia, serif", fontSize: 13, color: "rgba(255,255,255,0.8)", fontStyle: "italic", lineHeight: 1.5, marginBottom: 14 }}>
+                  {catalogue.promo.subtitle}
+                </div>
+                <button
+                  onClick={() => {
+                    toggleNotify("promo-launch");
+                    setPromoNotifyToast(true);
+                    setTimeout(() => setPromoNotifyToast(false), 2500);
+                  }}
+                  style={{ background: "#D4A853", color: "#fff", border: "none", borderRadius: 10, padding: "9px 20px", fontFamily: t.ui, fontSize: 13, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px rgba(212,168,83,0.35)" }}
+                >
+                  {notified.includes("promo-launch") ? "✓ Subscribed" : catalogue.promo.cta}
+                </button>
+                {promoNotifyToast && !notified.includes("promo-launch") ? null : promoNotifyToast && (
+                  <div style={{ marginTop: 8, fontFamily: t.ui, fontSize: 11, color: "rgba(125,212,173,0.95)", fontWeight: 600 }}>
+                    ✓ We'll notify you when the collection drops!
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* ── Search Bar ── */}
           <SearchBar value={searchQuery} onChange={setSearchQuery} t={t} />
 
@@ -511,7 +557,7 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart, wishlist, toggleWi
               <div id="shop-categories">
                 <SectionLabel t={t} label="Categories" />
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 28 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 20 }}>
                 {catalogue.categories.map(cat => (
                   <button
                     key={cat.id}
@@ -540,9 +586,47 @@ function ShopHome({ catalogue, t, nav, goBack, bp, addToCart, wishlist, toggleWi
                 <HorizontalProductStrip products={recentProducts} t={t} nav={nav} label="Recently Viewed" />
               )}
 
+              {/* ── Promo Strips ── */}
+              {mostLoved.length > 0 && (
+                <div style={{ marginBottom: 20 }}>
+                  <SectionLabel t={t} label="Most Loved" />
+                  <div className="shop-scroll-hide" style={{ display: "flex", gap: 12, overflowX: "auto", paddingBottom: 4 }}>
+                    {mostLoved.map(p => (
+                      <div key={p.id} style={{ flexShrink: 0, width: 170 }}>
+                        <ProductCard p={p} t={t} nav={nav} wishlist={wishlist} toggleWishlist={toggleWishlist} onQuickAdd={handleQuickAdd} addedIds={addedIds} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {underFifteen.length > 0 && (
+                <div style={{ marginBottom: 20 }}>
+                  <SectionLabel t={t} label="Under $15" />
+                  <div className="shop-scroll-hide" style={{ display: "flex", gap: 12, overflowX: "auto", paddingBottom: 4 }}>
+                    {underFifteen.map(p => (
+                      <div key={p.id} style={{ flexShrink: 0, width: 170 }}>
+                        <ProductCard p={p} t={t} nav={nav} wishlist={wishlist} toggleWishlist={toggleWishlist} onQuickAdd={handleQuickAdd} addedIds={addedIds} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {newArrivals.length > 0 && (
+                <div style={{ marginBottom: 20 }}>
+                  <SectionLabel t={t} label="New Arrivals" />
+                  <div className="shop-scroll-hide" style={{ display: "flex", gap: 12, overflowX: "auto", paddingBottom: 4 }}>
+                    {newArrivals.map(p => (
+                      <div key={p.id} style={{ flexShrink: 0, width: 170 }}>
+                        <ProductCard p={p} t={t} nav={nav} wishlist={wishlist} toggleWishlist={toggleWishlist} onQuickAdd={handleQuickAdd} addedIds={addedIds} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* ── Featured ── */}
               <SectionLabel t={t} label="Featured" action="See All" onAction={() => nav("shop-category", { shopCategory: catalogue.categories[0]?.id })} />
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 28 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 20 }}>
                 {featured.map(p => (
                   <ProductCard key={p.id} p={p} t={t} nav={nav} wishlist={wishlist} toggleWishlist={toggleWishlist} onQuickAdd={handleQuickAdd} addedIds={addedIds} />
                 ))}
@@ -1459,5 +1543,5 @@ export default function ShopView() {
     return <ShopProduct catalogue={catalogue} shopProduct={shopProduct} t={ht} nav={nav} goBack={goBack} bp={bp} user={user} addToCart={addToCart} setWelcomeModal={setWelcomeModal} wishlist={wishlist} toggleWishlist={toggleWishlist} notified={notified} toggleNotify={toggleNotify} addToRecent={addToRecent} />;
   }
 
-  return <ShopHome catalogue={catalogue} t={ht} nav={nav} goBack={goBack} darkMode={darkMode} bp={bp} addToCart={addToCart} cart={cart} wishlist={wishlist} toggleWishlist={toggleWishlist} recent={recent} />;
+  return <ShopHome catalogue={catalogue} t={ht} nav={nav} goBack={goBack} darkMode={darkMode} bp={bp} addToCart={addToCart} cart={cart} wishlist={wishlist} toggleWishlist={toggleWishlist} recent={recent} notified={notified} toggleNotify={toggleNotify} />;
 }

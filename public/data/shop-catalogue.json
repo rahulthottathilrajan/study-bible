@@ -1,4 +1,11 @@
 {
+  "promo": {
+    "active": true,
+    "title": "Easter Collection",
+    "subtitle": "New faith-inspired apparel arriving soon",
+    "cta": "Notify Me",
+    "color": "#5B2D8E"
+  },
   "categories": [
     {
       "id": "clothing",
