@@ -6,7 +6,7 @@
       "tag": "Modest & Faith-inspired",
       "icon": "shirt",
       "fulfillment": "printful",
-      "status": "coming-soon",
+      "status": "active",
       "description": "Clean, modest clothing for the faithful. Every piece carries a quiet witness."
     },
     {
@@ -15,7 +15,7 @@
       "tag": "Instant download",
       "icon": "book",
       "fulfillment": "digital",
-      "status": "coming-soon",
+      "status": "active",
       "description": "Curated eBooks by trusted Christian authors. Download instantly, read anywhere."
     },
     {
@@ -24,7 +24,7 @@
       "tag": "Globally shipped",
       "icon": "book-open",
       "fulfillment": "dropship",
-      "status": "coming-soon",
+      "status": "active",
       "description": "Faith-building books by globally respected Christian writers, shipped to your door."
     },
     {
@@ -33,7 +33,7 @@
       "tag": "Scripture art",
       "icon": "sticker",
       "fulfillment": "printful",
-      "status": "coming-soon",
+      "status": "active",
       "description": "Weatherproof vinyl stickers and art prints featuring beloved Bible verses."
     }
   ],
@@ -45,12 +45,17 @@
       "tagline": "Clean, classic, faithful",
       "description": "100% combed cotton unisex tee. A subtle cross emblem on the chest — faith worn quietly. True to size, pre-shrunk.",
       "price_usd": 29.99,
+      "emoji": "👕",
+      "color": "rgba(240,240,240,1)",
+      "colorBg": "rgba(91,45,142,0.06)",
       "images": [],
       "fulfillment": "printful",
       "printful_variant_id": null,
-      "status": "coming-soon",
+      "status": "active",
       "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
-      "tags": ["clothing", "unisex", "tee"]
+      "tags": ["clothing", "unisex", "tee"],
+      "rating": 4.9,
+      "rating_count": 18
     },
     {
       "id": "navy-hoodie-001",
@@ -59,12 +64,17 @@
       "tagline": "Warm, modest, faithful",
       "description": "Heavyweight fleece pullover hoodie. Small cross emblem embroidered on the left chest. Unisex fit.",
       "price_usd": 54.99,
+      "emoji": "🧥",
+      "color": "rgba(30,58,138,0.9)",
+      "colorBg": "rgba(30,58,138,0.06)",
       "images": [],
       "fulfillment": "printful",
       "printful_variant_id": null,
-      "status": "coming-soon",
+      "status": "active",
       "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
-      "tags": ["clothing", "unisex", "hoodie"]
+      "tags": ["clothing", "unisex", "hoodie"],
+      "rating": 4.8,
+      "rating_count": 31
     },
     {
       "id": "verse-sticker-jn316",
@@ -73,12 +83,17 @@
       "tagline": "For your Bible, laptop, or water bottle",
       "description": "Durable weatherproof vinyl. 3\" × 3\". UV-resistant ink. Adhesive-backed, easy peel.",
       "price_usd": 4.99,
+      "emoji": "✝️",
+      "color": "#b45309",
+      "colorBg": "rgba(217,119,6,0.07)",
       "images": [],
       "fulfillment": "printful",
       "printful_variant_id": null,
-      "status": "coming-soon",
+      "status": "active",
       "sizes": [],
-      "tags": ["sticker", "john", "scripture"]
+      "tags": ["sticker", "john", "scripture"],
+      "rating": 4.7,
+      "rating_count": 52
     },
     {
       "id": "verse-sticker-ps23",
@@ -87,12 +102,17 @@
       "tagline": "The Lord is my shepherd",
       "description": "Durable weatherproof vinyl. 3\" × 3\". Classic calligraphy style lettering.",
       "price_usd": 4.99,
+      "emoji": "🐑",
+      "color": "#065f46",
+      "colorBg": "rgba(16,185,129,0.07)",
       "images": [],
       "fulfillment": "printful",
       "printful_variant_id": null,
-      "status": "coming-soon",
+      "status": "active",
       "sizes": [],
-      "tags": ["sticker", "psalm", "scripture"]
+      "tags": ["sticker", "psalm", "scripture"],
+      "rating": 4.9,
+      "rating_count": 47
     },
     {
       "id": "mere-christianity",
@@ -101,11 +121,16 @@
       "tagline": "C.S. Lewis",
       "description": "One of the most influential Christian books of the 20th century. Lewis presents a rational case for the Christian faith with clarity and warmth.",
       "price_usd": 14.99,
+      "emoji": "📘",
+      "color": "#1d4ed8",
+      "colorBg": "rgba(29,78,216,0.07)",
       "images": [],
       "fulfillment": "dropship",
-      "status": "coming-soon",
+      "status": "active",
       "sizes": [],
-      "tags": ["book", "apologetics", "cs-lewis", "classic"]
+      "tags": ["book", "apologetics", "cs-lewis", "classic"],
+      "rating": 5.0,
+      "rating_count": 128
     },
     {
       "id": "purpose-driven-life",
@@ -114,11 +139,16 @@
       "tagline": "Rick Warren",
       "description": "A 40-day spiritual journey that answers the question: What on earth am I here for? One of the best-selling Christian books of all time.",
       "price_usd": 15.99,
+      "emoji": "📗",
+      "color": "#15803d",
+      "colorBg": "rgba(21,128,61,0.07)",
       "images": [],
       "fulfillment": "dropship",
-      "status": "coming-soon",
+      "status": "active",
       "sizes": [],
-      "tags": ["book", "devotional", "rick-warren"]
+      "tags": ["book", "devotional", "rick-warren"],
+      "rating": 4.8,
+      "rating_count": 94
     },
     {
       "id": "knowing-god-ebook",
@@ -127,11 +157,16 @@
       "tagline": "J.I. Packer",
       "description": "A classic work on the attributes of God and what it means to know Him personally. Instant PDF download.",
       "price_usd": 9.99,
+      "emoji": "📱",
+      "color": "#7c3aed",
+      "colorBg": "rgba(124,58,237,0.07)",
       "images": [],
       "fulfillment": "digital",
-      "status": "coming-soon",
+      "status": "active",
       "sizes": [],
-      "tags": ["ebook", "theology", "ji-packer", "digital"]
+      "tags": ["ebook", "theology", "ji-packer", "digital"],
+      "rating": 4.9,
+      "rating_count": 73
     }
   ]
 }
