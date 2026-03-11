@@ -49,6 +49,13 @@ export default function AccountView() {
   });
   const [acctVoices, setAcctVoices] = useState([]);
 
+  // Shop state
+  const [shopHelpOpen, setShopHelpOpen] = useState(false);
+  const [wishlistCount, setWishlistCount] = useState(0);
+  useEffect(() => {
+    try { setWishlistCount(JSON.parse(localStorage.getItem("shop_wishlist") || "[]").length); } catch {}
+  }, []);
+
   // Load voices for current translation language
   useEffect(() => {
     if (typeof window === "undefined" || !window.speechSynthesis) return;
@@ -293,6 +300,51 @@ export default function AccountView() {
               )}
             </Card>
 
+            {/* Shop Quick Links */}
+            <div style={{display:"flex",justifyContent:"center",gap:20,padding:"6px 0 2px"}}>
+              {[
+                {label:"My Orders", action:() => nav("shop-order-success"), icon:(
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B2D8E" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2-3-2z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="14" y2="12"/>
+                  </svg>
+                )},
+                {label:"Wishlist", action:() => nav("shop-home",{tab:"wishlist"}), icon:(
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B2D8E" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                )},
+                {label:"Notify Me", action:() => nav("shop-home"), icon:(
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B2D8E" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                  </svg>
+                )},
+              ].map((item,i) => (
+                <button key={i} onClick={item.action} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:6,background:"none",border:"none",cursor:"pointer",padding:0}}>
+                  <div style={{width:56,height:56,borderRadius:"50%",background:"rgba(91,45,142,0.1)",display:"flex",alignItems:"center",justifyContent:"center"}}>
+                    {item.icon}
+                  </div>
+                  <span style={{fontFamily:ht.ui,fontSize:10,color:"#5B2D8E",fontWeight:600}}>{item.label}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Ministry Supporter Loyalty Card */}
+            <div style={{borderRadius:16,overflow:"hidden",position:"relative"}}>
+              <div style={{position:"absolute",inset:0,borderRadius:16,background:"linear-gradient(90deg, rgba(139,92,246,0.7), rgba(212,168,83,0.9), rgba(255,255,255,0.95), rgba(212,168,83,0.8), rgba(139,92,246,0.7))",backgroundSize:"300% 100%",animation:"goldFlow 3s linear infinite"}} />
+              <div style={{position:"relative",margin:2,borderRadius:14,background:"linear-gradient(135deg, #2D1052, #5B2D8E)",padding:"22px 20px"}}>
+                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:8}}>
+                  <CrossIcon />
+                  <span style={{fontFamily:"'DM Serif Display', Georgia, serif",fontSize:16,fontWeight:700,color:"#D4A853"}}>Support the Ministry</span>
+                </div>
+                <div style={{fontFamily:"'Lora', Georgia, serif",fontSize:12,color:"#F0E8D8",lineHeight:1.6,marginBottom:16}}>
+                  Supporters receive 10% off all store orders
+                </div>
+                <button onClick={() => setDonateModal(true)} style={{background:"#D4A853",color:"#fff",border:"none",borderRadius:10,padding:"10px 22px",fontFamily:ht.ui,fontSize:13,fontWeight:700,cursor:"pointer",boxShadow:"0 2px 8px rgba(212,168,83,0.3)"}}>
+                  Give & Save →
+                </button>
+              </div>
+            </div>
+
             {/* Achievements */}
             <Card t={ht}>
               <Label icon="🏆" t={ht} color={ht.muted}>Achievements ({Object.keys(earnedBadges).length}/{BADGES.length})</Label>
@@ -468,14 +520,19 @@ export default function AccountView() {
               ))}
             </Card>
 
-            {/* Support the Ministry */}
-            <Card accent t={ht}>
-              <Label icon="❤️" t={ht}>Support the Ministry</Label>
-              <div style={{fontFamily:ht.ui,fontSize:13,color:ht.text,lineHeight:1.7,marginBottom:12}}>
-                The Bible Scrollers is completely free — every feature, every word study, every tool. If this resource has blessed you, consider supporting the ministry so we can keep building and sharing God's Word.
-              </div>
-              <button onClick={() => setDonateModal(true)} style={{padding:"12px 24px",borderRadius:10,border:"none",background:"linear-gradient(135deg,#D4A853,#B8860B)",color:"#fff",fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer",boxShadow:"0 2px 8px rgba(212,168,83,0.3)"}}>
-                ❤️ Support This Ministry
+            {/* Store */}
+            <Card t={ht}>
+              <Label icon="🛒" t={ht} color={ht.muted}>Store</Label>
+              <button onClick={() => nav("shop-home",{tab:"wishlist"})} style={{width:"100%",display:"flex",alignItems:"center",gap:12,padding:"12px 14px",background:"transparent",border:`1px solid ${ht.divider}`,borderRadius:10,cursor:"pointer",marginBottom:6,textAlign:"left"}}>
+                <span style={{fontSize:18}}>♥</span>
+                <span style={{fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark,flex:1}}>Wishlist</span>
+                {wishlistCount > 0 && <span style={{background:"#5B2D8E",color:"#fff",borderRadius:10,padding:"2px 8px",fontFamily:ht.ui,fontSize:10,fontWeight:700,minWidth:18,textAlign:"center"}}>{wishlistCount}</span>}
+                <div style={{color:ht.light}}><ChevIcon /></div>
+              </button>
+              <button onClick={() => setShopHelpOpen(true)} style={{width:"100%",display:"flex",alignItems:"center",gap:12,padding:"12px 14px",background:"transparent",border:`1px solid ${ht.divider}`,borderRadius:10,cursor:"pointer",marginBottom:6,textAlign:"left"}}>
+                <span style={{fontSize:18}}>❓</span>
+                <span style={{fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark,flex:1}}>Store Help</span>
+                <div style={{color:ht.light}}><ChevIcon /></div>
               </button>
             </Card>
 
@@ -484,6 +541,21 @@ export default function AccountView() {
           </div>
         )}
       </div>
+
+      {/* Store Help Modal */}
+      {shopHelpOpen && (
+        <div onClick={() => setShopHelpOpen(false)} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:9999,display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>
+          <div onClick={e => e.stopPropagation()} style={{background:ht.card,borderRadius:16,padding:"28px 24px",maxWidth:340,width:"100%",boxShadow:"0 8px 32px rgba(0,0,0,0.2)",animation:"fadeIn 0.2s ease"}}>
+            <div style={{fontFamily:ht.heading,fontSize:18,fontWeight:700,color:ht.dark,marginBottom:10}}>Store Help</div>
+            <div style={{fontFamily:ht.ui,fontSize:13,color:ht.text,lineHeight:1.7,marginBottom:20}}>
+              Orders ship within 5–7 business days. For help email <span style={{fontWeight:700,color:"#5B2D8E"}}>store@biblescrollers.com</span>
+            </div>
+            <button onClick={() => setShopHelpOpen(false)} style={{width:"100%",padding:"12px",borderRadius:10,border:"none",background:ht.headerGradient,color:ht.headerText||"#fff",fontFamily:ht.ui,fontSize:14,fontWeight:700,cursor:"pointer"}}>
+              Got It
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
