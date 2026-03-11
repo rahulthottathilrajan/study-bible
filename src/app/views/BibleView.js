@@ -296,10 +296,10 @@ export default function BibleView() {
   const appendChapter = useCallback(async (chNum) => {
     if (!bookInfo || chNum < 1 || chNum > bookInfo.chapters) return;
     if (loadedSetRef.current.has(chNum)) return;
-    loadedSetRef.current.add(chNum);
 
     const chData = getChapterFromCache(book, chNum);
     if (!chData) return;
+    loadedSetRef.current.add(chNum);
 
     let chVerses = [...chData.verses];
     if (bibleTranslation !== "kjv") {
