@@ -288,12 +288,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 7;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('σκηνοπηγία', 'skēnopēgia', 'G4634',
    'The Feast of Tabernacles, the feast of tent-pitching, the feast of booths.',
    'From skēnē (tent, tabernacle) + pēgnymi (to pitch, fix firmly). The feast (Leviticus 23:33-43) commemorated Israel''s wilderness wandering when they lived in tents. For seven days, Jews built and lived in temporary booths (sukkot) as a reminder of their dependence on God. The feast also celebrated the autumn harvest (''the feast of ingathering,'' Exodus 23:16). Key ceremonies included water-pouring and light-illumination — both of which Jesus claims to fulfil (7:37-38; 8:12). Zechariah 14:16-19 prophesied that in the messianic age, all nations would celebrate Tabernacles.',
@@ -326,7 +323,7 @@ CROSS JOIN (VALUES
    'Hour, time, appointed moment; the decisive moment of Jesus'' death and glorification.',
    'In v.30, ''no man laid hands on him, because his hour was not yet come'' (oupō elēlythei hē hōra autou). Hōra in John refers specifically to the appointed time of Jesus'' passion and glorification: 2:4 (''mine hour is not yet come''), 7:30 and 8:20 (''his hour was not yet come''), 12:23 (''the hour is come, that the Son of man should be glorified''), 12:27 (''Father, save me from this hour''), 13:1 (''Jesus knew that his hour was come''), 17:1 (''Father, the hour is come''). No human power can hasten or delay this divinely ordained moment.',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -345,12 +342,9 @@ CROSS JOIN LATERAL (
 ) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   -- v.2: Feast of Tabernacles
   (2, 'Leviticus 23:33-43', 'context', 'The institution of the Feast of Tabernacles — seven days of booth-dwelling and rejoicing'),
   (2, 'Zechariah 14:16-19', 'prophecy', 'In the messianic age, all nations will celebrate the Feast of Tabernacles'),

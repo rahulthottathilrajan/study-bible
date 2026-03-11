@@ -203,12 +203,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 3;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('ἄνωθεν', 'anōthen', 'G509',
    'From above, from a higher place; anew, again; from the beginning.',
    'Anōthen is the key to the Nicodemus dialogue. Its dual meaning (''from above'' and ''again'') creates a deliberate ambiguity. Nicodemus hears ''again'' (v.4); Jesus means ''from above'' (the primary Johannine usage: 3:31; 19:11, 23). Both are true: the new birth is a second birth (not a continuation) that comes from above (not from human effort). In 19:23, the seamless robe woven ''from the top'' (anōthen) symbolises the heavenly origin of Christ''s work. In 19:11, Pilate''s authority comes ''from above.'' The new birth is a heavenly invasion of earthly existence.',
@@ -241,7 +238,7 @@ CROSS JOIN (VALUES
    'Wrath, anger, indignation; God''s settled, holy, righteous opposition to sin.',
    'Orgē appears only once in John''s Gospel (3:36) but is emphatic: ''the wrath of God abideth on him.'' God''s wrath is not arbitrary rage but his consistent, holy response to sin and rebellion. It ''abideth'' (menei — remains, stays) on the one who disobeys the Son — it is not a future threat but a present reality. Only faith in the Son removes God''s wrath (Romans 3:25; 5:9; 1 Thessalonians 1:10; 5:9). The concept of divine wrath is essential to understanding the cross: Christ bore God''s wrath in the place of sinners (Isaiah 53:4-6, 10; Romans 3:25; Galatians 3:13; 1 John 2:2).',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -260,12 +257,9 @@ CROSS JOIN LATERAL (
 ) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   -- v.1: Nicodemus
   (1, 'John 7:50-51', 'parallel', 'Nicodemus defends Jesus before the Sanhedrin: ''Doth our law judge any man, before it hear him?'''),
   (1, 'John 19:39', 'parallel', 'Nicodemus brings myrrh and aloes for Jesus'' burial — a journey from night to daylight'),

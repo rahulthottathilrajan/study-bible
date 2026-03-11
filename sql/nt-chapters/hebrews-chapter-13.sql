@@ -149,7 +149,7 @@ WHERE b.name = 'Hebrews' AND c.chapter_number = 13;
 
 -- Step 3: Insert word studies (6 key Greek terms)
 INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
-SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.word_order
 FROM verses v
 JOIN chapters c ON v.chapter_id = c.id
 JOIN books b ON c.book_id = b.id
@@ -179,7 +179,7 @@ END;
 
 -- Step 4: Insert cross-references
 INSERT INTO cross_references (verse_id, reference, ref_order)
-SELECT v.id, r.reference, r.ref_order
+SELECT v.id, cr.reference, cr.ref_order
 FROM verses v
 JOIN chapters c ON v.chapter_id = c.id
 JOIN books b ON c.book_id = b.id
@@ -238,4 +238,4 @@ CROSS JOIN (VALUES
   (25, 52, '2 Thessalonians 3:18')
 ) AS cr(verse_number, ref_order, reference)
 WHERE b.name = 'Hebrews' AND c.chapter_number = 13
-AND v.verse_number = r.verse_number;
+AND v.verse_number = cr.verse_number;

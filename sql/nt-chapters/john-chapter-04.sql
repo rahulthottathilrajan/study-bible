@@ -293,12 +293,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 4;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('ὕδωρ ζῶν', 'hydōr zōn', 'G5204/G2198',
    'Living water — fresh, flowing spring water; metaphorically, the water of eternal life, the Holy Spirit.',
    'In the OT, ''living water'' (mayim chayyim) refers to fresh, flowing spring water as opposed to stagnant cistern water (Genesis 26:19; Leviticus 14:5; Jeremiah 2:13). God is ''the fountain of living waters'' (Jeremiah 2:13; 17:13). Jesus claims to give what only God can give. In 7:38-39, John identifies the living water as the Holy Spirit: ''He that believeth on me... out of his belly shall flow rivers of living water. But this spake he of the Spirit.'' The living water is internal (''in him a well,'' v.14), inexhaustible (''shall never thirst''), and eternal (''springing up into everlasting life'').',
@@ -331,7 +328,7 @@ CROSS JOIN (VALUES
    'Word, saying, message, statement; the expressed thought or utterance; in John, the divine self-expression.',
    'In v.50, ''the man believed the word (tō logō) that Jesus had spoken.'' The logos Jesus speaks has creative power — it heals at a distance, just as God''s word created the universe (Genesis 1:3; Psalm 33:6; Hebrews 11:3). The connection to John 1:1 (''In the beginning was the Logos'') is deliberate: the Word who made all things (1:3) speaks a word that restores life. To believe ''the word'' is to trust in the person who speaks it — the Logos incarnate.',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -350,12 +347,9 @@ CROSS JOIN LATERAL (
 ) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   -- v.4: Must needs go through Samaria
   (4, 'Luke 9:51-56', 'parallel', 'Jesus passes through Samaria — the disciples want fire from heaven; Jesus rebukes them'),
   (4, 'Acts 1:8', 'thematic', '''Ye shall be witnesses... in Samaria'' — the Samaritan mission fulfils Jesus'' command'),

@@ -258,12 +258,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 5;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('ὑγιής', 'hygiēs', 'G5199',
    'Whole, sound, healthy, well; complete restoration to full function.',
    'Jesus asks ''Wilt thou be made whole?'' (hygiēs genesthai, v.6) — the same word is used in v.9 (''was made whole''), v.11 (''he that made me whole''), v.14 (''thou art made whole''), and v.15 (''made him whole''). The emphasis is not merely on the removal of sickness but on the restoration of complete wholeness. This is the character of Jesus'' healing: not partial improvement but total restoration. The English word ''hygiene'' derives from this root.',
@@ -296,7 +293,7 @@ CROSS JOIN (VALUES
    'Resurrection, rising up, standing up again; the raising of the dead to life.',
    'From ana (up, again) + histēmi (to stand). In vv.28-29, Jesus announces a universal resurrection: ''all that are in the graves shall hear his voice, and shall come forth'' — some to the ''resurrection of life'' (anastasin zōēs), others to the ''resurrection of damnation'' (anastasin kriseōs). John 5 presents two phases of resurrection: (1) present spiritual resurrection — the dead hearing the Son''s voice and living now (v.25), and (2) future bodily resurrection — all in the graves coming forth at the last day (vv.28-29). Martha confesses the latter in 11:24; Jesus declares himself to be the former in 11:25.',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -315,12 +312,9 @@ CROSS JOIN LATERAL (
 ) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   -- v.2: Pool of Bethesda
   (2, 'Nehemiah 3:1', 'context', 'The Sheep Gate near the temple — the location of Bethesda pool'),
   -- v.5: Thirty-eight years

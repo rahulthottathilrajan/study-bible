@@ -378,12 +378,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 6;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('ἄρτος', 'artos', 'G740',
    'Bread, loaf, food — the basic staple of life in the ancient world.',
    'Artos occurs 21 times in John 6 alone, more than in any other NT chapter. It moves from literal bread (vv.5, 7, 9, 11, 13) to metaphorical bread (vv.32-35, 48, 50-51, 58). In v.35, Jesus declares ''I am the bread of life'' (egō eimi ho artos tēs zōēs) — identifying himself as the ultimate sustenance. The manna (Exodus 16) was artos ek tou ouranou (bread from heaven), but temporary; Jesus is ''the true bread from heaven'' (v.32) that gives eternal life. The word connects feeding, sacrifice, and faith into a single theological reality.',
@@ -416,7 +413,7 @@ CROSS JOIN (VALUES
    'Word, saying, utterance, spoken word; a specific statement or declaration.',
    'In v.63, Jesus says ''the words (rhēmata) that I speak unto you, they are spirit, and they are life.'' In v.68, Peter says ''thou hast the words (rhēmata) of eternal life.'' Rhēma differs from logos (word as concept/message) in emphasising the spoken utterance — the specific things Jesus said. Jesus'' rhēmata are the means by which the Spirit gives life. To ''eat his flesh'' is ultimately to receive his words by faith. The Spirit works through the Word: no word, no life; no faith in the word, no appropriation of Christ.',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -435,12 +432,9 @@ CROSS JOIN LATERAL (
 ) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   -- v.4: Passover context
   (4, 'Exodus 12:1-14', 'typology', 'The Passover lamb — Jesus feeds the multitude near Passover, prefiguring himself as the true Passover sacrifice'),
   (4, 'John 2:13', 'parallel', 'The first Passover in John — Jesus cleanses the temple'),

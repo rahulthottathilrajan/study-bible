@@ -308,12 +308,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 11;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('ἀνάστασις', 'anastasis', 'G386',
    'Resurrection, rising up, standing up again; the raising of the dead to life.',
    'From ana (up, again) + histēmi (to stand). In v.25, Jesus declares ''I am the resurrection'' (Egō eimi hē anastasis). Martha uses the word in v.24: ''I know that he shall rise again in the resurrection at the last day.'' Martha''s understanding is correct but incomplete — she knows anastasis as a future event. Jesus transforms the concept: resurrection is not merely an event but a person. ''I AM the resurrection'' means that wherever Jesus is, resurrection is present. The raising of Lazarus (v.44) is the visible proof of this claim. Anastasis occurs 42 times in the NT, with its theological weight concentrated in John 11, 1 Corinthians 15, and Romans 6.',
@@ -346,7 +343,7 @@ CROSS JOIN (VALUES
    'To sleep, to fall asleep; euphemistically: to die, to be in the state of death.',
    'In v.11, ''Our friend Lazarus sleepeth'' (Lazaros ho philos hēmōn kekoimētai — Lazarus our friend has fallen asleep). Koimaomai is the standard NT euphemism for death (1 Corinthians 15:6, 18, 20, 51; 1 Thessalonians 4:13-15; Acts 7:60; 2 Peter 3:4). The metaphor of sleep for death is profoundly theological: sleep implies waking. The one who sleeps will rise. For Jesus, death is ''sleep'' because he has absolute power to ''awaken'' the dead (v.11: exypnisō — rouse from sleep). The English word ''cemetery'' derives from koimētērion (sleeping place), reflecting the Christian hope of resurrection.',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -363,16 +360,12 @@ CROSS JOIN LATERAL (
     WHEN 8 THEN 11
   END
   LIMIT 1
-) v
-WHERE b.name = 'John' AND c.chapter_number = 11;
+) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   (1, 'Luke 10:38-42', 'parallel', 'Martha and Mary of Bethany, the sisters who hosted Jesus'),
   (1, 'John 12:1-3', 'forward', 'Lazarus at the supper where Mary anoints Jesus'' feet'),
   (3, 'John 11:36', 'thematic', '''He whom thou lovest'' — the Jews confirm Jesus'' love for Lazarus'),
@@ -430,5 +423,4 @@ CROSS JOIN LATERAL (
   JOIN books b2 ON c2.book_id = b2.id
   WHERE b2.name = 'John' AND c2.chapter_number = 11 AND v2.verse_number = cr.verse_number
   LIMIT 1
-) v
-WHERE b.name = 'John' AND c.chapter_number = 11;
+) v;

@@ -228,12 +228,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 9;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('τυφλός', 'typhlos', 'G5185',
    'Blind, sightless, unable to see; metaphorically: spiritually imperceptive.',
    'Typhlos occurs 17 times in John 9, more than any other NT chapter. It operates on two levels: physical blindness (the man, vv.1-7) and spiritual blindness (the Pharisees, vv.39-41). The irony is that the physically blind man gains both physical and spiritual sight, while the spiritually ''seeing'' Pharisees become progressively blinder. Jesus came ''that they which see not might see; and that they which see might be made blind'' (v.39). The chapter is a dramatisation of Isaiah 42:7: ''To open the blind eyes.''',
@@ -266,7 +263,7 @@ CROSS JOIN (VALUES
    'Sinner, one who misses the mark; one who transgresses God''s law.',
    'Hamartōlos is the Pharisees'' label for Jesus: ''we know that this man is a sinner'' (v.24). The healed man responds: ''Whether he be a sinner or no, I know not'' (v.25) — agnostic on theology but certain about experience. The irony: the Pharisees call the sinless Son of God a ''sinner'' while being blind to their own sin. In v.31, the man uses their own theology against them: ''God heareth not sinners'' — if Jesus were truly a sinner, God would not have performed this miracle through him. The charge of ''sinner'' collapses under the weight of the evidence.',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -285,12 +282,9 @@ CROSS JOIN LATERAL (
 ) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   -- v.2: Who sinned?
   (2, 'Luke 13:1-5', 'thematic', 'Jesus rejects the assumption that suffering proves greater sinfulness'),
   (2, 'Job 4:7-8', 'contrast', 'Eliphaz''s false theology: suffering implies sin — refuted by Job and by Jesus'),

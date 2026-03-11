@@ -233,12 +233,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 10;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('ποιμήν', 'poimēn', 'G4166',
    'Shepherd, one who tends and protects a flock; a pastor, spiritual leader.',
    'Poimēn is used 4 times in John 10 (vv.2, 11, 14, 16) and defines the chapter. In the OT, God is Israel''s shepherd (Psalm 23:1; 80:1; Isaiah 40:11). Israel''s leaders are called shepherds (Jeremiah 23:1-4; Ezekiel 34). Jesus claims to be THE shepherd — the good (kalos) shepherd foretold in Ezekiel 34:23 (''one shepherd... my servant David''). The shepherd imagery combines authority, intimacy, provision, protection, and sacrifice. The word gives us ''pastor'' (Latin pastor = shepherd) — every Christian leader is called to shepherd Christ''s flock (1 Peter 5:2-4).',
@@ -271,7 +268,7 @@ CROSS JOIN (VALUES
    'Blasphemy, slander against God, irreverent speech about the divine; claiming divine prerogatives.',
    'In v.33, ''for blasphemy; and because that thou, being a man, makest thyself God'' (peri blasphēmias kai hoti sy anthrōpos ōn poieis seauton theon). The Jews correctly identify the issue: Jesus claims to be God. If false, this is the ultimate blasphemy — a creature claiming to be the Creator. If true, it is the ultimate revelation — God has become man. There is no middle ground. The blasphemy charge recurs at Jesus'' trial (Matthew 26:65; Mark 14:64). The question is always the same: is Jesus who he claims to be?',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -290,12 +287,9 @@ CROSS JOIN LATERAL (
 ) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   -- v.3: Calleth his own sheep by name
   (3, 'Isaiah 43:1', 'thematic', '''I have called thee by thy name; thou art mine'' — God calls his people by name'),
   (3, 'John 20:16', 'parallel', '''Mary'' — Jesus calls Mary Magdalene by name at the resurrection'),

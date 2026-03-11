@@ -172,8 +172,8 @@ WHERE b.name = 'Romans' AND c.chapter_number = 10
   END;
 
 -- STEP 4: Insert cross references
-INSERT INTO cross_references (verse_id, cross_reference)
-SELECT v.id, cr.reference
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, cr.reference, cr.ref_order
 FROM verses v
 JOIN chapters c ON v.chapter_id = c.id
 JOIN books b ON c.book_id = b.id

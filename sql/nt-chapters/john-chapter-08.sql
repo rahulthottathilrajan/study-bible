@@ -318,12 +318,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 8;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('φῶς', 'phōs', 'G5457',
    'Light, radiance, luminance; the opposite of darkness; the revelation of God.',
    'In v.12, ''I am the light of the world'' (egō eimi to phōs tou kosmou). Phōs is foundational in John: ''In him was life; and the life was the light of men'' (1:4). ''The light shineth in darkness'' (1:5). ''That was the true Light, which lighteth every man'' (1:9). ''Men loved darkness rather than light'' (3:19). ''I am the light of the world'' (8:12; 9:5; 12:46). In the OT, God is light: ''The LORD is my light'' (Psalm 27:1); ''the LORD shall be unto thee an everlasting light'' (Isaiah 60:19). Jesus claims this divine attribute, fulfilling the Tabernacles lamplight ceremony.',
@@ -356,7 +353,7 @@ CROSS JOIN (VALUES
    'To lift up, to elevate, to exalt; in John, the double meaning of crucifixion and glorification.',
    'In v.28, ''when ye have lifted up the Son of man'' (hotan hypsōsēte ton huion tou anthrōpou). Hypsoō in John carries a profound double meaning: physically, Jesus is ''lifted up'' on the cross; spiritually, he is ''exalted'' in glory. The two are inseparable: the cross is the throne. Cf. 3:14 (''as Moses lifted up the serpent... so must the Son of man be lifted up'') and 12:32 (''I, if I be lifted up from the earth, will draw all men unto me''). The crucifixion is not defeat but revelation — ''then shall ye know that I AM.''',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -375,12 +372,9 @@ CROSS JOIN LATERAL (
 ) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   -- v.7: Without sin cast the first stone
   (7, 'Deuteronomy 17:7', 'context', '''The hands of the witnesses shall be first upon him'' — the witnesses must throw the first stones'),
   (7, 'Romans 3:23', 'thematic', '''All have sinned, and come short of the glory of God'''),

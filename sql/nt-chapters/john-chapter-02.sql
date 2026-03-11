@@ -148,12 +148,9 @@ CROSS JOIN (VALUES
 WHERE b.name = 'John' AND c.chapter_number = 2;
 
 -- Step 3: Insert word studies
-INSERT INTO word_studies (verse_id, greek_word, transliteration, strongs_number, definition, word_order)
-SELECT v.id, ws.greek_word, ws.transliteration, ws.strongs_number, ws.definition, ws.word_order
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.usage_notes, ws.word_order
+FROM (VALUES
   ('σημεῖον', 'sēmeion', 'G4592',
    'Sign, miracle, attesting wonder; a mark or token that points beyond itself to a deeper reality.',
    'John uses sēmeion exclusively for Jesus'' miracles (never dynamis or teras alone). The seven signs of John: water to wine (2:1-11), healing the official''s son (4:46-54), healing at Bethesda (5:1-9), feeding 5,000 (6:1-14), walking on water (6:16-21), healing the blind man (9:1-7), raising Lazarus (11:1-44). Each sign reveals Jesus'' glory (2:11) and is designed to produce faith (20:30-31). The word occurs 17 times in John.',
@@ -186,7 +183,7 @@ CROSS JOIN (VALUES
    'To know, to perceive, to understand, to recognise; experiential, relational knowledge (not merely intellectual).',
    'In vv.24-25, ginōskō describes Jesus'' supernatural knowledge of the human heart: ''he knew all men'' and ''he knew what was in man.'' This is divine omniscience — knowledge that Scripture attributes to God alone (1 Samuel 16:7; Jeremiah 17:10; Psalm 139:1-4). Throughout John, Jesus demonstrates this knowledge: he knows Nathanael before meeting him (1:47-48), knows the Samaritan woman''s past (4:17-18), knows who will betray him (6:64, 70-71), and knows Peter''s love and future (21:17).',
    8)
-) AS ws(greek_word, transliteration, strongs_number, definition, word_order)
+) AS ws(original_word, transliteration, strongs_number, meaning, usage_notes, word_order)
 CROSS JOIN LATERAL (
   SELECT v2.id FROM verses v2
   JOIN chapters c2 ON v2.chapter_id = c2.id
@@ -205,12 +202,9 @@ CROSS JOIN LATERAL (
 ) v;
 
 -- Step 4: Insert cross-references
-INSERT INTO cross_references (verse_id, referenced_verse, relationship_type, note)
-SELECT v.id, cr.referenced_verse, cr.relationship_type, cr.note
-FROM verses v
-JOIN chapters c ON v.chapter_id = c.id
-JOIN books b ON c.book_id = b.id
-CROSS JOIN (VALUES
+INSERT INTO cross_references (verse_id, reference, context, ref_order)
+SELECT v.id, cr.referenced_verse, cr.note, ROW_NUMBER() OVER ()::int
+FROM (VALUES
   -- v.1: Marriage in Cana
   (1, 'John 1:43', 'context', 'The day before — the sequence ''the third day'' counts from Philip and Nathanael''s call'),
   (1, 'John 4:46', 'parallel', 'Jesus returns to Cana for a second sign — healing the nobleman''s son'),
