@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useApp } from "../context/AppContext";
 import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS, getBookName } from "../constants"; // CAT_ICONS used in Chapters view
 import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
@@ -286,7 +286,6 @@ export default function BibleView() {
 
   // ═══ CONTINUOUS READING STATE ═══
   const [chaptersData, setChaptersData] = useState([]);
-  const [loadingMore, setLoadingMore] = useState(false);
   const [visibleChNum, setVisibleChNum] = useState(chapter);
   const loadedSetRef = useRef(new Set());
   const bottomSentinelRef = useRef(null);
@@ -319,13 +318,31 @@ export default function BibleView() {
   // Initialize continuous reading when loadChapter finishes (bookCache populated)
   useEffect(() => {
     if (view !== "verses" || loading || !book || !chapter || !bookInfo) return;
-    // Only re-init when book changes (not on every chapter scroll)
-    if (initBookRef.current === book && loadedSetRef.current.size > 0) return;
-    initBookRef.current = book;
-    loadedSetRef.current = new Set();
-    setChaptersData([]);
-    setVisibleChNum(chapter);
-    appendChapter(chapter);
+    // Re-init when book changes
+    if (initBookRef.current !== book) {
+      initBookRef.current = book;
+      loadedSetRef.current = new Set();
+      chapterHeaderRefs.current = {};
+      setChaptersData([]);
+      setVisibleChNum(chapter);
+      appendChapter(chapter);
+      return;
+    }
+    // Re-init if chapter jumped outside rendered range (e.g., GoToBar → VerseStudy → back)
+    if (loadedSetRef.current.size > 0 && !loadedSetRef.current.has(chapter)) {
+      loadedSetRef.current = new Set();
+      chapterHeaderRefs.current = {};
+      setChaptersData([]);
+      setVisibleChNum(chapter);
+      appendChapter(chapter);
+      return;
+    }
+    // First init (no chapters loaded yet)
+    if (loadedSetRef.current.size === 0) {
+      initBookRef.current = book;
+      setVisibleChNum(chapter);
+      appendChapter(chapter);
+    }
   }, [view, loading, book, chapter, bookInfo]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Reset when translation changes (re-overlay all chapters)
@@ -383,10 +400,32 @@ export default function BibleView() {
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={`${bookDisplayName} ${visibleChNum}`} onBack={goBack} showFontSize hideUser hidePrayer />
+        <Header title={`${bookDisplayName} ${visibleChNum}`} onBack={goBack} showFontSize hideUser hidePrayer
+          right={
+            <button onClick={() => {
+              if (isListeningHere) { setAudioPlaying(false); } else {
+                setAudioSource("verseList");
+                setAudioVisible(true);
+                setAudioPlaying(true);
+              }
+            }}
+              style={{ display:"flex",alignItems:"center",gap:4,padding:"5px 10px",borderRadius:8,
+                background:isListeningHere?`${t.accent}25`:"rgba(255,255,255,0.1)",
+                border:"none",cursor:"pointer",color:t.headerText,transition:"all 0.15s" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                {isListeningHere && <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>}
+              </svg>
+              <span style={{ fontFamily:t.ui,fontSize:10,fontWeight:700,letterSpacing:"0.04em" }}>
+                {isListeningHere ? "Listening" : "Listen"}
+              </span>
+            </button>
+          }
+        />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px ${audioVisible ? 160 : 100}px` }}>
 
-          {chaptersData.map((chEntry, ci) => {
+          {chaptersData.map((chEntry) => {
             const { chNum, verses: chVerses, meta: chMeta, highlights: chHL, notes: chNT, communityNotes: chCN } = chEntry;
             const isRead = user && chapterReads.some(r => r.book_name === book && r.chapter_number === chNum);
             const chapterKey = `${book}-${chNum}`;
@@ -532,7 +571,7 @@ export default function BibleView() {
           <div ref={bottomSentinelRef} style={{ height:1 }} />
 
           {/* ── Loading More Indicator ── */}
-          {(loadingMore || chaptersData.length > 0 && chaptersData[chaptersData.length - 1].chNum < totalChapters) && (
+          {(chaptersData.length > 0 && chaptersData[chaptersData.length - 1].chNum < totalChapters) && (
             <div style={{ textAlign:"center", padding:"20px 0" }}>
               <Spinner t={t} />
               <div style={{ fontFamily:t.ui, fontSize:11, color:t.muted, marginTop:6 }}>Loading next chapter...</div>
