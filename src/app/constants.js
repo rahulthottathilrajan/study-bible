@@ -470,7 +470,6 @@ export const BADGE_CATEGORIES = [
   { id:"greek",  label:"Greek",  icon:"📘" },
   { id:"learn",  label:"Learn",  icon:"📚" },
   { id:"prayer", label:"Prayer", icon:"🙏" },
-  { id:"songs",  label:"Songs",  icon:"🎵" },
   { id:"audio",  label:"Audio",  icon:"🎧" },
   { id:"community", label:"Community", icon:"🤝" },
 ];
@@ -509,11 +508,6 @@ export const BADGES = [
   { id:"prayer_warrior",    category:"prayer", name:"Prayer Warrior",    icon:"⚔️", description:"Complete 5 prayer slots" },
   { id:"testimony",         category:"prayer", name:"Testimony",         icon:"✝️", description:"Share your first testimony" },
   { id:"community_builder", category:"prayer", name:"Community Builder", icon:"🤝", description:"Post 5 prayer requests" },
-  // Songs (4)
-  { id:"first_hymn",           category:"songs",  name:"First Hymn",           icon:"🎵", description:"Read your first hymn" },
-  { id:"hymnist",              category:"songs",  name:"Hymnist",              icon:"🎶", description:"Read 25 hymns" },
-  { id:"hymn_collector",       category:"songs",  name:"Hymn Collector",       icon:"📚", description:"Favorite 10 hymns" },
-  { id:"multilingual_singer",  category:"songs",  name:"Multilingual Singer",  icon:"🌍", description:"Read a hymn in 3 languages" },
   // Audio (3)
   { id:"first_listen",    category:"audio", name:"First Listen",    icon:"🎧", description:"Listen to your first chapter" },
   { id:"audio_scholar",   category:"audio", name:"Audio Scholar",   icon:"📻", description:"Listen to 10 chapters" },
@@ -525,33 +519,6 @@ export const BADGES = [
   { id:"graduate_teen",     category:"learn", name:"Graduate",         icon:"\uD83C\uDF93", description:"Complete all 52 teens lessons" },
   // Community (1)
   { id:"birthday_blessed", category:"community", name:"Birthday Blessed", icon:"🎂", description:"Open the app on your birthday" },
-];
-
-// ═══════════════════════════════════════════════════
-// HYMN CATEGORIES
-// ═══════════════════════════════════════════════════
-export const HYMN_CATEGORIES = [
-  { id:"classic",     label:"Classic Protestant",      icon:"\u271D\uFE0F" },
-  { id:"pentecostal", label:"Holy Spirit & Revival",   icon:"\uD83D\uDD25" },
-  { id:"christmas",   label:"Christmas & Advent",      icon:"\u2B50" },
-  { id:"easter",      label:"Easter & Resurrection",   icon:"\uD83C\uDF05" },
-  { id:"children",    label:"Children's Hymns",        icon:"\uD83D\uDC11" },
-  { id:"worship",     label:"Worship & Adoration",     icon:"\uD83C\uDFB5" },
-  { id:"grace",       label:"Grace & Mercy",           icon:"\uD83D\uDCA7" },
-  { id:"praise",      label:"Praise & Thanksgiving",   icon:"\uD83D\uDE4C" },
-  { id:"comfort",     label:"Comfort & Hope",          icon:"\uD83D\uDD4A\uFE0F" },
-  { id:"communion",   label:"Communion & Fellowship",  icon:"\uD83C\uDF5E" },
-  { id:"mission",     label:"Mission & Evangelism",     icon:"\uD83C\uDF0D" },
-];
-
-export const HYMN_LANGUAGES = [
-  { id: "all", label: "All",       nativeLabel: "All" },
-  { id: "en",  label: "English",   nativeLabel: "English" },
-  { id: "ml",  label: "Malayalam",  nativeLabel: "\u0D2E\u0D32\u0D2F\u0D3E\u0D33\u0D02" },
-  { id: "ta",  label: "Tamil",     nativeLabel: "\u0BA4\u0BAE\u0BBF\u0BB4\u0BCD" },
-  { id: "te",  label: "Telugu",    nativeLabel: "\u0C24\u0C46\u0C32\u0C41\u0C17\u0C41" },
-  { id: "hi",  label: "Hindi",     nativeLabel: "\u0939\u093F\u0928\u094D\u0926\u0940" },
-  { id: "kn",  label: "Kannada",   nativeLabel: "\u0C95\u0CA8\u0CCD\u0CA8\u0CA1" },
 ];
 
 // ═══════════════════════════════════════════════════

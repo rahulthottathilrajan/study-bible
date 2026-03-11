@@ -1180,4 +1180,1166 @@ export const TEEN_LESSONS = [
     leaderNote: "This is the culmination of Term 1. The goal is not more information but a call to action. Challenge teens to move from knowing to doing. The 'Term 1 Covenant' in the journal prompt is designed to be a tangible commitment — encourage them to write it, sign it, and keep it somewhere visible. The word study on 'shema' is powerful: in Hebrew, hearing and obeying are the same word. If we have not obeyed, we have not truly heard. End this session with a time of prayer and commitment. This is the foundation upon which Terms 2-4 will build.",
   },
 
+
+  // ═══════════════════════════════════════════════════
+  // TERM 2: HEROES OF FAITH & OBEDIENCE (Weeks 14-26)
+  // ═══════════════════════════════════════════════════
+
+  // ═══════════════════════════════════════════════════
+  // WEEK 14 — ABRAHAM: THE CALL TO LEAVE EVERYTHING
+  // ═══════════════════════════════════════════════════
+  {
+    week: 14,
+    title: "Abraham: The Call to Leave Everything",
+    bibleRef: "Genesis 12:1-9, Hebrews 11:8-10",
+    keyVerse: "By faith Abraham, when he was called to go out into a place which he should after receive for an inheritance, obeyed; and he went out, not knowing whither he went. — Hebrews 11:8",
+    theme: "Faith-Driven Obedience",
+    term: "Term 2",
+    month: "Apr",
+    icon: "🏕️",
+    color: "#92400E",
+
+    hook: "God told a 75-year-old man to pack everything he owned, leave his home, his family, his culture, and his country — and go to a land God would show him later. No map. No destination. No guarantee except God's word. Would you go? What would it take for you to trust God that completely?",
+
+    deepDive: {
+      passage: "Genesis 12:1-9, Hebrews 11:8-10",
+      context: "Abram lived in Ur of the Chaldees — one of the most advanced cities in the ancient world, a centre of commerce, culture, and idol worship. He was 75 years old, wealthy, settled, and embedded in a pagan society that worshipped the moon god Nanna. Then God spoke to him with the most radical invitation in history: 'Get thee out of thy country, and from thy kindred, and from thy father's house, unto a land that I will shew thee.' God did not give him a map or a timeline. He gave him a promise and a command — in that order. The promise was enormous: a great nation, a great name, blessing to all families of the earth. The command was equally enormous: leave everything familiar and walk into the unknown. Hebrews 11:8 records the staggering response: 'he obeyed; and he went out, not knowing whither he went.' This is the definition of faith-driven obedience — acting on God's word before you can see the outcome. Abraham is called the 'father of the faithful' (Romans 4:11) not because he had perfect faith but because he acted on the faith he had. His obedience was not blind — it was informed by his knowledge of who God was. The God who calls always provides. The God who promises always fulfils. Abraham staked everything on that conviction.",
+      keyPoints: [
+        "God's call came with both command and promise — the command required action before the promise was visible. This is the pattern of faith throughout Scripture.",
+        "Abraham left Ur at age 75 — proof that God's call is not limited by age, background, or circumstance. It is never too late to obey.",
+        "He 'went out, not knowing whither he went' (Hebrews 11:8) — genuine faith does not require a complete map, only a trustworthy Guide.",
+        "The promise to Abraham — 'in thee shall all families of the earth be blessed' — was ultimately fulfilled in Jesus Christ (Galatians 3:8, 3:16).",
+        "Abraham built altars at every camp (Genesis 12:7, 8) — worship was his response to God's presence. Obedience and worship are inseparable.",
+      ],
+      obedienceLink: "Abraham's obedience cost him everything familiar — his city, his culture, his comfort zone. True obedience to God rarely leads to a known destination. It leads to a trustworthy God who knows the destination. The question is not 'Where is God taking me?' but 'Is God trustworthy enough to follow?'",
+    },
+
+    wordStudy: {
+      word: "Lech-lecha",
+      original: "לֶךְ-לְךָ",
+      transliteration: "lech-lecha",
+      strongsNumber: "H3212 / H3212",
+      language: "Hebrew",
+      definition: "Go — for yourself; go forth; literally 'go, yourself' — an emphatic imperative calling for personal, decisive movement",
+      usage: "This phrase opens Genesis 12:1 and is one of the most significant two-word commands in the Hebrew Bible. The reflexive particle 'lecha' (to/for yourself) makes the command intensely personal — God is not sending a messenger or an army, He is calling Abram himself to move. Rabbinical tradition reads this as 'go to your own self' — the journey to Canaan was also a journey inward, a discovery of who Abram was in God.",
+      connection: "God's call to Abraham is also His call to every believer. 'Lech-lecha' — go, personally, decisively, from the comfort of what you know, toward the God who knows what you cannot yet see. Every act of obedience is a 'lech-lecha' moment — a personal, non-transferable choice to move when God speaks.",
+      relatedVerses: [
+        "Genesis 22:2 — The same phrase 'lech-lecha' is used again when God calls Abraham to Mount Moriah. Two defining moments of Abraham's life are marked by the same command.",
+        "Matthew 4:19 — 'Follow me' — Jesus uses the same pattern: a personal call demanding a decisive response.",
+        "Luke 9:23 — 'If any man will come after me, let him deny himself, and take up his cross daily, and follow me.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Man Who Left Everything for a Promise",
+      narrative: "Imagine Abram on the morning of departure. His servants are loading camels. Sarai is saying goodbye to friends she has known for decades. The city of Ur — with its temples, its markets, its familiar streets — shimmers in the morning heat. Abram is 75 years old. He has built a life here. He has wealth, status, and roots that go deep. And then he walks away from all of it. Not because he saw a vision. Not because an angel appeared with a detailed itinerary. Because God spoke — and Abram believed that the God who spoke was worth obeying. Every single day of the journey was a daily renewal of that decision. When the road stretched into unknown territory, he could have turned back. When Sarai grew tired, he could have made camp permanently. When the land he was promised turned out to be occupied by Canaanites, he could have concluded he had misheard. But he built altars. He worshipped at every stopping point. He kept walking. Hebrews 11 tells us that Abraham looked for 'a city which hath foundations, whose builder and maker is God.' He was not just walking to a land — he was walking toward a God who was big enough to be trusted with everything. And across four thousand years of history, Abraham's obedient walk echoes into every heart that has ever heard God's call and had to choose between comfort and faith.",
+      moralLesson: "The call to follow God always costs something. It cost Abraham his homeland. It may cost you your popularity, your plans, your comfort zone, or your certainty about the future. But what you gain is infinitely greater than what you leave behind — because you gain the presence of the God who called you.",
+    },
+
+    prophecyConnection: {
+      title: "Abraham's Seed — The Messiah",
+      otRef: "Genesis 12:3",
+      otText: "And I will bless them that bless thee, and curse him that curseth thee: and in thee shall all families of the earth be blessed.",
+      ntRef: "Galatians 3:8, 3:16",
+      ntText: "And the scripture, foreseeing that God would justify the heathen through faith, preached before the gospel unto Abraham, saying, In thee shall all nations be blessed... Now to Abraham and his seed were the promises made. He saith not, And to seeds, as of many; but as of one, And to thy seed, which is Christ.",
+      explanation: "The promise God made to Abraham in Genesis 12:3 — 'in thee shall all families of the earth be blessed' — was not primarily about Abraham's physical descendants. Paul reveals in Galatians 3 that 'seed' is singular, pointing to one specific descendant: Jesus Christ. The gospel was preached to Abraham 2,000 years before Calvary. Every nation on earth has been blessed through Abraham's obedience — because that obedience set the lineage that would bring the Saviour into the world.",
+      status: "Literal Fulfilment — Jesus Christ",
+    },
+
+    thinkDeeper: {
+      question: "Is it irrational to obey a God you cannot see, going to a place you don't know, based on a promise you haven't yet received?",
+      challenge: "A classmate says: 'I only do what makes sense to me. Following God blindly sounds like a cult.' How would you explain the difference between blind obedience and faith-driven trust?",
+      hints: [
+        "Abraham's faith was not blind — it was based on evidence. God had already spoken to him (Acts 7:2). Obedience is not irrational when the One giving the command has already proven His character.",
+        "We trust doctors without understanding every medication, engineers without understanding every bridge calculation, pilots without understanding aerodynamics. Trust based on proven expertise is rational — not blind.",
+        "The greatest risk Abraham could have taken was to stay in Ur. Disobeying God meant missing everything God had planned. Sometimes the riskiest choice is the safest one.",
+      ],
+      conclusion: "Faith-driven obedience is not irrational — it is trust based on the character of God. Abraham had already encountered the living God. He was not following a rumour — he was obeying a Person he had come to know. The more you know God, the more rational obedience becomes.",
+    },
+
+    discussionQuestions: [
+      "Abraham left everything to follow God. What is one thing God might be asking you to leave behind — a habit, a relationship, an attitude — that is holding you back from fully following Him?",
+      "God's promise to Abraham came before the details. Is there an area of your life where God is asking you to trust His promise before you can see His plan?",
+      "Why do you think God chose a 75-year-old man to start a nation? What does this tell you about how God measures readiness?",
+      "Abraham built altars of worship everywhere he camped. What is your personal habit of worship? Do you stop to acknowledge God in your daily journey?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write about one specific area of your life where God is calling you to 'lech-lecha' — to leave something behind and step into the unknown with Him. What are you afraid of leaving? What do you believe God is promising if you obey?",
+      reflection: "Abraham obeyed without knowing where he was going. I do not need to know the full plan — I need to know the One with the plan. Today I choose to trust the God who calls over the comfort of what I already know.",
+    },
+
+    memoryVerse: "By faith Abraham, when he was called to go out into a place which he should after receive for an inheritance, obeyed; and he went out, not knowing whither he went. — Hebrews 11:8",
+    closingPrayer: "Father Abraham's God — You are the same yesterday, today, and forever. You called Abraham out of Ur and into Your purpose, and You are calling me out of my comfort zone into Your plan. Give me the courage to obey Your voice even when I cannot see the destination. Help me to trust Your character more than I trust my own understanding. In Jesus' name, Amen.",
+
+    leaderNote: "Term 2 opens with the greatest model of obedient faith in the Old Testament. Set the tone clearly: this term is not about learning facts about heroes — it is about being formed by their example. The word 'lech-lecha' is a powerful devotional anchor; consider writing it on the board and returning to it throughout the term. Key application: ask teens to identify their own 'Ur' — the comfortable, familiar thing that keeps them from fully obeying God. This is deeply personal and should be handled with pastoral sensitivity.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 15 — ABRAHAM & ISAAC: THE ULTIMATE TEST
+  // ═══════════════════════════════════════════════════
+  {
+    week: 15,
+    title: "Abraham & Isaac: The Ultimate Test",
+    bibleRef: "Genesis 22:1-19, Hebrews 11:17-19",
+    keyVerse: "And he said, Take now thy son, thine only son Isaac, whom thou lovest, and get thee into the land of Moriah; and offer him there for a burnt offering. — Genesis 22:2",
+    theme: "Obedience at Any Cost",
+    term: "Term 2",
+    month: "Apr",
+    icon: "🔥",
+    color: "#B45309",
+
+    hook: "God asked Abraham to do the one thing that seemed to contradict everything God had ever promised him. Sacrifice Isaac — the miracle son, the child of the covenant, the only hope for the nation God had sworn to build. How do you obey a command that seems to cancel all of God's other promises?",
+
+    deepDive: {
+      passage: "Genesis 22:1-19, Hebrews 11:17-19",
+      context: "Genesis 22 is considered one of the most theologically profound and emotionally intense passages in all of Scripture. Abraham is now an old man. Isaac — the miracle son born to a 100-year-old father and 90-year-old mother — is the fulfilment of God's decades-long promise. And then God speaks again, this time with a command that shatters everything: 'Take now thy son, thine only son Isaac, whom thou lovest... and offer him there for a burnt offering.' The text makes no attempt to soften this. God calls Isaac 'thine only son... whom thou lovest.' He knows exactly what He is asking. The test was real. The obedience required was total. What is remarkable is Abraham's response: he rose up early the next morning and began the journey. He did not argue, delay, negotiate, or seek counsel. Hebrews 11:19 reveals the key to his obedience: 'Accounting that God was able to raise him up, even from the dead.' Abraham had so deeply internalized the faithfulness of God that he believed God could fulfil His promises even through resurrection if necessary. He trusted God's character more than he understood God's plan. At the crucial moment, God stopped him, provided a ram caught in the thicket, and named the place 'Jehovah-Jireh' — the LORD will provide. This event is not only the supreme test of Abraham's faith; it is also the supreme prophetic picture of the Father offering His own Son on a cross on that same mountain range two millennia later.",
+      keyPoints: [
+        "The test was designed to reveal what was in Abraham's heart — not to inform God, who already knew. God tests to strengthen, not to discover.",
+        "Abraham's early morning obedience (Genesis 22:3) is significant: he did not wait, deliberate, or delay. Prompt obedience is a mark of genuine faith.",
+        "Isaac carrying the wood up the mountain is a direct type of Christ carrying His cross to Golgotha — on the same mountain range (Moriah / Jerusalem).",
+        "The ram 'caught in a thicket' — thorns on its head — is another type of Christ, the substitute sacrifice who bore the crown of thorns in our place.",
+        "Jehovah-Jireh (the LORD will provide) is not just a historical statement — it is a theological promise for every believer facing impossible circumstances.",
+      ],
+      obedienceLink: "Abraham passed the ultimate test of obedience because his trust in God's character was greater than his love for the gift God had given him. He loved God more than he loved what God had given him. This is the test every believer must eventually face: will you love the Giver more than the gift?",
+    },
+
+    wordStudy: {
+      word: "Nisah",
+      original: "נִסָּה",
+      transliteration: "nisah",
+      strongsNumber: "H5254",
+      language: "Hebrew",
+      definition: "To test, to try, to prove — used of God testing His people to strengthen and reveal their faith",
+      usage: "Genesis 22:1 opens with 'God did tempt (nisah) Abraham' — but the KJV word 'tempt' here carries the meaning of 'test' or 'prove,' not temptation to sin (James 1:13 makes clear God does not tempt to evil). The same root is used in Exodus 20:20 when Moses tells Israel God tests them 'that his fear may be before your faces, that ye sin not.' God's tests are designed to build what they test — like a trainer who pushes an athlete to develop strength.",
+      connection: "Every trial you face as a believer is a 'nisah' — not a punishment, not an accident, but a proving ground that strengthens your faith and reveals what is truly in your heart. James 1:3 confirms: 'the trying of your faith worketh patience.' God tested Abraham at 100 years old — He will test you too. The question is not if but whether you will trust His character through it.",
+      relatedVerses: [
+        "Exodus 20:20 — 'God is come to prove (nisah) you, that his fear may be before your faces, that ye sin not.'",
+        "James 1:2-3 — 'Count it all joy when ye fall into divers temptations; knowing this, that the trying of your faith worketh patience.'",
+        "1 Peter 1:7 — 'That the trial of your faith, being much more precious than of gold that perisheth, though it be tried with fire, might be found unto praise and honour and glory at the appearing of Jesus Christ.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Father Who Let Go",
+      narrative: "Three days. That is how long Abraham walked toward Mount Moriah knowing what God had asked him to do. Three days to think. Three days to remember Isaac's first laugh, his first steps, the impossible morning when Sarah held him for the first time. Three days to wrestle with a command that made no human sense. And yet he kept walking. When they arrived at the foot of the mountain, Abraham told his servants: 'Abide ye here with the ass; and I and the lad will go yonder and worship, and come again to you.' Notice: 'we will come again.' Abraham spoke resurrection faith before he even reached the altar. He did not know how — but he knew the God who could. As they climbed, Isaac asked the question that must have pierced Abraham's heart like a blade: 'Behold the fire and the wood: but where is the lamb for a burnt offering?' Abraham answered with words that echo through four thousand years of history: 'My son, God will provide himself a lamb.' He did not know he was prophesying. He did not know that two thousand years later, on that same mountain range, God the Father would watch His own Son carry wood up a hill — and this time, He would not stop the knife. He would let it fall. Because the ram that was provided for Isaac was only a shadow. The real Lamb was still coming.",
+      moralLesson: "The deepest test of obedience is not whether you will follow God when things make sense — it is whether you will trust Him when they don't. Abraham trusted God's character when he could not understand God's plan. That is the faith that moves mountains.",
+    },
+
+    prophecyConnection: {
+      title: "The Ram and the Lamb of God",
+      otRef: "Genesis 22:8, 22:13-14",
+      otText: "Abraham said, My son, God will provide himself a lamb for a burnt offering... And Abraham lifted up his eyes, and looked, and behold behind him a ram caught in a thicket by his horns: and Abraham went and took the ram, and offered him up for a burnt offering in the stead of his son.",
+      ntRef: "John 1:29, Romans 8:32",
+      ntText: "The next day John seeth Jesus coming unto him, and saith, Behold the Lamb of God, which taketh away the sin of the world. / He that spared not his own Son, but delivered him up for us all, how shall he not with him also freely give us all things?",
+      explanation: "Genesis 22 is one of the most detailed prophetic types in all of Scripture. Isaac = the beloved son freely offered. The ram = the substitute sacrifice. Mount Moriah = the mountain where Solomon later built the Temple, and where Jerusalem stands — the city where Jesus was crucified. The thorns of the thicket = the crown of thorns. Abraham's words 'God will provide himself a lamb' were not just comfort to Isaac — they were prophecy. God provided the ram as a shadow and His own Son as the reality. Romans 8:32 echoes Genesis 22:16 almost word for word: the God who 'spared not his own Son' is the same God who accepted Abraham's offering on that mountain.",
+      status: "Prophetic Type — Fulfilled in Jesus Christ at Calvary",
+    },
+
+    thinkDeeper: {
+      question: "How could a good God ask a father to kill his own son? Isn't that immoral?",
+      challenge: "An atheist says: 'The God of Genesis 22 is a monster — He asked a man to murder his child. I could never worship a God like that.' How would you respond?",
+      hints: [
+        "God stopped Abraham before Isaac was harmed (Genesis 22:12). God never intended Isaac to die — He intended Abraham's heart to be revealed. The test was real; the execution was not.",
+        "God was not asking Abraham to do something He Himself would not do. The Father did not stop the knife when His own Son hung on the cross. Genesis 22 is not the story of divine cruelty — it is the story of divine foreshadowing.",
+        "Context matters: God had already demonstrated His character through decades of covenant faithfulness. Abraham was not obeying a stranger — he was obeying a God whose track record was perfect.",
+      ],
+      conclusion: "Genesis 22 is not evidence of divine cruelty — it is the greatest prophetic preview of divine love in the entire Old Testament. The God who tested Abraham with his son is the same God who gave His own Son without restraint. Understanding the cross transforms how we read this story.",
+    },
+
+    discussionQuestions: [
+      "What is your 'Isaac' — the gift God has given you that you love so much it could become more important to you than God Himself?",
+      "Abraham rose 'early in the morning' to obey (v.3). What does prompt, unhesitating obedience look like in your daily life? Where do you tend to delay?",
+      "Hebrews 11:19 says Abraham 'accounted that God was able to raise him from the dead.' How does your belief in God's power affect your willingness to obey difficult commands?",
+      "Isaac trusted his father even when he was bound and laid on the altar (he was old enough to resist). What does this tell us about the relationship between trust and obedience?",
+    ],
+
+    journalPrompt: {
+      prompt: "Is there something God is asking you to 'lay on the altar' — surrender fully to Him, even though it is precious to you? Write honestly about what it is and what is holding you back from surrender. Then write a prayer of release.",
+      reflection: "Abraham loved Isaac more than anything in the world — except God. The test revealed where his ultimate loyalty lay. I want my ultimate loyalty to be to God, not to His gifts. Today I am choosing to hold loosely the things I love most.",
+    },
+
+    memoryVerse: "By faith Abraham, when he was tried, offered up Isaac: and he that had received the promises offered up his only begotten son. — Hebrews 11:17",
+    closingPrayer: "Jehovah-Jireh — the God who provides. You tested Abraham and found him faithful. You tested him with the thing he loved most, and his love for You was greater. I want that kind of love. Teach me to hold loosely the gifts You have given me and to love the Giver above all. And thank You — that on Mount Calvary, You did not stop the knife. You gave Your Son for me. I will not waste that love. Amen.",
+
+    leaderNote: "This is one of the most emotionally charged lessons of the year. Handle it with care. The key theological insight is the prophetic type: Isaac/ram/Moriah pointing to Christ/Cross/Jerusalem. Help teens see that this is not a story of cruelty but of substitution. The personal application — 'What is your Isaac?' — is powerful but vulnerable. Create a safe space. The journal prompt of surrender is significant; consider giving teens time to write in silence before closing prayer. Note: Hebrews 11:19 is the key interpretive verse — Abraham expected resurrection. He was not acting blindly but with profound theological conviction.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 16 — JOSEPH: OBEDIENT IN SUFFERING
+  // ═══════════════════════════════════════════════════
+  {
+    week: 16,
+    title: "Joseph: Obedient in Suffering",
+    bibleRef: "Genesis 37:1-28, Genesis 39:1-23",
+    keyVerse: "And the LORD was with Joseph, and he was a prosperous man; and he was in the house of his master the Egyptian. — Genesis 39:2",
+    theme: "Integrity Under Pressure",
+    term: "Term 2",
+    month: "Apr",
+    icon: "⛓️",
+    color: "#1D4ED8",
+
+    hook: "Your brothers hate you. They strip your coat off your back, throw you in a pit, and sell you into slavery. Then your boss's wife lies about you and you go to prison for something you didn't do. At what point do you decide God has abandoned you — or do you keep obeying anyway?",
+
+    deepDive: {
+      passage: "Genesis 37:1-28, Genesis 39:1-23",
+      context: "Joseph's story is one of the most complete character studies in the Bible — a 13-year journey from favoured son to slave to prisoner before a single promise was fulfilled. Joseph was the eleventh of twelve sons of Jacob, the favourite child, gifted with prophetic dreams that showed his brothers bowing before him. His brothers' jealousy curdled into hatred, and at age 17, he was stripped of his coat of many colours, thrown into a pit, and sold to Ishmaelite traders for twenty pieces of silver. Taken to Egypt, he was purchased by Potiphar, a high official in Pharaoh's court. In Potiphar's house, Genesis 39 records one of the most important phrases in Joseph's story: 'And the LORD was with Joseph.' This phrase appears four times across chapters 39-41. The Lord was with Joseph in slavery. The Lord was with Joseph in prison. The Lord was with Joseph at the lowest point of his life. Joseph did not experience God's presence as a reward for easy obedience — he experienced it as a companion through unjust suffering. When Potiphar's wife falsely accused him of assault and he was thrown into prison, Joseph could have responded with bitterness, compromise, or revenge. Instead, he remained faithful. He maintained his integrity when it cost him everything. This is not passive endurance — it is active, disciplined obedience to God's character when obedience brings suffering rather than reward.",
+      keyPoints: [
+        "'The LORD was with Joseph' (Genesis 39:2, 3, 21, 23) — God's presence is not a guarantee of comfort; it is a promise of companionship through every season, including the worst ones.",
+        "Joseph refused Potiphar's wife with a theological argument: 'How then can I do this great wickedness, and sin against God?' (39:9). He did not say 'I might get caught' — he said 'I would be sinning against God.' His morality was God-centred, not circumstance-driven.",
+        "Joseph's suffering was a series of injustices he did not deserve — sold by his brothers, falsely accused by Potiphar's wife, forgotten by the cupbearer. Yet at no point does Scripture record him becoming bitter or abandoning his integrity.",
+        "Every low point in Joseph's life was a stepping stone God was using to position him for the next stage of the plan. The pit led to Potiphar's house. Potiphar's house led to prison. Prison led to Pharaoh.",
+        "Obedience in suffering is more powerful than obedience in success — because it demonstrates that your faith is not transactional. You are not obeying for reward; you are obeying because God is worthy.",
+      ],
+      obedienceLink: "Joseph obeyed God's moral standard when disobedience would have been easier, more comfortable, and unreported. He shows us that obedience is not about what you can get away with — it is about who you are when no one is watching except God.",
+    },
+
+    wordStudy: {
+      word: "Tsadiq",
+      original: "צַדִּיק",
+      transliteration: "tsadiq",
+      strongsNumber: "H6662",
+      language: "Hebrew",
+      definition: "Righteous, just, one who is in right standing — a person whose character and conduct conform to God's standard",
+      usage: "Though the word tsadiq is not directly applied to Joseph in Genesis 39, his conduct perfectly embodies it. The righteous person in Hebrew thought was not someone with a perfect record but someone who maintained covenant faithfulness — to God, to their employer, to their community — regardless of personal cost. Joseph's refusal of Potiphar's wife was a tsadiq moment: choosing God's standard over personal pleasure, opportunity, or safety.",
+      connection: "In a culture that defines 'righteous' as 'a good person by general standards,' the Hebrew tsadiq demands more — conformity to God's revealed character and commands. Joseph was tsadiq not because life was easy but because his commitment to God's standard did not flex under pressure. Proverbs 24:16 says 'a just man (tsadiq) falleth seven times, and riseth up again.' Righteousness is not the absence of falling — it is the refusal to stay down.",
+      relatedVerses: [
+        "Proverbs 11:3 — 'The integrity of the upright shall guide them: but the perverseness of transgressors shall destroy them.'",
+        "Psalm 37:25 — 'I have been young, and now am old; yet have I not seen the righteous forsaken, nor his seed begging bread.'",
+        "Matthew 5:10 — 'Blessed are they which are persecuted for righteousness' sake: for theirs is the kingdom of heaven.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Boy Who Kept His Integrity",
+      narrative: "Seventeen years old. Foreign slave. Standing in an Egyptian household, having lost his home, his family, his language, and his freedom. Most people in Joseph's position would have concluded that God's promises were lies and that integrity was a luxury only the free could afford. Joseph concluded the opposite. He worked so faithfully for Potiphar that the Egyptian handed over his entire household to him without oversight. Every single day in Potiphar's house was a choice: to embitter, or to serve. To collapse inward, or to grow outward. Then came the test that cost him everything he had built. Potiphar's wife saw Joseph — a young man who was 'well-favoured and goodly to look to' — and she wanted him. Day after day she propositioned him. Day after day he refused. And then came the day she grabbed his garment, and he ran — leaving the garment in her hand. Running from sin cost him his position, his reputation, and his freedom. He went from the head of a wealthy household to the floor of a prison cell on the word of a liar. And the text says: 'the LORD was with Joseph.' Not 'despite the injustice.' Not 'eventually, after he recovered.' Now. In the prison. In the dark. The presence of God did not depend on the justice of Joseph's circumstances. It depended on the faithfulness of God's character.",
+      moralLesson: "When obedience to God costs you something in this world, it always gains you something more valuable — the presence of God and the formation of a character that circumstances cannot steal. Joseph lost his coat twice and his freedom twice — and gained a soul that no prison could contain.",
+    },
+
+    prophecyConnection: {
+      title: "Joseph — A Type of the Rejected and Exalted Christ",
+      otRef: "Genesis 37:28, 39:20",
+      otText: "Then there passed by Midianites merchantmen; and they drew and lifted up Joseph out of the pit, and sold Joseph to the Ishmaelites for twenty pieces of silver... And Joseph's master took him, and put him into the prison.",
+      ntRef: "Matthew 27:3-5, Acts 2:23-24",
+      ntText: "Then Judas, which had betrayed him, when he saw that he was condemned, repented himself, and brought again the thirty pieces of silver to the chief priests... / Him, being delivered by the determinate counsel and foreknowledge of God, ye have taken, and by wicked hands have crucified and slain: Whom God hath raised up.",
+      explanation: "Joseph is one of the most complete types of Christ in the Old Testament: beloved son of his father, rejected and betrayed by his brothers, sold for pieces of silver, falsely accused, imprisoned with two others (one saved, one condemned), and ultimately exalted to the highest position. As Jesus was betrayed for thirty pieces of silver by Judas and falsely condemned, Joseph was sold for twenty pieces of silver and falsely accused. Both were raised from their lowest point to the position of saviour — Joseph to save Egypt and his family from famine; Jesus to save the world from sin.",
+      status: "Prophetic Type — Fulfilled in Jesus Christ",
+    },
+
+    thinkDeeper: {
+      question: "If God was truly with Joseph, why did he go from a pit to slavery to prison? Why doesn't God protect His people from suffering?",
+      challenge: "A friend going through a hard time says: 'If God is real and loves me, why is He letting this happen?' How would you answer from Joseph's story?",
+      hints: [
+        "God's presence is not the same as God's protection from all hardship. Joseph was with God in the pit, in slavery, and in prison — each of which was a stage God was using for a purpose Joseph could not yet see.",
+        "Suffering in the Bible is rarely explained as punishment. It is often described as preparation. Romans 8:28 — 'all things work together for good to them that love God.' Not some things. All things.",
+        "The alternative — a life of comfort with no trials — produces a character that has never been tested. Gold that has never been through fire is not yet proven gold. God's goal is not our comfort but our character.",
+      ],
+      conclusion: "God does not waste suffering. Joseph's pit, prison, and unjust accusations were not detours from God's plan — they were the road map of God's plan. The question is not 'Why is this happening?' but 'What is God building in me through this?'",
+    },
+
+    discussionQuestions: [
+      "Joseph maintained integrity when no one was watching and when the consequences of integrity were unjust. What area of your life looks different when you think no one is watching?",
+      "Joseph refused Potiphar's wife because sin against his master would be 'sin against God.' How does viewing sin as primarily against God change how you think about your choices?",
+      "Have you ever experienced a time when doing the right thing made things worse, not better? How did you respond? How would you respond differently now?",
+      "'The LORD was with Joseph' — in the pit, in slavery, in prison. What does God's presence mean to you in your own hard seasons? Is it enough?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write about a time when you were treated unfairly or when doing the right thing seemed to backfire. Looking back, can you see any way God was present in that situation? What would you say to your younger self in that moment?",
+      reflection: "Joseph did not know the end of the story while he was living in chapter 39. Neither do I. But God does. Today I choose to trust that 'the LORD is with me' — even in my prison, even in my pit — and that He is working a plan I cannot yet see.",
+    },
+
+    memoryVerse: "And the LORD was with Joseph, and he was a prosperous man; and he was in the house of his master the Egyptian. — Genesis 39:2",
+    closingPrayer: "Lord, I don't always understand why hard things happen to faithful people. I see it in Joseph's story. I sometimes feel it in my own. But Joseph's story shows me that Your presence is not a promise of ease — it is a promise of company through everything. Help me to maintain integrity when it costs me. Help me to trust You in the pit. And help me to remember that You are working a plan that my present circumstances cannot cancel. Amen.",
+
+    leaderNote: "This lesson is deeply personal for teens who have experienced injustice, family dysfunction, or suffering they did not deserve. Approach with pastoral sensitivity. The key truth: God's presence ≠ God's protection from all hardship. Joseph was 'with God' in his worst moments. The faith story deliberately centres on the prison — make sure teens do not spiritually fast-forward to Genesis 45 (next week). The formation of Joseph's character happened in the dark years. This week is about building a theology of suffering before celebrating the victory.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 17 — JOSEPH: GOD'S SOVEREIGN PLAN
+  // ═══════════════════════════════════════════════════
+  {
+    week: 17,
+    title: "Joseph: God's Sovereign Plan",
+    bibleRef: "Genesis 45:1-15, Genesis 50:19-21",
+    keyVerse: "But as for you, ye thought evil against me; but God meant it unto good, to bring to pass, as it is this day, to save much people alive. — Genesis 50:20",
+    theme: "Forgiveness & Sovereignty",
+    term: "Term 2",
+    month: "Apr",
+    icon: "👑",
+    color: "#7C3AED",
+
+    hook: "The brothers who sold you into slavery are now bowing at your feet — and you have the power to destroy them. Would you? Joseph had every human reason to take revenge. Instead, he said five words that changed everything: 'God meant it unto good.' How do you get to a place where you can say that about the worst thing that ever happened to you?",
+
+    deepDive: {
+      passage: "Genesis 45:1-15, Genesis 50:19-21",
+      context: "After 13 years of slavery and imprisonment, Joseph was suddenly elevated from prison to Prime Minister of Egypt in a single day — second only to Pharaoh. The famine he had predicted brought his brothers to Egypt seeking grain. They stood before him, not recognising the teenager they had sold, now a powerful ruler. Joseph had three tests to determine whether his brothers had changed before he revealed himself. When he finally did, the emotion was so intense that he wept so loudly the Egyptians outside heard it. His words are among the most remarkable in Scripture: 'I am Joseph your brother, whom ye sold into Egypt. Now therefore be not grieved, nor angry with yourselves, for God did send me before you to preserve life.' This is not denial of what happened — he names it plainly: 'whom ye sold.' It is not minimisation — the suffering was real. It is a theological reinterpretation of events through the lens of divine sovereignty. Joseph had come to understand something that would have destroyed lesser people: God's sovereignty operates through human sin without endorsing it. The brothers were guilty. Their actions were evil. And God used it all to place exactly the right person in exactly the right position at exactly the right moment to save millions of lives. Genesis 50:20 — spoken after Jacob died and the brothers feared revenge — is the pinnacle: 'Ye thought evil against me; but God meant it unto good.' Human intention and divine intention are both real. Both are named. And God's intention overrides without cancelling human responsibility.",
+      keyPoints: [
+        "Sovereignty and human responsibility coexist in Genesis 50:20 — 'ye meant evil' (human responsibility) 'but God meant it unto good' (divine sovereignty). Both are true simultaneously.",
+        "Joseph's forgiveness was not conditioned on his brothers' repentance — he forgave before they expressed remorse. This is grace that mirrors the gospel.",
+        "Joseph identified God as the author of his journey: 'God did send me before you' (45:7). He did not see 13 years of suffering as random — he saw divine purpose threading through every dark chapter.",
+        "The word 'preserve' (45:7 — 'to save your lives by a great deliverance') anticipates the greatest preservation in history: the salvation of humanity through Christ.",
+        "Forgiveness freed Joseph — not his brothers. Bitterness would have imprisoned him more securely than Potiphar's dungeon ever did.",
+      ],
+      obedienceLink: "Joseph's obedience to God's moral standard through 13 years of suffering was the preparation for his moment of supreme influence. You cannot shortcut the formation process. The character built in the hidden years is the character deployed in the public years.",
+    },
+
+    wordStudy: {
+      word: "Chashab",
+      original: "חָשַׁב",
+      transliteration: "chashab",
+      strongsNumber: "H2803",
+      language: "Hebrew",
+      definition: "To think, to plan, to devise, to reckon, to count — implies intentional design and careful calculation",
+      usage: "Genesis 50:20 uses this word twice: the brothers 'thought' (chashab) evil, but God 'thought' (chashab) it unto good. The same Hebrew word for human scheming is used for divine planning — showing that God's sovereign intention and human sinful intention can operate on the same events simultaneously. This is not a comfortable truth — it is a profound one.",
+      connection: "God is not reacting to your circumstances. He is planning through them. The same word used for the brothers' evil scheming is used for God's redemptive purpose. Your lowest moments are not outside God's plan — they are inside it. Jeremiah 29:11 uses a related concept: 'I know the thoughts (chashab) I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end.'",
+      relatedVerses: [
+        "Jeremiah 29:11 — 'For I know the thoughts (chashab) that I think toward you, saith the LORD, thoughts of peace, and not of evil.'",
+        "Romans 8:28 — 'And we know that all things work together for good to them that love God, to them who are the called according to his purpose.'",
+        "Isaiah 46:10 — 'Declaring the end from the beginning, and from ancient times the things that are not yet done, saying, My counsel shall stand, and I will do all my pleasure.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Moment the Story Made Sense",
+      narrative: "There came a moment when Joseph saw everything from above. Not literally — but theologically. He saw the pit, and he saw Pharaoh's palace. He saw the slave market, and he saw the prison, and he saw the throne. He saw his brothers' treachery, and he saw two years of famine still ahead, and seven years of plenty already stored. And in that moment, the jagged, broken, agonising pieces of his story assembled themselves into a mosaic — and he saw that every piece had been placed by a hand that never dropped one. The evil his brothers did was real. Their guilt was real. The pain of each chapter was real. But so was God's design threaded through every scene. Joseph wept — not from weakness but from the overwhelming recognition that a God who loves with that kind of sovereign intentionality is a God worth every ounce of trust. And then he said the most grace-saturated words in all of Genesis: 'Now therefore be not grieved, nor angry with yourselves.' He was releasing his brothers not because they deserved it but because he had seen enough of God's sovereignty to know that bitterness was a waste of the life God had preserved. Forgiveness was not weakness — it was the fruit of a man who had learned, through 13 years of darkness, that God's plan is bigger than human sin.",
+      moralLesson: "You may not be able to rewrite the painful chapters of your story — but you can choose how to interpret them. Joseph's choice to trust God's sovereignty over his suffering was not naive optimism. It was informed, battle-tested faith. When you can say 'God meant it for good,' you are not minimising the pain — you are maximising the God who redeems it.",
+    },
+
+    prophecyConnection: {
+      title: "The Rejected Brother Who Became the Saviour",
+      otRef: "Genesis 45:4-7",
+      otText: "And Joseph said unto his brethren, Come near to me, I pray you. And they came near. And he said, I am Joseph your brother, whom ye sold into Egypt. Now therefore be not grieved, nor angry with yourselves, for God did send me before you to preserve life.",
+      ntRef: "Acts 7:9-10, Acts 2:36-38",
+      ntText: "And the patriarchs, moved with envy, sold Joseph into Egypt: but God was with him, And delivered him out of all his afflictions, and gave him favour and wisdom in the sight of Pharaoh king of Egypt; and he made him governor over Egypt and all his house. / Therefore let all the house of Israel know assuredly, that God hath made that same Jesus, whom ye have crucified, both Lord and Christ.",
+      explanation: "Stephen's sermon in Acts 7 explicitly identifies Joseph as a type of Christ: the beloved son rejected by his brothers who became the saviour of the very people who rejected him. As Joseph revealed himself to his brothers and said 'I am Joseph,' Jesus will one day be revealed to a world that rejected Him. As Joseph's brothers asked 'What shall we do?' and were met with forgiveness, so on Pentecost Peter's hearers asked 'What shall we do?' — and were met with the forgiveness of Christ. The pattern is unmistakable. The God who worked through Joseph's suffering is the same God who worked through the Cross.",
+      status: "Prophetic Type — Fulfilled in Jesus Christ",
+    },
+
+    thinkDeeper: {
+      question: "If God is sovereign over evil, does that make Him responsible for it? And if He can bring good from evil — why allow the evil in the first place?",
+      challenge: "A friend says: 'If God is in control of everything, then He caused my abuse/suffering. I can't forgive a God like that.' How would you respond?",
+      hints: [
+        "Genesis 50:20 clearly distinguishes between human intention (evil) and divine intention (good). God did not cause the brothers' sin — He overruled it. There is a difference between sovereignty and authorship.",
+        "God's sovereignty does not remove human freedom or responsibility. The brothers were guilty. God used their sin for good — He did not approve of their sin. A judge can use a criminal's testimony to solve a case without approving the crime.",
+        "The question 'Why allow evil?' has no complete answer this side of eternity — but the Cross gives us a partial one. God did not stand at a safe distance from suffering. He entered it, at the cost of His Son.",
+      ],
+      conclusion: "God's sovereignty over suffering is not an explanation — it is a comfort. We may not understand why. But we can trust the character of the God who entered suffering Himself. Joseph could not explain chapter 37 while he lived in chapter 39. But looking back from chapter 45, he could see God's hand on every page.",
+    },
+
+    discussionQuestions: [
+      "Joseph forgave his brothers before they expressed remorse. Is there someone in your life who has wronged you whom you need to forgive — regardless of whether they have apologised?",
+      "Joseph saw God's sovereign hand even in the evil done to him. Is there a painful chapter of your story that you can begin to view through the lens of God's purpose — not minimising the pain, but trusting the Planner?",
+      "How does Genesis 50:20 change the way you pray about difficult circumstances? Instead of asking 'Why is this happening?' what better question could you ask?",
+      "Joseph's integrity during the hidden years prepared him for his public moment of influence. What character is God building in you in your 'hidden years' right now?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write the 'Genesis 50:20' statement over the hardest chapter of your life so far: '[Name of person/event] meant it for evil, but God is meaning it for good, to accomplish [what you can see or imagine].' If you can't fill in the last blank yet, write: 'I don't know yet what God is accomplishing — but I trust that He is.'",
+      reflection: "I may be in chapter 39 of my story right now. But God is already writing chapter 45. He sees the end from the beginning. I choose to trust the Author even when I cannot see the next page.",
+    },
+
+    memoryVerse: "But as for you, ye thought evil against me; but God meant it unto good, to bring to pass, as it is this day, to save much people alive. — Genesis 50:20",
+    closingPrayer: "Sovereign God — You are not surprised by anything that has happened to me. You knew every painful chapter before I lived it. Like Joseph, I choose today to trust Your sovereign goodness over my own limited understanding. Teach me to forgive as Joseph forgave — freely, fully, not because the wrong was small, but because Your grace is large. And help me to see Your hand working in the hard places of my life, bringing good from what was meant for evil. Amen.",
+
+    leaderNote: "This lesson pairs with Week 16 to complete Joseph's story. The key theological tension is sovereignty vs. human responsibility — Genesis 50:20 holds both without resolving the tension into easy answers. Do not try to explain God's sovereignty away or minimise it. Lean into the mystery. The most powerful application is the forgiveness invitation — many teens carry real wounds from real people. The journal prompt is designed to be transformative but must be introduced with care. Consider allowing extended silent writing time. The connection to Acts 7 (Stephen's sermon) plants the seed for how to read the OT as pointing to Christ.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 18 — MOSES: EXCUSES VS. GOD'S CALL
+  // ═══════════════════════════════════════════════════
+  {
+    week: 18,
+    title: "Moses: Excuses vs. God's Call",
+    bibleRef: "Exodus 3:1-4:17, Hebrews 11:24-27",
+    keyVerse: "Come now therefore, and I will send thee unto Pharaoh, that thou mayest bring forth my people the children of Israel out of Egypt. — Exodus 3:10",
+    theme: "Answering God's Call",
+    term: "Term 2",
+    month: "May",
+    icon: "🔥",
+    color: "#DC2626",
+
+    hook: "God appeared to Moses in a burning bush and gave him the most important mission in Israelite history. Moses' response? Five excuses in a row. 'Who am I? What shall I say? What if they don't believe me? I can't speak well. Send someone else.' Sound familiar? When God calls you, what excuses do you make?",
+
+    deepDive: {
+      passage: "Exodus 3:1-4:17, Hebrews 11:24-27",
+      context: "Moses' encounter at the burning bush is one of the most dramatic theophanies — divine appearances — in all of Scripture. Moses was 80 years old, a fugitive shepherd in Midian, having fled Egypt 40 years earlier after killing an Egyptian and being rejected by his own people. He was not seeking a mission. He was tending sheep. And suddenly a bush burns but is not consumed, a voice calls his name, holy ground is established, and God reveals His eternal name: I AM THAT I AM. The mission was staggering: return to Egypt, confront the most powerful ruler in the world, and lead two million enslaved Israelites to freedom. And Moses — who had grown up in Pharaoh's palace, been educated in the finest schools of Egypt, and was described as 'mighty in words and in deeds' (Acts 7:22) — offered five consecutive excuses for why he was not the right man. Each excuse reveals a common human failure: prioritising self-assessment over God's assessment. The pattern of Moses' excuses is instructive: 'Who am I?' (identity objection), 'What shall I say?' (knowledge objection), 'What if they don't believe me?' (credibility objection), 'I am not eloquent' (ability objection), 'Send someone else' (willingness objection). God answered every single one. His answer to all five was essentially the same: I will be with you. The sufficiency of God does not depend on the suitability of the person — it depends on the presence of God with the person.",
+      keyPoints: [
+        "God does not call the equipped — He equips the called. Moses' self-assessed inadequacy was real. God's sufficiency was more real.",
+        "The burning bush — fire that consumed without destroying — was a picture of God's holy presence among His people. His holiness does not destroy those He calls; it commissions them.",
+        "'I AM THAT I AM' (YHWH — Yahweh) is God's covenant name — the eternally self-existent One. He who IS cannot fail to fulfil what He has promised.",
+        "Hebrews 11:24-27 reveals the faith behind Moses' eventual obedience: 'he endured, as seeing him who is invisible.' His faith was in a God he could not fully see.",
+        "God's anger at Moses' final excuse (4:14) is significant — persistent excuse-making in the face of God's call is not humility. It is disobedience dressed as humility.",
+      ],
+      obedienceLink: "Every excuse Moses made was really a statement about himself. Every answer God gave was a statement about God. The call to obedience is always an invitation to stop looking at yourself and start looking at the One who called you.",
+    },
+
+    wordStudy: {
+      word: "Ehyeh",
+      original: "אֶהְיֶה",
+      transliteration: "ehyeh",
+      strongsNumber: "H1961",
+      language: "Hebrew",
+      definition: "I AM, I will be, I exist — the first-person form of the verb 'to be,' expressing eternal self-existence",
+      usage: "Exodus 3:14 — 'And God said unto Moses, I AM THAT I AM: and he said, Thus shalt thou say unto the children of Israel, I AM hath sent me unto you.' Ehyeh is derived from hayah (to be/become). It is an imperfect verb, suggesting ongoing, unceasing existence. God's name does not say 'I WAS' (past tense) or 'I WILL BE' (future tense) — it says 'I AM' — eternally present. This name is intimately linked to the covenant name YHWH (the LORD), which comes from the same root.",
+      connection: "When Moses asked for God's name — essentially asking 'Who are You, and can I trust You?' — God's answer was His eternal self-existence: I AM THE ONE WHO IS. No beginning. No end. No limitation. No dependence on anything outside Himself. The God who called Moses is the God who cannot fail, cannot change, and cannot abandon what He has started. Jesus claimed this same name in John 8:58: 'Before Abraham was, I AM' — identifying Himself as the same I AM who spoke from the burning bush.",
+      relatedVerses: [
+        "John 8:58 — 'Jesus said unto them, Verily, verily, I say unto you, Before Abraham was, I am.'",
+        "John 14:6 — 'I am the way, the truth, and the life' — one of seven 'I AM' statements in John's Gospel.",
+        "Revelation 1:8 — 'I am Alpha and Omega, the beginning and the ending, saith the Lord, which is, and which was, and which is to come, the Almighty.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Reluctant Voice That Changed History",
+      narrative: "Moses had everything a man could lose: a royal education, a future as Egypt's next great leader, a place of honour in the most powerful kingdom on earth. He threw it all away in a moment of rash justice — killing an Egyptian abuser, fleeing into the desert, spending 40 years as a shepherd in Midian. By the time God appeared at the burning bush, Moses had spent four decades concluding that his life was finished, his calling missed, his usefulness spent. He was eighty years old. He was tending someone else's sheep on the far side of the wilderness. He was nobody. And then the bush burned — and did not burn up. And God said: 'Moses, Moses.' Two syllables that changed the world. God did not appear to the young, gifted, confident Moses of 40 years earlier. He appeared to the broken, humbled, self-disqualified Moses of the wilderness — because this Moses had been through enough to know that the mission could not be accomplished in human strength. Every excuse Moses made was real. He genuinely felt inadequate. He genuinely could not see how the plan would work. And God — with patient, persistent grace — answered every one. Not because Moses finally talked himself into it. Not because he ran out of objections. But because eventually, the weight of God's call was greater than the weight of Moses' fear. And he went.",
+      moralLesson: "God's call does not wait for you to feel ready. It waits for you to trust the One who is sending you. Moses was most usable when he was most aware of his own insufficiency — because then God's power would get the credit, not Moses' ability.",
+    },
+
+    prophecyConnection: {
+      title: "The Prophet Like Moses — Jesus Christ",
+      otRef: "Deuteronomy 18:15, 18",
+      otText: "The LORD thy God will raise up unto thee a Prophet from the midst of thee, of thy brethren, like unto me; unto him ye shall hearken... I will raise them up a Prophet from among their brethren, like unto thee, and will put my words in his mouth; and he shall speak unto them all that I shall command him.",
+      ntRef: "Acts 3:22-23, John 1:21, John 6:14",
+      ntText: "For Moses truly said unto the fathers, A prophet shall the Lord your God raise up unto you of your brethren, like unto me; him shall ye hear in all things whatsoever he shall say unto you. / And they asked him, What then? Art thou Elias? And he saith, I am not. Art thou that prophet? And he answered, No. / Then those men, when they had seen the miracle that Jesus did, said, This is of a truth that prophet that should come into the world.",
+      explanation: "Moses himself predicted a coming Prophet greater than himself (Deuteronomy 18:15) — one whom Israel must obey. The New Testament explicitly identifies this Prophet as Jesus Christ (Acts 3:22). The parallels are intentional: Moses was born under a death sentence (Pharaoh's decree) — so was Jesus (Herod's massacre). Moses spent time in exile and returned — so did Jesus (Egypt, Matthew 2:15). Moses gave the Law from a mountain — Jesus gave the new law from a mountain (Sermon on the Mount). Moses interceded for rebellious Israel — Jesus intercedes at the right hand of the Father.",
+      status: "Direct Prediction — Fulfilled in Jesus Christ",
+    },
+
+    thinkDeeper: {
+      question: "Is there a difference between godly humility ('I am not worthy/able') and disguised disobedience ('I don't want to / I'm afraid')?",
+      challenge: "A Christian teen says: 'I don't share my faith because I'm not good enough at explaining it. I'll wait until I know more.' Is this humility or an excuse?",
+      hints: [
+        "God answered every one of Moses' excuses with a promise of His presence: 'Certainly I will be with thee' (3:12), 'I will teach you what to say' (4:12). If God's presence and help are promised, what excuse remains?",
+        "The difference between humility and excuse-making: humility says 'I cannot do this without God.' Excuse-making says 'Therefore I won't do it at all.' Humility leans into God's strength; excuses retreat from it.",
+        "1 Corinthians 1:27-28 — 'God hath chosen the weak things of the world to confound the things which are mighty.' God specifically chooses inadequate people so that the results cannot be credited to human ability.",
+      ],
+      conclusion: "Godly humility agrees with God's assessment of our weakness AND God's assessment of His sufficiency. Excuses agree with the first half but reject the second. When you say 'I can't' but God says 'I will be with you' — the conversation is over. The next move is obedience.",
+    },
+
+    discussionQuestions: [
+      "Which of Moses' five excuses do you identify with most? What is the specific 'I can't' that holds you back from full obedience to God?",
+      "God answered every excuse Moses made. What is God's answer to your specific excuse? (Search Scripture — He has probably already answered it.)",
+      "Moses spent 40 years in the wilderness being humbled before God could use him. Is there an area of your life where God might be using a 'wilderness season' to prepare you?",
+      "Hebrews 11:27 says Moses 'endured, as seeing him who is invisible.' What does it look like to live with that kind of spiritual sight today — making decisions based on the unseen God rather than visible circumstances?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write out your personal list of excuses for not fully following God — the 'but I...' statements you give Him. Then, next to each one, write what you think God's answer would be based on Scripture. End with a response to God: 'Lord, despite my [biggest excuse], I choose to obey because...'",
+      reflection: "Moses' excuses were answered by God's presence. My excuses are answered by the same God. The question is not whether I am capable — it is whether God is with me. And He is. So my excuses are overcome.",
+    },
+
+    memoryVerse: "Now therefore go, and I will be with thy mouth, and teach thee what thou shalt say. — Exodus 4:12",
+    closingPrayer: "I AM — the God who was and is and always will be. You did not need Moses' eloquence, his confidence, or his perfection. You needed his yes. Lord, I give You my yes today. Not because I feel ready, not because I have it figured out, but because You have said 'I will be with you.' That is enough. Take my excuses and replace them with Your presence. In the name of Jesus, who is the I AM made flesh, Amen.",
+
+    leaderNote: "The five excuses of Moses are deeply relatable to teenagers who feel inadequate, overlooked, or disqualified. This lesson is a powerful antidote to the paralysis of self-doubt. Key pastoral application: help teens distinguish between genuine humility (which God honours and equips) and disguised fear/disobedience (which God patiently but firmly challenges). The word study on 'Ehyeh' is rich — take time with it. The connection to Jesus' 'I AM' statements in John's Gospel is a powerful NT bridge. Consider ending with a time of personal prayer where teens tell God their specific excuse and listen for His answer.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 19 — THE EXODUS & THE PASSOVER LAMB
+  // ═══════════════════════════════════════════════════
+  {
+    week: 19,
+    title: "The Exodus & the Passover Lamb",
+    bibleRef: "Exodus 12:1-30, 1 Corinthians 5:7",
+    keyVerse: "For even Christ our passover is sacrificed for us. — 1 Corinthians 5:7",
+    theme: "Redemption Through Substitution",
+    term: "Term 2",
+    month: "May",
+    icon: "🐑",
+    color: "#065F46",
+
+    hook: "Death was moving through Egypt that night. Every firstborn — from Pharaoh's palace to the prison cell — would die. But there was one way to be spared: a lamb, slain, its blood painted on the doorposts. The angel of death would see the blood and pass over that house. Two thousand years later, John the Baptist pointed to Jesus and said: 'Behold the Lamb of God.' What is the connection?",
+
+    deepDive: {
+      passage: "Exodus 12:1-30, 1 Corinthians 5:7",
+      context: "The Passover is the foundational redemptive event of the Old Testament — the moment that defines Israel's identity as a people saved by God's grace through the substitutionary death of an innocent lamb. After nine devastating plagues, Pharaoh refused to release Israel. The tenth plague — the death of every firstborn — would break him. But God provided an escape: each Israelite household was to select a lamb on the tenth day of the month, keep it for four days, then slaughter it at evening on the fourteenth day. The lamb had to be without blemish — a male of the first year. Its blood was to be applied to the two doorposts and the upper lintel of the house with a branch of hyssop. They were to roast the lamb with fire and eat it that night, fully dressed and ready to depart. When the angel of death passed through Egypt, he would see the blood and pass over that house. The protection was not in the quality of the family inside — it was in the blood on the door. A wicked Israelite who applied the blood was safe. A righteous Egyptian who did not was not. Salvation was by blood, not by personal merit. Paul makes the interpretation explicit in 1 Corinthians 5:7: 'For even Christ our passover is sacrificed for us.' Jesus is the Lamb — without blemish, slain, His blood applied to the doorposts of the heart. The Exodus is not just history — it is the gospel in preview.",
+      keyPoints: [
+        "The lamb had to be 'without blemish' (12:5) — a perfect, spotless substitute. Jesus, the sinless Son of God, is the only one who qualifies as the perfect Lamb.",
+        "The blood had to be applied — it was not enough that the lamb died. The blood had to be placed on the doorpost. Knowing about the Lamb is not the same as applying His blood by faith.",
+        "Hyssop — a small, common plant — was used to apply the blood (12:22). Hyssop appears again at the Cross: 'they filled a spunge with vinegar, and put it upon hyssop, and put it to his mouth' (John 19:29). The same plant that applied the Passover blood was present at Calvary.",
+        "The Passover lamb was killed on the fourteenth of Nisan — the same day Jesus was crucified, according to the Synoptic chronology. The timing is not accidental.",
+        "The command to remember the Passover annually (12:14) was institutionalised as the Lord's Supper in the New Testament — same event, fulfilled sacrifice.",
+      ],
+      obedienceLink: "Obedience to God's Passover instructions required an act of faith that seemed foolish to onlookers — slaughtering a lamb and painting blood on your doorposts. But salvation has always operated the same way: trust and obey the provision God has made, even when it does not make sense by human logic.",
+    },
+
+    wordStudy: {
+      word: "Pesach",
+      original: "פֶּסַח",
+      transliteration: "pesach",
+      strongsNumber: "H6453",
+      language: "Hebrew",
+      definition: "Passover — to pass over, to spare, to leap over, to protect",
+      usage: "The word 'pesach' in Exodus 12:11-13 carries the idea of God actively protecting those who are sheltered under the blood. It is not merely that the angel 'skipped over' the house — he saw the blood and actively passed over, protecting the household. The Passover was not a passive event; it was an active divine protection triggered by the presence of the substitutionary blood.",
+      connection: "God does not 'pass over' our sin — He punishes it. But when the blood of the Lamb is applied by faith, the punishment falls on the substitute instead of on us. This is substitutionary atonement — the heart of the gospel. Jesus did not 'skip over' our sin; He absorbed its full penalty so that God's justice could be satisfied and God's mercy could be applied to all who trust in the blood of the Lamb.",
+      relatedVerses: [
+        "John 1:29 — 'Behold the Lamb of God, which taketh away the sin of the world.'",
+        "1 Peter 1:18-19 — 'Ye were not redeemed with corruptible things, as silver and gold... But with the precious blood of Christ, as of a lamb without blemish and without spot.'",
+        "Revelation 5:12 — 'Worthy is the Lamb that was slain to receive power, and riches, and wisdom, and strength, and honour, and glory, and blessing.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Night That Changed Everything",
+      narrative: "Imagine the night of the first Passover. Darkness fell over Egypt like a shroud. In Israelite homes, the smell of roasting lamb filled the air. Families huddled together, fully dressed, sandals on their feet, staffs in their hands — ready to move at a moment's notice. Children were awake, asking questions. What is happening? Why are we eating so quickly? Why is there blood on the door? And the fathers answered the question that would be asked at every Passover for the next three and a half thousand years: 'Because we were slaves, and God is delivering us tonight. Because an innocent lamb died in our place. Because when death comes to our street, it will see the blood and pass over our house.' They did not know that the questions their children were asking would echo into a night in an upper room, two thousand years later, when Jesus took bread and wine and said: 'This is my body, broken for you. This is my blood of the new covenant, shed for the remission of sins.' They did not know that the Passover they were celebrating was a rehearsal — that the real Lamb was still coming, that He would be selected four days before His death (just as the lamb was selected on the tenth and killed on the fourteenth), that He would die without a bone broken (John 19:36, echoing Exodus 12:46), and that His blood would be the only covering sufficient to make death itself pass over — not just for one nation on one night, but for every human soul across all of history who trusts in His name.",
+      moralLesson: "The Passover lamb was not a good idea or a religious ritual — it was a rescue. Salvation has always been by blood, by grace, through faith in God's provision. You cannot earn your way past the angel of judgment. You can only shelter under the blood of the Lamb.",
+    },
+
+    prophecyConnection: {
+      title: "The Passover Lamb Fulfilled at Calvary",
+      otRef: "Exodus 12:5, 12:46",
+      otText: "Your lamb shall be without blemish, a male of the first year... Neither shall ye break a bone thereof.",
+      ntRef: "John 19:33-36, 1 Corinthians 5:7",
+      ntText: "But when they came to Jesus, and saw that he was dead already, they brake not his legs... For these things were done, that the scripture should be fulfilled, A bone of him shall not be broken. / For even Christ our passover is sacrificed for us.",
+      explanation: "The precision of the prophetic type is staggering. The Passover lamb specifications in Exodus 12 function as a detailed description of the crucifixion: without blemish (Jesus was sinless), a male of the first year (Jesus in his prime), slain at evening between the two evenings (Jesus died at approximately 3pm on Passover day), no bone broken (verified at the Cross when soldiers broke the legs of the two thieves but not Jesus) — an action John explicitly notes as fulfilment of Exodus 12:46. Paul calls Jesus 'our passover' without qualification. The Exodus Passover was not symbolically similar to Calvary — it was Calvary in prophetic preview.",
+      status: "Detailed Prophetic Type — Fulfilled at Calvary with surgical precision",
+    },
+
+    thinkDeeper: {
+      question: "Why does Christianity insist on blood? Couldn't God just forgive without a sacrifice? Why is the cross necessary?",
+      challenge: "A Muslim classmate says: 'In Islam, God simply forgives when you repent. Christianity's idea of God needing a blood sacrifice sounds barbaric.' How would you explain the cross?",
+      hints: [
+        "The question is not whether God can forgive — it is whether justice can be satisfied. A judge who simply releases every criminal, regardless of guilt, is not merciful — he is corrupt. God's forgiveness must satisfy His justice, not bypass it.",
+        "The sacrifice is not about God needing blood — it is about sin having a consequence (death, Romans 6:23) and a substitute bearing that consequence in our place. This is not barbarism — it is mercy.",
+        "God did not require someone else to die instead of demanding justice. God Himself entered the story and paid the price: 'God was in Christ, reconciling the world unto himself' (2 Corinthians 5:19). The Judge became the sacrifice.",
+      ],
+      conclusion: "The cross is not a pagan blood sacrifice appeasing an angry deity — it is God's own justice and God's own mercy meeting at the same point. The Judge entered the dock. The Creator paid the debt of the creature. Far from being barbaric, the cross is the most morally coherent act in the universe.",
+    },
+
+    discussionQuestions: [
+      "The Passover blood protected regardless of the moral quality of the family inside — it was about the blood on the door, not the goodness of the people. How does this reshape your understanding of salvation by grace?",
+      "The lamb was slain and the blood was applied — knowing about the lamb was not enough. In your life, have you applied the blood of Jesus by personal faith, or do you only know about it?",
+      "Why do you think God chose the image of a lamb — gentle, innocent, vulnerable — to represent His Son? What does this reveal about the nature of salvation?",
+      "The Lord's Supper (communion) is a continuation of the Passover celebration. Does knowing the deep OT roots of communion change how you participate in it?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write a reflection on this question: Am I sheltered under the blood of the Lamb — personally, by faith — or am I simply aware of Christianity as a religion? If you have never personally trusted Christ as your Passover Lamb, write a prayer of surrender and trust today.",
+      reflection: "The lamb died so that I might live. That is the gospel in one sentence. Not my goodness, not my efforts, not my religion — the Lamb's blood, applied by faith. I want to live my entire life in the shelter of that blood.",
+    },
+
+    memoryVerse: "For even Christ our passover is sacrificed for us. — 1 Corinthians 5:7",
+    closingPrayer: "Lamb of God, You take away the sin of the world. You are the Passover Lamb that Egypt's Passover only previewed. Your blood is on the doorpost of my heart by faith. Death has no claim on me — not because I am good, but because You are perfect. Thank You that I did not need to be worthy — I only needed to trust in the One who was. Receive my worship, O Lamb who was slain and who lives forever. Amen.",
+
+    leaderNote: "This lesson is the theological centrepiece of Term 2. The Passover is the richest single event in the Old Testament for understanding the gospel. Take extra time with the prophetic connection — the precision of detail (no broken bones, timing, hyssop, selection on the 10th) is compelling evidence for the divine authorship of Scripture. The apologetics section on 'why blood?' is one teens frequently encounter — prepare well. Consider incorporating the Lord's Supper/communion into this session if church context allows. Journal prompt is an evangelistic invitation — handle with care and pastoral sensitivity. Some teens may respond in genuine faith for the first time.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 20 — THE TEN COMMANDMENTS: GOD'S STANDARD
+  // ═══════════════════════════════════════════════════
+  {
+    week: 20,
+    title: "The Ten Commandments: God's Standard",
+    bibleRef: "Exodus 20:1-17, Matthew 22:37-40",
+    keyVerse: "Jesus said unto him, Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the first and great commandment. — Matthew 22:37-38",
+    theme: "God's Moral Law",
+    term: "Term 2",
+    month: "May",
+    icon: "📜",
+    color: "#1E40AF",
+
+    hook: "The Ten Commandments have been the moral foundation of Western civilisation for three thousand years. Courtrooms, governments, and societies have built their ethics on them. But here is the question no one asks: if you love God with all your heart and your neighbour as yourself — do you even need the other eight? Jesus said so. What does that tell you about what the Law was actually trying to produce?",
+
+    deepDive: {
+      passage: "Exodus 20:1-17, Matthew 22:37-40",
+      context: "Three months after the Exodus, Israel arrived at Mount Sinai. God summoned Moses to the mountain in the midst of thunder, lightning, thick cloud, and a loud trumpet blast — a theophany designed to establish in Israel's consciousness the absolute holiness and authority of the God who was speaking. The Ten Commandments (Hebrew: 'Aseret ha-Devarim' — the Ten Words) are unique in Scripture: they alone were spoken directly by God to the entire nation, and written by the finger of God on stone tablets. They are not ten arbitrary rules — they are a structured revelation of God's character and the moral fabric of a community in relationship with a holy God. The first four commandments govern the vertical relationship (God and humanity): no other gods, no idols, no misuse of God's name, sabbath rest. The last six govern the horizontal relationship (person to person): honour parents, no murder, no adultery, no theft, no false witness, no coveting. When Jesus was asked for the greatest commandment, He summarised all ten in two: love God fully, love your neighbour as yourself. He was not replacing the Law — He was revealing its heart. The purpose of the Law was never mere rule-keeping; it was the formation of a people who love God and others the way God intended.",
+      keyPoints: [
+        "The Ten Commandments begin with identity, not instruction: 'I am the LORD thy God, which have brought thee out of the land of Egypt, out of the house of bondage.' Obedience flows from relationship, not the reverse.",
+        "The commandments are not a ladder to earn God's favour — they are a mirror that reveals our moral failure and our need for grace (Romans 3:20, 7:7).",
+        "The first four commands establish the priority of God: exclusivity (no other gods), spirituality (no idols), reverence (his name), and rhythm (sabbath). All four flow from the acknowledgment that God is supreme.",
+        "Jesus's two great commandments (Matthew 22:37-40) do not abolish the Ten but fulfil them — a person who truly loves God and neighbour will naturally keep all ten.",
+        "Paul writes in Romans 13:10: 'Love is the fulfilling of the law.' The goal of the Law was always love — God wanted a people whose hearts were so aligned with His that obedience flowed naturally from their love.",
+      ],
+      obedienceLink: "The Law was given after the Exodus — after redemption, not before it. Israel was not saved by keeping the Law; they were saved first and then given the Law as a guide for living in covenant relationship. Obedience to God's commands is always the response to grace, not the means of obtaining it.",
+    },
+
+    wordStudy: {
+      word: "Torah",
+      original: "תּוֹרָה",
+      transliteration: "torah",
+      strongsNumber: "H8451",
+      language: "Hebrew",
+      definition: "Law, instruction, teaching, direction — from the root 'yarah,' meaning to aim, to direct, to teach",
+      usage: "Torah is commonly translated 'law' but the concept is richer than legal code. It means divine instruction or teaching — the direction God gives to help His people live well. The Torah is not primarily a list of prohibitions; it is a gift of wisdom and direction from a Father to His children. Psalm 119 is the longest chapter in the Bible, and every verse celebrates the Torah as a treasure, a delight, and a lamp to the feet.",
+      connection: "When you see the Law as Torah — divine instruction from a loving Father — it changes everything. A curfew from a parent who loves you and a curfew from a warden are structurally identical rules but emotionally entirely different. God's commands are Torah: a Father's instruction to children He loves, given to help them flourish in a world He designed. Psalm 119:97 — 'O how love I thy law! it is my meditation all the day.'",
+      relatedVerses: [
+        "Psalm 119:97-100 — 'O how love I thy law! it is my meditation all the day... I have more understanding than all my teachers: for thy testimonies are my meditation.'",
+        "Romans 7:12 — 'Wherefore the law is holy, and the commandment holy, and just, and good.'",
+        "Galatians 3:24 — 'Wherefore the law was our schoolmaster to bring us unto Christ, that we might be justified by faith.'",
+      ],
+    },
+
+    faithStory: {
+      title: "Words Written by the Finger of God",
+      narrative: "The people of Israel stood at the foot of Mount Sinai and trembled. The mountain was shaking. Lightning cracked across the sky. Smoke billowed from the peak like a furnace. The thunder was not natural — it was the voice of the living God. They had seen the plagues of Egypt. They had walked through the Red Sea on dry ground. They had eaten bread that appeared from the sky and drunk water from a rock. They knew this was a God who acted in history with power unlike anything the world had ever seen. And now He was speaking — not to a king, not to a priest, not to a philosopher — but to them. A nation of slaves, many of whom had never read a word in their lives, had just received the moral framework of the universe, spoken directly by God and written by His own finger on stone. The giving of the Law at Sinai was not a burden being dropped on a free people — it was a covenant being extended to a delivered people. 'I am the LORD your God, who brought you out of Egypt, out of the house of slavery' came before the first commandment. God said who He was and what He had done before He asked anything of them. He established the relationship before He described its responsibilities. This is the grammar of grace: God acts first, then calls His people to respond. The Law is not the condition of salvation — it is the shape of the life that salvation produces.",
+      moralLesson: "The Ten Commandments are not a test to pass — they are a description of a life transformed by love for God and neighbour. When Jesus said 'Love God, love your neighbour,' He was not making the Law simpler — He was revealing its deepest purpose. The Law was always meant to produce love.",
+    },
+
+    prophecyConnection: {
+      title: "The New Covenant: Law Written on the Heart",
+      otRef: "Jeremiah 31:31-33",
+      otText: "Behold, the days come, saith the LORD, that I will make a new covenant with the house of Israel, and with the house of Judah... I will put my law in their inward parts, and write it in their hearts; and will be their God, and they shall be my people.",
+      ntRef: "Hebrews 8:10, 2 Corinthians 3:3",
+      ntText: "For this is the covenant that I will make with the house of Israel after those days, saith the Lord; I will put my laws into their mind, and write them in their hearts: and I will be to them a God, and they shall be to me a people. / Ye are manifestly declared to be the epistle of Christ ministered by us, written not with ink, but with the Spirit of the living God; not in tables of stone, but in fleshy tables of the heart.",
+      explanation: "The Ten Commandments were written on stone — external, durable, unyielding. Jeremiah prophesied a New Covenant in which God would write His law not on stone but on hearts — from the inside out. Paul confirms that this has been fulfilled through the Holy Spirit: the law that was external and demanding becomes internal and transforming when the Spirit of God indwells a believer. The New Covenant does not abolish the Law's moral standard — it relocates it. The goal has always been a people who love God fully and neighbour truly. The Holy Spirit makes that possible from within.",
+      status: "Direct Prophetic Prediction — Fulfilled in the New Covenant through the Holy Spirit",
+    },
+
+    thinkDeeper: {
+      question: "If Christians are 'under grace, not law' (Romans 6:14), do the Ten Commandments still apply? Are Christians free to steal, murder, or commit adultery?",
+      challenge: "A classmate says: 'I thought Christians don't have to follow the Old Testament rules anymore. So why do you care about the Ten Commandments?' How do you answer?",
+      hints: [
+        "Grace does not abolish the moral law — it fulfils it from within. Romans 8:4 says the Spirit enables believers to fulfil 'the righteousness of the law.' Grace produces what the law demanded.",
+        "The ceremonial law (sacrifices, food laws, feast days) has been fulfilled and replaced by Christ. The moral law (love God, love neighbour) is eternal — Jesus said he did not come to abolish the Law but to fulfil it (Matthew 5:17).",
+        "Nine of the Ten Commandments are explicitly repeated in the New Testament (the Sabbath command is the one discussed differently — see Colossians 2:16-17, Romans 14:5). The moral framework is unchanged.",
+      ],
+      conclusion: "Christians are not under the Law as a means of salvation. We are under grace. But grace produces a life that fulfils the Law's moral standard through love — not one that ignores it. A person who truly loves God and neighbour does not need a rule against murder. But the law is still right.",
+    },
+
+    discussionQuestions: [
+      "Which of the Ten Commandments do you find most challenging personally — and why? Be honest.",
+      "Jesus said the greatest commandments are to love God and love your neighbour. Rate yourself honestly from 1-10 on each. What would it look like to move one point higher this week?",
+      "The Law was given after the Exodus — after redemption, not as a means of it. How does this change the way you think about obeying God? Are you obeying to earn His love or in response to it?",
+      "If someone could see your daily life — what you look at, what you say, what you think — which of the Ten Commandments would they say you most consistently break? What needs to change?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write out all Ten Commandments from memory (check Exodus 20 afterward). For each one, write one word describing your consistency in that area: Strong, Growing, or Struggling. Then pick the one in the 'Struggling' category that you want to work on this month and write a specific, practical plan for how you will grow.",
+      reflection: "The Law is not my enemy — it is my mirror and my guide. It shows me where I fall short (Romans 3:20) and points me to the grace that covers my failures and the Spirit that can transform my heart. I am not trying to earn God's love. I am learning to live in it.",
+    },
+
+    memoryVerse: "Jesus said unto him, Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the first and great commandment. — Matthew 22:37-38",
+    closingPrayer: "Holy God — You wrote Your law in stone so that we would know Your standard. You wrote it in the heart of Your Son so that He could fulfil it perfectly. And now You write it by Your Spirit in our hearts so that we can live it out of love, not fear. Forgive me where I have broken Your commandments. Fill me with Your Spirit so that Your law becomes my delight, not my burden. Amen.",
+
+    leaderNote: "This lesson provides the theological grounding for Christian ethics. Key tensions to address: (1) Law vs. grace — these are not opposites but partners. (2) Which commandments still apply — moral vs. ceremonial distinction. Help teens see the Law as Torah (loving instruction) rather than a cold legal code. The journal exercise of rating themselves is vulnerable but powerful — create safety. The key insight from Matthew 22: Jesus did not replace the Ten Commandments with two easier ones. He revealed that love for God and neighbour is the root from which all ten grow.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 21 — JOSHUA: COURAGE TO LEAD
+  // ═══════════════════════════════════════════════════
+  {
+    week: 21,
+    title: "Joshua: Courage to Lead",
+    bibleRef: "Joshua 1:1-9, Joshua 24:14-15",
+    keyVerse: "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest. — Joshua 1:9",
+    theme: "Courageous Obedience",
+    term: "Term 2",
+    month: "May",
+    icon: "⚔️",
+    color: "#15803D",
+
+    hook: "Moses is dead. Forty years of wandering are over. Two million people are camped on the edge of the Promised Land, and God tells Joshua: 'You're in charge now. Go take it.' The land is full of walled cities and battle-hardened armies. God's only instruction? 'Be strong and courageous.' Three times. What does that tell you about the nature of the mission — and the nature of faith?",
+
+    deepDive: {
+      passage: "Joshua 1:1-9, Joshua 24:14-15",
+      context: "Joshua was Moses' right-hand man for 40 years — he had seen every miracle, every rebellion, every moment of both Israel's faithlessness and God's faithfulness. When Moses died, Joshua did not inherit a clean situation. He inherited a people who had a 40-year track record of grumbling, idolatry, and disobedience, and he inherited a mission that required crossing a flooded river, defeating fortified cities, and claiming land occupied by multiple powerful nations. Joshua was human — he needed encouragement. God's opening commission to him is remarkable for its repetition: 'be strong and of a good courage' appears three times in nine verses (1:6, 7, 9). God does not command courage because Joshua already had it in abundance — He commands courage because the mission required more than natural boldness. God-commanded courage is different from human bravado: it is not the absence of fear but the choice to act on God's word in the presence of fear. The source of Joshua's courage was not his personal strength but the promise of God's presence: 'the LORD thy God is with thee whithersoever thou goest' (1:9). God also gave Joshua the key to success: meditate on the Law day and night, observe to do all that is written therein. Courage and obedience to God's Word are inseparable in Joshua 1. At the end of his life, Joshua issued the most famous leadership challenge in the Old Testament: 'Choose you this day whom ye will serve... but as for me and my house, we will serve the LORD' (24:15). He embodied what he commanded.",
+      keyPoints: [
+        "'Be strong and courageous' is a command, not a feeling. Courage is not waiting until fear is gone — it is obeying God in the presence of fear.",
+        "God's formula for success (1:8): meditate on the Word day and night + observe to do all that is written = prosperous and good success. The path to success is obedience to God's Word, not strategy or strength.",
+        "Joshua 24:15 — 'choose you this day whom ye will serve' — is a leadership declaration. Leaders do not just make decisions for themselves; their choices influence the communities they lead.",
+        "Joshua went from being Moses' assistant for 40 years to becoming Israel's leader — proving that faithfulness in the small role prepares you for the large one.",
+        "Rahab the harlot (Joshua 2, 6) — a Canaanite outsider — was saved by faith, joined Israel, and appears in the genealogy of Jesus Christ (Matthew 1:5). God's grace extends to the unexpected.",
+      ],
+      obedienceLink: "Joshua's courage was not self-generated — it was commanded by God and sustained by God's promise of presence. When God calls you to something beyond your natural courage, He is not asking you to manufacture bravery. He is asking you to trust that His presence changes the equation.",
+    },
+
+    wordStudy: {
+      word: "Chazaq",
+      original: "חָזַק",
+      transliteration: "chazaq",
+      strongsNumber: "H2388",
+      language: "Hebrew",
+      definition: "To be strong, to strengthen, to seize, to hold fast, to prevail — implies an active, deliberate laying hold of strength",
+      usage: "Joshua 1:6-9 uses chazaq three times ('be strong'). This is not passive strength — it is an active, volitional choice to lay hold of strength that is available. The same word is used when Elijah was told 'Arise and eat; because the journey is too great for thee' (1 Kings 19:7) — God did not remove the challenge; He provided the sustenance to face it. Chazaq implies that strength is something you deliberately access, not passively wait for.",
+      connection: "God does not tell Joshua to feel strong — He tells him to be strong. There is a difference. Feeling strong is an emotion; being strong is a choice. The source of the strength is always God — but the accessing of it requires an act of will. Philippians 4:13 — 'I can do all things through Christ which strengtheneth me' — is the New Testament equivalent of chazaq. It is not passivity but active trust in an available Source of strength.",
+      relatedVerses: [
+        "Isaiah 41:10 — 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen (chazaq) thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.'",
+        "Philippians 4:13 — 'I can do all things through Christ which strengtheneth me.'",
+        "2 Timothy 2:1 — 'Thou therefore, my son, be strong in the grace that is in Christ Jesus.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Man Who Chose Obedience Over Opinion",
+      narrative: "When the twelve spies returned from Canaan, ten of them brought a report that paralysed a nation: 'We were in our own sight as grasshoppers, and so we were in their sight.' Only Caleb and Joshua saw the same giants, the same walled cities, the same armies — and drew a different conclusion: 'The LORD is with us: fear them not.' They were almost stoned for their faith. The nation chose the grasshopper report over the faith report — and paid for it with 40 years of wandering. Joshua spent those 40 years serving Moses faithfully, leading battles when called, watching an entire generation die in the wilderness, waiting for a promise that kept being delayed by other people's disobedience. And then God said: now. Joshua had earned the right to lead — not by ambition, not by political maneuvering, but by forty years of faithful service in someone else's shadow. The man who would lead Israel into the Promised Land was the one who had refused to see himself as a grasshopper when God said he was a warrior. Courage is not the absence of opposition. It is the refusal to let the opposition's report become your identity.",
+      moralLesson: "Joshua 24:15 — 'as for me and my house, we will serve the LORD' — is a declaration made after a lifetime of consistent choices. You don't make that kind of declaration on a good day. You make it because every hard day before it formed a man who cannot imagine any other choice.",
+    },
+
+    prophecyConnection: {
+      title: "Joshua (Yeshua) — The Name and the Type",
+      otRef: "Joshua 1:1-2, Numbers 13:16",
+      otText: "Now after the death of Moses the servant of the LORD it came to pass, that the LORD spake unto Joshua the son of Nun, Moses' minister, saying, Moses my servant is dead; now therefore arise, go over this Jordan, thou, and all this people, unto the land which I do give to them. / And Moses called Oshea the son of Nun Jehoshua.",
+      ntRef: "Matthew 1:21, Hebrews 4:8-9",
+      ntText: "And she shall bring forth a son, and thou shalt call his name JESUS: for he shall save his people from their sins. / For if Jesus (Joshua) had given them rest, then would he not afterward have spoken of another day. There remaineth therefore a rest to the people of God.",
+      explanation: "Joshua's name (Hebrew: Yehoshua — the LORD saves) is the exact same name as Jesus (Greek form of Yeshua). This is not coincidental. Joshua led Israel into the Promised Land — a physical rest after wilderness wandering. Hebrews 4 explicitly says that the rest Joshua gave was not the ultimate rest God intended — it was a type of the spiritual rest Jesus gives to all who come to Him. Jesus leads His people into the ultimate Promised Land: eternal life and rest in God. As Joshua succeeded Moses (the Law cannot bring you in — only Yeshua can), so Jesus succeeds the Law of Moses as the way into God's rest.",
+      status: "Name Prophecy + Typological Fulfilment in Jesus Christ",
+    },
+
+    thinkDeeper: {
+      question: "Is Christian courage the same as human bravery? And is it ever right for a Christian to be afraid?",
+      challenge: "A teen says: 'I know God is with me, but I'm still terrified to stand up for my faith at school. That must mean my faith isn't strong enough.' Is fear evidence of weak faith?",
+      hints: [
+        "God commanded Joshua to 'be strong and courageous' — which implies that natural fearfulness was present. God does not command what is already automatic. Fear is not the absence of faith; it is the context in which faith operates.",
+        "Jesus was 'sorrowful and very heavy' in Gethsemane (Matthew 26:37-38) — the Son of God experienced something like fear, yet obeyed perfectly. Fear is not sin; surrender to fear is.",
+        "2 Timothy 1:7 — 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.' The spirit of fear (timidity, paralysis) is not from God — but experiencing fear is human. The difference is whether fear wins.",
+      ],
+      conclusion: "Courage is not the absence of fear — it is obedience in the presence of fear. God said 'be strong' to Joshua because Joshua needed to choose it. Fear is information; courage is the decision you make with that information when God's call is clear.",
+    },
+
+    discussionQuestions: [
+      "Joshua 1:8 says success comes from meditating on God's Word and doing what it says. Honestly, how much time do you spend in Scripture each week? How does that correlate with your sense of direction and confidence?",
+      "Joshua 24:15 — 'as for me and my house, we will serve the LORD.' This is a household declaration of faith. What would it look like for you to make that declaration in your context this week?",
+      "Joshua spent 40 years as Moses' assistant before becoming the leader. Is there a season of your life where you feel like you're in a 'second place' role? What is God forming in you there?",
+      "The ten spies saw the same giants as Caleb and Joshua — but drew completely different conclusions. What determines whether you see your challenges as obstacles or as the territory God wants you to claim?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write your own 'Joshua 24:15 declaration' — a personal statement of who you will serve and how that commitment will shape your choices this week. Be specific: 'As for me, in [specific area of life], I will serve the LORD by...'",
+      reflection: "Courage is not something I wait to feel. It is something God commands me to choose. Today I choose chazaq — to lay hold of the strength that is available to me in Christ. I will not let the grasshopper report become my identity. I am who God says I am.",
+    },
+
+    memoryVerse: "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest. — Joshua 1:9",
+    closingPrayer: "Lord of hosts — You are the God of Joshua's battles and my battles. You commanded courage because You knew it would be needed. I face things today that feel like walled cities: fear, pressure, uncertainty, criticism. But You say: 'I am with thee whithersoever thou goest.' That changes everything. Help me to choose courage when fear is loud, to meditate on Your Word when the world's report is discouraging, and to declare with Joshua: 'As for me and my house, we will serve the LORD.' Amen.",
+
+    leaderNote: "The Joshua 24:15 challenge is a powerful group activity — consider asking each teen to write or speak their personal declaration aloud. The word study on 'chazaq' is important for reframing courage as a choice rather than a feeling — this is counter-cultural and liberating for teens who think they are 'not brave enough' to live for God. The Joshua/Jesus name connection is a stunning apologetic for the unity of Scripture. The spy story application (grasshopper vs. warrior identity) is powerfully relevant to teen identity struggles — lean into it.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 22 — RUTH: LOYALTY & DEVOTION
+  // ═══════════════════════════════════════════════════
+  {
+    week: 22,
+    title: "Ruth: Loyalty & Devotion",
+    bibleRef: "Ruth 1:1-18, Ruth 4:13-17",
+    keyVerse: "And Ruth said, Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God shall be my God. — Ruth 1:16",
+    theme: "Covenant Loyalty",
+    term: "Term 2",
+    month: "Jun",
+    icon: "🌾",
+    color: "#B45309",
+
+    hook: "Ruth was a Moabite woman — a foreigner from a nation Israel was specifically told to avoid. Her husband was dead. Her mother-in-law was returning to a foreign country. Everything practical said: go home, start over, find a new husband in your own people. Instead, Ruth made a declaration of loyalty so complete that it has been quoted at weddings for three thousand years. Why? What kind of love makes that kind of choice?",
+
+    deepDive: {
+      passage: "Ruth 1:1-18, Ruth 4:13-17",
+      context: "The book of Ruth is set 'in the days when the judges ruled' — one of the darkest periods in Israel's history, characterised by moral chaos and religious apostasy. Into this context comes a story of extraordinary faithfulness, loyalty, and God's redemptive grace at work through ordinary people. Elimelech and Naomi fled famine in Bethlehem to Moab, where their two sons married Moabite women — Orpah and Ruth. Then Elimelech and both sons died, leaving three widows. In the ancient world, a widow without a male protector was economically and socially vulnerable to the point of destitution. Naomi urged both daughters-in-law to return to their own families and find new husbands. Orpah wept and went. Ruth refused. Ruth 1:16-17 is her covenant declaration — one of the most moving speeches in all of literature. She commits not just to Naomi the person but to Naomi's people and Naomi's God. This was a conversion: Ruth was leaving the gods of Moab (Chemosh) and pledging allegiance to the LORD. In Bethlehem, Ruth demonstrated her covenant loyalty through humble work — gleaning in the fields behind the harvesters. She came to the attention of Boaz, a wealthy kinsman-redeemer — a relative with the right and responsibility to redeem the family's lost inheritance and marry the widow to preserve the family line. Boaz redeemed both the land and Ruth. Their son Obed became the grandfather of David — and Ruth the Moabite is in the direct genealogy of Jesus Christ (Matthew 1:5). An outsider, a foreigner, a widow with nothing — brought into the covenant community and placed in the royal line of the Messiah.",
+      keyPoints: [
+        "Ruth's loyalty (Hebrew: 'chesed' — covenant love, steadfast faithfulness) is the model of the kind of love that costs something and chooses to persist despite circumstances.",
+        "Ruth's declaration (1:16-17) is a covenant speech — seven commitments covering place, community, life, death, burial, and divine allegiance. It mirrors the kind of total commitment that characterises a covenant relationship with God.",
+        "Boaz is the 'kinsman-redeemer' (go'el) — a type of Christ who had the right and willingness to redeem what was lost and restore what was broken in another's life.",
+        "Ruth's humble willingness to glean — the lowest form of agricultural labour — placed her in the exact field where God's provision and her destiny were waiting. Faithfulness in the small task opens doors to the great one.",
+        "Ruth the Moabite — a foreigner and unlikely candidate — is listed in Matthew 1's genealogy of Jesus. God's family has always been wider than bloodline; it is defined by faith and covenant loyalty.",
+      ],
+      obedienceLink: "Ruth obeyed a commitment she had made with no certainty of reward. She chose loyalty to Naomi and to God without knowing that a kinsman-redeemer existed, without knowing her name would be in the genealogy of the Messiah. Faithful obedience does not require visible reward — it requires trust in the God who sees.",
+    },
+
+    wordStudy: {
+      word: "Chesed",
+      original: "חֶסֶד",
+      transliteration: "chesed",
+      strongsNumber: "H2617",
+      language: "Hebrew",
+      definition: "Steadfast love, covenant loyalty, lovingkindness, faithful devotion — the love that persists regardless of circumstances, rooted in covenant commitment rather than feelings",
+      usage: "Chesed is one of the richest words in the Hebrew Bible — it combines love, loyalty, grace, and faithfulness into a single concept. It appears over 250 times in the OT and is most commonly used of God's unwavering covenant love toward Israel. In the book of Ruth, Boaz commends Ruth's chesed (2:20, 3:10) — her loyal love first to her late husband, then to Naomi, then to Boaz. It is the word that best characterises Ruth's character.",
+      connection: "Chesed is the Old Testament word closest to the New Testament concept of agape love — love that chooses to commit regardless of what it costs. Ruth's chesed for Naomi is a human picture of God's chesed for us. Psalm 136 repeats 'His mercy (chesed) endureth for ever' twenty-six times. God's love is not conditional on our performance — it is chesed: steadfast, covenant, unbreakable. And God calls His people to the same quality of love toward others.",
+      relatedVerses: [
+        "Psalm 136:1 — 'O give thanks unto the LORD; for he is good: for his mercy (chesed) endureth for ever.'",
+        "Micah 6:8 — 'What doth the LORD require of thee, but to do justly, and to love mercy (chesed), and to walk humbly with thy God?'",
+        "Lamentations 3:22-23 — 'It is of the LORD'S mercies (chesed) that we are not consumed, because his compassions fail not. They are new every morning.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Stranger Who Came Home",
+      narrative: "Ruth had no reason to go to Bethlehem. She was Moabite — from a nation that was the product of Lot's sin, a people Israel was told not to marry, a worshipper of Chemosh. She had no legal claim, no social standing, no cultural foothold in Israel. Everything rational said: go home to your family. Find a Moabite husband. Build a Moabite life. But Ruth had met Naomi's God. She had watched how Naomi lived through tragedy — and though Naomi's bitterness was real ('Call me Mara — bitter,' she told the women of Bethlehem), Ruth had seen enough of the LORD in Naomi's faith to know that this was not a God to leave. So she went. She gleaned. She worked the lowest rung of the agricultural ladder — gathering what the harvesters left behind — without complaint, without ambition, without strategy. She did not know that the field she chose to glean in belonged to Boaz. She did not know that Boaz was a kinsman-redeemer. She did not know that her faithful, humble, covenant loyalty was being watched and honoured by a God who was writing a story far larger than she could imagine. She was simply being faithful in the small place she had been given. And in that small, faithful, loyal life — God was building the genealogical line that would one day produce the King of kings.",
+      moralLesson: "Ruth's obedience looked like gleaning in a field. It did not look like destiny. But faithful obedience in the ordinary places is how extraordinary purposes are built. You do not need to see the whole story — you need to do the next faithful thing.",
+    },
+
+    prophecyConnection: {
+      title: "The Kinsman-Redeemer — A Type of Christ",
+      otRef: "Ruth 4:1-10, Leviticus 25:25",
+      otText: "And Boaz said unto the elders, and unto all the people, Ye are witnesses this day, that I have bought all that was Elimelech's... Moreover Ruth the Moabitess... have I purchased to be my wife.",
+      ntRef: "Galatians 4:4-5, Ephesians 1:7",
+      ntText: "But when the fulness of the time was come, God sent forth his Son, made of a woman, made under the law, To redeem them that were under the law... In whom we have redemption through his blood, the forgiveness of sins.",
+      explanation: "Boaz as the kinsman-redeemer (go'el) is one of the clearest types of Christ in the Old Testament. The go'el had to be: (1) a near kinsman — Jesus became flesh to be our near kinsman; (2) willing to redeem — Jesus willingly went to the cross; (3) able to pay the price — only the sinless Son of God could pay the price of our sin. Boaz redeemed Ruth from poverty and restored her to a place of honour. Christ redeems sinners from sin's penalty and restores them to the family of God. Ruth — a foreigner outside the covenant — was brought in by the act of the redeemer. Gentile believers — outsiders to the original covenant — are brought into God's family by the redemptive work of Christ.",
+      status: "Typological — Boaz/Go'el fulfilled in Christ the Redeemer",
+    },
+
+    thinkDeeper: {
+      question: "Is loyalty — the kind Ruth showed — realistic in a culture that celebrates 'doing what's best for you' above all else?",
+      challenge: "A friend says: 'Ruth was a fool. She gave up her future in Moab for a bitter old woman and a foreign land. Self-sacrifice like that is naive.' How do you respond?",
+      hints: [
+        "Ruth's 'sacrifice' led to her marriage to the most honourable man in Bethlehem, a son who became David's grandfather, and a place in the genealogy of the Messiah. Self-interest would have kept her in Moab — and kept her out of God's story.",
+        "Chesed — covenant loyalty — is the foundation of every relationship that lasts. Marriages, friendships, communities, and families that are built on 'what's in it for me' are inherently unstable. Only covenant love persists.",
+        "Jesus said: 'Greater love hath no man than this, that a man lay down his life for his friends' (John 15:13). The greatest love in history was not self-interested. Ruth's chesed is a small-scale picture of the divine principle that giving produces more than taking.",
+      ],
+      conclusion: "The culture's definition of winning (maximise personal benefit) and God's definition of winning (faithful covenant love) are diametrically opposite — and history consistently shows that God's way produces more flourishing, more community, more human dignity, and more joy than the alternative.",
+    },
+
+    discussionQuestions: [
+      "Ruth declared 'your God shall be my God.' Who in your life has modelled faith in such a way that you have been drawn closer to God by watching them? How has their example impacted you?",
+      "Chesed love is commitment that persists regardless of feeling. Is there a relationship in your life (friendship, family, community) where you need to choose chesed over convenience?",
+      "Ruth's faithful gleaning — humble, consistent, small — placed her in the centre of God's redemptive story. Is there a 'small, faithful thing' you have been neglecting that God might be using as a stepping stone?",
+      "Boaz honoured Ruth because she had chosen loyalty over comfort (Ruth 3:10). How does God see and honour faithfulness that the world does not notice or celebrate?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write a 'Ruth 1:16 declaration' to God — your own version of Ruth's covenant commitment. 'Where You lead, I will go. Your people shall be my people. I will not turn back even when the cost is high.' Then write one practical act of chesed you will do this week for someone who cannot repay you.",
+      reflection: "Ruth did not choose the comfortable path — she chose the faithful one. And on the faithful path, she found the redeemer. I want to choose the faithful path too — trusting that God sees my gleaning in ordinary fields and is writing a story I cannot yet read.",
+    },
+
+    memoryVerse: "And Ruth said, Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God shall be my God. — Ruth 1:16",
+    closingPrayer: "God of Ruth and Boaz — You bring outsiders into Your family. You see faithfulness in forgotten fields. You send kinsman-redeemers to those who have nothing. Thank You that Your chesed — Your steadfast, covenant love — never fails. Help me to love with the same quality of loyalty that Ruth showed: not because I feel like it, not because it is easy, but because I have made a covenant with You and Your people. Amen.",
+
+    leaderNote: "Ruth is a rich study for teenagers on loyalty, identity, and belonging. Key themes: (1) chesed as the model of Christian love — deeper than romantic feelings, rooted in covenant; (2) Boaz as the kinsman-redeemer type of Christ — an excellent bridge to the gospel; (3) the outsider-made-insider theme — Ruth the Moabite in the genealogy of Jesus is a powerful statement of grace's reach. The Ruth 1:16 speech is worth memorising together. Consider having students write and share their own '1:16 declarations' aloud. The journal prompt of an act of chesed is practical and immediately applicable.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 23 — DAVID: A HEART AFTER GOD
+  // ═══════════════════════════════════════════════════
+  {
+    week: 23,
+    title: "David: A Heart After God",
+    bibleRef: "1 Samuel 16:1-13, Psalm 51:1-17",
+    keyVerse: "But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart. — 1 Samuel 16:7",
+    theme: "Heart Over Appearance",
+    term: "Term 2",
+    month: "Jun",
+    icon: "♥",
+    color: "#9F1239",
+
+    hook: "Samuel came to anoint Israel's next king and looked at Jesse's seven sons — tall, impressive, military-looking men. God rejected every one of them. The king was in the field, tending sheep, the youngest son nobody bothered to call in from work. God's measuring stick is so different from ours that it sent a prophet to a shepherd when everyone else was looking at warriors. What does God see when He looks at you?",
+
+    deepDive: {
+      passage: "1 Samuel 16:1-13, Psalm 51:1-17",
+      context: "Saul, Israel's first king, had been rejected by God for his persistent disobedience and self-will. He looked like a king — the tallest man in Israel, handsome, commanding. But his heart was not right toward God. When Samuel came to Jesse's house to anoint the next king, he made the same mistake: assuming the king would be the impressive-looking one. God's statement in verse 7 is one of the most important verses in all of Scripture about divine evaluation: 'the LORD looketh on the heart.' David was the youngest of eight brothers, a shepherd — the most overlooked role in the family hierarchy. Yet God had already chosen him. Anointed in the presence of his brothers, the Spirit of the LORD came upon David from that day forward. This is the David who killed Goliath with a sling, who wrote half the Psalms, who defeated Israel's enemies and established Jerusalem as the capital. He is also the David who committed adultery with Bathsheba, arranged the murder of her husband Uriah, and spent a year trying to cover it up. When the prophet Nathan confronted him, David's response was Psalm 51 — the most honest, comprehensive prayer of repentance in Scripture. Psalm 51 shows us why David was 'a man after God's own heart' (1 Samuel 13:14): not because he never sinned, but because when he sinned, he ran to God rather than away from Him. His repentance was genuine, thorough, and public. The heart after God is not a perfect heart — it is a repentant one.",
+      keyPoints: [
+        "'The LORD looketh on the heart' (1 Samuel 16:7) — God's standard for leadership, service, and relationship is internal, not external. Appearance, performance, and status are human metrics.",
+        "David was described as 'a man after God's own heart' (1 Samuel 13:14) despite his catastrophic sin with Bathsheba. This phrase describes the orientation of his heart, not the perfection of his record.",
+        "Psalm 51 contains the full anatomy of genuine repentance: acknowledging sin (v.3), owning full responsibility (v.4), asking for cleansing (v.7), requesting inner transformation (v.10), and committing to testify (v.13).",
+        "David's sin (adultery + murder) was among the gravest possible. His restoration is evidence of the depth of God's mercy — and a warning that the greater the calling, the greater the cost of compromise.",
+        "The Psalms of David are the most widely read devotional literature in history — the overflow of a heart that knew both the height of communion with God and the depth of falling from it.",
+      ],
+      obedienceLink: "David's pattern shows that a heart after God is not a heart that never fails — it is a heart that cannot stay away from God when it does. Disobedience breaks fellowship; genuine repentance restores it. The key to being a person after God's heart is not sinlessness but relentlessness in returning to God.",
+    },
+
+    wordStudy: {
+      word: "Lev",
+      original: "לֵב",
+      transliteration: "lev",
+      strongsNumber: "H3820",
+      language: "Hebrew",
+      definition: "Heart — in Hebrew thought, the heart is the seat of the entire inner person: intellect, will, emotions, desires, and moral character. It is the deepest core of who a person is.",
+      usage: "1 Samuel 16:7 uses 'lev' to describe what God sees. In Hebrew anthropology, the heart is not merely the emotional centre (as in Western culture) — it is the totality of the inner person. 'With all your heart' (Deuteronomy 6:5) means with every dimension of who you are. Proverbs 4:23 — 'Keep thy heart with all diligence; for out of it are the issues of life' — uses lev to describe the wellspring of all of life's direction.",
+      connection: "When God says He looks at the lev, He is saying He looks at the whole inner person: what you believe, what you want, what you love, what you value when no one is watching. This is both convicting and liberating: convicting because you cannot hide your real motivations from God, liberating because God's work in your life is aimed at the deepest place — not just behaviour management but heart transformation (Ezekiel 36:26).",
+      relatedVerses: [
+        "Proverbs 4:23 — 'Keep thy heart (lev) with all diligence; for out of it are the issues of life.'",
+        "Psalm 51:10 — 'Create in me a clean heart (lev), O God; and renew a right spirit within me.'",
+        "Ezekiel 36:26 — 'A new heart (lev) also will I give you, and a new spirit will I put within you: and I will take away the stony heart out of your flesh, and I will give you an heart of flesh.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Shepherd Who Became the Singer Who Became the King",
+      narrative: "Nobody picked David. He was the youngest, the smallest, the one least considered. When Samuel arrived at Jesse's house to anoint the next king of Israel, Jesse brought in seven sons — and David was not among them. He was in the fields. With the sheep. While his brothers were being considered for the throne, David was doing the unglamorous work of watching animals and writing songs to God under the open sky. The Psalms we know — 'The LORD is my shepherd,' 'Create in me a clean heart,' 'God is our refuge and strength' — were not written in a palace. Many were written alone on a hillside, by a teenager with a harp and a God who was listening. Years later, after the anointing, after Goliath, after years of running from Saul's jealous pursuit, after finally becoming king — David fell. Hard. He saw Bathsheba from a rooftop. He sent for her. He slept with her. He arranged her husband's death. He spent a year covering it up while his kingdom continued as normal. And then Nathan the prophet told him a story about a rich man who stole a poor man's only lamb — and David was furious. 'That man deserves death!' And Nathan said: 'Thou art the man.' And David did not argue, deflect, or rationalize. He said: 'I have sinned against the LORD.' That moment — more than the giant-killing, more than the anointing — is the moment that most clearly reveals what God meant by 'a man after my own heart.' The heart that breaks before God, runs to Him instead of away from Him, and refuses to let sin be the final word.",
+      moralLesson: "God does not look for perfect people — He looks for people whose hearts are oriented toward Him, who return to Him when they fall. A man after God's heart is not defined by the absence of failure but by the presence of repentance.",
+    },
+
+    prophecyConnection: {
+      title: "The Son of David — The Eternal King",
+      otRef: "2 Samuel 7:12-13, Psalm 89:3-4",
+      otText: "And when thy days be fulfilled, and thou shalt sleep with thy fathers, I will set up thy seed after thee, which shall proceed out of thy bowels, and I will establish his kingdom. He shall build an house for my name, and I will stablish the throne of his kingdom for ever.",
+      ntRef: "Luke 1:31-33, Matthew 1:1",
+      ntText: "And, behold, thou shalt conceive in thy womb, and bring forth a son, and shalt call his name JESUS. He shall be great, and shall be called the Son of the Highest: and the Lord God shall give unto him the throne of his father David: And he shall reign over the house of Jacob for ever; and of his kingdom there shall be no end. / The book of the generation of Jesus Christ, the son of David, the son of Abraham.",
+      explanation: "The Davidic Covenant (2 Samuel 7) is one of the most important covenants in Scripture: God promised David that one of his descendants would sit on an eternal throne. Solomon's kingdom, though glorious, eventually collapsed. No human Davidic king reigned forever. The New Testament opens with 'Jesus Christ, the son of David' — identifying Jesus as the fulfilment of God's promise to David. The angel's announcement to Mary echoes 2 Samuel 7 almost word for word: 'the throne of his father David... and of his kingdom there shall be no end.' David's line does not end — it culminates in the eternal King.",
+      status: "Davidic Covenant — Fulfilled in Jesus Christ, Son of David",
+    },
+
+    thinkDeeper: {
+      question: "David committed adultery and arranged a murder — and God still called him 'a man after my own heart.' Doesn't that make God's standard too low?",
+      challenge: "A teen says: 'If David could sin like that and still be called God's man, doesn't that give everyone a free pass to sin?' How do you respond?",
+      hints: [
+        "The phrase 'man after God's own heart' was spoken before David's sin — it describes the fundamental orientation of his heart, not a retroactive endorsement of his behaviour. And David's sin had devastating consequences: the child died, his family was torn apart, the sword never departed from his house (2 Samuel 12:10-14).",
+        "David did not 'get away with' his sin. He was confronted, convicted, and faced lasting consequences. His repentance was real, but repentance does not remove the earthly consequences of sin.",
+        "The difference between David and Saul is not the severity of their sins — it is their response to confrontation. Saul deflected and excused; David broke and repented. God looks at the heart's response to conviction.",
+      ],
+      conclusion: "God's grace does not make sin cheap — it makes repentance possible. David's restoration is not a template for sinning; it is a portrait of God's mercy toward genuine repentance. The takeaway is not 'I can sin and God will still love me' — it is 'When I fall, I must run to God immediately, not away from Him.'",
+    },
+
+    discussionQuestions: [
+      "1 Samuel 16:7 — God looks at the heart. What does your heart actually look like right now — not your reputation or your church attendance, but your inner desires, motivations, and the things you think about when no one is watching?",
+      "David's downfall began with a small compromise — he stayed home when kings went to war (2 Samuel 11:1). What small compromises in your life could be the beginning of a larger fall?",
+      "Psalm 51 is David's prayer after his sin. What does genuine repentance look like — as opposed to being sorry you got caught? Have you ever truly repented of something?",
+      "David's heart was revealed not in his victories but in how he responded to failure. How do you typically respond when you sin? Do you run to God or away from Him?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write your own Psalm 51 — a personal prayer of repentance about something you have been carrying that you have not fully given to God. Use David's structure: acknowledge the sin honestly, own full responsibility, ask for cleansing and a new heart, commit to testify to others of God's grace. Do not rush this. This is between you and God.",
+      reflection: "God looked at a shepherd boy and saw a king. He did not see what everyone else saw. Today I invite God to look at my heart — not my reputation, not my performance, not my public image — and to create in me the clean heart that only He can give.",
+    },
+
+    memoryVerse: "Create in me a clean heart, O God; and renew a right spirit within me. — Psalm 51:10",
+    closingPrayer: "God, You looked at a shepherd and saw a king. You look at me and see what I cannot see. Search my heart. Know my thoughts. See if there is any wicked way in me — and lead me in the way everlasting (Psalm 139:23-24). Create in me a clean heart. Renew a right spirit within me. Cast me not away from Your presence. Restore unto me the joy of Your salvation. And let my heart be Yours — not just when life is easy, but in every season, every failure, every moment. Amen.",
+
+    leaderNote: "This lesson requires pastoral sensitivity — the invitation to genuine repentance (journal prompt) must be done with care and appropriate privacy. The Psalm 51 exercise is one of the most spiritually significant of the year. Consider giving 15-20 minutes of uninterrupted writing time. The key tension: grace does not minimise sin's consequences (David's family paid a heavy price). But God's mercy toward genuine repentance is immense. Encourage leaders to share their own experience of repentance authentically — this creates psychological safety. The 1 Samuel 16:7 verse about God seeing the heart is a powerful framework for discussions on social media identity vs. authentic inner life.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 24 — DANIEL: REFUSING TO COMPROMISE
+  // ═══════════════════════════════════════════════════
+  {
+    week: 24,
+    title: "Daniel: Refusing to Compromise",
+    bibleRef: "Daniel 1:1-21, Daniel 6:1-23",
+    keyVerse: "But Daniel purposed in his heart that he would not defile himself with the portion of the king's meat, nor with the wine which he drank: therefore he requested of the prince of the eunuchs that he might not defile himself. — Daniel 1:8",
+    theme: "Uncompromising Integrity",
+    term: "Term 2",
+    month: "Jun",
+    icon: "🦁",
+    color: "#1D4ED8",
+
+    hook: "Daniel was sixteen years old, taken from his home, trained in the most powerful empire in the world, given a new name, fed the king's food, and offered every benefit of assimilation. The pressure to just go along, to blend in, to pick his battles — was immense. He refused. Not loudly, not aggressively, not self-righteously. He just quietly, politely, and firmly said no. What gave a teenager that kind of backbone?",
+
+    deepDive: {
+      passage: "Daniel 1:1-21, Daniel 6:1-23",
+      context: "In 605 BC, Nebuchadnezzar king of Babylon conquered Jerusalem and carried off the finest young men of the Israelite nobility to be trained in Babylonian culture and service. Among them was Daniel — likely around 15-17 years old. The Babylonian re-education programme was systematic and comprehensive: new name (Daniel became Belteshazzar), new language (Chaldean), new curriculum (Babylonian wisdom), new food (the king's rich, idol-dedicated meat and wine). The intent was total cultural assimilation. Daniel's response to the food challenge (Daniel 1:8) is described with a single, decisive phrase: 'Daniel purposed in his heart.' Before the test came, Daniel had already made his decision. He did not debate when the food arrived — he had already settled the question of where his loyalty lay. His refusal was respectful, creative, and solution-oriented: he proposed a ten-day test on vegetables and water. God honoured his faith — the four young men were healthier than all who ate the king's food. At the end of three years, they were ten times better than all the Babylonian advisers. Daniel 6 finds Daniel in his eighties, now serving under Darius the Mede. His enemies could find no fault in him — their only angle was his prayer life. They persuaded Darius to decree thirty days of prayer exclusively to the king. Daniel's response: he went home, opened his windows toward Jerusalem, and prayed three times as before. He did not stop praying, but he also did not make a protest march. He simply continued his established discipline — and let God handle the consequences. The lions' den, the angel, and the king's testimony are the result.",
+      keyPoints: [
+        "'Purposed in his heart' (1:8) — Daniel's integrity was pre-decided, not decided under pressure. Moral decisions made in advance are far more reliable than ones made in the moment of temptation.",
+        "Daniel's refusal was respectful and constructive — he did not lecture, condemn, or make demands. He made a respectful request and proposed a reasonable alternative. Integrity does not require self-righteousness.",
+        "God rewarded Daniel's faithfulness with wisdom, health, and influence that exceeded those who compromised. Obedience to God is never ultimately at the expense of your flourishing — even if it costs you in the short term.",
+        "Daniel 6:10 — 'as he did aforetime.' Daniel did not start praying dramatically in response to the decree. He continued a pre-established discipline. His consistency before the crisis sustained him through the crisis.",
+        "Darius's testimony (6:26-27) — 'He is the living God... he delivereth and rescueth, and he worketh signs and wonders in heaven and in earth' — was the direct result of one man's uncompromising obedience.",
+      ],
+      obedienceLink: "Daniel shows that pre-committed obedience — decisions made in advance, before the pressure arrives — is the most effective form of faithfulness. If you wait until the moment of temptation to decide what you believe, you are already at a disadvantage. Purpose in your heart before you need to.",
+    },
+
+    wordStudy: {
+      word: "Azam",
+      original: "אָזַם",
+      transliteration: "azam / sum al-lev",
+      strongsNumber: "H7760 / H3820",
+      language: "Hebrew",
+      definition: "To purpose, to set, to place upon the heart — the phrase 'purposed in his heart' (Daniel 1:8, KJV) literally means he placed a firm decision upon his inner self; to make a determined, pre-committed resolve",
+      usage: "The phrase in Daniel 1:8 combines the verb 'sum' (to set, to place) with 'lev' (heart) — 'he set upon his heart.' This is a deliberate, pre-meditated interior decision, not an emotional reaction. It reflects a person who has already settled the question of loyalty before the test arrives. This kind of purposing of the heart is the foundation of consistent integrity — you decide who you are before the world tries to tell you who to be.",
+      connection: "The power of Daniel's 'purpose in his heart' is that it moved the decision point backwards — from the moment of pressure to a moment of quiet resolve. Every teen faces constant cultural pressure to compromise. The question is: when do you make the decision? In the moment — or in advance? Romans 12:2 — 'be ye transformed by the renewing of your mind' — is the New Testament equivalent: a deliberate, ongoing decision to align your thinking with God's standard before the world pressures you.",
+      relatedVerses: [
+        "Romans 12:1-2 — 'I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice... be not conformed to this world: but be ye transformed by the renewing of your mind.'",
+        "Psalm 119:11 — 'Thy word have I hid in mine heart, that I might not sin against thee.'",
+        "2 Timothy 1:12 — 'I know whom I have believed, and am persuaded that he is able to keep that which I have committed unto him against that day.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Boy Who Would Not Blend In",
+      narrative: "Babylon was designed to overwhelm. Its hanging gardens were one of the wonders of the world. Its libraries contained the accumulated wisdom of centuries. Its ziggurat temples reached toward the sky. And into this overwhelming system walked four Israelite teenagers — stripped of their names, their home, their community, and their culture. Everything that had defined them was being methodically replaced. They were given new names that honoured Babylonian gods: Daniel (God is my judge) became Belteshazzar (Bel protect his life). Hananiah (the LORD is gracious) became Shadrach. Mishael (who is what God is?) became Meshach. Azariah (the LORD has helped) became Abednego. The empire wanted to rename them, re-educate them, and redeploy them as ambassadors of Babylonian culture. And in most cases, with most captives, it worked. But Daniel had already decided who he was. Before the food arrived. Before the king's name was written next to his. He had purposed in his heart. And that purpose — that quiet, steady, unspectacular decision made in advance — would carry him through sixty years of service under four successive empires, through lions' dens and political conspiracies, through the rise and fall of Babylon, through the rise of Persia, all the way to the edge of eternity. He never stopped being Daniel. And sixty years later, his enemies still could not find a single fault in him — except that he prayed.",
+      moralLesson: "The most powerful act of rebellion against a system that demands your soul is to quietly, consistently, persistently be who God made you to be. Daniel did not fight Babylon. He simply refused to be eaten by it. That is the most powerful testimony in the world.",
+    },
+
+    prophecyConnection: {
+      title: "Daniel's 70 Weeks — The Messiah's Timeline",
+      otRef: "Daniel 9:24-27",
+      otText: "Seventy weeks are determined upon thy people and upon thy holy city, to finish the transgression, and to make an end of sins, and to make reconciliation for iniquity, and to bring in everlasting righteousness... Know therefore and understand, that from the going forth of the commandment to restore and to build Jerusalem unto the Messiah the Prince shall be seven weeks, and threescore and two weeks.",
+      ntRef: "Luke 19:41-44",
+      ntText: "And when he was come near, he beheld the city, and wept over it, Saying, If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes. For the days shall come upon thee, that thine enemies shall cast a trench about thee.",
+      explanation: "Daniel 9 is one of the most remarkable prophetic passages in the Bible. The '70 weeks' prophecy (490 years) predicts the exact timeframe from the decree to rebuild Jerusalem to the coming of the Messiah. Calculated from the decree of Artaxerxes in 445 BC (Nehemiah 2:1), the 69 weeks (483 years) bring us precisely to the year of Jesus' triumphal entry into Jerusalem — which Jesus Himself identified (Luke 19) as the fulfillment of His visitation. The precision of this prophecy is one of the most compelling arguments for the divine authorship of Scripture and the identity of Jesus as the predicted Messiah.",
+      status: "Mathematical Predictive Prophecy — Fulfilled in Jesus' triumphal entry, 33 AD",
+    },
+
+    thinkDeeper: {
+      question: "How do you draw the line between refusing cultural compromise and being unnecessarily weird or isolationist as a Christian?",
+      challenge: "A Christian teen says: 'I don't want to be the weird religious kid who can't do anything. Where does being a Christian end and being antisocial start?' How do you answer?",
+      hints: [
+        "Daniel was not antisocial — he was one of the most culturally engaged people in Babylon. He studied its literature, served its government, and earned the trust of its kings. He simply refused to compromise on specific moral and spiritual lines he had pre-determined.",
+        "The issue is not engagement vs. separation — it is discernment. Daniel engaged Babylon fully; he was just clear about which parts of Babylon he would and would not adopt. Romans 12:2 — be 'in the world' but not 'conformed to it.'",
+        "Jesus ate with tax collectors and sinners — He was accused of being too culturally engaged. The Pharisees separated themselves completely — and were accused of hypocrisy and pride. The biblical model is incarnational: fully present in the world, fully distinct in values.",
+      ],
+      conclusion: "The goal is not to avoid the world but to engage it without losing yourself to it. Daniel was the most useful person in Babylon precisely because he was the most distinct. His refusal to compromise his identity made him more valuable, not less, to the people around him.",
+    },
+
+    discussionQuestions: [
+      "Daniel 'purposed in his heart' before the pressure arrived. What are two or three specific decisions you can make in advance right now — before the next temptation — about where your lines are?",
+      "Daniel's enemies could find no fault in him except his prayer life. If someone were investigating your life, what would they find as your defining characteristic? What would your 'except...' be?",
+      "Daniel engaged Babylonian culture deeply — language, literature, government — while refusing to compromise morally and spiritually. How do you navigate this balance in your own school and social life?",
+      "Daniel 6:10 says he prayed 'as he did aforetime' — as always. What spiritual disciplines do you have that are 'as always'? How consistent is your prayer, Scripture reading, or worship?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write your personal 'Daniel 1:8 list' — the three to five specific areas of your life where you purpose in your heart not to compromise, regardless of cultural or social pressure. Be specific about the situations you face. Then write a commitment statement: 'Because God is my judge and my keeper, I will...'",
+      reflection: "Daniel was not impressive because he was extraordinary. He was impressive because he was consistent. Sixty years of quiet, daily faithfulness — prayer three times a day, refusing to defile himself, honouring God in every context. That is who I want to be. Not spectacular. Just steady.",
+    },
+
+    memoryVerse: "But Daniel purposed in his heart that he would not defile himself with the portion of the king's meat, nor with the wine which he drank. — Daniel 1:8",
+    closingPrayer: "God of Daniel — You shut the mouths of lions and the schemes of enemies. You honoured a teenage decision made quietly in a foreign land. I want that kind of integrity — not the kind that performs for a crowd, but the kind that holds firm when no one is watching. Help me to purpose in my heart today. Help me to know my lines before I face the pressure. Help me to be recognisably Yours in a world that wants to rename me, re-educate me, and redeploy me for its own purposes. I am Yours. Keep me. Amen.",
+
+    leaderNote: "The practical takeaway from this lesson — purposing in your heart before the moment of pressure — is enormously applicable to teenagers facing peer pressure, social media temptation, and cultural conformity. The 'Daniel 1:8 list' journal exercise is one of the most practically actionable of the year. Encourage teens to actually write it and keep it visible. The apologetics challenge about engagement vs. separation is culturally urgent — many teens are in contexts where being a Christian is either seen as antisocial OR where the pressure to assimilate spiritually is intense. The 70 Weeks prophecy is a bonus for intellectually curious teens — use it selectively depending on the group.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 25 — SHADRACH, MESHACH & ABEDNEGO: THE FIERY FURNACE
+  // ═══════════════════════════════════════════════════
+  {
+    week: 25,
+    title: "Shadrach, Meshach & Abednego: The Fiery Furnace",
+    bibleRef: "Daniel 3:1-30",
+    keyVerse: "If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. — Daniel 3:17-18",
+    theme: "Obedience Regardless of Outcome",
+    term: "Term 2",
+    month: "Jun",
+    icon: "🔥",
+    color: "#D97706",
+
+    hook: "Three men stood before the most powerful man in the world and were given a simple choice: bow or burn. Everyone else bowed. These three said something that changed the world: 'Our God is able to deliver us. But even if He doesn't — we still won't bow.' What kind of faith says 'even if not'? And why does that kind of faith matter more than the kind that only trusts God when He rescues?",
+
+    deepDive: {
+      passage: "Daniel 3:1-30",
+      context: "Nebuchadnezzar built a golden statue 90 feet tall and 9 feet wide on the plain of Dura — a monument to his own power and a demand for absolute religious submission. The command was backed by the most powerful military force in the world: bow when the music plays, or be cast immediately into a burning fiery furnace heated seven times hotter than normal. The entire leadership class of Babylon complied — except three: Shadrach, Meshach, and Abednego. Note who is not present: Daniel. He was possibly absent on royal business, or the narrative focuses on these three for theological reasons. Their response to Nebuchadnezzar is among the most theologically profound statements in the Old Testament — a two-part declaration: (1) God is able to deliver us, and (2) even if He doesn't, we still won't bow. This 'but if not' clause is extraordinary. It demonstrates faith that is not transactional — not 'if You rescue me, I'll serve You.' It is unconditional: 'Whether You rescue us or not, we will not worship any god but You.' This is the most mature expression of obedience in the book of Daniel. When they were thrown into the furnace, Nebuchadnezzar saw four figures walking in the fire — the fourth 'like the Son of God.' The men walked out without so much as the smell of smoke on them. Nebuchadnezzar's testimony (3:28-29) was forced out of him by the undeniable evidence: 'Blessed be the God of Shadrach, Meshach, and Abednego, who hath sent his angel, and delivered his servants that trusted in him.' The miracle was national testimony — but it would not have happened without their unconditional refusal to bow.",
+      keyPoints: [
+        "The 'but if not' clause (3:18) is the highest expression of faith in the book of Daniel — obedience that is not contingent on God's rescue. This is faith beyond miracle-expectation.",
+        "God did not prevent the furnace — He was present in it. Sometimes God's answer to suffering is not removal but company. The fourth man in the fire is the presence of God Himself.",
+        "Nebuchadnezzar's personal testimony (3:28-29) was the result of three men's unconditional obedience. Their refusal to bow produced the confession of the most powerful man in the world.",
+        "The furnace was seven times hotter than normal — yet the only things that burned were the ropes that bound them. The fire consumed their chains, not them. God uses the fire that was meant to destroy to set His people free.",
+        "Obedience regardless of outcome is the most powerful testimony available — because it proves that your faith is in God's character, not just His ability to rescue you.",
+      ],
+      obedienceLink: "The most powerful act of obedience is the one that does not depend on a guaranteed good outcome. 'But if not' obedience says: 'My loyalty to God is not based on what I get from Him. It is based on who He is.' This is the obedience that silences empires.",
+    },
+
+    wordStudy: {
+      word: "Paltah",
+      original: "פָּלַט",
+      transliteration: "palat / paltah",
+      strongsNumber: "H6403",
+      language: "Hebrew",
+      definition: "To deliver, to rescue, to escape, to bring into safety — a word associated with divine rescue from danger or oppression",
+      usage: "Though the Aramaic is used in Daniel 3 (palat — H6405), the concept of divine deliverance runs through the entire OT. The three men declare that God 'is able to deliver' — affirming His power. But their 'but if not' separates their trust from an outcome-dependent faith. They do not say 'He will deliver.' They say 'He is able.' Their obedience is grounded in God's character and power, not in a guaranteed delivery mechanism.",
+      connection: "There is a difference between believing God can and believing God will. The three men believed God could — and they obeyed regardless of whether He would. This is the faith of Hebrews 11:35-38 — those who 'were tortured, not accepting deliverance; that they might obtain a better resurrection.' Faith is not a transaction. It is a commitment to a Person whose character is trustworthy regardless of the outcome of any specific situation.",
+      relatedVerses: [
+        "Hebrews 11:35-38 — 'Others were tortured, not accepting deliverance; that they might obtain a better resurrection. And others had trial of cruel mockings and scourgings... they wandered in deserts, and in mountains, and in dens and caves of the earth.'",
+        "Romans 8:38-39 — 'For I am persuaded, that neither death, nor life... shall be able to separate us from the love of God, which is in Christ Jesus our Lord.'",
+        "Habakkuk 3:17-18 — 'Although the fig tree shall not blossom, neither shall fruit be in the vines... Yet I will rejoice in the LORD, I will joy in the God of my salvation.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Fourth Man in the Fire",
+      narrative: "Nebuchadnezzar was furious. The word 'furious' appears multiple times in Daniel 3 — the king's face was 'changed' with rage. He ordered the furnace seven times hotter than normal. The soldiers who threw the three men in died from the heat. And then Nebuchadnezzar looked into the furnace and did something he did not expect to do: he jumped to his feet in astonishment. 'Did we not cast three men bound into the midst of the fire?' he asked his counsellors. 'Yes, O king.' 'Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.' The Son of God was in the furnace. Not watching from a safe distance. Not waiting outside to congratulate them. In the fire. With them. And what came out when they walked out of the furnace? Not the same three men who went in. Three men went in bound — by ropes and by the world's ultimatum. They came out unbound. The fire had burned the ropes and nothing else. Their hair was unsinged. Their clothes were unscorched. There was not even the smell of smoke. The king made his decree, called them servants of the Most High God, and promoted them. An empire bowed — not to the statue — but to the testimony of three men who had decided in advance that they would not bow to any statue, whatever the cost.",
+      moralLesson: "The 'but if not' faith is the most powerful faith in the world — because it cannot be silenced by the absence of rescue. If God delivers you, His power is on display. If He does not, His character is on display. Either way, the testimony is undefeatable.",
+    },
+
+    prophecyConnection: {
+      title: "The Son of God in the Fire — A Pre-Incarnate Appearance",
+      otRef: "Daniel 3:25",
+      otText: "He answered and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God.",
+      ntRef: "John 8:58, Colossians 1:17",
+      ntText: "Jesus said unto them, Verily, verily, I say unto you, Before Abraham was, I am. / And he is before all things, and by him all things consist.",
+      explanation: "The 'fourth man' in the furnace — 'like the Son of God' — is widely understood by scholars as a Christophany: a pre-incarnate appearance of the Son of God before His birth in Bethlehem. Jesus is the eternal Son who was present before Creation, who appeared to Abraham, Isaac, Jacob, Moses (the burning bush), Joshua, and here in the furnace. This is consistent with Colossians 1:17 — 'he is before all things.' The Incarnation was not God's first entry into human history — it was His definitive entry. He had been present with His people all along. The God who walked in the furnace with Shadrach, Meshach, and Abednego is the same God who walked on the shores of Galilee.",
+      status: "Christophany — Pre-Incarnate Appearance of the Son of God",
+    },
+
+    thinkDeeper: {
+      question: "Why does God sometimes rescue (Shadrach, Meshach, Abednego — came out alive) and sometimes not (Stephen was stoned, James was beheaded, Paul was executed)?",
+      challenge: "A teen says: 'I prayed and trusted God, but the thing I feared happened anyway. So either God isn't real or He doesn't care.' How do you respond?",
+      hints: [
+        "Hebrews 11 lists heroes of faith in two categories: those who 'obtained promises' (rescued, delivered) AND those who 'were tortured, not accepting deliverance.' Both are in the Hall of Faith. Deliverance is not the mark of God's approval — faithfulness is.",
+        "The three men were delivered from the furnace. But the fourth man was with them in the furnace. When God does not deliver us from the trial, He delivers us through it — with His presence. The promise is not 'no fire'; it is 'I am with you in the fire' (Isaiah 43:2).",
+        "Eternity changes the calculation. If this life is the whole story, then an unrescued martyr lost. But if there is a resurrection and an eternal kingdom, then the 'better resurrection' (Hebrews 11:35) of a faithful martyr is the ultimate victory.",
+      ],
+      conclusion: "God's faithfulness is not measured by whether He rescues you in this life — it is measured by whether He is with you and whether your eternal destination is secure. The 'but if not' faith holds both possibilities — deliverance or furnace — and says: 'Either way, I will not bow.'",
+    },
+
+    discussionQuestions: [
+      "The three men said 'but if not' — their obedience did not depend on being rescued. Is your faith transactional ('I'll obey if God does X for me') or unconditional? Be honest.",
+      "They were in the furnace — but God was in the furnace with them. Can you think of a hard season in your life where, looking back, God was 'in the fire' with you even if He did not remove the fire?",
+      "Nebuchadnezzar forced everyone to bow — peer pressure at the national level. What are the 'gold statues' in your world that you feel pressured to bow to — not literal idols, but things culture demands you affirm or conform to?",
+      "The fire burned the ropes and nothing else — their chains were destroyed in the furnace. What has God used a difficult season to 'burn off' in your life? What were you set free from in the hardest times?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write your own 'but if not' statement — identifying the hardest thing you might face for your faith (social rejection, family tension, loss of opportunity), and completing the sentence: 'My God is able to... But if not... I will still...' Sit with this and mean it before you write it.",
+      reflection: "Three men walked into the fire because they could not bow. The fire became the place of God's presence. I do not want a faith that only trusts God when He rescues. I want a 'but if not' faith — one that is loyal to His character whatever the outcome. That is the faith that moves empires.",
+    },
+
+    memoryVerse: "If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. — Daniel 3:17-18",
+    closingPrayer: "Father — You are the God who was in the furnace. Not watching from the outside. Not waiting for the fire to go out. In the fire. With Your people. I do not know what furnaces I will face. I do not know if You will deliver me from them. But I know You will be in them with me. And I choose today — before the music plays, before the ultimatum comes — that I will not bow to any idol. I will serve You and You alone. Whatever the cost. In Jesus' name, Amen.",
+
+    leaderNote: "Daniel 3:17-18 is one of the most theologically mature statements in the Old Testament — the 'but if not' clause deserves extended attention. Help teens distinguish between transactional faith (I'll trust God if He rescues me) and covenant faith (I'll trust God regardless of the outcome). This is directly relevant to teens who have prayed and not seen the answer they wanted. The Christophany discussion (the fourth man) is a bonus — it opens a rich conversation about Jesus' presence throughout the OT. The journal 'but if not' exercise is potentially life-shaping; give it adequate time and take it seriously as a genuine act of surrender.",
+  },
+  // ═══════════════════════════════════════════════════
+  // WEEK 26 — ESTHER: FOR SUCH A TIME AS THIS
+  // ═══════════════════════════════════════════════════
+  {
+    week: 26,
+    title: "Esther: For Such a Time as This",
+    bibleRef: "Esther 3:1-6, Esther 4:1-17, Esther 8:1-8",
+    keyVerse: "For if thou altogether holdest thy peace at this time, then shall there enlargement and deliverance arise to the Jews from another place; but thou and thy father's house shall be destroyed: and who knoweth whether thou art come to the kingdom for such a time as this? — Esther 4:14",
+    theme: "Purposeful Courage",
+    term: "Term 2",
+    month: "Jun",
+    icon: "👑",
+    color: "#7E22CE",
+
+    hook: "Esther was queen of the most powerful empire in the world — and completely powerless. No one knew she was Jewish. Going to the king uninvited meant death. Doing nothing meant her people were wiped out. Mordecai's question cut through every excuse: 'Who knows whether you have come to the kingdom for such a time as this?' What do you do with the possibility that your position — wherever you are — exists for a purpose bigger than your own comfort?",
+
+    deepDive: {
+      passage: "Esther 3:1-6, Esther 4:1-17, Esther 8:1-8",
+      context: "The book of Esther is unique in Scripture — it never explicitly mentions God. Yet the fingerprints of divine providence are on every page. Esther was a Jewish orphan raised by her cousin Mordecai in the Persian capital Susa, living under the reign of Ahasuerus (Xerxes I). After the queen Vashti was deposed for refusing to display herself before the king's guests, Esther was chosen as queen in a kingdom-wide beauty contest — her Jewish identity concealed at Mordecai's instruction. The villain of the story is Haman, an Agagite — a descendant of the Amalekites, Israel's ancient enemy — who had risen to the position of chief minister. When Mordecai refused to bow to Haman (a conscious act of Jewish religious loyalty), Haman's wounded pride became genocidal rage. He convinced the king to issue an irrevocable edict decreeing the extermination of all Jews in the Persian empire on a specific date. Mordecai learned of the decree and appealed to Esther — the one person with any access to the king. Esther's initial response was practical and paralysing: anyone who approached the king unsummoned was executed; she had not been called for thirty days. Mordecai's response (Esther 4:13-14) is the theological centre of the book: 'Think not with thyself that thou shalt escape in the king's house, more than all the Jews. For if thou altogether holdest thy peace at this time, then shall there enlargement and deliverance arise to the Jews from another place; but thou and thy father's house shall be destroyed: and who knoweth whether thou art come to the kingdom for such a time as this?' God will fulfil His purposes with or without you — but you were placed exactly where you are for a reason. Esther's response — 'if I perish, I perish' — is a 'but if not' moment equal to Daniel 3. She fasted for three days and went to the king. God moved Ahasuerus to extend his sceptre. Haman was hanged on his own gallows. The Jews were given the right to defend themselves. And Mordecai and Esther emerged as the saviours of the Jewish people — ancestors of the Messianic line.",
+      keyPoints: [
+        "Esther 4:14 — 'for such a time as this' — establishes the principle of purposeful placement: you are exactly where you are for a reason that may be larger than you can see.",
+        "'If I perish, I perish' (4:16) — Esther's surrender of personal safety for a greater purpose is the same category of faith as Daniel 3:17-18. Purposeful courage does not guarantee personal safety; it accepts the cost.",
+        "The book of Esther never mentions God by name — yet the entire narrative is driven by His providence. Esther's preparation for queenship, the king's sleepless night (6:1), Haman's self-incriminating timing — all are God's fingerprints without His name.",
+        "Mordecai's warning is a profound theological statement: God's plans do not depend on any individual's obedience — 'deliverance shall arise from another place.' But obedience does determine whether you are part of the story or a bystander to it.",
+        "Esther's three days of fasting before approaching the king — communal fasting, prayer, and preparation — is the model of spiritual preparation before courageous action. She did not rush. She sought God first.",
+      ],
+      obedienceLink: "Esther shows that your position — your family, your school, your neighbourhood, your social circle — is not accidental. You were placed there for purposes you may not yet fully see. The question is whether you will use your position for God's purposes or only for your own comfort.",
+    },
+
+    wordStudy: {
+      word: "Et",
+      original: "עֵת",
+      transliteration: "et",
+      strongsNumber: "H6256",
+      language: "Hebrew",
+      definition: "Time, season, appointed time — a specific, fitting, appropriate moment; not clock time (sha'ah) but kairos-style appointed opportunity",
+      usage: "Esther 4:14 — 'for such a time as this' — uses 'et' to describe a specific, appointed, God-ordained moment. This is the same concept as Ecclesiastes 3:1 — 'To every thing there is a season (et), and a time to every purpose under the heaven.' God's purposes operate on a timeline of appointed moments, and His people are placed in specific positions at specific times for specific purposes.",
+      connection: "The Greek New Testament equivalent is 'kairos' — the appointed, opportune moment as opposed to mere clock time. When the New Testament says 'in the fulness of time (kairos) God sent forth his Son' (Galatians 4:4), it is using the same concept: God's timing is purposeful and precise. Your 'et' — your appointed moment of purposeful impact — may not look dramatic. It may look like a conversation, a choice, a refusal, a step of faith. But it is God's moment, placed in God's timeline, and it requires your obedience.",
+      relatedVerses: [
+        "Ecclesiastes 3:1, 11 — 'To every thing there is a season (et)... He hath made every thing beautiful in his time (et).'",
+        "Galatians 4:4 — 'But when the fulness of the time was come, God sent forth his Son.'",
+        "Ephesians 5:16 — 'Redeeming the time (kairos), because the days are evil.'",
+      ],
+    },
+
+    faithStory: {
+      title: "The Queen Who Said If I Perish I Perish",
+      narrative: "Esther had everything. The palace. The title. The status. The most powerful man in the world had chosen her above every woman in the empire. And she also had a secret — a secret that, if revealed, could cost her everything. She was Jewish. The decree was posted across all 127 provinces: on the thirteenth day of the twelfth month, every Jew — man, woman, child — would be killed. And she, the queen, was a Jew. Mordecai's message arrived wrapped in sackcloth and ash. He was weeping in the city square, representing the communal anguish of a people facing extinction. And he asked her the question that would define her life: 'Who knows whether you have come to the kingdom for such a time as this?' She could have stayed silent. She could have calculated that her identity was still secret, that the decree would not touch her, that survival was the wiser path. She had not been called to the king for thirty days — approaching him uninvited was death. And yet. 'If I perish, I perish.' Three days of fasting. Three days of seeking God in community. Three days of letting the cost settle into her bones before she made the walk to the throne room. She went. The king extended the sceptre. And Esther — the orphan, the displaced foreigner, the secret Jew in the Persian palace — became the instrument through which God preserved the people through whom the Messiah would come.",
+      moralLesson: "You were placed exactly where you are for a reason. Your family, your school, your neighbourhood, your generation — these are not accidents. They are appointments. The question Mordecai asked Esther is the question God asks every believer: 'Who knows whether you have come to this place for such a time as this?'",
+    },
+
+    prophecyConnection: {
+      title: "God's Preservation of the Messianic Line",
+      otRef: "Esther 4:14, Genesis 3:15",
+      otText: "For if thou altogether holdest thy peace at this time, then shall there enlargement and deliverance arise to the Jews from another place... / And I will put enmity between thee and the woman, and between thy seed and her seed; it shall bruise thy head, and thou shalt bruise his heel.",
+      ntRef: "Galatians 4:4-5, Revelation 12:1-5",
+      ntText: "But when the fulness of the time was come, God sent forth his Son, made of a woman, made under the law, To redeem them that were under the law, that we might receive the adoption of sons. / And the dragon stood before the woman which was ready to be delivered, for to devour her child as soon as it was born.",
+      explanation: "Haman's genocide attempt was not merely political — it was Satanic. Satan's strategy throughout history has been to destroy the Messianic line before the Seed of the Woman could arrive (Genesis 3:15). Haman's Amalekite ancestry connects him to Israel's oldest enemy. The book of Esther is a battle in the cosmic war to prevent the birth of Jesus Christ. God used a Jewish queen in a Persian palace to preserve the people through whom the Messiah would come. Revelation 12 describes the same war in cosmic terms: the dragon trying to devour the child. Every attack on the Jewish people throughout history has been, at its deepest level, an attack on the Messianic promise. God has consistently, providentially preserved His people — and through them, His plan of redemption.",
+      status: "Providence — God preserving the Messianic line for fulfilment in Jesus Christ",
+    },
+
+    thinkDeeper: {
+      question: "If God's plans will succeed regardless (Mordecai said 'deliverance will arise from another place'), why does it matter whether any individual obeys? Can't God just do it without us?",
+      challenge: "A teen says: 'If God is sovereign and His plans will happen no matter what, then my choices don't really matter. It'll all work out.' How do you respond?",
+      hints: [
+        "God's sovereignty does not eliminate human responsibility — it works through it. Mordecai's statement is not an invitation to passivity; it is a warning about the cost of passivity. Deliverance will come — but you will miss being part of it, and you will face personal consequences.",
+        "The question is not 'Will God's plan succeed?' (it will). The question is 'Will I be part of it?' God invited Esther into the story. He invites us into His story. We are free to accept or refuse — but refusal is itself a choice with consequences.",
+        "Imagine if Esther had refused. Deliverance may have come another way. But there would be no Esther story. No 'such a time as this.' No 'if I perish, I perish.' The world would have been poorer — and so would she.",
+      ],
+      conclusion: "God's sovereignty and human obedience are not in competition — they are partners. God achieves His purposes through the willing obedience of His people. You can be a bystander to His story or a participant in it. The invitation is yours. But choose wisely — because 'such a time as this' does not repeat.",
+    },
+
+    discussionQuestions: [
+      "Mordecai asked Esther: 'Who knows whether you have come to the kingdom for such a time as this?' What specific 'kingdom' — position, relationship, community, school — do you think God may have placed you in for a purpose right now?",
+      "Esther fasted and prepared for three days before she acted. How do you prepare spiritually before making significant decisions or taking courageous steps? What would it look like to fast and pray before your next major choice?",
+      "'If I perish, I perish' — Esther accepted the possibility of death to do what was right. What is the equivalent cost for you right now? What are you risking if you do what God is calling you to do?",
+      "The book of Esther never mentions God by name — yet His fingerprints are everywhere. Can you identify moments in your own story where God was clearly at work even though you could not see Him at the time?",
+    ],
+
+    journalPrompt: {
+      prompt: "Write your own 'for such a time as this' declaration. Identify: (1) the specific 'kingdom' God has placed you in — school, family, team, neighbourhood; (2) the specific need or challenge you see there; (3) the courageous act of obedience God is calling you to — the thing you have been avoiding; (4) your 'if I perish, I perish' surrender statement. End with a prayer that Esther's God is your God — that He will sustain you as you step into your appointed moment.",
+      reflection: "I was not placed in my school, my family, my city, my generation by accident. God put me here on purpose, for a purpose. My position is my appointment. Today I choose to stop looking for reasons to stay comfortable and start looking for the 'such a time as this' that is already in front of me.",
+    },
+
+    memoryVerse: "For if thou altogether holdest thy peace at this time, then shall there enlargement and deliverance arise to the Jews from another place; but thou and thy father's house shall be destroyed: and who knoweth whether thou art come to the kingdom for such a time as this? — Esther 4:14",
+    closingPrayer: "God of Esther and Mordecai — the God whose name was not written in that book but whose hand was on every page. You place Your people in specific positions at specific moments for specific purposes. I believe You have placed me where I am for a reason. Give me Esther's courage — to fast before I act, to surrender before I step forward, and to say 'if I perish, I perish' when the cost of obedience is real. I choose to be part of Your story. Use me — for such a time as this. Amen.",
+
+    leaderNote: "Week 26 is the Term 2 culmination — end with momentum and a call to action. The 'for such a time as this' theme is powerfully applicable to teenagers who often feel their lives are inconsequential. Help them see that their specific placement — in their school, their family, their generation — is a divine appointment. The journal exercise is the most forward-looking of the term: it moves from the biblical narrative to personal mission. Consider ending the session with each teen sharing their 'kingdom' and 'appointed moment' with the group — a powerful community declaration. Connect Term 2 to Term 3: these heroes of faith were all preparing the world for the coming of the One to whom they all pointed. Next term: the Gospels and the life of Jesus.",
+  },
 ]; // end TEEN_LESSONS

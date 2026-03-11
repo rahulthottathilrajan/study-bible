@@ -5,7 +5,6 @@ import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
 import GoToBar from "../components/GoToBar";
 import UtilityStrip from "../components/UtilityStrip";
-import HymnOfTheDay from "../components/HymnOfTheDay";
 import { BIRTHDAY_VERSES } from "../constants";
 
 export default function HomeView() {
@@ -179,12 +178,6 @@ export default function HomeView() {
           <ContinueReading nav={nav} ht={ht} user={user} />
           {/* ── VERSE OF THE DAY ── */}
           <VerseOfTheDay nav={nav} ht={ht} />
-
-          {/* ── HYMN OF THE DAY ── */}
-          <HymnOfTheDay nav={nav} ht={ht} />
-          <div style={{ marginTop: -12, marginBottom: 22, textAlign: "right", paddingRight: 4 }}>
-            <button onClick={() => nav("songs-home")} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: ht.ui, fontSize: 12, fontWeight: 600, color: ht.accent, padding: "4px 0", letterSpacing: "0.01em" }}>Browse All Hymns &rarr;</button>
-          </div>
 
           {/* ── QUIZ MASTER ── */}
           <div style={{ marginBottom: 22 }}>

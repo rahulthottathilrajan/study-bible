@@ -25,8 +25,6 @@ export function AppProvider({ children }) {
   const [shopProduct, setShopProduct] = useState(null);
   const [cart, setCart] = useState([]);
   const [shopOrderSession, setShopOrderSession] = useState(null);
-  const [songsCategory, setSongsCategory] = useState(null);
-  const [songsHymn, setSongsHymn] = useState(null);
   const [loading, setLoading] = useState(false);
   const [dbLive, setDbLive] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -1380,7 +1378,7 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "songs-home":"home", "songs-category":"songs-home", "songs-detail":"songs-category" };
+  const BACK_MAP = { "verse":"verses", "verses":"chapter", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", };
 
   const addToCart = (product, qty = 1, size = null) => {
     setCart(prev => {
@@ -1418,8 +1416,6 @@ export function AppProvider({ children }) {
     if (opts.tab !== undefined) setTab(opts.tab);
     if (opts.shopCategory !== undefined) setShopCategory(opts.shopCategory);
     if (opts.shopProduct !== undefined) setShopProduct(opts.shopProduct);
-    if (opts.songsCategory !== undefined) setSongsCategory(opts.songsCategory);
-    if (opts.songsHymn !== undefined) setSongsHymn(opts.songsHymn);
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [testament, book, chapter, verse, tab, changeVerse]);
 
@@ -1628,8 +1624,6 @@ export function AppProvider({ children }) {
     audioChapterLinks, sleepTimer, setSleepTimer,
     audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
     listenedChapters, markChapterListened, fetchAudioLinks,
-    // Songs
-    songsCategory, setSongsCategory, songsHymn, setSongsHymn,
     // Birthday
     isBirthdayToday, birthdayUsers,
   };
