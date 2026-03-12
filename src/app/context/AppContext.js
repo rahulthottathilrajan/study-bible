@@ -211,6 +211,9 @@ export function AppProvider({ children }) {
   const verseIdMap = useRef({}); // { verseNumber: supabaseUUID } — for user data writes
   const translationCache = useRef({}); // { "HINIRV": { "GEN:1": {1:"text",2:"text"} } }
   const audioLinksCache = useRef({}); // { "BSB:GEN:1": { gilbert:"url", ... } }
+  const podcastCache = useRef({}); // { "daily-word": fullSeriesJSON }
+  const podcastSeriesIndex = useRef(null); // cached index.json
+  const podcastAudioRef = useRef(null); // HTML5 Audio element (separate from Bible audio)
 
   // ─── Wrapped verse setter — clears stale per-verse user data in same render batch ───
   const changeVerse = useCallback((v) => {
@@ -298,6 +301,20 @@ export function AppProvider({ children }) {
     try { return JSON.parse(localStorage.getItem("listenedChapters") || "[]"); } catch { return []; }
   });
 
+  // ─── Podcast state ───
+  const [podcastPlaying, setPodcastPlaying] = useState(false);
+  const [podcastVisible, setPodcastVisible] = useState(false);
+  const [currentEpisode, setCurrentEpisode] = useState(null);
+  const [podcastSpeed, setPodcastSpeed] = useState(() => {
+    try { return parseFloat(localStorage.getItem("podcastSpeed") || "1"); } catch { return 1; }
+  });
+  const [podcastSleepTimer, setPodcastSleepTimer] = useState(0);
+  const [podcastListenedEpisodes, setPodcastListenedEpisodes] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("podcastListenedEpisodes") || "[]"); } catch { return []; }
+  });
+  const [podcastSeries, setPodcastSeries] = useState(null);
+  const [podcastEpisode, setPodcastEpisode] = useState(null);
+
   const markChapterListened = useCallback((bookName, chapterNum) => {
     const key = `${bookName}:${chapterNum}`;
     setListenedChapters(prev => {
@@ -312,6 +329,14 @@ export function AppProvider({ children }) {
   useEffect(() => {
     try { localStorage.setItem("audioNarrator", audioNarrator); } catch {}
   }, [audioNarrator]);
+
+  // Persist podcast preferences
+  useEffect(() => {
+    try { localStorage.setItem("podcastSpeed", String(podcastSpeed)); } catch {}
+  }, [podcastSpeed]);
+  useEffect(() => {
+    try { localStorage.setItem("podcastListenedEpisodes", JSON.stringify(podcastListenedEpisodes)); } catch {}
+  }, [podcastListenedEpisodes]);
 
   // Fetch CDN audio links (BSB has narrated audio via helloao)
   const fetchAudioLinks = useCallback(async (bookName, chNum) => {
@@ -344,6 +369,95 @@ export function AppProvider({ children }) {
       setAudioMode("tts");
     }
   }, [bibleTranslation, book, chapter, fetchAudioLinks]);
+
+  // ═══ PODCAST ═══
+
+  const loadPodcastIndex = useCallback(async () => {
+    if (podcastSeriesIndex.current) return podcastSeriesIndex.current;
+    try {
+      const res = await fetch("/data/podcasts/index.json");
+      if (!res.ok) return null;
+      const data = await res.json();
+      podcastSeriesIndex.current = data;
+      return data;
+    } catch { return null; }
+  }, []);
+
+  const loadPodcastSeries = useCallback(async (slug) => {
+    if (podcastCache.current[slug]) return podcastCache.current[slug];
+    try {
+      const res = await fetch(`/data/podcasts/${slug}.json`);
+      if (!res.ok) return null;
+      const data = await res.json();
+      podcastCache.current[slug] = data;
+      return data;
+    } catch { return null; }
+  }, []);
+
+  const playPodcastEpisode = useCallback((seriesSlug, episodeNum, episode, seriesTitle, artwork) => {
+    // Mutual exclusion: stop Bible audio if playing
+    if (audioPlaying) {
+      setAudioPlaying(false);
+      setAudioVisible(false);
+    }
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const audioUrl = `${supabaseUrl}/storage/v1/object/public/podcasts/${episode.audioFile}`;
+    setCurrentEpisode({
+      seriesSlug, episodeNum, title: episode.title, seriesTitle,
+      artwork: artwork || "/images/podcasts/default.jpg",
+      audioUrl, transcript: episode.transcript || [],
+      bibleRef: episode.bibleRef, duration: episode.duration,
+    });
+    setPodcastVisible(true);
+    setPodcastPlaying(true);
+  }, [audioPlaying, setAudioPlaying, setAudioVisible]);
+
+  const markEpisodeListened = useCallback((seriesSlug, episodeNum) => {
+    const key = `${seriesSlug}:${episodeNum}`;
+    setPodcastListenedEpisodes(prev => {
+      if (prev.includes(key)) return prev;
+      return [...prev, key];
+    });
+    if (user) {
+      supabase.from("podcast_listening_position").upsert(
+        { user_id: user.id, series_slug: seriesSlug, episode_number: episodeNum, completed: true, timestamp_seconds: 0, updated_at: new Date().toISOString() },
+        { onConflict: "user_id,series_slug,episode_number" }
+      ).then(() => {});
+    }
+  }, [user]);
+
+  const savePodcastPosition = useCallback((seriesSlug, episodeNum, seconds) => {
+    try { localStorage.setItem(`cr_podcast_${seriesSlug}`, JSON.stringify({ episode: episodeNum, timestamp: seconds })); } catch {}
+    if (user) {
+      supabase.from("podcast_listening_position").upsert(
+        { user_id: user.id, series_slug: seriesSlug, episode_number: episodeNum, timestamp_seconds: seconds, updated_at: new Date().toISOString() },
+        { onConflict: "user_id,series_slug,episode_number" }
+      ).then(() => {});
+    }
+  }, [user]);
+
+  const savePodcastNote = useCallback(async (seriesSlug, episodeNum, noteText, timestampSeconds = null) => {
+    if (!user) return null;
+    const { data, error } = await supabase.from("podcast_notes").insert({
+      user_id: user.id, series_slug: seriesSlug, episode_number: episodeNum,
+      note_text: noteText, timestamp_seconds: timestampSeconds,
+    }).select().single();
+    return error ? null : data;
+  }, [user]);
+
+  const loadPodcastNotes = useCallback(async (seriesSlug, episodeNum) => {
+    if (!user) return [];
+    const { data } = await supabase.from("podcast_notes")
+      .select("*").eq("user_id", user.id)
+      .eq("series_slug", seriesSlug).eq("episode_number", episodeNum)
+      .order("created_at", { ascending: true });
+    return data || [];
+  }, [user]);
+
+  const deletePodcastNote = useCallback(async (noteId) => {
+    if (!user) return;
+    await supabase.from("podcast_notes").delete().eq("id", noteId).eq("user_id", user.id);
+  }, [user]);
 
   useEffect(() => {
     try {
@@ -1226,8 +1340,14 @@ export function AppProvider({ children }) {
     if (listenCount >= 1 && !earned.first_listen) awardBadge("first_listen");
     if (listenCount >= 10 && !earned.audio_scholar) awardBadge("audio_scholar");
     if (listenCount >= 50 && !earned.audio_marathon) awardBadge("audio_marathon");
+
+    // Podcast badges
+    const podcastCount = podcastListenedEpisodes.length;
+    if (podcastCount >= 1 && !earned.first_listen_podcast) awardBadge("first_listen_podcast");
+    if (podcastCount >= 7 && !earned.podcast_regular) awardBadge("podcast_regular");
+    if (podcastCount >= 30 && !earned.podcast_devotee) awardBadge("podcast_devotee");
   }, [user, chapterReads, allHighlights, notesCount, streak, hebrewProgress, hebrewLessons,
-      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, listenedChapters, awardBadge]);
+      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, listenedChapters, podcastListenedEpisodes, awardBadge]);
 
   useEffect(() => { checkBadges(); }, [checkBadges]);
 
@@ -1464,7 +1584,7 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"books", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", };
+  const BACK_MAP = { "verse":"verses", "verses":"books", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", "podcast-home":"learn-home", "podcast-detail":"podcast-home", "podcast-episode":"podcast-detail", };
 
   const addToCart = (product, qty = 1, size = null) => {
     setCart(prev => {
@@ -1502,6 +1622,8 @@ export function AppProvider({ children }) {
     if (opts.tab !== undefined) setTab(opts.tab);
     if (opts.shopCategory !== undefined) setShopCategory(opts.shopCategory);
     if (opts.shopProduct !== undefined) setShopProduct(opts.shopProduct);
+    if (opts.podcastSeries !== undefined) setPodcastSeries(opts.podcastSeries);
+    if (opts.podcastEpisode !== undefined) setPodcastEpisode(opts.podcastEpisode);
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [testament, book, chapter, verse, tab, changeVerse]);
 
@@ -1710,6 +1832,14 @@ export function AppProvider({ children }) {
     audioChapterLinks, sleepTimer, setSleepTimer,
     audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
     listenedChapters, markChapterListened, fetchAudioLinks,
+    // Podcast
+    podcastPlaying, setPodcastPlaying, podcastVisible, setPodcastVisible,
+    currentEpisode, setCurrentEpisode, podcastSpeed, setPodcastSpeed,
+    podcastSleepTimer, setPodcastSleepTimer, podcastListenedEpisodes,
+    podcastSeries, podcastEpisode, podcastAudioRef,
+    loadPodcastIndex, loadPodcastSeries, playPodcastEpisode,
+    markEpisodeListened, savePodcastPosition,
+    savePodcastNote, loadPodcastNotes, deletePodcastNote,
     // Birthday
     isBirthdayToday, birthdayUsers,
   };

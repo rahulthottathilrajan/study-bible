@@ -471,6 +471,7 @@ export const BADGE_CATEGORIES = [
   { id:"learn",  label:"Learn",  icon:"📚" },
   { id:"prayer", label:"Prayer", icon:"🙏" },
   { id:"audio",  label:"Audio",  icon:"🎧" },
+  { id:"podcast", label:"Podcast", icon:"🎙️" },
   { id:"community", label:"Community", icon:"🤝" },
 ];
 
@@ -512,6 +513,11 @@ export const BADGES = [
   { id:"first_listen",    category:"audio", name:"First Listen",    icon:"🎧", description:"Listen to your first chapter" },
   { id:"audio_scholar",   category:"audio", name:"Audio Scholar",   icon:"📻", description:"Listen to 10 chapters" },
   { id:"audio_marathon",  category:"audio", name:"Audio Marathon",  icon:"🏅", description:"Listen to 50 chapters" },
+  // Podcast (4)
+  { id:"first_listen_podcast", category:"podcast", name:"First Episode",    icon:"🎙️", description:"Listen to your first podcast episode" },
+  { id:"podcast_regular",      category:"podcast", name:"Regular Listener", icon:"📻", description:"Listen to 7 podcast episodes" },
+  { id:"podcast_devotee",      category:"podcast", name:"Devotee",          icon:"🏅", description:"Listen to 30 podcast episodes" },
+  { id:"podcast_noter",        category:"podcast", name:"Note Taker",       icon:"📝", description:"Write your first podcast note" },
   // Teens (4)
   { id:"first_lesson_teen", category:"learn", name:"First Lesson",     icon:"\uD83D\uDCD6", description:"Complete your first teens lesson" },
   { id:"term_complete_teen",category:"learn", name:"Term Complete",    icon:"\uD83C\uDFAF", description:"Complete all 13 lessons in a term" },

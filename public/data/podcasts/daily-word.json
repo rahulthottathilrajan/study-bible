@@ -1,0 +1,60 @@
+{
+  "slug": "daily-word",
+  "title": "Daily Word",
+  "description": "A 5-minute daily devotional exploring God's Word, one verse at a time.",
+  "host": "The Bible Scrollers",
+  "category": "devotional",
+  "artwork": "/images/podcasts/daily-word.jpg",
+  "episodes": {
+    "1": {
+      "title": "The God Who Sees",
+      "date": "2026-03-13",
+      "description": "Exploring Genesis 16 and Hagar's encounter with the Living God who sees her in her suffering and calls her by name.",
+      "bibleRef": "Genesis 16:13",
+      "duration": 312,
+      "audioFile": "daily-word/ep-001.mp3",
+      "keyPoints": [
+        "God sees us in our deepest struggles",
+        "Hagar named God — 'El Roi', the God who sees",
+        "No wilderness is hidden from God's gaze"
+      ],
+      "transcript": [
+        { "start": 0, "end": 8, "text": "Welcome to the Daily Word from The Bible Scrollers." },
+        { "start": 8, "end": 18, "text": "Today we are looking at Genesis chapter 16, verse 13." },
+        { "start": 18, "end": 30, "text": "And she called the name of the LORD that spake unto her, Thou God seest me." },
+        { "start": 30, "end": 42, "text": "Hagar was a woman in crisis. Cast out, alone in the wilderness, pregnant and afraid." },
+        { "start": 42, "end": 55, "text": "But in that moment of absolute desperation, God met her. Not in a temple, not on a mountain — in a desert." },
+        { "start": 55, "end": 68, "text": "She gave God a name no one else in Scripture did: El Roi — the God who sees me." },
+        { "start": 68, "end": 82, "text": "Think about that. The creator of the universe, and Hagar's testimony is: He sees ME." },
+        { "start": 82, "end": 95, "text": "Whatever wilderness you find yourself in today, know this: you are not invisible to God." },
+        { "start": 95, "end": 108, "text": "He sees your struggle, He knows your name, and He is present even when you cannot see Him." },
+        { "start": 108, "end": 120, "text": "Let that truth settle into your heart today. You serve the God who sees. Amen." }
+      ]
+    },
+    "2": {
+      "title": "Be Still and Know",
+      "date": "2026-03-14",
+      "description": "Finding peace and trust in God's sovereignty through the powerful words of Psalm 46.",
+      "bibleRef": "Psalm 46:10",
+      "duration": 295,
+      "audioFile": "daily-word/ep-002.mp3",
+      "keyPoints": [
+        "God is our refuge and strength",
+        "Stillness is an act of trust, not passivity",
+        "God's sovereignty extends over all chaos"
+      ],
+      "transcript": [
+        { "start": 0, "end": 7, "text": "Welcome to the Daily Word from The Bible Scrollers." },
+        { "start": 7, "end": 17, "text": "Today our passage comes from Psalm 46, verse 10." },
+        { "start": 17, "end": 27, "text": "Be still, and know that I am God. I will be exalted among the heathen, I will be exalted in the earth." },
+        { "start": 27, "end": 40, "text": "In a world that never stops moving, God's command is strikingly countercultural: be still." },
+        { "start": 40, "end": 52, "text": "This is not a suggestion to be passive. It is an invitation to trust." },
+        { "start": 52, "end": 65, "text": "The Hebrew word here — raphah — means to let go, to cease striving, to surrender control." },
+        { "start": 65, "end": 78, "text": "When the nations rage, when the earth shakes, when everything around us feels unstable — God says: I am still God." },
+        { "start": 78, "end": 90, "text": "Your stillness before Him is not weakness. It is the deepest expression of faith." },
+        { "start": 90, "end": 102, "text": "Today, wherever the noise is loudest, take a moment. Be still. And know." },
+        { "start": 102, "end": 112, "text": "He is God. He has always been God. And He will be exalted. Rest in that. Amen." }
+      ]
+    }
+  }
+}

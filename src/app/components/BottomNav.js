@@ -11,7 +11,7 @@ const NAV_ITEMS = [
 
 const HIDDEN_VIEWS = ["verse","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice","quiz-active"];
 const BIBLE_VIEWS = ["books","chapter","verses","verse"];
-const LEARN_VIEWS = ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson","greek-home","greek-lesson","greek-practice","greek-reading-home","greek-reading","greek-grammar-home","greek-grammar-lesson","timeline-home","timeline-era","timeline-era-detail","timeline-maps","timeline-books","timeline-archaeology","prophecy-home","apologetics-home","reading-plans-home","kids-curriculum-home","teens-curriculum-home"];
+const LEARN_VIEWS = ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson","greek-home","greek-lesson","greek-practice","greek-reading-home","greek-reading","greek-grammar-home","greek-grammar-lesson","timeline-home","timeline-era","timeline-era-detail","timeline-maps","timeline-books","timeline-archaeology","prophecy-home","apologetics-home","reading-plans-home","kids-curriculum-home","teens-curriculum-home","podcast-home","podcast-detail","podcast-episode"];
 const PRAYER_VIEWS = ["prayer-home","prayer-community","prayer-clock","prayer-journal","prayer-testimony","prayer-slot-active"];
 const SHOP_VIEWS = ["shop-home","shop-category","shop-product","shop-cart","shop-order-success","shop-premium"];
 

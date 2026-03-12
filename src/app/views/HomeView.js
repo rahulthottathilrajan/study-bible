@@ -7,6 +7,80 @@ import GoToBar from "../components/GoToBar";
 import UtilityStrip from "../components/UtilityStrip";
 import { BIRTHDAY_VERSES } from "../constants";
 
+function PodcastCard({ ht, nav }) {
+  const { loadPodcastIndex, loadPodcastSeries, playPodcastEpisode, podcastListenedEpisodes } = useApp();
+  const [featuredEp, setFeaturedEp] = useState(null);
+  const loaded = useRef(false);
+
+  useEffect(() => {
+    if (loaded.current) return;
+    loaded.current = true;
+    (async () => {
+      const index = await loadPodcastIndex();
+      if (!index?.series?.length) return;
+      const latest = index.series[0];
+      const data = await loadPodcastSeries(latest.slug);
+      if (!data?.episodes) return;
+      const epNums = Object.keys(data.episodes).map(Number).sort((a, b) => b - a);
+      const unlistened = epNums.find(n => !podcastListenedEpisodes.includes(`${latest.slug}:${n}`));
+      const epNum = unlistened || epNums[0];
+      const ep = data.episodes[String(epNum)];
+      if (ep) setFeaturedEp({ series: latest, episode: ep, epNum, seriesData: data });
+    })();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (!featuredEp) return null;
+
+  return (
+    <div style={{ marginBottom: 22 }}>
+      <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 14, display: "flex", alignItems: "center", gap: 8 }}>
+        <span style={{ fontSize: 14 }}>&#x1F399;&#xFE0F;</span> Today's Word
+      </div>
+      <button
+        className="pressable"
+        onClick={() => {
+          playPodcastEpisode(featuredEp.series.slug, featuredEp.epNum, featuredEp.episode, featuredEp.series.title, featuredEp.series.artwork);
+          nav("podcast-episode", { podcastSeries: featuredEp.series.slug, podcastEpisode: featuredEp.epNum });
+        }}
+        style={{
+          width: "100%", textAlign: "left", cursor: "pointer", border: "none",
+          background: `linear-gradient(135deg, ${ht.accent}12, ${ht.card})`,
+          borderRadius: 14, padding: "18px 18px",
+          display: "flex", alignItems: "center", gap: 14,
+          position: "relative", overflow: "hidden",
+          boxShadow: `0 1px 4px rgba(0,0,0,0.06)`,
+        }}
+      >
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${ht.accent}, ${ht.accent}88, ${ht.accent})`, opacity: 0.6, borderRadius: "0 0 14px 14px" }} />
+        <div style={{
+          width: 52, height: 52, borderRadius: 14, flexShrink: 0,
+          background: `${ht.accent}20`,
+          display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28,
+        }}>
+          &#x1F399;&#xFE0F;
+        </div>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontFamily: ht.heading, fontSize: 16, fontWeight: 700, color: ht.dark, lineHeight: 1.3 }}>
+            {featuredEp.episode.title}
+          </div>
+          <div style={{ fontFamily: ht.ui, fontSize: 11, color: ht.accent, fontWeight: 600, marginTop: 1 }}>
+            {featuredEp.series.title} · {Math.ceil(featuredEp.episode.duration / 60)} min
+          </div>
+          <div style={{ fontFamily: ht.ui, fontSize: 12, color: ht.muted, marginTop: 4, lineHeight: 1.6 }}>
+            {featuredEp.episode.description?.length > 80 ? featuredEp.episode.description.slice(0, 80) + "..." : featuredEp.episode.description}
+          </div>
+        </div>
+        <div style={{
+          width: 36, height: 36, borderRadius: "50%", flexShrink: 0,
+          background: ht.accent, display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </button>
+    </div>
+  );
+}
+
 export default function HomeView() {
   const {
     ht, darkMode, user, profile, bp, isBirthdayToday,
@@ -176,6 +250,8 @@ export default function HomeView() {
           </button>
           {/* ── CONTINUE READING (WhatsApp status bar) ── */}
           <ContinueReading nav={nav} ht={ht} user={user} />
+          {/* ── TODAY'S WORD (Podcast) ── */}
+          <PodcastCard ht={ht} nav={nav} />
           {/* ── VERSE OF THE DAY ── */}
           <VerseOfTheDay nav={nav} ht={ht} />
 

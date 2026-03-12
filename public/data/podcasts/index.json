@@ -1,0 +1,14 @@
+{
+  "series": [
+    {
+      "slug": "daily-word",
+      "title": "Daily Word",
+      "description": "A 5-minute daily devotional exploring God's Word, one verse at a time.",
+      "host": "The Bible Scrollers",
+      "category": "devotional",
+      "artwork": "/images/podcasts/daily-word.jpg",
+      "episodeCount": 2,
+      "latestDate": "2026-03-14"
+    }
+  ]
+}
