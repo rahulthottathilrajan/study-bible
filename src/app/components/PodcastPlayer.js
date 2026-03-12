@@ -117,9 +117,13 @@ export default function PodcastPlayer({ mode = "mini" }) {
     u.rate = speedRef.current;
     u.lang = "en-US";
 
+    // Prefer a deep/comfortable male voice
     const voices = window.speechSynthesis.getVoices();
     const enVoices = voices.filter(v => v.lang.startsWith("en"));
-    if (enVoices.length > 0) u.voice = enVoices[0];
+    const malePrefs = ["david", "mark", "daniel", "james", "google uk english male", "male"];
+    const male = enVoices.find(v => malePrefs.some(p => v.name.toLowerCase().includes(p)));
+    if (male) u.voice = male;
+    else if (enVoices.length > 0) u.voice = enVoices[0];
 
     u.onend = () => {
       if (ttsTimerRef.current) { clearInterval(ttsTimerRef.current); ttsTimerRef.current = null; }
@@ -174,30 +178,25 @@ export default function PodcastPlayer({ mode = "mini" }) {
       }
     };
 
-    // Fallback to TTS if MP3 fails to load
+    // Fallback to TTS if MP3 fails to load (only set flag — podcastPlaying effect handles playback)
     audio.onerror = () => {
+      if (ttsModeRef.current) return; // Already switched
       setTtsMode(true);
       const ep = episodeRef.current;
       if (ep) {
         const totalDur = ep.duration || (ep.transcript?.length ? ep.transcript[ep.transcript.length - 1].end : 0);
         setDuration(totalDur);
       }
-      if (playingRef.current && ep?.transcript?.length) {
-        speakSegment(ttsSegRef.current);
-      }
     };
 
     if (podcastPlaying) {
       audio.play().catch(() => {
-        // MP3 play failed — fallback to TTS
+        if (ttsModeRef.current) return; // Already switched via onerror
         setTtsMode(true);
         const ep = episodeRef.current;
         if (ep) {
           const totalDur = ep.duration || (ep.transcript?.length ? ep.transcript[ep.transcript.length - 1].end : 0);
           setDuration(totalDur);
-        }
-        if (ep?.transcript?.length) {
-          speakSegment(ttsSegRef.current);
         }
       });
     }
@@ -228,7 +227,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
         savePodcastPosition(episodeRef.current.seriesSlug, episodeRef.current.episodeNum, audioElRef.current.currentTime);
       }
     }
-  }, [podcastPlaying]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [podcastPlaying, ttsMode]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Speed sync
   useEffect(() => {
