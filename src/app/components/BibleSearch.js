@@ -4,6 +4,13 @@ import { supabase } from "../../lib/supabase";
 import { useApp } from "../context/AppContext";
 import { getBookName } from "../constants";
 
+const OT_BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi"];
+
+function parseVerseRef(ref) {
+  const m = ref.match(/^(.+?)\s+(\d+):(\d+)$/);
+  return m ? { book: m[1], chapter: +m[2], verse: +m[3] } : null;
+}
+
 export default function BibleSearch({ nav, ht }) {
   const { bibleTranslation } = useApp();
   const [query, setQuery] = useState("");
@@ -11,14 +18,17 @@ export default function BibleSearch({ nav, ht }) {
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
   const [filter, setFilter] = useState("all"); // "all" | "OT" | "NT"
+  const [mode, setMode] = useState("keyword"); // "keyword" | "smart"
+  const [semanticResults, setSemanticResults] = useState([]);
+  const [semanticSearched, setSemanticSearched] = useState(false);
   const debounceRef = useRef(null);
 
+  // ── Keyword search (existing) ──────────────────────────────
   const doSearch = useCallback(async (q, f) => {
     if (!q || q.trim().length < 2) { setResults([]); setSearched(false); return; }
     setLoading(true);
     setSearched(true);
 
-    // Check if query matches "Book Chapter:Verse" pattern (e.g., "John 3:16")
     const refMatch = q.trim().match(/^(\d?\s?[A-Za-z ]+?)\s+(\d+):(\d+)$/);
     if (refMatch) {
       const bookQ = refMatch[1].trim();
@@ -37,20 +47,15 @@ export default function BibleSearch({ nav, ht }) {
       return;
     }
 
-    // Full text search on kjv_text
-    let qb = supabase
+    const { data } = await supabase
       .from("verses")
       .select("id, verse_number, kjv_text, chapters(chapter_number, books(name))")
       .ilike("kjv_text", `%${q.trim()}%`)
       .order("id")
       .limit(80);
-
-    const { data } = await qb;
     let filtered = (data || []).filter(v => v.chapters?.books?.name);
 
-    // Client-side testament filter
     if (f !== "all") {
-      const OT_BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi"];
       if (f === "OT") filtered = filtered.filter(v => OT_BOOKS.includes(v.chapters.books.name));
       else filtered = filtered.filter(v => !OT_BOOKS.includes(v.chapters.books.name));
     }
@@ -59,16 +64,57 @@ export default function BibleSearch({ nav, ht }) {
     setLoading(false);
   }, []);
 
+  // ── Semantic search (new) ──────────────────────────────────
+  const doSemanticSearch = useCallback(async (q) => {
+    if (!q || q.trim().length < 3) { setSemanticResults([]); setSemanticSearched(false); return; }
+    setLoading(true);
+    setSemanticSearched(true);
+    try {
+      const res = await fetch("/api/semantic-search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: q.trim() }),
+      });
+      if (!res.ok) throw new Error("Search failed");
+      const { results: sr } = await res.json();
+      setSemanticResults(sr || []);
+    } catch {
+      setSemanticResults([]);
+    }
+    setLoading(false);
+  }, []);
+
   const handleInput = (val) => {
     setQuery(val);
     if (debounceRef.current) clearTimeout(debounceRef.current);
-    if (val.trim().length < 2) { setResults([]); setSearched(false); return; }
-    debounceRef.current = setTimeout(() => doSearch(val, filter), 400);
+    if (mode === "keyword") {
+      if (val.trim().length < 2) { setResults([]); setSearched(false); return; }
+      debounceRef.current = setTimeout(() => doSearch(val, filter), 400);
+    } else {
+      if (val.trim().length < 3) { setSemanticResults([]); setSemanticSearched(false); return; }
+      debounceRef.current = setTimeout(() => doSemanticSearch(val), 800);
+    }
   };
 
   const handleFilterChange = (f) => {
     setFilter(f);
     if (query.trim().length >= 2) doSearch(query, f);
+  };
+
+  const handleModeChange = (m) => {
+    setMode(m);
+    setResults([]);
+    setSemanticResults([]);
+    setSearched(false);
+    setSemanticSearched(false);
+    // Re-trigger search if there's a query
+    if (query.trim().length >= 2) {
+      if (m === "keyword") {
+        debounceRef.current = setTimeout(() => doSearch(query, filter), 100);
+      } else if (query.trim().length >= 3) {
+        debounceRef.current = setTimeout(() => doSemanticSearch(query), 100);
+      }
+    }
   };
 
   const highlightMatch = (text, q) => {
@@ -93,6 +139,11 @@ export default function BibleSearch({ nav, ht }) {
     return snippet;
   };
 
+  const isKeyword = mode === "keyword";
+  const isSmart = mode === "smart";
+  const activeResults = isKeyword ? results : semanticResults;
+  const activeSearched = isKeyword ? searched : semanticSearched;
+
   return (
     <div style={{ minHeight: "100vh", background: ht.bg }}>
       {/* Search header */}
@@ -109,7 +160,7 @@ export default function BibleSearch({ nav, ht }) {
               autoFocus
               value={query}
               onChange={e => handleInput(e.target.value)}
-              placeholder="Search the Scriptures..."
+              placeholder={isKeyword ? "Search the Scriptures..." : "Ask a question or describe a topic..."}
               style={{
                 width: "100%", padding: "11px 14px 11px 36px", borderRadius: 12,
                 border: "1.5px solid rgba(255,255,255,0.15)", fontFamily: ht.ui, fontSize: 14,
@@ -118,28 +169,59 @@ export default function BibleSearch({ nav, ht }) {
               }}
             />
             {query && (
-              <button onClick={() => { setQuery(""); setResults([]); setSearched(false); }}
+              <button onClick={() => { setQuery(""); setResults([]); setSemanticResults([]); setSearched(false); setSemanticSearched(false); }}
                 style={{ position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer", color: ht.headerText + "88", padding: 4 }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
             )}
           </div>
         </div>
-        {/* Filter pills */}
+
+        {/* Mode toggle */}
         <div style={{ display: "flex", gap: 6, marginTop: 10 }}>
-          {[{ id: "all", label: "All" }, { id: "OT", label: "Old Testament" }, { id: "NT", label: "New Testament" }].map(f => (
-            <button key={f.id} onClick={() => handleFilterChange(f.id)}
+          {[
+            { id: "keyword", label: "Keyword", icon: "Aa" },
+            { id: "smart", label: "Smart Search", icon: "\u2726" },
+          ].map(m => (
+            <button key={m.id} onClick={() => handleModeChange(m.id)}
               style={{
-                padding: "5px 14px", borderRadius: 20, border: "none", cursor: "pointer",
-                fontFamily: ht.ui, fontSize: 11, fontWeight: 600,
-                background: filter === f.id ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)",
-                color: filter === f.id ? "#fff" : "rgba(255,255,255,0.5)",
+                flex: 1, padding: "7px 14px", borderRadius: 20, border: "none", cursor: "pointer",
+                fontFamily: ht.ui, fontSize: 12, fontWeight: 600,
+                background: mode === m.id ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)",
+                color: mode === m.id ? "#fff" : "rgba(255,255,255,0.5)",
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
                 transition: "all 0.15s",
               }}>
-              {f.label}
+              <span style={{ fontSize: 10, fontWeight: 800, opacity: 0.7 }}>{m.icon}</span>
+              {m.label}
             </button>
           ))}
         </div>
+
+        {/* Testament filter pills — keyword mode only */}
+        {isKeyword && (
+          <div style={{ display: "flex", gap: 6, marginTop: 8 }}>
+            {[{ id: "all", label: "All" }, { id: "OT", label: "Old Testament" }, { id: "NT", label: "New Testament" }].map(f => (
+              <button key={f.id} onClick={() => handleFilterChange(f.id)}
+                style={{
+                  padding: "5px 14px", borderRadius: 20, border: "none", cursor: "pointer",
+                  fontFamily: ht.ui, fontSize: 11, fontWeight: 600,
+                  background: filter === f.id ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.06)",
+                  color: filter === f.id ? "#fff" : "rgba(255,255,255,0.5)",
+                  transition: "all 0.15s",
+                }}>
+                {f.label}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Smart search hint */}
+        {isSmart && (
+          <div style={{ fontFamily: ht.ui, fontSize: 10, color: "rgba(255,255,255,0.4)", marginTop: 6, textAlign: "center" }}>
+            Searches by meaning, not just keywords
+          </div>
+        )}
       </div>
 
       {/* Results */}
@@ -150,25 +232,28 @@ export default function BibleSearch({ nav, ht }) {
           </div>
         )}
 
-        {!loading && searched && results.length === 0 && (
+        {!loading && activeSearched && activeResults.length === 0 && (
           <div style={{ textAlign: "center", padding: "50px 20px" }}>
-            <div style={{ fontSize: 36, marginBottom: 12 }}>📜</div>
+            <div style={{ fontSize: 36, marginBottom: 12 }}>{isKeyword ? "\uD83D\uDCDC" : "\uD83D\uDD0E"}</div>
             <div style={{ fontFamily: ht.heading, fontSize: 17, color: ht.dark, marginBottom: 6 }}>No verses found</div>
             <div style={{ fontFamily: ht.ui, fontSize: 13, color: ht.muted, lineHeight: 1.6 }}>
-              Try different keywords or check spelling
+              {isKeyword ? "Try different keywords or check spelling" : "Try rephrasing your question or use different words"}
             </div>
           </div>
         )}
 
-        {!loading && searched && results.length > 0 && (
+        {!loading && activeSearched && activeResults.length > 0 && (
           <div style={{ fontFamily: ht.ui, fontSize: 12, color: ht.muted, marginBottom: 12, fontWeight: 600 }}>
-            {results.length}{results.length >= 80 ? "+" : ""} result{results.length !== 1 ? "s" : ""}
+            {isKeyword
+              ? `${results.length}${results.length >= 80 ? "+" : ""} result${results.length !== 1 ? "s" : ""}`
+              : `${semanticResults.length} result${semanticResults.length !== 1 ? "s" : ""} by relevance`}
           </div>
         )}
 
-        {!loading && !searched && (
+        {/* Pre-search empty states */}
+        {!loading && !activeSearched && isKeyword && (
           <div style={{ textAlign: "center", padding: "50px 20px" }}>
-            <div style={{ fontSize: 36, marginBottom: 12 }}>🔍</div>
+            <div style={{ fontSize: 36, marginBottom: 12 }}>{"\uD83D\uDD0D"}</div>
             <div style={{ fontFamily: ht.heading, fontSize: 17, color: ht.dark, marginBottom: 6 }}>Search the Bible</div>
             <div style={{ fontFamily: ht.ui, fontSize: 13, color: ht.muted, lineHeight: 1.8 }}>
               Search by word, phrase, or reference
@@ -178,7 +263,20 @@ export default function BibleSearch({ nav, ht }) {
           </div>
         )}
 
-        {!loading && results.map((v, i) => {
+        {!loading && !activeSearched && isSmart && (
+          <div style={{ textAlign: "center", padding: "50px 20px" }}>
+            <div style={{ fontSize: 36, marginBottom: 12 }}>{"\u2728"}</div>
+            <div style={{ fontFamily: ht.heading, fontSize: 17, color: ht.dark, marginBottom: 6 }}>Search by Meaning</div>
+            <div style={{ fontFamily: ht.ui, fontSize: 13, color: ht.muted, lineHeight: 1.8 }}>
+              Ask a question or describe a topic
+              <br/>
+              <span style={{ color: ht.accent, fontStyle: "italic" }}>e.g. "forgiveness of sins" · "dealing with anxiety" · "God's promises"</span>
+            </div>
+          </div>
+        )}
+
+        {/* Keyword results */}
+        {!loading && isKeyword && results.map((v, i) => {
           const bookName = v.chapters?.books?.name;
           const chapNum = v.chapters?.chapter_number;
           const verseNum = v.verse_number;
@@ -188,7 +286,6 @@ export default function BibleSearch({ nav, ht }) {
 
           return (
             <button key={v.id || i} onClick={() => {
-              const OT_BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi"];
               const t = OT_BOOKS.includes(bookName) ? "OT" : "NT";
               nav("verse", { testament: t, book: bookName, chapter: chapNum, verse: verseNum });
             }}
@@ -205,6 +302,49 @@ export default function BibleSearch({ nav, ht }) {
               </div>
               <div style={{ fontFamily: ht.body, fontSize: 13.5, color: ht.text, lineHeight: 1.7 }}>
                 {highlightMatch(snippet, query)}
+              </div>
+            </button>
+          );
+        })}
+
+        {/* Smart search results */}
+        {!loading && isSmart && semanticResults.map((sv, i) => {
+          const parsed = parseVerseRef(sv.verse_ref);
+          const simPct = Math.round(sv.similarity * 100);
+          const displayRef = parsed
+            ? `${getBookName(parsed.book, bibleTranslation)} ${parsed.chapter}:${parsed.verse}`
+            : sv.verse_ref;
+          const text = sv.kjv_text || "";
+          const snippet = text.length > 140 ? text.slice(0, 140) + "..." : text;
+
+          return (
+            <button key={i} onClick={() => {
+              if (parsed) {
+                const t = OT_BOOKS.includes(parsed.book) ? "OT" : "NT";
+                nav("verse", { testament: t, book: parsed.book, chapter: parsed.chapter, verse: parsed.verse });
+              }
+            }}
+              className="pressable"
+              style={{
+                width: "100%", textAlign: "left", cursor: "pointer",
+                background: ht.card, border: `1px solid ${ht.divider}`, borderRadius: 12,
+                padding: "14px 16px", marginBottom: 8, display: "block",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                animation: `fadeIn 0.25s ease ${Math.min(i * 0.03, 0.3)}s both`,
+              }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+                <span style={{ fontFamily: ht.ui, fontSize: 12, fontWeight: 700, color: ht.accent }}>{displayRef}</span>
+                <span style={{
+                  fontFamily: ht.ui, fontSize: 10, fontWeight: 600,
+                  color: simPct > 80 ? "#22c55e" : simPct > 65 ? ht.accent : ht.muted,
+                  background: `${simPct > 80 ? "#22c55e" : simPct > 65 ? ht.accent : ht.muted}15`,
+                  padding: "2px 8px", borderRadius: 10,
+                }}>
+                  {simPct}% match
+                </span>
+              </div>
+              <div style={{ fontFamily: ht.body, fontSize: 13.5, color: ht.text, lineHeight: 1.7 }}>
+                {snippet}
               </div>
             </button>
           );

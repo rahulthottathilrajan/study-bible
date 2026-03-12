@@ -6,6 +6,13 @@ import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
 import Header from "../components/Header";
 import AudioPlayer from "../components/AudioPlayer";
 
+const OT_BOOKS_LIST = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi"];
+
+function parseVerseRef(ref) {
+  const m = ref.match(/^(.+?)\s+(\d+):(\d+)$/);
+  return m ? { book: m[1], chapter: +m[2], verse: +m[3] } : null;
+}
+
 export default function BibleView() {
   const {
     view, book, chapter, verse, setVerse, tab, setTab, loading,
@@ -26,6 +33,10 @@ export default function BibleView() {
   } = useApp();
 
   const [showColors, setShowColors] = useState(false);
+  const [similarVerses, setSimilarVerses] = useState([]);
+  const [similarLoading, setSimilarLoading] = useState(false);
+  const [similarOpen, setSimilarOpen] = useState(false);
+  const similarCache = useRef({});
   const currentTransDef = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
   const isRtl = currentTransDef?.rtl || false;
   const rtlStyle = isRtl ? { direction: "rtl", textAlign: "right" } : {};
@@ -37,6 +48,33 @@ export default function BibleView() {
   // Auto-switch away from Study Notes tab when non-English translation is active
   // (moved from VerseStudy inner function to BibleView level for stable hook ordering)
   useEffect(() => { if (!isEnglishTrans && tab === "study") setTab("original"); }, [isEnglishTrans]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Fetch similar verses when verse study is open
+  useEffect(() => {
+    if (view !== "verse" || !book || !chapter || !verse) return;
+    const ref = `${book} ${chapter}:${verse}`;
+    if (similarCache.current[ref]) {
+      setSimilarVerses(similarCache.current[ref]);
+      return;
+    }
+    setSimilarLoading(true);
+    setSimilarVerses([]);
+    let cancelled = false;
+    fetch("/api/similar-verses", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ verse_ref: ref }),
+    })
+      .then(r => r.ok ? r.json() : { results: [] })
+      .then(({ results }) => {
+        if (cancelled) return;
+        setSimilarVerses(results || []);
+        similarCache.current[ref] = results || [];
+      })
+      .catch(() => { if (!cancelled) setSimilarVerses([]); })
+      .finally(() => { if (!cancelled) setSimilarLoading(false); });
+    return () => { cancelled = true; };
+  }, [view, book, chapter, verse]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ═══ BOOKS ═══
   const Books = () => {
@@ -823,6 +861,116 @@ export default function BibleView() {
               <button onClick={() => nav("account")} style={{padding:"12px 28px",borderRadius:10,border:"none",background:t.tabActive,color:t.headerText,fontFamily:t.ui,fontSize:14,fontWeight:700,cursor:"pointer"}}>Sign In / Sign Up</button>
             </div>
           </Card>}
+
+          {/* Similar Verses — collapsible card below tabs */}
+          <div style={{ marginTop: 14 }}>
+            <button
+              onClick={() => setSimilarOpen(o => !o)}
+              style={{
+                width: "100%", display: "flex", alignItems: "center", gap: 10,
+                padding: "11px 16px",
+                background: similarOpen ? t.accentLight : t.card,
+                border: `1px solid ${similarOpen ? t.accentBorder : t.divider}`,
+                borderRadius: similarOpen ? "12px 12px 0 0" : 12,
+                cursor: "pointer", textAlign: "left", transition: "all 0.2s",
+              }}>
+              <span style={{ fontSize: 16, flexShrink: 0 }}>&#x2728;</span>
+              <div style={{ flex: 1 }}>
+                <span style={{ fontFamily: t.heading, fontSize: 14, fontWeight: 700, color: t.dark }}>
+                  Similar Verses
+                </span>
+                {!similarOpen && similarVerses.length > 0 && (
+                  <span style={{ fontFamily: t.ui, fontSize: 11, color: t.muted, marginLeft: 8 }}>
+                    &middot; {similarVerses.length} found
+                  </span>
+                )}
+              </div>
+              <span style={{
+                fontFamily: t.ui, fontSize: 12, color: t.muted,
+                transform: similarOpen ? "rotate(180deg)" : "rotate(0deg)",
+                transition: "transform 0.2s",
+              }}>{"\u25BE"}</span>
+            </button>
+
+            {similarOpen && (
+              <div style={{
+                background: t.accentLight,
+                border: `1px solid ${t.accentBorder}`, borderTop: "none",
+                borderRadius: "0 0 12px 12px", padding: "10px 16px 14px",
+              }}>
+                {similarLoading && (
+                  <div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
+                    <div style={{
+                      width: 20, height: 20,
+                      border: `2px solid ${t.divider}`,
+                      borderTop: `2px solid ${t.accent}`,
+                      borderRadius: "50%", animation: "spin 0.8s linear infinite",
+                    }} />
+                  </div>
+                )}
+
+                {!similarLoading && similarVerses.length === 0 && (
+                  <div style={{ fontFamily: t.ui, fontSize: 13, color: t.muted, textAlign: "center", padding: 12 }}>
+                    No similar verses found for this passage.
+                  </div>
+                )}
+
+                {!similarLoading && similarVerses.map((sv, i) => {
+                  const parsed = parseVerseRef(sv.verse_ref);
+                  const simPct = Math.round(sv.similarity * 100);
+                  const displayRef = parsed
+                    ? `${getBookName(parsed.book, bibleTranslation)} ${parsed.chapter}:${parsed.verse}`
+                    : sv.verse_ref;
+                  const text = sv.kjv_text || "";
+                  const snippet = text.length > 120 ? text.slice(0, 120) + "..." : text;
+
+                  return (
+                    <button key={i} onClick={() => {
+                      if (parsed) {
+                        const tst = OT_BOOKS_LIST.includes(parsed.book) ? "OT" : "NT";
+                        nav("verse", { testament: tst, book: parsed.book, chapter: parsed.chapter, verse: parsed.verse });
+                      }
+                    }}
+                      className="pressable"
+                      style={{
+                        width: "100%", textAlign: "left", cursor: "pointer",
+                        background: t.card, border: `1px solid ${t.divider}`,
+                        borderRadius: 10, padding: "10px 14px", marginBottom: 6,
+                        display: "block", animation: `fadeIn 0.2s ease ${i * 0.05}s both`,
+                      }}>
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
+                        <span style={{ fontFamily: t.ui, fontSize: 12, fontWeight: 700, color: t.accent }}>
+                          {displayRef}
+                        </span>
+                        <span style={{
+                          fontFamily: t.ui, fontSize: 10, fontWeight: 600,
+                          color: simPct > 80 ? "#22c55e" : simPct > 65 ? t.accent : t.muted,
+                          background: `${simPct > 80 ? "#22c55e" : simPct > 65 ? t.accent : t.muted}15`,
+                          padding: "2px 8px", borderRadius: 10,
+                        }}>
+                          {simPct}% match
+                        </span>
+                      </div>
+                      <div style={{
+                        fontFamily: t.body, fontSize: 13, color: t.text,
+                        lineHeight: 1.6,
+                        display: "-webkit-box", WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical", overflow: "hidden",
+                      }}>
+                        {snippet}
+                      </div>
+                    </button>
+                  );
+                })}
+
+                {!similarLoading && similarVerses.length > 0 && (
+                  <div style={{ fontFamily: t.ui, fontSize: 9, color: t.light, textAlign: "center", marginTop: 6 }}>
+                    AI-powered similarity &middot; Based on meaning, not keywords
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
 
         </div>
       </div>
