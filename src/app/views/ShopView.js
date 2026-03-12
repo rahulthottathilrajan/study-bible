@@ -1251,10 +1251,18 @@ function DetailRow({ t, label, value }) {
 }
 
 // ── SHOP CART ─────────────────────────────────────────────────────────────────
-function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user, wishlist, catalogue }) {
+function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user, wishlist, toggleWishlist, catalogue, addToCart }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [promoCode, setPromoCode] = useState("");
+  const [addedIds, setAddedIds] = useState({});
+
+  const handleQuickAdd = (p) => {
+    if (p.status === "coming-soon") return;
+    addToCart(p, 1, null);
+    setAddedIds(prev => ({ ...prev, [p.id]: true }));
+    setTimeout(() => setAddedIds(prev => ({ ...prev, [p.id]: false })), 1200);
+  };
 
   const subtotal = cart.reduce((s, i) => s + i.product.price_usd * i.qty, 0);
   const itemCount = cart.reduce((s, i) => s + i.qty, 0);
@@ -1292,15 +1300,27 @@ function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user, w
 
           {cart.length === 0 ? (
             <div>
-              {/* Empty state illustration */}
+              {/* Confetti empty state */}
               <div style={{ textAlign: "center", padding: "52px 20px 32px" }}>
-                <div style={{ width: 80, height: 80, borderRadius: "50%", background: `${t.accent}0C`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                  <BagIcon color={`${t.accent}50`} size={36} />
+                <div style={{ position: "relative", width: 120, height: 120, margin: "0 auto 24px" }}>
+                  <div style={{ width: 120, height: 120, borderRadius: "50%", background: `${t.accent}0C`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 72, lineHeight: 1, userSelect: "none" }}>🧺</span>
+                  </div>
+                  {[
+                    { color: "#D4A853", top: 6, left: 14, delay: "0s", char: "✦" },
+                    { color: "#5B2D8E", top: 2, right: 18, delay: "0.4s", char: "★" },
+                    { color: "#E8625C", top: 30, left: -2, delay: "0.8s", char: "●" },
+                    { color: "#D4A853", bottom: 12, right: -4, delay: "1.2s", char: "✦" },
+                    { color: "#5B2D8E", bottom: 4, left: 10, delay: "0.6s", char: "★" },
+                    { color: "#E8625C", top: 10, right: -2, delay: "1.0s", char: "●" },
+                  ].map((dot, i) => (
+                    <span key={i} style={{ position: "absolute", top: dot.top, left: dot.left, right: dot.right, bottom: dot.bottom, color: dot.color, fontSize: 10, animation: `confettiFloat 2.4s ease-in-out ${dot.delay} infinite`, pointerEvents: "none" }}>{dot.char}</span>
+                  ))}
                 </div>
                 <div style={{ fontFamily: t.heading, fontSize: 18, fontWeight: 700, color: t.dark, marginBottom: 8 }}>Your cart is empty</div>
                 <div style={{ fontFamily: t.ui, fontSize: 13, color: t.muted, marginBottom: 24, lineHeight: 1.6 }}>Browse the store and add something faithful.</div>
-                <button onClick={() => nav("shop-home")} style={{ background: t.accent, color: "#fff", border: "none", borderRadius: 12, padding: "12px 28px", fontFamily: t.ui, fontSize: 14, fontWeight: 700, cursor: "pointer" }}>
-                  Browse Store
+                <button onClick={() => nav("shop-home")} style={{ background: "#5B2D8E", color: "#fff", border: "none", borderRadius: 12, padding: "12px 28px", fontFamily: t.ui, fontSize: 14, fontWeight: 700, cursor: "pointer" }}>
+                  Browse Collection
                 </button>
               </div>
 
@@ -1404,7 +1424,29 @@ function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user, w
                 </button>
               </div>
 
-              <div style={{ background: t.card, border: `1px solid ${t.divider}`, borderRadius: 16, padding: "16px", marginBottom: 16 }}>
+              {/* You May Also Need */}
+              {catalogue && (() => {
+                const cartIds = new Set(cart.map(i => i.product.id));
+                const suggestions = catalogue.products
+                  .filter(p => p.status === "active" && !cartIds.has(p.id))
+                  .slice(0, 4);
+                if (!suggestions.length) return null;
+                return (
+                  <div style={{ marginBottom: 20 }}>
+                    <SectionLabel t={t} label="You May Also Need" />
+                    <div className="shop-scroll-hide" style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 4 }}>
+                      {suggestions.map(p => (
+                        <div key={p.id} style={{ flexShrink: 0, width: 140 }}>
+                          <ProductCard p={p} t={t} nav={nav} wishlist={wishlist || []} toggleWishlist={toggleWishlist || (() => {})} onQuickAdd={handleQuickAdd} addedIds={addedIds} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Order Summary */}
+              <div style={{ background: t.card, borderLeft: "3px solid #D4A853", borderRadius: 16, padding: "16px", marginBottom: 16, boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
                 <div style={{ fontFamily: t.ui, fontSize: 13, fontWeight: 700, color: t.dark, marginBottom: 12 }}>Order Summary</div>
                 <GoldDivider style={{ marginBottom: 12, opacity: 0.4 }} />
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
@@ -1413,12 +1455,12 @@ function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user, w
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
                   <span style={{ fontFamily: t.ui, fontSize: 13, color: t.muted }}>Shipping</span>
-                  <span style={{ fontFamily: t.ui, fontSize: 12, color: t.muted, fontStyle: "italic" }}>At checkout</span>
+                  <span style={{ fontFamily: t.ui, fontSize: 12, color: "#059669", fontWeight: 600 }}>Free on all orders 🌍</span>
                 </div>
                 <div style={{ height: 1, background: t.divider, margin: "6px 0 12px" }} />
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <span style={{ fontFamily: t.heading, fontSize: 16, fontWeight: 700, color: t.dark }}>Total</span>
-                  <span style={{ fontFamily: t.heading, fontSize: 18, fontWeight: 800, color: t.accent }}>${subtotal.toFixed(2)}</span>
+                  <span style={{ fontFamily: t.heading, fontSize: 18, fontWeight: 800, color: "#5B2D8E" }}>${subtotal.toFixed(2)}</span>
                 </div>
               </div>
 
@@ -1461,8 +1503,8 @@ function ShopCart({ t, nav, goBack, bp, cart, removeFromCart, updateQty, user, w
                 ) : "Checkout"}
               </button>
             </div>
-            <div style={{ textAlign: "center", fontFamily: t.ui, fontSize: 10, color: t.muted }}>
-              Secure checkout via Stripe
+            <div style={{ textAlign: "center", fontFamily: t.ui, fontSize: 11, color: t.muted, lineHeight: 1.5 }}>
+              🔒 Secure checkout · Ships in 5–7 days · Easy returns
             </div>
           </div>
         </div>
@@ -1595,7 +1637,7 @@ export default function ShopView() {
     return <ShopOrderSuccess t={ht} nav={nav} bp={bp} clearCart={clearCart} shopOrderSession={shopOrderSession} />;
   }
   if (view === "shop-cart") {
-    return <ShopCart t={ht} nav={nav} goBack={goBack} bp={bp} cart={cart} removeFromCart={removeFromCart} updateQty={updateQty} user={user} wishlist={wishlist} catalogue={catalogue} />;
+    return <ShopCart t={ht} nav={nav} goBack={goBack} bp={bp} cart={cart} removeFromCart={removeFromCart} updateQty={updateQty} user={user} wishlist={wishlist} toggleWishlist={toggleWishlist} catalogue={catalogue} addToCart={addToCart} />;
   }
 
   if (loadError) {
