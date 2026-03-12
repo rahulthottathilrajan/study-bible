@@ -400,6 +400,12 @@ export function AppProvider({ children }) {
       setAudioPlaying(false);
       setAudioVisible(false);
     }
+    // Warm up TTS in user gesture context (needed if MP3 fails and TTS fallback activates)
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(new SpeechSynthesisUtterance(""));
+      window.speechSynthesis.cancel();
+    }
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const audioUrl = `${supabaseUrl}/storage/v1/object/public/podcasts/${episode.audioFile}`;
     setCurrentEpisode({
@@ -407,6 +413,7 @@ export function AppProvider({ children }) {
       artwork: artwork || "/images/podcasts/default.jpg",
       audioUrl, transcript: episode.transcript || [],
       bibleRef: episode.bibleRef, duration: episode.duration,
+      description: episode.description || "", keyPoints: episode.keyPoints || [],
     });
     setPodcastVisible(true);
     setPodcastPlaying(true);

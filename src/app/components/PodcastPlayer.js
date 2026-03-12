@@ -35,6 +35,9 @@ export default function PodcastPlayer({ mode = "mini" }) {
   const [noteText, setNoteText] = useState("");
   const [showNotes, setShowNotes] = useState(false);
 
+  // TTS fallback state
+  const [ttsMode, setTtsMode] = useState(false);
+
   const audioElRef = useRef(null);
   const playingRef = useRef(false);
   const speedRef = useRef(podcastSpeed);
@@ -43,10 +46,16 @@ export default function PodcastPlayer({ mode = "mini" }) {
   const sleepTimerRef = useRef(null);
   const episodeRef = useRef(null);
 
+  // TTS refs
+  const ttsSegRef = useRef(0);
+  const ttsTimerRef = useRef(null);
+  const ttsModeRef = useRef(false);
+
   // Keep refs in sync
   useEffect(() => { playingRef.current = podcastPlaying; }, [podcastPlaying]);
   useEffect(() => { speedRef.current = podcastSpeed; }, [podcastSpeed]);
   useEffect(() => { episodeRef.current = currentEpisode; }, [currentEpisode]);
+  useEffect(() => { ttsModeRef.current = ttsMode; }, [ttsMode]);
 
   // Initialize audio element
   useEffect(() => {
@@ -56,11 +65,76 @@ export default function PodcastPlayer({ mode = "mini" }) {
     }
     audioElRef.current = podcastAudioRef.current;
     return () => {
-      if (episodeRef.current && audioElRef.current) {
+      if (episodeRef.current && audioElRef.current && !ttsModeRef.current) {
         savePodcastPosition(episodeRef.current.seriesSlug, episodeRef.current.episodeNum, audioElRef.current.currentTime);
       }
+      // Cleanup TTS on unmount
+      if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
+      if (ttsTimerRef.current) clearInterval(ttsTimerRef.current);
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // ─── TTS ENGINE ───
+  const speakSegment = useCallback((idx) => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    const ep = episodeRef.current;
+    if (!ep?.transcript?.length) return;
+
+    if (idx >= ep.transcript.length) {
+      // Finished all segments
+      playingRef.current = false;
+      setPodcastPlaying(false);
+      if (ttsTimerRef.current) { clearInterval(ttsTimerRef.current); ttsTimerRef.current = null; }
+      setCurrentTime(ep.duration || ep.transcript[ep.transcript.length - 1].end);
+      setProgress(1);
+      if (ep) markEpisodeListened(ep.seriesSlug, ep.episodeNum);
+      return;
+    }
+    if (idx < 0) idx = 0;
+
+    const seg = ep.transcript[idx];
+    ttsSegRef.current = idx;
+    setCurrentTime(seg.start);
+
+    const totalDur = ep.duration || ep.transcript[ep.transcript.length - 1].end;
+    setDuration(totalDur);
+    setProgress(totalDur > 0 ? seg.start / totalDur : 0);
+
+    // Simulate time progress within segment
+    if (ttsTimerRef.current) clearInterval(ttsTimerRef.current);
+    const segDur = seg.end - seg.start;
+    if (segDur > 0) {
+      const startedAt = Date.now();
+      ttsTimerRef.current = setInterval(() => {
+        const elapsed = ((Date.now() - startedAt) / 1000) * speedRef.current;
+        const t = Math.min(seg.start + elapsed, seg.end);
+        setCurrentTime(t);
+        setProgress(totalDur > 0 ? t / totalDur : 0);
+      }, 200);
+    }
+
+    const u = new SpeechSynthesisUtterance(seg.text);
+    u.rate = speedRef.current;
+    u.lang = "en-US";
+
+    const voices = window.speechSynthesis.getVoices();
+    const enVoices = voices.filter(v => v.lang.startsWith("en"));
+    if (enVoices.length > 0) u.voice = enVoices[0];
+
+    u.onend = () => {
+      if (ttsTimerRef.current) { clearInterval(ttsTimerRef.current); ttsTimerRef.current = null; }
+      if (playingRef.current) speakSegment(idx + 1);
+    };
+    u.onerror = (e) => {
+      if (ttsTimerRef.current) { clearInterval(ttsTimerRef.current); ttsTimerRef.current = null; }
+      if (e.error !== "interrupted" && playingRef.current) speakSegment(idx + 1);
+    };
+
+    window.speechSynthesis.speak(u);
+  }, [setPodcastPlaying, markEpisodeListened]);
+
+  // Reset TTS mode when episode changes
+  useEffect(() => { setTtsMode(false); }, [currentEpisode?.audioUrl]);
 
   // Set up audio source when episode changes
   useEffect(() => {
@@ -100,13 +174,51 @@ export default function PodcastPlayer({ mode = "mini" }) {
       }
     };
 
+    // Fallback to TTS if MP3 fails to load
+    audio.onerror = () => {
+      setTtsMode(true);
+      const ep = episodeRef.current;
+      if (ep) {
+        const totalDur = ep.duration || (ep.transcript?.length ? ep.transcript[ep.transcript.length - 1].end : 0);
+        setDuration(totalDur);
+      }
+      if (playingRef.current && ep?.transcript?.length) {
+        speakSegment(ttsSegRef.current);
+      }
+    };
+
     if (podcastPlaying) {
-      audio.play().catch(() => {});
+      audio.play().catch(() => {
+        // MP3 play failed — fallback to TTS
+        setTtsMode(true);
+        const ep = episodeRef.current;
+        if (ep) {
+          const totalDur = ep.duration || (ep.transcript?.length ? ep.transcript[ep.transcript.length - 1].end : 0);
+          setDuration(totalDur);
+        }
+        if (ep?.transcript?.length) {
+          speakSegment(ttsSegRef.current);
+        }
+      });
     }
   }, [currentEpisode?.audioUrl]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Play/pause sync
   useEffect(() => {
+    if (ttsMode) {
+      // TTS mode play/pause
+      if (podcastPlaying) {
+        if (typeof window !== "undefined" && window.speechSynthesis) {
+          window.speechSynthesis.cancel();
+          setTimeout(() => speakSegment(ttsSegRef.current), 80);
+        }
+      } else {
+        if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
+        if (ttsTimerRef.current) { clearInterval(ttsTimerRef.current); ttsTimerRef.current = null; }
+      }
+      return;
+    }
+    // CDN mode play/pause
     if (!audioElRef.current) return;
     if (podcastPlaying) {
       audioElRef.current.play().catch(() => {});
@@ -120,8 +232,16 @@ export default function PodcastPlayer({ mode = "mini" }) {
 
   // Speed sync
   useEffect(() => {
-    if (audioElRef.current) audioElRef.current.playbackRate = podcastSpeed;
-  }, [podcastSpeed]);
+    if (ttsMode) {
+      // If TTS is playing, restart current segment with new speed
+      if (playingRef.current && typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        setTimeout(() => speakSegment(ttsSegRef.current), 80);
+      }
+    } else {
+      if (audioElRef.current) audioElRef.current.playbackRate = podcastSpeed;
+    }
+  }, [podcastSpeed]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Sleep timer countdown
   useEffect(() => {
@@ -153,8 +273,8 @@ export default function PodcastPlayer({ mode = "mini" }) {
       });
       navigator.mediaSession.setActionHandler("play", () => setPodcastPlaying(true));
       navigator.mediaSession.setActionHandler("pause", () => setPodcastPlaying(false));
-      navigator.mediaSession.setActionHandler("seekforward", () => { if (audioElRef.current) audioElRef.current.currentTime = Math.min(audioElRef.current.duration, audioElRef.current.currentTime + 15); });
-      navigator.mediaSession.setActionHandler("seekbackward", () => { if (audioElRef.current) audioElRef.current.currentTime = Math.max(0, audioElRef.current.currentTime - 15); });
+      navigator.mediaSession.setActionHandler("seekforward", () => skipForward());
+      navigator.mediaSession.setActionHandler("seekbackward", () => skipBackward());
     } catch {} // eslint-disable-line no-empty
     return () => {
       try {
@@ -164,7 +284,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
         navigator.mediaSession.setActionHandler("seekbackward", null);
       } catch {} // eslint-disable-line no-empty
     };
-  }, [podcastVisible, currentEpisode, setPodcastPlaying]);
+  }, [podcastVisible, currentEpisode, setPodcastPlaying]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Load notes for current episode
   useEffect(() => {
@@ -174,7 +294,15 @@ export default function PodcastPlayer({ mode = "mini" }) {
   }, [user, currentEpisode, mode, loadPodcastNotes]);
 
   // ─── Controls ───
-  const togglePlay = useCallback(() => setPodcastPlaying(p => !p), [setPodcastPlaying]);
+  const togglePlay = useCallback(() => {
+    // Warm up TTS in user gesture context
+    if (!podcastPlaying && ttsMode && typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(new SpeechSynthesisUtterance(""));
+      window.speechSynthesis.cancel();
+    }
+    setPodcastPlaying(p => !p);
+  }, [setPodcastPlaying, podcastPlaying, ttsMode]);
 
   const cycleSpeed = useCallback(() => {
     const idx = SPEEDS.indexOf(podcastSpeed);
@@ -187,26 +315,86 @@ export default function PodcastPlayer({ mode = "mini" }) {
   }, [podcastSleepTimer, setPodcastSleepTimer]);
 
   const skipForward = useCallback(() => {
+    if (ttsMode) {
+      // Jump to next segment
+      const ep = episodeRef.current;
+      if (!ep?.transcript?.length) return;
+      const newIdx = Math.min(ttsSegRef.current + 1, ep.transcript.length - 1);
+      if (playingRef.current && typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        speakSegment(newIdx);
+      } else {
+        ttsSegRef.current = newIdx;
+        const seg = ep.transcript[newIdx];
+        setCurrentTime(seg.start);
+        const totalDur = ep.duration || ep.transcript[ep.transcript.length - 1].end;
+        setProgress(totalDur > 0 ? seg.start / totalDur : 0);
+      }
+      return;
+    }
     if (audioElRef.current) audioElRef.current.currentTime = Math.min(audioElRef.current.duration || 0, audioElRef.current.currentTime + 15);
-  }, []);
+  }, [ttsMode, speakSegment]);
 
   const skipBackward = useCallback(() => {
+    if (ttsMode) {
+      // Jump to previous segment
+      const ep = episodeRef.current;
+      if (!ep?.transcript?.length) return;
+      const newIdx = Math.max(ttsSegRef.current - 1, 0);
+      if (playingRef.current && typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        speakSegment(newIdx);
+      } else {
+        ttsSegRef.current = newIdx;
+        const seg = ep.transcript[newIdx];
+        setCurrentTime(seg.start);
+        const totalDur = ep.duration || ep.transcript[ep.transcript.length - 1].end;
+        setProgress(totalDur > 0 ? seg.start / totalDur : 0);
+      }
+      return;
+    }
     if (audioElRef.current) audioElRef.current.currentTime = Math.max(0, audioElRef.current.currentTime - 15);
-  }, []);
+  }, [ttsMode, speakSegment]);
 
   const close = useCallback(() => {
-    if (audioElRef.current) {
-      audioElRef.current.pause();
-      if (episodeRef.current) {
-        savePodcastPosition(episodeRef.current.seriesSlug, episodeRef.current.episodeNum, audioElRef.current.currentTime);
+    if (ttsMode) {
+      if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
+      if (ttsTimerRef.current) { clearInterval(ttsTimerRef.current); ttsTimerRef.current = null; }
+    } else {
+      if (audioElRef.current) {
+        audioElRef.current.pause();
+        if (episodeRef.current) {
+          savePodcastPosition(episodeRef.current.seriesSlug, episodeRef.current.episodeNum, audioElRef.current.currentTime);
+        }
       }
     }
     setPodcastPlaying(false);
     setPodcastVisible(false);
-  }, [setPodcastPlaying, setPodcastVisible, savePodcastPosition]);
+  }, [ttsMode, setPodcastPlaying, setPodcastVisible, savePodcastPosition]);
 
   // Seek bar
   const handleSeek = useCallback((e) => {
+    const ep = episodeRef.current;
+    if (ttsMode) {
+      if (!ep?.transcript?.length) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const fraction = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+      const totalDur = ep.duration || ep.transcript[ep.transcript.length - 1].end;
+      const targetTime = fraction * totalDur;
+      // Find nearest segment
+      let segIdx = ep.transcript.findIndex(seg => targetTime >= seg.start && targetTime < seg.end);
+      if (segIdx === -1) segIdx = ep.transcript.length - 1;
+      setCurrentTime(targetTime);
+      setProgress(fraction);
+      if (playingRef.current && typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        speakSegment(segIdx);
+      } else {
+        ttsSegRef.current = segIdx;
+      }
+      return;
+    }
     if (!audioElRef.current) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -215,18 +403,36 @@ export default function PodcastPlayer({ mode = "mini" }) {
     audioElRef.current.currentTime = newTime;
     setCurrentTime(newTime);
     setProgress(fraction);
-  }, []);
+  }, [ttsMode, speakSegment]);
+
+  // Transcript segment click — seek to segment
+  const handleSegmentClick = useCallback((seg, segIdx) => {
+    if (ttsMode) {
+      if (playingRef.current && typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        speakSegment(segIdx);
+      } else {
+        ttsSegRef.current = segIdx;
+        setCurrentTime(seg.start);
+        const ep = episodeRef.current;
+        const totalDur = ep?.duration || (ep?.transcript?.length ? ep.transcript[ep.transcript.length - 1].end : 0);
+        setProgress(totalDur > 0 ? seg.start / totalDur : 0);
+      }
+      return;
+    }
+    if (audioElRef.current) audioElRef.current.currentTime = seg.start;
+  }, [ttsMode, speakSegment]);
 
   // Add note
   const handleAddNote = useCallback(async () => {
     if (!noteText.trim() || !currentEpisode) return;
-    const ts = audioElRef.current ? audioElRef.current.currentTime : null;
+    const ts = ttsMode ? currentTime : (audioElRef.current ? audioElRef.current.currentTime : null);
     const result = await savePodcastNote(currentEpisode.seriesSlug, currentEpisode.episodeNum, noteText.trim(), ts);
     if (result) {
       setNotes(prev => [...prev, result]);
       setNoteText("");
     }
-  }, [noteText, currentEpisode, savePodcastNote]);
+  }, [noteText, currentEpisode, savePodcastNote, ttsMode, currentTime]);
 
   // Delete note
   const handleDeleteNote = useCallback(async (noteId) => {
@@ -243,11 +449,17 @@ export default function PodcastPlayer({ mode = "mini" }) {
     const nextEp = seriesData.episodes[String(nextNum)];
     if (!nextEp) return;
     // Save current position
-    if (audioElRef.current && episodeRef.current) {
+    if (!ttsMode && audioElRef.current && episodeRef.current) {
       savePodcastPosition(episodeRef.current.seriesSlug, episodeRef.current.episodeNum, audioElRef.current.currentTime);
     }
-    // Reset audio
+    // Reset audio & TTS
+    if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
+    if (ttsTimerRef.current) { clearInterval(ttsTimerRef.current); ttsTimerRef.current = null; }
     if (audioElRef.current) { audioElRef.current.pause(); audioElRef.current.src = ""; }
+    ttsSegRef.current = 0;
+    setTtsMode(false);
+    setCurrentTime(0);
+    setProgress(0);
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     setCurrentEpisode({
       ...currentEpisode, episodeNum: nextNum, title: nextEp.title,
@@ -255,7 +467,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
       transcript: nextEp.transcript || [], bibleRef: nextEp.bibleRef, duration: nextEp.duration,
     });
     setPodcastPlaying(true);
-  }, [currentEpisode, loadPodcastSeries, savePodcastPosition, setCurrentEpisode, setPodcastPlaying]);
+  }, [currentEpisode, loadPodcastSeries, savePodcastPosition, setCurrentEpisode, setPodcastPlaying, ttsMode]);
 
   // ─── Transcript ───
   const activeSegmentIndex = useMemo(() => {
@@ -310,6 +522,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
             </div>
             <div style={{ fontFamily: ht.ui, fontSize: 10, color: ht.muted }}>
               {currentEpisode.seriesTitle} · {formatTime(currentTime)} / {formatTime(duration)}
+              {ttsMode && <span style={{ marginLeft: 4, fontSize: 8, fontWeight: 700, color: ht.accent }}>TTS</span>}
             </div>
           </div>
           {/* Close */}
@@ -330,6 +543,20 @@ export default function PodcastPlayer({ mode = "mini" }) {
 
   return (
     <div style={{ marginTop: 16 }}>
+      {/* TTS mode indicator */}
+      {ttsMode && (
+        <div style={{
+          display: "flex", alignItems: "center", gap: 6, padding: "6px 14px",
+          background: `${ht.accent}10`, border: `1px solid ${ht.accentBorder}`,
+          borderRadius: 10, marginBottom: 10, justifyContent: "center",
+        }}>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          <span style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.accent, letterSpacing: "0.04em" }}>
+            Text-to-Speech Mode
+          </span>
+        </div>
+      )}
+
       {/* ── Controls Card ── */}
       <div style={{
         background: `${ht.accent}0A`, border: `1px solid ${ht.accentBorder}`,
@@ -366,7 +593,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
           {/* Skip back 15s */}
           <button onClick={skipBackward} style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={ht.muted} strokeWidth="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-            <span style={{ position: "absolute", fontSize: 8, fontWeight: 700, color: ht.muted, fontFamily: ht.ui }}>15</span>
+            <span style={{ position: "absolute", fontSize: 8, fontWeight: 700, color: ht.muted, fontFamily: ht.ui }}>{ttsMode ? "‹" : "15"}</span>
           </button>
           {/* Prev episode */}
           <button onClick={() => navigateEpisode(-1)} style={{ width: 36, height: 36, borderRadius: "50%", border: "none", background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -392,7 +619,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
           {/* Skip forward 15s */}
           <button onClick={skipForward} style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={ht.muted} strokeWidth="2"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-            <span style={{ position: "absolute", fontSize: 8, fontWeight: 700, color: ht.muted, fontFamily: ht.ui }}>15</span>
+            <span style={{ position: "absolute", fontSize: 8, fontWeight: 700, color: ht.muted, fontFamily: ht.ui }}>{ttsMode ? "›" : "15"}</span>
           </button>
         </div>
         {/* Secondary controls */}
@@ -445,7 +672,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
               <div
                 key={i}
                 ref={i === activeSegmentIndex ? activeSegmentRef : null}
-                onClick={() => { if (audioElRef.current) audioElRef.current.currentTime = seg.start; }}
+                onClick={() => handleSegmentClick(seg, i)}
                 style={{
                   padding: "8px 16px",
                   fontFamily: ht.body, fontSize: 14, lineHeight: 1.8,
@@ -506,7 +733,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
                 <div style={{ flex: 1 }}>
                   {note.timestamp_seconds != null && (
                     <button
-                      onClick={() => { if (audioElRef.current) audioElRef.current.currentTime = note.timestamp_seconds; }}
+                      onClick={() => handleSegmentClick({ start: note.timestamp_seconds }, currentEpisode.transcript?.findIndex(s => note.timestamp_seconds >= s.start && note.timestamp_seconds < s.end) ?? 0)}
                       style={{
                         fontFamily: ht.ui, fontSize: 9, color: ht.accent, fontWeight: 700,
                         background: `${ht.accent}15`, border: "none", borderRadius: 4,
