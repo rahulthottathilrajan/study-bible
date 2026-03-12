@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useApp } from "../context/AppContext";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS, getBookName } from "../constants"; // CAT_ICONS used in Chapters view
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS, getBookName, QUIZ_BOOKS } from "../constants"; // CAT_ICONS used in Chapters view
 import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
 import Header from "../components/Header";
 import AudioPlayer from "../components/AudioPlayer";
@@ -567,8 +567,8 @@ export default function BibleView() {
                     </span>
                   </button>
 
-                  {/* Quiz Hero CTA */}
-                  <button
+                  {/* Quiz Hero CTA — only for books with quiz data */}
+                  {QUIZ_BOOKS.includes(book) && <button
                     onClick={() => nav("quiz-intro",{book,chapter:chNum})}
                     style={{
                       width:"100%", padding:"18px 20px", borderRadius:14,
@@ -598,7 +598,7 @@ export default function BibleView() {
                       )}
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{flexShrink:0}}><polyline points="9 18 15 12 9 6"/></svg>
                     </div>
-                  </button>
+                  </button>}
                 </div>
 
               </div>
