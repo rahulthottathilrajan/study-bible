@@ -668,13 +668,13 @@ const _LANG_MAP = {
 
 // Books that have quiz JSON files in /public/data/quizzes/
 export const QUIZ_BOOKS = [
-  "Genesis", "Exodus", "Leviticus",
-  "Mark", "John",
+  "Genesis",
+  "Matthew", "Mark", "Luke", "John", "Acts",
   "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
   "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
   "1 Timothy", "2 Timothy", "Titus", "Philemon",
   "Hebrews", "James", "1 Peter", "2 Peter",
-  "1 John", "2 John", "3 John", "Jude",
+  "1 John", "2 John", "3 John", "Jude", "Revelation",
 ];
 
 /** Returns the localised book name for the active translation, falling back to English. */

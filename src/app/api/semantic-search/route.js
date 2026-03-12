@@ -15,17 +15,19 @@ export async function POST(request) {
     return Response.json({ error: 'Invalid request body' }, { status: 400 });
   }
 
-  const { query } = body;
+  const { query, include_podcasts } = body;
   if (!query || typeof query !== 'string' || query.trim().length < 3) {
     return Response.json({ error: 'Query must be at least 3 characters' }, { status: 400 });
   }
 
   const normalizedQuery = query.trim().toLowerCase();
 
+  const cacheKey = include_podcasts ? `${normalizedQuery}:+p` : normalizedQuery;
+
   // Check cache
-  const cached = queryCache.get(normalizedQuery);
+  const cached = queryCache.get(cacheKey);
   if (cached && Date.now() - cached.ts < CACHE_TTL) {
-    return Response.json({ results: cached.results });
+    return Response.json({ results: cached.results, podcasts: cached.podcasts || [] });
   }
 
   try {
@@ -79,14 +81,37 @@ export async function POST(request) {
       similarity: Math.round(r.similarity * 100) / 100,
     }));
 
+    // 3. Optionally search podcast embeddings
+    let podcasts = [];
+    if (include_podcasts) {
+      const { data: podData, error: podError } = await supabaseAdmin.rpc('match_podcasts', {
+        query_embedding: JSON.stringify(embedding),
+        match_count: 5,
+        similarity_threshold: 0.5,
+      });
+
+      if (podError) {
+        console.error('[semantic-search] Podcast RPC error:', podError);
+      } else {
+        podcasts = (podData || []).map(r => ({
+          episode_ref: r.episode_ref,
+          title: r.title,
+          description: r.description,
+          series_slug: r.series_slug,
+          episode_number: r.episode_number,
+          similarity: Math.round(r.similarity * 100) / 100,
+        }));
+      }
+    }
+
     // Cache results
     if (queryCache.size >= MAX_CACHE_SIZE) {
       const oldest = queryCache.keys().next().value;
       queryCache.delete(oldest);
     }
-    queryCache.set(normalizedQuery, { results, ts: Date.now() });
+    queryCache.set(cacheKey, { results, podcasts, ts: Date.now() });
 
-    return Response.json({ results });
+    return Response.json({ results, podcasts });
   } catch (err) {
     console.error('[semantic-search] Error:', err);
     return Response.json({ error: 'Something went wrong' }, { status: 500 });

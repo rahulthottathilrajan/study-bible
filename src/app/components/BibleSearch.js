@@ -21,6 +21,7 @@ export default function BibleSearch({ nav, ht }) {
   const [mode, setMode] = useState("keyword"); // "keyword" | "smart"
   const [semanticResults, setSemanticResults] = useState([]);
   const [semanticSearched, setSemanticSearched] = useState(false);
+  const [podcastResults, setPodcastResults] = useState([]);
   const debounceRef = useRef(null);
 
   // ── Keyword search (existing) ──────────────────────────────
@@ -73,13 +74,15 @@ export default function BibleSearch({ nav, ht }) {
       const res = await fetch("/api/semantic-search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: q.trim() }),
+        body: JSON.stringify({ query: q.trim(), include_podcasts: true }),
       });
       if (!res.ok) throw new Error("Search failed");
-      const { results: sr } = await res.json();
-      setSemanticResults(sr || []);
+      const data = await res.json();
+      setSemanticResults(data.results || []);
+      setPodcastResults(data.podcasts || []);
     } catch {
       setSemanticResults([]);
+      setPodcastResults([]);
     }
     setLoading(false);
   }, []);
@@ -105,6 +108,7 @@ export default function BibleSearch({ nav, ht }) {
     setMode(m);
     setResults([]);
     setSemanticResults([]);
+    setPodcastResults([]);
     setSearched(false);
     setSemanticSearched(false);
     // Re-trigger search if there's a query
@@ -169,7 +173,7 @@ export default function BibleSearch({ nav, ht }) {
               }}
             />
             {query && (
-              <button onClick={() => { setQuery(""); setResults([]); setSemanticResults([]); setSearched(false); setSemanticSearched(false); }}
+              <button onClick={() => { setQuery(""); setResults([]); setSemanticResults([]); setPodcastResults([]); setSearched(false); setSemanticSearched(false); }}
                 style={{ position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer", color: ht.headerText + "88", padding: 4 }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
@@ -232,10 +236,10 @@ export default function BibleSearch({ nav, ht }) {
           </div>
         )}
 
-        {!loading && activeSearched && activeResults.length === 0 && (
+        {!loading && activeSearched && activeResults.length === 0 && podcastResults.length === 0 && (
           <div style={{ textAlign: "center", padding: "50px 20px" }}>
             <div style={{ fontSize: 36, marginBottom: 12 }}>{isKeyword ? "\uD83D\uDCDC" : "\uD83D\uDD0E"}</div>
-            <div style={{ fontFamily: ht.heading, fontSize: 17, color: ht.dark, marginBottom: 6 }}>No verses found</div>
+            <div style={{ fontFamily: ht.heading, fontSize: 17, color: ht.dark, marginBottom: 6 }}>No results found</div>
             <div style={{ fontFamily: ht.ui, fontSize: 13, color: ht.muted, lineHeight: 1.6 }}>
               {isKeyword ? "Try different keywords or check spelling" : "Try rephrasing your question or use different words"}
             </div>
@@ -349,6 +353,71 @@ export default function BibleSearch({ nav, ht }) {
             </button>
           );
         })}
+
+        {/* Podcast results — Smart Search only */}
+        {!loading && isSmart && podcastResults.length > 0 && (
+          <>
+            <div style={{
+              fontFamily: ht.ui, fontSize: 12, fontWeight: 700, color: ht.muted,
+              marginTop: semanticResults.length > 0 ? 20 : 0, marginBottom: 10,
+              display: "flex", alignItems: "center", gap: 8,
+            }}>
+              <span style={{ fontSize: 14 }}>{"\uD83C\uDFA7"}</span>
+              Related Episodes
+            </div>
+            {podcastResults.map((ep, i) => {
+              const simPct = Math.round(ep.similarity * 100);
+              const desc = ep.description || "";
+              const snippet = desc.length > 100 ? desc.slice(0, 100) + "..." : desc;
+
+              return (
+                <button key={`pod-${i}`}
+                  onClick={() => nav("podcast-episode", { podcastSeries: ep.series_slug, podcastEpisode: ep.episode_number })}
+                  className="pressable"
+                  style={{
+                    width: "100%", textAlign: "left", cursor: "pointer",
+                    background: ht.card, border: `1px solid ${ht.divider}`, borderRadius: 12,
+                    padding: "14px 16px", marginBottom: 8, display: "flex", alignItems: "flex-start", gap: 12,
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                    animation: `fadeIn 0.25s ease ${Math.min(i * 0.03, 0.3)}s both`,
+                  }}>
+                  <div style={{
+                    width: 42, height: 42, borderRadius: 10, flexShrink: 0,
+                    background: `${ht.accent}15`,
+                    display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20,
+                  }}>
+                    {"\uD83C\uDFA7"}
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
+                      <span style={{ fontFamily: ht.ui, fontSize: 12, fontWeight: 700, color: ht.accent }}>{ep.title}</span>
+                      <span style={{
+                        fontFamily: ht.ui, fontSize: 10, fontWeight: 600, flexShrink: 0,
+                        color: simPct > 80 ? "#22c55e" : simPct > 65 ? ht.accent : ht.muted,
+                        background: `${simPct > 80 ? "#22c55e" : simPct > 65 ? ht.accent : ht.muted}15`,
+                        padding: "2px 8px", borderRadius: 10,
+                      }}>
+                        {simPct}%
+                      </span>
+                    </div>
+                    <div style={{
+                      fontFamily: ht.ui, fontSize: 10, fontWeight: 600, color: ht.muted,
+                      marginBottom: 4, textTransform: "uppercase", letterSpacing: 0.5,
+                    }}>
+                      Daily Word
+                    </div>
+                    <div style={{
+                      fontFamily: ht.body, fontSize: 12.5, color: ht.text, lineHeight: 1.6,
+                      display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
+                    }}>
+                      {snippet}
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+          </>
+        )}
       </div>
     </div>
   );
