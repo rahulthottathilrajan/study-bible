@@ -1,0 +1,674 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Where did Naomi and her family go when there was a famine in Bethlehem?",
+        "option_a": "The country of Moab",
+        "option_b": "Egypt",
+        "option_c": "Canaan",
+        "option_d": "The city of Jericho",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:1 — \"A certain man of Beth-lehem-judah went to sojourn in the country of Moab, he, and his wife, and his two sons.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Ruth say she would do when Naomi told her to go back to her own people?",
+        "option_a": "Whither thou goest, I will go",
+        "option_b": "I will stay until the harvest is over",
+        "option_c": "I will find a new husband here",
+        "option_d": "I will pray and then decide",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:16 — \"Ruth said, Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What new name did Naomi ask people to call her when she returned to Bethlehem?",
+        "option_a": "Mara, meaning bitter",
+        "option_b": "Miriam, meaning beloved",
+        "option_c": "Rahab, meaning blessed",
+        "option_d": "Leah, meaning weary",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:20 — \"She said unto them, Call me not Naomi, call me Mara: for the Almighty hath dealt very bitterly with me.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What were the names of Naomi's two sons who married Moabite women?",
+        "option_a": "Mahlon and Chilion",
+        "option_b": "Boaz and Elijah",
+        "option_c": "Elimelech and Salmon",
+        "option_d": "Obed and Jesse",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:2 — \"The name of his two sons Mahlon and Chilion, Ephrathites of Beth-lehem-judah.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What were the names of the two Moabite daughters-in-law whom Naomi urged to return to their mothers' houses?",
+        "option_a": "Orpah and Ruth",
+        "option_b": "Leah and Rachel",
+        "option_c": "Basemath and Mahalath",
+        "option_d": "Judith and Adah",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:4 — \"They took them wives of the women of Moab; the name of the one was Orpah, and the name of the other Ruth.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Orpah do when Naomi urged both daughters-in-law to return to their own people?",
+        "option_a": "She kissed Naomi and returned to her people",
+        "option_b": "She wept but stayed with Naomi",
+        "option_c": "She refused to leave and went to Bethlehem",
+        "option_d": "She went to find another husband in Moab",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:14 — \"Orpah kissed her mother in law; but Ruth clave unto her.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Ruth declared she would follow Naomi's God. Which God did she name as the one she would serve?",
+        "option_a": "Thy God shall be my God",
+        "option_b": "The LORD God of Abraham",
+        "option_c": "The God of the Hebrews",
+        "option_d": "The God of all the earth",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:16 — \"Thy people shall be my people, and thy God my God.\""
+      },
+      {
+        "question_number": 5,
+        "question": "At what time of year did Naomi and Ruth arrive back in Bethlehem?",
+        "option_a": "The beginning of barley harvest",
+        "option_b": "The feast of firstfruits",
+        "option_c": "The end of the wheat harvest",
+        "option_d": "The season of the early rains",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:22 — \"They came to Beth-lehem in the beginning of barley harvest.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What was the name of Naomi's husband who died in the land of Moab?",
+        "option_a": "Elimelech",
+        "option_b": "Mahlon",
+        "option_c": "Salmon",
+        "option_d": "Boaz",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:3 — \"Elimelech Naomi's husband died; and she was left, and her two sons.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What theological argument did Naomi use to persuade her daughters-in-law to return to Moab?",
+        "option_a": "The hand of the LORD had gone out against her and she had no more sons for them to marry",
+        "option_b": "God had commanded her to send them away",
+        "option_c": "They would find no favour with the God of Israel",
+        "option_d": "She could not provide for them in Bethlehem",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:13 — \"It grieveth me much for your sakes that the hand of the LORD is gone out against me.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What oath did Ruth swear to Naomi, and what did it signify about her commitment?",
+        "option_a": "The LORD do so to me, and more also, if ought but death part thee and me",
+        "option_b": "I swear by the gods of Moab that I will stay with thee",
+        "option_c": "As the LORD liveth I will follow thee to the ends of the earth",
+        "option_d": "I vow before heaven that thy people are my people forever",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:17 — \"The LORD do so to me, and more also, if ought but death part thee and me.\" This covenant oath invoked divine judgment on herself if she broke her promise."
+      },
+      {
+        "question_number": 4,
+        "question": "What does the name Mara mean, and why did Naomi request it?",
+        "option_a": "Bitter, because the Almighty had dealt very bitterly with her",
+        "option_b": "Sorrowful, because she had lost her children",
+        "option_c": "Empty, because she had returned with nothing",
+        "option_d": "Forsaken, because God had left her",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:20 — \"Call me Mara: for the Almighty hath dealt very bitterly with me.\" The Hebrew root marar means bitter."
+      },
+      {
+        "question_number": 5,
+        "question": "How did Naomi describe what the LORD had done to her when she returned to Bethlehem?",
+        "option_a": "I went out full and the LORD hath brought me home again empty",
+        "option_b": "The LORD stripped me of all I possessed",
+        "option_c": "God turned His face from me in the land of Moab",
+        "option_d": "The Almighty hid His hand against my household",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:21 — \"I went out full, and the LORD hath brought me home again empty: why then call ye me Naomi, seeing the LORD hath testified against me, and the Almighty hath afflicted me?\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Naomi's reference to \"the Almighty\" (Shaddai) twice in Ruth 1:20-21 reveal about her theology?",
+        "option_a": "She acknowledged God's sovereign power over her suffering while still addressing Him by covenant name",
+        "option_b": "She had abandoned the covenant name LORD and replaced it with a pagan title",
+        "option_c": "She was blaming fate rather than a personal God",
+        "option_d": "She was comparing her suffering to Job's and citing the same divine attribute",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:20-21 — \"The Almighty hath dealt very bitterly with me...the Almighty hath afflicted me.\" El Shaddai emphasises God's sovereign power; her use of it shows she still attributed her circumstances to the hand of a personal, powerful God."
+      },
+      {
+        "question_number": 7,
+        "question": "How does Ruth's declaration in Ruth 1:16-17 function as a formal covenant pledge, and what categories does it cover?",
+        "option_a": "It covers geography (whither thou goest), community (thy people), religion (thy God), death (where thou diest), and burial (where thou art buried) — an exhaustive covenantal commitment",
+        "option_b": "It is a personal emotional promise covering only her loyalty during Naomi's lifetime",
+        "option_c": "It is a prayer addressed to God rather than a pledge to Naomi",
+        "option_d": "It covers only the religious commitment, modelled on Abraham's call",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:16-17 — \"Whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God: Where thou diest, will I die, and there will I be buried.\" The pledge spans every dimension of life and death."
+      },
+      {
+        "question_number": 8,
+        "question": "What is the literary and theological significance of the book of Ruth being set \"in the days when the judges ruled\" (Ruth 1:1)?",
+        "option_a": "It presents a story of faithful covenant love (hesed) as a counter-narrative to the apostasy and violence of the judges period",
+        "option_b": "It simply dates the narrative for historical accuracy",
+        "option_c": "It shows that not all Israelites were unfaithful during the judges era",
+        "option_d": "It explains why the Moabites were willing to interact with Israel during this period",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:1 — \"Now it came to pass in the days when the judges ruled.\" The book of Judges ends in moral chaos; Ruth deliberately opens in the same era to contrast covenant faithfulness (hesed) with widespread unfaithfulness, ultimately pointing toward David and the Davidic line."
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What was Ruth doing in the field when Boaz first noticed her?",
+        "option_a": "Gleaning grain left behind by the reapers",
+        "option_b": "Selling water to the workers",
+        "option_c": "Bringing food to the reapers",
+        "option_d": "Helping to bind sheaves",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:3 — \"She went, and came, and gleaned in the field after the reapers.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who was Boaz related to?",
+        "option_a": "He was a kinsman of Naomi's husband Elimelech",
+        "option_b": "He was Ruth's uncle from Moab",
+        "option_c": "He was the brother of the judge of Bethlehem",
+        "option_d": "He was Naomi's brother",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:1 — \"Naomi had a kinsman of her husband's, a mighty man of wealth, of the family of Elimelech; and his name was Boaz.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What food did Boaz invite Ruth to eat at mealtime?",
+        "option_a": "Bread and parched corn dipped in vinegar",
+        "option_b": "Roasted lamb and figs",
+        "option_c": "Barley cakes and honey",
+        "option_d": "Bread and olive oil",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:14 — \"Boaz said unto her, At mealtime come thou hither, and eat of the bread, and dip thy morsel in the vinegar. And she sat beside the reapers: and he reached her parched corn.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Boaz say to his reapers he had heard about Ruth?",
+        "option_a": "All the city of my people doth know that thou art a virtuous woman",
+        "option_b": "She is faithful and works harder than the women of Israel",
+        "option_c": "She left her own country to care for her mother-in-law after her husband died",
+        "option_d": "She has prayed to the God of Israel and He will reward her",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:11 — \"Boaz answered and said unto her, It hath fully been shewed me, all that thou hast done unto thy mother in law since the death of thine husband: and how thou hast left thy father and thy mother, and the land of thy nativity, and art come unto a people which thou knewest not heretofore.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What blessing did Boaz speak over Ruth regarding the LORD?",
+        "option_a": "The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust",
+        "option_b": "May the LORD bless thy going out and thy coming in from this day forth",
+        "option_c": "The LORD shall be thy shepherd and thy portion for ever",
+        "option_d": "May God repay thee double for thy kindness to Naomi",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:12 — \"The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What secret instructions did Boaz give his young men regarding Ruth?",
+        "option_a": "Let fall also some of the handfuls on purpose for her and leave them so she may glean them",
+        "option_b": "Give her a full share of the harvest wage every day",
+        "option_c": "Allow her to glean among the bound sheaves",
+        "option_d": "Never rebuke her and give her water when she is thirsty",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:16 — \"Let fall also some of the handfuls of purpose for her, and leave them, that she may glean them, and rebuke her not.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How much barley did Ruth glean in her first day in Boaz's field?",
+        "option_a": "About an ephah of barley",
+        "option_b": "About a homer of barley",
+        "option_c": "Three omers of barley",
+        "option_d": "Half a bushel of wheat and barley",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:17 — \"She gleaned in the field until even, and beat out that she had gleaned: and it was about an ephah of barley.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Naomi tell Ruth about Boaz when she heard whose field Ruth had gleaned in?",
+        "option_a": "The man is near of kin unto us, one of our next kinsmen",
+        "option_b": "He is a wealthy man but will not help the poor",
+        "option_c": "He is the brother of Elimelech and your kinsman-redeemer",
+        "option_d": "He is a man of God who will provide for the widow and the stranger",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:20 — \"Naomi said unto her daughter in law, The man is near of kin unto us, one of our next kinsmen.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Boaz's greeting to his reapers — \"The LORD be with you\" — and their reply \"The LORD bless thee\" reveal about the spiritual atmosphere of his household?",
+        "option_a": "It portrays Boaz as a godly landowner whose workplace was permeated with covenant blessing and reverence for the LORD",
+        "option_b": "It was a standard Israelite business greeting with no particular spiritual meaning",
+        "option_c": "It shows the reapers were Levites performing a religious duty",
+        "option_d": "It indicates the harvest was taking place during a religious festival",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:4 — \"And, behold, Boaz came from Beth-lehem, and said unto the reapers, The LORD be with you. And they answered him, The LORD bless thee.\" The exchange establishes Boaz's character before he speaks to Ruth."
+      },
+      {
+        "question_number": 2,
+        "question": "What question did Boaz ask his servant about Ruth, and what did the servant's answer reveal?",
+        "option_a": "Whose damsel is this? The servant answered she is the Moabitish damsel that came back with Naomi and asked to glean",
+        "option_b": "Is this woman an Israelite? The servant answered she is a foreigner from Moab",
+        "option_c": "Why does she glean here? The servant said Naomi sent her to learn the harvest customs",
+        "option_d": "How long has she worked? The servant answered she came with the morning reapers",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:5-7 — \"Boaz said unto his servant...Whose damsel is this? And the servant...answered and said, It is the Moabitish damsel that came back with Naomi out of the country of Moab: And she said, I pray you, let me glean.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What specific privileges did Boaz grant Ruth that went beyond the legal gleaning rights of the Law?",
+        "option_a": "He told her to glean among the sheaves themselves, drink from his vessels, and commanded the men not to touch her",
+        "option_b": "He gave her a daily wage equal to the hired workers",
+        "option_c": "He appointed her as overseer of the women workers",
+        "option_d": "He granted her full Israelite citizenship in his household",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:8-9,15-16 — \"Abide here fast by my maidens...have I not charged the young men that they shall not touch thee?...Let fall also some of the handfuls of purpose for her.\" These privileges exceeded the gleaning law of Leviticus 19:9-10."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Ruth's response \"Why have I found grace in thine eyes, that thou shouldest take knowledge of me, seeing I am a stranger?\" reveal about her self-understanding?",
+        "option_a": "She recognised her social position as a foreign widow and was genuinely humbled by undeserved favour",
+        "option_b": "She was testing Boaz to see if his kindness was genuine",
+        "option_c": "She was following Naomi's instructions to appear humble before Boaz",
+        "option_d": "She was legally asserting her right to glean under Mosaic law",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:10 — \"Then she fell on her face, and bowed herself to the ground, and said unto him, Why have I found grace in thine eyes, that thou shouldest take knowledge of me, seeing I am a stranger?\" Her question reflects genuine humility and awareness of her outsider status."
+      },
+      {
+        "question_number": 5,
+        "question": "How does Boaz's blessing in Ruth 2:12 — \"under whose wings thou art come to trust\" — connect to Ruth's later request in Ruth 3:9?",
+        "option_a": "Ruth uses the same wing imagery when she asks Boaz to spread his skirt over her, linking his earlier blessing to the kinsman-redeemer role he is being asked to fulfil",
+        "option_b": "The wing image appears only in chapter 2 as a spiritual metaphor with no narrative continuation",
+        "option_c": "Ruth's request in chapter 3 uses different imagery to show she did not understand Boaz's blessing",
+        "option_d": "The connection is coincidental since wing language was common in Hebrew blessings",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:12 — \"under whose wings thou art come to trust\" and Ruth 3:9 — \"spread therefore thy skirt over thine handmaid\" use the same Hebrew root (kanaf — wing/skirt), showing Ruth invites Boaz to be the human instrument of the divine protection he blessed her with."
+      },
+      {
+        "question_number": 6,
+        "question": "What is the legal basis for gleaning described elsewhere in the Torah that Ruth was exercising, and how did Boaz exceed it?",
+        "option_a": "Leviticus 19:9-10 and Deuteronomy 24:19 mandated leaving corners and fallen grain for the poor and stranger; Boaz added deliberate handfuls and access to bound sheaves",
+        "option_b": "Exodus 22:21 gave foreigners gleaning rights in all fields; Boaz added water and food rights",
+        "option_c": "Numbers 18:28 allocated a tithe portion for Levites and strangers; Boaz extended it to widows",
+        "option_d": "Deuteronomy 14:29 gave the stranger and widow rights to tithes; Boaz granted harvest access instead",
+        "correct_answer": "a",
+        "explanation": "Leviticus 19:9-10 — \"Thou shalt not wholly reap the corners of thy field...thou shalt leave them for the poor and stranger.\" Boaz instructed in Ruth 2:16: \"Let fall also some of the handfuls of purpose for her,\" exceeding the minimum legal requirement."
+      },
+      {
+        "question_number": 7,
+        "question": "What does Naomi's exclamation \"Blessed be he of the LORD, who hath not left off his kindness to the living and to the dead\" suggest about her interpretation of events?",
+        "option_a": "She saw Boaz's kindness as God's providential hesed continuing toward Elimelech's family even after his death",
+        "option_b": "She was simply praising Boaz for his generosity without any theological meaning",
+        "option_c": "She was comparing Boaz's kindness to the kindness of the dead sons",
+        "option_d": "She believed Elimelech had sent Boaz as a messenger from beyond the grave",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:20 — \"Blessed be he of the LORD, who hath not left off his kindness to the living and to the dead.\" Naomi sees Boaz's kindness as the LORD's own hesed (covenant loyalty) flowing through a human agent, extending care even to Elimelech and the dead sons."
+      },
+      {
+        "question_number": 8,
+        "question": "How does the opening description of Boaz in Ruth 2:1 as \"a mighty man of wealth\" (gibbor hayil) compare to Ruth's description in Ruth 3:11 as \"a virtuous woman\" (eshet hayil)?",
+        "option_a": "Both use the same Hebrew root hayil (strength/valor/worth), presenting Boaz and Ruth as matched in character — a man and woman of noble excellence",
+        "option_b": "The terms are unrelated; gibbor means warrior while eshet hayil means obedient wife",
+        "option_c": "Boaz's title refers only to financial wealth while Ruth's refers only to moral purity",
+        "option_d": "The comparison was intentional to suggest Ruth was Boaz's social equal despite being a foreigner",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:1 — \"gibbor hayil\" (mighty man of valor/worth) and Ruth 3:11 — \"eshet hayil\" (woman of valor/worth) share the root hayil, a deliberate literary pairing establishing Boaz and Ruth as equal in character and setting up their union as fitting."
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Where did Naomi send Ruth to meet Boaz at night?",
+        "option_a": "The threshing floor",
+        "option_b": "The city gate",
+        "option_c": "The well outside the city",
+        "option_d": "Boaz's house",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:3 — \"Wash thyself therefore, and anoint thee, and put thy raiment upon thee, and get thee down to the floor.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What did Ruth do to Boaz when she found him sleeping at the threshing floor?",
+        "option_a": "She uncovered his feet and lay down at them",
+        "option_b": "She woke him up and gave him food",
+        "option_c": "She sat beside him and waited for morning",
+        "option_d": "She put her cloak over him while he slept",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:7 — \"She came softly, and uncovered his feet, and laid her down.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Boaz tell Ruth he would do in the morning if the nearer kinsman would not redeem her?",
+        "option_a": "As the LORD liveth, I will do the part of a kinsman to thee",
+        "option_b": "He would ask the elders to decide",
+        "option_c": "He would give her fields of her own",
+        "option_d": "He would speak to Naomi first before making any promise",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:13 — \"As the LORD liveth, lie down until the morning...if he will not do the part of a kinsman to thee, then will I do the part of a kinsman to thee.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What reason did Naomi give for seeking \"rest\" for Ruth through Boaz?",
+        "option_a": "She said she would seek rest for Ruth so that it might be well with her, and that Boaz was a kinsman",
+        "option_b": "She said the harvest season was ending and Ruth needed a permanent home",
+        "option_c": "She said Ruth had earned rest by her faithful gleaning all season",
+        "option_d": "She said God had told her in a dream to arrange the marriage",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:1 — \"My daughter, shall I not seek rest for thee, that it may be well with thee?\""
+      },
+      {
+        "question_number": 2,
+        "question": "What request did Ruth make of Boaz when he woke at midnight and found her at his feet?",
+        "option_a": "Spread thy skirt over thine handmaid; for thou art a near kinsman",
+        "option_b": "Take me as thy wife and redeem Naomi's land",
+        "option_c": "Be a father to me as thou art of the family of Elimelech",
+        "option_d": "Give me a place in thy household for Naomi's sake",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:9 — \"She answered, I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did Boaz say about Ruth's character that all the city knew?",
+        "option_a": "All the city of my people doth know that thou art a virtuous woman",
+        "option_b": "The people of Bethlehem say thou art more loyal than any daughter of Israel",
+        "option_c": "My servants have told me thou art a woman of great faith",
+        "option_d": "The elders of the city testify that thou art worthy of redemption",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:11 — \"All the city of my people doth know that thou art a virtuous woman.\""
+      },
+      {
+        "question_number": 4,
+        "question": "Why did Boaz say he could not immediately act as kinsman-redeemer for Ruth?",
+        "option_a": "There was a kinsman nearer than he who had the first right of redemption",
+        "option_b": "He needed permission from the elders of the city first",
+        "option_c": "He had to wait until the end of the barley harvest season",
+        "option_d": "The law required three witnesses before a redemption could proceed",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:12 — \"And now it is true that I am thy near kinsman: howbeit there is a kinsman nearer than I.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What did Boaz give Ruth to take back to Naomi before she left the threshing floor?",
+        "option_a": "Six measures of barley",
+        "option_b": "A new outer garment and two loaves of bread",
+        "option_c": "Silver coins and a portion of the harvest",
+        "option_d": "A jar of oil and grain for grinding",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:15 — \"Also he said, Bring the vail that thou hast upon thee, and hold it. And when she held it, he measured six measures of barley, and laid it on her: and she went into the city.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What is the significance of Naomi's instructions for Ruth to wash, anoint herself, and put on her raiment before going to the threshing floor?",
+        "option_a": "These were the customary acts of a widow ending her mourning period and presenting herself for potential remarriage",
+        "option_b": "They were Moabite ritual practices Ruth was familiar with from her homeland",
+        "option_c": "They were required by Mosaic law before approaching a kinsman-redeemer",
+        "option_d": "They were simply practical preparations to avoid being recognized in the dark",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:3 — \"Wash thyself therefore, and anoint thee, and put thy raiment upon thee.\" In the ancient Near East these acts signalled a transition from mourning to readiness for marriage, consistent with widows formally ending their period of grief."
+      },
+      {
+        "question_number": 2,
+        "question": "How does Ruth's request for Boaz to \"spread thy skirt\" (kanaf) over her echo Boaz's blessing in Ruth 2:12, and what does this connection imply?",
+        "option_a": "Ruth turns Boaz's blessing — that she had come under the LORD's wings (kanaf) — into an invitation for Boaz himself to be the instrument of that divine protection through marriage",
+        "option_b": "Ruth is quoting a legal formula for property transfer used in ancient Israelite courts",
+        "option_c": "The term kanaf simply means a cloak in both verses and has no thematic connection",
+        "option_d": "Ruth had memorised Boaz's blessing and repeated it back as flattery",
+        "correct_answer": "a",
+        "explanation": "Ruth 2:12 — \"under whose wings (kanaf) thou art come to trust\" and Ruth 3:9 — \"spread therefore thy skirt (kanaf) over thine handmaid.\" Same Hebrew word; Ruth's request fulfils the shape of Boaz's earlier prayer by inviting him to be its answer."
+      },
+      {
+        "question_number": 3,
+        "question": "What does Boaz mean when he says Ruth showed more kindness at the end than at the beginning by not going after young men?",
+        "option_a": "Ruth chose the legal path of levirate-style redemption for Naomi's family rather than pursuing a young man for personal happiness, demonstrating hesed toward the dead",
+        "option_b": "Ruth had initially sought a younger husband but repented and returned to honour Naomi",
+        "option_c": "Ruth refused Boaz's reapers who had courted her throughout the harvest season",
+        "option_d": "Boaz was comparing Ruth to Orpah who had pursued a second marriage in Moab",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:10 — \"Blessed be thou of the LORD, my daughter: for thou hast shewed more kindness in the latter end than at the beginning, inasmuch as thou followedst not young men, whether poor or rich.\" Ruth's goal was to raise up the name of the dead through proper redemption, not personal romantic advantage."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Boaz's statement \"Fear not; I will do to thee all that thou requirest\" indicate about his moral character in the context of the threshing floor scene?",
+        "option_a": "It shows his integrity — he immediately redirected the situation toward legal redemption rather than taking advantage of Ruth's vulnerable position",
+        "option_b": "It was a formal contractual oath binding him legally before witnesses",
+        "option_c": "It indicated Boaz had already decided to marry Ruth regardless of the nearer kinsman",
+        "option_d": "It was a reassurance that no one at the threshing floor had seen Ruth arrive",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:11 — \"And now, my daughter, fear not; I will do to thee all that thou requirest.\" Boaz's response — addressing the legal obstacle, promising to act rightly, and sending Ruth home safely before dawn — demonstrates consistent moral integrity throughout the scene."
+      },
+      {
+        "question_number": 5,
+        "question": "Why did Boaz send Ruth away before dawn so that she would not be recognised, and what does this reveal about his concern?",
+        "option_a": "He was protecting Ruth's reputation so that no one would suspect immoral behaviour at the threshing floor",
+        "option_b": "He wanted to complete the legal transaction first before Ruth was publicly associated with him",
+        "option_c": "He was following threshing floor protocol that required all guests to leave before sunrise",
+        "option_d": "He feared the nearer kinsman would hear of Ruth's visit and claim her before Boaz could act",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:14 — \"She rose up before one could know another. And he said, Let it not be known that a woman came into the floor.\" Boaz's care for Ruth's reputation demonstrates that his actions throughout were governed by honour and protection of the vulnerable."
+      },
+      {
+        "question_number": 6,
+        "question": "What was the purpose of the six measures of barley Boaz sent with Ruth to Naomi?",
+        "option_a": "It was a tangible pledge to Naomi that Boaz intended to act, so she would not go empty-handed",
+        "option_b": "It was payment for Naomi's counsel in arranging the meeting",
+        "option_c": "It was legally required as a first-fruits offering before a redemption transaction",
+        "option_d": "It was food provision for Ruth and Naomi until the legal case was resolved",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:17 — \"He gave me these six measures of barley; for he said to me, Go not empty unto thy mother in law.\" Boaz's gift was a deliberate reversal of Naomi's lament in Ruth 1:21 — \"the LORD hath brought me home again empty\" — now she would not be empty again."
+      },
+      {
+        "question_number": 7,
+        "question": "What does Naomi's counsel \"Sit still, my daughter, until thou know how the matter will fall\" reveal about her theological outlook after the events of the night?",
+        "option_a": "She trusted that Boaz, as a man of integrity, would not rest until the matter was resolved that day — a confidence rooted in her knowledge of his character and the LORD's providence",
+        "option_b": "She was advising Ruth to wait patiently because legal proceedings in Israel took many days",
+        "option_c": "She was uncertain whether Boaz would follow through and counselled caution",
+        "option_d": "She was instructing Ruth to pray and wait for a divine sign",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:18 — \"Then said she, Sit still, my daughter, until thou know how the matter will fall: for the man will not be in rest, until he have finished the thing this day.\" Naomi's confidence in Boaz reflects her restored trust that God's hesed is operating through him."
+      },
+      {
+        "question_number": 8,
+        "question": "How does the kinsman-redeemer (goel) institution function in Israelite law, and what specific obligations would it entail for Boaz?",
+        "option_a": "The goel was the nearest male relative responsible for redeeming family land, marrying a childless widow to continue the family line, and protecting the family's inheritance within Israel",
+        "option_b": "The goel was the city treasurer who managed widows' financial affairs under the elders' supervision",
+        "option_c": "The goel was a volunteer who could redeem any widow in the tribe, unrelated to family structure",
+        "option_d": "The goel institution was primarily about freeing slaves and had only secondary application to land and widows",
+        "correct_answer": "a",
+        "explanation": "Ruth 3:12-13 — \"I am thy near kinsman: howbeit there is a kinsman nearer than I.\" The goel (redeemer) institution is rooted in Leviticus 25:25 (land redemption), Deuteronomy 25:5-10 (levirate duty), and Numbers 35:19 (blood avenger). Boaz's redemption of Ruth would involve purchasing Elimelech's land and raising up the dead man's name through offspring."
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Where did Boaz go to arrange to marry Ruth in front of witnesses?",
+        "option_a": "The gate of the city",
+        "option_b": "The threshing floor",
+        "option_c": "The temple in Jerusalem",
+        "option_d": "The well in the centre of town",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:1 — \"Then went Boaz up to the gate, and sat him down there: and, behold, the kinsman of whom Boaz spake came by.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What was the name of the baby boy that Ruth and Boaz had?",
+        "option_a": "Obed",
+        "option_b": "Jesse",
+        "option_c": "David",
+        "option_d": "Salmon",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:17 — \"The women her neighbours gave it a name, saying, There is a son born to Naomi; and they called his name Obed.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What did the women of Bethlehem say Ruth was worth to Naomi?",
+        "option_a": "Better to thee than seven sons",
+        "option_b": "A blessing above all women",
+        "option_c": "More precious than silver and gold",
+        "option_d": "Worthy of a place among the judges",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:15 — \"He shall be unto thee a restorer of thy life, and a nourisher of thine old age: for thy daughter in law, which loveth thee, which is better to thee than seven sons, hath born him.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What custom did the nearer kinsman use to confirm that he gave up his right of redemption?",
+        "option_a": "He plucked off his shoe and gave it to Boaz",
+        "option_b": "He broke a clay tablet in front of the elders",
+        "option_c": "He tore his outer garment and gave half to Boaz",
+        "option_d": "He wrote his name in dust at the gate and wiped it away",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:7-8 — \"Now this was the manner in former time in Israel concerning redeeming...a man plucked off his shoe, and gave it to his neighbour...Therefore the kinsman said unto Boaz, Buy it for thee. So he drew off his shoe.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Why did the nearer kinsman refuse to redeem Naomi's land after initially agreeing?",
+        "option_a": "He feared marrying Ruth would mar his own inheritance",
+        "option_b": "He had already promised his inheritance to another family",
+        "option_c": "He said he did not have the silver to purchase the land",
+        "option_d": "He was afraid the elders would not approve the transaction",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:6 — \"The kinsman said, I cannot redeem it for myself, lest I mar mine own inheritance: redeem thou my right to thyself; for I cannot redeem it.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How many witnesses did Boaz call to observe the redemption transaction at the gate?",
+        "option_a": "Ten men of the elders of the city",
+        "option_b": "Seven priests and three elders",
+        "option_c": "The whole assembly of the men of Bethlehem",
+        "option_d": "The judge of the city and two witnesses",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:2 — \"He took ten men of the elders of the city, and said, Sit ye down here. And they sat down.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What blessing did the elders and people pronounce over Ruth when Boaz declared he was taking her as his wife?",
+        "option_a": "The LORD make the woman that is come into thine house like Rachel and like Leah",
+        "option_b": "May the God of Israel bless thy household as He blessed Abraham",
+        "option_c": "Be fruitful and multiply and fill the land of Israel",
+        "option_d": "May thy children be mighty in Israel like the sons of Jacob",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:11 — \"The LORD make the woman that is come into thine house like Rachel and like Leah, which two did build the house of Israel.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Whose famous lineage does the end of Ruth 4 trace through Obed?",
+        "option_a": "King David's lineage through Perez, son of Judah",
+        "option_b": "Solomon's lineage through the tribe of Benjamin",
+        "option_c": "Samuel the prophet's lineage through Ephraim",
+        "option_d": "The priestly line through Aaron and Levi",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:17-22 — \"They called his name Obed: he is the father of Jesse, the father of David.\" The genealogy traces back to Perez, son of Judah (v.18), connecting to the Davidic line."
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "How did Boaz present the redemption case to the nearer kinsman at the gate, and why did he initially withhold the information about Ruth?",
+        "option_a": "He first mentioned only the land of Naomi, allowing the kinsman to agree, then revealed the obligation to take Ruth and raise up the dead man's name — which changed the financial calculation",
+        "option_b": "He presented the full terms immediately but gave the kinsman three days to decide",
+        "option_c": "He asked the kinsman about Ruth first, then mentioned the land as an added incentive",
+        "option_d": "He appealed to the elders to compel the kinsman before offering him the choice",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:3-5 — Boaz first said \"Naomi...selleth a parcel of land\" (v.3) and the kinsman agreed (v.4). Then Boaz added \"What day thou buyest the field...thou must buy it also of Ruth...to raise up the name of the dead\" (v.5), which caused the kinsman to reverse his decision."
+      },
+      {
+        "question_number": 2,
+        "question": "What was the kinsman's precise reason for refusing redemption, and what does it reveal about his priorities?",
+        "option_a": "He said it would mar his own inheritance — acquiring Ruth's son would divide his estate among multiple heirs at the expense of his existing family line",
+        "option_b": "He said he was already bound to another woman and could not take a second wife under the law",
+        "option_c": "He said the land was not worth its purchase price and would be a financial loss",
+        "option_d": "He said he was too old to fulfil the levirate duty and wished to spare Ruth the hardship",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:6 — \"I cannot redeem it for myself, lest I mar mine own inheritance.\" If he redeemed the land but Ruth's son would eventually inherit it in Elimelech's name, the kinsman's own estate would be reduced without long-term benefit to his own line."
+      },
+      {
+        "question_number": 3,
+        "question": "The sandal custom in Ruth 4:7 is explained as \"the manner in former time in Israel.\" What does this parenthetical explanation suggest about the narrator's audience and the date of composition?",
+        "option_a": "It implies the author was writing at a later period when the sandal-exchange custom had fallen out of use and needed explanation for readers",
+        "option_b": "It was inserted by a later editor who misunderstood the original transaction",
+        "option_c": "It indicates the author was not an Israelite and was explaining foreign customs",
+        "option_d": "It shows the custom was newly established and the author wanted to record its origin",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:7 — \"Now this was the manner in former time in Israel concerning redeeming...for to confirm all things; a man plucked off his shoe.\" The editorial aside indicates the practice was archaic by the time of writing, suggesting a later composition date while preserving authentic early custom."
+      },
+      {
+        "question_number": 4,
+        "question": "What is the theological significance of the blessing comparing Ruth to Rachel and Leah, and adding the prayer about Perez?",
+        "option_a": "It places Ruth in the founding lineage of the twelve tribes and explicitly invokes the Perez-Judah line through which the Davidic promise would run",
+        "option_b": "It is a general fertility blessing with no specific messianic or royal significance",
+        "option_c": "It compares Ruth to the matriarchs to honour her Moabite heritage",
+        "option_d": "The blessing was formulaic and spoken at all Israelite marriages without special meaning",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:11-12 — \"Like Rachel and like Leah, which two did build the house of Israel...and let thy house be like the house of Pharez, whom Tamar bare unto Judah.\" The Perez reference is striking: Tamar was also a woman outside Israel whose initiative continued the covenant line, and Perez is the direct ancestor listed in Ruth 4:18."
+      },
+      {
+        "question_number": 5,
+        "question": "What is the meaning of the name Obed, and how does it function in the narrative resolution?",
+        "option_a": "Obed means servant or worshipper, and his birth restores Naomi's line — he becomes servant/nourisher of her old age, reversing her emptiness",
+        "option_b": "Obed means redeemed, celebrating the completion of the kinsman-redeemer transaction",
+        "option_c": "Obed means son of the gate, commemorating where his father's redemption was completed",
+        "option_d": "Obed means gift of God, paralleling Isaac whose name also celebrated divine provision",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:17 — \"There is a son born to Naomi; and they called his name Obed.\" The name Obed (eved — servant) ties to verse 15's promise that he will be \"a nourisher of thine old age\"; the women's declaration \"a son born to Naomi\" shows Obed restores Naomi's family line."
+      },
+      {
+        "question_number": 6,
+        "question": "How does the book of Ruth's genealogy in Ruth 4:18-22 connect to Matthew 1 and what is its messianic significance?",
+        "option_a": "The genealogy Perez–Hezron–Ram–Amminadab–Nahshon–Salmon–Boaz–Obed–Jesse–David is reproduced in Matthew 1:3-6 as part of the lineage of Jesus Christ, placing Ruth directly in the Messianic line",
+        "option_b": "The genealogy ends with David and has no explicit New Testament connection",
+        "option_c": "Matthew 1 uses a different genealogy that bypasses Ruth and goes directly from Salmon to Jesse",
+        "option_d": "The connection to Matthew 1 is only symbolic and the names do not match exactly",
+        "correct_answer": "a",
+        "explanation": "Ruth 4:18-22 — \"Pharez begat Hezron...and Salmon begat Boaz...and Boaz begat Obed...and Jesse begat David.\" Matthew 1:5-6 — \"Salmon begat Booz of Rachab; and Booz begat Obed of Ruth; and Obed begat Jesse; And Jesse begat David the king.\" Ruth is explicitly named in Christ's genealogy."
+      },
+      {
+        "question_number": 7,
+        "question": "What is the theological theme of hesed (covenant lovingkindness) and how is it woven through all four chapters of Ruth, culminating in chapter 4?",
+        "option_a": "Hesed appears in Ruth 1:8 (Naomi's blessing), 2:20 (Boaz's kindness as God's hesed), and 3:10 (Ruth's hesed in seeking redemption); chapter 4 shows hesed completed in Boaz's legal action, reversing every loss in chapter 1",
+        "option_b": "Hesed appears only in Ruth 2:20 and is a single description of Boaz's character without structural significance",
+        "option_c": "Hesed is a minor theme overshadowed by the legal redemption narrative which is the book's central focus",
+        "option_d": "The theme of hesed is introduced in chapter 3 and concluded in chapter 4 without preparation in chapters 1-2",
+        "correct_answer": "a",
+        "explanation": "Ruth 1:8 — \"The LORD deal kindly (hesed) with you\"; 2:20 — \"who hath not left off his kindness (hesed) to the living and to the dead\"; 3:10 — \"thou hast shewed more kindness (hesed) in the latter end than at the beginning.\" Chapter 4's redemption is the narrative fulfilment of all three expressions of hesed."
+      },
+      {
+        "question_number": 8,
+        "question": "Why is it theologically significant that a Moabite woman — from a nation excluded in Deuteronomy 23:3 — appears in the lineage of David and ultimately of Christ?",
+        "option_a": "It demonstrates that God's redemptive purposes transcend national boundaries, that genuine faith and hesed qualify a foreigner for covenant inclusion, and that grace operates beyond the letter of the exclusion law",
+        "option_b": "It shows the Deuteronomy 23:3 exclusion was only temporary and expired after one generation",
+        "option_c": "It reveals that the exclusion in Deuteronomy 23:3 applied only to male Moabites entering the assembly, not to women",
+        "option_d": "It was an oversight in the original law that later scribes corrected by including Ruth in the canon",
+        "correct_answer": "a",
+        "explanation": "Deuteronomy 23:3 — \"An Ammonite or Moabite shall not enter into the congregation of the LORD; even to their tenth generation.\" Yet Ruth 4:17-22 and Matthew 1:5 place Ruth directly in the Davidic and Messianic line. Ruth's inclusion — grounded in her hesed, faith, and covenant commitment — points to the wideness of God's redemptive grace that is fully revealed in Christ."
+      }
+    ]
+  }
+}

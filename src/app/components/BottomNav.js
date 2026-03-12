@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { id:"shop", label:"Shop", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg> },
 ];
 
-const HIDDEN_VIEWS = ["verse","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice","quiz-active"];
+const HIDDEN_VIEWS = ["verse","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice","quiz-active","smart-chat"];
 const BIBLE_VIEWS = ["books","chapter","verses","verse"];
 const LEARN_VIEWS = ["learn-home","hebrew-home","hebrew-lesson","hebrew-practice","hebrew-reading-home","hebrew-reading","hebrew-grammar-home","hebrew-grammar-lesson","greek-home","greek-lesson","greek-practice","greek-reading-home","greek-reading","greek-grammar-home","greek-grammar-lesson","timeline-home","timeline-era","timeline-era-detail","timeline-maps","timeline-books","timeline-archaeology","prophecy-home","apologetics-home","reading-plans-home","kids-curriculum-home","teens-curriculum-home","podcast-home","podcast-detail","podcast-episode"];
 const PRAYER_VIEWS = ["prayer-home","prayer-community","prayer-clock","prayer-journal","prayer-testimony","prayer-slot-active"];

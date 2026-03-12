@@ -27,6 +27,7 @@ import QuizView from "./views/QuizView";
 import QuizBrowserView from "./views/QuizBrowserView";
 import ShopView from "./views/ShopView";
 import PodcastView from "./views/PodcastView";
+import SmartChat from "./views/SmartChat";
 import PodcastPlayer from "./components/PodcastPlayer";
 import TermsView from "./views/TermsView";
 
@@ -62,6 +63,7 @@ function StudyBibleContent() {
       {view.startsWith("quiz-") && view !== "quiz-browser" && <ErrorBoundary theme={ht} label="Quiz"><QuizView /></ErrorBoundary>}
       {view.startsWith("shop-") && <ErrorBoundary theme={ht} label="Shop"><ShopView /></ErrorBoundary>}
       {view.startsWith("podcast-") && <ErrorBoundary theme={ht} label="Podcast"><PodcastView /></ErrorBoundary>}
+      {view === "smart-chat" && <ErrorBoundary theme={ht} label="Smart Chat"><SmartChat /></ErrorBoundary>}
       {view === "terms" && <ErrorBoundary theme={ht} label="Terms"><TermsView /></ErrorBoundary>}
 
       <PodcastPlayer mode="mini" />
