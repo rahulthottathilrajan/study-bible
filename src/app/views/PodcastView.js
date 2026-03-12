@@ -59,6 +59,13 @@ export default function PodcastView() {
     }
   }, [view, selectedSeriesSlug, seriesData, loadPodcastSeries]);
 
+  // On refresh, currentEpisode is lost — fall back to series detail so user can tap episode
+  useEffect(() => {
+    if (view === "podcast-episode" && !currentEpisode && selectedSeriesSlug) {
+      nav("podcast-detail", { podcastSeries: selectedSeriesSlug });
+    }
+  }, [view, currentEpisode, selectedSeriesSlug, nav]);
+
   const isListened = (slug, epNum) => podcastListenedEpisodes.includes(`${slug}:${epNum}`);
 
   // Bible reference navigation

@@ -60,7 +60,10 @@ export function AppProvider({ children }) {
       if (saved) {
         const s = JSON.parse(saved);
         if (s.view && s.view !== "home") {
-          setView(s.view);
+          // Podcast views need their params — fall back to parent if missing
+          const podNav = JSON.parse(localStorage.getItem("podcastNavState") || "null");
+          if ((s.view === "podcast-episode" || s.view === "podcast-detail") && !podNav?.podcastSeries) { setView("podcast-home"); }
+          else { setView(s.view); }
           if (s.testament) setTestament(s.testament);
           if (s.book) setBook(s.book);
           if (s.chapter) setChapter(s.chapter);
@@ -314,6 +317,18 @@ export function AppProvider({ children }) {
   });
   const [podcastSeries, setPodcastSeries] = useState(null);
   const [podcastEpisode, setPodcastEpisode] = useState(null);
+
+  // Persist + restore podcast nav params (separate from main navState to avoid Turbopack TDZ)
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem("podcastNavState") || "null");
+      if (saved?.podcastSeries) setPodcastSeries(saved.podcastSeries);
+      if (saved?.podcastEpisode) setPodcastEpisode(saved.podcastEpisode);
+    } catch {} // eslint-disable-line no-empty
+  }, []);
+  useEffect(() => {
+    try { localStorage.setItem("podcastNavState", JSON.stringify({ podcastSeries, podcastEpisode })); } catch {} // eslint-disable-line no-empty
+  }, [podcastSeries, podcastEpisode]);
 
   const markChapterListened = useCallback((bookName, chapterNum) => {
     const key = `${bookName}:${chapterNum}`;
