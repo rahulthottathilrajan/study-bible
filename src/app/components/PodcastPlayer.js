@@ -50,6 +50,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
   const ttsSegRef = useRef(0);
   const ttsTimerRef = useRef(null);
   const ttsModeRef = useRef(false);
+  const ttsStartRef = useRef(null); // debounce timeout for speakSegment
 
   // Keep refs in sync
   useEffect(() => { playingRef.current = podcastPlaying; }, [podcastPlaying]);
@@ -189,17 +190,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
       }
     };
 
-    if (podcastPlaying) {
-      audio.play().catch(() => {
-        if (ttsModeRef.current) return; // Already switched via onerror
-        setTtsMode(true);
-        const ep = episodeRef.current;
-        if (ep) {
-          const totalDur = ep.duration || (ep.transcript?.length ? ep.transcript[ep.transcript.length - 1].end : 0);
-          setDuration(totalDur);
-        }
-      });
-    }
+    // Don't play here — the [podcastPlaying, ttsMode] effect is the sole play trigger
   }, [currentEpisode?.audioUrl]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Play/pause sync
@@ -209,9 +200,12 @@ export default function PodcastPlayer({ mode = "mini" }) {
       if (podcastPlaying) {
         if (typeof window !== "undefined" && window.speechSynthesis) {
           window.speechSynthesis.cancel();
-          setTimeout(() => speakSegment(ttsSegRef.current), 80);
+          // Debounce: cancel any pending start so only the last trigger wins
+          if (ttsStartRef.current) clearTimeout(ttsStartRef.current);
+          ttsStartRef.current = setTimeout(() => { ttsStartRef.current = null; speakSegment(ttsSegRef.current); }, 120);
         }
       } else {
+        if (ttsStartRef.current) { clearTimeout(ttsStartRef.current); ttsStartRef.current = null; }
         if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
         if (ttsTimerRef.current) { clearInterval(ttsTimerRef.current); ttsTimerRef.current = null; }
       }
@@ -235,7 +229,8 @@ export default function PodcastPlayer({ mode = "mini" }) {
       // If TTS is playing, restart current segment with new speed
       if (playingRef.current && typeof window !== "undefined" && window.speechSynthesis) {
         window.speechSynthesis.cancel();
-        setTimeout(() => speakSegment(ttsSegRef.current), 80);
+        if (ttsStartRef.current) clearTimeout(ttsStartRef.current);
+        ttsStartRef.current = setTimeout(() => { ttsStartRef.current = null; speakSegment(ttsSegRef.current); }, 120);
       }
     } else {
       if (audioElRef.current) audioElRef.current.playbackRate = podcastSpeed;
