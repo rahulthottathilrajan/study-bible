@@ -51,8 +51,8 @@ export default function SmartChat() {
       });
       if (!res.ok) throw new Error("Search failed");
       const data = await res.json();
-      const verses = (data.results || []).filter(v => v.similarity >= 0.80);
-      const podcasts = (data.podcasts || []).filter(p => p.similarity >= 0.80);
+      const verses = (data.results || []).filter(v => v.similarity >= 0.55);
+      const podcasts = (data.podcasts || []).filter(p => p.similarity >= 0.55);
       const assistantMsg = {
         id: ++msgId,
         role: "assistant",
