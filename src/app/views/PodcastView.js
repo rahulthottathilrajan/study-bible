@@ -59,9 +59,11 @@ export default function PodcastView() {
     }
   }, [view, selectedSeriesSlug, seriesData, loadPodcastSeries]);
 
-  // On refresh, currentEpisode is lost — fall back to series detail so user can tap episode
+  // On refresh, redirect to safe podcast views if params are missing
   useEffect(() => {
-    if (view === "podcast-episode" && !currentEpisode && selectedSeriesSlug) {
+    if ((view === "podcast-detail" || view === "podcast-episode") && !selectedSeriesSlug) {
+      nav("podcast-home");
+    } else if (view === "podcast-episode" && !currentEpisode && selectedSeriesSlug) {
       nav("podcast-detail", { podcastSeries: selectedSeriesSlug });
     }
   }, [view, currentEpisode, selectedSeriesSlug, nav]);

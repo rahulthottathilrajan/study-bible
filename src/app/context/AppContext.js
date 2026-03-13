@@ -315,17 +315,14 @@ export function AppProvider({ children }) {
   const [podcastListenedEpisodes, setPodcastListenedEpisodes] = useState(() => {
     try { return JSON.parse(localStorage.getItem("podcastListenedEpisodes") || "[]"); } catch { return []; }
   });
-  const [podcastSeries, setPodcastSeries] = useState(null);
-  const [podcastEpisode, setPodcastEpisode] = useState(null);
+  const [podcastSeries, setPodcastSeries] = useState(() => {
+    try { const s = JSON.parse(localStorage.getItem("podcastNavState") || "null"); return s?.podcastSeries || null; } catch { return null; }
+  });
+  const [podcastEpisode, setPodcastEpisode] = useState(() => {
+    try { const s = JSON.parse(localStorage.getItem("podcastNavState") || "null"); return s?.podcastEpisode || null; } catch { return null; }
+  });
 
-  // Persist + restore podcast nav params (separate from main navState to avoid Turbopack TDZ)
-  useEffect(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem("podcastNavState") || "null");
-      if (saved?.podcastSeries) setPodcastSeries(saved.podcastSeries);
-      if (saved?.podcastEpisode) setPodcastEpisode(saved.podcastEpisode);
-    } catch {} // eslint-disable-line no-empty
-  }, []);
+  // Persist podcast nav params
   useEffect(() => {
     try { localStorage.setItem("podcastNavState", JSON.stringify({ podcastSeries, podcastEpisode })); } catch {} // eslint-disable-line no-empty
   }, [podcastSeries, podcastEpisode]);
