@@ -7,9 +7,9 @@
 //   Next.js static assets  → Stale-while-revalidate
 //   Everything else        → Network-only
 
-const SHELL_CACHE  = "bible-shell-v1";
-const DATA_CACHE   = "bible-data-v1";
-const STATIC_CACHE = "bible-static-v1";
+const SHELL_CACHE  = "bible-shell-v2";
+const DATA_CACHE   = "bible-data-v2";
+const STATIC_CACHE = "bible-static-v2";
 const ALL_CACHES   = [SHELL_CACHE, DATA_CACHE, STATIC_CACHE];
 
 // ── Install: pre-cache the app shell ──────────────
