@@ -71,42 +71,36 @@ function StudyBibleContent() {
       <BottomNav />
       {/* ── FLOATING CHAT FAB ── */}
       {!view.startsWith("shop-") && view !== "smart-chat" && view !== "terms" && (
-        <div style={{ position:"fixed", bottom: showNav ? 78 : 20, right: 16, zIndex: 45, display:"flex", alignItems:"center", gap: 0, animation:"chatFabIn 0.5s ease" }}>
-          {/* "Ask" label pill */}
-          <div style={{
-            background: darkMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.75)", color: "#fff",
-            fontFamily: ht.ui, fontSize: 11, fontWeight: 700, letterSpacing: "0.04em",
-            padding: "6px 14px 6px 12px", borderRadius: "20px 0 0 20px",
-            marginRight: -6, boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-            animation: "chatLabelIn 0.6s ease 0.3s both",
+        <div style={{ position:"fixed", bottom: showNav ? 78 : 20, right: 16, zIndex: 45, animation:"chatFabIn 0.5s ease" }}>
+          {/* Animated border ring (rotates gold↔purple) */}
+          <div className="chat-fab-ring" style={{
+            width: 64, height: 64, borderRadius: "50%", padding: 3,
+            background: "conic-gradient(#D4A853, #805AD5, #D4A853, #6B46C1, #D4A853)",
+            boxShadow: "0 4px 20px rgba(212,168,83,0.35), 0 0 28px rgba(128,90,213,0.3), 0 2px 8px rgba(0,0,0,0.2)",
           }}>
-            Ask
+            <button
+              onClick={() => nav("smart-chat")}
+              aria-label="Ask the Bible"
+              style={{
+                width: "100%", height: "100%", borderRadius: "50%", border: "none", cursor: "pointer",
+                background: ht.headerGradient,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                transition: "transform 0.15s",
+                position: "relative",
+              }}
+              onMouseEnter={e => { e.currentTarget.parentElement.style.transform = "scale(1.12)"; }}
+              onMouseLeave={e => { e.currentTarget.parentElement.style.transform = "scale(1)"; }}
+            >
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }}>
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              {/* Sparkle dot */}
+              <div style={{ position:"absolute", top: 1, right: 3, width: 10, height: 10, borderRadius: "50%", background: "#F6E05E", border: "2px solid rgba(255,255,255,0.9)", animation: "chatSparkle 2s ease-in-out infinite" }}/>
+            </button>
           </div>
-          {/* FAB circle */}
-          <button
-            onClick={() => nav("smart-chat")}
-            aria-label="Ask the Bible"
-            style={{
-              width: 60, height: 60, borderRadius: "50%", border: "3px solid rgba(255,255,255,0.25)", cursor: "pointer",
-              background: "linear-gradient(135deg, #805AD5, #6B46C1)",
-              boxShadow: "0 4px 18px rgba(128,90,213,0.5), 0 0 24px rgba(128,90,213,0.3), 0 2px 6px rgba(0,0,0,0.2)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              animation: "chatFabPulse 2.5s ease-in-out 1s infinite",
-              transition: "transform 0.15s, box-shadow 0.15s",
-              position: "relative", zIndex: 1,
-            }}
-            onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.12)"; }}
-            onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; }}
-          >
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-            {/* Sparkle dot */}
-            <div style={{ position:"absolute", top: 2, right: 4, width: 10, height: 10, borderRadius: "50%", background: "#F6E05E", border: "2px solid rgba(255,255,255,0.9)", animation: "chatSparkle 2s ease-in-out infinite" }}/>
-          </button>
         </div>
       )}
-      <style>{`@keyframes chatFabIn{0%{opacity:0;transform:scale(0.3) translateY(30px)}100%{opacity:1;transform:scale(1) translateY(0)}}@keyframes chatLabelIn{0%{opacity:0;transform:translateX(20px)}100%{opacity:1;transform:translateX(0)}}@keyframes chatFabPulse{0%,100%{box-shadow:0 4px 18px rgba(128,90,213,0.5),0 0 24px rgba(128,90,213,0.3),0 2px 6px rgba(0,0,0,0.2)}50%{box-shadow:0 4px 24px rgba(128,90,213,0.7),0 0 36px rgba(128,90,213,0.45),0 2px 10px rgba(0,0,0,0.25)}}@keyframes chatSparkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.8)}}`}</style>
+      <style>{`@keyframes chatFabIn{0%{opacity:0;transform:scale(0.3) translateY(30px)}100%{opacity:1;transform:scale(1) translateY(0)}}.chat-fab-ring{animation:chatRingSpin 4s linear infinite,chatFabGlow 3s ease-in-out infinite;transition:transform 0.15s}@keyframes chatRingSpin{0%{background:conic-gradient(from 0deg,#D4A853,#805AD5,#D4A853,#6B46C1,#D4A853)}25%{background:conic-gradient(from 90deg,#D4A853,#805AD5,#D4A853,#6B46C1,#D4A853)}50%{background:conic-gradient(from 180deg,#D4A853,#805AD5,#D4A853,#6B46C1,#D4A853)}75%{background:conic-gradient(from 270deg,#D4A853,#805AD5,#D4A853,#6B46C1,#D4A853)}100%{background:conic-gradient(from 360deg,#D4A853,#805AD5,#D4A853,#6B46C1,#D4A853)}}@keyframes chatFabGlow{0%,100%{box-shadow:0 4px 20px rgba(212,168,83,0.35),0 0 28px rgba(128,90,213,0.3),0 2px 8px rgba(0,0,0,0.2)}50%{box-shadow:0 4px 28px rgba(212,168,83,0.55),0 0 40px rgba(128,90,213,0.45),0 2px 12px rgba(0,0,0,0.25)}}@keyframes chatSparkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.8)}}`}</style>
       <WelcomeModal />
       <DonateModal />
       <PrayerModal />
