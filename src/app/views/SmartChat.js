@@ -51,12 +51,14 @@ export default function SmartChat() {
       });
       if (!res.ok) throw new Error("Search failed");
       const data = await res.json();
+      const verses = (data.results || []).filter(v => v.similarity >= 0.80);
+      const podcasts = (data.podcasts || []).filter(p => p.similarity >= 0.80);
       const assistantMsg = {
         id: ++msgId,
         role: "assistant",
         query: q,
-        verses: data.results || [],
-        podcasts: data.podcasts || [],
+        verses,
+        podcasts,
       };
       setMessages(prev => [...prev, assistantMsg]);
     } catch {
@@ -245,10 +247,14 @@ function AssistantBubble({ msg, ht, nav, bibleTranslation }) {
           </div>
         )}
 
-        {/* No results */}
+        {/* No results — Bible-only guard */}
         {!error && !hasResults && (
           <div style={{ fontFamily: ht.ui, fontSize: 13, color: ht.muted, lineHeight: 1.6 }}>
-            I couldn&apos;t find relevant verses for that. Try rephrasing your question or using different words.
+            <div style={{ marginBottom: 8 }}>I can only answer questions about the <strong style={{ color: ht.dark }}>Holy Bible</strong> (KJV).</div>
+            <div>Try asking about a topic, verse, or theme — for example:</div>
+            <div style={{ marginTop: 8, fontStyle: "italic", color: ht.accent }}>
+              &ldquo;What does the Bible say about love?&rdquo;
+            </div>
           </div>
         )}
 
