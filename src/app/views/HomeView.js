@@ -248,21 +248,6 @@ export default function HomeView() {
             </div>
             <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.accent,background:`${ht.accent}15`,padding:"3px 8px",borderRadius:20,textTransform:"uppercase",letterSpacing:"0.06em",flexShrink:0 }}>New</span>
           </button>
-          {/* ── SMART SEARCH CHAT ── */}
-          <button onClick={() => nav("smart-chat")} className="pressable" style={{ width:"100%",display:"flex",alignItems:"center",gap:14,padding:"14px 16px",borderRadius:14,border:`1px solid ${ht.accentBorder}`,background:`linear-gradient(135deg,${ht.accent}08,${ht.card})`,cursor:"pointer",marginBottom:16,textAlign:"left",position:"relative",overflow:"hidden" }}>
-            <div style={{ position:"absolute",bottom:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${ht.accent}00,${ht.accent}60,${ht.accent}00)`,opacity:0.5 }}/>
-            <div style={{ width:44,height:44,borderRadius:12,background:`${ht.accent}15`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                <path d="M8 9h8M8 13h5" opacity="0.6"/>
-              </svg>
-            </div>
-            <div style={{ flex:1 }}>
-              <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:ht.dark,lineHeight:1.2 }}>Ask the Bible</div>
-              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:2 }}>Search by meaning — ask any question</div>
-            </div>
-            <span style={{ fontFamily:ht.ui,fontSize:16,color:ht.accent,flexShrink:0 }}>✦</span>
-          </button>
           {/* ── CONTINUE READING (WhatsApp status bar) ── */}
           <ContinueReading nav={nav} ht={ht} user={user} />
           {/* ── TODAY'S WORD (Podcast) ── */}

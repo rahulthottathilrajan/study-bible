@@ -69,6 +69,28 @@ function StudyBibleContent() {
       <PodcastPlayer mode="mini" />
       <BadgeToast />
       <BottomNav />
+      {/* ── FLOATING CHAT FAB ── */}
+      {!view.startsWith("shop-") && view !== "smart-chat" && view !== "terms" && (
+        <button
+          onClick={() => nav("smart-chat")}
+          aria-label="Ask the Bible"
+          style={{
+            position:"fixed", bottom: showNav ? 78 : 20, right: 16, zIndex: 45,
+            width: 54, height: 54, borderRadius: "50%", border: "none", cursor: "pointer",
+            background: ht.accent, boxShadow: `0 4px 14px ${ht.accent}55, 0 2px 6px rgba(0,0,0,0.15)`,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            animation: "chatFabIn 0.4s ease, chatFabPulse 3s ease-in-out 1s infinite",
+            transition: "transform 0.15s, box-shadow 0.15s",
+          }}
+          onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.1)"; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </button>
+      )}
+      <style>{`@keyframes chatFabIn{0%{opacity:0;transform:scale(0.5) translateY(20px)}100%{opacity:1;transform:scale(1) translateY(0)}}@keyframes chatFabPulse{0%,100%{box-shadow:0 4px 14px ${ht?.accent || '#805AD5'}55,0 2px 6px rgba(0,0,0,0.15)}50%{box-shadow:0 4px 20px ${ht?.accent || '#805AD5'}88,0 2px 10px rgba(0,0,0,0.2)}}`}</style>
       <WelcomeModal />
       <DonateModal />
       <PrayerModal />
