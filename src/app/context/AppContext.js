@@ -28,6 +28,7 @@ export function AppProvider({ children }) {
     try { const s = localStorage.getItem("cart"); return s ? JSON.parse(s) : []; } catch { return []; }
   });
   const [shopOrderSession, setShopOrderSession] = useState(null);
+  const [chatMessages, setChatMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [dbLive, setDbLive] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -1859,6 +1860,8 @@ export function AppProvider({ children }) {
     loadPodcastIndex, loadPodcastSeries, playPodcastEpisode,
     markEpisodeListened, savePodcastPosition,
     savePodcastNote, loadPodcastNotes, deletePodcastNote,
+    // Smart Chat
+    chatMessages, setChatMessages,
     // Birthday
     isBirthdayToday, birthdayUsers,
   };

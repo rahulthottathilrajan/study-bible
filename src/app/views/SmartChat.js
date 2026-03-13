@@ -20,8 +20,7 @@ const SUGGESTIONS = [
 let msgId = 0;
 
 export default function SmartChat() {
-  const { ht, nav, goBack, bibleTranslation, bp } = useApp();
-  const [messages, setMessages] = useState([]);
+  const { ht, nav, goBack, bibleTranslation, bp, chatMessages, setChatMessages } = useApp();
   const [inputText, setInputText] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef(null);
@@ -32,14 +31,14 @@ export default function SmartChat() {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages, loading]);
+  }, [chatMessages, loading]);
 
   const sendQuery = useCallback(async (text) => {
     const q = text.trim();
     if (!q || q.length < 3 || loading) return;
 
     const userMsg = { id: ++msgId, role: "user", text: q };
-    setMessages(prev => [...prev, userMsg]);
+    setChatMessages(prev => [...prev, userMsg]);
     setInputText("");
     setLoading(true);
 
@@ -60,9 +59,9 @@ export default function SmartChat() {
         verses,
         podcasts,
       };
-      setMessages(prev => [...prev, assistantMsg]);
+      setChatMessages(prev => [...prev, assistantMsg]);
     } catch {
-      setMessages(prev => [...prev, {
+      setChatMessages(prev => [...prev, {
         id: ++msgId,
         role: "assistant",
         error: true,
@@ -72,7 +71,7 @@ export default function SmartChat() {
       }]);
     }
     setLoading(false);
-  }, [loading]);
+  }, [loading, setChatMessages]);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -86,7 +85,7 @@ export default function SmartChat() {
     sendQuery(text);
   };
 
-  const showWelcome = messages.length === 0 && !loading;
+  const showWelcome = chatMessages.length === 0 && !loading;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: ht.bg }}>
@@ -140,7 +139,7 @@ export default function SmartChat() {
           )}
 
           {/* Message list */}
-          {messages.map((msg) => (
+          {chatMessages.map((msg) => (
             <div key={msg.id} style={{ animation: "fadeIn 0.3s ease" }}>
               {msg.role === "user" ? (
                 <UserBubble text={msg.text} ht={ht} />
