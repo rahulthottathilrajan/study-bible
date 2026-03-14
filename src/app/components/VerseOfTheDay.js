@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useMemo, useCallback } from "react";
+import { useState, useRef, useMemo, useCallback } from "react";
 
 // ── Curated Short Verses ──
 // ~45 most-memorized KJV verses, each under ~130 chars for consistent card heights
@@ -82,6 +82,8 @@ const OT_BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua
 
 export default function VerseOfTheDay({ nav, ht }) {
   const scrollRef = useRef(null);
+  const [liked, setLiked] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   // Rotate all 120 verses so today's pick is first
   const verses = useMemo(() => {
@@ -97,8 +99,17 @@ export default function VerseOfTheDay({ nav, ht }) {
     nav("verse", { testament, book: bookName, chapter: parsed.chapter, verse: parseInt(parsed.verse) });
   }, [nav]);
 
+  const handleShare = useCallback(async (verse) => {
+    const text = `"${verse.text}" — ${verse.ref} (KJV)`;
+    if (navigator.share) {
+      try { await navigator.share({ text }); } catch {}
+    } else {
+      try { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch {}
+    }
+  }, []);
+
   return (
-    <div style={{ marginBottom: 20 }}>
+    <div style={{ marginBottom: 16 }}>
       {/* Scroll container */}
       <div
         ref={scrollRef}
@@ -110,7 +121,7 @@ export default function VerseOfTheDay({ nav, ht }) {
           WebkitOverflowScrolling: "touch",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
-          borderRadius: 18,
+          borderRadius: 14,
           gap: 0,
         }}
       >
@@ -120,15 +131,13 @@ export default function VerseOfTheDay({ nav, ht }) {
           return (
             <div
               key={i}
-              onClick={() => handleNavigate(verse)}
               style={{
                 flex: "0 0 100%",
                 scrollSnapAlign: "start",
-                cursor: "pointer",
                 background: g.bg,
-                borderRadius: 18,
-                padding: "28px 24px 22px",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.08)",
+                borderRadius: 14,
+                padding: "16px 18px 12px",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.12)",
                 position: "relative",
                 overflow: "hidden",
                 boxSizing: "border-box",
@@ -136,52 +145,74 @@ export default function VerseOfTheDay({ nav, ht }) {
             >
               {/* Top accent line */}
               <div style={{
-                position: "absolute", top: 0, left: 0, right: 0, height: 4,
+                position: "absolute", top: 0, left: 0, right: 0, height: 3,
                 background: `linear-gradient(90deg, transparent, ${g.accent}, transparent)`,
               }} />
 
-              {/* Opening quote mark */}
-              <div style={{
-                fontFamily: "Georgia, 'Times New Roman', serif",
-                fontSize: 64, lineHeight: 1, color: g.quote,
-                position: "absolute", top: 8, left: 16, userSelect: "none",
-              }}>{"\u201C"}</div>
-
-              {/* Verse text */}
-              <div style={{
-                fontFamily: ht.body,
-                fontSize: "clamp(17px, 4.5vw, 21px)",
-                color: g.text,
-                lineHeight: 1.9,
-                fontStyle: "italic",
-                padding: "8px 0 16px 22px",
-              }}>
-                {verse.text}
+              {/* Verse text — compact */}
+              <div
+                onClick={() => handleNavigate(verse)}
+                style={{
+                  cursor: "pointer",
+                  fontFamily: ht.body,
+                  fontSize: "clamp(13px, 3.5vw, 16px)",
+                  color: g.text,
+                  lineHeight: 1.7,
+                  fontStyle: "italic",
+                  padding: "4px 0 8px 0",
+                }}
+              >
+                &ldquo;{verse.text}&rdquo;
               </div>
 
-              {/* Reference */}
-              <div style={{
-                fontFamily: ht.heading,
-                fontSize: 15, fontWeight: 700,
-                color: g.ref,
-                letterSpacing: "0.02em",
-                paddingLeft: 22,
-              }}>
-                — {verse.ref}
-              </div>
+              {/* Reference + actions row */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div
+                  onClick={() => handleNavigate(verse)}
+                  style={{
+                    cursor: "pointer",
+                    fontFamily: ht.heading,
+                    fontSize: 12, fontWeight: 700,
+                    color: g.ref,
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  — {verse.ref}
+                </div>
 
-              {/* Tap hint */}
-              <div style={{
-                fontFamily: ht.ui, fontSize: 10, color: g.hint,
-                textAlign: "center", marginTop: 14,
-              }}>
-                Tap to read in context
+                {/* Social icons — iOS style */}
+                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  {/* Heart */}
+                  <button onClick={(e) => { e.stopPropagation(); setLiked(!liked); }}
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: 2, display: "flex", transition: "transform 0.15s" }}
+                    aria-label="Like verse">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill={liked ? "#EF4444" : "none"} stroke={liked ? "#EF4444" : (g.hint || g.ref)} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                  </button>
+                  {/* Comment */}
+                  <button onClick={(e) => { e.stopPropagation(); handleNavigate(verse); }}
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: 2, display: "flex" }}
+                    aria-label="Read verse">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={g.hint || g.ref} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    </svg>
+                  </button>
+                  {/* Share */}
+                  <button onClick={(e) => { e.stopPropagation(); handleShare(verse); }}
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: 2, display: "flex", position: "relative" }}
+                    aria-label="Share verse">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={g.hint || g.ref} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
+                    </svg>
+                    {copied && <span style={{ position: "absolute", top: -20, left: "50%", transform: "translateX(-50%)", fontFamily: ht.ui, fontSize: 9, color: g.accent, whiteSpace: "nowrap", fontWeight: 600 }}>Copied!</span>}
+                  </button>
+                </div>
               </div>
             </div>
           );
         })}
       </div>
-
     </div>
   );
 }

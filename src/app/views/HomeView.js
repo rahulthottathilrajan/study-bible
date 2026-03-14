@@ -103,14 +103,18 @@ export default function HomeView() {
           </div>
           <button onClick={() => setDonateModal(true)} title="Support the Ministry" style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:10,padding:"5px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }}>
-              {/* Body + head */}
-              <path d="M13 7c-1.2 0-2.2.8-2.2 2 0 .5.2 1 .6 1.4L5 15.5s3.2-1 5.3-.2L12 18l1.7-2.7c2.1-.8 5.3.2 5.3.2l-5.6-5.1c.4-.4.6-.9.6-1.4 0-1.2-1-2-2-2z" fill="rgba(255,255,255,0.9)" stroke="rgba(255,255,255,0.6)" strokeWidth="0.3"/>
-              {/* Olive branch from beak */}
-              <path d="M15 8.5c1.2-.8 3-1 4.5-.5" stroke="#6B8E4E" strokeWidth="0.8" strokeLinecap="round" fill="none"/>
-              <ellipse cx="18" cy="7.5" rx="1.5" ry="0.8" transform="rotate(-20 18 7.5)" fill="#7DA85C" opacity="0.9"/>
-              <ellipse cx="19.8" cy="7.8" rx="1.2" ry="0.7" transform="rotate(-10 19.8 7.8)" fill="#6B9E4E" opacity="0.8"/>
+              {/* Descending dove — wings spread wide */}
+              <path d="M12 4c-.6 0-1.1.3-1.3.8L7 7.5C5.5 8.2 4 9.5 4 11c0 .8.3 1.4.8 1.8L3 15l3-1.5c.5.3 1.2.5 2 .5h4c.8 0 1.5-.2 2-.5L17 15l-1.8-2.2c.5-.4.8-1 .8-1.8 0-1.5-1.5-2.8-3-3.5l-3.7-2.7c-.2-.5-.7-.8-1.3-.8z" fill="rgba(255,255,255,0.92)" stroke="rgba(255,255,255,0.5)" strokeWidth="0.3"/>
+              {/* Left wing */}
+              <path d="M7 7.5C5 6 2.5 5.5 1 6" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+              {/* Right wing */}
+              <path d="M14 7.5c2-1.5 4.5-2 6-1.5" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+              {/* Olive branch below */}
+              <path d="M12 14v3.5" stroke="#7DA85C" strokeWidth="0.8" strokeLinecap="round"/>
+              <ellipse cx="10.5" cy="17" rx="1.8" ry="0.7" transform="rotate(-25 10.5 17)" fill="#7DA85C" opacity="0.9"/>
+              <ellipse cx="13.5" cy="17" rx="1.8" ry="0.7" transform="rotate(25 13.5 17)" fill="#6B9E4E" opacity="0.85"/>
             </svg>
-            <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.7)",letterSpacing:"0.05em" }}>GIVE</span>
+            <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.7)",letterSpacing:"0.05em" }}>SUPPORT</span>
           </button>
         </div>
         {/* ── ANIMATED ACCENT LINE ── */}
@@ -207,6 +211,17 @@ export default function HomeView() {
               );
             })}
           </div>
+          {/* ── STATS (compact) ── */}
+          <div style={{ display:"flex",justifyContent:"center",marginBottom:14 }}>
+            {[{n:"66",l:"Books"},{n:"1,189",l:"Chapters"},{n:"31,102",l:"Verses"}].map((s,i) => (
+              <div key={i} style={{ textAlign:"center",flex:1,borderRight:i<2?`1px solid ${ht.divider}`:"none",padding:"0 6px" }}>
+                <div style={{ fontFamily:ht.heading,fontSize:16,fontWeight:700,color:ht.dark,letterSpacing:"-0.02em" }}>{s.n}</div>
+                <div style={{ fontFamily:ht.ui,fontSize:8,fontWeight:600,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.08em",marginTop:1 }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+          {/* ── VERSE OF THE DAY ── */}
+          <VerseOfTheDay nav={nav} ht={ht} />
           {/* ── TODAY'S MANNA + LEARNING CENTRE ── */}
           <style>{`@keyframes navGlow { 0%,100% { border-color: rgba(212,168,83,0.35); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 6px rgba(212,168,83,0.1); } 50% { border-color: rgba(212,168,83,0.7); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
           <div style={{ display:"flex",gap:10,marginBottom:16 }}>
@@ -221,8 +236,6 @@ export default function HomeView() {
           </div>
           {/* ── CONTINUE READING ── */}
           <ContinueReading nav={nav} ht={ht} user={user} />
-          {/* ── VERSE OF THE DAY ── */}
-          <VerseOfTheDay nav={nav} ht={ht} />
 
           {/* ── QUIZ MASTER ── */}
           <div style={{ marginBottom: 22 }}>
@@ -285,21 +298,6 @@ export default function HomeView() {
             <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.accent,background:`${ht.accent}15`,padding:"3px 8px",borderRadius:20,textTransform:"uppercase",letterSpacing:"0.06em",flexShrink:0 }}>New</span>
           </button>
 
-          <div style={{ marginTop:22,position:"relative" }}>
-            <div style={{ display:"flex",alignItems:"center",gap:8,marginBottom:14 }}>
-              <div style={{ flex:1,height:1,background:ht.divider }}/>
-              <span style={{ fontFamily:ht.heading,fontSize:12,color:ht.muted,letterSpacing:"0.05em" }}>✦</span>
-              <div style={{ flex:1,height:1,background:ht.divider }}/>
-            </div>
-            <div style={{ display:"flex",justifyContent:"center" }}>
-              {[{n:"66",l:"Books"},{n:"1,189",l:"Chapters"},{n:"31,102",l:"Verses"}].map((s,i) => (
-                <div key={i} style={{ textAlign:"center",flex:1,borderRight:i<2?`1px solid ${ht.divider}`:"none",padding:"0 8px" }}>
-                  <div style={{ fontFamily:ht.heading,fontSize:24,fontWeight:700,color:ht.dark,letterSpacing:"-0.02em" }}>{s.n}</div>
-                  <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:600,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.1em",marginTop:2 }}>{s.l}</div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>
