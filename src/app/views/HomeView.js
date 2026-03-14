@@ -251,46 +251,60 @@ export default function HomeView() {
               <span>🐑</span> Little Disciples
             </div>
             <div style={{ display:"flex",gap:12,marginBottom:16 }}>
-              {/* Kids Card — Clay Tablet */}
-              <button onClick={() => nav("kids-curriculum-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 6px 16px rgba(0,0,0,0.25))" }}>
-                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #A0724A",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.15)" }}>
-                  <div style={{ background:"linear-gradient(160deg,#8B4513 0%,#A0522D 50%,#6B3410 100%)",padding:"16px 10px 12px",textAlign:"center",position:"relative",overflow:"hidden" }}>
-                    <div style={{ position:"absolute",inset:0,backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px),repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(255,255,255,0.02) 5px,rgba(255,255,255,0.02) 6px)" }}/>
-                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:56,color:"rgba(255,200,150,0.08)",fontWeight:700,userSelect:"none",lineHeight:1 }}>✝</div>
-                    <div style={{ position:"relative",zIndex:1,fontSize:26,marginBottom:6,filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}>🐑</div>
-                    <div style={{ fontFamily:"serif",fontSize:14,color:"#E8C070",lineHeight:1,textShadow:"0 1px 4px rgba(0,0,0,0.5)" }}>Ages 3–12</div>
+              {/* Kids Card — Warm Stained Glass */}
+              <button onClick={() => nav("kids-curriculum-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 6px 18px rgba(0,0,0,0.2))" }}>
+                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #C8963C",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.3)" }}>
+                  {/* Glass panel — warm rainbow light rays */}
+                  <div style={{ background:"linear-gradient(180deg,#1A1208 0%,#2A1A0A 100%)",padding:"18px 10px 14px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+                    {/* Radial light burst */}
+                    <div style={{ position:"absolute",top:"-20%",left:"50%",transform:"translateX(-50%)",width:"140%",height:"140%",background:"radial-gradient(ellipse at 50% 30%,rgba(255,200,80,0.18) 0%,rgba(255,120,50,0.1) 25%,rgba(200,80,180,0.06) 50%,transparent 70%)" }}/>
+                    {/* Lead caming lines (vertical) */}
+                    <div style={{ position:"absolute",top:0,left:"30%",width:"1px",height:"100%",background:"rgba(180,160,100,0.15)" }}/>
+                    <div style={{ position:"absolute",top:0,left:"70%",width:"1px",height:"100%",background:"rgba(180,160,100,0.15)" }}/>
+                    {/* Lead caming lines (horizontal) */}
+                    <div style={{ position:"absolute",top:"35%",left:0,width:"100%",height:"1px",background:"rgba(180,160,100,0.12)" }}/>
+                    <div style={{ position:"absolute",top:"70%",left:0,width:"100%",height:"1px",background:"rgba(180,160,100,0.1)" }}/>
+                    {/* Gothic arch glow */}
+                    <div style={{ position:"absolute",top:0,left:"15%",right:"15%",height:"60%",borderRadius:"0 0 50% 50%",background:"radial-gradient(ellipse at 50% 0%,rgba(255,220,100,0.12),transparent 70%)" }}/>
+                    <div style={{ position:"relative",zIndex:1,fontSize:28,marginBottom:6,filter:"drop-shadow(0 2px 8px rgba(255,180,50,0.4))" }}>🐑</div>
+                    <div style={{ position:"relative",zIndex:1,fontFamily:"serif",fontSize:14,color:"#F0D080",lineHeight:1,textShadow:"0 0 12px rgba(255,200,80,0.4),0 1px 3px rgba(0,0,0,0.6)" }}>Ages 3–12</div>
                   </div>
-                  <div style={{ background:"linear-gradient(180deg,#E8D8B8 0%,#D8C8A0 50%,#CCB888 100%)",padding:"14px 10px",textAlign:"center",flex:1,borderTop:"1px solid #A0724A",boxShadow:"inset 0 2px 6px rgba(0,0,0,0.12)" }}>
+                  {/* Info panel — warm cream */}
+                  <div style={{ background:"linear-gradient(180deg,#FFF8EC 0%,#F5E8D0 50%,#EDE0C4 100%)",padding:"14px 10px",textAlign:"center",flex:1,borderTop:"2px solid #C8963C",boxShadow:"inset 0 2px 8px rgba(200,150,60,0.1)" }}>
                     <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#3A2408",marginBottom:4 }}>Kids Church Curriculum</div>
-                    <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#A0724A,transparent)",borderRadius:2,margin:"0 auto 8px" }}/>
-                    <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#6B4A20",lineHeight:1.6,marginBottom:10 }}>52-Week Bible Study</div>
-                    <div style={{ display:"inline-block",padding:"5px 12px",borderRadius:4,background:"rgba(139,69,19,0.15)",border:"1px solid rgba(160,114,74,0.5)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.1)" }}>
-                      <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#5C3310",textTransform:"uppercase",letterSpacing:"0.07em" }}>Start Learning →</span>
+                    <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#C8963C,transparent)",borderRadius:2,margin:"0 auto 8px" }}/>
+                    <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#7A5A20",lineHeight:1.6,marginBottom:10 }}>52-Week Bible Study</div>
+                    <div style={{ display:"inline-block",padding:"5px 12px",borderRadius:4,background:"rgba(200,150,60,0.12)",border:"1px solid rgba(200,150,60,0.4)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.06)" }}>
+                      <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#6B4A10",textTransform:"uppercase",letterSpacing:"0.07em" }}>Explore →</span>
                     </div>
                   </div>
                 </div>
               </button>
-              {/* Teens Card — Obsidian Tablet */}
-              <button onClick={() => nav("teens-curriculum-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 6px 16px rgba(0,0,0,0.25))" }}>
-                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #6B5B8A",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.2)" }}>
-                  <div style={{ background:"linear-gradient(160deg,#1A1030 0%,#2D1B4E 50%,#120A20 100%)",padding:"16px 10px 12px",textAlign:"center",position:"relative",overflow:"hidden" }}>
-                    <div style={{ position:"absolute",inset:0,backgroundImage:"repeating-linear-gradient(125deg,transparent,transparent 8px,rgba(255,255,255,0.015) 8px,rgba(255,255,255,0.015) 9px)" }}/>
-                    <div style={{ position:"absolute",top:"20%",left:"-10%",width:"120%",height:"1px",background:"rgba(160,140,255,0.08)",transform:"rotate(-15deg)" }}/>
-                    <div style={{ position:"absolute",top:"55%",left:"-10%",width:"120%",height:"1px",background:"rgba(160,140,255,0.06)",transform:"rotate(-15deg)" }}/>
-                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:56,color:"rgba(160,140,255,0.07)",fontWeight:700,userSelect:"none",lineHeight:1 }}>✦</div>
-                    <div style={{ position:"relative",zIndex:1,fontSize:26,marginBottom:6,filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}>🔥</div>
-                    <div style={{ fontFamily:"serif",fontSize:14,color:"#A78BFA",lineHeight:1,textShadow:"0 1px 4px rgba(0,0,0,0.5)" }}>Ages 13–18</div>
+              {/* Teens Card — Deep Jewel Stained Glass */}
+              <button onClick={() => nav("teens-curriculum-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 6px 18px rgba(0,0,0,0.22))" }}>
+                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #5B4A8A",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.2)" }}>
+                  {/* Glass panel — deep jewel tones */}
+                  <div style={{ background:"linear-gradient(180deg,#0A0818 0%,#14102A 100%)",padding:"18px 10px 14px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+                    {/* Radial light burst — cool jewel */}
+                    <div style={{ position:"absolute",top:"-20%",left:"50%",transform:"translateX(-50%)",width:"140%",height:"140%",background:"radial-gradient(ellipse at 50% 30%,rgba(120,80,255,0.18) 0%,rgba(80,50,200,0.1) 25%,rgba(50,100,220,0.06) 50%,transparent 70%)" }}/>
+                    {/* Lead caming lines (vertical) */}
+                    <div style={{ position:"absolute",top:0,left:"30%",width:"1px",height:"100%",background:"rgba(140,120,200,0.15)" }}/>
+                    <div style={{ position:"absolute",top:0,left:"70%",width:"1px",height:"100%",background:"rgba(140,120,200,0.15)" }}/>
+                    {/* Lead caming lines (horizontal) */}
+                    <div style={{ position:"absolute",top:"35%",left:0,width:"100%",height:"1px",background:"rgba(140,120,200,0.12)" }}/>
+                    <div style={{ position:"absolute",top:"70%",left:0,width:"100%",height:"1px",background:"rgba(140,120,200,0.1)" }}/>
+                    {/* Gothic arch glow */}
+                    <div style={{ position:"absolute",top:0,left:"15%",right:"15%",height:"60%",borderRadius:"0 0 50% 50%",background:"radial-gradient(ellipse at 50% 0%,rgba(120,80,255,0.12),transparent 70%)" }}/>
+                    <div style={{ position:"relative",zIndex:1,fontSize:28,marginBottom:6,filter:"drop-shadow(0 2px 8px rgba(120,80,255,0.4))" }}>🔥</div>
+                    <div style={{ position:"relative",zIndex:1,fontFamily:"serif",fontSize:14,color:"#B8A0F0",lineHeight:1,textShadow:"0 0 12px rgba(120,80,255,0.4),0 1px 3px rgba(0,0,0,0.6)" }}>Ages 13–18</div>
                   </div>
-                  <div style={{ background:"linear-gradient(180deg,#D8D0E8 0%,#C8C0D8 50%,#B8B0CC 100%)",padding:"14px 10px",textAlign:"center",flex:1,borderTop:"1px solid #6B5B8A",boxShadow:"inset 0 2px 6px rgba(0,0,0,0.08)",position:"relative",overflow:"hidden" }}>
-                    <div style={{ position:"absolute",top:"15%",left:"-5%",width:"110%",height:"1px",background:"rgba(100,80,160,0.08)",transform:"rotate(-8deg)" }}/>
-                    <div style={{ position:"absolute",top:"60%",left:"-5%",width:"110%",height:"1px",background:"rgba(100,80,160,0.06)",transform:"rotate(-8deg)" }}/>
-                    <div style={{ position:"relative",zIndex:1 }}>
-                      <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#1A1030",marginBottom:4 }}>Teens Bible Study</div>
-                      <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#6B5B8A,transparent)",borderRadius:2,margin:"0 auto 8px" }}/>
-                      <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#3A3060",lineHeight:1.6,marginBottom:10 }}>52-Week Deep Study</div>
-                      <div style={{ display:"inline-block",padding:"5px 12px",borderRadius:4,background:"rgba(26,16,48,0.12)",border:"1px solid rgba(107,91,138,0.5)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.08)" }}>
-                        <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#2A1A4A",textTransform:"uppercase",letterSpacing:"0.07em" }}>Start Learning →</span>
-                      </div>
+                  {/* Info panel — cool lavender */}
+                  <div style={{ background:"linear-gradient(180deg,#F0ECF8 0%,#E4DEF0 50%,#D8D0E8 100%)",padding:"14px 10px",textAlign:"center",flex:1,borderTop:"2px solid #5B4A8A",boxShadow:"inset 0 2px 8px rgba(91,74,138,0.08)" }}>
+                    <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#1A1030",marginBottom:4 }}>Teens Bible Study</div>
+                    <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#5B4A8A,transparent)",borderRadius:2,margin:"0 auto 8px" }}/>
+                    <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#4A3A6A",lineHeight:1.6,marginBottom:10 }}>52-Week Deep Study</div>
+                    <div style={{ display:"inline-block",padding:"5px 12px",borderRadius:4,background:"rgba(91,74,138,0.1)",border:"1px solid rgba(91,74,138,0.35)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.06)" }}>
+                      <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#2A1A4A",textTransform:"uppercase",letterSpacing:"0.07em" }}>Explore →</span>
                     </div>
                   </div>
                 </div>
