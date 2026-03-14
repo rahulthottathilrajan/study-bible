@@ -22,7 +22,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com data:",
               "img-src 'self' data: blob: https:",
-              "media-src 'self' blob: https://bible.helloao.org https://*.helloao.org",
+              "media-src 'self' blob: https://bible.helloao.org https://*.helloao.org https://*.supabase.co",
               "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com https://bible.helloao.org https://*.helloao.org",
               "frame-src https://js.stripe.com https://checkout.stripe.com https://hooks.stripe.com",
               "worker-src 'self' blob:",
