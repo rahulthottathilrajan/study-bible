@@ -172,68 +172,37 @@ export default function HomeView() {
       )}
       <div style={{ padding:`22px ${bp.pad}px 40px` }}>
         <div style={{ maxWidth:bp.content,margin:"0 auto" }}>
-          {/* ── OT / NT MINI PARCHMENT SCROLLS WITH CROSS ── */}
-          <div style={{ display:"flex",gap:0,marginBottom:16,alignItems:"center" }}>
-            {/* OT Scroll */}
-            {(() => { const st = THEMES["garden"]; return (
-              <button onClick={() => nav("books",{testament:"OT"})}
-                style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,display:"flex",flexDirection:"column",filter:"drop-shadow(0 3px 8px rgba(0,0,0,0.15))" }}>
-                <div style={{ height:12,background:st.headerGradient,borderRadius:"8px 8px 0 0",position:"relative",overflow:"hidden" }}>
-                  <div style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"50%",height:4,background:"rgba(255,255,255,0.12)",borderRadius:8 }}/>
-                </div>
-                <div style={{ background:darkMode?"linear-gradient(180deg,#2A2620 0%,#231F1A 40%,#2A2620 100%)":"linear-gradient(180deg,#FEF3D8 0%,#FAE8BB 40%,#FEF3D8 100%)",padding:"10px 6px 8px",borderLeft:"1px solid rgba(180,140,60,0.3)",borderRight:"1px solid rgba(180,140,60,0.3)",textAlign:"center",flex:1 }}>
-                  <div style={{ fontSize:18,marginBottom:3,filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.15))" }}>📜</div>
-                  <div style={{ fontFamily:ht.heading,fontSize:10,fontWeight:700,color:st.dark,lineHeight:1.3,marginBottom:2 }}>Old Testament</div>
-                  <div style={{ width:16,height:1.5,background:st.accent,borderRadius:2,margin:"0 auto 3px" }}/>
-                  <div style={{ fontFamily:ht.ui,fontSize:8,color:st.muted,letterSpacing:"0.02em" }}>39 Books</div>
-                  <div style={{ fontFamily:"'Times New Roman',serif",fontSize:11,color:st.accent,fontWeight:700,marginTop:4,direction:"rtl",lineHeight:1.3 }}>{"\u05D1\u05B0\u05BC\u05E8\u05B5\u05D0\u05E9\u05C1\u05B4\u05D9\u05EA"}</div>
-                  <div style={{ fontFamily:ht.body,fontSize:7.5,color:st.muted,fontStyle:"italic",lineHeight:1.4 }}>In the Beginning</div>
-                </div>
-                <div style={{ height:12,background:st.headerGradient,borderRadius:"0 0 8px 8px",position:"relative",overflow:"hidden" }}>
-                  <div style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"50%",height:4,background:"rgba(255,255,255,0.12)",borderRadius:8 }}/>
-                </div>
-              </button>
-            ); })()}
-            {/* ── Cross with Maroon Shawl ── */}
-            <div style={{ width:36,flexShrink:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",position:"relative" }}>
-              <svg width="30" height="60" viewBox="0 0 30 60" fill="none" style={{ filter:"drop-shadow(0 2px 6px rgba(0,0,0,0.2))" }}>
-                {/* Shawl draped over crossbar */}
-                <path d="M3 18 Q8 22 15 20 Q22 22 27 18 Q25 28 22 32 Q18 30 15 34 Q12 30 8 32 Q5 28 3 18Z" fill="#6B1A2A" opacity="0.85"/>
-                <path d="M5 19 Q9 22 15 20.5 Q21 22 25 19 Q23 27 20 30 Q17 28 15 31 Q13 28 10 30 Q7 27 5 19Z" fill="#8B2040" opacity="0.7"/>
-                {/* Shawl folds/highlight */}
-                <path d="M8 20 Q12 22 15 21" stroke="rgba(255,255,255,0.12)" strokeWidth="0.5" fill="none"/>
-                <path d="M15 21 Q18 22 22 20" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" fill="none"/>
-                {/* Wooden cross */}
-                <rect x="13" y="6" width="4" height="48" rx="1.5" fill="#5C3D1A" stroke="#3A2410" strokeWidth="0.5"/>
-                <rect x="5" y="16" width="20" height="4" rx="1.5" fill="#5C3D1A" stroke="#3A2410" strokeWidth="0.5"/>
-                {/* Wood grain */}
-                <line x1="14.5" y1="8" x2="14.5" y2="52" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5"/>
-                <line x1="15.5" y1="6" x2="15.5" y2="54" stroke="rgba(0,0,0,0.08)" strokeWidth="0.3"/>
-                <line x1="6" y1="17.5" x2="24" y2="17.5" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5"/>
-                {/* Nails */}
-                <circle cx="15" cy="18" r="1.2" fill="#8A8A8A" stroke="#555" strokeWidth="0.3"/>
-              </svg>
+          {/* ── OT / NT MINI PARCHMENT SCROLLS WITH CROSS OVERLAY ── */}
+          <div style={{ position:"relative",marginBottom:16 }}>
+            <div style={{ display:"flex",gap:10 }}>
+              {[
+                { t:"OT", l:"Old Testament", s:"39 Books", o:"\u05D1\u05B0\u05BC\u05E8\u05B5\u05D0\u05E9\u05C1\u05B4\u05D9\u05EA", om:"In the Beginning", thm:"garden", icon:"\uD83D\uDCDC" },
+                { t:"NT", l:"New Testament", s:"27 Books", o:"\u039A\u03B1\u03B9\u03BD\u1F74 \u0394\u03B9\u03B1\u03B8\u03AE\u03BA\u03B7", om:"The New Covenant", thm:"ocean", icon:"\u271D\uFE0F" },
+              ].map(item => {
+                const st = THEMES[item.thm];
+                return (
+                  <button key={item.t} onClick={() => nav("books",{testament:item.t})}
+                    style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,display:"flex",flexDirection:"column",filter:"drop-shadow(0 3px 8px rgba(0,0,0,0.15))" }}>
+                    <div style={{ height:12,background:st.headerGradient,borderRadius:"8px 8px 0 0",position:"relative",overflow:"hidden" }}>
+                      <div style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"50%",height:4,background:"rgba(255,255,255,0.12)",borderRadius:8 }}/>
+                    </div>
+                    <div style={{ background:darkMode?"linear-gradient(180deg,#2A2620 0%,#231F1A 40%,#2A2620 100%)":"linear-gradient(180deg,#FEF3D8 0%,#FAE8BB 40%,#FEF3D8 100%)",padding:"10px 6px 8px",borderLeft:"1px solid rgba(180,140,60,0.3)",borderRight:"1px solid rgba(180,140,60,0.3)",textAlign:"center",flex:1 }}>
+                      <div style={{ fontSize:18,marginBottom:3,filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.15))" }}>{item.icon}</div>
+                      <div style={{ fontFamily:ht.heading,fontSize:10,fontWeight:700,color:st.dark,lineHeight:1.3,marginBottom:2 }}>{item.l}</div>
+                      <div style={{ width:16,height:1.5,background:st.accent,borderRadius:2,margin:"0 auto 3px" }}/>
+                      <div style={{ fontFamily:ht.ui,fontSize:8,color:st.muted,letterSpacing:"0.02em" }}>{item.s}</div>
+                      <div style={{ fontFamily:"'Times New Roman',serif",fontSize:item.t==="OT"?11:9,color:st.accent,fontWeight:700,marginTop:4,direction:item.t==="OT"?"rtl":"ltr",lineHeight:1.3 }}>{item.o}</div>
+                      <div style={{ fontFamily:ht.body,fontSize:7.5,color:st.muted,fontStyle:"italic",lineHeight:1.4 }}>{item.om}</div>
+                    </div>
+                    <div style={{ height:12,background:st.headerGradient,borderRadius:"0 0 8px 8px",position:"relative",overflow:"hidden" }}>
+                      <div style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"50%",height:4,background:"rgba(255,255,255,0.12)",borderRadius:8 }}/>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
-            {/* NT Scroll */}
-            {(() => { const st = THEMES["ocean"]; return (
-              <button onClick={() => nav("books",{testament:"NT"})}
-                style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,display:"flex",flexDirection:"column",filter:"drop-shadow(0 3px 8px rgba(0,0,0,0.15))" }}>
-                <div style={{ height:12,background:st.headerGradient,borderRadius:"8px 8px 0 0",position:"relative",overflow:"hidden" }}>
-                  <div style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"50%",height:4,background:"rgba(255,255,255,0.12)",borderRadius:8 }}/>
-                </div>
-                <div style={{ background:darkMode?"linear-gradient(180deg,#2A2620 0%,#231F1A 40%,#2A2620 100%)":"linear-gradient(180deg,#FEF3D8 0%,#FAE8BB 40%,#FEF3D8 100%)",padding:"10px 6px 8px",borderLeft:"1px solid rgba(180,140,60,0.3)",borderRight:"1px solid rgba(180,140,60,0.3)",textAlign:"center",flex:1 }}>
-                  <div style={{ fontSize:18,marginBottom:3,filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.15))" }}>✝️</div>
-                  <div style={{ fontFamily:ht.heading,fontSize:10,fontWeight:700,color:st.dark,lineHeight:1.3,marginBottom:2 }}>New Testament</div>
-                  <div style={{ width:16,height:1.5,background:st.accent,borderRadius:2,margin:"0 auto 3px" }}/>
-                  <div style={{ fontFamily:ht.ui,fontSize:8,color:st.muted,letterSpacing:"0.02em" }}>27 Books</div>
-                  <div style={{ fontFamily:"'Times New Roman',serif",fontSize:9,color:st.accent,fontWeight:700,marginTop:4,direction:"ltr",lineHeight:1.3 }}>{"\u039A\u03B1\u03B9\u03BD\u1F74 \u0394\u03B9\u03B1\u03B8\u03AE\u03BA\u03B7"}</div>
-                  <div style={{ fontFamily:ht.body,fontSize:7.5,color:st.muted,fontStyle:"italic",lineHeight:1.4 }}>The New Covenant</div>
-                </div>
-                <div style={{ height:12,background:st.headerGradient,borderRadius:"0 0 8px 8px",position:"relative",overflow:"hidden" }}>
-                  <div style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"50%",height:4,background:"rgba(255,255,255,0.12)",borderRadius:8 }}/>
-                </div>
-              </button>
-            ); })()}
+            {/* Cross with shawl — overlaid on top, centered between scrolls */}
+            <img src="/images/cross-shawl.png" alt="" style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:56,height:56,objectFit:"contain",pointerEvents:"none",filter:"drop-shadow(0 2px 6px rgba(0,0,0,0.3))",zIndex:1 }}/>
           </div>
           {/* ── STATS (compact) ── */}
           <div style={{ display:"flex",justifyContent:"center",marginBottom:14 }}>
