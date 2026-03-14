@@ -5,9 +5,9 @@ import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
 import GoToBar from "../components/GoToBar";
 import UtilityStrip from "../components/UtilityStrip";
-import { BIRTHDAY_VERSES } from "../constants";
+import { BIRTHDAY_VERSES, THEMES } from "../constants";
 
-function PodcastCard({ ht, nav }) {
+function MannaCard({ ht, nav }) {
   const { loadPodcastIndex, loadPodcastSeries, playPodcastEpisode, podcastListenedEpisodes } = useApp();
   const [featuredEp, setFeaturedEp] = useState(null);
   const loaded = useRef(false);
@@ -29,55 +29,23 @@ function PodcastCard({ ht, nav }) {
     })();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (!featuredEp) return null;
+  const subtitle = featuredEp ? featuredEp.episode.title : "Daily Devotional";
 
   return (
-    <div style={{ marginBottom: 22 }}>
-      <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 14, display: "flex", alignItems: "center", gap: 8 }}>
-        <span style={{ fontSize: 14 }}>&#x1F399;&#xFE0F;</span> Today's Word
+    <button onClick={() => {
+      if (featuredEp) {
+        playPodcastEpisode(featuredEp.series.slug, featuredEp.epNum, featuredEp.episode, featuredEp.series.title, featuredEp.series.artwork);
+        nav("podcast-episode", { podcastSeries: featuredEp.series.slug, podcastEpisode: featuredEp.epNum });
+      } else {
+        nav("podcast-home");
+      }
+    }} style={{ flex:1,display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:12,border:"1px solid rgba(212,168,83,0.35)",background:ht.headerGradient,cursor:"pointer",animation:"navGlow 3s ease-in-out infinite" }}>
+      <span style={{ fontSize:18 }}>{"\uD83C\uDF3E"}</span>
+      <div style={{ minWidth:0 }}>
+        <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>Today&apos;s Manna</div>
+        <div style={{ fontFamily:ht.ui,fontSize:8,color:`${ht.headerText}77`,marginTop:1,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{subtitle}</div>
       </div>
-      <button
-        className="pressable"
-        onClick={() => {
-          playPodcastEpisode(featuredEp.series.slug, featuredEp.epNum, featuredEp.episode, featuredEp.series.title, featuredEp.series.artwork);
-          nav("podcast-episode", { podcastSeries: featuredEp.series.slug, podcastEpisode: featuredEp.epNum });
-        }}
-        style={{
-          width: "100%", textAlign: "left", cursor: "pointer", border: "none",
-          background: `linear-gradient(135deg, ${ht.accent}12, ${ht.card})`,
-          borderRadius: 14, padding: "18px 18px",
-          display: "flex", alignItems: "center", gap: 14,
-          position: "relative", overflow: "hidden",
-          boxShadow: `0 1px 4px rgba(0,0,0,0.06)`,
-        }}
-      >
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${ht.accent}, ${ht.accent}88, ${ht.accent})`, opacity: 0.6, borderRadius: "0 0 14px 14px" }} />
-        <div style={{
-          width: 52, height: 52, borderRadius: 14, flexShrink: 0,
-          background: `${ht.accent}20`,
-          display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28,
-        }}>
-          &#x1F399;&#xFE0F;
-        </div>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontFamily: ht.heading, fontSize: 16, fontWeight: 700, color: ht.dark, lineHeight: 1.3 }}>
-            {featuredEp.episode.title}
-          </div>
-          <div style={{ fontFamily: ht.ui, fontSize: 11, color: ht.accent, fontWeight: 600, marginTop: 1 }}>
-            {featuredEp.series.title} · {Math.ceil(featuredEp.episode.duration / 60)} min
-          </div>
-          <div style={{ fontFamily: ht.ui, fontSize: 12, color: ht.muted, marginTop: 4, lineHeight: 1.6 }}>
-            {featuredEp.episode.description?.length > 80 ? featuredEp.episode.description.slice(0, 80) + "..." : featuredEp.episode.description}
-          </div>
-        </div>
-        <div style={{
-          width: 36, height: 36, borderRadius: "50%", flexShrink: 0,
-          background: ht.accent, display: "flex", alignItems: "center", justifyContent: "center",
-        }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </button>
-    </div>
+    </button>
   );
 }
 
@@ -211,47 +179,48 @@ export default function HomeView() {
       )}
       <div style={{ padding:`22px ${bp.pad}px 40px` }}>
         <div style={{ maxWidth:bp.content,margin:"0 auto" }}>
-          {/* ── SEARCH BAR ── */}
-          <style>{`@keyframes searchGlow { 0%,100% { border-color: rgba(128,90,213,0.5); box-shadow: inset 0 1px 3px rgba(0,0,0,0.06), 0 0 6px rgba(128,90,213,0.15); } 50% { border-color: rgba(212,168,83,0.55); box-shadow: inset 0 1px 3px rgba(0,0,0,0.06), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
-          <button onClick={() => nav("search")} style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"14px 18px",borderRadius:14,border:"1.5px solid rgba(128,90,213,0.5)",background:ht.card,cursor:"pointer",marginBottom:16,animation:"searchGlow 3s ease-in-out infinite" }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <span style={{ fontFamily:ht.ui,fontSize:14,color:ht.light,fontWeight:500 }}>Search the Scriptures...</span>
-          </button>
-          {/* ── QUICK NAV STRIPS ── */}
+          {/* ── OT / NT MINI PARCHMENT SCROLLS ── */}
+          <div style={{ display:"flex",gap:10,marginBottom:16 }}>
+            {[
+              { t:"OT", l:"Old Testament", s:"39 Books", o:"\u05D1\u05B0\u05BC\u05E8\u05B5\u05D0\u05E9\u05C1\u05B4\u05D9\u05EA", om:"In the Beginning", thm:"garden", icon:"\uD83D\uDCDC" },
+              { t:"NT", l:"New Testament", s:"27 Books", o:"\u039A\u03B1\u03B9\u03BD\u1F74 \u0394\u03B9\u03B1\u03B8\u03AE\u03BA\u03B7", om:"The New Covenant", thm:"ocean", icon:"\u271D\uFE0F" },
+            ].map(item => {
+              const st = THEMES[item.thm];
+              return (
+                <button key={item.t} onClick={() => nav("books",{testament:item.t})}
+                  style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,display:"flex",flexDirection:"column",filter:"drop-shadow(0 3px 8px rgba(0,0,0,0.15))" }}>
+                  <div style={{ height:12,background:st.headerGradient,borderRadius:"8px 8px 0 0",position:"relative",overflow:"hidden" }}>
+                    <div style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"50%",height:4,background:"rgba(255,255,255,0.12)",borderRadius:8 }}/>
+                  </div>
+                  <div style={{ background:darkMode?"linear-gradient(180deg,#2A2620 0%,#231F1A 40%,#2A2620 100%)":"linear-gradient(180deg,#FEF3D8 0%,#FAE8BB 40%,#FEF3D8 100%)",padding:"10px 6px 8px",borderLeft:"1px solid rgba(180,140,60,0.3)",borderRight:"1px solid rgba(180,140,60,0.3)",textAlign:"center",flex:1 }}>
+                    <div style={{ fontSize:18,marginBottom:3,filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.15))" }}>{item.icon}</div>
+                    <div style={{ fontFamily:ht.heading,fontSize:10,fontWeight:700,color:st.dark,lineHeight:1.3,marginBottom:2 }}>{item.l}</div>
+                    <div style={{ width:16,height:1.5,background:st.accent,borderRadius:2,margin:"0 auto 3px" }}/>
+                    <div style={{ fontFamily:ht.ui,fontSize:8,color:st.muted,letterSpacing:"0.02em" }}>{item.s}</div>
+                    <div style={{ fontFamily:"'Times New Roman',serif",fontSize:item.t==="OT"?11:9,color:st.accent,fontWeight:700,marginTop:4,direction:item.t==="OT"?"rtl":"ltr",lineHeight:1.3 }}>{item.o}</div>
+                    <div style={{ fontFamily:ht.body,fontSize:7.5,color:st.muted,fontStyle:"italic",lineHeight:1.4 }}>{item.om}</div>
+                  </div>
+                  <div style={{ height:12,background:st.headerGradient,borderRadius:"0 0 8px 8px",position:"relative",overflow:"hidden" }}>
+                    <div style={{ position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"50%",height:4,background:"rgba(255,255,255,0.12)",borderRadius:8 }}/>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+          {/* ── TODAY'S MANNA + LEARNING CENTRE ── */}
           <style>{`@keyframes navGlow { 0%,100% { border-color: rgba(212,168,83,0.35); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 6px rgba(212,168,83,0.1); } 50% { border-color: rgba(212,168,83,0.7); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
           <div style={{ display:"flex",gap:10,marginBottom:16 }}>
-            <button onClick={() => nav("books")} style={{ flex:1,display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:12,border:"1px solid rgba(212,168,83,0.35)",background:ht.headerGradient,cursor:"pointer",animation:"navGlow 3s ease-in-out infinite" }}>
-              <span style={{ fontSize:18 }}>📖</span>
-              <div>
-                <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>The Holy Bible</div>
-                <div style={{ fontFamily:ht.ui,fontSize:8,color:`${ht.headerText}77`,marginTop:1 }}>66 Books · KJV</div>
-              </div>
-            </button>
+            <MannaCard ht={ht} nav={nav} />
             <button onClick={() => nav("learn-home")} style={{ flex:1,display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:12,border:"1px solid rgba(212,168,83,0.35)",background:ht.headerGradient,cursor:"pointer",animation:"navGlow 3s ease-in-out infinite" }}>
-              <span style={{ fontSize:18 }}>🎓</span>
+              <span style={{ fontSize:18 }}>{"\uD83C\uDF93"}</span>
               <div>
                 <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>Learning Centre</div>
                 <div style={{ fontFamily:ht.ui,fontSize:8,color:`${ht.headerText}77`,marginTop:1 }}>Languages · History</div>
               </div>
             </button>
           </div>
-          {/* ── THE STORE CARD ── */}
-          <button onClick={() => nav("shop-home")} className="pressable" style={{ width:"100%",display:"flex",alignItems:"center",gap:14,padding:"14px 16px",borderRadius:14,border:`1px solid ${ht.accentBorder}`,background:`linear-gradient(135deg,${ht.accent}10,${ht.accent}05)`,cursor:"pointer",marginBottom:16,textAlign:"left" }}>
-            <div style={{ width:44,height:44,borderRadius:12,background:`${ht.accent}18`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
-              </svg>
-            </div>
-            <div style={{ flex:1 }}>
-              <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:ht.dark,lineHeight:1.2 }}>The Store</div>
-              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:2 }}>Books · Clothing · Stickers</div>
-            </div>
-            <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.accent,background:`${ht.accent}15`,padding:"3px 8px",borderRadius:20,textTransform:"uppercase",letterSpacing:"0.06em",flexShrink:0 }}>New</span>
-          </button>
-          {/* ── CONTINUE READING (WhatsApp status bar) ── */}
+          {/* ── CONTINUE READING ── */}
           <ContinueReading nav={nav} ht={ht} user={user} />
-          {/* ── TODAY'S WORD (Podcast) ── */}
-          <PodcastCard ht={ht} nav={nav} />
           {/* ── VERSE OF THE DAY ── */}
           <VerseOfTheDay nav={nav} ht={ht} />
 
@@ -301,6 +270,20 @@ export default function HomeView() {
               <div style={{ background:"rgba(79,70,229,0.12)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#4F46E5",textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>New ✦</div>
             </div>
           </div>
+
+          {/* ── THE STORE ── */}
+          <button onClick={() => nav("shop-home")} className="pressable" style={{ width:"100%",display:"flex",alignItems:"center",gap:14,padding:"14px 16px",borderRadius:14,border:`1px solid ${ht.accentBorder}`,background:`linear-gradient(135deg,${ht.accent}10,${ht.accent}05)`,cursor:"pointer",marginBottom:16,textAlign:"left" }}>
+            <div style={{ width:44,height:44,borderRadius:12,background:`${ht.accent}18`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+              </svg>
+            </div>
+            <div style={{ flex:1 }}>
+              <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:ht.dark,lineHeight:1.2 }}>The Store</div>
+              <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:2 }}>Books · Clothing · Stickers</div>
+            </div>
+            <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:ht.accent,background:`${ht.accent}15`,padding:"3px 8px",borderRadius:20,textTransform:"uppercase",letterSpacing:"0.06em",flexShrink:0 }}>New</span>
+          </button>
 
           <div style={{ marginTop:22,position:"relative" }}>
             <div style={{ display:"flex",alignItems:"center",gap:8,marginBottom:14 }}>

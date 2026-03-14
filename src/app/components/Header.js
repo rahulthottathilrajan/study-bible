@@ -32,7 +32,7 @@ export default function Header({ title, subtitle, onBack, right, theme, hidePray
       </div>
       {/* ── ANIMATED ACCENT LINE ── */}
       <div style={{ height:2,background:`linear-gradient(90deg,${hex2rgba(ac,0.6)},${hex2rgba(ht,0.9)},${hex2rgba(ac,0.8)},${hex2rgba(ht,0.95)},${hex2rgba(ac,0.6)})`,backgroundSize:"200% 100%",animation:"goldFlow 3s linear infinite",marginTop:6 }}/>
-      <GoToBar />
+      <GoToBar showUtilities />
       <UtilityStrip theme={th} showFontSize={showFontSize} />
       {bottomSlot && <div style={{ padding:`6px 0 8px` }}>{bottomSlot}</div>}
     </div>
