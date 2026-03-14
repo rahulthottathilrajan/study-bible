@@ -250,26 +250,51 @@ export default function HomeView() {
             <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:14,display:"flex",alignItems:"center",gap:8 }}>
               <span>🐑</span> Little Disciples
             </div>
-            <div onClick={() => nav("kids-curriculum-home")} style={{ background:"linear-gradient(135deg,rgba(212,168,83,0.08),rgba(139,92,246,0.06))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"20px 18px",display:"flex",alignItems:"center",gap:14,cursor:"pointer",position:"relative",overflow:"hidden" }}>
-              <div style={{ position:"absolute",bottom:0,left:0,right:0,height:3,background:"linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF, #9B59B6)",borderRadius:"0 0 14px 14px" }}/>
-              <div style={{ width:56,height:56,borderRadius:14,background:"linear-gradient(135deg,rgba(212,168,83,0.3),rgba(139,92,246,0.3))",display:"flex",alignItems:"center",justifyContent:"center",fontSize:32,flexShrink:0 }}>🐑</div>
-              <div style={{ flex:1 }}>
-                <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>Kids Church Curriculum</div>
-                <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.accent,fontWeight:600,marginTop:1 }}>52-Week Bible Study · Ages 3–12</div>
-                <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>Age-grouped lessons that bring Scripture alive for the next generation — from toddlers to preteens.</div>
-              </div>
-              <div style={{ background:"rgba(16,185,129,0.12)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>New ✦</div>
-            </div>
-            {/* Teens Deep Study */}
-            <div onClick={() => nav("teens-curriculum-home")} style={{ background:"linear-gradient(135deg,rgba(79,70,229,0.08),rgba(124,58,237,0.06))",border:`1px solid ${ht.accentBorder}`,borderRadius:14,padding:"20px 18px",display:"flex",alignItems:"center",gap:14,cursor:"pointer",position:"relative",overflow:"hidden",marginTop:10 }}>
-              <div style={{ position:"absolute",bottom:0,left:0,right:0,height:3,background:"linear-gradient(90deg, #4F46E5, #7C3AED, #818CF8)",borderRadius:"0 0 14px 14px" }}/>
-              <div style={{ width:56,height:56,borderRadius:14,background:"linear-gradient(135deg,rgba(79,70,229,0.3),rgba(124,58,237,0.3))",display:"flex",alignItems:"center",justifyContent:"center",fontSize:32,flexShrink:0 }}>{"\uD83D\uDD25"}</div>
-              <div style={{ flex:1 }}>
-                <div style={{ fontFamily:ht.heading,fontSize:17,fontWeight:700,color:ht.dark,lineHeight:1.3 }}>Teens Bible Study</div>
-                <div style={{ fontFamily:ht.ui,fontSize:11,color:"#4F46E5",fontWeight:600,marginTop:1 }}>52-Week Deep Study · Ages 13–18</div>
-                <div style={{ fontFamily:ht.ui,fontSize:12,color:ht.muted,marginTop:4,lineHeight:1.7 }}>Two-hour sessions with word studies, prophecy, apologetics, and faith stories.</div>
-              </div>
-              <div style={{ background:"rgba(79,70,229,0.12)",borderRadius:6,padding:"3px 10px",fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"#4F46E5",textTransform:"uppercase",letterSpacing:"0.05em",flexShrink:0 }}>New ✦</div>
+            <div style={{ display:"flex",gap:12,marginBottom:16 }}>
+              {/* Kids Card — Clay Tablet */}
+              <button onClick={() => nav("kids-curriculum-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 6px 16px rgba(0,0,0,0.25))" }}>
+                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #A0724A",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.15)" }}>
+                  <div style={{ background:"linear-gradient(160deg,#8B4513 0%,#A0522D 50%,#6B3410 100%)",padding:"16px 10px 12px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+                    <div style={{ position:"absolute",inset:0,backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px),repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(255,255,255,0.02) 5px,rgba(255,255,255,0.02) 6px)" }}/>
+                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:56,color:"rgba(255,200,150,0.08)",fontWeight:700,userSelect:"none",lineHeight:1 }}>✝</div>
+                    <div style={{ position:"relative",zIndex:1,fontSize:26,marginBottom:6,filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}>🐑</div>
+                    <div style={{ fontFamily:"serif",fontSize:14,color:"#E8C070",lineHeight:1,textShadow:"0 1px 4px rgba(0,0,0,0.5)" }}>Ages 3–12</div>
+                  </div>
+                  <div style={{ background:"linear-gradient(180deg,#E8D8B8 0%,#D8C8A0 50%,#CCB888 100%)",padding:"14px 10px",textAlign:"center",flex:1,borderTop:"1px solid #A0724A",boxShadow:"inset 0 2px 6px rgba(0,0,0,0.12)" }}>
+                    <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#3A2408",marginBottom:4 }}>Kids Church Curriculum</div>
+                    <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#A0724A,transparent)",borderRadius:2,margin:"0 auto 8px" }}/>
+                    <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#6B4A20",lineHeight:1.6,marginBottom:10 }}>52-Week Bible Study</div>
+                    <div style={{ display:"inline-block",padding:"5px 12px",borderRadius:4,background:"rgba(139,69,19,0.15)",border:"1px solid rgba(160,114,74,0.5)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.1)" }}>
+                      <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#5C3310",textTransform:"uppercase",letterSpacing:"0.07em" }}>Start Learning →</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              {/* Teens Card — Obsidian Tablet */}
+              <button onClick={() => nav("teens-curriculum-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 6px 16px rgba(0,0,0,0.25))" }}>
+                <div style={{ borderRadius:14,overflow:"hidden",display:"flex",flexDirection:"column",border:"2px solid #6B5B8A",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.2)" }}>
+                  <div style={{ background:"linear-gradient(160deg,#1A1030 0%,#2D1B4E 50%,#120A20 100%)",padding:"16px 10px 12px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+                    <div style={{ position:"absolute",inset:0,backgroundImage:"repeating-linear-gradient(125deg,transparent,transparent 8px,rgba(255,255,255,0.015) 8px,rgba(255,255,255,0.015) 9px)" }}/>
+                    <div style={{ position:"absolute",top:"20%",left:"-10%",width:"120%",height:"1px",background:"rgba(160,140,255,0.08)",transform:"rotate(-15deg)" }}/>
+                    <div style={{ position:"absolute",top:"55%",left:"-10%",width:"120%",height:"1px",background:"rgba(160,140,255,0.06)",transform:"rotate(-15deg)" }}/>
+                    <div style={{ position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:56,color:"rgba(160,140,255,0.07)",fontWeight:700,userSelect:"none",lineHeight:1 }}>✦</div>
+                    <div style={{ position:"relative",zIndex:1,fontSize:26,marginBottom:6,filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}>🔥</div>
+                    <div style={{ fontFamily:"serif",fontSize:14,color:"#A78BFA",lineHeight:1,textShadow:"0 1px 4px rgba(0,0,0,0.5)" }}>Ages 13–18</div>
+                  </div>
+                  <div style={{ background:"linear-gradient(180deg,#D8D0E8 0%,#C8C0D8 50%,#B8B0CC 100%)",padding:"14px 10px",textAlign:"center",flex:1,borderTop:"1px solid #6B5B8A",boxShadow:"inset 0 2px 6px rgba(0,0,0,0.08)",position:"relative",overflow:"hidden" }}>
+                    <div style={{ position:"absolute",top:"15%",left:"-5%",width:"110%",height:"1px",background:"rgba(100,80,160,0.08)",transform:"rotate(-8deg)" }}/>
+                    <div style={{ position:"absolute",top:"60%",left:"-5%",width:"110%",height:"1px",background:"rgba(100,80,160,0.06)",transform:"rotate(-8deg)" }}/>
+                    <div style={{ position:"relative",zIndex:1 }}>
+                      <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#1A1030",marginBottom:4 }}>Teens Bible Study</div>
+                      <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#6B5B8A,transparent)",borderRadius:2,margin:"0 auto 8px" }}/>
+                      <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#3A3060",lineHeight:1.6,marginBottom:10 }}>52-Week Deep Study</div>
+                      <div style={{ display:"inline-block",padding:"5px 12px",borderRadius:4,background:"rgba(26,16,48,0.12)",border:"1px solid rgba(107,91,138,0.5)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.08)" }}>
+                        <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#2A1A4A",textTransform:"uppercase",letterSpacing:"0.07em" }}>Start Learning →</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </button>
             </div>
           </div>
 
