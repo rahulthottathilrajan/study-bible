@@ -8,19 +8,16 @@ import UtilityStrip from "../components/UtilityStrip";
 import { BIRTHDAY_VERSES, THEMES } from "../constants";
 
 function MannaCard({ ht, nav }) {
-  const { loadPodcastIndex } = useApp();
   const [seriesSlug, setSeriesSlug] = useState(null);
   const loaded = useRef(false);
 
   useEffect(() => {
     if (loaded.current) return;
     loaded.current = true;
-    (async () => {
-      const index = await loadPodcastIndex();
-      if (!index?.series?.length) return;
-      setSeriesSlug(index.series[0].slug);
-    })();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    fetch("/data/podcasts/index.json").then(r => r.json()).then(data => {
+      if (data?.series?.length) setSeriesSlug(data.series[0].slug);
+    }).catch(() => {});
+  }, []);
 
   return (
     <button onClick={() => {

@@ -215,8 +215,6 @@ export function AppProvider({ children }) {
   const verseIdMap = useRef({}); // { verseNumber: supabaseUUID } — for user data writes
   const translationCache = useRef({}); // { "HINIRV": { "GEN:1": {1:"text",2:"text"} } }
   const audioLinksCache = useRef({}); // { "BSB:GEN:1": { gilbert:"url", ... } }
-  const podcastCache = useRef({}); // { "daily-word": fullSeriesJSON }
-  const podcastSeriesIndex = useRef(null); // cached index.json
   const podcastAudioRef = useRef(null); // HTML5 Audio element (separate from Bible audio)
 
   // ─── Wrapped verse setter — clears stale per-verse user data in same render batch ───
@@ -308,14 +306,10 @@ export function AppProvider({ children }) {
   const audioTimestampsCache = useRef({}); // cache: "kjv:GEN:1" → timestamp JSON
   const [elevenlabsUrl, setElevenlabsUrl] = useState(null); // current chapter ElevenLabs MP3 URL
 
-  // ─── Podcast state ───
+  // ─── Podcast state (minimal — player is self-contained) ───
   const [podcastPlaying, setPodcastPlaying] = useState(false);
   const [podcastVisible, setPodcastVisible] = useState(false);
-  const [currentEpisode, setCurrentEpisode] = useState(null);
-  const [podcastSpeed, setPodcastSpeed] = useState(() => {
-    try { return parseFloat(localStorage.getItem("podcastSpeed") || "1"); } catch { return 1; }
-  });
-  const [podcastSleepTimer, setPodcastSleepTimer] = useState(0);
+  const [podcastEpisodeInfo, setPodcastEpisodeInfo] = useState(null); // { seriesSlug, episodeNum, title, seriesTitle }
   const [podcastListenedEpisodes, setPodcastListenedEpisodes] = useState(() => {
     try { return JSON.parse(localStorage.getItem("podcastListenedEpisodes") || "[]"); } catch { return []; }
   });
@@ -346,10 +340,6 @@ export function AppProvider({ children }) {
     try { localStorage.setItem("audioNarrator", audioNarrator); } catch {}
   }, [audioNarrator]);
 
-  // Persist podcast preferences
-  useEffect(() => {
-    try { localStorage.setItem("podcastSpeed", String(podcastSpeed)); } catch {}
-  }, [podcastSpeed]);
   useEffect(() => {
     try { localStorage.setItem("podcastListenedEpisodes", JSON.stringify(podcastListenedEpisodes)); } catch {}
   }, [podcastListenedEpisodes]);
@@ -427,46 +417,13 @@ export function AppProvider({ children }) {
 
   // ═══ PODCAST ═══
 
-  const loadPodcastIndex = useCallback(async () => {
-    if (podcastSeriesIndex.current) return podcastSeriesIndex.current;
-    try {
-      const res = await fetch("/data/podcasts/index.json");
-      if (!res.ok) return null;
-      const data = await res.json();
-      podcastSeriesIndex.current = data;
-      return data;
-    } catch { return null; }
+  // ─── Podcast callbacks (minimal — rest lives in PodcastPlayer) ───
+  const stopPodcast = useCallback(() => {
+    if (podcastAudioRef.current) podcastAudioRef.current.pause();
+    setPodcastPlaying(false);
+    setPodcastVisible(false);
+    setPodcastEpisodeInfo(null);
   }, []);
-
-  const loadPodcastSeries = useCallback(async (slug) => {
-    if (podcastCache.current[slug]) return podcastCache.current[slug];
-    try {
-      const res = await fetch(`/data/podcasts/${slug}.json`);
-      if (!res.ok) return null;
-      const data = await res.json();
-      podcastCache.current[slug] = data;
-      return data;
-    } catch { return null; }
-  }, []);
-
-  const playPodcastEpisode = useCallback((seriesSlug, episodeNum, episode, seriesTitle, artwork) => {
-    // Mutual exclusion: stop Bible audio if playing
-    if (audioPlaying) {
-      setAudioPlaying(false);
-      setAudioVisible(false);
-    }
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const audioUrl = `${supabaseUrl}/storage/v1/object/public/podcasts/${episode.audioFile}`;
-    setCurrentEpisode({
-      seriesSlug, episodeNum, title: episode.title, seriesTitle,
-      artwork: artwork || "/images/podcasts/default.jpg",
-      audioUrl, transcript: episode.transcript || [],
-      bibleRef: episode.bibleRef, duration: episode.duration,
-      description: episode.description || "", keyPoints: episode.keyPoints || [],
-    });
-    setPodcastVisible(true);
-    setPodcastPlaying(true);
-  }, [audioPlaying, setAudioPlaying, setAudioVisible]);
 
   const markEpisodeListened = useCallback((seriesSlug, episodeNum) => {
     const key = `${seriesSlug}:${episodeNum}`;
@@ -480,39 +437,6 @@ export function AppProvider({ children }) {
         { onConflict: "user_id,series_slug,episode_number" }
       ).then(() => {});
     }
-  }, [user]);
-
-  const savePodcastPosition = useCallback((seriesSlug, episodeNum, seconds) => {
-    try { localStorage.setItem(`cr_podcast_${seriesSlug}`, JSON.stringify({ episode: episodeNum, timestamp: seconds })); } catch {}
-    if (user) {
-      supabase.from("podcast_listening_position").upsert(
-        { user_id: user.id, series_slug: seriesSlug, episode_number: episodeNum, timestamp_seconds: seconds, updated_at: new Date().toISOString() },
-        { onConflict: "user_id,series_slug,episode_number" }
-      ).then(() => {});
-    }
-  }, [user]);
-
-  const savePodcastNote = useCallback(async (seriesSlug, episodeNum, noteText, timestampSeconds = null) => {
-    if (!user) return null;
-    const { data, error } = await supabase.from("podcast_notes").insert({
-      user_id: user.id, series_slug: seriesSlug, episode_number: episodeNum,
-      note_text: noteText, timestamp_seconds: timestampSeconds,
-    }).select().single();
-    return error ? null : data;
-  }, [user]);
-
-  const loadPodcastNotes = useCallback(async (seriesSlug, episodeNum) => {
-    if (!user) return [];
-    const { data } = await supabase.from("podcast_notes")
-      .select("*").eq("user_id", user.id)
-      .eq("series_slug", seriesSlug).eq("episode_number", episodeNum)
-      .order("created_at", { ascending: true });
-    return data || [];
-  }, [user]);
-
-  const deletePodcastNote = useCallback(async (noteId) => {
-    if (!user) return;
-    await supabase.from("podcast_notes").delete().eq("id", noteId).eq("user_id", user.id);
   }, [user]);
 
   useEffect(() => {
@@ -1890,14 +1814,11 @@ export function AppProvider({ children }) {
     listenedChapters, markChapterListened, fetchAudioLinks,
     elevenlabsUrl, fetchAudioTimestamps,
     audioCurrentWord, setAudioCurrentWord,
-    // Podcast
+    // Podcast (minimal — player is self-contained)
     podcastPlaying, setPodcastPlaying, podcastVisible, setPodcastVisible,
-    currentEpisode, setCurrentEpisode, podcastSpeed, setPodcastSpeed,
-    podcastSleepTimer, setPodcastSleepTimer, podcastListenedEpisodes,
-    podcastSeries, podcastEpisode, podcastAudioRef,
-    loadPodcastIndex, loadPodcastSeries, playPodcastEpisode,
-    markEpisodeListened, savePodcastPosition,
-    savePodcastNote, loadPodcastNotes, deletePodcastNote,
+    podcastEpisodeInfo, setPodcastEpisodeInfo, podcastAudioRef,
+    podcastListenedEpisodes, podcastSeries, podcastEpisode,
+    stopPodcast, markEpisodeListened,
     // Smart Chat
     chatMessages, setChatMessages,
     // Birthday

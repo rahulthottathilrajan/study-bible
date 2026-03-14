@@ -7,6 +7,7 @@ import { Spinner } from "../components/ui";
 import { BIBLE_BOOKS } from "../constants";
 
 const OT_BOOKS = BIBLE_BOOKS.filter(b => b.testament === "OT").map(b => b.name);
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
 const formatDate = (dateStr) => {
   try {
@@ -18,55 +19,91 @@ const formatDate = (dateStr) => {
 export default function PodcastView() {
   const {
     view, ht, bp, nav, goBack, darkMode, user,
-    loadPodcastIndex, loadPodcastSeries, playPodcastEpisode,
-    podcastListenedEpisodes, podcastVisible, currentEpisode,
-    podcastSeries: selectedSeriesSlug, podcastEpisode: selectedEpNum,
+    podcastListenedEpisodes,
+    podcastVisible,
+    podcastSeries: selectedSeriesSlug,
+    podcastEpisode: selectedEpNum,
   } = useApp();
+
+  // ─── Local data caches ───
+  const indexCache = useRef(null);
+  const seriesCache = useRef({});
 
   const [seriesIndex, setSeriesIndex] = useState(null);
   const [seriesData, setSeriesData] = useState(null);
+  const [episodeData, setEpisodeData] = useState(null);
   const [indexLoading, setIndexLoading] = useState(true);
   const [seriesLoading, setSeriesLoading] = useState(false);
-  const indexLoaded = useRef(false);
 
-  // Load index on podcast-home mount
+  // ─── Local fetch: podcast index ───
+  const loadIndex = useCallback(async () => {
+    if (indexCache.current) return indexCache.current;
+    try {
+      const res = await fetch("/data/podcasts/index.json");
+      const data = await res.json();
+      indexCache.current = data;
+      return data;
+    } catch { return null; }
+  }, []);
+
+  // ─── Local fetch: series data ───
+  const loadSeries = useCallback(async (slug) => {
+    if (seriesCache.current[slug]) return seriesCache.current[slug];
+    try {
+      const res = await fetch(`/data/podcasts/${slug}.json`);
+      const data = await res.json();
+      seriesCache.current[slug] = data;
+      return data;
+    } catch { return null; }
+  }, []);
+
+  // Load index on podcast-home
   useEffect(() => {
-    if (view === "podcast-home" && !indexLoaded.current) {
-      indexLoaded.current = true;
-      setIndexLoading(true);
-      loadPodcastIndex().then(data => {
-        setSeriesIndex(data);
-        setIndexLoading(false);
-      });
-    }
-  }, [view, loadPodcastIndex]);
+    if (view !== "podcast-home") return;
+    setIndexLoading(true);
+    loadIndex().then(data => {
+      setSeriesIndex(data);
+      setIndexLoading(false);
+    });
+  }, [view, loadIndex]);
 
-  // Load series data when entering podcast-detail
+  // Load series on podcast-detail
   useEffect(() => {
-    if (view === "podcast-detail" && selectedSeriesSlug) {
-      setSeriesLoading(true);
-      loadPodcastSeries(selectedSeriesSlug).then(data => {
-        setSeriesData(data);
-        setSeriesLoading(false);
-      });
-    }
-  }, [view, selectedSeriesSlug, loadPodcastSeries]);
+    if (view !== "podcast-detail" || !selectedSeriesSlug) return;
+    setSeriesLoading(true);
+    loadSeries(selectedSeriesSlug).then(data => {
+      setSeriesData(data);
+      setSeriesLoading(false);
+    });
+  }, [view, selectedSeriesSlug, loadSeries]);
 
-  // Also load series for podcast-episode if navigated directly
+  // Load series + episode on podcast-episode
   useEffect(() => {
-    if (view === "podcast-episode" && selectedSeriesSlug && !seriesData) {
-      loadPodcastSeries(selectedSeriesSlug).then(setSeriesData);
-    }
-  }, [view, selectedSeriesSlug, seriesData, loadPodcastSeries]);
+    if (view !== "podcast-episode" || !selectedSeriesSlug || !selectedEpNum) return;
+    loadSeries(selectedSeriesSlug).then(data => {
+      if (!data) return;
+      setSeriesData(data);
+      const ep = data.episodes[String(selectedEpNum)];
+      if (ep) {
+        setEpisodeData({
+          ...ep,
+          episodeNum: selectedEpNum,
+          seriesSlug: selectedSeriesSlug,
+          seriesTitle: data.title,
+          audioUrl: `${SUPABASE_URL}/storage/v1/object/public/podcasts/${ep.audioFile}`,
+        });
+      }
+    });
+  }, [view, selectedSeriesSlug, selectedEpNum, loadSeries]);
 
-  // On refresh, redirect to safe podcast views if params are missing
+  // Redirect safety: if params missing, go to safe view
   useEffect(() => {
     if ((view === "podcast-detail" || view === "podcast-episode") && !selectedSeriesSlug) {
       nav("podcast-home");
-    } else if (view === "podcast-episode" && !currentEpisode && selectedSeriesSlug) {
+    } else if (view === "podcast-episode" && !selectedEpNum && selectedSeriesSlug) {
       nav("podcast-detail", { podcastSeries: selectedSeriesSlug });
     }
-  }, [view, currentEpisode, selectedSeriesSlug, nav]);
+  }, [view, selectedSeriesSlug, selectedEpNum, nav]);
 
   const isListened = (slug, epNum) => podcastListenedEpisodes.includes(`${slug}:${epNum}`);
 
@@ -77,12 +114,11 @@ export default function PodcastView() {
     if (!m) return;
     const bookName = m[1];
     const chapter = parseInt(m[2]);
-    const verseNum = parseInt(m[3]);
     const testament = OT_BOOKS.includes(bookName) ? "OT" : "NT";
     nav("verses", { testament, book: bookName, chapter });
   }, [nav]);
 
-  // Guard: wait for theme to be available
+  // Guard: wait for theme
   if (!ht) return null;
 
   // ═══ PODCAST HOME ═══
@@ -99,11 +135,9 @@ export default function PodcastView() {
             </div>
           ) : (
             <>
-              {/* Section label */}
               <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 14, display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ fontSize: 14 }}>&#x1F399;&#xFE0F;</span> Available Series
               </div>
-
               {seriesIndex.series.map(series => {
                 const isNew = series.latestDate && (Date.now() - new Date(series.latestDate).getTime()) < 7 * 86400000;
                 return (
@@ -119,7 +153,6 @@ export default function PodcastView() {
                       position: "relative", overflow: "hidden",
                     }}
                   >
-                    {/* Artwork placeholder */}
                     <div style={{
                       width: 64, height: 64, borderRadius: 12, flexShrink: 0,
                       background: `linear-gradient(135deg, ${ht.accent}25, ${ht.accent}08)`,
@@ -148,7 +181,6 @@ export default function PodcastView() {
                         {series.host} · {series.episodeCount} episode{series.episodeCount !== 1 ? "s" : ""}
                       </div>
                     </div>
-                    {/* Chevron */}
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={ht.light} strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
                   </button>
                 );
@@ -214,17 +246,13 @@ export default function PodcastView() {
               <div key={ep.num}>
                 <button
                   className="pressable"
-                  onClick={() => {
-                    playPodcastEpisode(seriesData.slug, ep.num, ep, seriesData.title, seriesData.artwork);
-                    nav("podcast-episode", { podcastSeries: seriesData.slug, podcastEpisode: ep.num });
-                  }}
+                  onClick={() => nav("podcast-episode", { podcastSeries: seriesData.slug, podcastEpisode: ep.num })}
                   style={{
                     width: "100%", textAlign: "left", cursor: "pointer",
                     border: "none", background: "transparent", padding: "14px 0",
                     display: "flex", alignItems: "center", gap: 12,
                   }}
                 >
-                  {/* Listened indicator */}
                   <div style={{
                     width: 28, height: 28, borderRadius: "50%", flexShrink: 0,
                     border: `2px solid ${listened ? "#22C55E" : ht.divider}`,
@@ -237,7 +265,6 @@ export default function PodcastView() {
                       <span style={{ fontFamily: ht.ui, fontSize: 11, fontWeight: 700, color: ht.muted }}>{ep.num}</span>
                     )}
                   </div>
-                  {/* Episode info */}
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ fontFamily: ht.heading, fontSize: 14, fontWeight: 700, color: ht.dark, marginBottom: 2 }}>
                       {ep.title}
@@ -246,7 +273,6 @@ export default function PodcastView() {
                       {formatDate(ep.date)} · {Math.ceil(ep.duration / 60)} min
                     </div>
                   </div>
-                  {/* Play button */}
                   <div style={{
                     width: 34, height: 34, borderRadius: "50%", flexShrink: 0,
                     background: ht.accent, display: "flex", alignItems: "center", justifyContent: "center",
@@ -267,26 +293,21 @@ export default function PodcastView() {
 
   // ═══ PODCAST EPISODE (Player + Transcript) ═══
   if (view === "podcast-episode") {
-    const ep = currentEpisode;
-    if (!ep) {
+    if (!episodeData) {
       return (
         <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
           <Header title="Episode" onBack={goBack} theme={ht} />
-          <div style={{ textAlign: "center", padding: 60 }}>
-            <Spinner color={ht.accent} />
-          </div>
+          <div style={{ textAlign: "center", padding: 60 }}><Spinner color={ht.accent} /></div>
         </div>
       );
     }
 
     return (
-      <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: podcastVisible ? 80 : 80 }}>
-        <Header title={ep.seriesTitle || "Podcast"} subtitle={ep.title} onBack={goBack} theme={ht} />
+      <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
+        <Header title={episodeData.seriesTitle || "Podcast"} subtitle={episodeData.title} onBack={goBack} theme={ht} />
         <div style={{ padding: `0 ${bp.pad}px 40px`, maxWidth: bp.content, margin: "0 auto" }}>
           {/* Artwork hero */}
-          <div style={{
-            display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20,
-          }}>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>
             <div style={{
               width: 180, height: 180, borderRadius: 20,
               background: `linear-gradient(135deg, ${ht.accent}20, ${ht.accent}08)`,
@@ -301,18 +322,17 @@ export default function PodcastView() {
           {/* Episode title & info */}
           <div style={{ textAlign: "center", marginBottom: 20 }}>
             <div style={{ fontFamily: ht.heading, fontSize: 20, fontWeight: 700, color: ht.dark, marginBottom: 4 }}>
-              {ep.title}
+              {episodeData.title}
             </div>
             <div style={{ fontFamily: ht.ui, fontSize: 12, color: ht.accent, fontWeight: 600, marginBottom: 8 }}>
-              {ep.seriesTitle} · {Math.ceil(ep.duration / 60)} min
+              {episodeData.seriesTitle} · {Math.ceil(episodeData.duration / 60)} min
             </div>
-            <div style={{ fontFamily: ht.body, fontSize: 14, color: ht.muted, lineHeight: 1.7, marginBottom: 8, maxWidth: 400, margin: "0 auto 8px" }}>
-              {ep.description || ""}
+            <div style={{ fontFamily: ht.body, fontSize: 14, color: ht.muted, lineHeight: 1.7, maxWidth: 400, margin: "0 auto 8px" }}>
+              {episodeData.description || ""}
             </div>
-            {/* Bible reference */}
-            {ep.bibleRef && (
+            {episodeData.bibleRef && (
               <button
-                onClick={() => handleBibleRef(ep.bibleRef)}
+                onClick={() => handleBibleRef(episodeData.bibleRef)}
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 6,
                   padding: "6px 14px", borderRadius: 20, cursor: "pointer",
@@ -321,31 +341,29 @@ export default function PodcastView() {
                 }}
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                {ep.bibleRef}
+                {episodeData.bibleRef}
               </button>
             )}
           </div>
 
-          {/* Player */}
-          <PodcastPlayer mode="full" />
+          {/* Player (full mode — self-contained) */}
+          <PodcastPlayer
+            mode="full"
+            episode={episodeData}
+            seriesData={seriesData}
+            onNavigateEpisode={(epNum) => nav("podcast-episode", { podcastSeries: selectedSeriesSlug, podcastEpisode: epNum })}
+          />
 
           {/* Key Points */}
-          {ep.keyPoints?.length > 0 && (
+          {episodeData.keyPoints?.length > 0 && (
             <div style={{ marginTop: 8 }}>
               <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 10 }}>
                 Key Points
               </div>
-              {ep.keyPoints.map((point, i) => (
-                <div key={i} style={{
-                  display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 8,
-                }}>
-                  <div style={{
-                    width: 6, height: 6, borderRadius: "50%", background: ht.accent,
-                    flexShrink: 0, marginTop: 6,
-                  }} />
-                  <div style={{ fontFamily: ht.body, fontSize: 14, color: ht.dark, lineHeight: 1.6 }}>
-                    {point}
-                  </div>
+              {episodeData.keyPoints.map((point, i) => (
+                <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 8 }}>
+                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: ht.accent, flexShrink: 0, marginTop: 6 }} />
+                  <div style={{ fontFamily: ht.body, fontSize: 14, color: ht.dark, lineHeight: 1.6 }}>{point}</div>
                 </div>
               ))}
             </div>

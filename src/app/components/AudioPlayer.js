@@ -23,7 +23,7 @@ export default function AudioPlayer() {
     book, chapter, bibleTranslation,
     t, darkMode, view,
     markChapterListened,
-    podcastPlaying, setPodcastPlaying, setPodcastVisible,
+    podcastPlaying, stopPodcast,
     elevenlabsUrl, fetchAudioTimestamps,
     audioCurrentWord, setAudioCurrentWord,
   } = useApp();
@@ -371,7 +371,7 @@ export default function AudioPlayer() {
   const play = useCallback(() => {
     if (playingRef.current) return; // Already playing, don't restart
     // Mutual exclusion: stop podcast if playing
-    if (podcastPlaying) { setPodcastPlaying(false); setPodcastVisible(false); }
+    if (podcastPlaying) stopPodcast();
     playingRef.current = true;
     setAudioPlaying(true);
     setResumeNudge(null);
@@ -386,7 +386,7 @@ export default function AudioPlayer() {
       // Small delay after cancel to ensure clean state
       setTimeout(() => speakVerse(idxRef.current), 100);
     }
-  }, [playCDN, playElevenLabs, speakVerse, setAudioPlaying, podcastPlaying, setPodcastPlaying, setPodcastVisible]);
+  }, [playCDN, playElevenLabs, speakVerse, setAudioPlaying, podcastPlaying, stopPodcast]);
 
   const stop = useCallback(() => {
     playingRef.current = false;
