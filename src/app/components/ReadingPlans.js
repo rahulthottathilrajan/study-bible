@@ -228,29 +228,34 @@ const BOOK_CHAPTERS = [
   { book:"Revelation",chapters:22 },
 ];
 
-function generateSequentialReadings(bookSequence, chapsPerDay) {
+// Distributes chapters across exactly `targetDays` days (some days get n, some n+1)
+function generateTargetDayReadings(bookSequence, targetDays) {
   const allPassages = [];
   for (const { book, chapters } of bookSequence) {
     for (let ch = 1; ch <= chapters; ch++) {
       allPassages.push({ book, chapter: ch });
     }
   }
+  const total = allPassages.length;
   const readings = [];
-  let day = 1;
-  for (let i = 0; i < allPassages.length; i += chapsPerDay) {
-    readings.push({
-      day,
-      label: `Day ${day}`,
-      passages: allPassages.slice(i, i + chapsPerDay),
-    });
-    day++;
+  let prevEnd = 0;
+  for (let day = 1; day <= targetDays; day++) {
+    const end = Math.round((day / targetDays) * total);
+    if (end > prevEnd) {
+      readings.push({
+        day,
+        label: `Day ${day}`,
+        passages: allPassages.slice(prevEnd, end),
+      });
+      prevEnd = end;
+    }
   }
   return readings;
 }
 
 const NT_BOOKS    = BOOK_CHAPTERS.slice(39);
 
-const BIBLE_YEAR_READINGS = generateSequentialReadings(BOOK_CHAPTERS, 3);
+const BIBLE_YEAR_READINGS = generateTargetDayReadings(BOOK_CHAPTERS, 365);
 
 const CHRON_SEQUENCE = [
   { book:"Genesis",chapters:11 },{ book:"Job",chapters:42 },
@@ -281,16 +286,16 @@ const CHRON_SEQUENCE = [
   { book:"Zechariah",chapters:14 },{ book:"Malachi",chapters:4 },
   ...NT_BOOKS,
 ];
-const CHRON_READINGS = generateSequentialReadings(CHRON_SEQUENCE, 3);
-const MCHEYNE_READINGS = generateSequentialReadings(BOOK_CHAPTERS, 4);
-const NT_90_READINGS = generateSequentialReadings(NT_BOOKS, 3);
-const TORAH_READINGS = generateSequentialReadings(BOOK_CHAPTERS.slice(0, 5), 5);
-const HISTORICAL_READINGS = generateSequentialReadings(BOOK_CHAPTERS.slice(5, 17), 4);
-const PSALMS_PROV_READINGS = generateSequentialReadings(
-  [{ book:"Psalms", chapters:150 }, { book:"Proverbs", chapters:31 }], 3
+const CHRON_READINGS   = generateTargetDayReadings(CHRON_SEQUENCE, 365);
+const MCHEYNE_READINGS = generateTargetDayReadings(BOOK_CHAPTERS, 365);
+const NT_90_READINGS   = generateTargetDayReadings(NT_BOOKS, 90);
+const TORAH_READINGS   = generateTargetDayReadings(BOOK_CHAPTERS.slice(0, 5), 40);
+const HISTORICAL_READINGS = generateTargetDayReadings(BOOK_CHAPTERS.slice(5, 17), 60);
+const PSALMS_PROV_READINGS = generateTargetDayReadings(
+  [{ book:"Psalms", chapters:150 }, { book:"Proverbs", chapters:31 }], 60
 );
-const PROPHETS_READINGS = generateSequentialReadings(BOOK_CHAPTERS.slice(22, 39), 3);
-const EPISTLES_READINGS = generateSequentialReadings(BOOK_CHAPTERS.slice(45, 65), 2);
+const PROPHETS_READINGS = generateTargetDayReadings(BOOK_CHAPTERS.slice(22, 39), 90);
+const EPISTLES_READINGS = generateTargetDayReadings(BOOK_CHAPTERS.slice(45, 65), 45);
 
 const LIFE_OF_JESUS_READINGS = [
   { day:1,  label:"Day 1",  passages:[{ book:"John", chapter:1 },{ book:"Luke", chapter:1 }] },
