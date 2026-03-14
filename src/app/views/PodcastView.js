@@ -82,6 +82,9 @@ export default function PodcastView() {
     nav("verses", { testament, book: bookName, chapter });
   }, [nav]);
 
+  // Guard: wait for theme to be available
+  if (!ht) return null;
+
   // ═══ PODCAST HOME ═══
   if (view === "podcast-home") {
     return (

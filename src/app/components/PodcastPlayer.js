@@ -285,7 +285,7 @@ export default function PodcastPlayer({ mode = "mini" }) {
   }, [activeSegmentIndex, mode]);
 
   // ─── Don't render conditions ───
-  if (!podcastVisible || !currentEpisode) return null;
+  if (!podcastVisible || !currentEpisode || !ht) return null;
   if (mode === "mini" && view === "podcast-episode") return null;
 
   // ─── MINI PLAYER ───
