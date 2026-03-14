@@ -8,8 +8,8 @@ import UtilityStrip from "../components/UtilityStrip";
 import { BIRTHDAY_VERSES, THEMES } from "../constants";
 
 function MannaCard({ ht, nav }) {
-  const { loadPodcastIndex, loadPodcastSeries, playPodcastEpisode, podcastListenedEpisodes } = useApp();
-  const [featuredEp, setFeaturedEp] = useState(null);
+  const { loadPodcastIndex } = useApp();
+  const [seriesSlug, setSeriesSlug] = useState(null);
   const loaded = useRef(false);
 
   useEffect(() => {
@@ -18,24 +18,14 @@ function MannaCard({ ht, nav }) {
     (async () => {
       const index = await loadPodcastIndex();
       if (!index?.series?.length) return;
-      const latest = index.series[0];
-      const data = await loadPodcastSeries(latest.slug);
-      if (!data?.episodes) return;
-      const epNums = Object.keys(data.episodes).map(Number).sort((a, b) => b - a);
-      const unlistened = epNums.find(n => !podcastListenedEpisodes.includes(`${latest.slug}:${n}`));
-      const epNum = unlistened || epNums[0];
-      const ep = data.episodes[String(epNum)];
-      if (ep) setFeaturedEp({ series: latest, episode: ep, epNum, seriesData: data });
+      setSeriesSlug(index.series[0].slug);
     })();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const subtitle = featuredEp ? featuredEp.episode.title : "Daily Devotional";
-
   return (
     <button onClick={() => {
-      if (featuredEp) {
-        playPodcastEpisode(featuredEp.series.slug, featuredEp.epNum, featuredEp.episode, featuredEp.series.title, featuredEp.series.artwork);
-        nav("podcast-episode", { podcastSeries: featuredEp.series.slug, podcastEpisode: featuredEp.epNum });
+      if (seriesSlug) {
+        nav("podcast-detail", { podcastSeries: seriesSlug });
       } else {
         nav("podcast-home");
       }
@@ -43,7 +33,7 @@ function MannaCard({ ht, nav }) {
       <span style={{ fontSize:18 }}>{"\uD83C\uDF3E"}</span>
       <div style={{ minWidth:0 }}>
         <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>Today&apos;s Manna</div>
-        <div style={{ fontFamily:ht.ui,fontSize:8,color:`${ht.headerText}77`,marginTop:1,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>{subtitle}</div>
+        <div style={{ fontFamily:ht.ui,fontSize:8,color:`${ht.headerText}77`,marginTop:1,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>Daily Devotional Podcasts</div>
       </div>
     </button>
   );
