@@ -101,19 +101,8 @@ export default function HomeView() {
             <img src="/icon.png" alt="The Bible Scrollers" width={34} height={34} style={{ filter:"drop-shadow(0 0 8px rgba(212,168,83,0.4))" }} />
             <h1 style={{ fontFamily:ht.heading,fontSize:17,fontWeight:800,color:ht.headerText,margin:0 }}>The Bible Scrollers</h1>
           </div>
-          <button onClick={() => setDonateModal(true)} title="Support the Ministry" style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:10,padding:"5px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:4,transition:"background 0.2s" }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ filter:"drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }}>
-              {/* Descending dove — wings spread wide */}
-              <path d="M12 4c-.6 0-1.1.3-1.3.8L7 7.5C5.5 8.2 4 9.5 4 11c0 .8.3 1.4.8 1.8L3 15l3-1.5c.5.3 1.2.5 2 .5h4c.8 0 1.5-.2 2-.5L17 15l-1.8-2.2c.5-.4.8-1 .8-1.8 0-1.5-1.5-2.8-3-3.5l-3.7-2.7c-.2-.5-.7-.8-1.3-.8z" fill="rgba(255,255,255,0.92)" stroke="rgba(255,255,255,0.5)" strokeWidth="0.3"/>
-              {/* Left wing */}
-              <path d="M7 7.5C5 6 2.5 5.5 1 6" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-              {/* Right wing */}
-              <path d="M14 7.5c2-1.5 4.5-2 6-1.5" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-              {/* Olive branch below */}
-              <path d="M12 14v3.5" stroke="#7DA85C" strokeWidth="0.8" strokeLinecap="round"/>
-              <ellipse cx="10.5" cy="17" rx="1.8" ry="0.7" transform="rotate(-25 10.5 17)" fill="#7DA85C" opacity="0.9"/>
-              <ellipse cx="13.5" cy="17" rx="1.8" ry="0.7" transform="rotate(25 13.5 17)" fill="#6B9E4E" opacity="0.85"/>
-            </svg>
+          <button onClick={() => setDonateModal(true)} title="Support the Ministry" style={{ background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:10,padding:"5px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:5,transition:"background 0.2s" }}>
+            <span style={{ fontSize:14,lineHeight:1 }}>🕊️</span>
             <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:"rgba(255,255,255,0.7)",letterSpacing:"0.05em" }}>SUPPORT</span>
           </button>
         </div>
