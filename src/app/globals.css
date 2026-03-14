@@ -73,6 +73,11 @@ button {
   to { transform: scale(1); opacity: 1; }
 }
 
+@keyframes wordGlow {
+  from { background-color: transparent; }
+  to { background-color: inherit; }
+}
+
 @keyframes heartPop {
   0% { transform: scale(1); }
   40% { transform: scale(1.35); }

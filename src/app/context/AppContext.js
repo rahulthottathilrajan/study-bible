@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../../lib/supabase";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP, CDN_NARRATORS } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP, CDN_NARRATORS, ELEVENLABS_TRANSLATIONS, ELEVENLABS_AUDIO_BUCKET } from "../constants";
 import { detectCurrency } from "../utils/currency";
 
 // ─── Derive dbChapters from BIBLE_BOOKS (synchronous, no Supabase needed) ───
@@ -293,7 +293,7 @@ export function AppProvider({ children }) {
   // ─── Audio state ───
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [audioVisible, setAudioVisible] = useState(false);
-  const [audioMode, setAudioMode] = useState("tts"); // "tts" | "cdn"
+  const [audioMode, setAudioMode] = useState("tts"); // "tts" | "cdn" | "elevenlabs"
   const [audioNarrator, setAudioNarrator] = useState(() => {
     try { return localStorage.getItem("audioNarrator") || "gilbert"; } catch { return "gilbert"; }
   });
@@ -304,6 +304,9 @@ export function AppProvider({ children }) {
   const [listenedChapters, setListenedChapters] = useState(() => {
     try { return JSON.parse(localStorage.getItem("listenedChapters") || "[]"); } catch { return []; }
   });
+  const [audioCurrentWord, setAudioCurrentWord] = useState(null); // { verseNum, wordIdx, verseWordIdx, text }
+  const audioTimestampsCache = useRef({}); // cache: "kjv:GEN:1" → timestamp JSON
+  const [elevenlabsUrl, setElevenlabsUrl] = useState(null); // current chapter ElevenLabs MP3 URL
 
   // ─── Podcast state ───
   const [podcastPlaying, setPodcastPlaying] = useState(false);
@@ -370,18 +373,57 @@ export function AppProvider({ children }) {
     } catch { return null; }
   }, []);
 
-  // Update audio mode when translation changes
+  // Construct ElevenLabs Supabase Storage URL for a chapter
+  const getElevenlabsUrl = useCallback((bookName, chNum) => {
+    const bookCode = BOOK_CODE_MAP[bookName];
+    if (!bookCode) return null;
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    return `${supabaseUrl}/storage/v1/object/public/${ELEVENLABS_AUDIO_BUCKET}/kjv/${bookCode}/${chNum}.mp3`;
+  }, []);
+
+  // Fetch timestamp data for ElevenLabs karaoke
+  const fetchAudioTimestamps = useCallback(async (bookName, chNum) => {
+    const bookCode = BOOK_CODE_MAP[bookName];
+    if (!bookCode) return null;
+    const cacheKey = `kjv:${bookCode}:${chNum}`;
+    if (audioTimestampsCache.current[cacheKey]) return audioTimestampsCache.current[cacheKey];
+    try {
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const url = `${supabaseUrl}/storage/v1/object/public/${ELEVENLABS_AUDIO_BUCKET}/kjv/${bookCode}/${chNum}-ts.json`;
+      const res = await fetch(url);
+      if (!res.ok) return null;
+      const data = await res.json();
+      audioTimestampsCache.current[cacheKey] = data;
+      return data;
+    } catch { return null; }
+  }, []);
+
+  // 3-tier audio mode: BSB CDN → ElevenLabs → TTS fallback
   useEffect(() => {
     if (bibleTranslation === "bsb" && book && chapter) {
+      // Tier 1: BSB CDN narrated audio
       fetchAudioLinks(book, chapter).then(links => {
         setAudioChapterLinks(links);
+        setElevenlabsUrl(null);
         setAudioMode(links && Object.keys(links).length > 0 ? "cdn" : "tts");
       });
-    } else {
+    } else if (ELEVENLABS_TRANSLATIONS.includes(bibleTranslation) && book && chapter) {
+      // Tier 2: ElevenLabs pre-generated audio from Supabase Storage
+      const url = getElevenlabsUrl(book, chapter);
       setAudioChapterLinks(null);
+      setElevenlabsUrl(url);
+      setAudioMode("elevenlabs");
+      // Pre-fetch timestamps for karaoke
+      fetchAudioTimestamps(book, chapter);
+    } else {
+      // Tier 3: Browser TTS fallback
+      setAudioChapterLinks(null);
+      setElevenlabsUrl(null);
       setAudioMode("tts");
     }
-  }, [bibleTranslation, book, chapter, fetchAudioLinks]);
+    // Clear karaoke word highlight on chapter/translation change
+    setAudioCurrentWord(null);
+  }, [bibleTranslation, book, chapter, fetchAudioLinks, getElevenlabsUrl, fetchAudioTimestamps]);
 
   // ═══ PODCAST ═══
 
@@ -1852,6 +1894,8 @@ export function AppProvider({ children }) {
     audioChapterLinks, sleepTimer, setSleepTimer,
     audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
     listenedChapters, markChapterListened, fetchAudioLinks,
+    elevenlabsUrl, fetchAudioTimestamps,
+    audioCurrentWord, setAudioCurrentWord,
     // Podcast
     podcastPlaying, setPodcastPlaying, podcastVisible, setPodcastVisible,
     currentEpisode, setCurrentEpisode, podcastSpeed, setPodcastSpeed,

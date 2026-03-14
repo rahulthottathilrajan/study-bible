@@ -1,7 +1,6 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useApp } from "../context/AppContext";
-import { supabase } from "../../lib/supabase";
 
 // ─── Theme ────────────────────────────────────────────────────────────────────
 const T_LIGHT = {
@@ -36,6 +35,11 @@ function lightenHex(hex, amount = 30) {
   const g = Math.min(255, ((num >> 8) & 0xff) + amount);
   const b = Math.min(255, (num & 0xff) + amount);
   return "#" + ((r << 16) | (g << 8) | b).toString(16).padStart(6, "0");
+}
+
+// ─── Utility Functions ───────────────────────────────────────────────────────
+function bookSlug(name) {
+  return name.toLowerCase().replace(/\s+/g, "-");
 }
 
 // ─── Plans Data ───────────────────────────────────────────────────────────────
@@ -187,9 +191,7 @@ const READING_PLANS = [
 ];
 
 // ─── Readings Data Layer ─────────────────────────────────────────────────────
-// All 66 books with chapter counts — used to auto-generate sequential plans
 const BOOK_CHAPTERS = [
-  // Old Testament
   { book:"Genesis",chapters:50 },{ book:"Exodus",chapters:40 },
   { book:"Leviticus",chapters:27 },{ book:"Numbers",chapters:36 },
   { book:"Deuteronomy",chapters:34 },{ book:"Joshua",chapters:24 },
@@ -210,7 +212,6 @@ const BOOK_CHAPTERS = [
   { book:"Habakkuk",chapters:3 },{ book:"Zephaniah",chapters:3 },
   { book:"Haggai",chapters:2 },{ book:"Zechariah",chapters:14 },
   { book:"Malachi",chapters:4 },
-  // New Testament
   { book:"Matthew",chapters:28 },{ book:"Mark",chapters:16 },
   { book:"Luke",chapters:24 },{ book:"John",chapters:21 },
   { book:"Acts",chapters:28 },{ book:"Romans",chapters:16 },
@@ -227,10 +228,7 @@ const BOOK_CHAPTERS = [
   { book:"Revelation",chapters:22 },
 ];
 
-// Generates day-by-day readings from a book sequence at a given chapters/day rate
-// Returns: [{ day, label, passages: [{ book, chapter }] }]
 function generateSequentialReadings(bookSequence, chapsPerDay) {
-  // Flatten the sequence into a single ordered list of { book, chapter }
   const allPassages = [];
   for (const { book, chapters } of bookSequence) {
     for (let ch = 1; ch <= chapters; ch++) {
@@ -250,36 +248,27 @@ function generateSequentialReadings(bookSequence, chapsPerDay) {
   return readings;
 }
 
-// ── Sequential plan sequences ──────────────────────────────────────────────
-
-const OT_BOOKS    = BOOK_CHAPTERS.slice(0, 39);
 const NT_BOOKS    = BOOK_CHAPTERS.slice(39);
-const PSALM_BOOKS = [{ book:"Psalms", chapters:150 }];
-const PROV_BOOKS  = [{ book:"Proverbs", chapters:31 }];
 
-// Bible in a Year: interleaved OT + Psalms/Proverbs + NT (3 chapters/day)
-// We generate it as a flat OT sequence for simplicity — full interleaving
-// would require a custom builder, so we use the sequential version here
 const BIBLE_YEAR_READINGS = generateSequentialReadings(BOOK_CHAPTERS, 3);
 
-// Chronological order (key resequencing — Job with Genesis, Psalms with David, etc.)
 const CHRON_SEQUENCE = [
   { book:"Genesis",chapters:11 },{ book:"Job",chapters:42 },
-  { book:"Genesis",chapters:39 },  // Gen 12–50 after Job
+  { book:"Genesis",chapters:39 },
   { book:"Exodus",chapters:40 },{ book:"Leviticus",chapters:27 },
   { book:"Numbers",chapters:36 },{ book:"Deuteronomy",chapters:34 },
   { book:"Joshua",chapters:24 },{ book:"Judges",chapters:21 },
   { book:"Ruth",chapters:4 },{ book:"1 Samuel",chapters:31 },
-  { book:"Psalms",chapters:41 },  // Psalms 1–41 (early Davidic)
+  { book:"Psalms",chapters:41 },
   { book:"2 Samuel",chapters:24 },
-  { book:"Psalms",chapters:31 },  // Psalms 42–72
+  { book:"Psalms",chapters:31 },
   { book:"Proverbs",chapters:31 },{ book:"Ecclesiastes",chapters:12 },
   { book:"Song of Solomon",chapters:8 },
   { book:"1 Kings",chapters:11 },
-  { book:"Psalms",chapters:48 },  // Psalms 73–119 (Asaph + wisdom)
+  { book:"Psalms",chapters:48 },
   { book:"1 Kings",chapters:11 },{ book:"2 Kings",chapters:25 },
   { book:"1 Chronicles",chapters:29 },{ book:"2 Chronicles",chapters:36 },
-  { book:"Psalms",chapters:30 },  // Psalms 120–150
+  { book:"Psalms",chapters:30 },
   { book:"Isaiah",chapters:66 },{ book:"Jeremiah",chapters:52 },
   { book:"Lamentations",chapters:5 },{ book:"Ezekiel",chapters:48 },
   { book:"Daniel",chapters:12 },{ book:"Hosea",chapters:14 },
@@ -293,39 +282,15 @@ const CHRON_SEQUENCE = [
   ...NT_BOOKS,
 ];
 const CHRON_READINGS = generateSequentialReadings(CHRON_SEQUENCE, 3);
-
-// M'Cheyne: 4 chapters/day (OT + NT + Psalms interleaved — simplified as sequential)
 const MCHEYNE_READINGS = generateSequentialReadings(BOOK_CHAPTERS, 4);
-
-// NT in 90 days: ~3 chapters/day through NT only
 const NT_90_READINGS = generateSequentialReadings(NT_BOOKS, 3);
-
-// Torah: 4–5 chapters/day through the Pentateuch
-const TORAH_READINGS = generateSequentialReadings(
-  BOOK_CHAPTERS.slice(0, 5), 5
-);
-
-// Historical Books: 4 chapters/day through Joshua → Esther
-const HISTORICAL_READINGS = generateSequentialReadings(
-  BOOK_CHAPTERS.slice(5, 17), 4
-);
-
-// Psalms & Proverbs: 3 chapters/day
+const TORAH_READINGS = generateSequentialReadings(BOOK_CHAPTERS.slice(0, 5), 5);
+const HISTORICAL_READINGS = generateSequentialReadings(BOOK_CHAPTERS.slice(5, 17), 4);
 const PSALMS_PROV_READINGS = generateSequentialReadings(
   [{ book:"Psalms", chapters:150 }, { book:"Proverbs", chapters:31 }], 3
 );
-
-// The Prophets: 3 chapters/day through all 17 prophetic books
-const PROPHETS_READINGS = generateSequentialReadings(
-  BOOK_CHAPTERS.slice(22, 39), 3
-);
-
-// The Epistles: 2 chapters/day through Romans → Jude
-const EPISTLES_READINGS = generateSequentialReadings(
-  BOOK_CHAPTERS.slice(45, 65), 2
-);
-
-// ── Curated / handcrafted plan readings ───────────────────────────────────
+const PROPHETS_READINGS = generateSequentialReadings(BOOK_CHAPTERS.slice(22, 39), 3);
+const EPISTLES_READINGS = generateSequentialReadings(BOOK_CHAPTERS.slice(45, 65), 2);
 
 const LIFE_OF_JESUS_READINGS = [
   { day:1,  label:"Day 1",  passages:[{ book:"John", chapter:1 },{ book:"Luke", chapter:1 }] },
@@ -489,7 +454,6 @@ const ADVENT_READINGS = [
   { day:25, label:"The Word Made Flesh",  passages:[{ book:"John", chapter:1 }] },
 ];
 
-// Master lookup: planId → readings array
 const PLAN_READINGS = {
   "bible-in-a-year":     BIBLE_YEAR_READINGS,
   "chronological":       CHRON_READINGS,
@@ -509,15 +473,16 @@ const PLAN_READINGS = {
   "advent":              ADVENT_READINGS,
 };
 
-// Helper: get today's reading entry for a plan given days completed
-function getTodaysReading(planId, daysDone) {
+// ─── Derived progress helpers ────────────────────────────────────────────────
+function countCompletedDays(planId, completedSet) {
   const readings = PLAN_READINGS[planId];
-  if (!readings) return null;
-  const idx = Math.min(daysDone, readings.length - 1);
-  return readings[idx] || null;
+  if (!readings) return 0;
+  return readings.filter(r =>
+    r.passages.every(p => completedSet.has(`${p.book}|${p.chapter}`))
+  ).length;
 }
 
-// ─── Shelf definitions ────────────────────────────────────────────────────────
+// ─── Shelf definitions ──────────────────────────────────────────────────────
 const SHELVES = [
   { id:"full",     label:"Full Bible & Chronological",  emoji:"📚" },
   { id:"nt",       label:"New Testament & Gospels",     emoji:"✨" },
@@ -526,73 +491,94 @@ const SHELVES = [
   { id:"thematic", label:"Thematic & Seasonal",         emoji:"🌿" },
 ];
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+// ─── Main Component ─────────────────────────────────────────────────────────
 export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
   const { bp } = useApp();
   const T = darkMode ? T_DARK : T_LIGHT;
 
-  const [selectedPlan,  setSelectedPlan]  = useState(null);
-  const [detailOpen,    setDetailOpen]    = useState(false);
-  const [animIn,        setAnimIn]        = useState(false);
-  const [activeTab,     setActiveTab]     = useState("library");
-  const [activePlans,   setActivePlans]   = useState({});
-  const [completedDays, setCompletedDays] = useState({});
-  const [hoveredId,     setHoveredId]     = useState(null);
+  // ── Sub-view navigation ─────────────────────────────────────────────────
+  const [subView,      setSubView]      = useState("library");
+  const [activePlanId, setActivePlanId] = useState(null);
+  const [readerCtx,    setReaderCtx]    = useState(null); // { planId, day, book, chapter }
 
-  // ── Supabase chapter availability check ──────────────────────────────────
-  // Cache results so we never query the same chapter twice in a session
-  // Key: "Book|chapter" → true (seeded) | false (not seeded) | "loading"
-  const [seededCache, setSeededCache] = useState({});
+  // ── Detail modal (unchanged pattern) ────────────────────────────────────
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [detailOpen,   setDetailOpen]   = useState(false);
+  const [animIn,       setAnimIn]       = useState(false);
+  const [hoveredId,    setHoveredId]    = useState(null);
 
-  const checkChapterSeeded = useCallback(async (book, chapter) => {
-    const key = `${book}|${chapter}`;
-    if (seededCache[key] === true || seededCache[key] === false) return seededCache[key];
-    setSeededCache(prev => ({ ...prev, [key]: "loading" }));
+  // ── Persistent plan progress ────────────────────────────────────────────
+  const [planData, setPlanData] = useState({});
+  useEffect(() => {
     try {
-      // Step 1: get book id
-      const { data: bookData, error: bookError } = await supabase
-        .from("books").select("id").eq("name", book).single();
-      if (bookError || !bookData) {
-        setSeededCache(prev => ({ ...prev, [key]: false }));
-        return false;
-      }
-      // Step 2: get chapter id
-      const { data: chData, error: chError } = await supabase
-        .from("chapters").select("id")
-        .eq("book_id", bookData.id)
-        .eq("chapter_number", chapter)
-        .single();
-      if (chError || !chData) {
-        setSeededCache(prev => ({ ...prev, [key]: false }));
-        return false;
-      }
-      // Step 3: check if any verses exist for this chapter
-      const { data: vData, error: vError } = await supabase
-        .from("verses").select("id")
-        .eq("chapter_id", chData.id)
-        .limit(1);
-      const isSeeded = !vError && vData && vData.length > 0;
-      setSeededCache(prev => ({ ...prev, [key]: isSeeded }));
-      return isSeeded;
-    } catch {
-      setSeededCache(prev => ({ ...prev, [key]: false }));
-      return false;
-    }
-  }, [seededCache]);
+      const raw = localStorage.getItem("readingPlanProgress");
+      if (raw) setPlanData(JSON.parse(raw));
+    } catch { /* ignore */ }
+  }, []);
+  useEffect(() => {
+    try { localStorage.setItem("readingPlanProgress", JSON.stringify(planData)); } catch { /* ignore */ }
+  }, [planData]);
 
-  // Pre-check all passages for a given day's reading so the UI can render
-  // immediately with correct states rather than showing loaders per-passage
-  const primePassageCache = useCallback(async (planId, daysDone) => {
-    const entry = getTodaysReading(planId, daysDone);
-    if (!entry) return;
-    for (const { book, chapter } of entry.passages) {
-      const key = `${book}|${chapter}`;
-      if (seededCache[key] === undefined) {
-        checkChapterSeeded(book, chapter);
-      }
-    }
-  }, [seededCache, checkChapterSeeded]);
+  const getCompletedSet = useCallback((planId) => {
+    return new Set(planData[planId]?.completedChapters || []);
+  }, [planData]);
 
+  // ── Schedule: collapsible weeks ─────────────────────────────────────────
+  const [expandedWeeks, setExpandedWeeks] = useState({});
+  const weekRefs = useRef({});
+
+  // Auto-expand current week when entering schedule
+  useEffect(() => {
+    if (subView !== "schedule" || !activePlanId) return;
+    const completedSet = getCompletedSet(activePlanId);
+    const readings = PLAN_READINGS[activePlanId] || [];
+    const firstIncompleteIdx = readings.findIndex(r =>
+      !r.passages.every(p => completedSet.has(`${p.book}|${p.chapter}`))
+    );
+    const weekIdx = firstIncompleteIdx >= 0 ? Math.floor(firstIncompleteIdx / 7) : 0;
+    setExpandedWeeks({ [weekIdx]: true });
+    // scroll into view after render
+    setTimeout(() => {
+      weekRefs.current[weekIdx]?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  }, [subView, activePlanId]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // ── Inline reader: chapter loading ──────────────────────────────────────
+  const rpBookCache = useRef({});
+  const [readerVerses, setReaderVerses] = useState([]);
+  const [readerMeta,   setReaderMeta]   = useState(null);
+  const [readerLoading, setReaderLoading] = useState(false);
+
+  const loadPlanChapter = useCallback(async (bookName, chNum) => {
+    const slug = bookSlug(bookName);
+    if (!rpBookCache.current[slug]) {
+      try {
+        const res = await fetch(`/data/${slug}.json`);
+        if (res.ok) rpBookCache.current[slug] = await res.json();
+      } catch { /* ignore */ }
+    }
+    const bookData = rpBookCache.current[slug];
+    if (!bookData) return null;
+    const ch = bookData.chapters?.[String(chNum)];
+    if (!ch) return null;
+    return { verses: ch.verses || [], meta: ch.meta || null };
+  }, []);
+
+  useEffect(() => {
+    if (subView !== "reader" || !readerCtx) return;
+    let cancelled = false;
+    setReaderLoading(true);
+    setReaderVerses([]);
+    setReaderMeta(null);
+    loadPlanChapter(readerCtx.book, readerCtx.chapter).then(data => {
+      if (cancelled) return;
+      if (data) { setReaderVerses(data.verses); setReaderMeta(data.meta); }
+      setReaderLoading(false);
+    });
+    return () => { cancelled = true; };
+  }, [subView, readerCtx, loadPlanChapter]);
+
+  // ── Plan operations ─────────────────────────────────────────────────────
   const openDetail = (plan) => {
     setSelectedPlan(plan);
     setDetailOpen(true);
@@ -606,25 +592,406 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
   };
 
   const startPlan = (plan) => {
-    const currentDays = completedDays[plan.id] || 0;
-    setActivePlans(prev => ({ ...prev, [plan.id]: { startedAt: new Date().toISOString() } }));
-    setCompletedDays(prev => ({ ...prev, [plan.id]: currentDays }));
-    // Prime the Supabase cache for today's passages immediately
-    primePassageCache(plan.id, currentDays);
+    setPlanData(prev => ({
+      ...prev,
+      [plan.id]: { startedAt: new Date().toISOString(), completedChapters: [] },
+    }));
+    setActivePlanId(plan.id);
     closeDetail();
-    setTimeout(() => setActiveTab("myPlans"), 360);
+    setTimeout(() => setSubView("schedule"), 360);
   };
 
-  const markDayDone = (planId) => {
-    const total = parseInt(READING_PLANS.find(p => p.id === planId).duration);
-    const nextDay = Math.min((completedDays[planId] || 0) + 1, total);
-    setCompletedDays(prev => ({ ...prev, [planId]: nextDay }));
-    // Pre-check tomorrow's passages while user is still on the screen
-    primePassageCache(planId, nextDay);
+  const toggleChapterComplete = useCallback((planId, book, chapter) => {
+    const key = `${book}|${chapter}`;
+    setPlanData(prev => {
+      const plan = prev[planId] || { startedAt: new Date().toISOString(), completedChapters: [] };
+      const chapters = new Set(plan.completedChapters);
+      if (chapters.has(key)) chapters.delete(key);
+      else chapters.add(key);
+      return { ...prev, [planId]: { ...plan, completedChapters: [...chapters] } };
+    });
+  }, []);
+
+  const resetPlan = (planId) => {
+    setPlanData(prev => ({
+      ...prev,
+      [planId]: { startedAt: new Date().toISOString(), completedChapters: [] },
+    }));
   };
 
-  const myActivePlans = READING_PLANS.filter(p => activePlans[p.id]);
+  const removePlan = (planId) => {
+    setPlanData(prev => {
+      const next = { ...prev };
+      delete next[planId];
+      return next;
+    });
+    if (activePlanId === planId) {
+      setActivePlanId(null);
+      setSubView("myPlans");
+    }
+  };
 
+  // ── Derived state ───────────────────────────────────────────────────────
+  const myActivePlans = READING_PLANS.filter(p => planData[p.id]);
+  const activeCount = myActivePlans.length;
+
+  // ────────────────────────────────────────────────────────────────────────
+  // RENDER
+  // ────────────────────────────────────────────────────────────────────────
+
+  // ═══════ READER VIEW ═══════════════════════════════════════════════════
+  if (subView === "reader" && readerCtx) {
+    const plan = READING_PLANS.find(p => p.id === readerCtx.planId);
+    const planColor = plan?.color || "#B8860B";
+    const completedSet = getCompletedSet(readerCtx.planId);
+    const chKey = `${readerCtx.book}|${readerCtx.chapter}`;
+    const isRead = completedSet.has(chKey);
+
+    return (
+      <div style={{ minHeight:"100vh", background:T.bg, fontFamily:T.font }}>
+        {/* Sticky header */}
+        <div style={{
+          position:"sticky", top:0, zIndex:10,
+          background:`linear-gradient(135deg, ${planColor}, ${lightenHex(planColor,20)})`,
+          padding:"12px 16px", display:"flex", alignItems:"center", gap:12,
+          boxShadow:"0 2px 12px rgba(0,0,0,0.2)",
+        }}>
+          <button onClick={() => setSubView("schedule")} style={{
+            background:"rgba(0,0,0,0.2)", border:"none", borderRadius:20,
+            color:"#fff", padding:"6px 14px", fontSize:13,
+            cursor:"pointer", fontFamily:T.font,
+          }}>← Schedule</button>
+          <div style={{ flex:1, textAlign:"center" }}>
+            <span style={{ color:"#fff", fontSize:16, fontWeight:700,
+              textShadow:"0 1px 4px rgba(0,0,0,0.3)" }}>
+              {readerCtx.book} {readerCtx.chapter}
+            </span>
+          </div>
+          <div style={{ width:80 }} />
+        </div>
+
+        {/* Chapter meta */}
+        {readerMeta?.theme && (
+          <div style={{
+            margin:"16px 16px 0", padding:"14px 16px",
+            background: darkMode ? "#201A16" : "#fff",
+            borderRadius:12, borderLeft:`4px solid ${planColor}`,
+            boxShadow:"0 1px 6px rgba(0,0,0,0.06)",
+          }}>
+            <p style={{ margin:0, fontSize:13, fontWeight:700, color:planColor }}>
+              {readerMeta.theme}
+            </p>
+            {readerMeta.overview && (
+              <p style={{ margin:"6px 0 0", fontSize:13, color:T.muted, lineHeight:1.6 }}>
+                {readerMeta.overview}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Verses */}
+        <div style={{ padding:"12px 16px 100px" }}>
+          {readerLoading ? (
+            <div style={{ textAlign:"center", padding:"60px 0" }}>
+              <div style={{ fontSize:32, marginBottom:12 }}>📖</div>
+              <p style={{ color:T.muted, fontSize:14 }}>Loading chapter...</p>
+            </div>
+          ) : readerVerses.length === 0 ? (
+            <div style={{ textAlign:"center", padding:"60px 0" }}>
+              <div style={{ fontSize:32, marginBottom:12 }}>📄</div>
+              <p style={{ color:T.muted, fontSize:14 }}>Chapter not available yet</p>
+            </div>
+          ) : (
+            <div style={{
+              background: darkMode ? "#201A16" : "#fff",
+              borderRadius:14, overflow:"hidden",
+              boxShadow:"0 2px 10px rgba(0,0,0,0.06)",
+            }}>
+              {readerVerses.map((v, i) => (
+                <div key={v.verse_number} style={{
+                  padding:"10px 16px",
+                  borderTop: i > 0 ? `1px solid ${darkMode ? "#2A2420" : "#F0EBE0"}` : "none",
+                }}>
+                  <span style={{
+                    float:"left", fontSize:22, fontWeight:700,
+                    color:planColor, lineHeight:1, marginRight:6, marginTop:2,
+                    fontFamily:T.font,
+                  }}>{v.verse_number}</span>
+                  <span style={{
+                    fontSize:15, color:T.text, lineHeight:1.65,
+                    fontFamily:T.font,
+                  }}>{v.kjv_text}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Sticky footer: mark as read */}
+        {readerVerses.length > 0 && (
+          <div style={{
+            position:"fixed", bottom:0, left:0, right:0,
+            padding:"12px 16px", background:T.bg,
+            borderTop:`1px solid ${darkMode ? "#2A2420" : "#E0D8C8"}`,
+            boxShadow:"0 -2px 12px rgba(0,0,0,0.08)",
+          }}>
+            <button
+              onClick={() => {
+                if (!isRead) toggleChapterComplete(readerCtx.planId, readerCtx.book, readerCtx.chapter);
+                setSubView("schedule");
+              }}
+              style={{
+                width:"100%", padding:"14px", borderRadius:12, border:"none",
+                background: isRead
+                  ? (darkMode ? "rgba(5,150,105,0.15)" : "#D1FAE5")
+                  : `linear-gradient(135deg, ${planColor}, ${lightenHex(planColor,20)})`,
+                color: isRead ? (darkMode ? "#4ADE80" : "#065F46") : "#fff",
+                fontWeight:700, fontSize:15, cursor:"pointer", fontFamily:T.font,
+              }}
+            >
+              {isRead ? "✓ Chapter Complete — Back to Schedule" : "✓ Mark as Read & Continue"}
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ═══════ SCHEDULE VIEW ═════════════════════════════════════════════════
+  if (subView === "schedule" && activePlanId) {
+    const plan = READING_PLANS.find(p => p.id === activePlanId);
+    const readings = PLAN_READINGS[activePlanId] || [];
+    const completedSet = getCompletedSet(activePlanId);
+    const totalDays = readings.length;
+    const doneDays = countCompletedDays(activePlanId, completedSet);
+    const pct = totalDays > 0 ? Math.round((doneDays / totalDays) * 100) : 0;
+    const useWeeks = totalDays > 14;
+
+    // Group into weeks (7 days each)
+    const weeks = useWeeks
+      ? Array.from({ length: Math.ceil(totalDays / 7) }, (_, wi) =>
+          readings.slice(wi * 7, (wi + 1) * 7)
+        )
+      : [readings];
+
+    return (
+      <div style={{ minHeight:"100vh", background:T.bg, fontFamily:T.font }}>
+        {/* Sticky header */}
+        <div style={{
+          position:"sticky", top:0, zIndex:10, background:T.bg,
+          borderBottom:`1px solid ${darkMode ? "#2A2420" : "#E0D8C8"}`,
+          padding:"12px 16px",
+        }}>
+          <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:10 }}>
+            <button onClick={() => { setSubView("myPlans"); setActivePlanId(null); }} style={{
+              background:"rgba(0,0,0,0.06)", border:"none", borderRadius:20,
+              color:T.text, padding:"6px 14px", fontSize:13,
+              cursor:"pointer", fontFamily:T.font,
+            }}>← My Plans</button>
+            <div style={{ flex:1, textAlign:"center" }}>
+              <span style={{ fontSize:14, fontWeight:700, color:T.text }}>
+                {plan?.icon} {plan?.title}
+              </span>
+            </div>
+            <div style={{ width:80 }} />
+          </div>
+          {/* Progress bar */}
+          <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+            <div style={{ flex:1, height:6, background:darkMode?"#3A3028":"#E5E7EB", borderRadius:6, overflow:"hidden" }}>
+              <div style={{
+                height:"100%", width:`${pct}%`,
+                background:`linear-gradient(90deg, ${plan?.color}, ${lightenHex(plan?.color||"#888",30)})`,
+                borderRadius:6, transition:"width 0.5s ease",
+              }} />
+            </div>
+            <span style={{ fontSize:12, fontWeight:700, color:plan?.color, minWidth:65, textAlign:"right" }}>
+              {doneDays}/{totalDays} days
+            </span>
+          </div>
+        </div>
+
+        {/* Schedule body */}
+        <div style={{ padding:"12px 16px 60px", maxWidth:bp.content, margin:"0 auto" }}>
+          {weeks.map((weekDays, wi) => {
+            const isExpanded = !!expandedWeeks[wi];
+            const weekStart = wi * 7 + 1;
+            const weekEnd = Math.min(weekStart + 6, totalDays);
+            const weekDone = weekDays.filter(r =>
+              r.passages.every(p => completedSet.has(`${p.book}|${p.chapter}`))
+            ).length;
+            const allWeekDone = weekDone === weekDays.length;
+
+            return (
+              <div key={wi} ref={el => weekRefs.current[wi] = el} style={{ marginBottom:useWeeks?8:0 }}>
+                {/* Week header (only for plans with weeks) */}
+                {useWeeks && (
+                  <button
+                    onClick={() => setExpandedWeeks(prev => ({ ...prev, [wi]: !prev[wi] }))}
+                    style={{
+                      width:"100%", display:"flex", alignItems:"center", gap:10,
+                      padding:"12px 14px", background: allWeekDone
+                        ? (darkMode ? "rgba(5,150,105,0.08)" : "#ECFDF5")
+                        : (darkMode ? "#201A16" : "#fff"),
+                      border:`1px solid ${allWeekDone ? (darkMode?"#065F4644":"#A7F3D0") : (darkMode?"#2A2420":"#E0D8C8")}`,
+                      borderRadius:10, cursor:"pointer", fontFamily:T.font,
+                      marginBottom: isExpanded ? 6 : 0,
+                    }}
+                  >
+                    <span style={{
+                      width:22, height:22, borderRadius:"50%",
+                      background: allWeekDone ? "#10B981" : (darkMode?"#3A3028":"#E5E7EB"),
+                      color: allWeekDone ? "#fff" : T.muted,
+                      display:"flex", alignItems:"center", justifyContent:"center",
+                      fontSize:11, fontWeight:700, flexShrink:0,
+                    }}>
+                      {allWeekDone ? "✓" : wi+1}
+                    </span>
+                    <div style={{ flex:1, textAlign:"left" }}>
+                      <span style={{ fontSize:14, fontWeight:700, color:T.text }}>
+                        Week {wi+1}
+                      </span>
+                      <span style={{ fontSize:12, color:T.muted, marginLeft:8 }}>
+                        Days {weekStart}–{weekEnd}
+                      </span>
+                    </div>
+                    <span style={{ fontSize:12, fontWeight:600, color: allWeekDone ? "#10B981" : T.muted }}>
+                      {weekDone}/{weekDays.length}
+                    </span>
+                    <span style={{
+                      fontSize:14, color:T.muted,
+                      transform: isExpanded ? "rotate(180deg)" : "rotate(0)",
+                      transition:"transform 0.2s",
+                    }}>▾</span>
+                  </button>
+                )}
+
+                {/* Day rows */}
+                {(isExpanded || !useWeeks) && (
+                  <div style={{ display:"flex", flexDirection:"column", gap:6,
+                    padding: useWeeks ? "6px 0 0" : 0 }}>
+                    {weekDays.map(entry => {
+                      const dayComplete = entry.passages.every(p =>
+                        completedSet.has(`${p.book}|${p.chapter}`)
+                      );
+                      return (
+                        <div key={entry.day} style={{
+                          background: dayComplete
+                            ? (darkMode ? "rgba(5,150,105,0.06)" : "#F0FDF4")
+                            : (darkMode ? "#201A16" : "#fff"),
+                          border:`1px solid ${dayComplete ? (darkMode?"#065F4633":"#BBF7D0") : (darkMode?"#2A242066":"#E0D8C8")}`,
+                          borderRadius:12, overflow:"hidden",
+                        }}>
+                          {/* Day header */}
+                          <div style={{
+                            padding:"10px 14px",
+                            display:"flex", alignItems:"center", gap:10,
+                            borderBottom: `1px solid ${darkMode ? "#2A242044" : "#F0EBE0"}`,
+                          }}>
+                            <span style={{
+                              width:26, height:26, borderRadius:"50%",
+                              background: dayComplete
+                                ? "#10B981"
+                                : `${plan?.color || "#888"}22`,
+                              color: dayComplete ? "#fff" : (plan?.color || T.text),
+                              display:"flex", alignItems:"center", justifyContent:"center",
+                              fontSize:dayComplete ? 13 : 11, fontWeight:700, flexShrink:0,
+                            }}>
+                              {dayComplete ? "✓" : entry.day}
+                            </span>
+                            <div style={{ flex:1 }}>
+                              <span style={{ fontSize:14, fontWeight:700, color:T.text }}>
+                                {entry.label}
+                              </span>
+                              {entry.label !== `Day ${entry.day}` && (
+                                <span style={{ fontSize:12, color:T.muted, marginLeft:6 }}>
+                                  — Day {entry.day}
+                                </span>
+                              )}
+                            </div>
+                            {dayComplete && (
+                              <span style={{ fontSize:11, fontWeight:600, color:"#10B981" }}>
+                                Complete
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Chapter rows */}
+                          <div style={{ padding:"6px 10px 10px" }}>
+                            {entry.passages.map(({ book, chapter }) => {
+                              const chKey = `${book}|${chapter}`;
+                              const isChDone = completedSet.has(chKey);
+                              return (
+                                <div key={chKey} style={{
+                                  display:"flex", alignItems:"center", gap:10,
+                                  padding:"8px 6px", borderRadius:8,
+                                  marginBottom:4,
+                                  background: isChDone
+                                    ? (darkMode ? "rgba(5,150,105,0.06)" : "#F0FDF4")
+                                    : "transparent",
+                                }}>
+                                  {/* Checkbox */}
+                                  <button
+                                    onClick={() => toggleChapterComplete(activePlanId, book, chapter)}
+                                    style={{
+                                      width:22, height:22, borderRadius:5, flexShrink:0,
+                                      border: isChDone
+                                        ? "none"
+                                        : `2px solid ${darkMode ? "#5A4A3A" : "#C8B89A"}`,
+                                      background: isChDone ? "#10B981" : "transparent",
+                                      color:"#fff", cursor:"pointer",
+                                      display:"flex", alignItems:"center", justifyContent:"center",
+                                      fontSize:12, fontWeight:700, padding:0,
+                                    }}
+                                  >
+                                    {isChDone ? "✓" : ""}
+                                  </button>
+
+                                  {/* Chapter label */}
+                                  <span style={{
+                                    flex:1, fontSize:14, fontWeight:600,
+                                    color: isChDone ? T.muted : T.text,
+                                    textDecoration: isChDone ? "line-through" : "none",
+                                    opacity: isChDone ? 0.7 : 1,
+                                  }}>
+                                    {book} {chapter}
+                                  </span>
+
+                                  {/* Read button */}
+                                  <button
+                                    onClick={() => {
+                                      setReaderCtx({ planId: activePlanId, day: entry.day, book, chapter });
+                                      setSubView("reader");
+                                    }}
+                                    style={{
+                                      background: isChDone
+                                        ? (darkMode ? "rgba(255,255,255,0.06)" : "#F3F4F6")
+                                        : `linear-gradient(135deg, ${plan?.color}, ${lightenHex(plan?.color||"#888",20)})`,
+                                      color: isChDone ? T.muted : "#fff",
+                                      border:"none", borderRadius:8,
+                                      padding:"6px 12px", fontSize:12, fontWeight:700,
+                                      cursor:"pointer", fontFamily:T.font, flexShrink:0,
+                                    }}
+                                  >
+                                    {isChDone ? "Re-read" : "Read"}
+                                  </button>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  // ═══════ LIBRARY + MY PLANS ════════════════════════════════════════════
   return (
     <div style={{ minHeight: "100vh", background: T.wall, fontFamily: T.font }}>
 
@@ -633,7 +1000,6 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
         background: "linear-gradient(160deg, #1A0E06 0%, #4A2410 60%, #2A1208 100%)",
         padding: "0 0 28px", position: "relative", overflow: "hidden",
       }}>
-        {/* Subtle wood-grain streaks */}
         {[8,22,38,55,70,85].map(top => (
           <div key={top} style={{
             position:"absolute", left:0, right:0, top:`${top}%`,
@@ -662,7 +1028,7 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
           <div style={{ display:"flex", justifyContent:"center", gap:28 }}>
             {[
               { label:"Plans",  value:"16" },
-              { label:"Active", value: myActivePlans.length },
+              { label:"Active", value: activeCount },
               { label:"Shelves",value:"5" },
             ].map(s => (
               <div key={s.label} style={{ textAlign:"center" }}>
@@ -676,13 +1042,13 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
         <div style={{ display:"flex", justifyContent:"center", gap:8, padding:"18px 20px 0" }}>
           {[
             { key:"library", label:"📚 Library" },
-            { key:"myPlans", label:`🔖 My Plans${myActivePlans.length ? ` (${myActivePlans.length})` : ""}` },
+            { key:"myPlans", label:`🔖 My Plans${activeCount ? ` (${activeCount})` : ""}` },
           ].map(t => (
-            <button key={t.key} onClick={() => setActiveTab(t.key)} style={{
+            <button key={t.key} onClick={() => setSubView(t.key)} style={{
               padding:"8px 20px", borderRadius:20,
-              border:`1.5px solid ${activeTab===t.key ? "#F5DEB3" : "rgba(245,222,179,0.3)"}`,
-              background: activeTab===t.key ? "#F5DEB3" : "transparent",
-              color: activeTab===t.key ? "#2C1A0E" : "#F5DEB3",
+              border:`1.5px solid ${subView===t.key ? "#F5DEB3" : "rgba(245,222,179,0.3)"}`,
+              background: subView===t.key ? "#F5DEB3" : "transparent",
+              color: subView===t.key ? "#2C1A0E" : "#F5DEB3",
               fontWeight:600, fontSize:14, cursor:"pointer", fontFamily:T.font,
               transition:"all 0.2s",
             }}>{t.label}</button>
@@ -691,7 +1057,7 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
       </div>
 
       {/* ── LIBRARY ── */}
-      {activeTab === "library" && (
+      {subView === "library" && (
         <div style={{ padding:"28px 0 60px" }}>
 
           {SHELVES.map(shelf => {
@@ -699,7 +1065,6 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
             return (
               <div key={shelf.id} style={{ marginBottom:44 }}>
 
-                {/* Shelf label */}
                 <div style={{ padding:"0 22px 12px", display:"flex", alignItems:"center", gap:8 }}>
                   <span style={{ fontSize:16 }}>{shelf.emoji}</span>
                   <span style={{
@@ -709,14 +1074,14 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
                   <div style={{ flex:1, height:1, background:"#C9A96E", opacity:0.35, marginLeft:6 }} />
                 </div>
 
-                {/* Books */}
                 <div style={{ padding:"8px 22px 0", display:"flex", gap:8, flexWrap:"wrap" }}>
                   {plans.map(plan => {
                     const isHovered = hoveredId === plan.id;
-                    const isActive  = !!activePlans[plan.id];
-                    const done      = completedDays[plan.id] || 0;
+                    const isActive  = !!planData[plan.id];
+                    const completedSet = getCompletedSet(plan.id);
+                    const done      = countCompletedDays(plan.id, completedSet);
                     const total     = parseInt(plan.duration);
-                    const pct       = isActive ? (done / total) : 0;
+                    const pctVal    = isActive ? (done / total) : 0;
                     const light     = lightenHex(plan.color, 45);
 
                     return (
@@ -735,14 +1100,12 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
                             : "drop-shadow(0 3px 5px rgba(0,0,0,0.28))",
                         }}
                       >
-                        {/* Top edge (pages) */}
                         <div style={{
                           height:5, borderRadius:"3px 3px 0 0",
                           background: darkMode ? "linear-gradient(90deg, #3A3028, #2E2620, #3A3028)" : "linear-gradient(90deg, #f0e8d8, #e8dcc8, #f0e8d8)",
                           borderTop: darkMode ? "1px solid #4A3C2E" : "1px solid #d4c4a0",
                         }} />
 
-                        {/* Spine */}
                         <div style={{
                           minHeight:175,
                           background:`linear-gradient(90deg, ${plan.color}cc 0%, ${plan.color} 25%, ${light} 48%, ${plan.color} 72%, ${plan.color}aa 100%)`,
@@ -750,34 +1113,29 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
                           alignItems:"center", justifyContent:"space-between",
                           padding:"10px 0", position:"relative", overflow:"hidden",
                         }}>
-                          {/* Highlight crease */}
                           <div style={{
                             position:"absolute", left:7, top:0, bottom:0, width:2,
                             background:"rgba(255,255,255,0.22)", borderRadius:1,
                           }} />
-                          {/* Shadow crease */}
                           <div style={{
                             position:"absolute", right:5, top:0, bottom:0, width:1,
                             background:"rgba(0,0,0,0.15)",
                           }} />
 
-                          {/* Progress fill from bottom */}
                           {isActive && (
                             <div style={{
                               position:"absolute", bottom:0, left:0, right:0,
-                              height:`${pct*100}%`,
+                              height:`${pctVal*100}%`,
                               background:"rgba(255,255,255,0.18)",
                               transition:"height 0.5s ease",
                             }} />
                           )}
 
-                          {/* Icon */}
                           <span style={{ fontSize:18, position:"relative",
                             filter:"drop-shadow(0 1px 3px rgba(0,0,0,0.5))" }}>
                             {plan.icon}
                           </span>
 
-                          {/* Rotated title */}
                           <div style={{
                             writingMode:"vertical-rl",
                             transform:"rotate(180deg)",
@@ -796,7 +1154,6 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
                             {plan.title}
                           </div>
 
-                          {/* Duration */}
                           <div style={{
                             writingMode:"vertical-rl",
                             transform:"rotate(180deg)",
@@ -810,14 +1167,12 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
                           </div>
                         </div>
 
-                        {/* Bottom edge */}
                         <div style={{
                           height:7, borderRadius:"0 0 2px 2px",
                           background:`linear-gradient(180deg, ${plan.color}bb, ${plan.color}66)`,
                           borderBottom:"1px solid rgba(0,0,0,0.2)",
                         }} />
 
-                        {/* Active indicator */}
                         {isActive && (
                           <div style={{
                             width:8, height:8, borderRadius:"50%",
@@ -830,7 +1185,6 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
                   })}
                 </div>
 
-                {/* Wood shelf plank */}
                 <div style={{ margin:"16px 14px 0" }}>
                   <div style={{
                     height:16, borderRadius:"2px 2px 4px 4px",
@@ -848,7 +1202,6 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
             );
           })}
 
-          {/* Floor verse */}
           <p style={{
             textAlign:"center", color:T.muted, fontSize:13,
             fontStyle:"italic", padding:"8px 32px 0",
@@ -859,7 +1212,7 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
       )}
 
       {/* ── MY PLANS ── */}
-      {activeTab === "myPlans" && (
+      {subView === "myPlans" && (
         <div style={{ padding:`24px ${bp.pad}px 60px`, maxWidth:bp.content, margin:"0 auto" }}>
           {myActivePlans.length === 0 ? (
             <div style={{ textAlign:"center", padding:"60px 24px" }}>
@@ -868,7 +1221,7 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
               <p style={{ color:T.muted, fontSize:15, marginBottom:24, lineHeight:1.6 }}>
                 Pull a book from the library to begin your journey.
               </p>
-              <button onClick={() => setActiveTab("library")} style={{
+              <button onClick={() => setSubView("library")} style={{
                 background:"linear-gradient(135deg, #4A2410, #1A0E06)",
                 color:"#F5DEB3", border:"none", borderRadius:12,
                 padding:"13px 28px", fontSize:15, fontWeight:600,
@@ -878,11 +1231,12 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
           ) : (
             <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
               {myActivePlans.map(plan => {
-                const done    = completedDays[plan.id] || 0;
+                const completedSet = getCompletedSet(plan.id);
+                const done    = countCompletedDays(plan.id, completedSet);
                 const total   = parseInt(plan.duration);
-                const pct     = Math.round((done / total) * 100);
+                const pctVal  = Math.round((done / total) * 100);
                 const diff    = DIFF[plan.difficulty];
-                const todayEntry = getTodaysReading(plan.id, done);
+                const isComplete = done >= total;
 
                 return (
                   <div key={plan.id} style={{
@@ -892,7 +1246,7 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
                   }}>
                     <div style={{ padding:"18px 18px 16px" }}>
 
-                      {/* ── Plan header ── */}
+                      {/* Plan header */}
                       <div style={{ display:"flex", gap:12, alignItems:"center", marginBottom:14 }}>
                         <span style={{ fontSize:32 }}>{plan.icon}</span>
                         <div style={{ flex:1 }}>
@@ -905,149 +1259,56 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
                         </span>
                       </div>
 
-                      {/* ── Progress bar ── */}
+                      {/* Progress bar */}
                       <div style={{ marginBottom:16 }}>
                         <div style={{ display:"flex", justifyContent:"space-between",
                           fontSize:13, fontWeight:600, color:T.text, marginBottom:6 }}>
-                          <span>Day {done} of {total}</span>
-                          <span style={{ color:plan.color }}>{pct}%</span>
+                          <span>{done} of {total} days complete</span>
+                          <span style={{ color:plan.color }}>{pctVal}%</span>
                         </div>
                         <div style={{ height:8, background: darkMode ? "#3A3028" : "#E5E7EB", borderRadius:6, overflow:"hidden" }}>
                           <div style={{
-                            height:"100%", width:`${pct}%`,
+                            height:"100%", width:`${pctVal}%`,
                             background:`linear-gradient(90deg, ${plan.color}, ${lightenHex(plan.color,30)})`,
                             borderRadius:6, transition:"width 0.5s ease",
                           }} />
                         </div>
                       </div>
 
-                      {done >= total ? (
-                        /* ── Complete state ── */
-                        <div style={{ background: darkMode ? "rgba(5,150,105,0.12)" : "#D1FAE5", borderRadius:12,
-                          padding:"14px", marginBottom:14, textAlign:"center" }}>
-                          <p style={{ margin:0, fontSize:15, color: darkMode ? "#4ADE80" : "#065F46", fontWeight:700 }}>
-                            🎉 Plan Complete — Well done!
-                          </p>
-                          <p style={{ margin:"4px 0 0", fontSize:12, color: darkMode ? "#6EE7B7" : "#047857" }}>
-                            You've finished the entire plan.
-                          </p>
-                        </div>
-                      ) : todayEntry ? (
-                        /* ── Today's reading passages ── */
+                      {/* Complete state or Continue button */}
+                      {isComplete ? (
                         <div style={{
-                          background: darkMode ? "#201A16" : "#fff",
-                          border:`1px solid ${plan.color}33`,
-                          borderRadius:12, marginBottom:14, overflow:"hidden",
+                          background: darkMode ? "rgba(5,150,105,0.12)" : "#D1FAE5",
+                          borderRadius:12, padding:"14px", marginBottom:10, textAlign:"center",
                         }}>
-                          {/* Header row */}
-                          <div style={{
-                            background:`${plan.color}11`,
-                            borderBottom:`1px solid ${plan.color}22`,
-                            padding:"10px 14px",
-                            display:"flex", alignItems:"center", gap:8,
-                          }}>
-                            <span style={{ fontSize:15 }}>📅</span>
-                            <span style={{ fontSize:13, fontWeight:700, color:T.text }}>
-                              {todayEntry.label}
-                              {todayEntry.label !== `Day ${done + 1}` ? ` — Day ${done + 1}` : ""}
-                            </span>
-                          </div>
-
-                          {/* Passage buttons */}
-                          <div style={{ padding:"10px 12px", display:"flex", flexDirection:"column", gap:8 }}>
-                            {todayEntry.passages.map(({ book, chapter }) => {
-                              const cacheKey = `${book}|${chapter}`;
-                              const cacheVal = seededCache[cacheKey];
-                              const isSeeded   = cacheVal === true;
-                              const isLoading  = cacheVal === "loading" || cacheVal === undefined;
-                              const isUnseeded = cacheVal === false;
-
-                              // Fire the check if not yet cached
-                              if (cacheVal === undefined) {
-                                checkChapterSeeded(book, chapter);
-                              }
-
-                              return (
-                                <div key={cacheKey} style={{
-                                  display:"flex", alignItems:"center",
-                                  justifyContent:"space-between", gap:10,
-                                  padding:"10px 12px", borderRadius:10,
-                                  background: isSeeded ? `${plan.color}0D` : (darkMode ? "rgba(255,255,255,0.03)" : "#F9FAFB"),
-                                  border: `1px solid ${isSeeded ? plan.color + "33" : (darkMode ? "rgba(255,255,255,0.08)" : "#E5E7EB")}`,
-                                }}>
-                                  {/* Passage label */}
-                                  <div style={{ display:"flex", alignItems:"center", gap:8 }}>
-                                    <span style={{ fontSize:16 }}>
-                                      {isSeeded ? "📖" : isLoading ? "⏳" : "🔒"}
-                                    </span>
-                                    <div>
-                                      <p style={{
-                                        margin:0, fontSize:14, fontWeight:700,
-                                        color: isSeeded ? T.text : T.muted,
-                                      }}>
-                                        {book} {chapter}
-                                      </p>
-                                      <p style={{ margin:0, fontSize:11, color:T.muted }}>
-                                        {isSeeded ? "Ready to read"
-                                          : isLoading ? "Checking..."
-                                          : "Coming soon"}
-                                      </p>
-                                    </div>
-                                  </div>
-
-                                  {/* Action button */}
-                                  {isSeeded ? (
-                                    <button
-                                      onClick={() => nav("verses", { book, chapter })}
-                                      style={{
-                                        background:`linear-gradient(135deg, ${plan.color}, ${lightenHex(plan.color,20)})`,
-                                        color:"#fff", border:"none", borderRadius:8,
-                                        padding:"7px 14px", fontSize:13, fontWeight:700,
-                                        cursor:"pointer", fontFamily:T.font,
-                                        whiteSpace:"nowrap", flexShrink:0,
-                                      }}
-                                    >
-                                      Read →
-                                    </button>
-                                  ) : isUnseeded ? (
-                                    <span style={{
-                                      background: darkMode ? "rgba(255,255,255,0.06)" : "#F3F4F6", color:T.muted,
-                                      borderRadius:8, padding:"7px 12px",
-                                      fontSize:11, fontWeight:600, flexShrink:0,
-                                    }}>
-                                      Coming soon
-                                    </span>
-                                  ) : (
-                                    <span style={{
-                                      background: darkMode ? "rgba(255,255,255,0.06)" : "#F3F4F6", color:T.muted,
-                                      borderRadius:8, padding:"7px 12px",
-                                      fontSize:11, flexShrink:0,
-                                    }}>
-                                      …
-                                    </span>
-                                  )}
-                                </div>
-                              );
-                            })}
-                          </div>
+                          <p style={{ margin:0, fontSize:15, color: darkMode ? "#4ADE80" : "#065F46", fontWeight:700 }}>
+                            Plan Complete — Well done!
+                          </p>
                         </div>
                       ) : null}
 
-                      {/* ── Mark as read button ── */}
-                      {done < total && (
+                      <div style={{ display:"flex", gap:8 }}>
                         <button
-                          onClick={() => markDayDone(plan.id)}
+                          onClick={() => { setActivePlanId(plan.id); setSubView("schedule"); }}
                           style={{
-                            width:"100%", padding:"12px", borderRadius:10, border:"none",
+                            flex:1, padding:"12px", borderRadius:10, border:"none",
                             background:`linear-gradient(135deg, ${plan.color}, ${lightenHex(plan.color,20)})`,
                             color:"#fff", fontWeight:700, fontSize:14,
                             cursor:"pointer", fontFamily:T.font,
                           }}
                         >
-                          ✓ Mark Day {done + 1} as Read
+                          {isComplete ? "View Schedule" : "Continue →"}
                         </button>
-                      )}
-
+                        <button
+                          onClick={() => removePlan(plan.id)}
+                          style={{
+                            padding:"12px 14px", borderRadius:10,
+                            border:`1px solid ${darkMode ? "#3A3028" : "#E0D8C8"}`,
+                            background:"transparent", color:T.muted,
+                            fontSize:13, cursor:"pointer", fontFamily:T.font,
+                          }}
+                        >Remove</button>
+                      </div>
                     </div>
                   </div>
                 );
@@ -1065,13 +1326,11 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
           transition:"opacity 0.3s ease",
           pointerEvents: animIn ? "auto" : "none",
         }}>
-          {/* Backdrop */}
           <div onClick={closeDetail} style={{
             position:"absolute", inset:0,
             background:"rgba(10,5,2,0.6)",
           }} />
 
-          {/* Book page panel */}
           <div style={{
             position:"absolute", inset:0,
             background: T.bg,
@@ -1086,7 +1345,6 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
               background:`linear-gradient(150deg, ${selectedPlan.color} 0%, ${lightenHex(selectedPlan.color,25)} 55%, ${selectedPlan.color}cc 100%)`,
               padding:"0 0 32px", flexShrink:0, position:"relative", overflow:"hidden",
             }}>
-              {/* Spine decoration */}
               <div style={{
                 position:"absolute", left:18, top:0, bottom:0, width:3,
                 background:"rgba(255,255,255,0.22)", borderRadius:2,
@@ -1139,10 +1397,11 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
             <div style={{ flex:1, padding:`26px ${bp.pad}px 48px`, maxWidth:bp.contentWide, margin:"0 auto", width:"100%" }}>
 
               {/* Active progress */}
-              {activePlans[selectedPlan.id] && (() => {
-                const done  = completedDays[selectedPlan.id] || 0;
+              {planData[selectedPlan.id] && (() => {
+                const completedSet = getCompletedSet(selectedPlan.id);
+                const done  = countCompletedDays(selectedPlan.id, completedSet);
                 const total = parseInt(selectedPlan.duration);
-                const pct   = Math.round((done/total)*100);
+                const pctVal = Math.round((done/total)*100);
                 return (
                   <div style={{
                     background: darkMode ? "#201A16" : "#fff", borderRadius:14, padding:"14px 16px",
@@ -1152,11 +1411,11 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
                     <div style={{ display:"flex", justifyContent:"space-between",
                       fontSize:13, fontWeight:700, color:T.text, marginBottom:7 }}>
                       <span>Your Progress</span>
-                      <span style={{ color:selectedPlan.color }}>Day {done} / {total} — {pct}%</span>
+                      <span style={{ color:selectedPlan.color }}>Day {done} / {total} — {pctVal}%</span>
                     </div>
                     <div style={{ height:7, background: darkMode ? "#3A3028" : "#E5E7EB", borderRadius:6, overflow:"hidden" }}>
                       <div style={{
-                        height:"100%", width:`${pct}%`,
+                        height:"100%", width:`${pctVal}%`,
                         background:`linear-gradient(90deg, ${selectedPlan.color}, ${lightenHex(selectedPlan.color,30)})`,
                         borderRadius:6,
                       }} />
@@ -1210,21 +1469,54 @@ export default function ReadingPlans({ nav, onPositionSave, darkMode }) {
               </div>
 
               {/* CTA */}
-              {activePlans[selectedPlan.id] ? (
+              {planData[selectedPlan.id] ? (
                 <>
-                  <div style={{
-                    background: darkMode ? "rgba(5,150,105,0.12)" : "#D1FAE5", borderRadius:12, padding:"13px",
-                    textAlign:"center", marginBottom:12,
-                    color: darkMode ? "#4ADE80" : "#065F46", fontWeight:600, fontSize:14,
-                  }}>
-                    ✓ Day {completedDays[selectedPlan.id] || 0} of {parseInt(selectedPlan.duration)} complete
-                  </div>
-                  <button onClick={closeDetail} style={{
-                    width:"100%", padding:"16px", borderRadius:14, border:"none",
-                    background:`linear-gradient(135deg, ${selectedPlan.color}, ${lightenHex(selectedPlan.color,20)})`,
-                    color:"#fff", fontWeight:700, fontSize:17, cursor:"pointer",
-                    fontFamily:T.font, boxShadow:`0 4px 16px ${selectedPlan.color}55`,
-                  }}>Continue Reading →</button>
+                  {(() => {
+                    const completedSet = getCompletedSet(selectedPlan.id);
+                    const done = countCompletedDays(selectedPlan.id, completedSet);
+                    const total = parseInt(selectedPlan.duration);
+                    const isComplete = done >= total;
+                    return isComplete ? (
+                      <>
+                        <div style={{
+                          background: darkMode ? "rgba(5,150,105,0.12)" : "#D1FAE5", borderRadius:12, padding:"13px",
+                          textAlign:"center", marginBottom:12,
+                          color: darkMode ? "#4ADE80" : "#065F46", fontWeight:600, fontSize:14,
+                        }}>
+                          Plan Complete — Well done!
+                        </div>
+                        <div style={{ display:"flex", gap:8 }}>
+                          <button onClick={() => {
+                            setActivePlanId(selectedPlan.id);
+                            closeDetail();
+                            setTimeout(() => setSubView("schedule"), 360);
+                          }} style={{
+                            flex:1, padding:"16px", borderRadius:14, border:"none",
+                            background:`linear-gradient(135deg, ${selectedPlan.color}, ${lightenHex(selectedPlan.color,20)})`,
+                            color:"#fff", fontWeight:700, fontSize:17, cursor:"pointer",
+                            fontFamily:T.font, boxShadow:`0 4px 16px ${selectedPlan.color}55`,
+                          }}>View Schedule</button>
+                          <button onClick={() => resetPlan(selectedPlan.id)} style={{
+                            padding:"16px 20px", borderRadius:14,
+                            border:`1px solid ${darkMode ? "#3A3028" : "#E0D8C8"}`,
+                            background:"transparent", color:T.muted,
+                            fontWeight:600, fontSize:14, cursor:"pointer", fontFamily:T.font,
+                          }}>Reset</button>
+                        </div>
+                      </>
+                    ) : (
+                      <button onClick={() => {
+                        setActivePlanId(selectedPlan.id);
+                        closeDetail();
+                        setTimeout(() => setSubView("schedule"), 360);
+                      }} style={{
+                        width:"100%", padding:"16px", borderRadius:14, border:"none",
+                        background:`linear-gradient(135deg, ${selectedPlan.color}, ${lightenHex(selectedPlan.color,20)})`,
+                        color:"#fff", fontWeight:700, fontSize:17, cursor:"pointer",
+                        fontFamily:T.font, boxShadow:`0 4px 16px ${selectedPlan.color}55`,
+                      }}>Continue Reading →</button>
+                    );
+                  })()}
                 </>
               ) : (
                 <button onClick={() => startPlan(selectedPlan)} style={{

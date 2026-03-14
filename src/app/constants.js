@@ -568,6 +568,10 @@ export const CDN_NARRATORS = [
   { id: "souer",   label: "Souer",   description: "Traditional narration" },
 ];
 
+// ElevenLabs pre-generated audio — translations with HD MP3s in Supabase Storage
+export const ELEVENLABS_TRANSLATIONS = ["kjv"];
+export const ELEVENLABS_AUDIO_BUCKET = "bible-audio";
+
 export const BOOK_CODE_MAP = {
   "Genesis":"GEN","Exodus":"EXO","Leviticus":"LEV","Numbers":"NUM","Deuteronomy":"DEU",
   "Joshua":"JOS","Judges":"JDG","Ruth":"RUT","1 Samuel":"1SA","2 Samuel":"2SA",

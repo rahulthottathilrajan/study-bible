@@ -43,6 +43,13 @@ yarn-error.log*
 # seeder log (local state, not needed in git)
 scripts/.seed-log.json
 
+# ElevenLabs audio generation output
+audio-output/
+audio-test/
+
+# Google Cloud service account key
+google-tts-key.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

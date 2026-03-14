@@ -1,0 +1,2522 @@
+{
+  "1": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What is the beginning of knowledge according to Proverbs 1?",
+        "option_a": "The fear of the LORD",
+        "option_b": "Reading many books",
+        "option_c": "Listening to your teacher",
+        "option_d": "Going to school",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:7 says, \"The fear of the LORD is the beginning of knowledge.\""
+      },
+      {
+        "question_number": 2,
+        "question": "Who wrote the book of Proverbs according to chapter 1?",
+        "option_a": "David",
+        "option_b": "Moses",
+        "option_c": "Solomon",
+        "option_d": "Isaiah",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:1 says, \"The proverbs of Solomon the son of David, king of Israel.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 1 say a child should listen to?",
+        "option_a": "The instruction of a father",
+        "option_b": "The songs of the birds",
+        "option_c": "The laws of the king",
+        "option_d": "The wisdom of strangers",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:8 says, \"Hear, the instruction of thy father.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 1:7 say fools despise?",
+        "option_a": "Wisdom and instruction",
+        "option_b": "Their neighbours",
+        "option_c": "Hard work",
+        "option_d": "The king",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:7 says, \"but fools despise wisdom and instruction.\""
+      },
+      {
+        "question_number": 2,
+        "question": "In Proverbs 1, what does wisdom do in the streets?",
+        "option_a": "She weeps and mourns",
+        "option_b": "She uttereth her voice",
+        "option_c": "She builds a house",
+        "option_d": "She plants a garden",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:20 says, \"Wisdom crieth without; she uttereth her voice in the streets.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 1 warn against joining?",
+        "option_a": "Sinners who lay in wait for blood",
+        "option_b": "Foreign armies",
+        "option_c": "Strange religions",
+        "option_d": "Merchants on the road",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:10-11 warns, \"if sinners entice thee...they lay wait for blood.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What happens to those who reject wisdom's call according to Proverbs 1?",
+        "option_a": "They will prosper in their own way",
+        "option_b": "They will eat the fruit of their own way",
+        "option_c": "They will find another teacher",
+        "option_d": "They will be given a second chance",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:31 says, \"Therefore shall they eat of the fruit of their own way.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What will the LORD pour out when people seek Him after rejecting wisdom?",
+        "option_a": "His Spirit",
+        "option_b": "His anger",
+        "option_c": "His judgement",
+        "option_d": "His silence",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:23 says, \"I will pour out my spirit unto you, I will make known my words unto you.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What is the stated purpose of the proverbs in Proverbs 1:2-4?",
+        "option_a": "To entertain the people of Israel",
+        "option_b": "To know wisdom and instruction, to perceive words of understanding",
+        "option_c": "To record the history of Solomon",
+        "option_d": "To teach the law of Moses",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:2 states, \"To know wisdom and instruction; to perceive the words of understanding.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What instruction regarding ornamental grace does Proverbs 1:9 give?",
+        "option_a": "Wisdom is a crown for the head",
+        "option_b": "The instruction of parents shall be an ornament of grace unto thy head",
+        "option_c": "A soft answer turns away wrath",
+        "option_d": "The fear of the LORD adds years to life",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:9 says, \"For they shall be an ornament of grace unto thy head, and chains about thy neck.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Wisdom react when calamity falls on those who rejected her according to Proverbs 1:26?",
+        "option_a": "She mourns with them",
+        "option_b": "She will laugh at their calamity and mock when their fear cometh",
+        "option_c": "She offers them another chance",
+        "option_d": "She intercedes for them",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:26 says, \"I also will laugh at your calamity; I will mock when your fear cometh.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What three things does Proverbs 1:4 say the proverbs give to the simple?",
+        "option_a": "Subtilty, and to the young man knowledge and discretion",
+        "option_b": "Wealth, honour, and long life",
+        "option_c": "Peace, joy, and understanding",
+        "option_d": "Faith, hope, and love",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:4 says, \"To give subtilty to the simple, to the young man knowledge and discretion.\""
+      },
+      {
+        "question_number": 5,
+        "question": "In Proverbs 1:17, what illustration does Solomon use about setting a trap?",
+        "option_a": "A bird is not caught if it sees the net spread",
+        "option_b": "A fish sees the bait and avoids the hook",
+        "option_c": "A deer sees the snare and leaps away",
+        "option_d": "A lion sees the hunter and hides",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:17 says, \"Surely in vain the net is spread in the sight of any bird.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 1:33 promise to the one who hearkens to wisdom?",
+        "option_a": "He shall dwell safely and be quiet from fear of evil",
+        "option_b": "He shall have silver and gold",
+        "option_c": "He shall rule over nations",
+        "option_d": "He shall live a thousand years",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:33 says, \"But whoso hearkeneth unto me shall dwell safely, and shall be quiet from fear of evil.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Proverbs 1:6 indicate these proverbs will help a wise man understand?",
+        "option_a": "A proverb, and the interpretation; the words of the wise, and their dark sayings",
+        "option_b": "The laws of the king",
+        "option_c": "The paths of the righteous",
+        "option_d": "The prophecies of the prophets",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:6 says, \"To understand a proverb, and the interpretation; the words of the wise, and their dark sayings.\""
+      },
+      {
+        "question_number": 8,
+        "question": "In Proverbs 1:28-29, why will wisdom not answer when sinners call upon her?",
+        "option_a": "Because they hated knowledge and did not choose the fear of the LORD",
+        "option_b": "Because she is busy with the righteous",
+        "option_c": "Because God has sealed her lips",
+        "option_d": "Because the time for mercy is past forever",
+        "correct_answer": "a",
+        "explanation": "Proverbs 1:29 says, \"For that they hated knowledge, and did not choose the fear of the LORD.\""
+      }
+    ]
+  },
+  "2": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "Where does wisdom come from according to Proverbs 2?",
+        "option_a": "From the LORD",
+        "option_b": "From teachers",
+        "option_c": "From books",
+        "option_d": "From experience",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:6 says, \"For the LORD giveth wisdom: out of his mouth cometh knowledge and understanding.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 2 say will protect you like a shield?",
+        "option_a": "God's wisdom",
+        "option_b": "A strong army",
+        "option_c": "A city wall",
+        "option_d": "Your father's house",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:7 says God is \"a buckler to them that walk uprightly.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What kind of paths does wisdom help you understand according to Proverbs 2?",
+        "option_a": "Every good path",
+        "option_b": "The paths to the city",
+        "option_c": "The paths of kings",
+        "option_d": "Mountain paths",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:9 says wisdom will help you understand \"every good path.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What must a person do to find knowledge of God according to Proverbs 2:3-4?",
+        "option_a": "Cry after wisdom and search for her as silver",
+        "option_b": "Offer many sacrifices",
+        "option_c": "Travel to Jerusalem",
+        "option_d": "Ask wise elders",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:3-4 says to \"cry after knowledge...and searchest for her as for hid treasures.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 2 say wisdom will deliver you from?",
+        "option_a": "The way of the evil man and the strange woman",
+        "option_b": "Poverty and sickness",
+        "option_c": "Enemies in battle",
+        "option_d": "Hunger and thirst",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:12 says wisdom will deliver you \"from the way of the evil man.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How is the strange woman's house described in Proverbs 2:18?",
+        "option_a": "Her house inclineth unto death",
+        "option_b": "Her house is full of riches",
+        "option_c": "Her house is built on a rock",
+        "option_d": "Her house stands near the temple",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:18 says, \"For her house inclineth unto death, and her paths unto the dead.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 2:20 say the wise person will do?",
+        "option_a": "Walk in the way of good men",
+        "option_b": "Avoid all strangers",
+        "option_c": "Seek silver and gold",
+        "option_d": "Dwell in the mountains",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:20 says, \"That thou mayest walk in the way of good men, and keep the paths of the righteous.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What will the upright dwell in according to Proverbs 2:21?",
+        "option_a": "The land",
+        "option_b": "The king's palace",
+        "option_c": "The temple courts",
+        "option_d": "The mountains",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:21 says, \"For the upright shall dwell in the land, and the perfect shall remain in it.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What two qualities does Proverbs 2:7 say God lays up for the righteous?",
+        "option_a": "Sound wisdom and a buckler",
+        "option_b": "Silver and gold",
+        "option_c": "Long life and peace",
+        "option_d": "Honour and strength",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:7 says, \"He layeth up sound wisdom for the righteous: he is a buckler to them that walk uprightly.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 2:5 say seeking wisdom leads to?",
+        "option_a": "Understanding the fear of the LORD and finding the knowledge of God",
+        "option_b": "Wealth and prosperity",
+        "option_c": "Fame among the nations",
+        "option_d": "Victory over enemies",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:5 says, \"Then shalt thou understand the fear of the LORD, and find the knowledge of God.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Proverbs 2:16-17 describe the strange woman's spiritual condition?",
+        "option_a": "She forsaketh the guide of her youth and forgetteth the covenant of her God",
+        "option_b": "She never knew the LORD",
+        "option_c": "She worships idols openly",
+        "option_d": "She is a stranger from another nation",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:17 says she \"forsaketh the guide of her youth, and forgetteth the covenant of her God.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 2:11 say will preserve and keep the seeker of wisdom?",
+        "option_a": "Discretion and understanding",
+        "option_b": "Prayer and fasting",
+        "option_c": "Parents and teachers",
+        "option_d": "Laws and statutes",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:11 says, \"Discretion shall preserve thee, understanding shall keep thee.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What is the fate of the wicked in Proverbs 2:22?",
+        "option_a": "The wicked shall be cut off from the earth",
+        "option_b": "The wicked shall wander in the wilderness",
+        "option_c": "The wicked shall lose their wealth",
+        "option_d": "The wicked shall be enslaved",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:22 says, \"But the wicked shall be cut off from the earth, and the transgressors shall be rooted out of it.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 2:8 say God preserveth?",
+        "option_a": "The paths of judgment and the way of his saints",
+        "option_b": "The words of the prophets",
+        "option_c": "The boundaries of Israel",
+        "option_d": "The records of the righteous",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:8 says, \"He keepeth the paths of judgment, and preserveth the way of his saints.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What condition is stated in Proverbs 2:1-2 for the benefits of wisdom to flow?",
+        "option_a": "If thou wilt receive words and hide commandments, inclining thine ear unto wisdom",
+        "option_b": "If thou offerest sacrifices daily",
+        "option_c": "If thou keepest the Sabbath",
+        "option_d": "If thou teachest others",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:1-2 says, \"If thou wilt receive my words, and hide my commandments with thee; so that thou incline thine ear unto wisdom.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 2:10 say will happen when wisdom enters the heart?",
+        "option_a": "Knowledge will be pleasant unto thy soul",
+        "option_b": "Riches will follow thee",
+        "option_c": "The LORD will speak to thee",
+        "option_d": "Enemies will flee from thee",
+        "correct_answer": "a",
+        "explanation": "Proverbs 2:10 says, \"When wisdom entereth into thine heart, and knowledge is pleasant unto thy soul.\""
+      }
+    ]
+  },
+  "3": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 3:5 say we should trust with all our heart?",
+        "option_a": "The LORD",
+        "option_b": "Our parents",
+        "option_c": "Our own understanding",
+        "option_d": "Wise teachers",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:5 says, \"Trust in the LORD with all thine heart.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 3:6 say will happen if we acknowledge God in all our ways?",
+        "option_a": "He shall direct our paths",
+        "option_b": "He shall give us riches",
+        "option_c": "He shall send angels",
+        "option_d": "He shall give us long life",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:6 says, \"In all thy ways acknowledge him, and he shall direct thy paths.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What should we honour the LORD with according to Proverbs 3?",
+        "option_a": "Our substance and firstfruits",
+        "option_b": "Songs and dancing",
+        "option_c": "Prayers and fasting",
+        "option_d": "Our time and talent",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:9 says, \"Honour the LORD with thy substance, and with the firstfruits of all thine increase.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 3:5 warn us NOT to lean on?",
+        "option_a": "Our own understanding",
+        "option_b": "The strength of others",
+        "option_c": "The wisdom of the world",
+        "option_d": "The riches of men",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:5 says, \"lean not unto thine own understanding.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 3:11-12 say about the LORD's chastening?",
+        "option_a": "Do not despise it, for the LORD corrects those He loves",
+        "option_b": "Pray that it ends quickly",
+        "option_c": "Only the wicked are chastened",
+        "option_d": "It means God has forgotten you",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:11-12 says, \"despise not the chastening of the LORD...for whom the LORD loveth he correcteth.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is wisdom's right hand said to hold in Proverbs 3:16?",
+        "option_a": "Length of days",
+        "option_b": "Riches and honour",
+        "option_c": "Understanding",
+        "option_d": "Peace and safety",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:16 says, \"Length of days is in her right hand; and in her left hand riches and honour.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 3:27 instruct about doing good?",
+        "option_a": "Withhold not good from them to whom it is due",
+        "option_b": "Do good only to your family",
+        "option_c": "Wait for the right moment",
+        "option_d": "Do good secretly",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:27 says, \"Withhold not good from them to whom it is due, when it is in the power of thine hand to do it.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 3:34 say God does to the scorners but gives to the lowly?",
+        "option_a": "He scorneth the scorners but giveth grace unto the lowly",
+        "option_b": "He ignores the scorners but blesses the lowly with wealth",
+        "option_c": "He punishes the scorners but saves the lowly",
+        "option_d": "He silences the scorners but speaks to the lowly",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:34 says, \"Surely he scorneth the scorners: but he giveth grace unto the lowly.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 3:3 instruct about mercy and truth?",
+        "option_a": "Bind them about thy neck, write them upon the table of thine heart",
+        "option_b": "Teach them to thy children daily",
+        "option_c": "Seek them in the house of the LORD",
+        "option_d": "Store them in thy heart and mind",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:3 says, \"Let not mercy and truth forsake thee: bind them about thy neck; write them upon the table of thine heart.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 3:7 warn against?",
+        "option_a": "Being wise in thine own eyes; fear the LORD and depart from evil",
+        "option_b": "Trusting in wealth",
+        "option_c": "Following strange gods",
+        "option_d": "Despising the poor",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:7 says, \"Be not wise in thine own eyes: fear the LORD, and depart from evil.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the reward promised in Proverbs 3:10 for honouring God with firstfruits?",
+        "option_a": "Barns filled with plenty and vats overflowing with new wine",
+        "option_b": "A long life and peaceful death",
+        "option_c": "Victory over enemies",
+        "option_d": "Favour with the king",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:10 says, \"So shall thy barns be filled with plenty, and thy presses shall burst out with new wine.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How is wisdom described in Proverbs 3:17-18?",
+        "option_a": "Her ways are ways of pleasantness, and all her paths are peace; she is a tree of life",
+        "option_b": "She is a lamp unto the feet",
+        "option_c": "She is more precious than rubies alone",
+        "option_d": "She stands at the city gate",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:17-18 says, \"Her ways are ways of pleasantness, and all her paths are peace. She is a tree of life to them that lay hold upon her.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 3:19-20 say wisdom was used for?",
+        "option_a": "The LORD founded the earth by wisdom and established the heavens by understanding",
+        "option_b": "Writing the law of Moses",
+        "option_c": "Building the temple",
+        "option_d": "Dividing the Red Sea",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:19 says, \"The LORD by wisdom hath founded the earth; by understanding hath he established the heavens.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 3:30 warn against?",
+        "option_a": "Striving with a man without cause when he hath done thee no harm",
+        "option_b": "Making promises you cannot keep",
+        "option_c": "Lending money to the poor",
+        "option_d": "Boasting of tomorrow",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:30 says, \"Strive not with a man without cause, if he have done thee no harm.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What blessings does Proverbs 3:24 promise to the one who keeps wisdom?",
+        "option_a": "When thou liest down thou shalt not be afraid; thy sleep shall be sweet",
+        "option_b": "Wealth and long life",
+        "option_c": "Victory and honour",
+        "option_d": "Health and strength",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:24 says, \"When thou liest down, thou shalt not be afraid: yea, thou shalt lie down, and thy sleep shall be sweet.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 3:13 declare about the man who finds wisdom?",
+        "option_a": "Happy is the man that findeth wisdom, and the man that getteth understanding",
+        "option_b": "Blessed is the king who seeks counsel",
+        "option_c": "Rich is the man who fears the LORD",
+        "option_d": "Wise is the man who reads the law",
+        "correct_answer": "a",
+        "explanation": "Proverbs 3:13 says, \"Happy is the man that findeth wisdom, and the man that getteth understanding.\""
+      }
+    ]
+  },
+  "4": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 4 say is the principal thing we should get?",
+        "option_a": "Wisdom",
+        "option_b": "Gold",
+        "option_c": "Friends",
+        "option_d": "Strength",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:7 says, \"Wisdom is the principal thing; therefore get wisdom.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does the path of the just shine like in Proverbs 4?",
+        "option_a": "The shining light that shineth more and more unto the perfect day",
+        "option_b": "A candle in the dark",
+        "option_c": "The morning star",
+        "option_d": "The sun at noon",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:18 says, \"But the path of the just is as the shining light, that shineth more and more unto the perfect day.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 4:23 tell us to keep above all things?",
+        "option_a": "Our heart",
+        "option_b": "Our words",
+        "option_c": "Our eyes",
+        "option_d": "Our feet",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:23 says, \"Keep thy heart with all diligence; for out of it are the issues of life.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "How did Solomon's father teach him about wisdom according to Proverbs 4?",
+        "option_a": "He instructed him and said, \"Get wisdom, get understanding\"",
+        "option_b": "He sent him to school",
+        "option_c": "He gave him books to read",
+        "option_d": "He showed him by example only",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:4-5 says his father instructed, \"Get wisdom, get understanding: forget it not.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What will wisdom do for you if you embrace her according to Proverbs 4:8?",
+        "option_a": "She shall promote thee and bring thee to honour",
+        "option_b": "She shall give thee silver",
+        "option_c": "She shall protect thee in battle",
+        "option_d": "She shall make thee a king",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:8 says, \"Exalt her, and she shall promote thee: she shall bring thee to honour, when thou dost embrace her.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 4:14-15 say about the path of the wicked?",
+        "option_a": "Enter not into it, avoid it, pass not by it, turn from it",
+        "option_b": "Walk carefully through it",
+        "option_c": "Only visit it to warn others",
+        "option_d": "Study it to understand evil",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:14-15 says, \"Enter not into the path of the wicked...Avoid it, pass not by it, turn from it.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 4:19 say about the way of the wicked?",
+        "option_a": "It is as darkness, they know not at what they stumble",
+        "option_b": "It leads to poverty and shame",
+        "option_c": "It ends in sudden destruction",
+        "option_d": "It is wide and easy to travel",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:19 says, \"The way of the wicked is as darkness: they know not at what they stumble.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What four body parts does Proverbs 4:24-27 give instructions about?",
+        "option_a": "Mouth, eyes, eyelids, and feet",
+        "option_b": "Hands, feet, ears, and eyes",
+        "option_c": "Heart, mind, tongue, and hands",
+        "option_d": "Lips, ears, hands, and knees",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:24-27 addresses the mouth (4:24), eyes (4:25), eyelids (4:25), and feet (4:26-27)."
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 4:7 say about getting wisdom even at cost?",
+        "option_a": "With all thy getting get understanding",
+        "option_b": "Sell all thou hast to buy it",
+        "option_c": "Seek it above silver and gold",
+        "option_d": "Pay any price for instruction",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:7 says, \"Wisdom is the principal thing; therefore get wisdom: and with all thy getting get understanding.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What will wisdom place on your head according to Proverbs 4:9?",
+        "option_a": "An ornament of grace and a crown of glory",
+        "option_b": "A garland of flowers",
+        "option_c": "The diadem of kings",
+        "option_d": "A crown of righteousness",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:9 says, \"She shall give to thine head an ornament of grace: a crown of glory shall she deliver to thee.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 4:10 promise to the one who receives wisdom's sayings?",
+        "option_a": "The years of thy life shall be many",
+        "option_b": "Thy barns shall be filled",
+        "option_c": "Thy enemies shall flee",
+        "option_d": "Thy name shall be remembered",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:10 says, \"Hear, O my son, and receive my sayings; and the years of thy life shall be many.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does Proverbs 4:16-17 describe the wicked man's need to do evil?",
+        "option_a": "They sleep not except they have done mischief; they eat the bread of wickedness",
+        "option_b": "They wander seeking someone to harm",
+        "option_c": "They plot evil by day and execute it by night",
+        "option_d": "They love violence more than peace",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:16-17 says, \"For they sleep not, except they have done mischief...For they eat the bread of wickedness.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 4:20-22 say about the father's words?",
+        "option_a": "They are life unto those that find them and health to all their flesh",
+        "option_b": "They are sweeter than honey",
+        "option_c": "They are sharper than a two-edged sword",
+        "option_d": "They are more precious than rubies",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:22 says, \"For they are life unto those that find them, and health to all their flesh.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does \"out of it are the issues of life\" mean in Proverbs 4:23?",
+        "option_a": "The heart is the source of one's entire life direction and character",
+        "option_b": "The heart pumps blood to keep one alive",
+        "option_c": "Emotions come from the heart",
+        "option_d": "Life's problems come from a troubled heart",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:23 says \"keep thy heart...for out of it are the issues of life\" — the heart determines life's course."
+      },
+      {
+        "question_number": 7,
+        "question": "What specific speech instruction is given in Proverbs 4:24?",
+        "option_a": "Put away from thee a froward mouth, and perverse lips put far from thee",
+        "option_b": "Speak softly to your enemies",
+        "option_c": "Say only what is true",
+        "option_d": "Let your words be few",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:24 says, \"Put away from thee a froward mouth, and perverse lips put far from thee.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 4:26 instruct about ordering one's ways?",
+        "option_a": "Ponder the path of thy feet, and let all thy ways be established",
+        "option_b": "Walk only on known paths",
+        "option_c": "Follow the way of the righteous man",
+        "option_d": "Let your steps be guided by prayer",
+        "correct_answer": "a",
+        "explanation": "Proverbs 4:26 says, \"Ponder the path of thy feet, and let all thy ways be established.\""
+      }
+    ]
+  },
+  "5": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 5 tell a young man to rejoice with?",
+        "option_a": "The wife of his youth",
+        "option_b": "His friends and family",
+        "option_c": "The blessings of God",
+        "option_d": "His father's house",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:18 says, \"rejoice with the wife of thy youth.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 5 warn that a strange woman's lips drop like?",
+        "option_a": "Honeycomb",
+        "option_b": "Poison",
+        "option_c": "Dew",
+        "option_d": "Bittersweet fruit",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:3 says, \"For the lips of a strange woman drop as an honeycomb.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 5:21 say the LORD does?",
+        "option_a": "His ways are before the eyes of the LORD",
+        "option_b": "He watches over the righteous",
+        "option_c": "He blesses those who obey",
+        "option_d": "He guides the feet of the just",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:21 says, \"For the ways of man are before the eyes of the LORD.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What is the end of the strange woman's lips and feet according to Proverbs 5:3-5?",
+        "option_a": "Bitter as wormwood, her feet go down to death",
+        "option_b": "Sweet but costly",
+        "option_c": "Pleasing but fleeting",
+        "option_d": "Lovely but deadly slow",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:4-5 says, \"But her end is bitter as wormwood...Her feet go down to death.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 5:8 counsel concerning the strange woman?",
+        "option_a": "Remove thy way far from her and come not nigh the door of her house",
+        "option_b": "Warn her of her sin",
+        "option_c": "Pray for her repentance",
+        "option_d": "Report her to the elders",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:8 says, \"Remove thy way far from her, and come not nigh the door of her house.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What regret does the foolish man express in Proverbs 5:12-13?",
+        "option_a": "How have I hated instruction and my heart despised reproof",
+        "option_b": "Why did I not listen to my father",
+        "option_c": "I have wasted all my silver",
+        "option_d": "I have dishonoured my family",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:12-13 says, \"How have I hated instruction, and my heart despised reproof; and have not obeyed the voice of my teachers.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does Proverbs 5:15-16 use water imagery to teach faithfulness in marriage?",
+        "option_a": "Drink waters from thine own cistern, not let thy fountains be dispersed abroad",
+        "option_b": "Build your house on the rock not the sand",
+        "option_c": "A flowing stream brings life to the desert",
+        "option_d": "Still waters reflect what is in the heart",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:15-16 says, \"Drink waters out of thine own cistern...Let thy fountains be dispersed abroad.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What fate awaits the wicked man who follows the strange woman according to Proverbs 5:22?",
+        "option_a": "His own iniquities shall take the wicked himself",
+        "option_b": "He shall lose his inheritance",
+        "option_c": "He shall be driven from the city",
+        "option_d": "He shall be put to shame before all",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:22 says, \"His own iniquities shall take the wicked himself, and he shall be holden with the cords of his sins.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 5:6 say about the strange woman's way of life?",
+        "option_a": "Her ways are moveable, that thou canst not know them",
+        "option_b": "She walks the path of destruction openly",
+        "option_c": "She plans every step to ensnare",
+        "option_d": "She pretends righteousness to deceive",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:6 says, \"Her ways are moveable, that thou canst not know them.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What shame does Proverbs 5:9-10 warn will come from following the strange woman?",
+        "option_a": "Thine honour given unto others and thy years unto the cruel",
+        "option_b": "Loss of position and wealth",
+        "option_c": "Exile from the nation",
+        "option_d": "Sickness and poverty",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:9-10 says, \"Lest thou give thine honour unto others, and thy years unto the cruel...and thy labours be in the house of a stranger.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 5:11 say will happen at the end of a life of immorality?",
+        "option_a": "Thou mournest at the last when thy flesh and body are consumed",
+        "option_b": "You will seek wisdom but not find it",
+        "option_c": "Your children will be ashamed",
+        "option_d": "You will lose all your friends",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:11 says, \"And thou mourn at the last, when thy flesh and thy body are consumed.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does Proverbs 5:18-19 describe the blessing of a faithful wife?",
+        "option_a": "As a loving hind and pleasant roe, let her breasts satisfy thee at all times",
+        "option_b": "As a tower of strength and comfort",
+        "option_c": "As a fruitful vine and gentle stream",
+        "option_d": "As the morning star and evening rest",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:19 says, \"Let her be as the loving hind and pleasant roe...let her breasts satisfy thee at all times.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 5:20 use as a rhetorical question to urge faithfulness?",
+        "option_a": "Why wilt thou be ravished with a strange woman and embrace the bosom of a stranger",
+        "option_b": "Why wouldst thou leave the path of righteousness",
+        "option_c": "Why dost thou despise the wife of thy youth",
+        "option_d": "Why art thou drawn to vanity and emptiness",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:20 says, \"And why wilt thou, my son, be ravished with a strange woman, and embrace the bosom of a stranger?\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 5:22 teach about the self-defeating nature of sin?",
+        "option_a": "The cords of a man's sins hold him fast; he is holden with the cords of his sins",
+        "option_b": "Sin eventually leads to open shame",
+        "option_c": "The wicked will be punished by God alone",
+        "option_d": "Evil deeds come back as a snare",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:22 says, \"his own iniquities shall take the wicked himself, and he shall be holden with the cords of his sins.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does the image of \"cistern\" and \"well\" in Proverbs 5:15 symbolise?",
+        "option_a": "One's own wife as the lawful source of marital intimacy",
+        "option_b": "The word of God as a source of life",
+        "option_c": "The temple as the dwelling of the LORD",
+        "option_d": "A city's supply of fresh water",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:15 says, \"Drink waters out of thine own cistern, and running waters out of thine own well\" — referring to one's own wife."
+      },
+      {
+        "question_number": 8,
+        "question": "What is the concluding fate of the man who ignores instruction according to Proverbs 5:23?",
+        "option_a": "He shall die without instruction and go astray through his great folly",
+        "option_b": "He shall be cut off from his people",
+        "option_c": "He shall wander in the wilderness",
+        "option_d": "He shall be given over to his enemies",
+        "correct_answer": "a",
+        "explanation": "Proverbs 5:23 says, \"He shall die without instruction; and in the greatness of his folly he shall go astray.\""
+      }
+    ]
+  },
+  "6": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What small creature does Proverbs 6 tell the lazy person to learn from?",
+        "option_a": "The ant",
+        "option_b": "The bee",
+        "option_c": "The sparrow",
+        "option_d": "The ox",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:6 says, \"Go to the ant, thou sluggard; consider her ways, and be wise.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How many things does the LORD hate according to Proverbs 6?",
+        "option_a": "Six, yes seven",
+        "option_b": "Three",
+        "option_c": "Ten",
+        "option_d": "Five",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:16 says, \"These six things doth the LORD hate: yea, seven are an abomination unto him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 6 say a naughty person does with their fingers?",
+        "option_a": "He teacheth with his fingers",
+        "option_b": "He points and winks with mischief",
+        "option_c": "He hides what he has stolen",
+        "option_d": "He writes lies on tablets",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:13 says, \"He winketh with his eyes, he speaketh with his feet, he teacheth with his fingers.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 6:1-3 warn about becoming surety (co-signing a pledge) for another?",
+        "option_a": "Thou art snared with the words of thy mouth; deliver thyself",
+        "option_b": "It is a noble act of friendship",
+        "option_c": "It brings blessing if the friend is righteous",
+        "option_d": "The LORD will reward thee for it",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:2-3 says, \"Thou art snared with the words of thy mouth...deliver thyself.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does the ant do without having a guide, overseer, or ruler according to Proverbs 6:7-8?",
+        "option_a": "Provideth her meat in the summer and gathereth food in the harvest",
+        "option_b": "Builds her house and protects her young",
+        "option_c": "Follows the queen in all things",
+        "option_d": "Seeks wisdom from older ants",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:7-8 says the ant, \"provideth her meat in the summer, and gathereth her food in the harvest.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What first item in the seven abominations does God hate in Proverbs 6:17?",
+        "option_a": "A proud look",
+        "option_b": "A lying tongue",
+        "option_c": "Hands that shed blood",
+        "option_d": "A froward heart",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:17 lists first \"A proud look\" among the seven things the LORD hates."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 6:20-22 say about a father's commandments when you walk and when you sleep?",
+        "option_a": "They shall lead thee, keep thee, and talk with thee",
+        "option_b": "They shall be a lamp to your path",
+        "option_c": "They shall comfort thee in trouble",
+        "option_d": "They shall make thee wise among thy peers",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:22 says, \"When thou goest, it shall lead thee; when thou sleepest, it shall keep thee; and when thou awakest, it shall talk with thee.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 6:26 warn about the cost of following an immoral woman?",
+        "option_a": "By means of a whorish woman a man is brought to a piece of bread",
+        "option_b": "She will rob thee of thy silver",
+        "option_c": "She leads men to ruin their health",
+        "option_d": "She brings shame upon a man's family",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:26 says, \"For by means of a whorish woman a man is brought to a piece of bread.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What four descriptors does Proverbs 6:12-13 use for a naughty and wicked person?",
+        "option_a": "Froward mouth, winking eyes, speaking feet, teaching fingers",
+        "option_b": "Proud heart, lying lips, swift feet, false witness",
+        "option_c": "Haughty eyes, lying tongue, wicked heart, discord sower",
+        "option_d": "Idle hands, wandering eyes, crooked path, false scales",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:12-13 describes: \"A naughty person...walketh with a froward mouth. He winketh with his eyes, he speaketh with his feet, he teacheth with his fingers.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 6:15 say will happen suddenly to the wicked person who sows discord?",
+        "option_a": "He shall be broken without remedy",
+        "option_b": "He shall fall into poverty",
+        "option_c": "He shall be cast out of the city",
+        "option_d": "He shall be put to shame",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:15 says, \"Therefore shall his calamity come suddenly; suddenly shall he be broken without remedy.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What is the seventh abomination listed in Proverbs 6:19?",
+        "option_a": "He that soweth discord among brethren",
+        "option_b": "A false witness that speaketh lies",
+        "option_c": "Feet that be swift in running to mischief",
+        "option_d": "A heart that deviseth wicked imaginations",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:19 says the seventh abomination is \"he that soweth discord among brethren.\""
+      },
+      {
+        "question_number": 4,
+        "question": "How does Proverbs 6:23 describe the commandment and the law of a godly father?",
+        "option_a": "The commandment is a lamp and the law is light, and reproofs of instruction are the way of life",
+        "option_b": "They are sweeter than honey and more precious than gold",
+        "option_c": "They are the foundation of wisdom and the path of peace",
+        "option_d": "They are arrows in the hand of a warrior",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:23 says, \"For the commandment is a lamp; and the law is light; and reproofs of instruction are the way of life.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 6:30-31 say distinguishes theft out of hunger from adultery?",
+        "option_a": "A thief may be forgiven when caught but the adulterer faces wounds and dishonour",
+        "option_b": "Theft is punishable by law but adultery is a private sin",
+        "option_c": "Theft harms property but adultery harms no one",
+        "option_d": "A thief can make restitution but adultery has no remedy",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:30-32 notes a thief is not despised when hungry but the adulterer destroys his own soul and gets wounds and dishonour."
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 6:34-35 say about the jealousy of a wronged husband?",
+        "option_a": "His jealousy will not spare in the day of vengeance; he will not accept any ransom",
+        "option_b": "He will seek revenge through the elders",
+        "option_c": "He will demand full restitution",
+        "option_d": "He will challenge the man to a public confrontation",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:34-35 says, \"For jealousy is the rage of a man...He will not regard any ransom.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does the ant's behaviour in Proverbs 6:6-8 teach about planning for the future?",
+        "option_a": "Diligent preparation in season prevents poverty without needing external compulsion",
+        "option_b": "Follow a leader who sets the example",
+        "option_c": "Work only when the reward is clear",
+        "option_d": "Community effort achieves more than individual work",
+        "correct_answer": "a",
+        "explanation": "The ant \"provideth her meat in the summer\" without overseer (Proverbs 6:7-8), teaching self-motivated diligence."
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 6:9-11 warn will overtake the sluggard?",
+        "option_a": "Poverty shall come as one that travelleth and want as an armed man",
+        "option_b": "Shame before his neighbours",
+        "option_c": "Hunger and sickness",
+        "option_d": "Loss of his inheritance",
+        "correct_answer": "a",
+        "explanation": "Proverbs 6:11 says, \"So shall thy poverty come as one that travelleth, and thy want as an armed man.\""
+      }
+    ]
+  },
+  "7": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 7 say to call wisdom?",
+        "option_a": "Call wisdom thy sister",
+        "option_b": "Call wisdom thy guide",
+        "option_c": "Call wisdom thy treasure",
+        "option_d": "Call wisdom thy mother",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:4 says, \"Say unto wisdom, Thou art my sister.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What animal is the foolish young man compared to in Proverbs 7?",
+        "option_a": "An ox going to slaughter",
+        "option_b": "A sheep gone astray",
+        "option_c": "A dog returning to his vomit",
+        "option_d": "A bird caught in a snare",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:22 says he goes \"as an ox goeth to the slaughter.\""
+      },
+      {
+        "question_number": 3,
+        "question": "From where did Solomon observe the foolish young man in Proverbs 7?",
+        "option_a": "Through a window of his house",
+        "option_b": "From the city gate",
+        "option_c": "From the top of a hill",
+        "option_d": "From a hiding place in the street",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:6 says, \"For at the window of my house I looked through my casement.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "At what time of day did the young man approach the strange woman's house according to Proverbs 7?",
+        "option_a": "In the twilight, in the evening, in the black and dark night",
+        "option_b": "At the break of dawn",
+        "option_c": "In the heat of the midday sun",
+        "option_d": "At the busy noon hour",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:9 says, \"In the twilight, in the evening, in the black and dark night.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How does the strange woman dress in Proverbs 7:10?",
+        "option_a": "With the attire of an harlot and subtil of heart",
+        "option_b": "In fine linen and jewels",
+        "option_c": "In the robes of a widow",
+        "option_d": "In the garments of a merchant",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:10 says she meets him \"with the attire of an harlot, and subtil of heart.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What excuse does the strange woman give for her husband's absence in Proverbs 7:19-20?",
+        "option_a": "The goodman is gone on a long journey and will not come home till the day appointed",
+        "option_b": "He is away at war",
+        "option_c": "He is trading in a distant city",
+        "option_d": "He is visiting the king",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:19-20 says, \"For the goodman is not at home...he is gone a long journey.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 7:26 say about the many victims of the strange woman?",
+        "option_a": "She hath cast down many wounded; yea, many strong men have been slain by her",
+        "option_b": "She has deceived the simple only",
+        "option_c": "She traps only the foolish young",
+        "option_d": "She has caused sorrow to many families",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:26 says, \"For she hath cast down many wounded: yea, many strong men have been slain by her.\""
+      },
+      {
+        "question_number": 5,
+        "question": "Where does the strange woman's house lead according to Proverbs 7:27?",
+        "option_a": "Her house is the way to hell, going down to the chambers of death",
+        "option_b": "Her house is a path to shame",
+        "option_c": "Her house leads to poverty and ruin",
+        "option_d": "Her house brings a man to despair",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:27 says, \"Her house is the way to hell, going down to the chambers of death.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 7:2-3 instruct about keeping the father's commandments?",
+        "option_a": "Keep them as the apple of thine eye, bind them upon thy fingers, write them upon thine heart",
+        "option_b": "Read them morning and evening",
+        "option_c": "Teach them to thy children",
+        "option_d": "Recite them before the LORD daily",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:2-3 says, \"Keep my commandments, and live...bind them upon thy fingers, write them upon the table of thine heart.\""
+      },
+      {
+        "question_number": 2,
+        "question": "How does Proverbs 7:13 describe the boldness of the strange woman?",
+        "option_a": "She caught him, and kissed him, and with an impudent face said unto him",
+        "option_b": "She called to him from her window",
+        "option_c": "She sent a servant with a message",
+        "option_d": "She waited quietly at her door",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:13 says, \"So she caught him, and kissed him, and with an impudent face said unto him.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What religious activity does the strange woman use as a lure in Proverbs 7:14?",
+        "option_a": "Peace offerings were due and she had paid her vows",
+        "option_b": "She invited him to a feast at the temple",
+        "option_c": "She claimed to have a prophecy for him",
+        "option_d": "She said God had sent her to him",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:14 says, \"I have peace offerings with me; this day have I payed my vows.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What three comparisons does Proverbs 7:22-23 use to describe the fate of the foolish young man?",
+        "option_a": "An ox to slaughter, a fool to correction, a bird to a snare",
+        "option_b": "A fish to the net, a moth to the flame, a dog to his vomit",
+        "option_c": "A sheep to the fold, a child to punishment, a deer to the arrow",
+        "option_d": "A lion to the trap, a fly to the web, a boar to the spear",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:22-23 says he goes \"as an ox goeth to the slaughter...as a fool to the correction of the stocks; as a bird hasteth to the snare.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 7:21 say the woman used to seduce the young man?",
+        "option_a": "With her much fair speech she caused him to yield, with the flattering of her lips she forced him",
+        "option_b": "With gifts and fine clothing",
+        "option_c": "With promises of wealth",
+        "option_d": "With tears and pleading",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:21 says, \"With her much fair speech she caused him to yield, with the flattering of her lips she forced him.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does the phrase \"he knoweth not that it is for his life\" in Proverbs 7:23 emphasise?",
+        "option_a": "The deadly spiritual blindness of the man seduced by immorality",
+        "option_b": "The speed at which sin overtakes a man",
+        "option_c": "The certainty of divine punishment",
+        "option_d": "The foolishness of ignoring wisdom's warnings",
+        "correct_answer": "a",
+        "explanation": "\"He knoweth not that it is for his life\" (Proverbs 7:23) shows the spiritually blinded man does not see he is walking to his own destruction."
+      },
+      {
+        "question_number": 7,
+        "question": "What instruction does Proverbs 7:24-25 give after describing the seduction?",
+        "option_a": "Hearken unto me, let not thine heart decline to her ways, go not astray in her paths",
+        "option_b": "Flee from the city where she dwells",
+        "option_c": "Warn thy brothers about her",
+        "option_d": "Trust in the LORD for deliverance",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:24-25 says, \"Hearken unto me now therefore...Let not thine heart decline to her ways, go not astray in her paths.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does the strange woman's preparation described in Proverbs 7:16-17 reveal about her seduction?",
+        "option_a": "She has prepared her bed with fine linen and perfumed it with myrrh, aloes, and cinnamon",
+        "option_b": "She has prepared a great feast",
+        "option_c": "She has adorned herself in costly garments",
+        "option_d": "She has cleared her house of her husband's belongings",
+        "correct_answer": "a",
+        "explanation": "Proverbs 7:16-17 says, \"I have decked my bed with coverings...I have perfumed my bed with myrrh, aloes, and cinnamon.\""
+      }
+    ]
+  },
+  "8": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "In Proverbs 8, where does Wisdom stand to call out to people?",
+        "option_a": "Upon the high places, at the gates, at the entry of the city",
+        "option_b": "In the temple",
+        "option_c": "By the river",
+        "option_d": "In the marketplace",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:2-3 says, \"She standeth in the top of high places...at the gates, at the entry of the city.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 8 say wisdom is better than?",
+        "option_a": "Rubies",
+        "option_b": "Silver and gold",
+        "option_c": "Fine clothing",
+        "option_d": "Mighty armies",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:11 says, \"For wisdom is better than rubies.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 8:17 say wisdom does for those who love her?",
+        "option_a": "She loves them that love her",
+        "option_b": "She gives them great riches",
+        "option_c": "She makes them kings",
+        "option_d": "She teaches them all things",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:17 says, \"I love them that love me; and those that seek me early shall find me.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 8:13 say the fear of the LORD involves?",
+        "option_a": "Hating evil, pride, arrogance, the evil way, and the froward mouth",
+        "option_b": "Keeping all the commandments perfectly",
+        "option_c": "Offering sacrifices daily at the temple",
+        "option_d": "Fasting and praying without ceasing",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:13 says, \"The fear of the LORD is to hate evil: pride, and arrogancy, and the evil way, and the froward mouth, do I hate.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What two qualities does wisdom dwell with according to Proverbs 8:12?",
+        "option_a": "Prudence, and she finds out knowledge and discretion",
+        "option_b": "Righteousness and peace",
+        "option_c": "Strength and honour",
+        "option_d": "Truth and mercy",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:12 says, \"I wisdom dwell with prudence, and find out knowledge of witty inventions.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does wisdom give to kings and princes according to Proverbs 8:15-16?",
+        "option_a": "By me kings reign and princes decree justice",
+        "option_b": "She gives them long reign and victory in battle",
+        "option_c": "She fills their treasuries with silver",
+        "option_d": "She causes all nations to honour them",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:15-16 says, \"By me kings reign, and princes decree justice. By me princes rule, and nobles, even all the judges of the earth.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What was wisdom's role at the time of creation according to Proverbs 8:30?",
+        "option_a": "She was beside God as a master workman, daily his delight",
+        "option_b": "She watched the creation from afar",
+        "option_c": "She named the animals with Adam",
+        "option_d": "She sang praises as God created",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:30 says, \"Then I was by him, as one brought up with him: and I was daily his delight.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 8:35-36 say about finding or missing wisdom?",
+        "option_a": "Whoso findeth wisdom findeth life; he that sinneth against wisdom wrongeth his own soul",
+        "option_b": "Wisdom rewards the faithful and punishes the wicked",
+        "option_c": "Finding wisdom brings riches; missing it brings poverty",
+        "option_d": "Wisdom welcomes the humble and rejects the proud",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:35-36 says, \"For whoso findeth me findeth life...But he that sinneth against me wrongeth his own soul.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 8:6-8 say about the words of wisdom?",
+        "option_a": "They are excellent, right, true, and nothing froward or perverse",
+        "option_b": "They are sweet and pleasant to the ear",
+        "option_c": "They are sharper than a two-edged sword",
+        "option_d": "They are preserved forever in the LORD's memory",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:6-8 says, \"Hear...excellent things...all the words of my mouth are in righteousness; there is nothing froward or perverse in them.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 8:10-11 say wisdom is worth compared to choice silver?",
+        "option_a": "Receive her instruction rather than silver; wisdom is better than rubies and all things desired not comparable",
+        "option_b": "Wisdom can buy more than silver can",
+        "option_c": "Wisdom brings silver as its reward",
+        "option_d": "Both wisdom and silver are necessary",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:10-11 says, \"Receive my instruction, and not silver...For wisdom is better than rubies; and all the things that may be desired are not to be compared to it.\""
+      },
+      {
+        "question_number": 3,
+        "question": "In Proverbs 8:22-23, how does Wisdom describe her origin?",
+        "option_a": "The LORD possessed me at the beginning of his work, before the earth was",
+        "option_b": "I was created on the fourth day of creation",
+        "option_c": "I sprang forth from the heart of God at the flood",
+        "option_d": "I came into being when man first sought understanding",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:22-23 says, \"The LORD possessed me at the beginning of his work, the first of his acts of old. I was set up from everlasting, from the beginning.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 8:24-26 emphasise about wisdom's pre-existence?",
+        "option_a": "Wisdom was brought forth before the depths, hills, fields, and the dust of the world",
+        "option_b": "Wisdom appeared at the same time as the angels",
+        "option_c": "Wisdom was formed when the first man was created",
+        "option_d": "Wisdom preceded the law given to Moses",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:24-26 says wisdom was brought forth before \"the depths...before the mountains were settled...before he had made the earth.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does wisdom say she hates in Proverbs 8:7?",
+        "option_a": "Wickedness is an abomination to my lips",
+        "option_b": "The ways of the violent man",
+        "option_c": "The counsel of the froward",
+        "option_d": "The proud and arrogant",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:7 says, \"for my mouth shall speak truth; and wickedness is an abomination to my lips.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 8:19 say wisdom's fruit is better than?",
+        "option_a": "Fine gold; her revenue better than choice silver",
+        "option_b": "Honey from the rock",
+        "option_c": "The finest offerings at the temple",
+        "option_d": "Earthly power and fame",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:19 says, \"My fruit is better than gold, yea, than fine gold; and my revenue than choice silver.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does the theological concept of wisdom's pre-existence in Proverbs 8 foreshadow in Christian interpretation?",
+        "option_a": "The eternal Word of God, the Logos, identified as Christ in John 1",
+        "option_b": "The law given on Sinai",
+        "option_c": "The Spirit moving on the waters in Genesis 1",
+        "option_d": "The angel of the LORD appearing to Abraham",
+        "correct_answer": "a",
+        "explanation": "The personification of wisdom in Proverbs 8 as present before creation is widely seen as prefiguring the eternal Logos — Christ — of John 1:1-3."
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 8:32-33 instruct those who have heard wisdom's call?",
+        "option_a": "Hearken unto me, hear instruction and be wise, refuse it not",
+        "option_b": "Return to her daily as to a spring of water",
+        "option_c": "Teach others what wisdom has taught thee",
+        "option_d": "Seek wisdom even if the cost is great",
+        "correct_answer": "a",
+        "explanation": "Proverbs 8:32-33 says, \"Now therefore hearken unto me...Hear instruction, and be wise, and refuse it not.\""
+      }
+    ]
+  },
+  "9": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "How many pillars did Wisdom build in her house in Proverbs 9?",
+        "option_a": "Seven pillars",
+        "option_b": "Twelve pillars",
+        "option_c": "Four pillars",
+        "option_d": "Ten pillars",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:1 says, \"Wisdom hath builded her house, she hath hewn out her seven pillars.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 9:10 say is the beginning of wisdom?",
+        "option_a": "The fear of the LORD",
+        "option_b": "Love for God",
+        "option_c": "Reading the law",
+        "option_d": "Honouring parents",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:10 says, \"The fear of the LORD is the beginning of wisdom.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Folly do in Proverbs 9?",
+        "option_a": "She sits at the door of her house and calls to passers-by",
+        "option_b": "She roams the streets looking for the simple",
+        "option_c": "She stands at the city gate weeping",
+        "option_d": "She hides in the darkness",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:14 says, \"For she sitteth at the door of her house, on a seat in the high places of the city.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What did Wisdom do after building her house and preparing her feast in Proverbs 9?",
+        "option_a": "She sent out her maidens and called from the high places of the city",
+        "option_b": "She went personally to every home",
+        "option_c": "She sent letters to the simple",
+        "option_d": "She waited silently at her door",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:3 says, \"She hath sent forth her maidens: she crieth upon the highest places of the city.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 9:7-8 say about correcting a scorner?",
+        "option_a": "He that reproveth a scorner getteth shame; reprove not a scorner lest he hate thee",
+        "option_b": "A scorner will eventually respond to patience",
+        "option_c": "A scorner should be avoided completely",
+        "option_d": "A scorner needs public rebuke",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:7-8 says, \"He that reproveth a scorner getteth to himself shame...reprove not a scorner, lest he hate thee.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 9:9 promise if you give instruction to a wise man?",
+        "option_a": "He will be yet wiser; teach a just man and he will increase in learning",
+        "option_b": "He will teach it to others",
+        "option_c": "He will honour thee above all men",
+        "option_d": "He will return the favour doubly",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:9 says, \"Give instruction to a wise man, and he will be yet wiser: teach a just man, and he will increase in learning.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What deceptive invitation does Folly make in Proverbs 9:17?",
+        "option_a": "Stolen waters are sweet and bread eaten in secret is pleasant",
+        "option_b": "Come in, for all is prepared for you",
+        "option_c": "The wise man is wrong; my way is better",
+        "option_d": "Leave wisdom and find true pleasure here",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:17 says, \"Stolen waters are sweet, and bread eaten in secret is pleasant.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does the guest of Folly not know in Proverbs 9:18?",
+        "option_a": "That the dead are there and her guests are in the depths of hell",
+        "option_b": "That she has stolen what she offers",
+        "option_c": "That her house is built on sand",
+        "option_d": "That the LORD watches their secret deeds",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:18 says, \"But he knoweth not that the dead are there; and that her guests are in the depths of hell.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Wisdom's feast in Proverbs 9:2-5 include, and what does she invite the simple to do?",
+        "option_a": "She slew her beasts and mingled wine; she invites the simple to forsake foolishness and live",
+        "option_b": "She prepared a great banquet for the righteous only",
+        "option_c": "She offered bread and water to those who sought her",
+        "option_d": "She invited kings and nobles to her table",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:2-4 says she prepared meat, mingled wine and says, \"Come, eat of my bread, and drink of the wine which I have mingled.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What distinction does Proverbs 9:8 draw between a scorner and a wise man in how they receive rebuke?",
+        "option_a": "Rebuke a wise man and he will love thee, but a scorner hates the reprover",
+        "option_b": "The scorner argues while the wise man is silent",
+        "option_c": "The scorner flees while the wise man stays",
+        "option_d": "The scorner weeps while the wise man gives thanks",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:8 says, \"Reprove not a scorner...rebuke a wise man, and he will love thee.\""
+      },
+      {
+        "question_number": 3,
+        "question": "How does Proverbs 9:10 define true knowledge as distinct from the beginning of wisdom?",
+        "option_a": "The knowledge of the holy is understanding",
+        "option_b": "Wisdom leads to knowledge which leads to truth",
+        "option_c": "Fear is wisdom, knowledge is its fruit",
+        "option_d": "The holy Scriptures are the source of all knowledge",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:10 says, \"The fear of the LORD is the beginning of wisdom: and the knowledge of the holy is understanding.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What personal benefit does Proverbs 9:12 assign to wisdom and scorn?",
+        "option_a": "If thou art wise, thou art wise for thyself; if thou scornest, thou alone shalt bear it",
+        "option_b": "Wisdom benefits your family; scorn harms your enemies",
+        "option_c": "Wisdom enriches all around you; scorn impoverishes the fool only",
+        "option_d": "Wisdom serves God; scorn serves no one",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:12 says, \"If thou be wise, thou shalt be wise for thyself: but if thou scornest, thou alone shalt bear it.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Wisdom's complete invitation in Proverbs 9:6 call the simple to do?",
+        "option_a": "Forsake the foolish, and live; go in the way of understanding",
+        "option_b": "Come to the feast and eat freely",
+        "option_c": "Turn from all wickedness and follow her",
+        "option_d": "Seek the LORD with all your heart",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:6 says, \"Forsake the foolish, and live; and go in the way of understanding.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 9:11 say wisdom does for the years of the seeker?",
+        "option_a": "For by me thy days shall be multiplied, and the years of thy life shall be increased",
+        "option_b": "She adds honour to all the years of thy life",
+        "option_c": "She fills the years with understanding",
+        "option_d": "She gives thee years of peace and rest",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:11 says, \"For by me thy days shall be multiplied, and the years of thy life shall be increased.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What structural contrast does Proverbs 9 present between Wisdom's house and Folly's house?",
+        "option_a": "Wisdom builds on seven pillars, slays beasts and mingles wine; Folly sits idle at her door with stolen water and secret bread",
+        "option_b": "Wisdom's house is on a hill; Folly's house is in a valley",
+        "option_c": "Wisdom's house is open to all; Folly's house is hidden",
+        "option_d": "Wisdom's house is ancient; Folly's house is new",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:1-5 shows Wisdom building, preparing, and sending out; Proverbs 9:13-18 shows Folly sitting, calling, and offering only \"stolen waters.\""
+      },
+      {
+        "question_number": 8,
+        "question": "In Proverbs 9:13-16, who specifically does Folly target with her call?",
+        "option_a": "Whoso is simple and him that wanteth understanding",
+        "option_b": "The rich young ruler",
+        "option_c": "The wise man who has strayed",
+        "option_d": "The man who rejected Wisdom",
+        "correct_answer": "a",
+        "explanation": "Proverbs 9:16 says, \"Whoso is simple, let him turn in hither: and as for him that wanteth understanding.\""
+      }
+    ]
+  },
+  "10": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 10:1 say a wise son does for his father?",
+        "option_a": "He maketh a glad father",
+        "option_b": "He honoureth his father's name",
+        "option_c": "He enricheth his father's house",
+        "option_d": "He bringeth peace to his father",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:1 says, \"A wise son maketh a glad father: but a foolish son is the heaviness of his mother.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 10:12 say love does to sins?",
+        "option_a": "Love covereth all sins",
+        "option_b": "Love avoideth all sins",
+        "option_c": "Love removeth all sins",
+        "option_d": "Love punisheth all sins",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:12 says, \"love covereth all sins.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 10:7 say about the memory of the just?",
+        "option_a": "The memory of the just is blessed",
+        "option_b": "The memory of the just lasts forever",
+        "option_c": "The memory of the just is treasured by God",
+        "option_d": "The memory of the just comforts the living",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:7 says, \"The memory of the just is blessed.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What contrast does Proverbs 10:4 draw about diligence and laziness?",
+        "option_a": "He becometh poor that dealeth with a slack hand, but the hand of the diligent maketh rich",
+        "option_b": "The lazy man sleeps while the diligent man prays",
+        "option_c": "Laziness brings shame while diligence brings honour",
+        "option_d": "The lazy man wastes time while the diligent man saves it",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:4 says, \"He becometh poor that dealeth with a slack hand: but the hand of the diligent maketh rich.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 10:9 say about the person who walks uprightly?",
+        "option_a": "He that walketh uprightly walketh surely",
+        "option_b": "His path is always plain before him",
+        "option_c": "The LORD guides his every step",
+        "option_d": "His enemies cannot touch him",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:9 says, \"He that walketh uprightly walketh surely: but he that perverteth his ways shall be known.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 10:19 teach about many words?",
+        "option_a": "In the multitude of words there wanteth not sin; he that refraineth his lips is wise",
+        "option_b": "Many words prove a man's wisdom",
+        "option_c": "The wise man speaks freely among friends",
+        "option_d": "Words are measured by their quality not quantity",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:19 says, \"In the multitude of words there wanteth not sin: but he that refraineth his lips is wise.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 10:22 say about the blessing of the LORD?",
+        "option_a": "The blessing of the LORD, it maketh rich, and he addeth no sorrow with it",
+        "option_b": "The blessing of the LORD comes to those who seek him early",
+        "option_c": "The blessing of the LORD is wisdom above all things",
+        "option_d": "The blessing of the LORD is given freely to the humble",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:22 says, \"The blessing of the LORD, it maketh rich, and he addeth no sorrow with it.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 10:25 say about the righteous when a whirlwind passes?",
+        "option_a": "The righteous is an everlasting foundation",
+        "option_b": "The righteous bends but does not break",
+        "option_c": "The righteous flees to safety",
+        "option_d": "The righteous trusts and is not moved",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:25 says, \"As the whirlwind passeth, so is the wicked no more: but the righteous is an everlasting foundation.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 10:2 say about treasures of wickedness?",
+        "option_a": "Treasures of wickedness profit nothing: but righteousness delivereth from death",
+        "option_b": "Wicked treasure fades quickly",
+        "option_c": "Stolen goods bring a curse",
+        "option_d": "The LORD takes away what wickedness gathers",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:2 says, \"Treasures of wickedness profit nothing: but righteousness delivereth from death.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 10:11 say the mouth of the righteous is?",
+        "option_a": "A well of life; but violence covereth the mouth of the wicked",
+        "option_b": "A source of blessing to all who hear",
+        "option_c": "A lamp that guideth others in darkness",
+        "option_d": "A sword that cutteth down the wicked",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:11 says, \"The mouth of a righteous man is a well of life: but violence covereth the mouth of the wicked.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What literary form characterises most proverbs in chapters 10-15 and what is it called?",
+        "option_a": "Antithetical parallelism — two contrasting lines joined by \"but\"",
+        "option_b": "Synonymous parallelism — two lines saying the same thing",
+        "option_c": "Synthetic parallelism — two lines building on each other",
+        "option_d": "Chiastic structure — mirror-image parallelism",
+        "correct_answer": "a",
+        "explanation": "Chapters 10-15 are dominated by antithetical proverbs where the second line contrasts the first with \"but,\" e.g., Proverbs 10:1."
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 10:17 say about keeping instruction and refusing reproof?",
+        "option_a": "He is in the way of life that keepeth instruction; he that refuseth reproof erreth",
+        "option_b": "Keeping instruction brings wealth and refusing it brings poverty",
+        "option_c": "Instruction leads to wisdom; refusing it leads to foolishness",
+        "option_d": "The keeper of instruction is honoured; the refuser is forgotten",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:17 says, \"He is in the way of life that keepeth instruction: but he that refuseth reproof erreth.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 10:26 compare a lazy messenger to?",
+        "option_a": "Vinegar to the teeth and smoke to the eyes",
+        "option_b": "A broken wheel on a cart",
+        "option_c": "A stone in a smooth path",
+        "option_d": "A cloud without rain",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:26 says, \"As vinegar to the teeth, and as smoke to the eyes, so is the sluggard to them that send him.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 10:12 contrast with love covering sins?",
+        "option_a": "Hatred stirreth up strifes",
+        "option_b": "Envy destroys relationships",
+        "option_c": "Folly reveals all shame",
+        "option_d": "Pride multiplies offences",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:12 says, \"Hatred stirreth up strifes: but love covereth all sins.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Proverbs 10:20 say the heart of the wicked is?",
+        "option_a": "Little worth",
+        "option_b": "Full of deceit",
+        "option_c": "Dark as night",
+        "option_d": "Empty as a broken vessel",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:20 says, \"The tongue of the just is as choice silver: the heart of the wicked is little worth.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 10:31-32 say about the mouth of the righteous versus the froward?",
+        "option_a": "The mouth of the just bringeth forth wisdom; the froward tongue shall be cut out",
+        "option_b": "The righteous speak truth while the froward speak lies",
+        "option_c": "The just are heard by all while the froward are ignored",
+        "option_d": "The righteous speak seldom but well; the froward speak often but poorly",
+        "correct_answer": "a",
+        "explanation": "Proverbs 10:31-32 says, \"The mouth of the just bringeth forth wisdom...The lips of the righteous know what is acceptable: but the mouth of the wicked speaketh frowardness.\""
+      }
+    ]
+  },
+  "11": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 11:2 say comes with pride?",
+        "option_a": "Shame",
+        "option_b": "Wealth",
+        "option_c": "Loneliness",
+        "option_d": "Sorrow",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:2 says, \"When pride cometh, then cometh shame: but with the lowly is wisdom.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 11:14 say a nation needs for safety?",
+        "option_a": "A multitude of counsellors",
+        "option_b": "A strong king",
+        "option_c": "High walls and many soldiers",
+        "option_d": "Wise judges",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:14 says, \"but in the multitude of counsellors there is safety.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 11:24 say about the generous person?",
+        "option_a": "There is that scattereth, and yet increaseth",
+        "option_b": "He who gives receives double in return",
+        "option_c": "The generous man is loved by all",
+        "option_d": "He who shares his bread will never go hungry",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:24 says, \"There is that scattereth, and yet increaseth; and there is that withholdeth more than is meet, but it tendeth to poverty.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 11:1 say the LORD abhors?",
+        "option_a": "A false balance",
+        "option_b": "A proud look",
+        "option_c": "A lying tongue",
+        "option_d": "A wicked heart",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:1 says, \"A false balance is abomination to the LORD: but a just weight is his delight.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 11:13 say about a talebearer?",
+        "option_a": "A talebearer revealeth secrets; but he that is of a faithful spirit concealeth the matter",
+        "option_b": "A talebearer is hated by all men",
+        "option_c": "A talebearer brings division to families",
+        "option_d": "A talebearer shall be punished by the elders",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:13 says, \"A talebearer revealeth secrets: but he that is of a faithful spirit concealeth the matter.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 11:17 say about a merciful man?",
+        "option_a": "He doeth good to his own soul",
+        "option_b": "He is rewarded with long life",
+        "option_c": "He finds favour with God and men",
+        "option_d": "He is protected from his enemies",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:17 says, \"The merciful man doeth good to his own soul: but he that is cruel troubleth his own flesh.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What image does Proverbs 11:22 use for a beautiful woman without discretion?",
+        "option_a": "A jewel of gold in a swine's snout",
+        "option_b": "A rose growing among thorns",
+        "option_c": "A star that shines by day",
+        "option_d": "A lamp left unguarded in the wind",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:22 says, \"As a jewel of gold in a swine's snout, so is a fair woman which is without discretion.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 11:30 compare the fruit of the righteous to?",
+        "option_a": "A tree of life",
+        "option_b": "Choice silver",
+        "option_c": "A flowing fountain",
+        "option_d": "The morning light",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:30 says, \"The fruit of the righteous is a tree of life; and he that winneth souls is wise.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 11:3 say guides the upright versus what destroys the treacherous?",
+        "option_a": "The integrity of the upright shall guide them, the perverseness of transgressors shall destroy them",
+        "option_b": "Wisdom guides the upright; folly destroys the wicked",
+        "option_c": "Truth guides the righteous; lies destroy the liar",
+        "option_d": "The law guides the upright; sin destroys the transgressor",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:3 says, \"The integrity of the upright shall guide them: but the perverseness of transgressors shall destroy them.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 11:4 declare about riches in the day of wrath?",
+        "option_a": "Riches profit not in the day of wrath: but righteousness delivereth from death",
+        "option_b": "Riches can buy a little time but not salvation",
+        "option_c": "The wicked man's riches are taken away suddenly",
+        "option_d": "A man's wealth cannot follow him beyond the grave",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:4 says, \"Riches profit not in the day of wrath: but righteousness delivereth from death.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 11:9 say the hypocrite does with his mouth?",
+        "option_a": "He destroyeth his neighbour",
+        "option_b": "He deceiveth those who trust him",
+        "option_c": "He spreadeth mischief through the city",
+        "option_d": "He bringeth shame upon his family",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:9 says, \"An hypocrite with his mouth destroyeth his neighbour: but through knowledge shall the just be delivered.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 11:18 contrast about the wages of the wicked versus the righteous?",
+        "option_a": "The wicked worketh a deceitful work, but he that soweth righteousness hath a sure reward",
+        "option_b": "The wicked earn great wages now but lose all later",
+        "option_c": "The wicked gain in secret while the righteous gain openly",
+        "option_d": "The wicked's wages perish while the righteous's are stored up in heaven",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:18 says, \"The wicked worketh a deceitful work: but to him that soweth righteousness shall be a sure reward.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 11:25 say about the liberal soul?",
+        "option_a": "The liberal soul shall be made fat; he that watereth shall be watered also himself",
+        "option_b": "The generous man shall receive from the LORD",
+        "option_c": "The open hand will never be empty",
+        "option_d": "He who gives to the poor lends to the LORD",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:25 says, \"The liberal soul shall be made fat: and he that watereth shall be watered also himself.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 11:26 say about the man who withholds grain?",
+        "option_a": "The people shall curse him",
+        "option_b": "He shall be known as a miser",
+        "option_c": "God shall judge his greed",
+        "option_d": "He loses his blessing from above",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:26 says, \"He that withholdeth corn, the people shall curse him: but blessing shall be upon the head of him that selleth it.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Proverbs 11:29 say about the one who troubleth his own house?",
+        "option_a": "He shall inherit the wind",
+        "option_b": "He shall be cast out of the city",
+        "option_c": "He shall lose his inheritance",
+        "option_d": "He shall come to poverty and shame",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:29 says, \"He that troubleth his own house shall inherit the wind.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 11:31 establish about the recompense of the righteous and sinner on earth?",
+        "option_a": "Behold, the righteous shall be recompensed in the earth: much more the wicked and the sinner",
+        "option_b": "God rewards the righteous in heaven and punishes the wicked on earth",
+        "option_c": "The earth is a place of testing for all",
+        "option_d": "Justice comes to all men before death",
+        "correct_answer": "a",
+        "explanation": "Proverbs 11:31 says, \"Behold, the righteous shall be recompensed in the earth: much more the wicked and the sinner.\""
+      }
+    ]
+  },
+  "12": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 12:1 say about loving instruction?",
+        "option_a": "Whoso loveth instruction loveth knowledge",
+        "option_b": "He who loves instruction will become wise",
+        "option_c": "He who loves learning is loved by God",
+        "option_d": "Loving instruction brings honour",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:1 says, \"Whoso loveth instruction loveth knowledge: but he that hateth reproof is brutish.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 12:10 say a righteous man does for animals?",
+        "option_a": "He regardeth the life of his animal",
+        "option_b": "He feeds his animal before himself",
+        "option_c": "He trains his animal with kindness",
+        "option_d": "He protects his animal from harm",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:10 says, \"A righteous man regardeth the life of his animal.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 12:17 say a true witness delivers?",
+        "option_a": "Right things",
+        "option_b": "Good news",
+        "option_c": "Wise counsel",
+        "option_d": "Just judgment",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:17 says, \"An honest witness delivereth right things: but a deceitful witness speaketh lies.\" — \"right\" reflects truthful, upright testimony."
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 12:4 say a virtuous woman is to her husband?",
+        "option_a": "A crown to her husband",
+        "option_b": "His strength and honour",
+        "option_c": "His joy and comfort",
+        "option_d": "His wisdom and guide",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:4 says, \"A virtuous woman is a crown to her husband.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 12:11 say about one who follows vain persons?",
+        "option_a": "He is void of understanding",
+        "option_b": "He will come to poverty",
+        "option_c": "He will lose his friends",
+        "option_d": "He shall be ashamed among men",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:11 says, \"but he that followeth vain persons is void of understanding.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 12:15 say about a fool's view of himself?",
+        "option_a": "The way of a fool is right in his own eyes",
+        "option_b": "A fool believes he is wiser than all",
+        "option_c": "A fool never seeks instruction",
+        "option_d": "A fool despises the counsel of the wise",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:15 says, \"The way of a fool is right in his own eyes: but he that hearkeneth unto counsel is wise.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 12:18 contrast about rash words and the tongue of the wise?",
+        "option_a": "Speaking like piercings of a sword vs the tongue of the wise is health",
+        "option_b": "Harsh words cut deep while kind words comfort",
+        "option_c": "Rash words destroy while wise words build up",
+        "option_d": "Foolish speech spreads pain while wisdom speaks sparingly",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:18 says, \"There is that speaketh like the piercings of a sword: but the tongue of the wise is health.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 12:24 say about the hand of the diligent?",
+        "option_a": "The hand of the diligent shall bear rule",
+        "option_b": "The diligent man shall not lack",
+        "option_c": "The diligent hand is blessed of God",
+        "option_d": "The diligent worker earns more than others",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:24 says, \"The hand of the diligent shall bear rule: but the slothful shall be under tribute.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 12:2 say about a man of wicked devices?",
+        "option_a": "The LORD will condemn him",
+        "option_b": "He shall fall by his own schemes",
+        "option_c": "His wickedness shall be exposed",
+        "option_d": "He gains the hatred of all men",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:2 says, \"A good man obtaineth favour of the LORD: but a man of wicked devices will he condemn.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 12:5 say the thoughts of the righteous are versus the counsels of the wicked?",
+        "option_a": "The thoughts of the righteous are right; the counsels of the wicked are deceit",
+        "option_b": "The righteous think deeply; the wicked act rashly",
+        "option_c": "The righteous are transparent; the wicked are hidden",
+        "option_d": "The righteous think of others; the wicked think of themselves",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:5 says, \"The thoughts of the righteous are right: but the counsels of the wicked are deceit.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 12:7 say about the house of the righteous versus the wicked being overthrown?",
+        "option_a": "The wicked are overthrown and are not; but the house of the righteous shall stand",
+        "option_b": "The wicked fall quickly while the righteous rise slowly",
+        "option_c": "God pulls down the wicked's house but builds the righteous's",
+        "option_d": "The wicked build on sand; the righteous on rock",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:7 says, \"The wicked are overthrown, and are not: but the house of the righteous shall stand.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 12:14 teach about the fruit of a man's mouth?",
+        "option_a": "A man shall be satisfied with good by the fruit of his mouth",
+        "option_b": "A man's speech reveals what is in his heart",
+        "option_c": "A man's words return to him in kind",
+        "option_d": "A man's lips either bless or curse him",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:14 says, \"A man shall be satisfied with good by the fruit of his mouth.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 12:19 promise about truthful lips versus a lying tongue?",
+        "option_a": "Truthful lips shall be established for ever; a lying tongue is but for a moment",
+        "option_b": "Truth is rewarded and lies are punished",
+        "option_c": "The truth teller is trusted while the liar is shunned",
+        "option_d": "God preserves the truthful word and destroys the false",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:19 says, \"The lip of truth shall be established for ever: but a lying tongue is but for a moment.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 12:20 say about the heart of those who imagine evil versus those who counsel peace?",
+        "option_a": "Deceit is in the heart of them that imagine evil; joy to the counsellors of peace",
+        "option_b": "Evil is hidden in the heart but joy is spoken aloud",
+        "option_c": "The schemer finds no rest but the peacemaker finds rest",
+        "option_d": "Deceit brings destruction and peace brings prosperity",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:20 says, \"Deceit is in the heart of them that imagine evil: but to the counsellors of peace is joy.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Proverbs 12:25 say lifts up the spirit of a heavy-hearted man?",
+        "option_a": "A good word maketh it glad",
+        "option_b": "The comfort of friends restores the spirit",
+        "option_c": "The LORD lifts the spirit of the sad",
+        "option_d": "Prayer turns heaviness into joy",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:25 says, \"Heaviness in the heart of man maketh it stoop: but a good word maketh it glad.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 12:26 say the righteous is to his neighbour?",
+        "option_a": "More excellent than his neighbour",
+        "option_b": "A guide to the righteous path",
+        "option_c": "A source of wisdom and strength",
+        "option_d": "A shield in times of trouble",
+        "correct_answer": "a",
+        "explanation": "Proverbs 12:26 says, \"The righteous is more excellent than his neighbour: but the way of the wicked seduceth them.\""
+      }
+    ]
+  },
+  "13": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 13:20 say happens to those who walk with wise men?",
+        "option_a": "They shall be wise",
+        "option_b": "They shall become rich",
+        "option_c": "They shall be honoured",
+        "option_d": "They shall be protected",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:20 says, \"He that walketh with wise men shall be wise.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 13:24 say a parent who spares the rod does?",
+        "option_a": "He hateth his son",
+        "option_b": "He honoureth his son above God",
+        "option_c": "He neglects his son's training",
+        "option_d": "He brings shame upon himself",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:24 says, \"He that spareth his rod hateth his son.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 13:3 say about guarding the mouth?",
+        "option_a": "He that keepeth his mouth keepeth his life",
+        "option_b": "A guarded mouth speaks only truth",
+        "option_c": "The careful tongue avoids all sin",
+        "option_d": "A wise child is slow to speak",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:3 says, \"He that keepeth his mouth keepeth his life: but he that openeth wide his lips shall have destruction.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 13:1 contrast about a wise son and a scorner?",
+        "option_a": "A wise son heareth his father's instruction but a scorner heareth not rebuke",
+        "option_b": "A wise son prospers but a scorner fails",
+        "option_c": "A wise son is loved but a scorner is despised",
+        "option_d": "A wise son speaks carefully but a scorner speaks rashly",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:1 says, \"A wise son heareth his father's instruction: but a scorner heareth not rebuke.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 13:7 observe about wealth and poverty?",
+        "option_a": "There is that maketh himself rich, yet hath nothing; and that maketh himself poor, yet hath great riches",
+        "option_b": "Riches deceive while poverty reveals character",
+        "option_c": "The poor man may be richer in God's sight",
+        "option_d": "Wealth is not always what it appears to be",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:7 says, \"There is that maketh himself rich, yet hath nothing: and there is that maketh himself poor, yet hath great riches.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 13:11 say about wealth gotten by vanity?",
+        "option_a": "It shall be diminished; but he that gathereth by labour shall increase",
+        "option_b": "It brings no lasting satisfaction",
+        "option_c": "It tempts a man into further sin",
+        "option_d": "It brings judgment upon the house",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:11 says, \"Wealth gotten by vanity shall be diminished: but he that gathereth by labour shall increase.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 13:12 say about hope deferred?",
+        "option_a": "Hope deferred maketh the heart sick: but when the desire cometh, it is a tree of life",
+        "option_b": "Deferred hope is better than no hope at all",
+        "option_c": "Waiting for hope tests the strength of the soul",
+        "option_d": "A man without hope is lost",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:12 says, \"Hope deferred maketh the heart sick: but when the desire cometh, it is a tree of life.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 13:18 say about refusing instruction?",
+        "option_a": "Poverty and shame shall be to him that refuseth instruction",
+        "option_b": "He who rejects reproof will fall suddenly",
+        "option_c": "A man without instruction makes poor decisions",
+        "option_d": "Refusing instruction is the first step to ruin",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:18 says, \"Poverty and shame shall be to him that refuseth instruction: but he that regardeth reproof shall be honoured.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 13:4 say about the sluggard versus the diligent?",
+        "option_a": "The soul of the sluggard desireth and hath nothing; the soul of the diligent shall be made fat",
+        "option_b": "The lazy man wishes but the diligent man works",
+        "option_c": "The sluggard dreams while the diligent man acts",
+        "option_d": "Desiring without working leads to emptiness",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:4 says, \"The soul of the sluggard desireth, and hath nothing: but the soul of the diligent shall be made fat.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 13:9 contrast about the light of the righteous and the lamp of the wicked?",
+        "option_a": "The light of the righteous rejoiceth; but the lamp of the wicked shall be put out",
+        "option_b": "The righteous's light grows brighter while the wicked's dims",
+        "option_c": "The righteous shine in darkness; the wicked cannot find their way",
+        "option_d": "God tends the righteous's lamp but not the wicked's",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:9 says, \"The light of the righteous rejoiceth: but the lamp of the wicked shall be put out.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 13:10 say is the only source of contention?",
+        "option_a": "Only by pride cometh contention",
+        "option_b": "A quick temper is the root of all strife",
+        "option_c": "Envy and jealousy breed contention",
+        "option_d": "Folly creates strife among men",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:10 says, \"Only by pride cometh contention: but with the well advised is wisdom.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 13:13 say about despising the word?",
+        "option_a": "Whoso despiseth the word shall be destroyed",
+        "option_b": "He who ignores wisdom faces its consequences",
+        "option_c": "The despiser of the word walks in darkness",
+        "option_d": "Rejecting God's word leads to spiritual death",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:13 says, \"Whoso despiseth the word shall be destroyed: but he that feareth the commandment shall be rewarded.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 13:15 say about the way of transgressors?",
+        "option_a": "The way of transgressors is hard",
+        "option_b": "Sinners walk a path of thorns",
+        "option_c": "The wicked road leads nowhere good",
+        "option_d": "Transgression makes every journey difficult",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:15 says, \"Good understanding giveth favour: but the way of transgressors is hard.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 13:17 say about a wicked versus a faithful messenger?",
+        "option_a": "A wicked messenger falleth into mischief; but a faithful ambassador is health",
+        "option_b": "A wicked messenger brings bad tidings; a faithful one brings good news",
+        "option_c": "A lying messenger is punished; a truthful one is rewarded",
+        "option_d": "A lazy messenger fails his master; a diligent one succeeds",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:17 says, \"A wicked messenger falleth into mischief: but a faithful ambassador is health.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Proverbs 13:22 say about the inheritance of a good man versus the sinner's wealth?",
+        "option_a": "A good man leaveth an inheritance to his children's children; the sinner's wealth is laid up for the just",
+        "option_b": "A righteous man builds wealth that lasts three generations",
+        "option_c": "A good man stores up a spiritual inheritance",
+        "option_d": "The wicked's wealth is cursed and turns to nothing",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:22 says, \"A good man leaveth an inheritance to his children's children: and the wealth of the sinner is laid up for the just.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 13:25 say about the difference in eating between the righteous and the wicked?",
+        "option_a": "The righteous eateth to the satisfying of his soul; the belly of the wicked shall want",
+        "option_b": "The righteous eat little but are satisfied; the wicked eat much and are never full",
+        "option_c": "God provides for the righteous but withholds from the wicked",
+        "option_d": "The righteous's bread is blessed while the wicked's is cursed",
+        "correct_answer": "a",
+        "explanation": "Proverbs 13:25 says, \"The righteous eateth to the satisfying of his soul: but the belly of the wicked shall want.\""
+      }
+    ]
+  },
+  "14": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 14:34 say righteousness does for a nation?",
+        "option_a": "Exalteth a nation",
+        "option_b": "Strengthens a nation",
+        "option_c": "Protects a nation",
+        "option_d": "Enriches a nation",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:34 says, \"Righteousness exalteth a nation: but sin is a reproach to any people.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 14:12 say about a way that seems right to a person?",
+        "option_a": "The end thereof are the ways of death",
+        "option_b": "It may lead to trouble",
+        "option_c": "It may not be the best way",
+        "option_d": "It still needs to be tested",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:12 says, \"There is a way which seemeth right unto a man, but the end thereof are the ways of death.\""
+      },
+      {
+        "question_number": 3,
+        "question": "Who does Proverbs 14:21 say is happy?",
+        "option_a": "He that hath mercy on the poor",
+        "option_b": "He who loves his neighbour",
+        "option_c": "He who helps the weak",
+        "option_d": "He who gives generously",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:21 says, \"but he that hath mercy on the poor, happy is he.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 14:1 contrast about a wise woman and a foolish one?",
+        "option_a": "Every wise woman buildeth her house; but the foolish plucketh it down with her hands",
+        "option_b": "A wise woman speaks carefully but a foolish one hastily",
+        "option_c": "A wise woman is patient but a foolish one is rash",
+        "option_d": "A wise woman saves but a foolish one wastes",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:1 says, \"Every wise woman buildeth her house: but the foolish plucketh it down with her hands.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 14:10 say about the bitterness of the heart?",
+        "option_a": "The heart knoweth his own bitterness; and a stranger doth not intermeddle with his joy",
+        "option_b": "The heart that is bitter cannot receive joy",
+        "option_c": "Deep pain is known only to God and oneself",
+        "option_d": "A bitter heart cannot find peace",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:10 says, \"The heart knoweth his own bitterness; and a stranger doth not intermeddle with his joy.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 14:13 say about laughter?",
+        "option_a": "Even in laughter the heart is sorrowful; and the end of that mirth is heaviness",
+        "option_b": "Laughter is the medicine of the soul",
+        "option_c": "A laughing man hides his true feelings",
+        "option_d": "Joy without truth is empty and fleeting",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:13 says, \"Even in laughter the heart is sorrowful; and the end of that mirth is heaviness.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 14:17 say about a quick-tempered man?",
+        "option_a": "He that is soon angry dealeth foolishly",
+        "option_b": "A hot-tempered man invites trouble",
+        "option_c": "Anger without cause is a sin",
+        "option_d": "A quick temper reveals a foolish heart",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:17 says, \"He that is soon angry dealeth foolishly: and a man of wicked devices is hated.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 14:30 contrast about envy and a sound heart?",
+        "option_a": "A sound heart is the life of the flesh; but envy the rottenness of the bones",
+        "option_b": "A sound heart brings peace; envy brings strife",
+        "option_c": "Contentment gives life; envy destroys it",
+        "option_d": "A peaceful heart is a blessing; envy is a curse",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:30 says, \"A sound heart is the life of the flesh: but envy the rottenness of the bones.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 14:4 say about where no oxen are?",
+        "option_a": "The crib is clean: but much increase is by the strength of the ox",
+        "option_b": "There is no ploughing and no harvest",
+        "option_c": "The barn is empty and the farmer is poor",
+        "option_d": "The field lies fallow and the work is not done",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:4 says, \"Where no oxen are, the crib is clean: but much increase is by the strength of the ox.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 14:6 say about the scorner and wisdom?",
+        "option_a": "A scorner seeketh wisdom and findeth it not; but knowledge is easy unto him that understandeth",
+        "option_b": "The scorner cannot receive what he mocks",
+        "option_c": "Wisdom is hidden from the proud heart",
+        "option_d": "He who despises truth will never find it",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:6 says, \"A scorner seeketh wisdom, and findeth it not: but knowledge is easy unto him that understandeth.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 14:20 reveal about social attitudes toward the poor and the rich?",
+        "option_a": "The poor is hated even of his own neighbour; but the rich hath many friends",
+        "option_b": "Society judges a man by his wealth",
+        "option_c": "Poverty brings rejection while wealth brings false friends",
+        "option_d": "Men court the rich but abandon the poor",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:20 says, \"The poor is hated even of his own neighbour: but the rich hath many friends.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 14:23 say about talk without labour?",
+        "option_a": "In all labour there is profit; but the talk of the lips tendeth only to penury",
+        "option_b": "Empty speech wastes the day",
+        "option_c": "A man who only talks will come to nothing",
+        "option_d": "Speaking without acting is the way of the sluggard",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:23 says, \"In all labour there is profit: but the talk of the lips tendeth only to penury.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 14:26-27 say about the fear of the LORD?",
+        "option_a": "In the fear of the LORD is strong confidence; it is a fountain of life, to depart from the snares of death",
+        "option_b": "The fear of the LORD gives strength in old age",
+        "option_c": "Those who fear the LORD will never be put to shame",
+        "option_d": "The fear of the LORD is the foundation of all virtue",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:26-27 says, \"In the fear of the LORD is strong confidence...The fear of the LORD is a fountain of life, to depart from the snares of death.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 14:29 contrast about a slow and hasty spirit?",
+        "option_a": "He that is slow to wrath is of great understanding; but he that is hasty of spirit exalteth folly",
+        "option_b": "Patience is strength; haste is weakness",
+        "option_c": "The slow temper earns respect; the hot temper earns shame",
+        "option_d": "Anger controlled is wisdom; anger uncontrolled is foolishness",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:29 says, \"He that is slow to wrath is of great understanding: but he that is hasty of spirit exalteth folly.\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Proverbs 14:31 say about oppressing the poor?",
+        "option_a": "He that oppresseth the poor reproacheth his Maker",
+        "option_b": "Oppressing the poor is an abomination to God",
+        "option_c": "The oppressor of the poor will answer to God",
+        "option_d": "He who harms the poor sins against heaven",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:31 says, \"He that oppresseth the poor reproacheth his Maker: but he that honoureth him hath mercy on the poor.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 14:35 say about the king and his servants?",
+        "option_a": "The king's favour is toward a wise servant: but his wrath is against him that causeth shame",
+        "option_b": "A king rewards those who bring him good news",
+        "option_c": "The king judges all men by their words",
+        "option_d": "A servant who pleases the king gains great honour",
+        "correct_answer": "a",
+        "explanation": "Proverbs 14:35 says, \"The king's favour is toward a wise servant: but his wrath is against him that causeth shame.\""
+      }
+    ]
+  },
+  "15": {
+    "kids": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 15:1 say a soft answer turns away?",
+        "option_a": "Wrath",
+        "option_b": "Danger",
+        "option_c": "Foolishness",
+        "option_d": "Sorrow",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:1 says, \"A soft answer turneth away wrath.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 15:3 say about the eyes of the LORD?",
+        "option_a": "They are in every place, beholding the evil and the good",
+        "option_b": "They see every secret thing",
+        "option_c": "They watch over the righteous always",
+        "option_d": "They never close and never sleep",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:3 says, \"The eyes of the LORD are in every place, beholding the evil and the good.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 15:17 say is better than a stalled ox with hatred?",
+        "option_a": "A dinner of herbs where love is",
+        "option_b": "A small meal shared with friends",
+        "option_c": "Plain bread eaten in peace",
+        "option_d": "A simple life without conflict",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:17 says, \"Better is a dinner of herbs where love is, than a stalled ox and hatred therewith.\""
+      }
+    ],
+    "teens": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 15:1 contrast with a soft answer?",
+        "option_a": "A grievous word stirreth up anger",
+        "option_b": "A harsh tone creates conflict",
+        "option_c": "A loud voice increases anger",
+        "option_d": "A proud reply makes things worse",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:1 says, \"A soft answer turneth away wrath: but grievous words stir up anger.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 15:8 say about the prayer of the upright?",
+        "option_a": "It is his delight",
+        "option_b": "It is heard immediately",
+        "option_c": "It rises before God",
+        "option_d": "It is answered in full",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:8 says, \"but the prayer of the upright is his delight.\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 15:13 say a merry heart does?",
+        "option_a": "It maketh a cheerful countenance",
+        "option_b": "It bringeth joy to others",
+        "option_c": "It lifts up the spirit",
+        "option_d": "It is a gift from God",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:13 says, \"A merry heart maketh a cheerful countenance: but by sorrow of the heart the spirit is broken.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 15:22 say about plans made without counsel?",
+        "option_a": "Without counsel purposes are disappointed",
+        "option_b": "Plans made alone often fail",
+        "option_c": "The man who consults no one is a fool",
+        "option_d": "A plan without prayer is doomed to fail",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:22 says, \"Without counsel purposes are disappointed: but in the multitude of counsellors they are established.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 15:29 say about the LORD and the wicked versus the righteous?",
+        "option_a": "The LORD is far from the wicked; but he heareth the prayer of the righteous",
+        "option_b": "The LORD judges the wicked but saves the righteous",
+        "option_c": "The LORD sees the wicked and punishes them",
+        "option_d": "The LORD turns away from the wicked but draws near the righteous",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:29 says, \"The LORD is far from the wicked: but he heareth the prayer of the righteous.\""
+      }
+    ],
+    "adults": [
+      {
+        "question_number": 1,
+        "question": "What does Proverbs 15:4 contrast about a wholesome tongue and a perverse one?",
+        "option_a": "A wholesome tongue is a tree of life; but perverseness therein is a breach in the spirit",
+        "option_b": "A wholesome tongue heals; a perverse one harms",
+        "option_c": "Kind words build up; cruel words tear down",
+        "option_d": "A good tongue brings blessing; a wicked one brings a curse",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:4 says, \"A wholesome tongue is a tree of life: but perverseness therein is a breach in the spirit.\""
+      },
+      {
+        "question_number": 2,
+        "question": "What does Proverbs 15:11 say about Hell and Destruction before the LORD?",
+        "option_a": "Hell and destruction are before the LORD; how much more then the hearts of the children of men",
+        "option_b": "Even the depths of hell are visible to God",
+        "option_c": "No secret place is hidden from the LORD",
+        "option_d": "God sees beyond the grave into eternity",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:11 says, \"Hell and destruction are before the LORD: how much more then the hearts of the children of men?\""
+      },
+      {
+        "question_number": 3,
+        "question": "What does Proverbs 15:14 say the heart of the discerning seeks versus what the fool feeds on?",
+        "option_a": "The heart of him that hath understanding seeketh knowledge; the mouth of fools feedeth on foolishness",
+        "option_b": "The wise man hungers for wisdom; the fool is content with nothing",
+        "option_c": "An understanding heart digs deep; a foolish heart stays shallow",
+        "option_d": "The discerning seek to learn; the foolish seek only to speak",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:14 says, \"The heart of him that hath understanding seeketh knowledge: but the mouth of fools feedeth on foolishness.\""
+      },
+      {
+        "question_number": 4,
+        "question": "What does Proverbs 15:15 say about the cheerful heart versus the afflicted?",
+        "option_a": "All the days of the afflicted are evil; but he that is of a merry heart hath a continual feast",
+        "option_b": "The sad man sees only trouble; the happy man sees only good",
+        "option_c": "Affliction clouds every day; joy brightens every one",
+        "option_d": "The sorrowful live in shadow while the joyful live in light",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:15 says, \"All the days of the afflicted are evil: but he that is of a merry heart hath a continual feast.\""
+      },
+      {
+        "question_number": 5,
+        "question": "What does Proverbs 15:16-17 say is better than great treasure and a stalled ox?",
+        "option_a": "Better is little with the fear of the LORD than great treasure and trouble; better a dinner of herbs where love is",
+        "option_b": "A simple life of godliness exceeds wealth filled with anxiety",
+        "option_c": "Peace with God is worth more than earthly prosperity",
+        "option_d": "Contentment surpasses abundance without righteousness",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:16-17 says, \"Better is little with the fear of the LORD than great treasure and trouble therewith. Better is a dinner of herbs where love is.\""
+      },
+      {
+        "question_number": 6,
+        "question": "What does Proverbs 15:23 say about an apt word spoken in due season?",
+        "option_a": "A word spoken in due season, how good is it",
+        "option_b": "A timely word has power to heal a broken heart",
+        "option_c": "Speaking at the right time brings the greatest result",
+        "option_d": "A well-timed word is a rare and precious gift",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:23 says, \"A man hath joy by the answer of his mouth: and a word spoken in due season, how good is it!\""
+      },
+      {
+        "question_number": 7,
+        "question": "What does Proverbs 15:25 say about the proud man's house versus the widow?",
+        "option_a": "The LORD will destroy the house of the proud; but he will establish the border of the widow",
+        "option_b": "Pride brings a family to ruin while humility sustains it",
+        "option_c": "God tears down arrogance and builds up the helpless",
+        "option_d": "The proud man's house falls; the humble man's house stands",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:25 says, \"The LORD will destroy the house of the proud: but he will establish the border of the widow.\""
+      },
+      {
+        "question_number": 8,
+        "question": "What does Proverbs 15:33 say wisdom's instruction is and what must come before honour?",
+        "option_a": "The instruction of wisdom is the fear of the LORD; and before honour is humility",
+        "option_b": "Wisdom leads to honour and honour leads to lasting reputation",
+        "option_c": "Fear of God teaches all true wisdom and produces genuine honour",
+        "option_d": "The path to honour is paved with wisdom's hard lessons",
+        "correct_answer": "a",
+        "explanation": "Proverbs 15:33 says, \"The fear of the LORD is the instruction of wisdom; and before honour is humility.\""
+      }
+    ]
+  }
+}

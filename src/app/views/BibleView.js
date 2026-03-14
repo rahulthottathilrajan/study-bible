@@ -28,6 +28,7 @@ export default function BibleView() {
     chapterReads, markChapterRead, quizScores, bibleTranslation, bp,
     audioPlaying, audioVisible, setAudioPlaying, setAudioVisible,
     audioMode, audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
+    audioCurrentWord,
     listenedChapters,
     getChapterFromCache, loadUserDataForChapter, fetchTranslatedVerses,
   } = useApp();
@@ -428,6 +429,35 @@ export default function BibleView() {
     return () => observer.disconnect();
   }, [view, chaptersData]);
 
+  // ── Karaoke text renderer (word-level highlighting for ElevenLabs) ──
+  const renderVerseText = (text, verseNum, style) => {
+    const isKaraoke = audioMode === "elevenlabs" && audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verseNum;
+    if (!isKaraoke || isRtl) {
+      return <div style={style}>{text}</div>;
+    }
+    // Split text into words and highlight the current word
+    const words = text.split(/(\s+)/);
+    let wordIdx = 0;
+    return (
+      <div style={style}>
+        {words.map((w, i) => {
+          if (/^\s+$/.test(w)) return <span key={i}>{w}</span>;
+          const isActive = audioCurrentWord.verseWordIdx === wordIdx;
+          wordIdx++;
+          return (
+            <span key={i} style={isActive ? {
+              background: `${t.accent}30`,
+              borderRadius: 3,
+              padding: "1px 2px",
+              margin: "-1px -2px",
+              animation: "wordGlow 0.3s ease",
+            } : undefined}>{w}</span>
+          );
+        })}
+      </div>
+    );
+  };
+
   const VerseList = () => {
     const bookDisplayName = getBookName(book, bibleTranslation);
     if (loading && chaptersData.length === 0) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${bookDisplayName}`} subtitle="Loading..." onBack={goBack} showFontSize hideUser hidePrayer /><Spinner t={t} /></div>;
@@ -531,7 +561,7 @@ export default function BibleView() {
                             minWidth:28,textAlign:"center",lineHeight:1.2,flexShrink:0
                           }}>{v.verse_number}</span>
                           <div style={{flex:1,minWidth:0}}>
-                            <div style={{fontFamily:t.body,fontSize:FS[fontSize].list,color:t.text,lineHeight:1.65,...rtlStyle}}>{v.kjv_text}</div>
+                            {renderVerseText(v.kjv_text, v.verse_number, {fontFamily:t.body,fontSize:FS[fontSize].list,color:t.text,lineHeight:1.65,...rtlStyle})}
                           </div>
                           {(isBookmarked || hasNote || communityCount > 0) && (
                             <div style={{display:"flex",alignItems:"center",gap:4,flexShrink:0,alignSelf:"flex-start",marginTop:2}}>
@@ -720,7 +750,14 @@ export default function BibleView() {
             {/* Verse text */}
             <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:2.0,padding:"12px 0 16px",...rtlStyle}}>
               <span style={{fontSize:"clamp(28px,8vw,36px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:10,marginLeft:isRtl?10:0,marginTop:2,fontFamily:t.heading,textShadow:`0 0 20px ${t.accent}45`}}>{verse}</span>
-              {currentVerse.kjv_text}
+              {audioMode === "elevenlabs" && audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verse && !isRtl
+                ? (() => { const words = currentVerse.kjv_text.split(/(\s+)/); let wIdx = 0; return words.map((w, i) => {
+                    if (/^\s+$/.test(w)) return <span key={i}>{w}</span>;
+                    const isActive = audioCurrentWord.verseWordIdx === wIdx; wIdx++;
+                    return <span key={i} style={isActive ? { background:`${t.accent}30`, borderRadius:3, padding:"1px 2px", margin:"-1px -2px", animation:"wordGlow 0.3s ease" } : undefined}>{w}</span>;
+                  }); })()
+                : currentVerse.kjv_text
+              }
             </div>
 
             {/* Prev / Next navigation */}
