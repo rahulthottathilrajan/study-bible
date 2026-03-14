@@ -128,7 +128,7 @@ export default function PodcastView() {
         <Header title="Podcasts" subtitle="Listen & Learn" onBack={goBack} theme={ht} />
         <div style={{ padding: `20px ${bp.pad}px 40px`, maxWidth: bp.content, margin: "0 auto" }}>
           {indexLoading ? (
-            <div style={{ textAlign: "center", padding: 60 }}><Spinner color={ht.accent} /></div>
+            <div style={{ textAlign: "center", padding: 60 }}><Spinner t={ht} /></div>
           ) : !seriesIndex?.series?.length ? (
             <div style={{ textAlign: "center", padding: 60, fontFamily: ht.body, color: ht.muted }}>
               No podcasts available yet. Check back soon!
@@ -198,7 +198,7 @@ export default function PodcastView() {
       return (
         <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
           <Header title="Series" onBack={goBack} theme={ht} />
-          <div style={{ textAlign: "center", padding: 60 }}><Spinner color={ht.accent} /></div>
+          <div style={{ textAlign: "center", padding: 60 }}><Spinner t={ht} /></div>
         </div>
       );
     }
@@ -297,7 +297,7 @@ export default function PodcastView() {
       return (
         <div style={{ minHeight: "100vh", background: ht.bg, paddingBottom: 80 }}>
           <Header title="Episode" onBack={goBack} theme={ht} />
-          <div style={{ textAlign: "center", padding: 60 }}><Spinner color={ht.accent} /></div>
+          <div style={{ textAlign: "center", padding: 60 }}><Spinner t={ht} /></div>
         </div>
       );
     }
