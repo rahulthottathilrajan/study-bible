@@ -38,6 +38,7 @@ export async function POST(request) {
       'user_greek_progress',
       'subscriptions',
       'shop_orders',
+      'votd_user_likes',
       'user_profiles',
     ];
 

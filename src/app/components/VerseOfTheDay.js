@@ -1,5 +1,7 @@
 "use client";
-import { useState, useRef, useMemo, useCallback } from "react";
+import { useState, useRef, useMemo, useCallback, useEffect } from "react";
+import { useApp } from "../context/AppContext";
+import { supabase } from "../../lib/supabase";
 
 // ── Curated Short Verses ──
 // ~45 most-memorized KJV verses, each under ~130 chars for consistent card heights
@@ -78,18 +80,57 @@ function parseRef(ref) {
   return { book: m[1], chapter: parseInt(m[2]), verse: m[3] };
 }
 
+function formatCount(n) {
+  if (!n || n <= 0) return "";
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(n >= 10_000_000 ? 0 : 1).replace(/\.0$/, "") + "M";
+  if (n >= 1_000) return (n / 1_000).toFixed(n >= 10_000 ? 0 : 1).replace(/\.0$/, "") + "K";
+  return String(n);
+}
+
 const OT_BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi"];
 
 export default function VerseOfTheDay({ nav, ht }) {
+  const { user } = useApp();
   const scrollRef = useRef(null);
-  const [liked, setLiked] = useState(false);
+  const [likedSet, setLikedSet] = useState(new Set());
+  const [counters, setCounters] = useState({});
   const [copied, setCopied] = useState(false);
+  const loadedRef = useRef(false);
 
-  // Rotate all 120 verses so today's pick is first
+  // Rotate all verses so today's pick is first
   const verses = useMemo(() => {
     const startIdx = getDayOfYear() % VERSES.length;
     return Array.from({ length: CARD_COUNT }, (_, i) => VERSES[(startIdx + i) % VERSES.length]);
   }, []);
+
+  // Fetch aggregate counters + user's liked verses on mount
+  useEffect(() => {
+    if (loadedRef.current) return;
+    loadedRef.current = true;
+
+    const refs = VERSES.map(v => v.ref);
+    supabase
+      .from("votd_counters")
+      .select("verse_ref, like_count, share_count")
+      .in("verse_ref", refs)
+      .then(({ data }) => {
+        if (data) {
+          const map = {};
+          data.forEach(row => { map[row.verse_ref] = row; });
+          setCounters(map);
+        }
+      });
+
+    if (user) {
+      supabase
+        .from("votd_user_likes")
+        .select("verse_ref")
+        .eq("user_id", user.id)
+        .then(({ data }) => {
+          if (data) setLikedSet(new Set(data.map(r => r.verse_ref)));
+        });
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleNavigate = useCallback((verse) => {
     const parsed = parseRef(verse.ref);
@@ -99,12 +140,52 @@ export default function VerseOfTheDay({ nav, ht }) {
     nav("verse", { testament, book: bookName, chapter: parsed.chapter, verse: parseInt(parsed.verse) });
   }, [nav]);
 
+  const handleLike = useCallback((verse) => {
+    const ref = verse.ref;
+    const wasLiked = likedSet.has(ref);
+
+    // Optimistic UI
+    setLikedSet(prev => {
+      const next = new Set(prev);
+      if (wasLiked) next.delete(ref); else next.add(ref);
+      return next;
+    });
+    setCounters(prev => {
+      const cur = prev[ref] || { like_count: 0, share_count: 0 };
+      return { ...prev, [ref]: { ...cur, like_count: Math.max(0, cur.like_count + (wasLiked ? -1 : 1)) } };
+    });
+
+    // Fire-and-forget RPC for aggregate counter
+    if (wasLiked) {
+      supabase.rpc("decrement_votd_like", { target_ref: ref });
+    } else {
+      supabase.rpc("increment_votd_like", { target_ref: ref });
+    }
+
+    // Persist per-user like (authenticated only)
+    if (user) {
+      if (wasLiked) {
+        supabase.from("votd_user_likes").delete().eq("user_id", user.id).eq("verse_ref", ref);
+      } else {
+        supabase.from("votd_user_likes").insert({ user_id: user.id, verse_ref: ref });
+      }
+    }
+  }, [likedSet, user]);
+
   const handleShare = useCallback(async (verse) => {
     const text = `"${verse.text}" — ${verse.ref} (KJV)`;
+    let shared = false;
     if (navigator.share) {
-      try { await navigator.share({ text }); } catch {}
+      try { await navigator.share({ text }); shared = true; } catch {}
     } else {
-      try { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch {}
+      try { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); shared = true; } catch {}
+    }
+    if (shared) {
+      setCounters(prev => {
+        const cur = prev[verse.ref] || { like_count: 0, share_count: 0 };
+        return { ...prev, [verse.ref]: { ...cur, share_count: cur.share_count + 1 } };
+      });
+      supabase.rpc("increment_votd_share", { target_ref: verse.ref });
     }
   }, []);
 
@@ -128,6 +209,9 @@ export default function VerseOfTheDay({ nav, ht }) {
         <style>{`.votd-scroll::-webkit-scrollbar { display: none; }`}</style>
         {verses.map((verse, i) => {
           const g = VOTD_GRADIENTS[i % VOTD_GRADIENTS.length];
+          const isLiked = likedSet.has(verse.ref);
+          const likeCount = formatCount(counters[verse.ref]?.like_count);
+          const shareCount = formatCount(counters[verse.ref]?.share_count);
           return (
             <div
               key={i}
@@ -180,31 +264,25 @@ export default function VerseOfTheDay({ nav, ht }) {
                   — {verse.ref}
                 </div>
 
-                {/* Social icons — iOS style */}
+                {/* Social icons — Heart + Share */}
                 <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
                   {/* Heart */}
-                  <button onClick={(e) => { e.stopPropagation(); setLiked(!liked); }}
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: 2, display: "flex", transition: "transform 0.15s" }}
-                    aria-label="Like verse">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill={liked ? "#EF4444" : "none"} stroke={liked ? "#EF4444" : (g.hint || g.ref)} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <button onClick={(e) => { e.stopPropagation(); handleLike(verse); }}
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: 2, display: "flex", alignItems: "center", gap: 4, transition: "transform 0.15s" }}
+                    aria-label={isLiked ? "Unlike verse" : "Like verse"}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill={isLiked ? "#EF4444" : "none"} stroke={isLiked ? "#EF4444" : (g.hint || g.ref)} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                     </svg>
-                  </button>
-                  {/* Comment */}
-                  <button onClick={(e) => { e.stopPropagation(); handleNavigate(verse); }}
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: 2, display: "flex" }}
-                    aria-label="Read verse">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={g.hint || g.ref} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                    </svg>
+                    {likeCount && <span style={{ fontFamily: ht.ui, fontSize: 10, color: g.hint || g.ref, fontWeight: 600 }}>{likeCount}</span>}
                   </button>
                   {/* Share */}
                   <button onClick={(e) => { e.stopPropagation(); handleShare(verse); }}
-                    style={{ background: "none", border: "none", cursor: "pointer", padding: 2, display: "flex", position: "relative" }}
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: 2, display: "flex", alignItems: "center", gap: 4, position: "relative" }}
                     aria-label="Share verse">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={g.hint || g.ref} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
                     </svg>
+                    {shareCount && <span style={{ fontFamily: ht.ui, fontSize: 10, color: g.hint || g.ref, fontWeight: 600 }}>{shareCount}</span>}
                     {copied && <span style={{ position: "absolute", top: -20, left: "50%", transform: "translateX(-50%)", fontFamily: ht.ui, fontSize: 9, color: g.accent, whiteSpace: "nowrap", fontWeight: 600 }}>Copied!</span>}
                   </button>
                 </div>
