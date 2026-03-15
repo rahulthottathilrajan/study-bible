@@ -567,9 +567,9 @@ export const CDN_NARRATORS = [
   { id: "souer",   label: "Souer",   description: "Traditional narration" },
 ];
 
-// ElevenLabs pre-generated audio — translations with HD MP3s in Supabase Storage
-export const ELEVENLABS_TRANSLATIONS = ["kjv"];
-export const ELEVENLABS_AUDIO_BUCKET = "bible-audio";
+// Pre-generated HD audio (Google Cloud TTS) — translations with MP3s in Supabase Storage
+export const HD_AUDIO_TRANSLATIONS = ["mal_irv"];
+export const HD_AUDIO_BUCKET = "bible-audio";
 
 export const BOOK_CODE_MAP = {
   "Genesis":"GEN","Exodus":"EXO","Leviticus":"LEV","Numbers":"NUM","Deuteronomy":"DEU",

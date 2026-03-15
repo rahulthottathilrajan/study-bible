@@ -429,9 +429,9 @@ export default function BibleView() {
     return () => observer.disconnect();
   }, [view, chaptersData]);
 
-  // ── Karaoke text renderer (word-level highlighting for ElevenLabs) ──
+  // ── Karaoke text renderer (word-level highlighting for HD audio) ──
   const renderVerseText = (text, verseNum, style) => {
-    const isKaraoke = audioMode === "elevenlabs" && audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verseNum;
+    const isKaraoke = audioMode === "hd" && audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verseNum;
     if (!isKaraoke || isRtl) {
       return <div style={style}>{text}</div>;
     }
@@ -750,7 +750,7 @@ export default function BibleView() {
             {/* Verse text */}
             <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:2.0,padding:"12px 0 16px",...rtlStyle}}>
               <span style={{fontSize:"clamp(28px,8vw,36px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:10,marginLeft:isRtl?10:0,marginTop:2,fontFamily:t.heading,textShadow:`0 0 20px ${t.accent}45`}}>{verse}</span>
-              {audioMode === "elevenlabs" && audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verse && !isRtl
+              {audioMode === "hd" && audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verse && !isRtl
                 ? (() => { const words = currentVerse.kjv_text.split(/(\s+)/); let wIdx = 0; return words.map((w, i) => {
                     if (/^\s+$/.test(w)) return <span key={i}>{w}</span>;
                     const isActive = audioCurrentWord.verseWordIdx === wIdx; wIdx++;

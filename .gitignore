@@ -43,7 +43,7 @@ yarn-error.log*
 # seeder log (local state, not needed in git)
 scripts/.seed-log.json
 
-# ElevenLabs audio generation output
+# Google Cloud TTS audio generation output
 audio-output/
 audio-test/
 

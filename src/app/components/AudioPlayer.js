@@ -24,7 +24,7 @@ export default function AudioPlayer() {
     t, darkMode, view,
     markChapterListened,
     podcastPlaying, stopPodcast,
-    elevenlabsUrl, fetchAudioTimestamps,
+    hdAudioUrl, fetchAudioTimestamps,
     audioCurrentWord, setAudioCurrentWord,
   } = useApp();
 
@@ -55,12 +55,12 @@ export default function AudioPlayer() {
   const voiceIdxRef    = useRef(0);
   const langRef        = useRef("en-US");
   const langPrefixRef  = useRef("en");
-  const audioElRef      = useRef(null); // HTML5 Audio element for CDN + ElevenLabs
+  const audioElRef      = useRef(null); // HTML5 Audio element for CDN + HD audio
   const sleepTimerRef   = useRef(null);
   const modeRef         = useRef(audioMode);
   const audioSourceRef  = useRef(audioSource);
   const lastCdnVerseRef = useRef(null);
-  const timestampDataRef = useRef(null); // ElevenLabs timestamp data for current chapter
+  const timestampDataRef = useRef(null); // HD audio timestamp data for current chapter
 
   // Derive lang from active translation
   const transDef   = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
@@ -210,9 +210,9 @@ export default function AudioPlayer() {
     });
   }, [audioChapterLinks, audioNarrator, book, chapter, markChapterListened, setAudioPlaying, setAudioCurrentVerse, changeVerse]);
 
-  // ═══ ELEVENLABS ENGINE ═══
-  const playElevenLabs = useCallback(async () => {
-    if (!elevenlabsUrl) return;
+  // ═══ HD AUDIO ENGINE (Google Cloud TTS) ═══
+  const playHDAudio = useCallback(async () => {
+    if (!hdAudioUrl) return;
 
     if (!audioElRef.current) {
       audioElRef.current = new Audio();
@@ -221,8 +221,8 @@ export default function AudioPlayer() {
     const audio = audioElRef.current;
 
     // Only change src if different
-    if (!audio.src || !audio.src.includes(elevenlabsUrl.split("/").pop())) {
-      audio.src = elevenlabsUrl;
+    if (!audio.src || !audio.src.includes(hdAudioUrl.split("/").pop())) {
+      audio.src = hdAudioUrl;
       audio.load();
     }
     audio.playbackRate = speedRef.current;
@@ -230,7 +230,7 @@ export default function AudioPlayer() {
     // Load timestamp data for precise verse tracking + karaoke
     let tsData = timestampDataRef.current;
     if (!tsData) {
-      tsData = await fetchAudioTimestamps(book, chapter);
+      tsData = await fetchAudioTimestamps(book, chapter, bibleTranslation);
       timestampDataRef.current = tsData;
     }
 
@@ -310,9 +310,7 @@ export default function AudioPlayer() {
       if (markChapterListened) markChapterListened(book, chapter);
     };
     audio.onerror = () => {
-      // Fallback to TTS if ElevenLabs audio fails
-      console.warn("ElevenLabs audio failed, falling back to TTS");
-      setAudioMode("tts");
+      console.warn("HD audio failed to load");
       timestampDataRef.current = null;
       setAudioCurrentWord(null);
       playingRef.current = false;
@@ -320,7 +318,7 @@ export default function AudioPlayer() {
     };
 
     audio.play().catch(() => {});
-  }, [elevenlabsUrl, book, chapter, fetchAudioTimestamps, markChapterListened, setAudioPlaying, setAudioCurrentVerse, changeVerse, setAudioMode, setAudioCurrentWord]);
+  }, [hdAudioUrl, bibleTranslation, book, chapter, fetchAudioTimestamps, markChapterListened, setAudioPlaying, setAudioCurrentVerse, changeVerse, setAudioCurrentWord]);
 
   // ═══ TTS ENGINE ═══
   const speakVerse = useCallback((idx) => {
@@ -378,15 +376,15 @@ export default function AudioPlayer() {
 
     if (modeRef.current === "cdn") {
       playCDN();
-    } else if (modeRef.current === "elevenlabs") {
-      playElevenLabs();
+    } else if (modeRef.current === "hd") {
+      playHDAudio();
     } else {
       if (typeof window === "undefined" || !window.speechSynthesis) return;
       window.speechSynthesis.cancel();
       // Small delay after cancel to ensure clean state
       setTimeout(() => speakVerse(idxRef.current), 100);
     }
-  }, [playCDN, playElevenLabs, speakVerse, setAudioPlaying, podcastPlaying, stopPodcast]);
+  }, [playCDN, playHDAudio, speakVerse, setAudioPlaying, podcastPlaying, stopPodcast]);
 
   const stop = useCallback(() => {
     playingRef.current = false;
@@ -460,7 +458,7 @@ export default function AudioPlayer() {
     try { localStorage.setItem("audioSpeed", String(next)); } catch {}
 
     if (playingRef.current) {
-      if ((modeRef.current === "cdn" || modeRef.current === "elevenlabs") && audioElRef.current) {
+      if ((modeRef.current === "cdn" || modeRef.current === "hd") && audioElRef.current) {
         audioElRef.current.playbackRate = next;
       } else {
         if (typeof window !== "undefined" && window.speechSynthesis) {
@@ -492,9 +490,9 @@ export default function AudioPlayer() {
     setSleepTimer(next);
   };
 
-  // ─── Seek to verse using timestamps (ElevenLabs) or fraction (CDN) ───
+  // ─── Seek to verse using timestamps (HD) or fraction (CDN) ───
   const seekToVerse = (vNum, verseIdx) => {
-    if (modeRef.current === "elevenlabs" && timestampDataRef.current && audioElRef.current) {
+    if (modeRef.current === "hd" && timestampDataRef.current && audioElRef.current) {
       const tsVerse = timestampDataRef.current.verses?.find(v => v.num === vNum);
       if (tsVerse) {
         audioElRef.current.currentTime = tsVerse.start;
@@ -585,7 +583,7 @@ export default function AudioPlayer() {
   const canPrev    = currentIdx > 0;
   const canNext    = currentIdx < total - 1;
   const isCDN      = audioMode === "cdn";
-  const isEL       = audioMode === "elevenlabs";
+  const isEL       = audioMode === "hd";
   const isAudioEl  = isCDN || isEL; // Uses HTML5 Audio element
 
   // Progress calculation
@@ -625,7 +623,7 @@ export default function AudioPlayer() {
         }} />
       </div>
 
-      {/* ── Audio time display (CDN + ElevenLabs) ── */}
+      {/* ── Audio time display (CDN + HD) ── */}
       {isAudioEl && cdnDuration > 0 && (
         <div style={{ display:"flex",justifyContent:"space-between",padding:"2px 16px 0",
           fontFamily:uiFont,fontSize:9,color:muted }}>
@@ -738,7 +736,7 @@ export default function AudioPlayer() {
           {speed === 1 ? "1\u00D7" : `${speed}\u00D7`}
         </button>
 
-        {/* ElevenLabs HD badge */}
+        {/* HD audio badge */}
         {isEL && (
           <span style={{ padding:"3px 7px",borderRadius:5,
             background:"linear-gradient(135deg,#D4A853 0%,#F6E05E 100%)",
@@ -748,7 +746,7 @@ export default function AudioPlayer() {
           </span>
         )}
 
-        {/* CDN Narrator picker OR TTS Voice cycle (hidden for ElevenLabs) */}
+        {/* CDN Narrator picker OR TTS Voice cycle (hidden for HD audio) */}
         {isCDN ? (
           <div style={{ display:"flex",gap:3,flexShrink:0 }}>
             {CDN_NARRATORS.map(n => (

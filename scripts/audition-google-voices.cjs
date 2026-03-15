@@ -244,7 +244,7 @@ async function main() {
   }
 
   console.log(`\n=== Done! Listen to MP3s in audio-test/google/ ===`);
-  console.log(`Compare with ElevenLabs samples in audio-test/\n`);
+  console.log(`Play the samples to compare voices\n`);
 }
 
 main().catch(err => {

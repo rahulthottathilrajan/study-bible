@@ -1,0 +1,69 @@
+{
+  "totalChars": 4049336,
+  "totalCost": 121.48008000000002,
+  "sessions": [
+    {
+      "date": "2026-03-14T21:49:38.514Z",
+      "lang": "ml-IN",
+      "translation": "mal_irv",
+      "voice": "ml-IN-Chirp3-HD-Achernar",
+      "chapters": 1,
+      "chars": 3706,
+      "cost": 0.11
+    },
+    {
+      "date": "2026-03-14T22:02:20.506Z",
+      "lang": "ml-IN",
+      "translation": "mal_irv",
+      "voice": "ml-IN-Chirp3-HD-Achird",
+      "chapters": 1,
+      "chars": 3706,
+      "cost": 0.11
+    },
+    {
+      "date": "2026-03-14T22:03:58.603Z",
+      "lang": "ml-IN",
+      "translation": "mal_irv",
+      "voice": "ml-IN-Chirp3-HD-Achird",
+      "chapters": 1140,
+      "chars": 3831551,
+      "cost": 114.95
+    },
+    {
+      "date": "2026-03-15T09:23:12.853Z",
+      "lang": "ml-IN",
+      "translation": "mal_irv",
+      "voice": "ml-IN-Chirp3-HD-Achird",
+      "chapters": 44,
+      "chars": 195527,
+      "cost": 5.87
+    },
+    {
+      "date": "2026-03-15T09:59:31.172Z",
+      "lang": "ml-IN",
+      "translation": "mal_irv",
+      "voice": "ml-IN-Chirp3-HD-Achird",
+      "chapters": 1,
+      "chars": 5309,
+      "cost": 0.16
+    },
+    {
+      "date": "2026-03-15T14:13:07.939Z",
+      "lang": "ml-IN",
+      "translation": "mal_irv",
+      "voice": "ml-IN-Chirp3-HD-Achird",
+      "chapters": 1,
+      "chars": 5116,
+      "cost": 0.15
+    },
+    {
+      "date": "2026-03-15T14:52:05.954Z",
+      "lang": "ta-IN",
+      "translation": "tam_irv",
+      "voice": "ta-IN-Chirp3-HD-Achird",
+      "chapters": 1,
+      "chars": 4421,
+      "cost": 0.13
+    }
+  ]
+}
