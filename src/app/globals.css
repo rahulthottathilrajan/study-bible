@@ -91,6 +91,59 @@ button {
   100% { opacity: 0; transform: translateY(-38px) scale(0.5); }
 }
 
+@keyframes pageTurn {
+  0% { transform: perspective(600px) rotateY(0); }
+  40% { transform: perspective(600px) rotateY(-8deg); }
+  100% { transform: perspective(600px) rotateY(0); }
+}
+
+@keyframes celebrateGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212,168,83,0.2); }
+  50% { box-shadow: 0 0 50px rgba(212,168,83,0.5), 0 0 100px rgba(212,168,83,0.15); }
+}
+
+@keyframes shelfSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sacredPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes shakeWrong {
+  0%, 100% { transform: translateX(0); }
+  15%, 45%, 75% { transform: translateX(-6px); }
+  30%, 60%, 90% { transform: translateX(6px); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes confettiBurst {
+  0% { opacity: 1; transform: translate(var(--cx, 0), 0) rotate(0deg); }
+  100% { opacity: 0; transform: translate(var(--cx, 0), var(--cy, -80px)) rotate(var(--cr, 360deg)); }
+}
+
+@keyframes correctPulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+
 .shop-scroll-hide {
   scrollbar-width: none;
   -ms-overflow-style: none;

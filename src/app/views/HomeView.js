@@ -5,32 +5,192 @@ import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
 import GoToBar from "../components/GoToBar";
 import UtilityStrip from "../components/UtilityStrip";
-import { BIRTHDAY_VERSES, THEMES } from "../constants";
+import PrayerOfTheDay from "../components/PrayerOfTheDay";
+import { BIRTHDAY_VERSES, THEMES, PODCAST_PALETTES } from "../constants";
+import { READING_PLANS, getPlanReadings, getNextReading, getReadingStreak, countCompletedDays } from "../components/ReadingPlansData";
 
-function MannaCard({ ht, nav }) {
-  const [seriesSlug, setSeriesSlug] = useState(null);
+function getDayOfYear() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  return Math.floor((now - start) / (1000 * 60 * 60 * 24));
+}
+
+function TodaysReadingCard({ ht, nav }) {
+  const [data, setData] = useState(null);
   const loaded = useRef(false);
 
   useEffect(() => {
     if (loaded.current) return;
     loaded.current = true;
-    fetch("/data/podcasts/index.json").then(r => r.json()).then(data => {
-      if (data?.series?.length) setSeriesSlug(data.series[0].slug);
+    try {
+      const raw = localStorage.getItem("readingPlanProgress");
+      if (!raw) return;
+      const planData = JSON.parse(raw);
+      const planIds = Object.keys(planData).filter(k => !k.startsWith("_"));
+      if (!planIds.length) return;
+      // Find first active plan with incomplete days
+      for (const pid of planIds) {
+        const next = getNextReading(pid, planData);
+        if (next) {
+          const plan = READING_PLANS.find(p => p.id === pid);
+          if (!plan) continue;
+          const readings = getPlanReadings()[pid];
+          const completedSet = new Set(planData[pid]?.completedChapters || []);
+          const done = countCompletedDays(pid, completedSet);
+          const streak = getReadingStreak(pid, planData);
+          setData({ plan, next, done, total: readings?.length || 0, streak });
+          break;
+        }
+      }
+    } catch { /* ignore */ }
+  }, []);
+
+  if (!data) {
+    // No active plan — show soft CTA
+    return (
+      <button onClick={() => nav("reading-plans-home")} className="pressable" style={{
+        width: "100%", display: "flex", alignItems: "center", gap: 12,
+        padding: "14px 16px", marginBottom: 14, borderRadius: 14,
+        border: `1px solid ${ht.accentBorder}`,
+        background: `linear-gradient(135deg, ${ht.accent}08, ${ht.card})`,
+        cursor: "pointer", textAlign: "left",
+      }}>
+        <span style={{ fontSize: 28 }}>{"\uD83D\uDCDA"}</span>
+        <div>
+          <div style={{ fontFamily: ht.heading, fontSize: 14, fontWeight: 700, color: ht.dark }}>Start a Reading Journey</div>
+          <div style={{ fontFamily: ht.ui, fontSize: 11, color: ht.muted, marginTop: 2 }}>16 guided plans through the Word of God</div>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={`${ht.dark}40`} strokeWidth="2" style={{ marginLeft: "auto" }}><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    );
+  }
+
+  const { plan, next, done, total, streak } = data;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+  const passages = next.passages.map(p => `${p.book} ${p.chapter}`).join(", ");
+  const streakText = streak >= 30 ? "\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25" : streak >= 7 ? "\uD83D\uDD25\uD83D\uDD25" : streak >= 1 ? "\uD83D\uDD25" : "";
+
+  return (
+    <div onClick={() => nav("reading-plans-home")} className="pressable" style={{
+      marginBottom: 14, borderRadius: 14, overflow: "hidden", cursor: "pointer",
+      border: `1.5px solid ${plan.color}44`,
+      background: `linear-gradient(135deg, ${plan.color}0A, ${ht.card})`,
+      boxShadow: `0 2px 12px ${plan.color}15`,
+      animation: "verseGlow 6s ease-in-out infinite",
+    }}>
+      <div style={{ padding: "14px 16px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+          <span style={{ fontSize: 28, filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.2))" }}>{plan.icon}</span>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontFamily: ht.heading, fontSize: 13, fontWeight: 700, color: ht.dark, display: "flex", alignItems: "center", gap: 4 }}>
+              {plan.title} {streakText && <span style={{ fontSize: 14 }}>{streakText}</span>}
+            </div>
+            <div style={{ fontFamily: ht.ui, fontSize: 11, color: ht.muted }}>
+              Day {next.day} of {total} {"\u2022"} {pct}% complete
+            </div>
+          </div>
+          <div style={{
+            background: plan.color, color: "#fff", borderRadius: 10,
+            padding: "7px 14px", fontSize: 12, fontWeight: 700,
+            fontFamily: ht.ui, whiteSpace: "nowrap",
+            boxShadow: `0 2px 8px ${plan.color}55`,
+          }}>Read Now</div>
+        </div>
+        <div style={{
+          fontFamily: ht.body || ht.ui, fontSize: 13, color: ht.dark,
+          padding: "8px 12px", borderRadius: 10,
+          background: `${plan.color}0A`, border: `1px solid ${plan.color}18`,
+        }}>
+          <span style={{ fontWeight: 700, color: plan.color }}>{next.label}:</span>{" "}
+          {passages}
+        </div>
+        {/* Mini progress bar */}
+        <div style={{ marginTop: 10, height: 4, borderRadius: 4, background: `${ht.dark}12`, overflow: "hidden" }}>
+          <div style={{
+            height: "100%", width: `${pct}%`, borderRadius: 4,
+            background: `linear-gradient(90deg, ${plan.color}, ${plan.color}88)`,
+            transition: "width 0.5s ease",
+          }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PodcastHeroCard({ ht, nav }) {
+  const [episode, setEpisode] = useState(null);
+  const loaded = useRef(false);
+
+  useEffect(() => {
+    if (loaded.current) return;
+    loaded.current = true;
+    fetch("/data/podcasts/index.json").then(r => r.json()).then(async (idx) => {
+      if (!idx?.series?.length) return;
+      const slug = idx.series[0].slug;
+      const res = await fetch(`/data/podcasts/${slug}.json`);
+      const data = await res.json();
+      if (!data?.episodes) return;
+      const eps = Object.entries(data.episodes).sort(([a], [b]) => parseInt(a) - parseInt(b));
+      const dayIdx = getDayOfYear() % eps.length;
+      const [num, ep] = eps[dayIdx];
+      setEpisode({ ...ep, epNum: parseInt(num), slug, seriesTitle: data.title });
     }).catch(() => {});
   }, []);
 
+  if (!episode) {
+    // Fallback: simple "Podcasts" button
+    return (
+      <button onClick={() => nav("podcast-home")} className="pressable" style={{
+        width:"100%",textAlign:"left",cursor:"pointer",border:"none",
+        borderRadius:14,padding:"14px 16px",marginBottom:12,
+        background:ht.headerGradient,display:"flex",alignItems:"center",gap:12,
+      }}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={ht.headerText} strokeWidth="1.5">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+        <div>
+          <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:ht.headerText }}>Daily Devotional</div>
+          <div style={{ fontFamily:ht.ui,fontSize:9,color:`${ht.headerText}88` }}>5-minute podcast episodes</div>
+        </div>
+      </button>
+    );
+  }
+
+  const pal = PODCAST_PALETTES[(episode.epNum - 1) % PODCAST_PALETTES.length];
   return (
-    <button onClick={() => {
-      if (seriesSlug) {
-        nav("podcast-detail", { podcastSeries: seriesSlug });
-      } else {
-        nav("podcast-home");
-      }
-    }} style={{ flex:1,display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:12,border:"1px solid rgba(212,168,83,0.35)",background:ht.headerGradient,cursor:"pointer",animation:"navGlow 3s ease-in-out infinite" }}>
-      <span style={{ fontSize:18 }}>{"\uD83C\uDF3E"}</span>
-      <div style={{ minWidth:0 }}>
-        <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>Today&apos;s Manna</div>
-        <div style={{ fontFamily:ht.ui,fontSize:8,color:`${ht.headerText}77`,marginTop:1,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis" }}>Daily Devotional Podcasts</div>
+    <button
+      className="pressable"
+      onClick={() => nav("podcast-episode", { podcastSeries: episode.slug, podcastEpisode: episode.epNum })}
+      style={{
+        width:"100%",border:"none",cursor:"pointer",textAlign:"left",
+        borderRadius:16,overflow:"hidden",marginBottom:12,
+        boxShadow:`0 4px 16px ${pal.accent}25`,
+      }}
+    >
+      <div style={{ background:pal.bg,padding:"16px 18px",position:"relative" }}>
+        <div style={{ position:"absolute",top:-20,right:-20,width:70,height:70,borderRadius:"50%",background:"rgba(255,255,255,0.04)" }} />
+        <div style={{ fontFamily:"system-ui",fontSize:8,fontWeight:800,color:pal.hint,textTransform:"uppercase",letterSpacing:"0.18em",marginBottom:6 }}>
+          Today&apos;s Word · Ep {episode.epNum}
+        </div>
+        <div style={{ fontFamily:ht.heading,fontSize:16,fontWeight:700,color:pal.text,lineHeight:1.3,marginBottom:6 }}>
+          {episode.title}
+        </div>
+        <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+          <div style={{
+            display:"inline-flex",alignItems:"center",gap:5,
+            padding:"6px 14px",borderRadius:20,
+            background:pal.accent,color:"#fff",
+            fontFamily:ht.ui,fontSize:11,fontWeight:700,
+            animation:"pulseGlow 2.5s ease-in-out infinite",
+          }}>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+            Listen
+          </div>
+          <span style={{ fontFamily:ht.ui,fontSize:10,color:pal.hint }}>{Math.ceil(episode.duration/60)} min</span>
+          {episode.bibleRef && <span style={{ fontFamily:ht.ui,fontSize:10,color:pal.ref }}>{episode.bibleRef}</span>}
+        </div>
       </div>
     </button>
   );
@@ -40,7 +200,9 @@ export default function HomeView() {
   const {
     ht, darkMode, user, profile, bp, isBirthdayToday,
     showInstall, setShowInstall, installPrompt,
-    setDonateModal, nav,
+    setDonateModal, nav, allHighlights, allNotes,
+    quizStreak, getDailyQuiz, dailyQuizCompleted, updateQuizStreak,
+    loadQuizQuestions, setQuizDifficulty,
   } = useApp();
 
   // ─── Welcome-back / Birthday splash (only on fresh app open, not refresh/in-app nav) ───
@@ -202,21 +364,105 @@ export default function HomeView() {
           </div>
           {/* ── VERSE OF THE DAY ── */}
           <VerseOfTheDay nav={nav} ht={ht} />
+          {/* ── PRAYER OF THE DAY ── */}
+          <PrayerOfTheDay nav={nav} ht={ht} />
+          {/* ── TODAY'S READING PLAN ── */}
+          <TodaysReadingCard ht={ht} nav={nav} />
           {/* ── TODAY'S MANNA + LEARNING CENTRE ── */}
+          {/* ── TODAY'S PODCAST EPISODE ── */}
+          <PodcastHeroCard ht={ht} nav={nav} />
+          {/* ── LEARNING CENTRE ── */}
           <style>{`@keyframes navGlow { 0%,100% { border-color: rgba(212,168,83,0.35); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 6px rgba(212,168,83,0.1); } 50% { border-color: rgba(212,168,83,0.7); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
-          <div style={{ display:"flex",gap:10,marginBottom:16 }}>
-            <MannaCard ht={ht} nav={nav} />
-            <button onClick={() => nav("learn-home")} style={{ flex:1,display:"flex",alignItems:"center",gap:10,padding:"10px 12px",borderRadius:12,border:"1px solid rgba(212,168,83,0.35)",background:ht.headerGradient,cursor:"pointer",animation:"navGlow 3s ease-in-out infinite" }}>
+          <div style={{ marginBottom:16 }}>
+            <button onClick={() => nav("learn-home")} className="pressable" style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"12px 14px",borderRadius:12,border:"1px solid rgba(212,168,83,0.35)",background:ht.headerGradient,cursor:"pointer",animation:"navGlow 3s ease-in-out infinite" }}>
               <span style={{ fontSize:18 }}>{"\uD83C\uDF93"}</span>
               <div>
-                <div style={{ fontFamily:ht.heading,fontSize:11,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>Learning Centre</div>
-                <div style={{ fontFamily:ht.ui,fontSize:8,color:`${ht.headerText}77`,marginTop:1 }}>Languages · History</div>
+                <div style={{ fontFamily:ht.heading,fontSize:12,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>Learning Centre</div>
+                <div style={{ fontFamily:ht.ui,fontSize:9,color:`${ht.headerText}77`,marginTop:1 }}>Languages · History · Curriculum</div>
               </div>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={`${ht.headerText}60`} strokeWidth="2" style={{ marginLeft:"auto" }}><polyline points="9 18 15 12 9 6"/></svg>
             </button>
           </div>
           {/* ── CONTINUE READING ── */}
           <ContinueReading nav={nav} ht={ht} user={user} />
 
+          {/* ── MY JOURNAL ── */}
+          {user && (allHighlights.length > 0 || allNotes.length > 0) && (
+            <button onClick={() => nav("highlights")} className="pressable" style={{ width:"100%",display:"flex",alignItems:"center",gap:14,padding:"14px 16px",borderRadius:14,border:`1px solid ${ht.accentBorder}`,background:`linear-gradient(135deg,${ht.accent}10,${ht.accent}05)`,cursor:"pointer",marginBottom:16,textAlign:"left" }}>
+              <div style={{ width:44,height:44,borderRadius:12,background:`${ht.accent}18`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:22 }}>📓</div>
+              <div style={{ flex:1 }}>
+                <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:ht.dark,lineHeight:1.2 }}>My Journal</div>
+                <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted,marginTop:2 }}>{allHighlights.length} highlights · {allNotes.length} notes</div>
+              </div>
+              <div style={{ color:ht.light }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+            </button>
+          )}
+
+          {/* ── DAILY QUIZ ── */}
+          {(() => {
+            const dq = getDailyQuiz();
+            if (!dq) return null;
+            const streakCount = quizStreak?.current_streak || 0;
+            const completed = dailyQuizCompleted;
+            return (
+              <div style={{ marginBottom: 16 }}>
+                <div style={{
+                  background: `linear-gradient(135deg, ${ht.accent}15, ${ht.card})`,
+                  border: `1.5px solid ${completed ? "rgba(34,197,94,0.3)" : ht.accentBorder}`,
+                  borderRadius: 14, padding: "18px 18px", position: "relative", overflow: "hidden",
+                  animation: completed ? undefined : "pulseGlow 3s ease-in-out infinite",
+                }}>
+                  {/* Gold accent line at top */}
+                  <div style={{
+                    position: "absolute", top: 0, left: 0, right: 0, height: 2,
+                    background: `linear-gradient(90deg, transparent, ${ht.accent}, transparent)`,
+                    backgroundSize: "200% 100%", animation: "goldFlow 3s linear infinite",
+                  }} />
+                  <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                    <div style={{
+                      width: 44, height: 44, borderRadius: 12,
+                      background: completed ? "rgba(34,197,94,0.12)" : `${ht.accent}18`,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      flexShrink: 0, fontSize: 22,
+                    }}>
+                      {completed ? "✅" : "📝"}
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontFamily: ht.heading, fontSize: 14, fontWeight: 700, color: ht.dark, lineHeight: 1.2 }}>
+                        Daily Quiz
+                        {streakCount > 0 && (
+                          <span style={{ marginLeft: 8, fontFamily: ht.ui, fontSize: 11, fontWeight: 700, color: "#D4A853" }}>
+                            🔥 {streakCount}
+                          </span>
+                        )}
+                      </div>
+                      <div style={{ fontFamily: ht.ui, fontSize: 11, color: completed ? "#22c55e" : ht.muted, marginTop: 2 }}>
+                        {completed ? "Come back tomorrow!" : `${dq.book} ${dq.chapter}`}
+                      </div>
+                    </div>
+                    {!completed && (
+                      <div style={{ display: "flex", gap: 6 }}>
+                        {["kids", "teens", "adults"].map(diff => (
+                          <button key={diff} onClick={() => {
+                            setQuizDifficulty(diff);
+                            loadQuizQuestions(dq.book, dq.chapter, diff);
+                            nav("quiz-active", { book: dq.book, chapter: dq.chapter });
+                          }} style={{
+                            padding: "6px 10px", borderRadius: 8, border: `1px solid ${ht.accentBorder}`,
+                            background: ht.accentLight, cursor: "pointer",
+                            fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.accent,
+                            textTransform: "capitalize",
+                          }}>
+                            {diff === "kids" ? "🧒" : diff === "teens" ? "🎓" : "📖"}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
           {/* ── QUIZ MASTER ── */}
           <div style={{ marginBottom: 22 }}>
             <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 14, display: "flex", alignItems: "center", gap: 8 }}>

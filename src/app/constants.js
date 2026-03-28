@@ -17,6 +17,27 @@ export const DARK_THEMES = {
   ocean: { ...THEMES.ocean, bg:"#0E1614", card:"#14201E", dark:"#D4F0EB", text:"#A0C8C0", muted:"#6A9A90", light:"#4A7068", divider:"rgba(27,122,110,0.15)", accentLight:"rgba(27,122,110,0.1)", accentBorder:"rgba(27,122,110,0.25)", hebrewBg:"rgba(27,122,110,0.1)", stone:"linear-gradient(170deg,#182220 0%,#141E1C 30%,#121C1A 60%,#162020 100%)", stoneEdge:"rgba(27,122,110,0.2)", stoneText:"#C8E0D8" },
 };
 
+// Semantic colors for success/warning/error states (light + dark variants)
+export const SEMANTIC_COLORS = {
+  success:      { bg: "#7ED4AD22", border: "#7ED4AD", text: "#2E7D5B" },
+  successDark:  { bg: "#7ED4AD15", border: "#7ED4AD88", text: "#7ED4AD" },
+  warning:      { bg: "#FEF3C722", border: "#D97706", text: "#92400E" },
+  warningDark:  { bg: "#D9770615", border: "#D97706AA", text: "#FEF3C7" },
+  error:        { bg: "#E8625C15", border: "#E8625C", text: "#E8625C" },
+  errorDark:    { bg: "#E8625C12", border: "#E8625C88", text: "#E8625C" },
+  birthday:     { bg: "rgba(212,168,83,0.08)", border: "rgba(212,168,83,0.3)", text: "#D4A853", gradient: "linear-gradient(135deg, rgba(212,168,83,0.08), rgba(139,92,246,0.06))" },
+  birthdayDark: { bg: "rgba(212,168,83,0.06)", border: "rgba(212,168,83,0.25)", text: "#FFD700", gradient: "linear-gradient(135deg, rgba(212,168,83,0.06), rgba(139,92,246,0.04))" },
+};
+
+// Prayer category visual identity (used in PrayerCommunity feed)
+export const PRAYER_CATEGORY_STYLE = {
+  health:  { color: "#2E9E6B", bg: "#2E9E6B12", border: "#2E9E6B30" },
+  family:  { color: "#8B5CF6", bg: "#8B5CF612", border: "#8B5CF630" },
+  world:   { color: "#1B7A6E", bg: "#1B7A6E12", border: "#1B7A6E30" },
+  praise:  { color: "#D4A853", bg: "#D4A85312", border: "#D4A85330" },
+  general: { color: "#E8625C", bg: "#E8625C12", border: "#E8625C30" },
+};
+
 export const CATEGORY_THEME = { "Pentateuch":"garden","Historical":"garden","Wisdom":"royal","Major Prophets":"sunrise","Minor Prophets":"sunrise","Gospels":"ocean","Pauline Epistles":"royal","Pastoral Epistles":"royal","General Epistles":"royal","Prophecy":"sunrise" };
 
 export const BIBLE_BOOKS = [
@@ -472,6 +493,7 @@ export const BADGE_CATEGORIES = [
   { id:"prayer", label:"Prayer", icon:"🙏" },
   { id:"audio",  label:"Audio",  icon:"🎧" },
   { id:"podcast", label:"Podcast", icon:"🎙️" },
+  { id:"reading", label:"Reading Plans", icon:"📅" },
   { id:"community", label:"Community", icon:"🤝" },
 ];
 
@@ -481,14 +503,23 @@ export const BADGES = [
   { id:"bookworm",      category:"bible",  name:"Bookworm",          icon:"📚", description:"Read 10 chapters" },
   { id:"scholar",       category:"bible",  name:"Scholar",           icon:"🎓", description:"Read 50 chapters" },
   { id:"highlighter",   category:"bible",  name:"Highlighter",       icon:"🖍️", description:"Highlight 10 verses" },
-  { id:"color_palette", category:"bible",  name:"Color Palette",     icon:"🎨", description:"Use all 5 highlight colors" },
+  { id:"color_palette", category:"bible",  name:"Color Palette",     icon:"🎨", description:"Use all 6 highlight colors" },
   { id:"scribe",        category:"bible",  name:"Scribe",            icon:"✍️", description:"Write 10 notes" },
   { id:"bookmarker",    category:"bible",  name:"Bookmarker",        icon:"🔖", description:"Bookmark 25 verses" },
+  { id:"journal_keeper",category:"bible",  name:"Journal Keeper",    icon:"📓", description:"Save 25 highlights and notes" },
+  { id:"journal_master",category:"bible",  name:"Journal Master",    icon:"📕", description:"Save 100 highlights and notes" },
   { id:"devoted",       category:"bible",  name:"Devoted",           icon:"🔥", description:"30-day reading streak" },
   { id:"quiz_starter",  category:"bible",  name:"Quiz Starter",      icon:"📝", description:"Complete your first chapter quiz" },
   { id:"quiz_whiz",     category:"bible",  name:"Quiz Whiz",         icon:"🧠", description:"Complete 10 chapter quizzes" },
   { id:"perfect_score", category:"bible",  name:"Perfect Score",     icon:"💯", description:"Get 100% on a chapter quiz" },
   { id:"quiz_master",   category:"bible",  name:"Quiz Master",       icon:"🏆", description:"Complete 50 chapter quizzes" },
+  { id:"daily_scholar",  category:"bible",  name:"Daily Scholar",     icon:"📚", description:"Complete the daily quiz 7 days in a row" },
+  { id:"devoted_student",category:"bible",  name:"Devoted Student",   icon:"🎓", description:"30-day daily quiz streak" },
+  { id:"bible_warrior",  category:"bible",  name:"Bible Warrior",     icon:"⚔️", description:"100-day daily quiz streak" },
+  { id:"pentateuch_scholar",category:"bible",name:"Pentateuch Scholar",icon:"📜", description:"Gold mastery on all Pentateuch books" },
+  { id:"gospel_expert",  category:"bible",  name:"Gospel Expert",     icon:"✝️", description:"Gold mastery on all four Gospels" },
+  { id:"epistle_master", category:"bible",  name:"Epistle Master",    icon:"✉️", description:"Gold mastery on all Epistles" },
+  { id:"bible_scholar",  category:"bible",  name:"Bible Scholar",     icon:"👑", description:"Gold mastery on all available quiz books" },
   // Hebrew (4)
   { id:"aleph",          category:"hebrew", name:"Aleph",             icon:"א",  description:"Complete your first Hebrew lesson" },
   { id:"aleph_bet",      category:"hebrew", name:"Aleph-Bet Master",  icon:"📜", description:"Complete all alphabet lessons" },
@@ -509,21 +540,47 @@ export const BADGES = [
   { id:"prayer_warrior",    category:"prayer", name:"Prayer Warrior",    icon:"⚔️", description:"Complete 5 prayer slots" },
   { id:"testimony",         category:"prayer", name:"Testimony",         icon:"✝️", description:"Share your first testimony" },
   { id:"community_builder", category:"prayer", name:"Community Builder", icon:"🤝", description:"Post 5 prayer requests" },
+  { id:"faithful_intercessor", category:"prayer", name:"Faithful Intercessor", icon:"🕯️", description:"Maintain a 7-day prayer streak" },
   // Audio (3)
   { id:"first_listen",    category:"audio", name:"First Listen",    icon:"🎧", description:"Listen to your first chapter" },
   { id:"audio_scholar",   category:"audio", name:"Audio Scholar",   icon:"📻", description:"Listen to 10 chapters" },
   { id:"audio_marathon",  category:"audio", name:"Audio Marathon",  icon:"🏅", description:"Listen to 50 chapters" },
-  // Podcast (3)
+  // Podcast (5)
   { id:"first_listen_podcast", category:"podcast", name:"First Episode",    icon:"🎙️", description:"Listen to your first podcast episode" },
   { id:"podcast_regular",      category:"podcast", name:"Regular Listener", icon:"📻", description:"Listen to 7 podcast episodes" },
   { id:"podcast_devotee",      category:"podcast", name:"Devotee",          icon:"🏅", description:"Listen to 30 podcast episodes" },
+  { id:"podcast_streak_7",     category:"podcast", name:"Weekly Listener",  icon:"🔥", description:"Listen to podcasts 7 days in a row" },
+  { id:"podcast_streak_30",    category:"podcast", name:"Faithful Listener",icon:"🏆", description:"Listen to podcasts 30 days in a row" },
   // Teens (4)
   { id:"first_lesson_teen", category:"learn", name:"First Lesson",     icon:"\uD83D\uDCD6", description:"Complete your first teens lesson" },
   { id:"term_complete_teen",category:"learn", name:"Term Complete",    icon:"\uD83C\uDFAF", description:"Complete all 13 lessons in a term" },
   { id:"journaler",         category:"learn", name:"Journaler",        icon:"\uD83D\uDCD3", description:"Write 10 journal entries" },
   { id:"graduate_teen",     category:"learn", name:"Graduate",         icon:"\uD83C\uDF93", description:"Complete all 52 teens lessons" },
+  // Reading Plans (7)
+  { id:"plan_starter",    category:"reading", name:"Plan Starter",    icon:"\uD83D\uDCD6", description:"Start your first reading plan" },
+  { id:"faithful_reader", category:"reading", name:"Faithful Reader", icon:"\uD83D\uDD25", description:"Complete 7 days of a reading plan" },
+  { id:"plan_finisher",   category:"reading", name:"Plan Finisher",   icon:"\uD83C\uDFC6", description:"Complete an entire reading plan" },
+  { id:"plan_collector",  category:"reading", name:"Plan Collector",  icon:"\uD83D\uDCDA", description:"Start 3 different reading plans" },
+  { id:"streak_7",        category:"reading", name:"Week Warrior",   icon:"\u2694\uFE0F", description:"7-day reading plan streak" },
+  { id:"streak_30",       category:"reading", name:"Monthly Maven",  icon:"\uD83D\uDC51", description:"30-day reading plan streak" },
+  { id:"plan_halfpoint",  category:"reading", name:"Halfway There",  icon:"\uD83C\uDFD4\uFE0F", description:"Reach 50% of any reading plan" },
   // Community (1)
   { id:"birthday_blessed", category:"community", name:"Birthday Blessed", icon:"🎂", description:"Open the app on your birthday" },
+];
+
+// ═══════════════════════════════════════════════════
+// PODCAST EPISODE PALETTES (8 gradients for visual variety)
+// Same shape as VOTD_GRADIENTS — bg, text, ref, accent, hint
+// ═══════════════════════════════════════════════════
+export const PODCAST_PALETTES = [
+  { id:"hope",     bg:"linear-gradient(135deg, #1B2E5C 0%, #2D4A8E 40%, #1A2040 100%)", text:"#D8E4F5", ref:"#7EB5FF", accent:"#5B9AE8", hint:"rgba(126,181,255,0.4)" },
+  { id:"peace",    bg:"linear-gradient(135deg, #0A2A2A 0%, #1A5C5C 40%, #0A3A3A 100%)", text:"#D8F5F0", ref:"#5EC4B0", accent:"#5EC4B0", hint:"rgba(94,196,176,0.4)" },
+  { id:"strength", bg:"linear-gradient(135deg, #3A1A1A 0%, #8B2020 40%, #2A0A0A 100%)", text:"#F5DCD8", ref:"#E88A7A", accent:"#E88A7A", hint:"rgba(232,138,122,0.4)" },
+  { id:"faith",    bg:"linear-gradient(135deg, #2D1B4E 0%, #4A2D8E 40%, #1A1A3E 100%)", text:"#E8DFF5", ref:"#C9A0FF", accent:"#9B6FD4", hint:"rgba(201,160,255,0.4)" },
+  { id:"trust",    bg:"linear-gradient(135deg, #3A2410 0%, #6B4A28 40%, #2A1808 100%)", text:"#F5ECD8", ref:"#D4A853", accent:"#D4A853", hint:"rgba(212,168,83,0.4)" },
+  { id:"comfort",  bg:"linear-gradient(135deg, #1A2F1A 0%, #2D5A2D 40%, #102010 100%)", text:"#D8F0D8", ref:"#7DD47D", accent:"#7DD47D", hint:"rgba(125,212,125,0.4)" },
+  { id:"joy",      bg:"linear-gradient(135deg, #3A2010 0%, #A85520 40%, #2A1505 100%)", text:"#F5E8D8", ref:"#F0A050", accent:"#E8953A", hint:"rgba(240,160,80,0.4)" },
+  { id:"wisdom",   bg:"linear-gradient(135deg, #1A1A3A 0%, #303070 40%, #101030 100%)", text:"#D8D8F5", ref:"#8888E8", accent:"#6B6BD4", hint:"rgba(136,136,232,0.4)" },
 ];
 
 // ═══════════════════════════════════════════════════
@@ -671,7 +728,11 @@ const _LANG_MAP = {
 
 // Books that have quiz JSON files in /public/data/quizzes/
 export const QUIZ_BOOKS = [
-  "Genesis",
+  "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
+  "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel",
+  "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles",
+  "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
+  "Song of Solomon",
   "Matthew", "Mark", "Luke", "John", "Acts",
   "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
   "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
