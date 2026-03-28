@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../../lib/supabase";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP, CDN_NARRATORS, HD_AUDIO_TRANSLATIONS, HD_AUDIO_BUCKET } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP, CDN_NARRATORS, HD_AUDIO_TRANSLATIONS, HD_AUDIO_BUCKET, HIGHLIGHT_COLORS, QUIZ_BOOKS } from "../constants";
 import { detectCurrency } from "../utils/currency";
 
 // ─── Derive dbChapters from BIBLE_BOOKS (synchronous, no Supabase needed) ───
@@ -192,6 +192,9 @@ export function AppProvider({ children }) {
   const [prayerLoading, setPrayerLoading] = useState(false);
   const [allHighlights, setAllHighlights] = useState([]);
   const [hlLoading, setHlLoading] = useState(false);
+  const [allNotes, setAllNotes] = useState([]);
+  const [notesLoading, setNotesLoading] = useState(false);
+  const journalDirty = useRef(false);
   const [donateModal, setDonateModal] = useState(false);
   const [donateSuccess, setDonateSuccess] = useState(false);
   const [welcomeModal, setWelcomeModal] = useState(false);
@@ -204,6 +207,11 @@ export function AppProvider({ children }) {
   const [userReactions, setUserReactions] = useState({});
 
   const [expiringPrayers, setExpiringPrayers] = useState([]);
+  const [reportTarget, setReportTarget] = useState(null);
+  const [cooldownActive, setCooldownActive] = useState(false);
+  const [justAnsweredId, setJustAnsweredId] = useState(null);
+  const [prayerStreak, setPrayerStreak] = useState(0);
+  const lastPrayerSubmitRef = useRef(0);
 
   // ─── Prayer Clock state ───
   const [slotCoverage, setSlotCoverage] = useState([]);
@@ -287,6 +295,7 @@ export function AppProvider({ children }) {
   const [quizQuestions, setQuizQuestions] = useState([]);
   const [quizLoading, setQuizLoading] = useState(false);
   const [quizDifficulty, setQuizDifficulty] = useState("");
+  const [quizStreak, setQuizStreak] = useState(null);
 
   // ─── Audio state ───
   const [audioPlaying, setAudioPlaying] = useState(false);
@@ -310,6 +319,8 @@ export function AppProvider({ children }) {
   const [podcastPlaying, setPodcastPlaying] = useState(false);
   const [podcastVisible, setPodcastVisible] = useState(false);
   const [podcastEpisodeInfo, setPodcastEpisodeInfo] = useState(null); // { seriesSlug, episodeNum, title, seriesTitle }
+  const [podcastCurrentTime, setPodcastCurrentTime] = useState(0);
+  const [podcastDuration, setPodcastDuration] = useState(0);
   const [podcastListenedEpisodes, setPodcastListenedEpisodes] = useState(() => {
     try { return JSON.parse(localStorage.getItem("podcastListenedEpisodes") || "[]"); } catch { return []; }
   });
@@ -425,19 +436,48 @@ export function AppProvider({ children }) {
     setPodcastEpisodeInfo(null);
   }, []);
 
+  const stopBibleAudio = useCallback(() => {
+    setAudioPlaying(false);
+    setAudioVisible(false);
+    setAudioCurrentVerse(null);
+    setAudioCurrentWord(null);
+    if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
+  }, []);
+
+  // ─── Podcast listening streak ───
+  const [podcastStreak, setPodcastStreak] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("podcastListeningStreak") || "null"); }
+    catch { return null; } // eslint-disable-line no-empty
+  }); // { current: N, longest: N, lastDate: "YYYY-MM-DD" }
+
+  const updatePodcastStreak = useCallback(() => {
+    const today = new Date().toISOString().slice(0, 10);
+    setPodcastStreak(prev => {
+      const s = prev || { current: 0, longest: 0, lastDate: "" };
+      if (s.lastDate === today) return prev; // already counted today
+      const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+      const newCurrent = s.lastDate === yesterday ? s.current + 1 : 1;
+      const newLongest = Math.max(s.longest, newCurrent);
+      const updated = { current: newCurrent, longest: newLongest, lastDate: today };
+      try { localStorage.setItem("podcastListeningStreak", JSON.stringify(updated)); } catch {} // eslint-disable-line no-empty
+      return updated;
+    });
+  }, []);
+
   const markEpisodeListened = useCallback((seriesSlug, episodeNum) => {
     const key = `${seriesSlug}:${episodeNum}`;
     setPodcastListenedEpisodes(prev => {
       if (prev.includes(key)) return prev;
       return [...prev, key];
     });
+    updatePodcastStreak();
     if (user) {
       supabase.from("podcast_listening_position").upsert(
         { user_id: user.id, series_slug: seriesSlug, episode_number: episodeNum, completed: true, timestamp_seconds: 0, updated_at: new Date().toISOString() },
         { onConflict: "user_id,series_slug,episode_number" }
       ).then(() => {});
     }
-  }, [user]);
+  }, [user, updatePodcastStreak]);
 
   useEffect(() => {
     try {
@@ -484,12 +524,12 @@ export function AppProvider({ children }) {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
-      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); loadQuizScores(); }
+      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadQuizStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); loadQuizScores(); }
     });
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
-      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); loadQuizScores(); }
-      else { setProfile(null); setStreak(null); setEarnedBadges({}); badgesLoadedRef.current = false; setChapterReads([]); setNotesCount(0); setQuizScores({}); }
+      if (session?.user) { loadProfile(session.user.id); loadStreak(session.user.id); loadQuizStreak(session.user.id); loadEarnedBadges(); loadChapterReads(); loadNotesCount(); loadQuizScores(); }
+      else { setProfile(null); setStreak(null); setQuizStreak(null); setEarnedBadges({}); badgesLoadedRef.current = false; setChapterReads([]); setNotesCount(0); setQuizScores({}); }
     });
     return () => subscription.unsubscribe();
   }, []);
@@ -749,50 +789,91 @@ export function AppProvider({ children }) {
   const saveNote = async () => {
     const noteText = noteRef.current?.value || "";
     const vId = verseIdMap.current[verse];
-    if (!user || !verse || !vId || !noteText.trim()) return;
+    if (!user || !verse || !vId || !noteText.trim()) return { success: false };
     setNoteLoading(true);
-    if (savedNote) {
-      const { data } = await supabase.from("user_notes").update({ note_text: noteText, updated_at: new Date().toISOString() }).eq("id", savedNote.id).select().single();
-      if (data) { setSavedNote(data); setChapterNotes(prev => ({ ...prev, [verse]: data })); }
-    } else {
-      const { data } = await supabase.from("user_notes").insert({ user_id: user.id, verse_id: vId, note_text: noteText }).select().single();
-      if (data) { setSavedNote(data); setChapterNotes(prev => ({ ...prev, [verse]: data })); }
-    }
-    setNoteLoading(false);
+    try {
+      if (savedNote) {
+        const { data, error } = await supabase.from("user_notes").update({ note_text: noteText, updated_at: new Date().toISOString() }).eq("id", savedNote.id).select().single();
+        if (error) throw error;
+        if (data) { setSavedNote(data); setChapterNotes(prev => ({ ...prev, [verse]: data })); }
+      } else {
+        const { data, error } = await supabase.from("user_notes").insert({ user_id: user.id, verse_id: vId, note_text: noteText }).select().single();
+        if (error) throw error;
+        if (data) { setSavedNote(data); setChapterNotes(prev => ({ ...prev, [verse]: data })); setNotesCount(prev => prev + 1); }
+      }
+      journalDirty.current = true;
+      setNoteLoading(false);
+      return { success: true };
+    } catch (e) { console.error("saveNote:", e); setNoteLoading(false); return { success: false, error: e.message }; }
   };
 
   const toggleNotePublic = async () => {
     if (!savedNote) return;
-    const { data } = await supabase.from("user_notes").update({ is_public: !savedNote.is_public }).eq("id", savedNote.id).select().single();
-    if (data) { setSavedNote(data); setChapterNotes(prev => ({ ...prev, [verse]: data })); }
+    try {
+      const { data, error } = await supabase.from("user_notes").update({ is_public: !savedNote.is_public }).eq("id", savedNote.id).select().single();
+      if (error) throw error;
+      if (data) { setSavedNote(data); setChapterNotes(prev => ({ ...prev, [verse]: data })); }
+      journalDirty.current = true;
+      return { success: true };
+    } catch (e) { console.error("toggleNotePublic:", e); return { success: false, error: e.message }; }
+  };
+
+  const deleteNote = async () => {
+    if (!savedNote || !user) return { success: false };
+    setNoteLoading(true);
+    try {
+      const { error } = await supabase.from("user_notes").delete().eq("id", savedNote.id);
+      if (error) throw error;
+      setSavedNote(null);
+      setUserNote("");
+      if (noteRef.current) noteRef.current.value = "";
+      setChapterNotes(prev => { const next = { ...prev }; delete next[verse]; return next; });
+      setNotesCount(prev => Math.max(0, prev - 1));
+      journalDirty.current = true;
+      setNoteLoading(false);
+      return { success: true };
+    } catch (e) { console.error("deleteNote:", e); setNoteLoading(false); return { success: false, error: e.message }; }
   };
 
   const toggleHighlight = async (color) => {
     const vId = verseIdMap.current[verse];
-    if (!user || !verse || !vId) return;
-    if (highlight?.highlight_color === color) {
-      await supabase.from("user_highlights").delete().eq("id", highlight.id);
-      setHighlight(null);
-      setChapterHighlights(prev => { const next = { ...prev }; delete next[verse]; return next; });
-    } else if (highlight) {
-      const { data } = await supabase.from("user_highlights").update({ highlight_color: color }).eq("id", highlight.id).select().single();
-      if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
-    } else {
-      const { data } = await supabase.from("user_highlights").insert({ user_id: user.id, verse_id: vId, highlight_color: color }).select().single();
-      if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
-    }
+    if (!user || !verse || !vId) return { success: false };
+    try {
+      if (highlight?.highlight_color === color) {
+        const { error } = await supabase.from("user_highlights").delete().eq("id", highlight.id);
+        if (error) throw error;
+        setHighlight(null);
+        setChapterHighlights(prev => { const next = { ...prev }; delete next[verse]; return next; });
+      } else if (highlight) {
+        const { data, error } = await supabase.from("user_highlights").update({ highlight_color: color }).eq("id", highlight.id).select().single();
+        if (error) throw error;
+        if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
+      } else {
+        const { data, error } = await supabase.from("user_highlights").insert({ user_id: user.id, verse_id: vId, highlight_color: color }).select().single();
+        if (error) throw error;
+        if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
+      }
+      journalDirty.current = true;
+      return { success: true };
+    } catch (e) { console.error("toggleHighlight:", e); return { success: false, error: e.message }; }
   };
 
   const toggleBookmarkHL = async () => {
     const vId = verseIdMap.current[verse];
-    if (!user || !verse || !vId) return;
-    if (highlight) {
-      const { data } = await supabase.from("user_highlights").update({ is_bookmarked: !highlight.is_bookmarked }).eq("id", highlight.id).select().single();
-      if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
-    } else {
-      const { data } = await supabase.from("user_highlights").insert({ user_id: user.id, verse_id: vId, is_bookmarked: true, highlight_color: "#FFD700" }).select().single();
-      if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
-    }
+    if (!user || !verse || !vId) return { success: false };
+    try {
+      if (highlight) {
+        const { data, error } = await supabase.from("user_highlights").update({ is_bookmarked: !highlight.is_bookmarked }).eq("id", highlight.id).select().single();
+        if (error) throw error;
+        if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
+      } else {
+        const { data, error } = await supabase.from("user_highlights").insert({ user_id: user.id, verse_id: vId, is_bookmarked: true, highlight_color: "#FFD700" }).select().single();
+        if (error) throw error;
+        if (data) { setHighlight(data); setChapterHighlights(prev => ({ ...prev, [verse]: data })); }
+      }
+      journalDirty.current = true;
+      return { success: true };
+    } catch (e) { console.error("toggleBookmarkHL:", e); return { success: false, error: e.message }; }
   };
 
   const copyVerseText = async () => {
@@ -900,8 +981,14 @@ export function AppProvider({ children }) {
 
   const addPrayer = async () => {
     if (!user || !prayerText.trim()) return;
+    const title = (prayerTitle || "Prayer").slice(0, 200);
+    const text = prayerText.slice(0, 2000);
+    // Cooldown: 30s between submissions
+    const now = Date.now();
+    if (now - lastPrayerSubmitRef.current < 30000) { setCooldownActive(true); return; }
+    lastPrayerSubmitRef.current = now;
     const entry = {
-      user_id: user.id, title: prayerTitle || "Prayer", prayer_text: prayerText,
+      user_id: user.id, title, prayer_text: text,
       verse_id: verseIdMap.current[verse] || null,
       book_name: book || null, chapter_number: chapter || null, verse_number: verse || null,
     };
@@ -928,18 +1015,39 @@ export function AppProvider({ children }) {
       .from("user_highlights")
       .select("*, verses(verse_number, kjv_text, chapter_id, chapters(chapter_number, book_id, books(name)))")
       .eq("user_id", user.id)
-      .order("created_at", { ascending: false });
+      .order("created_at", { ascending: false })
+      .limit(200);
     setAllHighlights(data || []);
     setHlLoading(false);
   }, [user]);
 
+  // ═══ LOAD ALL NOTES ═══
+  const loadAllNotes = useCallback(async () => {
+    if (!user) return;
+    setNotesLoading(true);
+    const { data, error } = await supabase
+      .from("user_notes")
+      .select("*, verses(verse_number, kjv_text, chapter_id, chapters(chapter_number, book_id, books(name)))")
+      .eq("user_id", user.id)
+      .order("updated_at", { ascending: false })
+      .limit(200);
+    if (error) console.error("loadAllNotes:", error);
+    setAllNotes(data || []);
+    setNotesLoading(false);
+  }, [user]);
+
   useEffect(() => { if ((view === "account" || view === "prayer-home") && user) loadPrayers(); }, [view, user, loadPrayers]);
-  useEffect(() => { if ((view === "account" || view === "highlights") && user) loadAllHighlights(); }, [view, user, loadAllHighlights]);
+  useEffect(() => {
+    if ((view === "account" || view === "highlights") && user) {
+      loadAllHighlights(); loadAllNotes();
+      journalDirty.current = false;
+    }
+  }, [view, user, loadAllHighlights, loadAllNotes]);
 
   // ═══ COMMUNITY PRAYER ═══
   const loadCommunityPrayers = useCallback(async () => {
     setCommunityPrayersLoading(true);
-    let query = supabase.from("community_prayers").select("*").order("created_at", { ascending: false }).limit(50);
+    let query = supabase.from("community_prayers_public").select("*").order("created_at", { ascending: false }).limit(50);
     if (communityPrayerCategory !== "all") query = query.eq("category", communityPrayerCategory);
     const { data } = await query;
     if (!data) { setCommunityPrayers([]); setCommunityPrayersLoading(false); return; }
@@ -991,10 +1099,24 @@ export function AppProvider({ children }) {
 
   const addCommunityPrayer = async ({ title, body, category, isAnonymous }) => {
     if (!user || !body.trim()) return;
+    const safeTitle = (title || "Prayer Request").slice(0, 200);
+    const safeBody = body.slice(0, 2000);
+    // Cooldown: 30s between submissions
+    const now = Date.now();
+    if (now - lastPrayerSubmitRef.current < 30000) { setCooldownActive(true); return; }
+    lastPrayerSubmitRef.current = now;
     await supabase.from("community_prayers").insert({
-      user_id: user.id, title, body, category, is_anonymous: isAnonymous,
+      user_id: user.id, title: safeTitle, body: safeBody, category, is_anonymous: isAnonymous,
     });
+    setCooldownActive(false);
     loadCommunityPrayers();
+  };
+
+  const reportCommunityPrayer = async (prayerId, reason, details) => {
+    if (!user) return;
+    await supabase.from("prayer_reports").insert({
+      prayer_id: prayerId, reporter_id: user.id, reason, details: details ? details.slice(0, 500) : null,
+    });
   };
 
   const deleteCommunityPrayer = async (id) => {
@@ -1006,6 +1128,8 @@ export function AppProvider({ children }) {
     await supabase.from("community_prayers").update({
       is_answered: true, answered_at: new Date().toISOString(), updated_at: new Date().toISOString(),
     }).eq("id", id);
+    setJustAnsweredId(id);
+    setTimeout(() => setJustAnsweredId(null), 3000);
     loadCommunityPrayers();
   };
 
@@ -1084,7 +1208,56 @@ export function AppProvider({ children }) {
       counts[reactionType] = (counts[reactionType] || 0) + (existing ? -1 : 1);
       return { ...p, reaction_counts: counts };
     }));
+    // Record prayer activity for streak (only on adding, not removing)
+    if (!existing) recordPrayerActivity();
   };
+
+  // ═══ PRAYER STREAK ═══
+  const recordPrayerActivity = useCallback(() => {
+    try {
+      const today = new Date().toISOString().slice(0, 10);
+      const lastDate = localStorage.getItem("prayerStreakLastDate");
+      let streak = parseInt(localStorage.getItem("prayerStreakCount") || "0", 10);
+      if (lastDate === today) return; // already counted today
+      const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+      streak = lastDate === yesterday ? streak + 1 : 1;
+      localStorage.setItem("prayerStreakCount", String(streak));
+      localStorage.setItem("prayerStreakLastDate", today);
+      setPrayerStreak(streak);
+    } catch {}
+  }, []);
+
+  // Load prayer streak on mount
+  useEffect(() => {
+    try {
+      const streak = parseInt(localStorage.getItem("prayerStreakCount") || "0", 10);
+      const lastDate = localStorage.getItem("prayerStreakLastDate");
+      const today = new Date().toISOString().slice(0, 10);
+      const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+      // If last activity was before yesterday, streak is broken
+      if (lastDate && lastDate !== today && lastDate !== yesterday) {
+        setPrayerStreak(0);
+      } else {
+        setPrayerStreak(streak);
+      }
+    } catch {}
+  }, []);
+
+  // ═══ PRAYER OF THE DAY ═══
+  const prayerOfTheDay = useMemo(() => {
+    if (!communityPrayers || communityPrayers.length === 0) return null;
+    const active = communityPrayers.filter(p => !p.is_answered);
+    if (active.length === 0) return null;
+    const now = Date.now();
+    const scored = active.map(p => {
+      const rc = p.reaction_counts || { praying: 0, heart: 0, amen: 0 };
+      const daysOld = Math.floor((now - new Date(p.created_at).getTime()) / 86400000);
+      const score = (rc.praying * 3) + (rc.heart * 2) + (rc.amen) + Math.max(0, 7 - daysOld);
+      return { ...p, score };
+    }).sort((a, b) => b.score - a.score).slice(0, 5);
+    const dayOfYear = Math.floor((now - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+    return scored[dayOfYear % scored.length] || scored[0];
+  }, [communityPrayers]);
 
   // ═══ PRAYER CLOCK ═══
   const loadSlotCoverage = useCallback(async () => {
@@ -1110,9 +1283,11 @@ export function AppProvider({ children }) {
 
   const addPrayerSlot = async ({ hour, minute, duration, frequency, customDays }) => {
     if (!user) return;
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
     await supabase.from("prayer_slots").insert({
       user_id: user.id, slot_hour: hour, slot_minute: minute,
       duration_minutes: duration, frequency, custom_days: customDays || [],
+      timezone: tz,
     });
     loadMySlots();
     loadSlotCoverage();
@@ -1213,6 +1388,92 @@ export function AppProvider({ children }) {
     });
   }, [user]);
 
+  // ─── Daily Quiz ───
+  // Build flat array of all quiz-able {book, chapter} pairs for deterministic daily rotation
+  const dailyQuizPool = useMemo(() => {
+    const pool = [];
+    QUIZ_BOOKS.forEach(bookName => {
+      const bookInfo = BIBLE_BOOKS.find(b => b.name === bookName);
+      if (bookInfo) {
+        for (let ch = 1; ch <= bookInfo.chapters; ch++) pool.push({ book: bookName, chapter: ch });
+      }
+    });
+    return pool;
+  }, []);
+
+  const getDailyQuiz = useCallback(() => {
+    if (!dailyQuizPool.length) return null;
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const dayOfYear = Math.floor((now - start) / 86400000);
+    return dailyQuizPool[dayOfYear % dailyQuizPool.length];
+  }, [dailyQuizPool]);
+
+  // ─── Quiz Mastery ───
+  // Per-book mastery: % of chapters with ≥80% score at ANY difficulty
+  const quizMastery = useMemo(() => {
+    const mastery = {};
+    QUIZ_BOOKS.forEach(bookName => {
+      const bookInfo = BIBLE_BOOKS.find(b => b.name === bookName);
+      if (!bookInfo) return;
+      const totalChs = bookInfo.chapters;
+      let masteredCount = 0;
+      for (let ch = 1; ch <= totalChs; ch++) {
+        const key = `${bookName}-${ch}`;
+        const chScores = quizScores[key] || [];
+        if (chScores.some(s => s.percentage >= 80)) masteredCount++;
+      }
+      const pct = totalChs > 0 ? Math.round((masteredCount / totalChs) * 100) : 0;
+      mastery[bookName] = { mastered: masteredCount, total: totalChs, percentage: pct };
+    });
+    return mastery;
+  }, [quizScores]);
+
+  const dailyQuizCompleted = useMemo(() => {
+    if (!quizStreak?.last_quiz_date) return false;
+    return quizStreak.last_quiz_date === new Date().toISOString().split("T")[0];
+  }, [quizStreak]);
+
+  const loadQuizStreak = async (uid) => {
+    const { data } = await supabase
+      .from("user_quiz_streaks")
+      .select("current_streak, longest_streak, last_quiz_date, total_quizzes_completed")
+      .eq("user_id", uid)
+      .maybeSingle();
+    setQuizStreak(data || null);
+  };
+
+  const updateQuizStreak = useCallback(async () => {
+    if (!user) return;
+    const todayDate = new Date().toISOString().split("T")[0];
+    if (quizStreak?.last_quiz_date === todayDate) return; // already counted today
+    if (!quizStreak) {
+      const { data } = await supabase
+        .from("user_quiz_streaks")
+        .upsert({ user_id: user.id, current_streak: 1, longest_streak: 1,
+                  last_quiz_date: todayDate, total_quizzes_completed: 1,
+                  updated_at: new Date().toISOString() },
+                 { onConflict: "user_id" })
+        .select().single();
+      if (data) setQuizStreak(data);
+      return;
+    }
+    const last = new Date(quizStreak.last_quiz_date + "T00:00:00");
+    const today = new Date(todayDate + "T00:00:00");
+    const diffDays = Math.round((today - last) / 86400000);
+    const newCurrent = diffDays === 1 ? quizStreak.current_streak + 1 : 1;
+    const newLongest = Math.max(newCurrent, quizStreak.longest_streak);
+    const newTotal = (quizStreak.total_quizzes_completed || 0) + 1;
+    const { data } = await supabase
+      .from("user_quiz_streaks")
+      .upsert({ user_id: user.id, current_streak: newCurrent, longest_streak: newLongest,
+                last_quiz_date: todayDate, total_quizzes_completed: newTotal,
+                updated_at: new Date().toISOString() },
+               { onConflict: "user_id" })
+      .select().single();
+    if (data) setQuizStreak(data);
+  }, [user, quizStreak]);
+
   const trackLearnExploration = useCallback((type, id) => {
     setLearnExploration(prev => {
       const arr = prev[type] || [];
@@ -1257,12 +1518,16 @@ export function AppProvider({ children }) {
     if (hlCount >= 10 && !earned.highlighter) awardBadge("highlighter");
 
     const uniqueColors = new Set(allHighlights.map(h => h.highlight_color).filter(Boolean));
-    if (uniqueColors.size >= 5 && !earned.color_palette) awardBadge("color_palette");
+    if (uniqueColors.size >= HIGHLIGHT_COLORS.length && !earned.color_palette) awardBadge("color_palette");
 
     if (notesCount >= 10 && !earned.scribe) awardBadge("scribe");
 
     const bookmarkCount = allHighlights.filter(h => h.is_bookmarked).length;
     if (bookmarkCount >= 25 && !earned.bookmarker) awardBadge("bookmarker");
+
+    const journalTotal = hlCount + notesCount;
+    if (journalTotal >= 25 && !earned.journal_keeper) awardBadge("journal_keeper");
+    if (journalTotal >= 100 && !earned.journal_master) awardBadge("journal_master");
 
     if ((streak?.current_streak >= 30 || streak?.longest_streak >= 30) && !earned.devoted) awardBadge("devoted");
 
@@ -1314,6 +1579,20 @@ export function AppProvider({ children }) {
     if (allScores.length >= 10 && !earned.quiz_whiz) awardBadge("quiz_whiz");
     if (allScores.length >= 50 && !earned.quiz_master) awardBadge("quiz_master");
     if (allScores.some(s => s.percentage >= 100) && !earned.perfect_score) awardBadge("perfect_score");
+    // Quiz streak badges
+    const qs = quizStreak?.longest_streak || quizStreak?.current_streak || 0;
+    if (qs >= 7 && !earned.daily_scholar) awardBadge("daily_scholar");
+    if (qs >= 30 && !earned.devoted_student) awardBadge("devoted_student");
+    if (qs >= 100 && !earned.bible_warrior) awardBadge("bible_warrior");
+    // Mastery badges
+    const m = quizMastery;
+    const pent = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy"];
+    const gosp = ["Matthew","Mark","Luke","John"];
+    const epist = ["Romans","1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians","Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon","Hebrews","James","1 Peter","2 Peter","1 John","2 John","3 John","Jude"];
+    if (pent.every(b => (m[b]?.percentage || 0) >= 80) && !earned.pentateuch_scholar) awardBadge("pentateuch_scholar");
+    if (gosp.every(b => (m[b]?.percentage || 0) >= 80) && !earned.gospel_expert) awardBadge("gospel_expert");
+    if (epist.every(b => (m[b]?.percentage || 0) >= 80) && !earned.epistle_master) awardBadge("epistle_master");
+    if (QUIZ_BOOKS.every(b => (m[b]?.percentage || 0) >= 80) && !earned.bible_scholar) awardBadge("bible_scholar");
 
     // Audio badges
     const listenCount = listenedChapters.length;
@@ -1326,8 +1605,10 @@ export function AppProvider({ children }) {
     if (podcastCount >= 1 && !earned.first_listen_podcast) awardBadge("first_listen_podcast");
     if (podcastCount >= 7 && !earned.podcast_regular) awardBadge("podcast_regular");
     if (podcastCount >= 30 && !earned.podcast_devotee) awardBadge("podcast_devotee");
+    if (podcastStreak?.current >= 7 && !earned.podcast_streak_7) awardBadge("podcast_streak_7");
+    if (podcastStreak?.current >= 30 && !earned.podcast_streak_30) awardBadge("podcast_streak_30");
   }, [user, chapterReads, allHighlights, notesCount, streak, hebrewProgress, hebrewLessons,
-      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, listenedChapters, podcastListenedEpisodes, awardBadge]);
+      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, listenedChapters, podcastListenedEpisodes, podcastStreak, awardBadge]);
 
   useEffect(() => { checkBadges(); }, [checkBadges]);
 
@@ -1752,7 +2033,7 @@ export function AppProvider({ children }) {
     userNote, setUserNote, savedNote, setSavedNote, noteLoading, highlight,
     shareCopied, communityNotes, chapterHighlights, chapterNotes, chapterCommunityNotes,
     prayerModal, setPrayerModal, prayers, prayerTitle,
-    setPrayerTitle, prayerText, setPrayerText, prayerLoading, allHighlights, hlLoading,
+    setPrayerTitle, prayerText, setPrayerText, prayerLoading, allHighlights, hlLoading, allNotes, notesLoading,
     donateModal, setDonateModal, donateSuccess, setDonateSuccess, welcomeModal, setWelcomeModal, requireAuth, prayerTab, setPrayerTab, noteRef,
     // Hebrew
     hebrewLessons, hebrewLesson, setHebrewLesson, hebrewAlphabet, setHebrewAlphabet, hebrewVocab, setHebrewVocab,
@@ -1777,7 +2058,7 @@ export function AppProvider({ children }) {
     // Auth handlers
     handleAuth, handleLogout, handleForgotPassword, handleGoogleSignIn,
     // User feature handlers
-    hasVerseId, saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
+    hasVerseId, saveNote, deleteNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage,
     // Prayer handlers
     loadPrayers, addPrayer, togglePrayerAnswered, deletePrayer,
@@ -1786,11 +2067,13 @@ export function AppProvider({ children }) {
     setCommunityPrayerCategory, addCommunityPrayer, deleteCommunityPrayer,
     markCommunityPrayerAnswered, userReactions, toggleReaction,
     loadCommunityPrayers, expiringPrayers, keepCommunityPrayer,
+    reportCommunityPrayer, reportTarget, setReportTarget, cooldownActive,
+    justAnsweredId, prayerStreak, prayerOfTheDay, recordPrayerActivity,
     // Prayer clock
     slotCoverage, mySlots, slotsLoading,
     loadSlotCoverage, loadMySlots, addPrayerSlot, deletePrayerSlot,
-    // Highlights
-    loadAllHighlights,
+    // Highlights & Notes
+    loadAllHighlights, loadAllNotes,
     // Hebrew handlers
     loadHebrewLessons, loadHebrewLesson, loadHebrewProgress, markHebrewComplete,
     // Greek handlers
@@ -1806,6 +2089,7 @@ export function AppProvider({ children }) {
     // Quiz
     quizScores, quizQuestions, quizLoading, quizDifficulty, setQuizDifficulty,
     loadQuizQuestions, submitQuizScore,
+    quizStreak, getDailyQuiz, dailyQuizCompleted, updateQuizStreak, quizMastery,
     // Audio
     audioPlaying, setAudioPlaying, audioVisible, setAudioVisible,
     audioMode, setAudioMode, audioNarrator, setAudioNarrator,
@@ -1817,8 +2101,10 @@ export function AppProvider({ children }) {
     // Podcast (minimal — player is self-contained)
     podcastPlaying, setPodcastPlaying, podcastVisible, setPodcastVisible,
     podcastEpisodeInfo, setPodcastEpisodeInfo, podcastAudioRef,
+    podcastCurrentTime, setPodcastCurrentTime, podcastDuration, setPodcastDuration,
     podcastListenedEpisodes, podcastSeries, podcastEpisode,
-    stopPodcast, markEpisodeListened,
+    podcastStreak, updatePodcastStreak,
+    stopPodcast, stopBibleAudio, markEpisodeListened,
     // Smart Chat
     chatMessages, setChatMessages,
     // Birthday

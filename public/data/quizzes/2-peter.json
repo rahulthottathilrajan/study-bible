@@ -182,8 +182,8 @@
       {
         "question_number": 2,
         "question": "Who did God save when He destroyed the old world with a flood?",
-        "option_a": "Noah and seven others (eight people total)",
-        "option_b": "Only Noah",
+        "option_a": "Only Noah",
+        "option_b": "Noah and seven others (eight people total)",
         "option_c": "Noah and twelve others",
         "option_d": "Nobody survived",
         "correct_answer": "a",

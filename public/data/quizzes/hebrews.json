@@ -1284,10 +1284,10 @@
       {
         "question_number": 3,
         "question": "Where does the author find fault with the first covenant?",
-        "option_a": "Finding fault with them — the people could not keep it; the new covenant addresses this by writing the law on hearts and minds",
+        "option_a": "There was no fault with the first covenant",
         "option_b": "The fault was in God's design",
         "option_c": "The fault was in the wording of the covenant",
-        "option_d": "There was no fault with the first covenant",
+        "option_d": "Finding fault with them — the people could not keep it; the new covenant addresses this by writing the law on hearts and minds",
         "correct_answer": "a",
         "explanation": "Hebrews 8:8 — \"For finding fault with them, he saith, Behold, the days come, saith the Lord, when I will make a new covenant.\""
       },
@@ -1610,8 +1610,8 @@
       {
         "question_number": 2,
         "question": "What Psalm does the author quote about God's desire versus sacrifice?",
-        "option_a": "Psalm 40:6-8 — \"Sacrifice and offering thou wouldest not, but a body hast thou prepared me... Lo, I come to do thy will, O God\"",
-        "option_b": "Psalm 51 — The sacrifices of God are a broken spirit",
+        "option_a": "Psalm 51 — The sacrifices of God are a broken spirit",
+        "option_b": "Psalm 40:6-8 — \"Sacrifice and offering thou wouldest not, but a body hast thou prepared me... Lo, I come to do thy will, O God\"",
         "option_c": "Psalm 23 — The Lord is my shepherd",
         "option_d": "Psalm 110 — Sit thou at my right hand",
         "correct_answer": "a",

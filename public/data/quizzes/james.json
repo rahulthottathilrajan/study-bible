@@ -172,9 +172,9 @@
       {
         "question_number": 1,
         "question": "If a rich man and a poor man come to church, how should you treat them?",
-        "option_a": "Treat them both the same",
+        "option_a": "Tell the poor man to leave",
         "option_b": "Give the rich man the best seat",
-        "option_c": "Tell the poor man to leave",
+        "option_c": "Treat them both the same",
         "option_d": "Only talk to the rich man",
         "correct_answer": "a",
         "explanation": "James 2:1-4 — James warns against showing favouritism, telling the poor man \"Stand thou there\" while giving the rich man a good place."

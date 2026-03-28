@@ -306,8 +306,8 @@
       {
         "question_number": 6,
         "question": "What does Simeon's prophecy about a \"sword\" piercing Mary's soul foreshadow?",
-        "option_a": "Mary's anguish at the crucifixion of her son — the revelation of Jesus as the suffering Messiah would bring her deep personal grief",
-        "option_b": "A literal sword attack on Mary",
+        "option_a": "A literal sword attack on Mary",
+        "option_b": "Mary's anguish at the crucifixion of her son — the revelation of Jesus as the suffering Messiah would bring her deep personal grief",
         "option_c": "Mary would become a warrior",
         "option_d": "Mary would leave Israel permanently",
         "correct_answer": "a",
@@ -484,10 +484,10 @@
       {
         "question_number": 7,
         "question": "What does John's rebuke \"who hath warned you to flee from the wrath to come\" imply about his audience?",
-        "option_a": "Some came for baptism as a religious formality without genuine repentance — John challenged their motives and demanded authentic heart change",
+        "option_a": "John was surprised anyone came at all",
         "option_b": "Everyone who came was genuinely repentant",
         "option_c": "John was refusing to baptise anyone",
-        "option_d": "John was surprised anyone came at all",
+        "option_d": "Some came for baptism as a religious formality without genuine repentance — John challenged their motives and demanded authentic heart change",
         "correct_answer": "a",
         "explanation": "Luke 3:7 — \"Then said he to the multitude that came forth to be baptized of him, O generation of vipers, who hath warned you to flee from the wrath to come?\" John discerns superficial religion and demands genuine transformation."
       },
@@ -820,9 +820,9 @@
       {
         "question_number": 7,
         "question": "What does the phrase \"they forsook all, and followed him\" (v.11) tell us about the cost of discipleship?",
-        "option_a": "True discipleship requires total abandonment of former securities — Peter, James, and John left their nets, boats, and livelihood at the peak of success (a miraculous catch) to follow Jesus",
+        "option_a": "They brought their fishing business with them",
         "option_b": "They only followed Jesus part-time",
-        "option_c": "They brought their fishing business with them",
+        "option_c": "True discipleship requires total abandonment of former securities — Peter, James, and John left their nets, boats, and livelihood at the peak of success (a miraculous catch) to follow Jesus",
         "option_d": "They planned to return to fishing later",
         "correct_answer": "a",
         "explanation": "Luke 5:11 — \"And when they had brought their ships to land, they forsook all, and followed him.\" The greatest catch of their careers became the moment they walked away from fishing forever."
@@ -1116,9 +1116,9 @@
       {
         "question_number": 3,
         "question": "What is the significance of Jesus' answer to John the Baptist in relation to Isaiah's prophecies?",
-        "option_a": "Jesus' reply directly cites Isaiah 35:5-6 and 61:1 — miracles of healing and gospel preaching that Isaiah prophesied the Messiah would perform, giving John evidence to confirm Jesus' identity from Scripture",
+        "option_a": "The answer had no connection to Old Testament prophecy",
         "option_b": "Jesus was simply listing His daily activities",
-        "option_c": "The answer had no connection to Old Testament prophecy",
+        "option_c": "Jesus' reply directly cites Isaiah 35:5-6 and 61:1 — miracles of healing and gospel preaching that Isaiah prophesied the Messiah would perform, giving John evidence to confirm Jesus' identity from Scripture",
         "option_d": "Jesus was avoiding the question",
         "correct_answer": "a",
         "explanation": "Luke 7:22 — Jesus'  answer combines Isaiah 35:5-6 (blind see, lame walk, deaf hear) with Isaiah 61:1 (gospel to the poor), inviting John to see messianic prophecy fulfilled before his disciples' eyes."
@@ -1334,8 +1334,8 @@
       {
         "question_number": 8,
         "question": "What does Jesus' statement \"My mother and my brethren are these which hear the word of God, and do it\" redefine?",
-        "option_a": "It redefines family in spiritual terms — biological kinship is secondary to the bond formed by hearing and obeying God's word, establishing the community of faith as the true family of God",
-        "option_b": "Jesus was rejecting His biological family",
+        "option_a": "Jesus was rejecting His biological family",
+        "option_b": "It redefines family in spiritual terms — biological kinship is secondary to the bond formed by hearing and obeying God's word, establishing the community of faith as the true family of God",
         "option_c": "Jesus did not love His mother",
         "option_d": "Family relationships have no value at all",
         "correct_answer": "a",
@@ -1462,9 +1462,9 @@
       {
         "question_number": 4,
         "question": "What does \"For what is a man advantaged, if he gain the whole world, and lose himself, or be cast away?\" teach about priorities?",
-        "option_a": "No earthly gain can compensate for the loss of one's soul — the exchange rate between the world and the soul is infinite, making self-preservation at the cost of faithfulness the worst possible bargain",
+        "option_a": "The world has no value at all",
         "option_b": "Gaining wealth is always wrong",
-        "option_c": "The world has no value at all",
+        "option_c": "No earthly gain can compensate for the loss of one's soul — the exchange rate between the world and the soul is infinite, making self-preservation at the cost of faithfulness the worst possible bargain",
         "option_d": "This only applies to wealthy people",
         "correct_answer": "a",
         "explanation": "Luke 9:25 — \"For what is a man advantaged, if he gain the whole world, and lose himself, or be cast away?\" The rhetorical question exposes the folly of trading eternal life for temporal gain."
@@ -1502,9 +1502,9 @@
       {
         "question_number": 8,
         "question": "What is the messianic secret, and how does Luke 9:21 illustrate it?",
-        "option_a": "Jesus \"straitly charged them, and commanded them to tell no man\" that He was the Christ — He controlled the revelation of His identity to prevent political messianic expectations that would undermine His mission of suffering before glory",
+        "option_a": "Peter was wrong about Jesus being the Christ",
         "option_b": "Jesus was unsure of His identity",
-        "option_c": "Peter was wrong about Jesus being the Christ",
+        "option_c": "Jesus \"straitly charged them, and commanded them to tell no man\" that He was the Christ — He controlled the revelation of His identity to prevent political messianic expectations that would undermine His mission of suffering before glory",
         "option_d": "Jesus wanted to avoid all public attention permanently",
         "correct_answer": "a",
         "explanation": "Luke 9:21-22 — Jesus immediately follows Peter's confession with a passion prediction: the Christ must suffer, be rejected, be killed, and rise. He silences premature proclamation because the cross must precede the crown."
@@ -1600,9 +1600,9 @@
       {
         "question_number": 1,
         "question": "What is the theological significance of Jesus sending seventy disciples, not just twelve?",
-        "option_a": "The seventy likely symbolise the seventy nations of Genesis 10 — foreshadowing the universal mission to all peoples, while the twelve represented the twelve tribes of Israel. Luke emphasises the gospel's reach beyond Israel",
+        "option_a": "Seventy was a random number",
         "option_b": "It was simply because more workers were needed",
-        "option_c": "Seventy was a random number",
+        "option_c": "The seventy likely symbolise the seventy nations of Genesis 10 — foreshadowing the universal mission to all peoples, while the twelve represented the twelve tribes of Israel. Luke emphasises the gospel's reach beyond Israel",
         "option_d": "Jesus could not find enough qualified people for twelve",
         "correct_answer": "a",
         "explanation": "Luke 10:1 — The number seventy echoes the seventy nations in the Table of Nations (Genesis 10) and the seventy elders appointed by Moses (Numbers 11:16-17). Luke, writing for a Gentile audience, highlights the universal scope of Christ's mission."
@@ -1620,9 +1620,9 @@
       {
         "question_number": 3,
         "question": "Why is the Good Samaritan parable so shocking in its original context?",
-        "option_a": "Samaritans were despised by Jews as racial and religious half-breeds — making a Samaritan the hero while the priest and Levite (Israel's religious elite) fail, overturns every expectation and redefines \"neighbour\" beyond ethnic boundaries",
+        "option_a": "The parable was not controversial at all",
         "option_b": "Samaritans were widely respected by Jews",
-        "option_c": "The parable was not controversial at all",
+        "option_c": "Samaritans were despised by Jews as racial and religious half-breeds — making a Samaritan the hero while the priest and Levite (Israel's religious elite) fail, overturns every expectation and redefines \"neighbour\" beyond ethnic boundaries",
         "option_d": "Priests always helped everyone in need",
         "correct_answer": "a",
         "explanation": "Luke 10:33-37 — The Samaritan-Jewish hostility (cf. John 4:9, Luke 9:53) makes this parable explosive. Jesus demolishes ethno-religious tribalism: true neighbour-love transcends all boundaries. The lawyer cannot even say \"Samaritan,\" only \"he that shewed mercy.\""
@@ -1788,10 +1788,10 @@
       {
         "question_number": 3,
         "question": "What does the parable of the strong man and the stronger man teach about Jesus' ministry?",
-        "option_a": "Satan is the strong man guarding his palace; Jesus is the stronger one who overcomes him, takes away his armour, and divides his spoils — exorcisms are evidence of Satan's defeat, not collusion with him",
+        "option_a": "Jesus was the strong man, not the stronger one",
         "option_b": "Satan and Jesus are equally powerful",
         "option_c": "The strong man represents the Roman Empire",
-        "option_d": "Jesus was the strong man, not the stronger one",
+        "option_d": "Satan is the strong man guarding his palace; Jesus is the stronger one who overcomes him, takes away his armour, and divides his spoils — exorcisms are evidence of Satan's defeat, not collusion with him",
         "correct_answer": "a",
         "explanation": "Luke 11:21-22 — \"When a strong man armed keepeth his palace, his goods are in peace: But when a stronger than he shall come upon him, and overcome him, he taketh from him all his armour wherein he trusted, and divideth his spoils.\""
       },
@@ -1828,10 +1828,10 @@
       {
         "question_number": 7,
         "question": "What did Jesus mean by \"the queen of the south shall rise up in the judgment with the men of this generation\"?",
-        "option_a": "The Queen of Sheba, a Gentile, will condemn Israel because she travelled far to hear Solomon's wisdom, yet Israel rejects one greater than Solomon standing in their midst — judgment is proportional to privilege",
+        "option_a": "The queen of the south was from Rome",
         "option_b": "The queen will literally sit as a judge",
         "option_c": "This refers to a future female ruler",
-        "option_d": "The queen of the south was from Rome",
+        "option_d": "The Queen of Sheba, a Gentile, will condemn Israel because she travelled far to hear Solomon's wisdom, yet Israel rejects one greater than Solomon standing in their midst — judgment is proportional to privilege",
         "correct_answer": "a",
         "explanation": "Luke 11:31 — \"The queen of the south shall rise up in the judgment with the men of this generation, and condemn them: for she came from the utmost parts of the earth to hear the wisdom of Solomon; and, behold, a greater than Solomon is here.\""
       },
@@ -1946,9 +1946,9 @@
       {
         "question_number": 2,
         "question": "What does \"where your treasure is, there will your heart be also\" reveal about the human condition?",
-        "option_a": "Our deepest affections follow our investments — treasure placement determines heart orientation, not the reverse. Jesus teaches that we can redirect our hearts by redirecting our resources toward heavenly purposes",
+        "option_a": "Treasure has no influence on the heart",
         "option_b": "Hearts naturally go wherever they want",
-        "option_c": "Treasure has no influence on the heart",
+        "option_c": "Our deepest affections follow our investments — treasure placement determines heart orientation, not the reverse. Jesus teaches that we can redirect our hearts by redirecting our resources toward heavenly purposes",
         "option_d": "This only applies to wealthy people",
         "correct_answer": "a",
         "explanation": "Luke 12:34 — \"For where your treasure is, there will your heart be also.\" Jesus does not say \"where your heart is, there your treasure will be\" — He says treasure leads the heart. Strategic generosity reorients affection."
@@ -1956,10 +1956,10 @@
       {
         "question_number": 3,
         "question": "What does \"Fear not, little flock; for it is your Father's good pleasure to give you the kingdom\" reveal about God's disposition?",
-        "option_a": "Despite the disciples' smallness and vulnerability, God delights in giving them the kingdom — the contrast between \"little flock\" and the grandeur of \"the kingdom\" shows that God's grace is lavish and His purposes are not limited by human weakness",
+        "option_a": "The flock must earn the kingdom",
         "option_b": "The kingdom is only for large groups",
         "option_c": "God reluctantly gives the kingdom",
-        "option_d": "The flock must earn the kingdom",
+        "option_d": "Despite the disciples' smallness and vulnerability, God delights in giving them the kingdom — the contrast between \"little flock\" and the grandeur of \"the kingdom\" shows that God's grace is lavish and His purposes are not limited by human weakness",
         "correct_answer": "a",
         "explanation": "Luke 12:32 — \"Fear not, little flock; for it is your Father's good pleasure to give you the kingdom.\" The tender diminutive \"little flock\" combined with the Father's \"good pleasure\" (eudokia) reveals gracious divine generosity."
       },
@@ -1976,9 +1976,9 @@
       {
         "question_number": 5,
         "question": "What does the faithful and wise steward parable teach about accountability in leadership?",
-        "option_a": "Leaders who faithfully serve during the master's absence will be rewarded with greater responsibility, while those who abuse their authority will be severely punished — privilege increases accountability",
+        "option_a": "Only the unfaithful steward exists",
         "option_b": "All leaders will be treated the same regardless",
-        "option_c": "Only the unfaithful steward exists",
+        "option_c": "Leaders who faithfully serve during the master's absence will be rewarded with greater responsibility, while those who abuse their authority will be severely punished — privilege increases accountability",
         "option_d": "The master will never return",
         "correct_answer": "a",
         "explanation": "Luke 12:42-46 — \"Who then is that faithful and wise steward, whom his lord shall make ruler over his household... Blessed is that servant, whom his lord when he cometh shall find so doing.\" The contrast between faithful and unfaithful stewards illustrates degrees of reward and judgment."
@@ -1996,8 +1996,8 @@
       {
         "question_number": 7,
         "question": "What does Jesus mean by \"I am come to send fire on the earth\"?",
-        "option_a": "The fire represents the refining, purifying, and dividing work of the gospel — and Jesus' baptism refers to His impending suffering on the cross, which He is \"straitened\" (distressed) until it is accomplished",
-        "option_b": "Jesus will literally set the earth on fire",
+        "option_a": "Jesus will literally set the earth on fire",
+        "option_b": "The fire represents the refining, purifying, and dividing work of the gospel — and Jesus' baptism refers to His impending suffering on the cross, which He is \"straitened\" (distressed) until it is accomplished",
         "option_c": "Fire refers to military conquest",
         "option_d": "This passage has no deeper meaning",
         "correct_answer": "a",
@@ -2154,8 +2154,8 @@
       {
         "question_number": 6,
         "question": "What does Jesus' response to the warning about Herod — \"Go ye, and tell that fox\" — reveal?",
-        "option_a": "Jesus shows fearless defiance of political threats — calling Herod a fox (cunning but insignificant compared to God's purposes), and declaring that His ministry timeline is determined by divine necessity, not human threats",
-        "option_b": "Jesus was afraid of Herod",
+        "option_a": "Jesus was afraid of Herod",
+        "option_b": "Jesus shows fearless defiance of political threats — calling Herod a fox (cunning but insignificant compared to God's purposes), and declaring that His ministry timeline is determined by divine necessity, not human threats",
         "option_c": "Jesus planned to flee from Herod",
         "option_d": "Jesus wanted to make peace with Herod",
         "correct_answer": "a",
@@ -2754,8 +2754,8 @@
       {
         "question_number": 4,
         "question": "What Old Testament examples did Jesus use to describe the days of the Son of man?",
-        "option_a": "The days of Noah (people eating and drinking until the flood came) and the days of Lot (people eating and drinking until fire fell on Sodom) — sudden destruction came upon the unprepared",
-        "option_b": "The days of Moses and the Red Sea",
+        "option_a": "The days of Moses and the Red Sea",
+        "option_b": "The days of Noah (people eating and drinking until the flood came) and the days of Lot (people eating and drinking until fire fell on Sodom) — sudden destruction came upon the unprepared",
         "option_c": "The days of David and Solomon",
         "option_d": "The days of Elijah and Elisha",
         "correct_answer": "a",
@@ -2836,10 +2836,10 @@
       {
         "question_number": 7,
         "question": "What does Jesus' instruction about forgiveness — \"if he trespass against thee seven times in a day, and seven times in a day turn again to thee, saying, I repent; thou shalt forgive him\" — demand?",
-        "option_a": "Unlimited, repeated forgiveness whenever repentance is expressed — the number seven represents completeness, meaning there should be no cap on a believer's willingness to forgive a repentant person",
+        "option_a": "Seven is the maximum number of times to forgive",
         "option_b": "Forgiveness is optional after the third offence",
         "option_c": "You should only forgive once",
-        "option_d": "Seven is the maximum number of times to forgive",
+        "option_d": "Unlimited, repeated forgiveness whenever repentance is expressed — the number seven represents completeness, meaning there should be no cap on a believer's willingness to forgive a repentant person",
         "correct_answer": "a",
         "explanation": "Luke 17:4 — \"And if he trespass against thee seven times in a day, and seven times in a day turn again to thee, saying, I repent; thou shalt forgive him.\" The seemingly impossible demand drove the disciples to cry: \"Lord, increase our faith\" (v.5)."
       },
@@ -2974,8 +2974,8 @@
       {
         "question_number": 4,
         "question": "Why does Jesus respond \"Why callest thou me good? none is good, save one, that is, God\" to the rich ruler?",
-        "option_a": "Jesus is not denying His divinity but forcing the ruler to think about the implications of his words — if only God is good, and Jesus is good, then the ruler must reckon with who Jesus truly is. It is a Socratic challenge, not a self-denial",
-        "option_b": "Jesus was admitting He was not good",
+        "option_a": "Jesus was admitting He was not good",
+        "option_b": "Jesus is not denying His divinity but forcing the ruler to think about the implications of his words — if only God is good, and Jesus is good, then the ruler must reckon with who Jesus truly is. It is a Socratic challenge, not a self-denial",
         "option_c": "Jesus was confused about His own nature",
         "option_d": "Jesus was being falsely modest",
         "correct_answer": "a",
@@ -3004,10 +3004,10 @@
       {
         "question_number": 7,
         "question": "What does Jesus' third passion prediction (vv. 31-33) add to the previous ones?",
-        "option_a": "This prediction is the most detailed — adding that He will be delivered to the Gentiles, mocked, spitefully entreated, spitted on, scourged, and killed, then rise the third day. Yet the disciples \"understood none of these things\" — the cross remained incomprehensible to them",
+        "option_a": "The disciples fully understood this prediction",
         "option_b": "This prediction was identical to the first",
         "option_c": "Jesus gave fewer details each time",
-        "option_d": "The disciples fully understood this prediction",
+        "option_d": "This prediction is the most detailed — adding that He will be delivered to the Gentiles, mocked, spitefully entreated, spitted on, scourged, and killed, then rise the third day. Yet the disciples \"understood none of these things\" — the cross remained incomprehensible to them",
         "correct_answer": "a",
         "explanation": "Luke 18:31-34 — The third prediction is the fullest (Gentile involvement, specific sufferings). Yet \"they understood none of these things, and this saying was hid from them.\" The messianic secret extends to the disciples' comprehension of the passion."
       },
@@ -3290,9 +3290,9 @@
       {
         "question_number": 2,
         "question": "What does \"the stone which the builders rejected is become the head of the corner\" (Psalm 118:22) mean christologically?",
-        "option_a": "Jesus, rejected by Israel's religious leaders (the builders), becomes the foundation and cornerstone of God's new building (the church) — the very one they discarded becomes the most important element of God's redemptive plan",
+        "option_a": "The builders are the Romans",
         "option_b": "The stone refers to the temple building",
-        "option_c": "The builders are the Romans",
+        "option_c": "Jesus, rejected by Israel's religious leaders (the builders), becomes the foundation and cornerstone of God's new building (the church) — the very one they discarded becomes the most important element of God's redemptive plan",
         "option_d": "This psalm has no messianic meaning",
         "correct_answer": "a",
         "explanation": "Luke 20:17 — Jesus applies Psalm 118:22 to Himself. The \"builders\" (scribes, priests, elders) rejected the stone (Jesus) that God made the capstone. Peter later expands this in Acts 4:11 and 1 Peter 2:7."
@@ -3320,8 +3320,8 @@
       {
         "question_number": 5,
         "question": "What does Jesus' question about David calling the Messiah \"Lord\" (Psalm 110:1) challenge?",
-        "option_a": "It challenges the assumption that the Messiah is merely David's descendant — if David calls Him \"Lord,\" the Messiah must be greater than David, implying divine nature. The Messiah is both David's son (human) and David's Lord (divine)",
-        "option_b": "Jesus was denying Davidic descent",
+        "option_a": "Jesus was denying Davidic descent",
+        "option_b": "It challenges the assumption that the Messiah is merely David's descendant — if David calls Him \"Lord,\" the Messiah must be greater than David, implying divine nature. The Messiah is both David's son (human) and David's Lord (divine)",
         "option_c": "Jesus was confused about the psalm",
         "option_d": "David never wrote Psalm 110",
         "correct_answer": "a",
@@ -3448,9 +3448,9 @@
       {
         "question_number": 1,
         "question": "How does the widow's mite story function as a commentary on the preceding condemnation of the scribes?",
-        "option_a": "The widow exemplifies the victim of scribal exploitation (20:47 \"devour widows' houses\") — she gives her last two coins to a corrupt temple system. Jesus does not praise the system but the widow's heart, while implicitly condemning the institution that impoverished her",
+        "option_a": "Jesus approved of the temple's fundraising",
         "option_b": "The two stories are completely unrelated",
-        "option_c": "Jesus approved of the temple's fundraising",
+        "option_c": "The widow exemplifies the victim of scribal exploitation (20:47 \"devour widows' houses\") — she gives her last two coins to a corrupt temple system. Jesus does not praise the system but the widow's heart, while implicitly condemning the institution that impoverished her",
         "option_d": "The widow was wealthy despite appearances",
         "correct_answer": "a",
         "explanation": "Luke 21:1-4 — Read in context of 20:47, the widow's gift is both beautiful (total devotion) and tragic (the temple devours her living). Jesus highlights her sacrificial faith while the reader sees the systemic injustice."
@@ -3458,10 +3458,10 @@
       {
         "question_number": 2,
         "question": "How does Luke's Olivet Discourse differ from Matthew's and Mark's, particularly regarding Jerusalem?",
-        "option_a": "Luke uniquely specifies \"Jerusalem shall be trodden down of the Gentiles, until the times of the Gentiles be fulfilled\" (v.24), explicitly describing the AD 70 destruction and subsequent Gentile domination — Luke separates the fall of Jerusalem from the end times more clearly than Matthew or Mark",
+        "option_a": "Luke focuses only on end times, not Jerusalem",
         "option_b": "All three accounts are identical",
         "option_c": "Luke omits the Olivet Discourse",
-        "option_d": "Luke focuses only on end times, not Jerusalem",
+        "option_d": "Luke uniquely specifies \"Jerusalem shall be trodden down of the Gentiles, until the times of the Gentiles be fulfilled\" (v.24), explicitly describing the AD 70 destruction and subsequent Gentile domination — Luke separates the fall of Jerusalem from the end times more clearly than Matthew or Mark",
         "correct_answer": "a",
         "explanation": "Luke 21:24 — Luke's addition of \"times of the Gentiles\" introduces a distinct historical period between Jerusalem's fall and Christ's return, providing a clearer two-stage eschatology: near (AD 70) and far (second coming)."
       },
@@ -3498,10 +3498,10 @@
       {
         "question_number": 6,
         "question": "What does \"heaven and earth shall pass away: but my words shall not pass away\" claim about Jesus' teaching?",
-        "option_a": "It claims eternal, absolute authority for Jesus' words — placing them above the permanence of the created order itself. This is a claim that only God can make, since only God's word endures forever (Isaiah 40:8)",
+        "option_a": "Heaven and earth will never pass away",
         "option_b": "Jesus was exaggerating for effect",
         "option_c": "Only some of His words will endure",
-        "option_d": "Heaven and earth will never pass away",
+        "option_d": "It claims eternal, absolute authority for Jesus' words — placing them above the permanence of the created order itself. This is a claim that only God can make, since only God's word endures forever (Isaiah 40:8)",
         "correct_answer": "a",
         "explanation": "Luke 21:33 — \"Heaven and earth shall pass away: but my words shall not pass away.\" This echoes Isaiah 40:8 (\"The word of our God shall stand for ever\"). By applying this to His own words, Jesus claims divine authority for His teaching."
       },
@@ -3666,8 +3666,8 @@
       {
         "question_number": 6,
         "question": "What is the significance of \"the Lord turned, and looked upon Peter\" after the third denial?",
-        "option_a": "This detail, unique to Luke, shows Jesus' awareness even during His own trial — the look was not of condemnation but of sorrow and love, breaking Peter's heart and fulfilling the prediction. It is a wordless exchange that speaks volumes about Christ's compassion toward failing disciples",
-        "option_b": "Jesus was angry at Peter",
+        "option_a": "Jesus was angry at Peter",
+        "option_b": "This detail, unique to Luke, shows Jesus' awareness even during His own trial — the look was not of condemnation but of sorrow and love, breaking Peter's heart and fulfilling the prediction. It is a wordless exchange that speaks volumes about Christ's compassion toward failing disciples",
         "option_c": "Jesus did not notice Peter's denial",
         "option_d": "Peter was not affected by the look",
         "correct_answer": "a",
@@ -3686,10 +3686,10 @@
       {
         "question_number": 8,
         "question": "How does Jesus' healing of Malchus' ear during His arrest demonstrate His character?",
-        "option_a": "It is His last miracle before the cross — performed for an enemy who came to arrest Him. Even in the moment of betrayal and violence, Jesus demonstrates the love for enemies He preached (6:27-35), showing that His teaching and His life were perfectly consistent",
+        "option_a": "This miracle is not recorded in Luke",
         "option_b": "It was an accidental healing",
         "option_c": "Jesus healed the ear to avoid trouble",
-        "option_d": "This miracle is not recorded in Luke",
+        "option_d": "It is His last miracle before the cross — performed for an enemy who came to arrest Him. Even in the moment of betrayal and violence, Jesus demonstrates the love for enemies He preached (6:27-35), showing that His teaching and His life were perfectly consistent",
         "correct_answer": "a",
         "explanation": "Luke 22:51 — \"And he touched his ear, and healed him.\" Only Luke records this healing, fitting his physician's interest and his theme of Jesus' compassion. Jesus' final pre-passion miracle heals a wound caused by a disciple's violence — undoing harm and showing mercy to an enemy."
       }
@@ -3794,10 +3794,10 @@
       {
         "question_number": 2,
         "question": "What does Pilate's threefold declaration of Jesus' innocence (vv. 4, 14, 22) accomplish in Luke's narrative?",
-        "option_a": "It establishes beyond doubt that Jesus was legally innocent — His death was not for His own crimes but a miscarriage of justice, supporting the theological truth that He died as the sinless substitute. Luke, writing for a Roman audience, also shows Christianity was not founded by a criminal",
+        "option_a": "The declarations are contradictory",
         "option_b": "Pilate was an unreliable witness",
         "option_c": "It shows Pilate was secretly a Christian",
-        "option_d": "The declarations are contradictory",
+        "option_d": "It establishes beyond doubt that Jesus was legally innocent — His death was not for His own crimes but a miscarriage of justice, supporting the theological truth that He died as the sinless substitute. Luke, writing for a Roman audience, also shows Christianity was not founded by a criminal",
         "correct_answer": "a",
         "explanation": "Luke 23:4,14,22 — Three declarations of innocence from the Roman governor — the highest legal authority — constitute an official legal verdict. For Luke's Gentile readers, this clears Christianity of the charge that its founder was a justly executed criminal."
       },
@@ -3824,9 +3824,9 @@
       {
         "question_number": 5,
         "question": "What does the three-hour darkness (noon to 3 PM) during the crucifixion signify?",
-        "option_a": "Supernatural darkness signals divine judgment — echoing the plague of darkness in Egypt (Exodus 10:22) and prophesied in Amos 8:9 (\"I will cause the sun to go down at noon, and I will darken the earth in the clear day\"). Creation itself mourns as the Creator dies",
+        "option_a": "The darkness had no significance",
         "option_b": "It was a natural solar eclipse",
-        "option_c": "The darkness had no significance",
+        "option_c": "Supernatural darkness signals divine judgment — echoing the plague of darkness in Egypt (Exodus 10:22) and prophesied in Amos 8:9 (\"I will cause the sun to go down at noon, and I will darken the earth in the clear day\"). Creation itself mourns as the Creator dies",
         "option_d": "It was simply cloudy weather",
         "correct_answer": "a",
         "explanation": "Luke 23:44-45 — \"There was a darkness over all the earth... And the sun was darkened.\" A solar eclipse is impossible during Passover (full moon). This is supernatural darkness, recalling Joel 2:31 and Amos 8:9, marking cosmic significance."
@@ -3992,8 +3992,8 @@
       {
         "question_number": 5,
         "question": "What does Jesus' physical resurrection body — showing wounds, eating fish — teach about the nature of the resurrection?",
-        "option_a": "The resurrection is physical and bodily, not merely spiritual — Jesus has \"flesh and bones\" (v.39), bears recognisable scars, and eats food, yet can also appear and vanish. The resurrection body is continuous with the earthly body but transformed and glorified",
-        "option_b": "The resurrection was purely spiritual",
+        "option_a": "The resurrection was purely spiritual",
+        "option_b": "The resurrection is physical and bodily, not merely spiritual — Jesus has \"flesh and bones\" (v.39), bears recognisable scars, and eats food, yet can also appear and vanish. The resurrection body is continuous with the earthly body but transformed and glorified",
         "option_c": "Jesus was a ghost or apparition",
         "option_d": "The body had no connection to His earthly form",
         "correct_answer": "a",

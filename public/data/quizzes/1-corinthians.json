@@ -602,8 +602,8 @@
       {
         "question_number": 2,
         "question": "What does Paul's phrase \"not to think above that which is written\" teach?",
-        "option_a": "Scripture should be the standard and limit of one's evaluation of ministers — not going beyond what God's word says to inflate one leader against another",
-        "option_b": "Do not think at all",
+        "option_a": "Do not think at all",
+        "option_b": "Scripture should be the standard and limit of one's evaluation of ministers — not going beyond what God's word says to inflate one leader against another",
         "option_c": "Do not read extra-biblical books",
         "option_d": "Do not discuss theology",
         "correct_answer": "a",
@@ -1274,8 +1274,8 @@
       {
         "question_number": 2,
         "question": "What does Paul mean by \"knowledge puffeth up, but charity edifieth\"?",
-        "option_a": "Mere intellectual understanding of theological truth inflates the ego, but love builds up the community — right knowledge without love produces arrogance, not godliness",
-        "option_b": "Knowledge is always bad",
+        "option_a": "Knowledge is always bad",
+        "option_b": "Mere intellectual understanding of theological truth inflates the ego, but love builds up the community — right knowledge without love produces arrogance, not godliness",
         "option_c": "Love requires ignorance",
         "option_d": "Paul opposes all theological education",
         "correct_answer": "a",
@@ -1334,9 +1334,9 @@
       {
         "question_number": 8,
         "question": "What does Paul's phrase \"if any man think that he knoweth any thing, he knoweth nothing yet as he ought to know\" teach?",
-        "option_a": "True knowledge includes knowing how to use knowledge lovingly — someone who has correct doctrine but lacks the humility and love to apply it properly does not truly understand it yet",
+        "option_a": "No one can know anything",
         "option_b": "Knowledge is completely worthless",
-        "option_c": "No one can know anything",
+        "option_c": "True knowledge includes knowing how to use knowledge lovingly — someone who has correct doctrine but lacks the humility and love to apply it properly does not truly understand it yet",
         "option_d": "Paul is anti-intellectual",
         "correct_answer": "a",
         "explanation": "1 Corinthians 8:2 — \"And if any man think that he knoweth any thing, he knoweth nothing yet as he ought to know.\" Genuine knowledge is not merely intellectual but relational — marked by love for God and neighbour."
@@ -1358,10 +1358,10 @@
       {
         "question_number": 2,
         "question": "Did Paul take money for preaching the gospel?",
-        "option_a": "No, he preached for free even though he had the right to be paid",
+        "option_a": "He refused to preach at all",
         "option_b": "Yes, he charged a high price",
         "option_c": "He only accepted gold",
-        "option_d": "He refused to preach at all",
+        "option_d": "No, he preached for free even though he had the right to be paid",
         "correct_answer": "a",
         "explanation": "1 Corinthians 9:18 — \"What is my reward then? Verily that, when I preach the gospel, I may make the gospel of Christ without charge.\""
       },
@@ -1462,9 +1462,9 @@
       {
         "question_number": 4,
         "question": "What is the significance of Paul's reference to the Isthmian Games?",
-        "option_a": "Corinth hosted the biennial Isthmian Games — Paul uses athletic imagery the Corinthians would viscerally understand: discipline, self-control, and purposeful effort toward an eternal prize",
+        "option_a": "The games were held in Jerusalem",
         "option_b": "Paul was a professional athlete",
-        "option_c": "The games were held in Jerusalem",
+        "option_c": "Corinth hosted the biennial Isthmian Games — Paul uses athletic imagery the Corinthians would viscerally understand: discipline, self-control, and purposeful effort toward an eternal prize",
         "option_d": "Paul is discussing the Olympics",
         "correct_answer": "a",
         "explanation": "1 Corinthians 9:24-25 — The Isthmian Games were held near Corinth every two years. Victors received a wreath of withered celery (corruptible crown), making Paul's contrast with the incorruptible crown vivid for his audience."
@@ -1640,8 +1640,8 @@
       {
         "question_number": 5,
         "question": "What does Paul mean by \"Do we provoke the Lord to jealousy? are we stronger than he?\"",
-        "option_a": "Participating in idol worship provokes God's jealousy (echoing Deuteronomy 32:21) — the rhetorical question warns that no one is strong enough to survive divine judgment for spiritual unfaithfulness",
-        "option_b": "God cannot be provoked",
+        "option_a": "God cannot be provoked",
+        "option_b": "Participating in idol worship provokes God's jealousy (echoing Deuteronomy 32:21) — the rhetorical question warns that no one is strong enough to survive divine judgment for spiritual unfaithfulness",
         "option_c": "Believers are indeed stronger than God",
         "option_d": "Jealousy does not apply to God",
         "correct_answer": "a",
@@ -1798,10 +1798,10 @@
       {
         "question_number": 4,
         "question": "What does Paul mean by \"when we are judged, we are chastened of the Lord, that we should not be condemned with the world\"?",
-        "option_a": "God's temporal discipline of believers (sickness, death) is corrective, not condemnatory — it is fatherly chastening to prevent final condemnation alongside the unbelieving world",
+        "option_a": "Discipline and condemnation are the same",
         "option_b": "Believers can lose their salvation",
         "option_c": "God never disciplines believers",
-        "option_d": "Discipline and condemnation are the same",
+        "option_d": "God's temporal discipline of believers (sickness, death) is corrective, not condemnatory — it is fatherly chastening to prevent final condemnation alongside the unbelieving world",
         "correct_answer": "a",
         "explanation": "1 Corinthians 11:32 — \"But when we are judged, we are chastened of the Lord, that we should not be condemned with the world.\" This distinguishes divine discipline (paideúō — parental training) from final judgment (katakrinō — condemnation)."
       },
@@ -2104,9 +2104,9 @@
       {
         "question_number": 1,
         "question": "How does chapter 13 function within the broader argument of chapters 12-14?",
-        "option_a": "It is the theological hinge — chapter 12 establishes the diversity of gifts, chapter 13 establishes love as the governing principle for all gifts, and chapter 14 applies this to the specific issue of tongues vs. prophecy",
+        "option_a": "It replaces the teaching on spiritual gifts",
         "option_b": "It is an independent hymn unrelated to its context",
-        "option_c": "It replaces the teaching on spiritual gifts",
+        "option_c": "It is the theological hinge — chapter 12 establishes the diversity of gifts, chapter 13 establishes love as the governing principle for all gifts, and chapter 14 applies this to the specific issue of tongues vs. prophecy",
         "option_d": "It is a later addition by another author",
         "correct_answer": "a",
         "explanation": "Chapter 13 is not a standalone poem but the strategic centre of Paul's argument on spiritual gifts. It answers 12:31's \"more excellent way\" and prepares for 14:1's \"Follow after charity, and desire spiritual gifts.\""
@@ -2134,19 +2134,19 @@
       {
         "question_number": 4,
         "question": "What is the significance of \"I shall know even as also I am known\"?",
-        "option_a": "In the eschaton, believers will know God with the same directness and intimacy with which God now knows them — not omniscience, but relational, unmediated knowledge replacing the current partial and indirect knowing",
+        "option_a": "Knowledge will be eliminated",
         "option_b": "Believers will become omniscient",
         "option_c": "This refers only to self-knowledge",
-        "option_d": "Knowledge will be eliminated",
+        "option_d": "In the eschaton, believers will know God with the same directness and intimacy with which God now knows them — not omniscience, but relational, unmediated knowledge replacing the current partial and indirect knowing",
         "correct_answer": "a",
         "explanation": "1 Corinthians 13:12 — \"Then shall I know even as also I am known.\" The verb epiginōskō (full knowledge) contraces ginōskō (partial knowledge) — the asymmetry of God knowing us will be resolved by our full knowing of Him."
       },
       {
         "question_number": 5,
         "question": "Why is love \"the greatest\" even above faith and hope?",
-        "option_a": "Faith and hope are temporal — faith will give way to sight and hope to fulfillment — but love is eternal, reflecting the very nature of God who is love (1 John 4:8); love participates in God's own character",
+        "option_a": "Because faith and hope are unimportant",
         "option_b": "Because Paul personally preferred love",
-        "option_c": "Because faith and hope are unimportant",
+        "option_c": "Faith and hope are temporal — faith will give way to sight and hope to fulfillment — but love is eternal, reflecting the very nature of God who is love (1 John 4:8); love participates in God's own character",
         "option_d": "Because love is easier to practise",
         "correct_answer": "a",
         "explanation": "1 Corinthians 13:13 — \"The greatest of these is charity.\" Faith becomes sight (2 Corinthians 5:7) and hope becomes reality (Romans 8:24) at Christ's return, but love endures because it is the essence of God's own nature."
@@ -2450,10 +2450,10 @@
       {
         "question_number": 2,
         "question": "What does \"firstfruits\" (aparchē) mean when applied to Christ's resurrection?",
-        "option_a": "Christ's resurrection is the initial harvest guaranteeing the full harvest — just as the firstfruits offered in the temple represented and guaranteed the entire crop, Christ's rising guarantees believers' future resurrection",
+        "option_a": "It means Christ's resurrection was incomplete",
         "option_b": "Christ was the first person ever to die",
         "option_c": "It refers to agricultural practices only",
-        "option_d": "It means Christ's resurrection was incomplete",
+        "option_d": "Christ's resurrection is the initial harvest guaranteeing the full harvest — just as the firstfruits offered in the temple represented and guaranteed the entire crop, Christ's rising guarantees believers' future resurrection",
         "correct_answer": "a",
         "explanation": "1 Corinthians 15:20,23 — \"But now is Christ risen from the dead, and become the firstfruits of them that slept... Christ the firstfruits; afterward they that are Christ's at his coming.\" The Feast of Firstfruits (Leviticus 23:10) typologically pictures Christ's resurrection."
       },
@@ -2470,10 +2470,10 @@
       {
         "question_number": 4,
         "question": "What does Paul teach about the nature of the resurrection body?",
-        "option_a": "It is continuous with yet transformed from the present body — sown/raised contrasts (corruption/incorruption, dishonour/glory, weakness/power, natural/spiritual) show both continuity (same body sown and raised) and radical transformation",
+        "option_a": "The resurrection body is identical to the current one",
         "option_b": "It is an entirely new body unrelated to the old",
         "option_c": "Resurrection is purely spiritual with no body",
-        "option_d": "The resurrection body is identical to the current one",
+        "option_d": "It is continuous with yet transformed from the present body — sown/raised contrasts (corruption/incorruption, dishonour/glory, weakness/power, natural/spiritual) show both continuity (same body sown and raised) and radical transformation",
         "correct_answer": "a",
         "explanation": "1 Corinthians 15:42-44 — The seed analogy (vv.36-38) establishes continuity (the same seed that is planted grows), while the contrasts establish transformation. The resurrection body is the present body glorified, not a replacement."
       },
@@ -2510,10 +2510,10 @@
       {
         "question_number": 8,
         "question": "What does \"then cometh the end, when he shall have delivered up the kingdom to God, even the Father\" reveal about eschatology?",
-        "option_a": "Christ's mediatorial kingdom culminates when all enemies (including death) are subdued; He then delivers the kingdom to the Father and subjects Himself, so that \"God may be all in all\" — the Son's voluntary submission preserves Trinitarian unity",
+        "option_a": "The kingdom has no end",
         "option_b": "Christ's kingdom replaces the Father's",
         "option_c": "The Son ceases to exist",
-        "option_d": "The kingdom has no end",
+        "option_d": "Christ's mediatorial kingdom culminates when all enemies (including death) are subdued; He then delivers the kingdom to the Father and subjects Himself, so that \"God may be all in all\" — the Son's voluntary submission preserves Trinitarian unity",
         "correct_answer": "a",
         "explanation": "1 Corinthians 15:24,28 — \"Then cometh the end, when he shall have delivered up the kingdom to God, even the Father... then shall the Son also himself be subject unto him that put all things under him, that God may be all in all.\""
       }
@@ -2618,8 +2618,8 @@
       {
         "question_number": 2,
         "question": "What does Paul's reference to \"a great door and effectual is opened unto me, and there are many adversaries\" reveal about his ministry philosophy?",
-        "option_a": "Effective ministry and opposition go hand in hand — Paul sees open doors and adversaries as simultaneous, not contradictory; opposition is not a reason to leave but rather confirms that significant work is happening",
-        "option_b": "Opposition means God has closed the door",
+        "option_a": "Opposition means God has closed the door",
+        "option_b": "Effective ministry and opposition go hand in hand — Paul sees open doors and adversaries as simultaneous, not contradictory; opposition is not a reason to leave but rather confirms that significant work is happening",
         "option_c": "Paul is complaining about his difficulties",
         "option_d": "He plans to avoid all opposition",
         "correct_answer": "a",
@@ -2648,8 +2648,8 @@
       {
         "question_number": 5,
         "question": "What does Paul's statement about Apollos — \"his will was not at all to come at this time\" — reveal about apostolic relationships?",
-        "option_a": "Apollos exercised independent judgment about his travel plans despite Paul's strong desire — showing that early church leaders were colleagues, not subordinates under a papal hierarchy; Apollos had genuine autonomy",
-        "option_b": "Paul controlled Apollos's schedule",
+        "option_a": "Paul controlled Apollos's schedule",
+        "option_b": "Apollos exercised independent judgment about his travel plans despite Paul's strong desire — showing that early church leaders were colleagues, not subordinates under a papal hierarchy; Apollos had genuine autonomy",
         "option_c": "Apollos was rebelling against Paul",
         "option_d": "They were enemies",
         "correct_answer": "a",
@@ -2668,9 +2668,9 @@
       {
         "question_number": 7,
         "question": "What is the significance of Paul writing the final greeting \"with mine own hand\"?",
-        "option_a": "Paul typically dictated his letters through an amanuensis (secretary) but wrote the final greeting personally as authentication — proving the letter's genuineness and adding a personal touch (cf. Galatians 6:11, Colossians 4:18, 2 Thessalonians 3:17)",
+        "option_a": "The rest of the letter was not his",
         "option_b": "He could not afford a secretary",
-        "option_c": "The rest of the letter was not his",
+        "option_c": "Paul typically dictated his letters through an amanuensis (secretary) but wrote the final greeting personally as authentication — proving the letter's genuineness and adding a personal touch (cf. Galatians 6:11, Colossians 4:18, 2 Thessalonians 3:17)",
         "option_d": "He was testing a new pen",
         "correct_answer": "a",
         "explanation": "1 Corinthians 16:21 — \"The salutation of me Paul with mine own hand.\" This autographic practice was common in ancient letter-writing as a seal of authenticity, confirming that the dictated content was genuinely from the named author."

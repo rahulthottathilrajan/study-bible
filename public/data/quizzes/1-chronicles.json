@@ -36,8 +36,8 @@
       {
         "question_number": 1,
         "question": "How many sons of Noah are named in 1 Chronicles 1, and who are they?",
-        "option_a": "Three: Shem, Ham, and Japheth",
-        "option_b": "Two: Shem and Japheth",
+        "option_a": "Two: Shem and Japheth",
+        "option_b": "Three: Shem, Ham, and Japheth",
         "option_c": "Three: Shem, Ham, and Canaan",
         "option_d": "Four: Shem, Ham, Japheth, and Arpachshad",
         "correct_answer": "a",
@@ -382,9 +382,9 @@
       {
         "question_number": 2,
         "question": "How many additional sons did David have in Jerusalem, besides the four born to Bathshua?",
-        "option_a": "Nine more sons and Tamar their sister",
+        "option_a": "Four sons besides the four by Bathshua",
         "option_b": "Thirteen sons by various wives",
-        "option_c": "Four sons besides the four by Bathshua",
+        "option_c": "Nine more sons and Tamar their sister",
         "option_d": "Seven sons in Jerusalem",
         "correct_answer": "a",
         "explanation": "1 Chronicles 3:6-8 — \"Ibhar also, and Elishama, and Eliphelet, And Nogah, and Nepheg, and Japhia, And Elishama, and Eliada, and Eliphelet, nine.\" Plus the four by Bathshua = thirteen in Jerusalem."
@@ -402,8 +402,8 @@
       {
         "question_number": 4,
         "question": "Name the last king of Judah before the Babylonian exile in the line given in 1 Chronicles 3.",
-        "option_a": "Zedekiah (Mattaniah)",
-        "option_b": "Jehoiakim",
+        "option_a": "Jehoiakim",
+        "option_b": "Zedekiah (Mattaniah)",
         "option_c": "Jehoiachin (Jeconiah)",
         "option_d": "Josiah",
         "correct_answer": "a",
@@ -444,9 +444,9 @@
       {
         "question_number": 3,
         "question": "How many total sons did David have in Jerusalem according to 1 Chronicles 3:5-8, and what does this number signify?",
-        "option_a": "Thirteen sons in Jerusalem from various mothers, showing his extensive royal household",
+        "option_a": "Nine sons, all born to Bathshua",
         "option_b": "Eleven sons in Jerusalem",
-        "option_c": "Nine sons, all born to Bathshua",
+        "option_c": "Thirteen sons in Jerusalem from various mothers, showing his extensive royal household",
         "option_d": "Fourteen sons including those by concubines",
         "correct_answer": "a",
         "explanation": "1 Chronicles 3:5-8 — four by Bathshua plus nine others (Ibhar, Elishama, Eliphelet, Nogah, Nepheg, Japhia, Elishama, Eliada, Eliphelet) = thirteen."
@@ -474,10 +474,10 @@
       {
         "question_number": 6,
         "question": "What are the names of the four sons of Josiah listed in 1 Chronicles 3:15, and how do they correspond to the historical kings of the final period?",
-        "option_a": "Johanan, Jehoiakim, Zedekiah (Mattaniah), Shallum — Shallum is likely Jehoahaz who reigned briefly",
+        "option_a": "Johanan, Jehoahaz, Jehoiakim, and Zedekiah",
         "option_b": "Jehoiakim, Jehoahaz, Zedekiah, and Jehoiachin",
         "option_c": "Josiah's sons were Eliakim, Mattaniah, Shallum, and Johanan",
-        "option_d": "Johanan, Jehoahaz, Jehoiakim, and Zedekiah",
+        "option_d": "Johanan, Jehoiakim, Zedekiah (Mattaniah), Shallum — Shallum is likely Jehoahaz who reigned briefly",
         "correct_answer": "a",
         "explanation": "1 Chronicles 3:15 — \"And the sons of Josiah were, the firstborn Johanan, the second Jehoiakim, the third Zedekiah, the fourth Shallum.\" Shallum is identified with Jehoahaz (2 Kings 23:31)."
       },
@@ -1492,10 +1492,10 @@
       {
         "question_number": 7,
         "question": "Why does the chapter include Nethinims (temple servants) among the first returnees in verse 2, and who were the Nethinims?",
-        "option_a": "The Nethinims were non-Israelite temple servants (possibly descendants of the Gibeonites of Joshua 9) given to assist the Levites; their early return shows the temple could function immediately upon restoration",
+        "option_a": "The Nethinims were the descendants of the singers appointed by David",
         "option_b": "The Nethinims were a sub-class of Levites who performed manual labor in the temple",
         "option_c": "The Nethinims were Babylonian converts who joined the returning exiles",
-        "option_d": "The Nethinims were the descendants of the singers appointed by David",
+        "option_d": "The Nethinims were non-Israelite temple servants (possibly descendants of the Gibeonites of Joshua 9) given to assist the Levites; their early return shows the temple could function immediately upon restoration",
         "correct_answer": "a",
         "explanation": "1 Chronicles 9:2 — \"the Israelites, the priests, Levites, and the Nethinims.\" — cf. Ezra 8:20: \"the Nethinims, whom David and the princes had appointed for the service of the Levites.\""
       },
@@ -4506,10 +4506,10 @@
       {
         "question_number": 6,
         "question": "How many tribes of Israel had princes listed in chapter 27, and which tribe was notably absent?",
-        "option_a": "Eleven tribes were listed with princes; the tribe of Gad was absent from the listed princes",
+        "option_a": "Ten tribes were listed; Dan and Naphtali were absent",
         "option_b": "All twelve tribes had princes equally listed",
         "option_c": "Only seven tribes had designated princes",
-        "option_d": "Ten tribes were listed; Dan and Naphtali were absent",
+        "option_d": "Eleven tribes were listed with princes; the tribe of Gad was absent from the listed princes",
         "correct_answer": "a",
         "explanation": "1 Chronicles 27:16-22 — The tribes listed include Reuben, Simeon, Levi, Aaron, Judah, Issachar, Zebulun, Naphtali, Ephraim, half-Manasseh, Benjamin, Dan; Gad and Asher are not mentioned separately."
       },

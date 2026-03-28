@@ -46,8 +46,8 @@
       {
         "question_number": 2,
         "question": "In Proverbs 1, what does wisdom do in the streets?",
-        "option_a": "She weeps and mourns",
-        "option_b": "She uttereth her voice",
+        "option_a": "She uttereth her voice",
+        "option_b": "She weeps and mourns",
         "option_c": "She builds a house",
         "option_d": "She plants a garden",
         "correct_answer": "a",
@@ -88,8 +88,8 @@
       {
         "question_number": 1,
         "question": "What is the stated purpose of the proverbs in Proverbs 1:2-4?",
-        "option_a": "To entertain the people of Israel",
-        "option_b": "To know wisdom and instruction, to perceive words of understanding",
+        "option_a": "To know wisdom and instruction, to perceive words of understanding",
+        "option_b": "To entertain the people of Israel",
         "option_c": "To record the history of Solomon",
         "option_d": "To teach the law of Moses",
         "correct_answer": "a",
@@ -98,8 +98,8 @@
       {
         "question_number": 2,
         "question": "What instruction regarding ornamental grace does Proverbs 1:9 give?",
-        "option_a": "Wisdom is a crown for the head",
-        "option_b": "The instruction of parents shall be an ornament of grace unto thy head",
+        "option_a": "The instruction of parents shall be an ornament of grace unto thy head",
+        "option_b": "Wisdom is a crown for the head",
         "option_c": "A soft answer turns away wrath",
         "option_d": "The fear of the LORD adds years to life",
         "correct_answer": "a",
@@ -108,8 +108,8 @@
       {
         "question_number": 3,
         "question": "How does Wisdom react when calamity falls on those who rejected her according to Proverbs 1:26?",
-        "option_a": "She mourns with them",
-        "option_b": "She will laugh at their calamity and mock when their fear cometh",
+        "option_a": "She will laugh at their calamity and mock when their fear cometh",
+        "option_b": "She mourns with them",
         "option_c": "She offers them another chance",
         "option_d": "She intercedes for them",
         "correct_answer": "a",
@@ -392,8 +392,8 @@
       {
         "question_number": 3,
         "question": "What is wisdom's right hand said to hold in Proverbs 3:16?",
-        "option_a": "Length of days",
-        "option_b": "Riches and honour",
+        "option_a": "Riches and honour",
+        "option_b": "Length of days",
         "option_c": "Understanding",
         "option_d": "Peace and safety",
         "correct_answer": "a",
@@ -1492,10 +1492,10 @@
       {
         "question_number": 7,
         "question": "What structural contrast does Proverbs 9 present between Wisdom's house and Folly's house?",
-        "option_a": "Wisdom builds on seven pillars, slays beasts and mingles wine; Folly sits idle at her door with stolen water and secret bread",
+        "option_a": "Wisdom's house is ancient; Folly's house is new",
         "option_b": "Wisdom's house is on a hill; Folly's house is in a valley",
         "option_c": "Wisdom's house is open to all; Folly's house is hidden",
-        "option_d": "Wisdom's house is ancient; Folly's house is new",
+        "option_d": "Wisdom builds on seven pillars, slays beasts and mingles wine; Folly sits idle at her door with stolen water and secret bread",
         "correct_answer": "a",
         "explanation": "Proverbs 9:1-5 shows Wisdom building, preparing, and sending out; Proverbs 9:13-18 shows Folly sitting, calling, and offering only \"stolen waters.\""
       },

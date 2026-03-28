@@ -138,9 +138,9 @@
       {
         "question_number": 6,
         "question": "Why does the text name the midwives (Shiphrah and Puah) but not name the Pharaoh?",
-        "option_a": "The named midwives are honoured for their faithfulness to God, while the unnamed Pharaoh is diminished — reflecting God's value system where obedience matters more than political power",
+        "option_a": "Pharaoh's name was unknown",
         "option_b": "It was an oversight by the author",
-        "option_c": "Pharaoh's name was unknown",
+        "option_c": "The named midwives are honoured for their faithfulness to God, while the unnamed Pharaoh is diminished — reflecting God's value system where obedience matters more than political power",
         "option_d": "Naming kings was forbidden",
         "correct_answer": "a",
         "explanation": "Shiphrah (\"beautiful\") and Puah (\"splendid\") are preserved by name while the supposedly all-powerful Pharaoh remains anonymous. This literary choice elevates humble obedience over worldly power."
@@ -402,9 +402,9 @@
       {
         "question_number": 4,
         "question": "What was Moses' first objection to God's call?",
-        "option_a": "\"Who am I, that I should go unto Pharaoh?\" — he felt unworthy and inadequate",
+        "option_a": "He said he was too old",
         "option_b": "He said he was too busy",
-        "option_c": "He said he was too old",
+        "option_c": "\"Who am I, that I should go unto Pharaoh?\" — he felt unworthy and inadequate",
         "option_d": "He said he was too rich",
         "correct_answer": "a",
         "explanation": "Exodus 3:11 — \"And Moses said unto God, Who am I, that I should go unto Pharaoh, and that I should bring forth the children of Israel out of Egypt?\""
@@ -484,8 +484,8 @@
       {
         "question_number": 7,
         "question": "How does the \"land flowing with milk and honey\" function as covenant language?",
-        "option_a": "It describes agricultural abundance — milk from livestock and honey from wild bees or date palms — symbolising a land of provision that God gives as covenant fulfilment, contrasting Egypt's land of oppression",
-        "option_b": "It is a literal description of rivers of milk and honey",
+        "option_a": "It is a literal description of rivers of milk and honey",
+        "option_b": "It describes agricultural abundance — milk from livestock and honey from wild bees or date palms — symbolising a land of provision that God gives as covenant fulfilment, contrasting Egypt's land of oppression",
         "option_c": "It means the land is difficult to farm",
         "option_d": "It refers to Egypt",
         "correct_answer": "a",
@@ -800,9 +800,9 @@
       {
         "question_number": 5,
         "question": "What socio-economic detail does the straw requirement reveal about ancient brick-making?",
-        "option_a": "Straw (teben) was mixed with Nile clay as a binding agent — its fibres prevent cracking when bricks dry; without straw, bricks crumble, making the quota physically impossible without drastically more labour",
+        "option_a": "Straw made bricks lighter",
         "option_b": "Straw was purely decorative",
-        "option_c": "Straw made bricks lighter",
+        "option_c": "Straw (teben) was mixed with Nile clay as a binding agent — its fibres prevent cracking when bricks dry; without straw, bricks crumble, making the quota physically impossible without drastically more labour",
         "option_d": "Straw was used for colour",
         "correct_answer": "a",
         "explanation": "Exodus 5:7 — \"Ye shall no more give the people straw to make brick.\" Archaeological finds in Egypt confirm straw-tempered mud bricks. The straw's organic fibres bind the clay, preventing cracks — its removal made the task genuinely impossible at the required pace."
@@ -1096,9 +1096,9 @@
       {
         "question_number": 1,
         "question": "What does it mean that God made Moses \"a god to Pharaoh\"?",
-        "option_a": "Moses functioned as God's representative with divine authority before Pharaoh — just as Pharaoh claimed divine status, Moses stood before him with the true God's power and mandate",
+        "option_a": "Moses replaced Pharaoh",
         "option_b": "Moses became literally divine",
-        "option_c": "Moses replaced Pharaoh",
+        "option_c": "Moses functioned as God's representative with divine authority before Pharaoh — just as Pharaoh claimed divine status, Moses stood before him with the true God's power and mandate",
         "option_d": "Moses became an Egyptian god",
         "correct_answer": "a",
         "explanation": "Exodus 7:1 — \"I have made thee a god to Pharaoh\" (elohim l'Pharaoh). This does not deify Moses but establishes him as God's authorised agent. As Pharaoh claimed to be the incarnation of Horus, Moses now confronts him as the representative of Yahweh."
@@ -1166,9 +1166,9 @@
       {
         "question_number": 8,
         "question": "What does Exodus 7:5 state as the purpose of the plagues?",
-        "option_a": "\"And the Egyptians shall know that I am the LORD, when I stretch forth mine hand upon Egypt, and bring out the children of Israel from among them\" — the plagues are revelatory, designed to demonstrate God's identity",
+        "option_a": "The plagues had no stated purpose",
         "option_b": "The purpose was solely punishment",
-        "option_c": "The plagues had no stated purpose",
+        "option_c": "\"And the Egyptians shall know that I am the LORD, when I stretch forth mine hand upon Egypt, and bring out the children of Israel from among them\" — the plagues are revelatory, designed to demonstrate God's identity",
         "option_d": "They were natural disasters",
         "correct_answer": "a",
         "explanation": "Exodus 7:5 — The plagues serve a dual purpose: judgment on Egypt and revelation of Yahweh. The phrase \"that ye may know that I am the LORD\" appears throughout (7:5, 8:22, 9:14, 10:2), making the plagues a theology lesson for both Egypt and Israel."
@@ -1314,9 +1314,9 @@
       {
         "question_number": 6,
         "question": "What does Moses' statement about \"the abomination of the Egyptians\" reveal about the religious clash?",
-        "option_a": "The animals Israel would sacrifice (cattle, sheep) were sacred to Egyptians — sacrificing them publicly would provoke violent reaction, making worship in Egypt impossible and necessitating the wilderness journey",
+        "option_a": "The Egyptians had no sacred animals",
         "option_b": "Moses was being xenophobic",
-        "option_c": "The Egyptians had no sacred animals",
+        "option_c": "The animals Israel would sacrifice (cattle, sheep) were sacred to Egyptians — sacrificing them publicly would provoke violent reaction, making worship in Egypt impossible and necessitating the wilderness journey",
         "option_d": "Moses was making excuses",
         "correct_answer": "a",
         "explanation": "Exodus 8:26 — The bull was sacred to Apis, the ram to Amun, the cow to Hathor. Israelite sacrifice of these animals before Egyptian eyes would be perceived as deliberate blasphemy against Egyptian deities — hence the necessity of wilderness worship."
@@ -1324,9 +1324,9 @@
       {
         "question_number": 7,
         "question": "How does the plague of flies (arov) connect to the broader judgment pattern?",
-        "option_a": "The Hebrew arov likely means \"mixture\" or \"swarm\" — possibly a mixture of biting insects. It marks the first plague where God explicitly protects Goshen (v.22), introducing a new dimension: God's judgment discriminates between His people and their oppressors",
+        "option_a": "It was the mildest plague",
         "option_b": "It is identical to the lice plague",
-        "option_c": "It was the mildest plague",
+        "option_c": "The Hebrew arov likely means \"mixture\" or \"swarm\" — possibly a mixture of biting insects. It marks the first plague where God explicitly protects Goshen (v.22), introducing a new dimension: God's judgment discriminates between His people and their oppressors",
         "option_d": "It had no theological significance",
         "correct_answer": "a",
         "explanation": "Exodus 8:21-24 — From the fourth plague onward, God explicitly separates Goshen from Egypt's judgments. This \"division\" (peduth) introduces the principle of divine discrimination that culminates in the Passover."
@@ -1358,9 +1358,9 @@
       {
         "question_number": 2,
         "question": "What happened to the Egyptians' skin in the sixth plague?",
-        "option_a": "Painful boils (sores) broke out on all the people and animals",
+        "option_a": "They became invisible",
         "option_b": "Their skin turned green",
-        "option_c": "They became invisible",
+        "option_c": "Painful boils (sores) broke out on all the people and animals",
         "option_d": "Their skin became soft",
         "correct_answer": "a",
         "explanation": "Exodus 9:10 — \"And they took ashes of the furnace, and stood before Pharaoh; and Moses sprinkled it up toward heaven; and it became a boil breaking forth with blains upon man, and upon beast.\""
@@ -1462,8 +1462,8 @@
       {
         "question_number": 4,
         "question": "What does Pharaoh's confession in 9:27 reveal about false repentance?",
-        "option_a": "His confession uses correct theological language (\"the LORD is righteous, I am wicked\") but lacks genuine change — once the hail stops, he hardens his heart again (v.34), demonstrating that correct words without heart change are meaningless",
-        "option_b": "His repentance was genuine",
+        "option_a": "His repentance was genuine",
+        "option_b": "His confession uses correct theological language (\"the LORD is righteous, I am wicked\") but lacks genuine change — once the hail stops, he hardens his heart again (v.34), demonstrating that correct words without heart change are meaningless",
         "option_c": "He never spoke these words",
         "option_d": "He permanently changed after this",
         "correct_answer": "a",
@@ -1526,8 +1526,8 @@
       {
         "question_number": 2,
         "question": "What happened during the ninth plague?",
-        "option_a": "Thick darkness covered all of Egypt for three days — people could not see each other",
-        "option_b": "It rained for three days",
+        "option_a": "It rained for three days",
+        "option_b": "Thick darkness covered all of Egypt for three days — people could not see each other",
         "option_c": "The ground shook",
         "option_d": "All the water dried up",
         "correct_answer": "a",
@@ -1558,10 +1558,10 @@
       {
         "question_number": 2,
         "question": "What compromise did Pharaoh try to make before the locust plague?",
-        "option_a": "He would let only the men go to worship, but not the children, women, or flocks",
+        "option_a": "He asked to come with them",
         "option_b": "He offered gold instead",
         "option_c": "He said they could worship in Egypt",
-        "option_d": "He asked to come with them",
+        "option_d": "He would let only the men go to worship, but not the children, women, or flocks",
         "correct_answer": "a",
         "explanation": "Exodus 10:10-11 — \"And he said unto them, Let the LORD be so with you, as I will let you go, and your little ones: look to it; for evil is before you. Not so: go now ye that are men, and serve the LORD.\""
       },
@@ -1768,20 +1768,20 @@
       {
         "question_number": 1,
         "question": "How does the tenth plague directly answer Pharaoh's question \"Who is the LORD?\"",
-        "option_a": "By striking Egypt's firstborn — from Pharaoh (considered a god) to the lowest servant — God demonstrates His sovereignty over all of Egyptian society, leaving no doubt about who the LORD is",
+        "option_a": "Pharaoh's family is exempt",
         "option_b": "It does not answer the question",
         "option_c": "Only the poor are affected",
-        "option_d": "Pharaoh's family is exempt",
+        "option_d": "By striking Egypt's firstborn — from Pharaoh (considered a god) to the lowest servant — God demonstrates His sovereignty over all of Egyptian society, leaving no doubt about who the LORD is",
         "correct_answer": "a",
         "explanation": "Exodus 11:5 — The plague spans the entire social hierarchy: \"from the firstborn of Pharaoh that sitteth upon his throne, even unto the firstborn of the maidservant that is behind the mill.\" No class, no person, no god of Egypt is exempt from Yahweh's judgment."
       },
       {
         "question_number": 2,
         "question": "What is the literary significance of Moses departing \"in great anger\"?",
-        "option_a": "It marks the final break between God's representative and Pharaoh — after nine plagues and repeated deceptions, righteous anger is the appropriate response to unrepentant evil, mirroring God's own wrath",
+        "option_a": "Moses was angry at God",
         "option_b": "Moses lost his temper sinfully",
         "option_c": "It was a diplomatic failure",
-        "option_d": "Moses was angry at God",
+        "option_d": "It marks the final break between God's representative and Pharaoh — after nine plagues and repeated deceptions, righteous anger is the appropriate response to unrepentant evil, mirroring God's own wrath",
         "correct_answer": "a",
         "explanation": "Exodus 11:8 — Moses' anger is not sinful rage but righteous indignation — the fury of a prophet confronting obstinate wickedness. It parallels Jesus' anger at hardness of heart (Mark 3:5)."
       },
@@ -1872,9 +1872,9 @@
       {
         "question_number": 3,
         "question": "What happened at midnight in Egypt?",
-        "option_a": "The LORD struck all the firstborn of Egypt — from Pharaoh's son to the prisoners' sons and the animals' firstborn",
+        "option_a": "The sun came out",
         "option_b": "Everyone fell asleep",
-        "option_c": "The sun came out",
+        "option_c": "The LORD struck all the firstborn of Egypt — from Pharaoh's son to the prisoners' sons and the animals' firstborn",
         "option_d": "The river flooded",
         "correct_answer": "a",
         "explanation": "Exodus 12:29 — \"And it came to pass, that at midnight the LORD smote all the firstborn in the land of Egypt, from the firstborn of Pharaoh that sat on his throne unto the firstborn of the captive that was in the dungeon.\""
@@ -1966,10 +1966,10 @@
       {
         "question_number": 4,
         "question": "Why must the lamb be eaten with bitter herbs and unleavened bread?",
-        "option_a": "Bitter herbs (maror) recall the bitterness of slavery; unleavened bread (matzah) represents both the haste of departure and the purity/sincerity of the redeemed life (1 Corinthians 5:8) — the meal combines remembrance of suffering with symbols of new life",
+        "option_a": "Unleavened bread was cheaper",
         "option_b": "They were the only available ingredients",
         "option_c": "Bitter herbs aided digestion",
-        "option_d": "Unleavened bread was cheaper",
+        "option_d": "Bitter herbs (maror) recall the bitterness of slavery; unleavened bread (matzah) represents both the haste of departure and the purity/sincerity of the redeemed life (1 Corinthians 5:8) — the meal combines remembrance of suffering with symbols of new life",
         "correct_answer": "a",
         "explanation": "Exodus 12:8 — \"And they shall eat the flesh in that night, roast with fire, and unleavened bread; and with bitter herbs they shall eat it.\" Each element carries theological meaning, turning the meal into a multi-sensory teaching tool about redemption."
       },
@@ -2104,8 +2104,8 @@
       {
         "question_number": 1,
         "question": "How does the consecration of the firstborn connect to the Passover and to Christ?",
-        "option_a": "Because God spared Israel's firstborn, every firstborn belongs to Him — this principle of redemption through substitution is fulfilled in Christ, the Firstborn over all creation (Colossians 1:15), who redeems all believers",
-        "option_b": "The firstborn law was purely economic",
+        "option_a": "The firstborn law was purely economic",
+        "option_b": "Because God spared Israel's firstborn, every firstborn belongs to Him — this principle of redemption through substitution is fulfilled in Christ, the Firstborn over all creation (Colossians 1:15), who redeems all believers",
         "option_c": "It had no connection to Christ",
         "option_d": "It applied only to animals",
         "correct_answer": "a",
@@ -2134,9 +2134,9 @@
       {
         "question_number": 4,
         "question": "How does Moses' taking of Joseph's bones connect the exodus to the patriarchal narrative?",
-        "option_a": "It fulfils Joseph's deathbed request (Genesis 50:25) and demonstrates that the exodus is the continuation of God's covenant promises to the patriarchs — Israel's story is one continuous narrative of faithfulness",
+        "option_a": "Joseph had no bones in Egypt",
         "option_b": "Moses collected the bones by accident",
-        "option_c": "Joseph had no bones in Egypt",
+        "option_c": "It fulfils Joseph's deathbed request (Genesis 50:25) and demonstrates that the exodus is the continuation of God's covenant promises to the patriarchs — Israel's story is one continuous narrative of faithfulness",
         "option_d": "It was an Egyptian custom",
         "correct_answer": "a",
         "explanation": "Exodus 13:19 — \"For he had straitly sworn the children of Israel\" (Genesis 50:25). Joseph's bones serve as a physical testimony of faith — he believed God would fulfil the land promise even though he died in Egypt (Hebrews 11:22)."
@@ -2272,8 +2272,8 @@
       {
         "question_number": 1,
         "question": "How does the Red Sea crossing function as both salvation and judgment simultaneously?",
-        "option_a": "The same event saves Israel and destroys Egypt — the water that forms walls of protection for God's people becomes the instrument of death for the oppressors, demonstrating that God's redemptive acts are simultaneously acts of judgment on evil",
-        "option_b": "It was only salvation, not judgment",
+        "option_a": "It was only salvation, not judgment",
+        "option_b": "The same event saves Israel and destroys Egypt — the water that forms walls of protection for God's people becomes the instrument of death for the oppressors, demonstrating that God's redemptive acts are simultaneously acts of judgment on evil",
         "option_c": "It was only judgment, not salvation",
         "option_d": "Salvation and judgment are unrelated",
         "correct_answer": "a",
@@ -2302,9 +2302,9 @@
       {
         "question_number": 4,
         "question": "What does God's command to \"go forward\" (14:15) reveal about the relationship between faith and action?",
-        "option_a": "After Moses' faith declaration (v.13-14), God says \"speak to the children of Israel, that they go forward\" — faith is not passive waiting but active obedience; they must step into the sea before it parts, exercising faith in action",
+        "option_a": "Action replaces faith",
         "option_b": "God criticised Moses for praying",
-        "option_c": "Action replaces faith",
+        "option_c": "After Moses' faith declaration (v.13-14), God says \"speak to the children of Israel, that they go forward\" — faith is not passive waiting but active obedience; they must step into the sea before it parts, exercising faith in action",
         "option_d": "They should have waited longer",
         "correct_answer": "a",
         "explanation": "Exodus 14:15 — \"Wherefore criest thou unto me? speak unto the children of Israel, that they go forward.\" There is a time for prayer and a time for action. God commands forward movement — faith acts on God's word even when the obstacle (the sea) remains."
@@ -2366,10 +2366,10 @@
       {
         "question_number": 2,
         "question": "What did Miriam do after the song?",
-        "option_a": "She took a tambourine and led all the women in dancing and singing praise to God",
+        "option_a": "She took a nap",
         "option_b": "She cooked dinner",
         "option_c": "She went swimming",
-        "option_d": "She took a nap",
+        "option_d": "She took a tambourine and led all the women in dancing and singing praise to God",
         "correct_answer": "a",
         "explanation": "Exodus 15:20 — \"And Miriam the prophetess, the sister of Aaron, took a timbrel in her hand; and all the women went out after her with timbrels and with dances.\""
       },
@@ -2490,8 +2490,8 @@
       {
         "question_number": 6,
         "question": "What conditional covenant does God establish at Marah?",
-        "option_a": "\"If thou wilt diligently hearken to the voice of the LORD thy God, and wilt do that which is right in his sight... I will put none of these diseases upon thee\" — linking obedience to divine healing, anticipating the Sinai covenant",
-        "option_b": "There is no covenant at Marah",
+        "option_a": "There is no covenant at Marah",
+        "option_b": "\"If thou wilt diligently hearken to the voice of the LORD thy God, and wilt do that which is right in his sight... I will put none of these diseases upon thee\" — linking obedience to divine healing, anticipating the Sinai covenant",
         "option_c": "The covenant was unconditional",
         "option_d": "Only sacrifice was required",
         "correct_answer": "a",
@@ -2524,8 +2524,8 @@
       {
         "question_number": 1,
         "question": "What special food did God send from heaven every morning?",
-        "option_a": "Manna — small white flakes that tasted like wafers made with honey",
-        "option_b": "Bread and butter",
+        "option_a": "Bread and butter",
+        "option_b": "Manna — small white flakes that tasted like wafers made with honey",
         "option_c": "Apples",
         "option_d": "Rice",
         "correct_answer": "a",
@@ -2556,8 +2556,8 @@
       {
         "question_number": 1,
         "question": "What special rule applied to gathering manna on the sixth day?",
-        "option_a": "They were to gather twice as much because no manna would fall on the Sabbath — and the double portion did not spoil overnight",
-        "option_b": "They gathered half as much",
+        "option_a": "They gathered half as much",
+        "option_b": "They were to gather twice as much because no manna would fall on the Sabbath — and the double portion did not spoil overnight",
         "option_c": "They did not gather at all",
         "option_d": "They gathered three times as much",
         "correct_answer": "a",
@@ -2648,9 +2648,9 @@
       {
         "question_number": 5,
         "question": "What is the eschatological significance of the hidden manna in Revelation 2:17?",
-        "option_a": "Christ promises \"hidden manna\" to overcomers — connecting wilderness provision to heavenly reward; the manna preserved in the ark (Exodus 16:33, Hebrews 9:4) becomes a symbol of God's eternal provision for His faithful people",
+        "option_a": "The manna in Revelation is literal",
         "option_b": "There is no connection",
-        "option_c": "The manna in Revelation is literal",
+        "option_c": "Christ promises \"hidden manna\" to overcomers — connecting wilderness provision to heavenly reward; the manna preserved in the ark (Exodus 16:33, Hebrews 9:4) becomes a symbol of God's eternal provision for His faithful people",
         "option_d": "It refers to earthly food",
         "correct_answer": "a",
         "explanation": "Revelation 2:17 — \"To him that overcometh will I give to eat of the hidden manna.\" The jar of manna kept in the ark (hidden in the Holy of Holies) becomes a symbol of the heavenly provision reserved for those who endure faithfully."
@@ -2668,8 +2668,8 @@
       {
         "question_number": 7,
         "question": "What is the connection between \"in the morning ye shall see the glory of the LORD\" and the manna?",
-        "option_a": "The manna itself is a manifestation of God's glory — daily provision is not merely physical sustenance but a visible display of divine presence and care; seeing God's glory in ordinary provision is a key spiritual discipline",
-        "option_b": "Glory refers only to the cloud",
+        "option_a": "Glory refers only to the cloud",
+        "option_b": "The manna itself is a manifestation of God's glory — daily provision is not merely physical sustenance but a visible display of divine presence and care; seeing God's glory in ordinary provision is a key spiritual discipline",
         "option_c": "Manna and glory are unrelated",
         "option_d": "Glory appeared only at Sinai",
         "correct_answer": "a",
@@ -2786,8 +2786,8 @@
       {
         "question_number": 2,
         "question": "What does the question \"Is the LORD among us, or not?\" reveal as the fundamental crisis?",
-        "option_a": "It exposes the core temptation in the wilderness: doubting God's presence despite overwhelming evidence (plagues, Red Sea, manna); this is the sin of testing God — demanding proof of what He has already demonstrated",
-        "option_b": "It was a reasonable question",
+        "option_a": "It was a reasonable question",
+        "option_b": "It exposes the core temptation in the wilderness: doubting God's presence despite overwhelming evidence (plagues, Red Sea, manna); this is the sin of testing God — demanding proof of what He has already demonstrated",
         "option_c": "They had no evidence of God's presence",
         "option_d": "Moses encouraged the question",
         "correct_answer": "a",
@@ -2806,8 +2806,8 @@
       {
         "question_number": 4,
         "question": "What is the typological significance of Aaron and Hur supporting Moses' hands?",
-        "option_a": "It demonstrates that no spiritual leader can sustain the burden alone — the body of Christ requires mutual support in intercession; those who hold up the leader's hands participate in the victory as much as those fighting on the battlefield",
-        "option_b": "Aaron and Hur were unnecessary",
+        "option_a": "Aaron and Hur were unnecessary",
+        "option_b": "It demonstrates that no spiritual leader can sustain the burden alone — the body of Christ requires mutual support in intercession; those who hold up the leader's hands participate in the victory as much as those fighting on the battlefield",
         "option_c": "Moses was simply tired",
         "option_d": "It was a one-time arrangement",
         "correct_answer": "a",
@@ -2816,9 +2816,9 @@
       {
         "question_number": 5,
         "question": "Why does God command the eradication of Amalek, and how does this connect to later history?",
-        "option_a": "Amalek attacked Israel's weakest and most vulnerable from the rear (Deuteronomy 25:17-18) — this unprovoked cruelty against the defenceless makes Amalek a perpetual enemy; the conflict continues through Saul (1 Samuel 15) and Haman the Agagite (Esther)",
+        "option_a": "Amalek was innocent",
         "option_b": "The conflict was temporary",
-        "option_c": "Amalek was innocent",
+        "option_c": "Amalek attacked Israel's weakest and most vulnerable from the rear (Deuteronomy 25:17-18) — this unprovoked cruelty against the defenceless makes Amalek a perpetual enemy; the conflict continues through Saul (1 Samuel 15) and Haman the Agagite (Esther)",
         "option_d": "God later forgave Amalek",
         "correct_answer": "a",
         "explanation": "Deuteronomy 25:17-18 — \"He met thee by the way, and smote the hindmost of thee, even all that were feeble behind thee, when thou wast faint and weary.\" Amalek's cowardice in attacking stragglers and the weak earned perpetual divine judgment."
@@ -2836,10 +2836,10 @@
       {
         "question_number": 7,
         "question": "How does the water-from-rock incident connect to the broader wilderness testing theme?",
-        "option_a": "Each crisis (hunger/manna ch.16, thirst/rock ch.17, war/Amalek ch.17) tests whether Israel will trust God's provision — the escalating challenges prepare them for covenant commitment at Sinai; trust must be established before law is given",
+        "option_a": "Tests and covenant are unrelated",
         "option_b": "The tests were random",
         "option_c": "Israel passed all tests easily",
-        "option_d": "Tests and covenant are unrelated",
+        "option_d": "Each crisis (hunger/manna ch.16, thirst/rock ch.17, war/Amalek ch.17) tests whether Israel will trust God's provision — the escalating challenges prepare them for covenant commitment at Sinai; trust must be established before law is given",
         "correct_answer": "a",
         "explanation": "The wilderness testing sequence is pedagogical: after salvation (ch.14), God tests provision-trust (ch.16-17) before giving the covenant (ch.19-20). Each test reveals Israel's heart and God's faithfulness, establishing the relationship foundation for the law."
       },
@@ -3162,10 +3162,10 @@
       {
         "question_number": 6,
         "question": "What does \"the LORD descended upon it in fire\" reveal about the nature of theophany?",
-        "option_a": "Fire represents God's holiness, glory, and consuming nature — it both reveals and conceals; God is present (in the fire) yet hidden (in the smoke and cloud), establishing that God can be known but never fully comprehended",
+        "option_a": "Fire was coincidental",
         "option_b": "Fire was merely dramatic",
         "option_c": "The mountain actually erupted",
-        "option_d": "Fire was coincidental",
+        "option_d": "Fire represents God's holiness, glory, and consuming nature — it both reveals and conceals; God is present (in the fire) yet hidden (in the smoke and cloud), establishing that God can be known but never fully comprehended",
         "correct_answer": "a",
         "explanation": "Exodus 19:18 — \"Mount Sinai was altogether on a smoke, because the LORD descended upon it in fire.\" Fire as theophanic medium appears at the burning bush (3:2), the pillar (13:21), Sinai (19:18), and Pentecost (Acts 2:3). It signifies divine presence that purifies and illuminates."
       },
@@ -3280,9 +3280,9 @@
       {
         "question_number": 1,
         "question": "How does the preamble \"I am the LORD thy God, which have brought thee out of the land of Egypt\" frame the entire Decalogue?",
-        "option_a": "It establishes that the commandments flow from a relationship of grace — God identifies Himself as Redeemer before Lawgiver; obedience is a response to deliverance, not a condition for it; the indicative (what God has done) grounds the imperative (what Israel must do)",
+        "option_a": "It establishes law before grace",
         "option_b": "The preamble is irrelevant to the commands",
-        "option_c": "It establishes law before grace",
+        "option_c": "It establishes that the commandments flow from a relationship of grace — God identifies Himself as Redeemer before Lawgiver; obedience is a response to deliverance, not a condition for it; the indicative (what God has done) grounds the imperative (what Israel must do)",
         "option_d": "It was added later",
         "correct_answer": "a",
         "explanation": "Exodus 20:2 — The preamble is crucial: God does not begin with \"Obey these rules.\" He begins with \"I am the LORD thy God, which have brought thee out.\" This theological sequence — grace before law, redemption before requirement — is the foundation of biblical ethics."
@@ -3340,8 +3340,8 @@
       {
         "question_number": 7,
         "question": "How does the people's request for a mediator (20:19) anticipate the prophetic and priestly offices?",
-        "option_a": "Their fear of God's direct voice establishes the necessity of mediation — Moses becomes the prototype mediator, a role continued through the priesthood and prophets, and ultimately fulfilled in Christ who mediates a better covenant (Hebrews 8:6)",
-        "option_b": "The request was rejected by God",
+        "option_a": "The request was rejected by God",
+        "option_b": "Their fear of God's direct voice establishes the necessity of mediation — Moses becomes the prototype mediator, a role continued through the priesthood and prophets, and ultimately fulfilled in Christ who mediates a better covenant (Hebrews 8:6)",
         "option_c": "No mediator was needed",
         "option_d": "Moses refused the role",
         "correct_answer": "a",
@@ -3350,8 +3350,8 @@
       {
         "question_number": 8,
         "question": "What does the prohibition against hewn stone altars (20:25) reveal about worship?",
-        "option_a": "Human craftsmanship on the altar represents human effort added to divine provision — God's altar must remain unadorned by human works, teaching that worship depends on God's grace, not human embellishment; this principle underlies the Reformation's emphasis on grace alone",
-        "option_b": "Hewn stones were too expensive",
+        "option_a": "Hewn stones were too expensive",
+        "option_b": "Human craftsmanship on the altar represents human effort added to divine provision — God's altar must remain unadorned by human works, teaching that worship depends on God's grace, not human embellishment; this principle underlies the Reformation's emphasis on grace alone",
         "option_c": "Uncut stones were stronger",
         "option_d": "It was an architectural preference",
         "correct_answer": "a",
@@ -3448,9 +3448,9 @@
       {
         "question_number": 1,
         "question": "How does the \"Book of the Covenant\" (chapters 21-23) relate to the Decalogue?",
-        "option_a": "The Book of the Covenant provides case law (casuistic law) that applies the general principles of the Ten Commandments to specific situations — it is the practical outworking of the Decalogue in daily life",
+        "option_a": "It contradicts the Decalogue",
         "option_b": "It replaces the Ten Commandments",
-        "option_c": "It contradicts the Decalogue",
+        "option_c": "The Book of the Covenant provides case law (casuistic law) that applies the general principles of the Ten Commandments to specific situations — it is the practical outworking of the Decalogue in daily life",
         "option_d": "It is unrelated to the Decalogue",
         "correct_answer": "a",
         "explanation": "Exodus 21-23 expand the Decalogue into case law. \"Thou shalt not kill\" (20:13) becomes detailed laws about murder, manslaughter, assault, and negligence (21:12-36). \"Thou shalt not steal\" (20:15) becomes laws about property, restitution, and economic justice."
@@ -3616,10 +3616,10 @@
       {
         "question_number": 1,
         "question": "How does the restitution principle in Exodus 22 differ from modern criminal justice?",
-        "option_a": "It prioritises restoration to the victim over punishment of the offender — the focus is making the victim whole through multiple restitution rather than incarceration; the offender repays society through the victim, not through imprisonment",
+        "option_a": "It is identical to modern systems",
         "option_b": "It focuses on imprisonment",
         "option_c": "It ignores victims entirely",
-        "option_d": "It is identical to modern systems",
+        "option_d": "It prioritises restoration to the victim over punishment of the offender — the focus is making the victim whole through multiple restitution rather than incarceration; the offender repays society through the victim, not through imprisonment",
         "correct_answer": "a",
         "explanation": "Exodus 22:1-15 — The restitution model is restorative: the thief repays the victim (not the state) with multiplied compensation. This victim-centred justice contrasts with modern systems where offenders serve time but victims receive little direct compensation."
       },
@@ -3636,8 +3636,8 @@
       {
         "question_number": 3,
         "question": "How does God's self-identification as \"gracious\" (channun) in 22:27 connect to the protection of the poor?",
-        "option_a": "God identifies His own character as the basis for social legislation — He is gracious to the vulnerable, therefore His people must be; the law reflects the character of the Lawgiver, making social justice a theological imperative, not merely ethical preference",
-        "option_b": "God's character is unrelated to law",
+        "option_a": "God's character is unrelated to law",
+        "option_b": "God identifies His own character as the basis for social legislation — He is gracious to the vulnerable, therefore His people must be; the law reflects the character of the Lawgiver, making social justice a theological imperative, not merely ethical preference",
         "option_c": "Grace only applies to forgiveness",
         "option_d": "Only priests need to be gracious",
         "correct_answer": "a",
@@ -3646,9 +3646,9 @@
       {
         "question_number": 4,
         "question": "What does the self-defence provision (22:2-3) about a thief breaking in at night teach?",
-        "option_a": "Killing a night-time intruder is not murder (no bloodguilt), but killing a daytime thief is (bloodguilt applies) — the distinction rests on whether the homeowner could reasonably perceive a lethal threat; at night, uncertainty justifies lethal force",
+        "option_a": "No self-defence was allowed",
         "option_b": "All killing of thieves was permitted",
-        "option_c": "No self-defence was allowed",
+        "option_c": "Killing a night-time intruder is not murder (no bloodguilt), but killing a daytime thief is (bloodguilt applies) — the distinction rests on whether the homeowner could reasonably perceive a lethal threat; at night, uncertainty justifies lethal force",
         "option_d": "The time of day was irrelevant",
         "correct_answer": "a",
         "explanation": "Exodus 22:2-3 — \"If a thief be found breaking up, and be smitten that he die, there shall no blood be shed for him. If the sun be risen upon him, there shall be blood shed for him.\" This nuanced law distinguishes between justified self-defence (night) and excessive force (day)."
@@ -3666,9 +3666,9 @@
       {
         "question_number": 6,
         "question": "What does the seduction law (22:16-17) reveal about the value placed on women?",
-        "option_a": "The seducer must marry the woman and pay the bride price — if the father refuses, the seducer still pays the full bride price; this protects the woman economically, ensuring she is not left without support or social standing after being dishonoured",
+        "option_a": "The woman was punished",
         "option_b": "Women had no economic protection",
-        "option_c": "The woman was punished",
+        "option_c": "The seducer must marry the woman and pay the bride price — if the father refuses, the seducer still pays the full bride price; this protects the woman economically, ensuring she is not left without support or social standing after being dishonoured",
         "option_d": "Only the father was compensated",
         "correct_answer": "a",
         "explanation": "Exodus 22:16-17 — The law addresses the practical consequence: a seduced virgin's marriage prospects were damaged. The required bride-price (mohar) whether or not marriage occurred ensured the woman was not left economically vulnerable by male irresponsibility."
@@ -3710,8 +3710,8 @@
       {
         "question_number": 2,
         "question": "How many special feasts did God command the Israelites to celebrate each year?",
-        "option_a": "Three feasts — the Feast of Unleavened Bread, the Feast of Harvest, and the Feast of Ingathering",
-        "option_b": "One feast",
+        "option_a": "One feast",
+        "option_b": "Three feasts — the Feast of Unleavened Bread, the Feast of Harvest, and the Feast of Ingathering",
         "option_c": "Seven feasts",
         "option_d": "No feasts at all",
         "correct_answer": "a",
@@ -3794,9 +3794,9 @@
       {
         "question_number": 2,
         "question": "What does the sabbatical year provision (23:10-11) reveal about the theology of land ownership?",
-        "option_a": "The land ultimately belongs to God — Israel holds it in trust; the seventh-year rest acknowledges divine ownership, provides for the poor, and teaches Israel that productivity depends on God's blessing, not human exploitation of the soil",
+        "option_a": "The sabbatical year was optional",
         "option_b": "The land belonged to farmers absolutely",
-        "option_c": "The sabbatical year was optional",
+        "option_c": "The land ultimately belongs to God — Israel holds it in trust; the seventh-year rest acknowledges divine ownership, provides for the poor, and teaches Israel that productivity depends on God's blessing, not human exploitation of the soil",
         "option_d": "Only rich farmers had to observe it",
         "correct_answer": "a",
         "explanation": "Exodus 23:10-11 — The sabbatical year asserts God's ownership (Leviticus 25:23: \"The land is mine; for ye are strangers and sojourners with me\"). It also serves ecological, social (feeding the poor), and theological (trust in God's provision) purposes."
@@ -3814,10 +3814,10 @@
       {
         "question_number": 4,
         "question": "Why does God command the gradual dispossession of the Canaanites rather than immediate conquest?",
-        "option_a": "Practical wisdom — depopulated land would revert to wilderness with dangerous animals; Israel needed to grow numerically to fill the land; God's patience also gave the inhabitants time to respond (as Rahab later did)",
+        "option_a": "Gradual conquest was Moses' idea",
         "option_b": "God lacked the power for immediate conquest",
         "option_c": "The Canaanites were innocent",
-        "option_d": "Gradual conquest was Moses' idea",
+        "option_d": "Practical wisdom — depopulated land would revert to wilderness with dangerous animals; Israel needed to grow numerically to fill the land; God's patience also gave the inhabitants time to respond (as Rahab later did)",
         "correct_answer": "a",
         "explanation": "Exodus 23:29-30 — \"By little and little I will drive them out.\" This reveals God's pragmatic wisdom: conquest must match Israel's capacity to settle. It also demonstrates that God's timetable is often gradual, requiring sustained faithfulness."
       },
@@ -3844,8 +3844,8 @@
       {
         "question_number": 7,
         "question": "What does \"thou shalt not wrest the judgment of thy poor in his cause\" (23:6) reveal about judicial bias?",
-        "option_a": "It prohibits discrimination against the poor in court — while 23:3 warns against favouring the poor out of pity, 23:6 warns against disadvantaging them out of contempt; justice must be blind to both wealth and poverty",
-        "option_b": "Courts should always favour the poor",
+        "option_a": "Courts should always favour the poor",
+        "option_b": "It prohibits discrimination against the poor in court — while 23:3 warns against favouring the poor out of pity, 23:6 warns against disadvantaging them out of contempt; justice must be blind to both wealth and poverty",
         "option_c": "The wealthy deserve better treatment",
         "option_d": "The poor have no legal rights",
         "correct_answer": "a",
@@ -4002,8 +4002,8 @@
       {
         "question_number": 6,
         "question": "How does Joshua's presence on the mountain (24:13) foreshadow his future role?",
-        "option_a": "Joshua accompanied Moses partway up the mountain, positioning him as Moses' closest associate and eventual successor — his proximity to the divine encounter on Sinai prepared him for leadership when Moses could not enter the Promised Land",
-        "option_b": "Joshua went all the way to the top",
+        "option_a": "Joshua went all the way to the top",
+        "option_b": "Joshua accompanied Moses partway up the mountain, positioning him as Moses' closest associate and eventual successor — his proximity to the divine encounter on Sinai prepared him for leadership when Moses could not enter the Promised Land",
         "option_c": "Joshua stayed at the camp",
         "option_d": "Joshua was absent from this event",
         "correct_answer": "a",
@@ -4022,8 +4022,8 @@
       {
         "question_number": 8,
         "question": "How does the statement \"they saw the God of Israel\" (24:10) relate to the broader biblical teaching that no one can see God and live?",
-        "option_a": "The tension is deliberate — they saw a manifestation of God's glory (the sapphire pavement, the consuming fire) without seeing the divine essence; \"they saw God\" describes a genuine encounter short of the unmediated vision of God's full glory that would be fatal (33:20)",
-        "option_b": "They saw God fully without limitation",
+        "option_a": "They saw God fully without limitation",
+        "option_b": "The tension is deliberate — they saw a manifestation of God's glory (the sapphire pavement, the consuming fire) without seeing the divine essence; \"they saw God\" describes a genuine encounter short of the unmediated vision of God's full glory that would be fatal (33:20)",
         "option_c": "The text is contradicting itself",
         "option_d": "They did not actually see anything",
         "correct_answer": "a",
@@ -4160,9 +4160,9 @@
       {
         "question_number": 5,
         "question": "What does the heavenly \"pattern\" (tavnit) shown to Moses suggest about the tabernacle?",
-        "option_a": "The earthly tabernacle is a copy of a heavenly reality — Hebrews 8:5 states Moses was warned to \"make all things according to the pattern shewed to thee in the mount,\" indicating a Platonic-like relationship between the heavenly archetype and earthly copy",
+        "option_a": "There was no heavenly model",
         "option_b": "The pattern was Moses' own design",
-        "option_c": "There was no heavenly model",
+        "option_c": "The earthly tabernacle is a copy of a heavenly reality — Hebrews 8:5 states Moses was warned to \"make all things according to the pattern shewed to thee in the mount,\" indicating a Platonic-like relationship between the heavenly archetype and earthly copy",
         "option_d": "The pattern was from Egyptian temples",
         "correct_answer": "a",
         "explanation": "Exodus 25:9,40, Hebrews 8:5 — The tavnit (\"pattern/model\") shown on the mountain implies the earthly tabernacle corresponds to a heavenly reality. This suggests that worship, priesthood, and sacrifice on earth reflect and participate in heavenly realities."
@@ -4288,8 +4288,8 @@
       {
         "question_number": 1,
         "question": "How does the veil separating the Holy Place from the Most Holy Place connect to Christ's death?",
-        "option_a": "Matthew 27:51 records that the temple veil was torn from top to bottom when Jesus died — signifying that Christ's death removed the barrier between God and humanity, opening direct access to God's presence for all believers (Hebrews 10:19-20)",
-        "option_b": "The veil has no connection to Christ",
+        "option_a": "The veil has no connection to Christ",
+        "option_b": "Matthew 27:51 records that the temple veil was torn from top to bottom when Jesus died — signifying that Christ's death removed the barrier between God and humanity, opening direct access to God's presence for all believers (Hebrews 10:19-20)",
         "option_c": "The veil was repaired after Christ",
         "option_d": "The tearing was coincidental",
         "correct_answer": "a",
@@ -4358,9 +4358,9 @@
       {
         "question_number": 8,
         "question": "Why does God give such precise measurements and specifications for the tabernacle?",
-        "option_a": "Precision reflects that worship must conform to God's design, not human preference — the exact specifications teach that God determines how He is approached; this principle of regulative worship (God prescribes the form) opposes the notion that any sincere worship form is acceptable",
+        "option_a": "Moses chose the measurements",
         "option_b": "The details were suggestions",
-        "option_c": "Moses chose the measurements",
+        "option_c": "Precision reflects that worship must conform to God's design, not human preference — the exact specifications teach that God determines how He is approached; this principle of regulative worship (God prescribes the form) opposes the notion that any sincere worship form is acceptable",
         "option_d": "Precise measurements were standard for all tents",
         "correct_answer": "a",
         "explanation": "Exodus 26 contains exacting measurements for every component. Hebrews 8:5 states Moses was warned to follow the pattern exactly. This precision establishes the regulative principle: God determines the mode and manner of acceptable worship."
@@ -4414,8 +4414,8 @@
       {
         "question_number": 2,
         "question": "What were the dimensions of the tabernacle courtyard?",
-        "option_a": "One hundred cubits long and fifty cubits wide (approximately 150 feet by 75 feet)",
-        "option_b": "Ten cubits by ten cubits",
+        "option_a": "Ten cubits by ten cubits",
+        "option_b": "One hundred cubits long and fifty cubits wide (approximately 150 feet by 75 feet)",
         "option_c": "A thousand cubits by a thousand cubits",
         "option_d": "Fifty cubits by fifty cubits",
         "correct_answer": "a",
@@ -4694,8 +4694,8 @@
       {
         "question_number": 8,
         "question": "How does the command \"that he die not\" (28:35,43) establish the gravity of priestly service?",
-        "option_a": "The repeated death warning shows that approaching God is inherently dangerous for sinful humans — even the authorized priest in prescribed garments faces death if he violates protocols; this sober reality underscores God's holiness and the seriousness of worship",
-        "option_b": "The warning was not serious",
+        "option_a": "The warning was not serious",
+        "option_b": "The repeated death warning shows that approaching God is inherently dangerous for sinful humans — even the authorized priest in prescribed garments faces death if he violates protocols; this sober reality underscores God's holiness and the seriousness of worship",
         "option_c": "Death was never a real risk",
         "option_d": "Only symbolic death was meant",
         "correct_answer": "a",
@@ -4852,10 +4852,10 @@
       {
         "question_number": 7,
         "question": "How does the bull as a sin offering (29:10-14) differ from the ram as a burnt offering (29:15-18)?",
-        "option_a": "The sin offering (chattath) addresses guilt and atonement — its flesh is burned outside the camp; the burnt offering (olah) expresses total dedication — it is entirely consumed on the altar as a \"sweet savour\"; together they cover both the negative (removing sin) and positive (offering self) aspects of consecration",
+        "option_a": "The burnt offering dealt with sin",
         "option_b": "They served the same purpose",
         "option_c": "Only the sin offering was needed",
-        "option_d": "The burnt offering dealt with sin",
+        "option_d": "The sin offering (chattath) addresses guilt and atonement — its flesh is burned outside the camp; the burnt offering (olah) expresses total dedication — it is entirely consumed on the altar as a \"sweet savour\"; together they cover both the negative (removing sin) and positive (offering self) aspects of consecration",
         "correct_answer": "a",
         "explanation": "The sin offering (bull) removes guilt; the burnt offering (ram) dedicates the whole person. Together they teach that priesthood requires both cleansing from sin and complete self-offering — a pattern fulfilled in Christ who is both sin-bearer (2 Corinthians 5:21) and self-offering (Ephesians 5:2)."
       },
@@ -4960,8 +4960,8 @@
       {
         "question_number": 1,
         "question": "How does the altar of incense represent prayer in Scripture?",
-        "option_a": "Psalm 141:2 explicitly connects incense with prayer: \"Let my prayer be set forth before thee as incense.\" Revelation 5:8 and 8:3-4 identify the golden bowls of incense as \"the prayers of saints\" — the altar of incense makes prayer visible and aromatic, ascending to God",
-        "option_b": "Incense had no connection to prayer",
+        "option_a": "Incense had no connection to prayer",
+        "option_b": "Psalm 141:2 explicitly connects incense with prayer: \"Let my prayer be set forth before thee as incense.\" Revelation 5:8 and 8:3-4 identify the golden bowls of incense as \"the prayers of saints\" — the altar of incense makes prayer visible and aromatic, ascending to God",
         "option_c": "Only the burnt offering represented prayer",
         "option_d": "Incense was purely atmospheric",
         "correct_answer": "a",
@@ -5138,9 +5138,9 @@
       {
         "question_number": 2,
         "question": "Why is the Sabbath command repeated here in the context of tabernacle construction?",
-        "option_a": "It prevents the logical assumption that building God's house exempts one from God's day — even sacred work must yield to sacred rest; the Sabbath takes priority over the tabernacle itself, teaching that relationship with God supersedes even service for God",
+        "option_a": "Building the tabernacle was Sabbath-exempt",
         "option_b": "The placement is accidental",
-        "option_c": "Building the tabernacle was Sabbath-exempt",
+        "option_c": "It prevents the logical assumption that building God's house exempts one from God's day — even sacred work must yield to sacred rest; the Sabbath takes priority over the tabernacle itself, teaching that relationship with God supersedes even service for God",
         "option_d": "The Sabbath was less important than building",
         "correct_answer": "a",
         "explanation": "Exodus 31:12-17 — The Sabbath command's placement immediately after tabernacle instructions is deliberate: building the tabernacle does not override the Sabbath. Rabbinic tradition derived the 39 categories of prohibited Sabbath work from the tabernacle tasks."
@@ -5222,10 +5222,10 @@
       {
         "question_number": 2,
         "question": "What did Moses do with the two stone tablets when he saw the golden calf?",
-        "option_a": "He threw them down and broke them at the bottom of the mountain",
+        "option_a": "He hid them in a cave",
         "option_b": "He carefully put them away",
         "option_c": "He gave them to Aaron",
-        "option_d": "He hid them in a cave",
+        "option_d": "He threw them down and broke them at the bottom of the mountain",
         "correct_answer": "a",
         "explanation": "Exodus 32:19 — \"And it came to pass, as soon as he came nigh unto the camp, that he saw the calf, and the dancing: and Moses' anger waxed hot, and he cast the tables out of his hands, and brake them beneath the mount.\""
       },
@@ -5296,9 +5296,9 @@
       {
         "question_number": 1,
         "question": "How does Moses' intercession in chapter 32 foreshadow Christ's mediatorial work?",
-        "option_a": "Moses stands between a holy God and a sinful people, offers his own life, and appeals to God's covenant promises — prefiguring Christ who is the one mediator (1 Timothy 2:5), offers Himself for sinners, and intercedes based on covenant faithfulness",
+        "option_a": "Moses was superior to Christ",
         "option_b": "Moses' intercession has no Christological significance",
-        "option_c": "Moses was superior to Christ",
+        "option_c": "Moses stands between a holy God and a sinful people, offers his own life, and appeals to God's covenant promises — prefiguring Christ who is the one mediator (1 Timothy 2:5), offers Himself for sinners, and intercedes based on covenant faithfulness",
         "option_d": "Christ does not intercede",
         "correct_answer": "a",
         "explanation": "Exodus 32:11-14,30-32 — Moses' willingness to be \"blotted out\" for the people echoes Paul's wish in Romans 9:3 and ultimately prefigures Christ who \"was made a curse for us\" (Galatians 3:13). Moses models substitutionary intercession that Christ fulfils perfectly."
@@ -5346,9 +5346,9 @@
       {
         "question_number": 6,
         "question": "How does Paul use the golden calf incident in 1 Corinthians 10?",
-        "option_a": "Paul cites it as a warning against idolatry: \"Neither be ye idolaters, as were some of them; as it is written, The people sat down to eat and drink, and rose up to play\" (1 Corinthians 10:7) — past failures serve as present warnings",
+        "option_a": "Paul excuses the golden calf",
         "option_b": "Paul never references Exodus 32",
-        "option_c": "Paul excuses the golden calf",
+        "option_c": "Paul cites it as a warning against idolatry: \"Neither be ye idolaters, as were some of them; as it is written, The people sat down to eat and drink, and rose up to play\" (1 Corinthians 10:7) — past failures serve as present warnings",
         "option_d": "The passage applies only to Israel",
         "correct_answer": "a",
         "explanation": "1 Corinthians 10:6-7,11 — Paul treats the golden calf as a typological warning: \"Now these things were our examples... these things happened unto them for ensamples: and they are written for our admonition.\" Israel's failure warns the church against repeating the same sins."
@@ -5534,9 +5534,9 @@
       {
         "question_number": 8,
         "question": "How does the \"I know thee by name\" exchange (33:12,17) model the covenant relationship?",
-        "option_a": "God knowing Moses \"by name\" indicates intimate personal election; Moses' request to \"know thy ways\" and see God's glory seeks reciprocal knowledge; the covenant is fundamentally about mutual knowing — God knowing His people and His people knowing God (Jeremiah 31:34)",
+        "option_a": "Only Moses was known by name",
         "option_b": "It was a formal greeting",
-        "option_c": "Only Moses was known by name",
+        "option_c": "God knowing Moses \"by name\" indicates intimate personal election; Moses' request to \"know thy ways\" and see God's glory seeks reciprocal knowledge; the covenant is fundamentally about mutual knowing — God knowing His people and His people knowing God (Jeremiah 31:34)",
         "option_d": "The exchange was diplomatic",
         "correct_answer": "a",
         "explanation": "Exodus 33:12,17 — \"I know thee by name, and thou hast also found grace in my sight.\" The language of \"knowing\" defines covenant: Amos 3:2 (\"You only have I known of all the families of the earth\"). Covenant is personal, intimate, named relationship."
@@ -5642,8 +5642,8 @@
       {
         "question_number": 2,
         "question": "How does God's name \"Jealous\" (Qanna) function theologically?",
-        "option_a": "Divine jealousy is not petty envy but covenant passion — as a husband is rightly jealous for exclusive devotion from his wife, God demands exclusive worship because He is exclusively worthy; jealousy here is a virtue, not a vice",
-        "option_b": "God's jealousy is a flaw",
+        "option_a": "God's jealousy is a flaw",
+        "option_b": "Divine jealousy is not petty envy but covenant passion — as a husband is rightly jealous for exclusive devotion from his wife, God demands exclusive worship because He is exclusively worthy; jealousy here is a virtue, not a vice",
         "option_c": "It contradicts God's love",
         "option_d": "It applies only to Sinai",
         "correct_answer": "a",
@@ -5820,8 +5820,8 @@
       {
         "question_number": 3,
         "question": "How does the ability to teach (35:34) expand the understanding of spiritual gifting?",
-        "option_a": "Bezaleel was given not only the skill to create but also the ability to instruct others — the gift includes multiplication; true spiritual gifts are not merely for personal use but for equipping others, anticipating Ephesians 4:11-12",
-        "option_b": "Teaching was not part of his gift",
+        "option_a": "Teaching was not part of his gift",
+        "option_b": "Bezaleel was given not only the skill to create but also the ability to instruct others — the gift includes multiplication; true spiritual gifts are not merely for personal use but for equipping others, anticipating Ephesians 4:11-12",
         "option_c": "Only prophets could teach",
         "option_d": "Skills were not transferable",
         "correct_answer": "a",
@@ -5840,9 +5840,9 @@
       {
         "question_number": 5,
         "question": "How does the outpouring of generosity in chapter 35 contrast with the golden calf?",
-        "option_a": "The same people who gave gold for the calf (32:2-3) now give gold for the tabernacle (35:22) — demonstrating that redeemed hearts redirect their resources from idolatry to worship; the same material (gold) can serve either destruction or devotion",
+        "option_a": "No gold was used for the calf",
         "option_b": "The people were different",
-        "option_c": "No gold was used for the calf",
+        "option_c": "The same people who gave gold for the calf (32:2-3) now give gold for the tabernacle (35:22) — demonstrating that redeemed hearts redirect their resources from idolatry to worship; the same material (gold) can serve either destruction or devotion",
         "option_d": "There is no connection",
         "correct_answer": "a",
         "explanation": "Exodus 32:2-3 vs. 35:22 — Gold earrings torn off for the calf now become offerings for the tabernacle. The same wealth, the same people, but transformed hearts. This dramatic contrast teaches that conversion redirects existing resources toward God's purposes."
@@ -5884,8 +5884,8 @@
       {
         "question_number": 1,
         "question": "Did the people bring enough materials for building the tabernacle?",
-        "option_a": "They brought too much! Moses had to tell them to stop giving because there was more than enough",
-        "option_b": "They did not bring enough",
+        "option_a": "They did not bring enough",
+        "option_b": "They brought too much! Moses had to tell them to stop giving because there was more than enough",
         "option_c": "They brought exactly the right amount",
         "option_d": "They had to buy more from other nations",
         "correct_answer": "a",
@@ -5968,9 +5968,9 @@
       {
         "question_number": 1,
         "question": "What does the overflow of giving (36:5-7) teach about the relationship between grace and generosity?",
-        "option_a": "Hearts transformed by covenant renewal (ch.34) produce abundance — the overflow is evidence of genuine revival; when God's grace moves hearts, the practical result is sacrificial generosity that exceeds the need",
+        "option_a": "The overflow was coincidental",
         "option_b": "The people were coerced",
-        "option_c": "The overflow was coincidental",
+        "option_c": "Hearts transformed by covenant renewal (ch.34) produce abundance — the overflow is evidence of genuine revival; when God's grace moves hearts, the practical result is sacrificial generosity that exceeds the need",
         "option_d": "Generosity proves nothing about spiritual state",
         "correct_answer": "a",
         "explanation": "Exodus 36:5-7 — The overflow stands in deliberate contrast to the golden calf episode: the same people who eagerly gave gold for an idol now overflow with gifts for God. True spiritual renewal manifests in transformed stewardship."
@@ -5978,9 +5978,9 @@
       {
         "question_number": 2,
         "question": "How does the command to stop giving contrast with typical human religious experience?",
-        "option_a": "In most religious contexts, leaders plead for more giving — here Moses must command people to stop; this unique situation demonstrates the power of Spirit-motivated generosity versus guilt-driven obligation",
+        "option_a": "Moses wanted more",
         "option_b": "This situation was normal",
-        "option_c": "Moses wanted more",
+        "option_c": "In most religious contexts, leaders plead for more giving — here Moses must command people to stop; this unique situation demonstrates the power of Spirit-motivated generosity versus guilt-driven obligation",
         "option_d": "The people were wasteful",
         "correct_answer": "a",
         "explanation": "Exodus 36:6 — \"Moses gave commandment... Let neither man nor woman make any more work for the offering.\" This is perhaps the only recorded instance of a spiritual leader telling people to stop giving. It testifies to the extraordinary spiritual state of the people after covenant renewal."
@@ -6166,8 +6166,8 @@
       {
         "question_number": 4,
         "question": "What does the repetitive \"as the LORD commanded Moses\" accomplish in the narrative?",
-        "option_a": "Each occurrence serves as a verification mark — confirming point by point that God's design has been faithfully executed; the cumulative effect creates a liturgical rhythm of obedience that contrasts sharply with the disobedience of chapter 32",
-        "option_b": "It is tedious repetition",
+        "option_a": "It is tedious repetition",
+        "option_b": "Each occurrence serves as a verification mark — confirming point by point that God's design has been faithfully executed; the cumulative effect creates a liturgical rhythm of obedience that contrasts sharply with the disobedience of chapter 32",
         "option_c": "It was added by a later editor",
         "option_d": "It serves no purpose",
         "correct_answer": "a",
@@ -6482,10 +6482,10 @@
       {
         "question_number": 2,
         "question": "What does Moses' final inspection and blessing (39:43) parallel about God's role?",
-        "option_a": "Moses acts in God's place — inspecting, approving, and blessing, as God did with creation (Genesis 1:31, 2:3); this positions Moses as God's vice-regent, whose approval validates the community's obedient work and pronounces divine favour",
+        "option_a": "No parallel to Genesis exists",
         "option_b": "Moses was simply being polite",
         "option_c": "The inspection was routine",
-        "option_d": "No parallel to Genesis exists",
+        "option_d": "Moses acts in God's place — inspecting, approving, and blessing, as God did with creation (Genesis 1:31, 2:3); this positions Moses as God's vice-regent, whose approval validates the community's obedient work and pronounces divine favour",
         "correct_answer": "a",
         "explanation": "Exodus 39:43 — Moses' triple action (look/behold/bless) mirrors God's triple action in Genesis (saw/behold/blessed). This literary parallel positions the tabernacle completion as the climax of Israel's new-creation story."
       },
@@ -6620,8 +6620,8 @@
       {
         "question_number": 2,
         "question": "How does the glory cloud in 40:34-35 parallel Solomon's temple dedication?",
-        "option_a": "1 Kings 8:10-11 describes the same phenomenon: \"the cloud filled the house of the LORD, so that the priests could not stand to minister... for the glory of the LORD had filled the house.\" Both events demonstrate divine approval and occupation of the sacred space",
-        "option_b": "Solomon's temple had no cloud",
+        "option_a": "Solomon's temple had no cloud",
+        "option_b": "1 Kings 8:10-11 describes the same phenomenon: \"the cloud filled the house of the LORD, so that the priests could not stand to minister... for the glory of the LORD had filled the house.\" Both events demonstrate divine approval and occupation of the sacred space",
         "option_c": "The events are unrelated",
         "option_d": "Only the tabernacle had God's glory",
         "correct_answer": "a",
@@ -6640,8 +6640,8 @@
       {
         "question_number": 4,
         "question": "How does the book of Exodus end with movement rather than settlement?",
-        "option_a": "The final verses describe the cloud leading Israel forward — Exodus ends not with arrival but with journey; God's people are pilgrims following divine guidance, and the story continues into Leviticus and Numbers; Exodus achieves purpose (God's presence) while maintaining pilgrimage",
-        "option_b": "Exodus ends with rest",
+        "option_a": "Exodus ends with rest",
+        "option_b": "The final verses describe the cloud leading Israel forward — Exodus ends not with arrival but with journey; God's people are pilgrims following divine guidance, and the story continues into Leviticus and Numbers; Exodus achieves purpose (God's presence) while maintaining pilgrimage",
         "option_c": "The journey was complete",
         "option_d": "Israel had arrived at the Promised Land",
         "correct_answer": "a",
@@ -6670,10 +6670,10 @@
       {
         "question_number": 7,
         "question": "How does the conclusion of Exodus set up the rest of the Pentateuch?",
-        "option_a": "Exodus ends with God dwelling among Israel and leading them — Leviticus provides the manual for living with a holy God in their midst, Numbers narrates the journey under the cloud, and Deuteronomy prepares them for life in the land; Exodus is the pivotal book that transforms slaves into a covenant nation with God's presence",
+        "option_a": "Leviticus repeats Exodus",
         "option_b": "Exodus stands alone",
         "option_c": "The Pentateuch is disconnected",
-        "option_d": "Leviticus repeats Exodus",
+        "option_d": "Exodus ends with God dwelling among Israel and leading them — Leviticus provides the manual for living with a holy God in their midst, Numbers narrates the journey under the cloud, and Deuteronomy prepares them for life in the land; Exodus is the pivotal book that transforms slaves into a covenant nation with God's presence",
         "correct_answer": "a",
         "explanation": "Exodus 40:34-38 transitions seamlessly into Leviticus 1:1 (\"The LORD called unto Moses... out of the tabernacle\"). The glory that fills the tabernacle in Exodus's finale becomes the speaking presence in Leviticus's opening — one continuous narrative of God dwelling and speaking with His people."
       },

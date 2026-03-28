@@ -36,10 +36,10 @@
       {
         "question_number": 1,
         "question": "Where was Paul when he wrote the letter to Philemon?",
-        "option_a": "In prison (in bonds)",
+        "option_a": "In Philemon's house",
         "option_b": "At the temple in Jerusalem",
         "option_c": "On a ship at sea",
-        "option_d": "In Philemon's house",
+        "option_d": "In prison (in bonds)",
         "correct_answer": "a",
         "explanation": "Philemon 1:1,9 — \"Paul, a prisoner of Jesus Christ\" and \"being such an one as Paul the aged, and now also a prisoner of Jesus Christ.\""
       },

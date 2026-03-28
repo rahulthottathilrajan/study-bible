@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 import Header from "../components/Header";
 import { Card, Label, CrossIcon, ChevIcon } from "../components/ui";
-import { BADGES, BADGE_CATEGORIES, BIBLE_TRANSLATIONS } from "../constants";
+import { BADGES, BADGE_CATEGORIES, BIBLE_TRANSLATIONS, QUIZ_BOOKS, BIBLE_BOOKS } from "../constants";
+import { getTier, getTierColor } from "../components/MasteryRing";
 import { SUPPORTED_CURRENCIES } from "../utils/currency";
 
 export default function AccountView() {
@@ -12,7 +13,7 @@ export default function AccountView() {
     authMode, setAuthMode, authEmail, setAuthEmail, authPass, setAuthPass,
     authName, setAuthName, authError, authLoading, authShowPass, setAuthShowPass,
     authForgot, setAuthForgot, authForgotSent,
-    allHighlights, prayers, earnedBadges, listenedChapters,
+    allHighlights, prayers, earnedBadges, listenedChapters, quizMastery, quizScores,
     handleAuth, handleLogout, handleForgotPassword, handleGoogleSignIn,
     nav, setDonateModal, bp, currency, setCurrency,
   } = useApp();
@@ -345,6 +346,55 @@ export default function AccountView() {
               </div>
             </div>
 
+            {/* Quiz Mastery */}
+            {user && Object.values(quizScores).length > 0 && (
+              <Card t={ht} style={{ marginBottom: 14 }}>
+                <Label icon="📊" t={ht} color={ht.muted}>Quiz Mastery</Label>
+                {(() => {
+                  const allScores = Object.values(quizScores).flat();
+                  const totalQuizzes = allScores.length;
+                  const avgScore = totalQuizzes > 0 ? Math.round(allScores.reduce((s, q) => s + q.percentage, 0) / totalQuizzes) : 0;
+                  const goldCount = QUIZ_BOOKS.filter(b => (quizMastery?.[b]?.percentage || 0) >= 80).length;
+                  return (
+                    <>
+                      <div style={{ display: "flex", gap: 12, marginBottom: 14 }}>
+                        {[
+                          { n: totalQuizzes, l: "Quizzes" },
+                          { n: `${avgScore}%`, l: "Average" },
+                          { n: goldCount, l: "Gold Books" },
+                        ].map((s, i) => (
+                          <div key={i} style={{ flex: 1, textAlign: "center", padding: "8px 0", borderRadius: 8, background: ht.accentLight }}>
+                            <div style={{ fontFamily: ht.heading, fontSize: 16, fontWeight: 700, color: ht.dark }}>{s.n}</div>
+                            <div style={{ fontFamily: ht.ui, fontSize: 9, fontWeight: 600, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.06em", marginTop: 2 }}>{s.l}</div>
+                          </div>
+                        ))}
+                      </div>
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                        {BIBLE_BOOKS.map(b => {
+                          const m = quizMastery?.[b.name];
+                          const pct = m?.percentage || 0;
+                          const hasQuiz = QUIZ_BOOKS.includes(b.name);
+                          const color = hasQuiz && pct > 0 ? getTierColor(pct) : (hasQuiz ? ht.divider : `${ht.divider}60`);
+                          return (
+                            <div key={b.name} title={`${b.name}: ${pct}%`} style={{
+                              width: 14, height: 14, borderRadius: 3,
+                              background: color, opacity: hasQuiz ? 1 : 0.3,
+                              cursor: "default",
+                            }} />
+                          );
+                        })}
+                      </div>
+                      <div style={{ display: "flex", gap: 12, marginTop: 10, fontFamily: ht.ui, fontSize: 10, color: ht.muted }}>
+                        <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "#D4A853", verticalAlign: "middle", marginRight: 3 }} />Gold</span>
+                        <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "#C0C0C0", verticalAlign: "middle", marginRight: 3 }} />Silver</span>
+                        <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "#CD7F32", verticalAlign: "middle", marginRight: 3 }} />Bronze</span>
+                      </div>
+                    </>
+                  );
+                })()}
+              </Card>
+            )}
+
             {/* Achievements */}
             <Card t={ht}>
               <Label icon="🏆" t={ht} color={ht.muted}>Achievements ({Object.keys(earnedBadges).length}/{BADGES.length})</Label>
@@ -508,7 +558,7 @@ export default function AccountView() {
             <Card t={ht}>
               <Label icon="⚡" t={ht} color={ht.muted}>Quick Actions</Label>
               {[
-                {label:"My Highlights",icon:"🎨",action:()=>nav("highlights")},
+                {label:"My Journal",icon:"📓",action:()=>nav("highlights")},
                 {label:"Prayer Community",icon:"🙏",action:()=>nav("prayer-home")},
                 {label:"Terms & Privacy Policy",icon:"📋",action:()=>nav("terms")},
               ].map((a,i) => (

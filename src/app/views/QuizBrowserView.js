@@ -4,6 +4,7 @@ import { useApp } from "../context/AppContext";
 import Header from "../components/Header";
 import { Spinner } from "../components/ui";
 import { QUIZ_BOOKS, BIBLE_BOOKS, CATEGORY_THEME, THEMES, DARK_THEMES } from "../constants";
+import { getTierColor } from "../components/MasteryRing";
 
 // ═══════════════════════════════════════════════════
 // QUIZ BROWSER — 3-step wizard: Difficulty → Book → Chapter
@@ -18,7 +19,7 @@ const DIFFICULTIES = [
 const QUIZ_BOOK_INFO = BIBLE_BOOKS.filter(b => QUIZ_BOOKS.includes(b.name));
 
 export default function QuizBrowserView() {
-  const { ht, darkMode, goBack, nav, setQuizDifficulty, loadQuizQuestions } = useApp();
+  const { ht, darkMode, goBack, nav, setQuizDifficulty, loadQuizQuestions, quizMastery, quizScores } = useApp();
 
   const [step, setStep] = useState(1);
   const [selDiff, setSelDiff] = useState(null);
@@ -88,7 +89,7 @@ export default function QuizBrowserView() {
             <div style={{ fontFamily: ht.ui, fontSize: 11, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 18, textAlign: "center" }}>
               Select your level
             </div>
-            {DIFFICULTIES.map(d => (
+            {DIFFICULTIES.map((d, i) => (
               <div
                 key={d.id}
                 onClick={() => handleDiffSelect(d.id)}
@@ -98,6 +99,7 @@ export default function QuizBrowserView() {
                   padding: "20px 20px", borderRadius: 16, marginBottom: 12,
                   border: `1px solid ${ht.accentBorder}`, background: ht.card,
                   cursor: "pointer",
+                  animation: `fadeIn 0.4s ease ${i * 0.1}s both`,
                 }}
               >
                 <div style={{ fontSize: 40, flexShrink: 0, lineHeight: 1 }}>{d.icon}</div>
@@ -122,7 +124,7 @@ export default function QuizBrowserView() {
                   {label}
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {books.map(b => {
+                  {books.map((b, bi) => {
                     const catTheme = CATEGORY_THEME[b.category] || "home";
                     const bt = (darkMode ? DARK_THEMES : THEMES)[catTheme];
                     return (
@@ -137,8 +139,16 @@ export default function QuizBrowserView() {
                           cursor: "pointer",
                           fontFamily: ht.ui, fontSize: 13, fontWeight: 600,
                           color: bt.accent,
+                          animation: `fadeIn 0.3s ease ${bi * 0.03}s both`,
                         }}
                       >
+                        {quizMastery?.[b.name]?.percentage > 0 && (
+                          <span style={{
+                            display: "inline-block", width: 7, height: 7, borderRadius: "50%",
+                            background: getTierColor(quizMastery[b.name].percentage),
+                            marginRight: 5, verticalAlign: "middle",
+                          }} />
+                        )}
                         {b.name}
                       </div>
                     );
@@ -162,7 +172,20 @@ export default function QuizBrowserView() {
             ) : (
               <>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 24 }}>
-                  {Object.entries(availChapters).map(([ch, available]) => (
+                  {Object.entries(availChapters).map(([ch, available]) => {
+                    // Check score for this chapter
+                    const chKey = `${selBook?.name}-${ch}`;
+                    const chScores = quizScores?.[chKey] || [];
+                    const diffScores = chScores.filter(s => s.difficulty === selDiff);
+                    const bestPct = diffScores.length ? Math.max(...diffScores.map(s => s.percentage)) : 0;
+                    const hasScore = diffScores.length > 0;
+                    // Color by score: gold ≥80%, green ≥70%, orange attempted, accent default
+                    const circleBg = !available ? "transparent"
+                      : bestPct >= 80 ? "#D4A853"
+                      : bestPct >= 70 ? "#22c55e"
+                      : hasScore ? "#f59e0b"
+                      : ht.accent;
+                    return (
                     <div
                       key={ch}
                       onClick={() => handleChapterSelect(Number(ch))}
@@ -172,7 +195,7 @@ export default function QuizBrowserView() {
                         display: "flex", alignItems: "center", justifyContent: "center",
                         fontFamily: ht.ui, fontSize: 15, fontWeight: 700,
                         cursor: available ? "pointer" : "default",
-                        background: available ? ht.accent : "transparent",
+                        background: circleBg,
                         color: available ? "#fff" : ht.light,
                         border: available ? "none" : `2px solid ${ht.divider}`,
                         opacity: starting ? 0.6 : available ? 1 : 0.35,
@@ -183,17 +206,30 @@ export default function QuizBrowserView() {
                         <div style={{ width: 16, height: 16, border: "2px solid #fff", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
                       ) : ch}
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
                 {/* Legend */}
-                <div style={{ display: "flex", alignItems: "center", gap: 16, fontFamily: ht.ui, fontSize: 12, color: ht.muted }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <div style={{ width: 14, height: 14, borderRadius: "50%", background: ht.accent }} />
-                    Quiz available
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, fontFamily: ht.ui, fontSize: 11, color: ht.muted }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#D4A853" }} />
+                    ≥80%
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <div style={{ width: 14, height: 14, borderRadius: "50%", border: `2px solid ${ht.divider}`, opacity: 0.35 }} />
-                    Not yet seeded
+                  <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#22c55e" }} />
+                    ≥70%
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#f59e0b" }} />
+                    Attempted
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", background: ht.accent }} />
+                    Available
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", border: `2px solid ${ht.divider}`, opacity: 0.35 }} />
+                    Not seeded
                   </div>
                 </div>
               </>

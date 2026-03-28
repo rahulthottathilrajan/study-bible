@@ -1,11 +1,12 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useApp } from "../context/AppContext";
 import Header from "../components/Header";
 import { Spinner, Card, Label } from "../components/ui";
 
 // ═══════════════════════════════════════════════════
 // QUIZ VIEW — quiz-intro, quiz-active, quiz-results
+// "Duolingo meets Ancient Scrolls" — subtle & reverent
 // ═══════════════════════════════════════════════════
 
 const DIFFICULTIES = [
@@ -14,10 +15,66 @@ const DIFFICULTIES = [
   { id: "adults", label: "Adults", icon: "📖", desc: "In-depth chapter knowledge", range: "8–12 questions" },
 ];
 
+// Mini confetti particles — subtle gold/accent (8 particles for perfect, 4 for correct answer)
+function ConfettiParticles({ count = 8, colors = ["#D4A853", "#C8A24D", "#E8D5A0", "#B89440"] }) {
+  const particles = useRef(
+    Array.from({ length: count }, (_, i) => ({
+      cx: `${(Math.random() - 0.5) * 80}px`,
+      cy: `${-60 - Math.random() * 40}px`,
+      cr: `${360 + Math.random() * 360}deg`,
+      delay: `${i * 0.06}s`,
+      color: colors[i % colors.length],
+      size: 5 + Math.random() * 3,
+      left: `${20 + Math.random() * 60}%`,
+    }))
+  ).current;
+
+  return (
+    <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, pointerEvents: "none", overflow: "hidden" }}>
+      {particles.map((p, i) => (
+        <div key={i} style={{
+          position: "absolute", top: "50%", left: p.left,
+          width: p.size, height: p.size, borderRadius: i % 2 === 0 ? "50%" : "1px",
+          background: p.color, opacity: 0,
+          animation: `confettiBurst 1.5s ease-out ${p.delay} forwards`,
+          ["--cx"]: p.cx, ["--cy"]: p.cy, ["--cr"]: p.cr,
+        }} />
+      ))}
+    </div>
+  );
+}
+
+// SVG Mastery Ring — animated on mount
+function MasteryRing({ percentage = 0, size = 72, theme }) {
+  const [animated, setAnimated] = useState(0);
+  const r = (size - 8) / 2;
+  const circ = 2 * Math.PI * r;
+  const offset = circ - (animated / 100) * circ;
+
+  useEffect(() => {
+    const timer = setTimeout(() => setAnimated(percentage), 100);
+    return () => clearTimeout(timer);
+  }, [percentage]);
+
+  const color = percentage >= 80 ? "#D4A853" : percentage >= 50 ? theme.accent : theme.muted;
+
+  return (
+    <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
+      <circle cx={size / 2} cy={size / 2} r={r}
+        fill="none" stroke={theme.divider} strokeWidth={4} />
+      <circle cx={size / 2} cy={size / 2} r={r}
+        fill="none" stroke={color} strokeWidth={4}
+        strokeDasharray={circ} strokeDashoffset={offset}
+        strokeLinecap="round"
+        style={{ transition: "stroke-dashoffset 1s ease-out" }} />
+    </svg>
+  );
+}
+
 export default function QuizView() {
   const { view, book, chapter, t, goBack, nav, user,
     quizScores, quizQuestions, quizLoading, quizDifficulty,
-    loadQuizQuestions, submitQuizScore, bp } = useApp();
+    loadQuizQuestions, submitQuizScore, bp, badgeToast } = useApp();
 
   const [difficulty, setDifficulty] = useState(quizDifficulty || null);
   const [currentQ, setCurrentQ] = useState(0);
@@ -28,15 +85,33 @@ export default function QuizView() {
   const [shuffledOptions, setShuffledOptions] = useState([]);
   const [availableDifficulties, setAvailableDifficulties] = useState({});
   const [checkingAvailability, setCheckingAvailability] = useState(true);
+  const [transitioning, setTransitioning] = useState(false);
+  const [displayScore, setDisplayScore] = useState(0);
+  const [showReview, setShowReview] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [correctFlash, setCorrectFlash] = useState(false);
+  const [wrongFlash, setWrongFlash] = useState(false);
+  const [newBest, setNewBest] = useState(null);
+  const [copied, setCopied] = useState(false);
+  const [earnedBadge, setEarnedBadge] = useState(null);
 
   const chapterKey = `${book}-${chapter}`;
   const scores = quizScores[chapterKey] || [];
+  const prevBadgeRef = useRef(null);
 
-  // Check which difficulties have questions for this chapter (from static JSON)
+  // Track badge toast to detect newly earned badges during quiz
+  useEffect(() => {
+    if (view === "quiz-results" && badgeToast && prevBadgeRef.current !== badgeToast) {
+      setEarnedBadge(badgeToast);
+    }
+    prevBadgeRef.current = badgeToast;
+  }, [badgeToast, view]);
+
+  // Check which difficulties have questions for this chapter
   useEffect(() => {
     if (view !== "quiz-intro") return;
     setCheckingAvailability(true);
-    const slug = book.toLowerCase().replace(/\s+/g, '-');
+    const slug = book.toLowerCase().replace(/\s+/g, "-");
     fetch(`/data/quizzes/${slug}.json`)
       .then(res => res.ok ? res.json() : null)
       .then(data => {
@@ -55,17 +130,14 @@ export default function QuizView() {
   // Reset state when entering intro
   useEffect(() => {
     if (view === "quiz-intro") {
-      setDifficulty(null);
-      setCurrentQ(0);
-      setSelected(null);
-      setRevealed(false);
-      setAnswers([]);
-      setSaved(false);
-      setShuffledOptions([]);
+      setDifficulty(null); setCurrentQ(0); setSelected(null);
+      setRevealed(false); setAnswers([]); setSaved(false);
+      setShuffledOptions([]); setShowReview(false); setShowConfetti(false);
+      setNewBest(null); setEarnedBadge(null); setDisplayScore(0);
     }
   }, [view]);
 
-  // Shuffle options when question changes (so correct answer isn't always in the same position)
+  // Shuffle options when question changes
   useEffect(() => {
     if (view !== "quiz-active" || !quizQuestions.length || !quizQuestions[currentQ]) return;
     const q = quizQuestions[currentQ];
@@ -88,13 +160,19 @@ export default function QuizView() {
     return Math.max(...diffScores.map(s => s.percentage));
   }, [scores]);
 
+  // Overall chapter best across all difficulties
+  const chapterBest = scores.length > 0 ? Math.max(...scores.map(s => s.percentage)) : 0;
+
+  // Total questions answered for this chapter
+  const totalAnswered = scores.reduce((sum, s) => sum + s.total_questions, 0);
+
+  // Average score for this chapter
+  const avgScore = scores.length > 0 ? Math.round(scores.reduce((sum, s) => sum + s.percentage, 0) / scores.length) : 0;
+
   const startQuiz = (diff) => {
     setDifficulty(diff);
-    setCurrentQ(0);
-    setSelected(null);
-    setRevealed(false);
-    setAnswers([]);
-    setSaved(false);
+    setCurrentQ(0); setSelected(null); setRevealed(false);
+    setAnswers([]); setSaved(false); setCorrectFlash(false); setWrongFlash(false);
     loadQuizQuestions(book, chapter, diff);
     nav("quiz-active");
   };
@@ -103,19 +181,34 @@ export default function QuizView() {
     if (revealed) return;
     setSelected(option);
     setRevealed(true);
+    const isCorrect = option === quizQuestions[currentQ].correct_answer;
     setAnswers(prev => [...prev, {
       questionNumber: quizQuestions[currentQ].question_number,
       selected: option,
       correct: quizQuestions[currentQ].correct_answer,
-      isCorrect: option === quizQuestions[currentQ].correct_answer,
+      isCorrect,
     }]);
+    // Trigger micro-celebration or shake
+    if (isCorrect) {
+      setCorrectFlash(true);
+      setTimeout(() => setCorrectFlash(false), 800);
+    } else {
+      setWrongFlash(true);
+      setTimeout(() => setWrongFlash(false), 500);
+    }
   };
 
   const nextQuestion = () => {
     if (currentQ + 1 < quizQuestions.length) {
-      setCurrentQ(prev => prev + 1);
-      setSelected(null);
-      setRevealed(false);
+      setTransitioning(true);
+      setTimeout(() => {
+        setCurrentQ(prev => prev + 1);
+        setSelected(null);
+        setRevealed(false);
+        setCorrectFlash(false);
+        setWrongFlash(false);
+        setTransitioning(false);
+      }, 50);
     } else {
       nav("quiz-results");
     }
@@ -126,7 +219,41 @@ export default function QuizView() {
   const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
   const passed = percentage >= 70;
 
-  // Auto-save score on results view
+  // Animated score count-up on results
+  useEffect(() => {
+    if (view !== "quiz-results" || total === 0) return;
+    setDisplayScore(0);
+    const duration = 1500;
+    const start = performance.now();
+    const animate = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out curve
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplayScore(Math.round(eased * percentage));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [view, total, percentage]);
+
+  // Confetti on perfect score
+  useEffect(() => {
+    if (view === "quiz-results" && percentage === 100 && total > 0) {
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 2500);
+    }
+  }, [view, percentage, total]);
+
+  // New best detection
+  useEffect(() => {
+    if (view !== "quiz-results" || total === 0 || !difficulty) return;
+    const prev = bestScore(difficulty);
+    if (prev !== null && percentage > prev) {
+      setNewBest({ prev, current: percentage, delta: percentage - prev });
+    }
+  }, [view, total, difficulty, percentage, bestScore]);
+
+  // Auto-save score on results
   useEffect(() => {
     if (view === "quiz-results" && user && total > 0 && !saved) {
       setSaved(true);
@@ -134,24 +261,80 @@ export default function QuizView() {
     }
   }, [view, user, total, saved, submitQuizScore, book, chapter, difficulty, score]);
 
+  const handleShare = () => {
+    const text = `I scored ${percentage}% on ${book} ${chapter} Quiz (${difficulty}) — The Bible Scrollers`;
+    navigator.clipboard?.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   // ═══ QUIZ INTRO ═══
   if (view === "quiz-intro") {
     const hasAnyQuiz = Object.keys(availableDifficulties).length > 0;
     return (
       <div style={{ minHeight: "100vh", background: t.bg }}>
         <Header title={`${book} ${chapter} Quiz`} onBack={goBack} />
-        <div style={{ maxWidth: bp.contentWide, margin: "0 auto", padding: `16px ${bp.pad}px 40px` }}>
-          <Card t={t} accent>
-            <div style={{ textAlign: "center", marginBottom: 6 }}>
-              <span style={{ fontSize: 40 }}>📝</span>
+        <div style={{ maxWidth: bp.contentWide, margin: "0 auto", padding: `0 ${bp.pad}px 40px` }}>
+
+          {/* Hero header card */}
+          <div style={{
+            background: t.headerGradient, borderRadius: 16, padding: "28px 24px 24px",
+            position: "relative", overflow: "hidden", marginBottom: 16,
+          }}>
+            {/* Chapter watermark */}
+            <div style={{
+              position: "absolute", right: 16, top: -8, fontSize: 80, fontWeight: 800,
+              fontFamily: t.heading, color: "rgba(255,255,255,0.06)", lineHeight: 1,
+            }}>
+              {chapter}
             </div>
-            <div style={{ fontFamily: t.heading, fontSize: 18, fontWeight: 700, color: t.dark, textAlign: "center", marginBottom: 4 }}>
-              Chapter {chapter} Quiz
+
+            <div style={{ display: "flex", alignItems: "center", gap: 20, position: "relative" }}>
+              {/* Mastery Ring */}
+              <div style={{ flexShrink: 0, position: "relative" }}>
+                <MasteryRing percentage={chapterBest} size={72} theme={{ ...t, divider: "rgba(255,255,255,0.15)" }} />
+                <div style={{
+                  position: "absolute", top: 0, left: 0, right: 0, bottom: 0,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontFamily: t.ui, fontSize: 16, fontWeight: 800, color: "#fff",
+                }}>
+                  {chapterBest > 0 ? `${chapterBest}%` : "—"}
+                </div>
+              </div>
+
+              <div style={{ flex: 1 }}>
+                <div style={{ fontFamily: t.heading, fontSize: 24, fontWeight: 700, color: t.headerText, lineHeight: 1.2 }}>
+                  {book}
+                </div>
+                <div style={{ fontFamily: t.ui, fontSize: 13, color: "rgba(255,255,255,0.65)", marginTop: 4 }}>
+                  Chapter {chapter} · Test Your Knowledge
+                </div>
+              </div>
             </div>
-            <div style={{ fontFamily: t.ui, fontSize: 13, color: t.muted, textAlign: "center", marginBottom: 16 }}>
-              Test your knowledge of {book} {chapter}
-            </div>
-          </Card>
+
+            {/* Gold accent line */}
+            <div style={{
+              height: 2, marginTop: 20, borderRadius: 1,
+              background: `linear-gradient(90deg, transparent, ${t.accent}, transparent)`,
+              backgroundSize: "200% 100%",
+              animation: "goldFlow 3s linear infinite",
+            }} />
+
+            {/* Stats bar */}
+            {scores.length > 0 && (
+              <div style={{
+                display: "flex", gap: 16, marginTop: 14,
+                fontFamily: t.ui, fontSize: 11, color: "rgba(255,255,255,0.5)",
+              }}>
+                <span>{totalAnswered} answered</span>
+                <span>·</span>
+                <span>{avgScore}% avg</span>
+                <span>·</span>
+                <span>Best: {chapterBest}%</span>
+              </div>
+            )}
+          </div>
 
           {checkingAvailability ? (
             <Spinner t={t} />
@@ -166,20 +349,23 @@ export default function QuizView() {
               </div>
             </Card>
           ) : (
-            <div style={{ marginTop: 14 }}>
+            <div>
               <Label icon="🎯" t={t}>Select Difficulty</Label>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                {DIFFICULTIES.map(d => {
+                {DIFFICULTIES.map((d, i) => {
                   const count = availableDifficulties[d.id] || 0;
                   const best = bestScore(d.id);
                   const available = count > 0;
+                  const isFirstUntried = available && best === null &&
+                    DIFFICULTIES.slice(0, i).every(prev => bestScore(prev.id) !== null || !(availableDifficulties[prev.id] > 0));
                   return (
                     <button key={d.id} onClick={() => available && startQuiz(d.id)} disabled={!available}
                       style={{
                         background: t.card, border: `1px solid ${t.divider}`, borderRadius: 14,
                         padding: "16px 18px", textAlign: "left", cursor: available ? "pointer" : "default",
-                        opacity: available ? 1 : 0.45, transition: "all 0.15s",
+                        opacity: available ? 1 : 0.45, transition: "all 0.2s",
                         display: "flex", alignItems: "center", gap: 14,
+                        animation: `fadeIn 0.4s ease ${i * 0.12}s both${isFirstUntried ? ", pulseGlow 2s ease-in-out infinite" : ""}`,
                       }}>
                       <span style={{ fontSize: 28 }}>{d.icon}</span>
                       <div style={{ flex: 1 }}>
@@ -254,6 +440,7 @@ export default function QuizView() {
     const q = quizQuestions[currentQ];
     const displayLabels = ["A", "B", "C", "D"];
     const progress = ((currentQ + 1) / quizQuestions.length) * 100;
+    const correctSoFar = answers.filter(a => a.isCorrect).length;
 
     return (
       <div style={{ minHeight: "100vh", background: t.bg }}>
@@ -261,74 +448,133 @@ export default function QuizView() {
           subtitle={`${book} ${chapter} — ${difficulty}`} onBack={goBack} />
         <div style={{ maxWidth: bp.contentWide, margin: "0 auto", padding: `0 ${bp.pad}px 40px` }}>
 
-          {/* Progress bar */}
-          <div style={{ height: 4, background: t.divider, borderRadius: 2, margin: "14px 0 18px", overflow: "hidden" }}>
-            <div style={{ height: "100%", width: `${progress}%`, background: t.accent, borderRadius: 2, transition: "width 0.3s ease" }} />
+          {/* Progress bar with goldFlow shimmer */}
+          <div style={{ position: "relative", height: 6, background: t.divider, borderRadius: 3, margin: "14px 0 18px", overflow: "hidden" }}>
+            <div style={{
+              height: "100%", width: `${progress}%`, borderRadius: 3,
+              background: t.accent, transition: "width 0.4s ease",
+            }} />
+            <div style={{
+              position: "absolute", top: 0, left: 0, width: `${progress}%`, height: "100%",
+              background: `linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)`,
+              backgroundSize: "200% 100%", animation: "goldFlow 2s linear infinite",
+              borderRadius: 3, transition: "width 0.4s ease",
+            }} />
+            {/* Riding indicator dot */}
+            <div style={{
+              position: "absolute", top: -3, left: `${progress}%`, transform: "translateX(-50%)",
+              width: 12, height: 12, borderRadius: "50%", background: t.accent,
+              border: `2px solid ${t.card}`, boxShadow: `0 0 6px ${t.accent}40`,
+              transition: "left 0.4s ease",
+            }} />
           </div>
 
-          {/* Question */}
-          <Card t={t}>
-            <div style={{ fontFamily: t.heading, fontSize: 17, fontWeight: 700, color: t.dark, lineHeight: 1.5, marginBottom: 18 }}>
-              {q.question}
-            </div>
+          {/* Running score pill */}
+          <div style={{
+            display: "flex", justifyContent: "flex-end", marginBottom: 10,
+          }}>
+            <span style={{
+              fontFamily: t.ui, fontSize: 11, fontWeight: 700, padding: "3px 10px",
+              borderRadius: 6, background: t.accentLight, color: correctSoFar > 0 ? "#22c55e" : t.muted,
+            }}>
+              {correctSoFar}/{answers.length} ✓
+            </span>
+          </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {shuffledOptions.map((o, i) => {
-                const isCorrect = o.key === q.correct_answer;
-                const isSelected = selected === o.key;
-                let bg = t.bg;
-                let border = t.divider;
-                let textColor = t.text;
-                if (revealed) {
-                  if (isCorrect) { bg = "rgba(34,197,94,0.1)"; border = "#22c55e"; textColor = "#15803d"; }
-                  else if (isSelected && !isCorrect) { bg = "rgba(239,68,68,0.1)"; border = "#ef4444"; textColor = "#dc2626"; }
-                }
-                return (
-                  <button key={o.key} onClick={() => handleSelect(o.key)}
-                    style={{
-                      background: bg, border: `2px solid ${border}`, borderRadius: 12,
-                      padding: "14px 16px", textAlign: "left", cursor: revealed ? "default" : "pointer",
-                      display: "flex", alignItems: "flex-start", gap: 12, transition: "all 0.2s",
-                    }}>
-                    <span style={{
-                      fontFamily: t.heading, fontSize: 14, fontWeight: 800, color: revealed && isCorrect ? "#22c55e" : t.accent,
-                      minWidth: 24, height: 24, display: "flex", alignItems: "center", justifyContent: "center",
-                      borderRadius: 6, background: revealed && isCorrect ? "rgba(34,197,94,0.15)" : t.accentLight,
-                    }}>
-                      {revealed && isCorrect ? "✓" : revealed && isSelected ? "✗" : displayLabels[i]}
-                    </span>
-                    <span style={{ fontFamily: t.body, fontSize: 15, color: textColor, lineHeight: 1.5, flex: 1 }}>
-                      {o.text}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+          {/* Question card */}
+          {!transitioning && (
+            <div style={{ animation: "slideInRight 0.35s ease", position: "relative" }}>
+              {/* Confetti particles on correct answer */}
+              {correctFlash && <ConfettiParticles count={4} />}
 
-            {/* Explanation */}
-            {revealed && q.explanation && (
-              <div style={{
-                marginTop: 14, padding: "12px 14px", background: t.accentLight,
-                borderRadius: 10, border: `1px solid ${t.accentBorder}`,
-              }}>
-                <div style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 700, color: t.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>
-                  Explanation
+              <Card t={t}>
+                <div style={{ fontFamily: t.heading, fontSize: 17, fontWeight: 700, color: t.dark, lineHeight: 1.5, marginBottom: 18 }}>
+                  {q.question}
                 </div>
-                <div style={{ fontFamily: t.body, fontSize: 14, color: t.text, lineHeight: 1.6 }}>
-                  {q.explanation}
+
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {shuffledOptions.map((o, i) => {
+                    const isCorrect = o.key === q.correct_answer;
+                    const isSelected = selected === o.key;
+                    let bg = t.bg;
+                    let border = t.divider;
+                    let textColor = t.text;
+                    let anim = "";
+                    if (revealed) {
+                      if (isCorrect) {
+                        bg = "rgba(34,197,94,0.1)"; border = "#22c55e"; textColor = "#15803d";
+                        anim = "correctPulse 0.6s ease";
+                      } else if (isSelected && !isCorrect) {
+                        bg = "rgba(239,68,68,0.1)"; border = "#ef4444"; textColor = "#dc2626";
+                        anim = "shakeWrong 0.4s ease";
+                      }
+                    }
+                    return (
+                      <button key={o.key} onClick={() => handleSelect(o.key)}
+                        style={{
+                          background: bg, border: `2px solid ${border}`, borderRadius: 12,
+                          padding: "14px 16px", textAlign: "left", cursor: revealed ? "default" : "pointer",
+                          display: "flex", alignItems: "flex-start", gap: 12, transition: "all 0.2s",
+                          animation: anim || undefined,
+                          opacity: revealed && !isCorrect && !isSelected ? 0.5 : 1,
+                          transform: "scale(1)",
+                        }}
+                        onMouseDown={(e) => { if (!revealed) e.currentTarget.style.transform = "scale(0.98)"; }}
+                        onMouseUp={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+                      >
+                        <span style={{
+                          fontFamily: t.heading, fontSize: 14, fontWeight: 800,
+                          color: revealed && isCorrect ? "#22c55e" : revealed && isSelected ? "#ef4444" : t.accent,
+                          minWidth: 24, height: 24, display: "flex", alignItems: "center", justifyContent: "center",
+                          borderRadius: 6, background: revealed && isCorrect ? "rgba(34,197,94,0.15)" : revealed && isSelected ? "rgba(239,68,68,0.15)" : t.accentLight,
+                        }}>
+                          {revealed && isCorrect ? (
+                            <span style={{ animation: "scaleIn 0.3s ease" }}>✓</span>
+                          ) : revealed && isSelected ? "✗" : displayLabels[i]}
+                        </span>
+                        <span style={{ fontFamily: t.body, fontSize: 15, color: textColor, lineHeight: 1.5, flex: 1 }}>
+                          {o.text}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
-              </div>
-            )}
-          </Card>
+
+                {/* Explanation — slides in */}
+                {revealed && q.explanation && (
+                  <div style={{
+                    marginTop: 14, padding: "12px 14px", background: t.accentLight,
+                    borderRadius: 10, border: `1px solid ${t.accentBorder}`,
+                    animation: "fadeIn 0.4s ease",
+                  }}>
+                    <div style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 700, color: t.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4, display: "flex", alignItems: "center", gap: 4 }}>
+                      <span style={{ fontSize: 12 }}>📜</span> Explanation
+                    </div>
+                    <div style={{ fontFamily: t.body, fontSize: 14, color: t.text, lineHeight: 1.6 }}>
+                      {q.explanation}
+                    </div>
+                  </div>
+                )}
+              </Card>
+            </div>
+          )}
 
           {/* Next button */}
-          {revealed && (
+          {revealed && !transitioning && (
             <button onClick={nextQuestion} style={{
               width: "100%", marginTop: 14, padding: "14px", borderRadius: 12,
-              background: t.accent, color: "#fff", border: "none", cursor: "pointer",
-              fontFamily: t.heading, fontSize: 16, fontWeight: 700, transition: "all 0.2s",
+              background: `linear-gradient(135deg, ${t.accent}, ${t.accent}dd)`,
+              color: "#fff", border: "none", cursor: "pointer",
+              fontFamily: t.heading, fontSize: 16, fontWeight: 700,
+              animation: "fadeIn 0.3s ease", transition: "all 0.2s",
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
             }}>
-              {currentQ + 1 < quizQuestions.length ? "Next Question →" : "See Results →"}
+              {currentQ + 1 < quizQuestions.length ? (
+                <>Next Question <span style={{ fontSize: 18 }}>→</span></>
+              ) : (
+                <>See Your Results <span style={{ fontSize: 16 }}>★</span></>
+              )}
             </button>
           )}
         </div>
@@ -338,34 +584,119 @@ export default function QuizView() {
 
   // ═══ QUIZ RESULTS ═══
   if (view === "quiz-results") {
+    const isPerfect = percentage === 100;
+    const scoreColor = isPerfect ? "#D4A853" : passed ? "#22c55e" : "#ef4444";
+    const resultMessage = isPerfect ? "Perfect Knowledge" : passed ? "Well Done" : "Keep Growing";
+    const resultEmoji = isPerfect ? "🏆" : passed ? "✨" : "📖";
+    const resultSubtext = isPerfect
+      ? "Flawless — your knowledge of this chapter is complete"
+      : passed
+        ? "Great work — you've demonstrated solid understanding"
+        : "Every question teaches — review the chapter and try again";
+
+    // Find next harder difficulty
+    const diffOrder = ["kids", "teens", "adults"];
+    const currentIdx = diffOrder.indexOf(difficulty);
+    const harderDiff = currentIdx < 2 ? diffOrder[currentIdx + 1] : null;
+    const harderAvailable = harderDiff && (availableDifficulties[harderDiff] > 0);
+
     return (
       <div style={{ minHeight: "100vh", background: t.bg }}>
         <Header title="Quiz Results" subtitle={`${book} ${chapter}`} onBack={goBack} />
         <div style={{ maxWidth: bp.contentWide, margin: "0 auto", padding: `16px ${bp.pad}px 40px` }}>
 
           {/* Score card */}
-          <Card t={t} accent>
-            <div style={{ textAlign: "center" }}>
-              <span style={{ fontSize: 48 }}>{passed ? "🎉" : "📖"}</span>
+          <div style={{
+            background: isPerfect ? t.stone : t.card,
+            borderRadius: 16, padding: "32px 24px 28px",
+            border: `2px solid ${isPerfect ? "#D4A853" : passed ? "rgba(34,197,94,0.3)" : t.divider}`,
+            boxShadow: isPerfect ? "0 4px 24px rgba(212,168,83,0.2)" : "0 2px 12px rgba(0,0,0,0.06)",
+            textAlign: "center", position: "relative", overflow: "hidden",
+            animation: isPerfect ? "celebrateGlow 2s ease-in-out infinite" : "fadeIn 0.4s ease",
+          }}>
+            {showConfetti && <ConfettiParticles count={8} />}
+
+            <span style={{
+              fontSize: 48, display: "block",
+              animation: isPerfect ? "heartPop 0.6s ease" : "scaleIn 0.4s ease",
+            }}>
+              {resultEmoji}
+            </span>
+
+            <div style={{
+              fontFamily: t.heading, fontSize: 48, fontWeight: 800, marginTop: 12,
+              color: isPerfect ? (t.stoneText || scoreColor) : scoreColor,
+              animation: "countUp 0.6s ease",
+            }}>
+              {displayScore}%
+            </div>
+
+            <div style={{ fontFamily: t.ui, fontSize: 15, color: isPerfect ? (t.stoneText || t.dark) : t.dark, marginTop: 4, fontWeight: 600 }}>
+              {score} of {total} correct
+            </div>
+
+            <div style={{ fontFamily: t.heading, fontSize: 18, fontWeight: 700, color: isPerfect ? (t.stoneText || scoreColor) : scoreColor, marginTop: 12 }}>
+              {resultMessage}
+            </div>
+
+            <div style={{ fontFamily: t.ui, fontSize: 13, color: isPerfect ? (t.stoneText || t.muted) : t.muted, marginTop: 6, lineHeight: 1.5 }}>
+              {resultSubtext}
+            </div>
+
+            {/* Gold accent line for perfect */}
+            {isPerfect && (
               <div style={{
-                fontFamily: t.heading, fontSize: 42, fontWeight: 800, marginTop: 8,
-                color: passed ? "#22c55e" : "#ef4444",
-              }}>
-                {percentage}%
-              </div>
-              <div style={{ fontFamily: t.ui, fontSize: 15, color: t.dark, marginTop: 4, fontWeight: 600 }}>
-                {score} of {total} correct
-              </div>
-              <div style={{
-                display: "inline-block", marginTop: 10, padding: "4px 14px", borderRadius: 20,
-                fontFamily: t.ui, fontSize: 12, fontWeight: 700,
-                background: passed ? "rgba(34,197,94,0.1)" : "rgba(239,68,68,0.1)",
-                color: passed ? "#22c55e" : "#ef4444",
-              }}>
-                {passed ? "PASSED" : "KEEP STUDYING"}
+                height: 2, marginTop: 20, borderRadius: 1,
+                background: "linear-gradient(90deg, transparent, #D4A853, transparent)",
+                backgroundSize: "200% 100%", animation: "goldFlow 3s linear infinite",
+              }} />
+            )}
+
+            {/* PASSED/KEEP STUDYING badge */}
+            <div style={{
+              display: "inline-block", marginTop: isPerfect ? 16 : 14, padding: "5px 16px", borderRadius: 20,
+              fontFamily: t.ui, fontSize: 12, fontWeight: 700,
+              background: passed ? "rgba(34,197,94,0.1)" : "rgba(239,68,68,0.1)",
+              color: passed ? "#22c55e" : "#ef4444",
+            }}>
+              {passed ? "PASSED" : "KEEP STUDYING"}
+            </div>
+          </div>
+
+          {/* New Best banner */}
+          {newBest && (
+            <div style={{
+              marginTop: 12, padding: "10px 16px", borderRadius: 10,
+              background: "rgba(212,168,83,0.1)", border: "1px solid rgba(212,168,83,0.25)",
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+              animation: "fadeIn 0.5s ease",
+            }}>
+              <span style={{ fontSize: 14 }}>🎯</span>
+              <span style={{ fontFamily: t.ui, fontSize: 13, fontWeight: 700, color: "#D4A853" }}>
+                NEW BEST! +{newBest.delta}% improvement
+              </span>
+            </div>
+          )}
+
+          {/* Inline badge earned */}
+          {earnedBadge && (
+            <div style={{
+              marginTop: 12, padding: "14px 18px", borderRadius: 12,
+              background: "rgba(212,168,83,0.08)", border: "1px solid rgba(212,168,83,0.25)",
+              display: "flex", alignItems: "center", gap: 12,
+              animation: "fadeIn 0.6s ease",
+            }}>
+              <span style={{ fontSize: 28 }}>{earnedBadge.icon}</span>
+              <div>
+                <div style={{ fontFamily: t.ui, fontSize: 10, fontWeight: 700, color: "#D4A853", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                  Badge Earned!
+                </div>
+                <div style={{ fontFamily: t.heading, fontSize: 15, fontWeight: 700, color: t.dark, marginTop: 2 }}>
+                  {earnedBadge.name}
+                </div>
               </div>
             </div>
-          </Card>
+          )}
 
           {/* Action buttons */}
           <div style={{ display: "flex", gap: 10, marginTop: 14 }}>
@@ -385,42 +716,77 @@ export default function QuizView() {
             </button>
           </div>
 
-          {/* Answer review */}
+          {/* Try harder difficulty */}
+          {harderAvailable && passed && (
+            <button onClick={() => startQuiz(harderDiff)} style={{
+              width: "100%", marginTop: 10, padding: "12px", borderRadius: 10,
+              border: `1px dashed ${t.accentBorder}`, background: "transparent", cursor: "pointer",
+              fontFamily: t.ui, fontSize: 13, fontWeight: 700, color: t.accent,
+              animation: "fadeIn 0.5s ease",
+            }}>
+              Try {DIFFICULTIES.find(d => d.id === harderDiff)?.label} Difficulty →
+            </button>
+          )}
+
+          {/* Share button */}
+          <button onClick={handleShare} style={{
+            width: "100%", marginTop: 10, padding: "10px", borderRadius: 10,
+            border: `1px solid ${t.divider}`, background: t.card, cursor: "pointer",
+            fontFamily: t.ui, fontSize: 12, fontWeight: 600, color: t.muted,
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+          }}>
+            {copied ? "✓ Copied!" : "📤 Share Score"}
+          </button>
+
+          {/* Collapsible answer review */}
           <div style={{ marginTop: 20 }}>
-            <Label icon="📋" t={t}>Answer Review</Label>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              {answers.map((a, i) => {
-                const q = quizQuestions[i];
-                if (!q) return null;
-                const correctText = { a: q.option_a, b: q.option_b, c: q.option_c, d: q.option_d }[q.correct_answer];
-                return (
-                  <Card key={i} t={t}>
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                      <span style={{
-                        fontSize: 16, minWidth: 24, textAlign: "center", marginTop: 1,
-                      }}>
-                        {a.isCorrect ? "✅" : "❌"}
-                      </span>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontFamily: t.body, fontSize: 14, color: t.dark, lineHeight: 1.5, fontWeight: 600 }}>
-                          {q.question}
+            <button onClick={() => setShowReview(!showReview)} style={{
+              background: "none", border: "none", cursor: "pointer", padding: 0,
+              fontFamily: t.ui, fontSize: 11.5, fontWeight: 700, color: t.accent,
+              textTransform: "uppercase", letterSpacing: "0.1em",
+              display: "flex", alignItems: "center", gap: 6, marginBottom: showReview ? 10 : 0,
+            }}>
+              <span>📋</span> Review {answers.length} Answers {showReview ? "▴" : "▾"}
+            </button>
+
+            {showReview && (
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {answers.map((a, i) => {
+                  const q = quizQuestions[i];
+                  if (!q) return null;
+                  const correctText = { a: q.option_a, b: q.option_b, c: q.option_c, d: q.option_d }[q.correct_answer];
+                  return (
+                    <div key={i} style={{
+                      background: t.card, borderRadius: 12, padding: "14px 16px",
+                      border: `1px solid ${t.divider}`,
+                      borderLeft: `3px solid ${a.isCorrect ? "#22c55e" : "#ef4444"}`,
+                      animation: `fadeIn 0.3s ease ${i * 0.05}s both`,
+                    }}>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                        <span style={{ fontSize: 14, minWidth: 20, textAlign: "center", marginTop: 1 }}>
+                          {a.isCorrect ? "✅" : "❌"}
+                        </span>
+                        <div style={{ flex: 1 }}>
+                          <div style={{ fontFamily: t.body, fontSize: 14, color: t.dark, lineHeight: 1.5, fontWeight: 600 }}>
+                            {q.question}
+                          </div>
+                          {!a.isCorrect && (
+                            <div style={{ fontFamily: t.ui, fontSize: 12, color: "#22c55e", marginTop: 4 }}>
+                              Correct: {correctText}
+                            </div>
+                          )}
+                          {q.explanation && (
+                            <div style={{ fontFamily: t.ui, fontSize: 12, color: t.muted, marginTop: 4, fontStyle: "italic" }}>
+                              {q.explanation}
+                            </div>
+                          )}
                         </div>
-                        {!a.isCorrect && (
-                          <div style={{ fontFamily: t.ui, fontSize: 12, color: "#22c55e", marginTop: 4 }}>
-                            Correct: {correctText}
-                          </div>
-                        )}
-                        {q.explanation && (
-                          <div style={{ fontFamily: t.ui, fontSize: 12, color: t.muted, marginTop: 4, fontStyle: "italic" }}>
-                            {q.explanation}
-                          </div>
-                        )}
                       </div>
                     </div>
-                  </Card>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -540,8 +540,8 @@
       {
         "question_number": 1,
         "question": "What specific coverings were placed over the ark of the covenant when breaking camp, in the correct order?",
-        "option_a": "First the veil of the covering, then badgers' skins over that, then a cloth wholly of blue, then the staves inserted",
-        "option_b": "Blue cloth first, then the veil, then red cloth",
+        "option_a": "Blue cloth first, then the veil, then red cloth",
+        "option_b": "First the veil of the covering, then badgers' skins over that, then a cloth wholly of blue, then the staves inserted",
         "option_c": "The ark was carried uncovered but on poles",
         "option_d": "A single white linen cloth covered everything",
         "correct_answer": "a",
@@ -662,10 +662,10 @@
       {
         "question_number": 8,
         "question": "What is the total number of all Levites numbered for active service, and what does this represent in the context of the whole camp?",
-        "option_a": "Eight thousand five hundred and eighty — representing the dedicated corps of God's servants maintaining His house within the much larger community of 603,550 warriors, showing that the worshipping core is always a consecrated minority within the broader covenant community",
+        "option_a": "Three thousand three hundred",
         "option_b": "Twelve thousand, one for each tribe",
         "option_c": "Twenty-two thousand, same as the full Levitical census",
-        "option_d": "Three thousand three hundred",
+        "option_d": "Eight thousand five hundred and eighty — representing the dedicated corps of God's servants maintaining His house within the much larger community of 603,550 warriors, showing that the worshipping core is always a consecrated minority within the broader covenant community",
         "correct_answer": "a",
         "explanation": "Numbers 4:48 — \"Even those that were numbered of them, after their families, were eight thousand and five hundred and fourscore.\" Of 22,000 Levites, only 8,580 (ages 30-50) were in active tabernacle service — a faithful minority maintaining the worship of the entire nation."
       }
@@ -938,10 +938,10 @@
       {
         "question_number": 2,
         "question": "How does Samson serve as a theological commentary on the Nazirite vow by both embodying and violating it?",
-        "option_a": "Samson was a Nazirite from birth (Judges 13:5) yet violated all three marks — he touched a dead lion (Judges 14:9), attended a wine feast (Judges 14:10), and allowed his hair to be cut (Judges 16:19) — illustrating that outward consecration without inward holiness produces spiritual ruin",
+        "option_a": "The Nazirite vow and Samson's story are unrelated",
         "option_b": "Samson perfectly fulfilled the Nazirite vow throughout his life",
         "option_c": "Samson's violations were permitted exceptions to the vow",
-        "option_d": "The Nazirite vow and Samson's story are unrelated",
+        "option_d": "Samson was a Nazirite from birth (Judges 13:5) yet violated all three marks — he touched a dead lion (Judges 14:9), attended a wine feast (Judges 14:10), and allowed his hair to be cut (Judges 16:19) — illustrating that outward consecration without inward holiness produces spiritual ruin",
         "correct_answer": "a",
         "explanation": "Judges 16:17 — \"There hath not come a rasor upon mine head; for I have been a Nazarite unto God from my mother's womb.\" Samson's story is a tragic commentary on Numbers 6 — the form of consecration without its substance leads to shame and defeat."
       },
@@ -968,10 +968,10 @@
       {
         "question_number": 5,
         "question": "What is the significance of the vine as the specific source of all Nazirite dietary prohibition, rather than other foods?",
-        "option_a": "The vine represents earthly joy and the natural pleasures of human cultivation (Psalm 104:15 — \"wine that maketh glad the heart of man\"). The Nazirite's abstinence from the vine's products is a total renunciation of natural satisfaction in favour of supernatural joy — God alone as sufficient delight",
+        "option_a": "The vine prohibition was a health regulation",
         "option_b": "The vine was prohibited only because wine causes drunkenness",
         "option_c": "Grapes were scarce in the Sinai wilderness",
-        "option_d": "The vine prohibition was a health regulation",
+        "option_d": "The vine represents earthly joy and the natural pleasures of human cultivation (Psalm 104:15 — \"wine that maketh glad the heart of man\"). The Nazirite's abstinence from the vine's products is a total renunciation of natural satisfaction in favour of supernatural joy — God alone as sufficient delight",
         "correct_answer": "a",
         "explanation": "Numbers 6:4 — \"All the days of his separation shall he eat nothing that is made of the vine tree, from the kernels even to the husk.\" The totality of the prohibition (seeds to husk) signals complete separation from earthly gladness, reflecting Paul's disposition in Philippians 4:11 — \"I have learned, in whatsoever state I am, therewith to be content.\""
       },
@@ -1156,8 +1156,8 @@
       {
         "question_number": 7,
         "question": "How do the peace offerings in each prince's dedication (two oxen, five rams, five he-goats, five lambs) reflect a theology of covenant fellowship?",
-        "option_a": "Peace offerings (shelamim) were communion meals shared between the offerer, the priest, and God — the large number of peace offering animals in each prince's gift signals that the tabernacle's dedication is fundamentally about establishing covenant fellowship between God and His people, not merely ceremonial protocol",
-        "option_b": "Peace offerings were simply the most common type of offering",
+        "option_a": "Peace offerings were simply the most common type of offering",
+        "option_b": "Peace offerings (shelamim) were communion meals shared between the offerer, the priest, and God — the large number of peace offering animals in each prince's gift signals that the tabernacle's dedication is fundamentally about establishing covenant fellowship between God and His people, not merely ceremonial protocol",
         "option_c": "The numbers were chosen for financial rather than theological reasons",
         "option_d": "Peace offerings had no communion dimension in Israel",
         "correct_answer": "a",
@@ -1304,9 +1304,9 @@
       {
         "question_number": 5,
         "question": "How does the statement that the Levites were taken \"instead of all the firstborn\" (8:16-18) connect to the substitutionary principle that runs from Passover through the gospel?",
-        "option_a": "The substitutionary chain is explicit: God took the Levites in place of the firstborns He claimed at Passover — establishing a pattern of substitutionary consecration that points forward to Christ, the firstborn of all creation, who stands in for all humanity before the Father",
+        "option_a": "The Levites were superior to firstborns and were an upgrade, not a substitute",
         "option_b": "The substitution was a bureaucratic arrangement with no theological depth",
-        "option_c": "The Levites were superior to firstborns and were an upgrade, not a substitute",
+        "option_c": "The substitutionary chain is explicit: God took the Levites in place of the firstborns He claimed at Passover — establishing a pattern of substitutionary consecration that points forward to Christ, the firstborn of all creation, who stands in for all humanity before the Father",
         "option_d": "The Passover and the Levitical system were unrelated redemptive structures",
         "correct_answer": "a",
         "explanation": "Numbers 8:17-18 — \"For all the firstborn of the children of Israel are mine... and I have taken the Levites for all the firstborn.\" Colossians 1:15 — \"He is the image of the invisible God, the firstborn of every creature.\" The Levites as substitute-firstborns typify Christ who is the supreme firstborn given as substitute for all."
@@ -1630,10 +1630,10 @@
       {
         "question_number": 4,
         "question": "How does the departure from Sinai (the \"mountain of God,\" 10:33) mark a theological transition in the book of Numbers?",
-        "option_a": "Sinai was the mountain of the Law's giving and the tabernacle's construction — the pinnacle of divine revelation in the wilderness. Departure from Sinai is departure from the place of supreme covenant formation, launching Israel into the faith-walk of following God's presence rather than dwelling at the site of His revelation",
+        "option_a": "The departure marked the end of God's covenant with Israel",
         "option_b": "The departure from Sinai was purely geographical with no theological significance",
         "option_c": "Sinai remained the centre of Israelite worship throughout the wilderness period",
-        "option_d": "The departure marked the end of God's covenant with Israel",
+        "option_d": "Sinai was the mountain of the Law's giving and the tabernacle's construction — the pinnacle of divine revelation in the wilderness. Departure from Sinai is departure from the place of supreme covenant formation, launching Israel into the faith-walk of following God's presence rather than dwelling at the site of His revelation",
         "correct_answer": "a",
         "explanation": "Numbers 10:33 — \"They departed from the mount of the LORD three days' journey.\" Exodus 19:1-2 established Sinai as where God met Israel. Departure launches the lived-out obedience that the Sinai covenant demanded — the test of whether covenant knowledge would produce covenant faithfulness."
       },
@@ -1694,9 +1694,9 @@
       {
         "question_number": 2,
         "question": "What food did God send to feed the complaining people in the wilderness?",
-        "option_a": "Quail",
+        "option_a": "Fish from the sea",
         "option_b": "Bread and honey",
-        "option_c": "Fish from the sea",
+        "option_c": "Quail",
         "option_d": "Figs and dates",
         "correct_answer": "a",
         "explanation": "Numbers 11:31 — \"And there went forth a wind from the LORD, and brought quails from the sea, and let them fall by the camp.\""
@@ -1996,9 +1996,9 @@
       {
         "question_number": 7,
         "question": "What social and ceremonial significance did the seven-day exclusion from camp carry for Miriam?",
-        "option_a": "Leprosy rendered one ceremonially unclean and socially excluded under Levitical law (Leviticus 13:46) — even a princess of Israel was subject to the same law, teaching that no one is above divine holiness standards",
+        "option_a": "Seven days was the minimum for any illness",
         "option_b": "The exclusion was a personal preference",
-        "option_c": "Seven days was the minimum for any illness",
+        "option_c": "Leprosy rendered one ceremonially unclean and socially excluded under Levitical law (Leviticus 13:46) — even a princess of Israel was subject to the same law, teaching that no one is above divine holiness standards",
         "option_d": "Only priests were excluded for leprosy",
         "correct_answer": "a",
         "explanation": "Numbers 12:14-15 — \"Let her be shut out from the camp seven days... And Miriam was shut out from the camp seven days.\" Leviticus 13:46 prescribes this exact protocol: \"he shall dwell alone; without the camp shall his habitation be.\""
@@ -2134,10 +2134,10 @@
       {
         "question_number": 4,
         "question": "What does the description of Canaan as a land that \"eateth up the inhabitants thereof\" mean in context?",
-        "option_a": "The spies were describing the harsh, war-torn nature of the land where constant conflict devoured its people — using it as an argument against conquest, though ironically the same land would support Israel abundantly",
+        "option_a": "The animals ate the inhabitants",
         "option_b": "The land was literally poisonous",
         "option_c": "The climate destroyed crops every year",
-        "option_d": "The animals ate the inhabitants",
+        "option_d": "The spies were describing the harsh, war-torn nature of the land where constant conflict devoured its people — using it as an argument against conquest, though ironically the same land would support Israel abundantly",
         "correct_answer": "a",
         "explanation": "Numbers 13:32 — \"The land, through which we have gone to search it, is a land that eateth up the inhabitants thereof.\" The spies likely meant the land's contested nature and difficult conditions, but they used it as fear-mongering despite also testifying to its fruitfulness (v.27)."
       },
@@ -2450,10 +2450,10 @@
       {
         "question_number": 2,
         "question": "What is the theological significance of the wine (hin of wine) included in the offering prescriptions of Numbers 15?",
-        "option_a": "The drink offering of wine poured out before the LORD is a symbol of joy and consecration — later the NT uses this imagery for Christ's blood poured out (Matthew 26:28) and Paul's own martyrdom (Philippians 2:17, 2 Timothy 4:6)",
+        "option_a": "The drink offering replaced the blood sacrifice",
         "option_b": "Wine in offerings was a Canaanite borrowing",
         "option_c": "Wine was included only for taste purposes",
-        "option_d": "The drink offering replaced the blood sacrifice",
+        "option_d": "The drink offering of wine poured out before the LORD is a symbol of joy and consecration — later the NT uses this imagery for Christ's blood poured out (Matthew 26:28) and Paul's own martyrdom (Philippians 2:17, 2 Timothy 4:6)",
         "correct_answer": "a",
         "explanation": "Numbers 15:5-7 — \"And the fourth part of an hin of wine for a drink offering... and for a drink offering thou shalt offer the third part of an hin of wine.\" Paul writes in Philippians 2:17: \"yea, and if I be offered upon the sacrifice and service of your faith, I joy.\""
       },
@@ -2500,10 +2500,10 @@
       {
         "question_number": 7,
         "question": "What does the sin offering for the \"whole congregation\" sinning through ignorance (Numbers 15:24-26) reveal about corporate sin?",
-        "option_a": "Corporate entities can sin collectively — not just individuals — and require corporate atonement; this establishes the principle that communities bear shared moral responsibility before God",
+        "option_a": "The congregation offering was for the leaders only",
         "option_b": "Only individuals sin; communities cannot",
         "option_c": "Corporate sin offerings were voluntary",
-        "option_d": "The congregation offering was for the leaders only",
+        "option_d": "Corporate entities can sin collectively — not just individuals — and require corporate atonement; this establishes the principle that communities bear shared moral responsibility before God",
         "correct_answer": "a",
         "explanation": "Numbers 15:25-26 — \"The priest shall make an atonement for all the congregation of the children of Israel, and it shall be forgiven them; for it is an ignorance: and they shall bring their offering, a sacrifice made by fire unto the LORD.\""
       },
@@ -2618,8 +2618,8 @@
       {
         "question_number": 2,
         "question": "How does Korah's rebellion against Moses foreshadow the NT warning against those who \"perish in the gainsaying of Core\" (Jude 11)?",
-        "option_a": "Jude uses Korah as the paradigm of those who reject divinely appointed authority for self-promoted ministry — the same spirit that despises God's ordained leadership structure is still active in apostasy",
-        "option_b": "Jude's reference is to a different Korah",
+        "option_a": "Jude's reference is to a different Korah",
+        "option_b": "Jude uses Korah as the paradigm of those who reject divinely appointed authority for self-promoted ministry — the same spirit that despises God's ordained leadership structure is still active in apostasy",
         "option_c": "The warning in Jude applies only to the Levites",
         "option_d": "Korah's sin was primarily ceremonial, not moral",
         "correct_answer": "a",
@@ -2668,10 +2668,10 @@
       {
         "question_number": 7,
         "question": "What does Moses' falling on his face in Numbers 16:4,22,45 reveal about his leadership posture throughout the rebellion?",
-        "option_a": "Moses consistently responds to crisis with prostration before God rather than self-defense or retaliation — modeling that the leader's first resort is prayer and humility before divine authority, not human power",
+        "option_a": "Moses fell due to exhaustion",
         "option_b": "Moses was physically frightened",
         "option_c": "The gesture was a cultural formality only",
-        "option_d": "Moses fell due to exhaustion",
+        "option_d": "Moses consistently responds to crisis with prostration before God rather than self-defense or retaliation — modeling that the leader's first resort is prayer and humility before divine authority, not human power",
         "correct_answer": "a",
         "explanation": "Numbers 16:4 — \"And when Moses heard it, he fell upon his face.\" Numbers 16:22 — \"And they fell upon their faces.\" Numbers 16:45 — \"And they fell upon their faces.\" The repeated posture throughout the crisis underscores that Moses' power came from sustained dependence on God."
       },
@@ -2764,10 +2764,10 @@
       {
         "question_number": 5,
         "question": "What was unique about Aaron's rod compared to the other eleven rods in the tabernacle?",
-        "option_a": "Only Aaron's rod produced living growth — buds, blossoms, and ripe almonds — while all the other rods remained dead dry wood",
+        "option_a": "Moses' rod also budded",
         "option_b": "All the rods produced some growth",
         "option_c": "Aaron's rod produced a different fruit",
-        "option_d": "Moses' rod also budded",
+        "option_d": "Only Aaron's rod produced living growth — buds, blossoms, and ripe almonds — while all the other rods remained dead dry wood",
         "correct_answer": "a",
         "explanation": "Numbers 17:8-9 — \"And, behold, the rod of Aaron for the house of Levi was budded, and brought forth buds, and bloomed blossoms, and yielded almonds. And Moses brought out all the rods from before the LORD unto all the children of Israel.\""
       }
@@ -2954,9 +2954,9 @@
       {
         "question_number": 2,
         "question": "How does the \"covenant of salt\" (Numbers 18:19) function in its ancient Near Eastern context?",
-        "option_a": "Salt was a universal symbol of preservation, permanence, and covenant loyalty — a \"covenant of salt\" was the most unbreakable form of agreement, indicating that the priestly arrangement was an eternal, inviolable covenant with God",
+        "option_a": "The phrase means the covenant was bitter",
         "option_b": "Salt was used only for food preservation",
-        "option_c": "The phrase means the covenant was bitter",
+        "option_c": "Salt was a universal symbol of preservation, permanence, and covenant loyalty — a \"covenant of salt\" was the most unbreakable form of agreement, indicating that the priestly arrangement was an eternal, inviolable covenant with God",
         "option_d": "Salt covenants were specific to Levitical law only",
         "correct_answer": "a",
         "explanation": "Numbers 18:19 — \"It is a covenant of salt for ever before the LORD unto thee and to thy seed with thee.\" 2 Chronicles 13:5 uses the same phrase for the Davidic covenant: \"a covenant of salt.\""
@@ -2994,9 +2994,9 @@
       {
         "question_number": 6,
         "question": "How does Paul's argument in 1 Corinthians 9:13-14 depend on the principles established in Numbers 18?",
-        "option_a": "Paul explicitly grounds the right of gospel ministers to material support in the OT pattern of those who serve the altar partaking of the altar's offerings — the Levitical precedent is the theological basis for the Christian principle of supporting gospel workers",
+        "option_a": "Paul contradicts the Numbers 18 pattern",
         "option_b": "Paul's arguments are entirely independent of the OT",
-        "option_c": "Paul contradicts the Numbers 18 pattern",
+        "option_c": "Paul explicitly grounds the right of gospel ministers to material support in the OT pattern of those who serve the altar partaking of the altar's offerings — the Levitical precedent is the theological basis for the Christian principle of supporting gospel workers",
         "option_d": "Only the specific amounts in Numbers 18 are binding",
         "correct_answer": "a",
         "explanation": "1 Corinthians 9:13-14 — \"Do ye not know that they which minister about holy things live of the things of the temple... Even so hath the Lord ordained that they which preach the gospel should live of the gospel.\" Paul draws directly on Numbers 18's principle."
@@ -3152,9 +3152,9 @@
       {
         "question_number": 5,
         "question": "How do the elements burned with the heifer — cedar, hyssop, and scarlet thread — connect to other significant purification rituals in the Torah?",
-        "option_a": "These same three items appear in the cleansing of leprosy (Leviticus 14:4-6) and the dedication of a house (Leviticus 14:49-52) — suggesting a unified theology of purification from death-related contamination throughout the Mosaic system",
+        "option_a": "Cedar, hyssop, and scarlet appear only in Numbers 19",
         "option_b": "The three items were chosen randomly",
-        "option_c": "Cedar, hyssop, and scarlet appear only in Numbers 19",
+        "option_c": "These same three items appear in the cleansing of leprosy (Leviticus 14:4-6) and the dedication of a house (Leviticus 14:49-52) — suggesting a unified theology of purification from death-related contamination throughout the Mosaic system",
         "option_d": "The items had individual meanings only, not a combined symbolism",
         "correct_answer": "a",
         "explanation": "Leviticus 14:4 — \"Then shall the priest command to take for him that is to be cleansed two birds alive and clean, and cedar wood, and scarlet, and hyssop.\" The triplet forms a consistent purification formula, and hyssop appears in the Passover (Exodus 12:22) and David's cleansing prayer (Psalm 51:7)."
@@ -3172,9 +3172,9 @@
       {
         "question_number": 7,
         "question": "What sociological and communal function did the water of purification serve in maintaining the holiness of the Israelite community?",
-        "option_a": "It provided a practical mechanism for managing the near-universal experience of death-related uncleanness — without it, the entire assembly could become collectively unfit to approach the tabernacle, showing that God provided a means of restoration for unavoidable contamination",
+        "option_a": "Most Israelites never needed the purification water",
         "option_b": "The ritual was only for extreme cases of sin",
-        "option_c": "Most Israelites never needed the purification water",
+        "option_c": "It provided a practical mechanism for managing the near-universal experience of death-related uncleanness — without it, the entire assembly could become collectively unfit to approach the tabernacle, showing that God provided a means of restoration for unavoidable contamination",
         "option_d": "The ritual applied only to priests",
         "correct_answer": "a",
         "explanation": "Numbers 19:9 — \"it shall be kept for the congregation of the children of Israel for a water of separation: it is a purification for sin.\" Every family touched by death needed access to this cleansing — God built restoration into the structure of community life."
@@ -3320,10 +3320,10 @@
       {
         "question_number": 5,
         "question": "How does Edom's refusal of passage illustrate the broken covenant relationship between the descendants of Jacob and Esau?",
-        "option_a": "Moses appeals to Edom as \"thy brother Israel\" (v.14), invoking the Jacob-Esau relationship — but Edom's refusal and military threat show that the sibling rivalry begun in Genesis 25 has hardened into national enmity, which later prophets (Obadiah, Ezekiel 35) condemn severely",
+        "option_a": "Edom had no obligation to Israel",
         "option_b": "Edom's refusal was politically reasonable with no deeper significance",
         "option_c": "The Jacob-Esau reference is rhetorical with no actual treaty claim",
-        "option_d": "Edom had no obligation to Israel",
+        "option_d": "Moses appeals to Edom as \"thy brother Israel\" (v.14), invoking the Jacob-Esau relationship — but Edom's refusal and military threat show that the sibling rivalry begun in Genesis 25 has hardened into national enmity, which later prophets (Obadiah, Ezekiel 35) condemn severely",
         "correct_answer": "a",
         "explanation": "Numbers 20:14 — \"And Moses sent messengers from Kadesh unto the king of Edom, Thus saith thy brother Israel...\" Obadiah 10-12 later condemns Edom for standing against \"thy brother Jacob.\" The fraternal language makes the refusal a covenantal betrayal."
       },
@@ -3542,8 +3542,8 @@
       {
         "question_number": 2,
         "question": "What miracle happened with Balaam's donkey?",
-        "option_a": "It flew through the air",
-        "option_b": "It spoke to Balaam",
+        "option_a": "It spoke to Balaam",
+        "option_b": "It flew through the air",
         "option_c": "It carried a hundred men",
         "option_d": "It walked on water",
         "correct_answer": "a",
@@ -3584,8 +3584,8 @@
       {
         "question_number": 3,
         "question": "Why did the donkey turn aside from the road three times?",
-        "option_a": "She was tired and wanted to rest",
-        "option_b": "She saw the angel of the LORD blocking the way",
+        "option_a": "She saw the angel of the LORD blocking the way",
+        "option_b": "She was tired and wanted to rest",
         "option_c": "She was frightened by a loud noise",
         "option_d": "She smelled water nearby",
         "correct_answer": "a",
@@ -4516,9 +4516,9 @@
       {
         "question_number": 7,
         "question": "How does the inheritance legislation in Numbers 27:8-11 relate to the later institution of the kinsman-redeemer in Leviticus 25 and the book of Ruth?",
-        "option_a": "Both laws protect family land inheritance and redemption within the covenant community, showing God's concern for the continuity of tribal identity",
+        "option_a": "The kinsman-redeemer law superseded the Numbers 27 ruling",
         "option_b": "They are entirely different laws with no connection",
-        "option_c": "The kinsman-redeemer law superseded the Numbers 27 ruling",
+        "option_c": "Both laws protect family land inheritance and redemption within the covenant community, showing God's concern for the continuity of tribal identity",
         "option_d": "Ruth's situation had nothing to do with inheritance",
         "correct_answer": "a",
         "explanation": "Numbers 27:8-11 and Leviticus 25:25-28 together form an integrated legal framework for land redemption, illustrated perfectly in Ruth 4 where Boaz acts as kinsman-redeemer to preserve Elimelech's name and inheritance."
@@ -5020,8 +5020,8 @@
       {
         "question_number": 7,
         "question": "What situation does Numbers 30 address regarding a woman who made a vow in her husband's house before he heard it?",
-        "option_a": "If her husband hears and holds his peace, the vow stands; if he disallows it on the day he hears it, the LORD shall forgive her",
-        "option_b": "All vows made before marriage automatically transferred to the husband",
+        "option_a": "All vows made before marriage automatically transferred to the husband",
+        "option_b": "If her husband hears and holds his peace, the vow stands; if he disallows it on the day he hears it, the LORD shall forgive her",
         "option_c": "The priest determined the validity of pre-marital vows",
         "option_d": "Such vows were automatically void upon marriage",
         "correct_answer": "a",
@@ -5064,9 +5064,9 @@
       {
         "question_number": 3,
         "question": "What happened to Balaam during the war against Midian?",
-        "option_a": "He was captured and imprisoned",
+        "option_a": "He was slain with the sword",
         "option_b": "He escaped to Egypt",
-        "option_c": "He was slain with the sword",
+        "option_c": "He was captured and imprisoned",
         "option_d": "He surrendered to Moses",
         "correct_answer": "a",
         "explanation": "Numbers 31:8 — \"Balaam also the son of Beor they slew with the sword.\""
@@ -5356,8 +5356,8 @@
       {
         "question_number": 7,
         "question": "What geographical and theological significance does the Jabbok River have in relation to the territory assigned to Gad?",
-        "option_a": "It served as a natural boundary that Gad defended against Ammon",
-        "option_b": "It was the site of Jacob's wrestling with the angel, now within Gad's tribal land",
+        "option_a": "It was the site of Jacob's wrestling with the angel, now within Gad's tribal land",
+        "option_b": "It served as a natural boundary that Gad defended against Ammon",
         "option_c": "The Jabbok was the source of water for Gad's cities",
         "option_d": "It was the border between Gad and Manasseh's portions",
         "correct_answer": "a",
@@ -5390,9 +5390,9 @@
       {
         "question_number": 2,
         "question": "Who wrote down all the places where Israel stopped during their journey?",
-        "option_a": "Aaron",
+        "option_a": "Moses",
         "option_b": "Joshua",
-        "option_c": "Moses",
+        "option_c": "Aaron",
         "option_d": "Eleazar",
         "correct_answer": "a",
         "explanation": "Numbers 33:2 — \"And Moses wrote their goings out according to their journeys by the commandment of the LORD.\""
@@ -5422,8 +5422,8 @@
       {
         "question_number": 2,
         "question": "What significant event does Numbers 33 note happened to Aaron at Mount Hor?",
-        "option_a": "He received the priestly garments",
-        "option_b": "He died at the age of a hundred and twenty and three years",
+        "option_a": "He died at the age of a hundred and twenty and three years",
+        "option_b": "He received the priestly garments",
         "option_c": "He saw the promised land from the mountain",
         "option_d": "He was given a second set of stone tablets",
         "correct_answer": "a",
@@ -5474,8 +5474,8 @@
       {
         "question_number": 2,
         "question": "What theological significance does Numbers 33:4 attach to the Exodus from Egypt?",
-        "option_a": "Israel left because they had completed their time of service",
-        "option_b": "The Exodus was God's judgment on Egypt's gods, executed through the death of the firstborn",
+        "option_a": "The Exodus was God's judgment on Egypt's gods, executed through the death of the firstborn",
+        "option_b": "Israel left because they had completed their time of service",
         "option_c": "God drove Israel out so Pharaoh could not enslave them again",
         "option_d": "The plagues purified Egypt before Israel's departure",
         "correct_answer": "a",
@@ -5484,8 +5484,8 @@
       {
         "question_number": 3,
         "question": "What is the significance of the stop at Marah mentioned in this itinerary in light of Exodus 15?",
-        "option_a": "Marah was where Israel first sang a song to God",
-        "option_b": "Marah's bitter waters were healed by Moses casting a tree into them, prefiguring Christ on the cross making bitter things sweet",
+        "option_a": "Marah's bitter waters were healed by Moses casting a tree into them, prefiguring Christ on the cross making bitter things sweet",
+        "option_b": "Marah was where Israel first sang a song to God",
         "option_c": "Marah was Israel's first encampment after crossing the Red Sea",
         "option_d": "Marah was the place God gave Israel the manna",
         "correct_answer": "a",
@@ -5494,8 +5494,8 @@
       {
         "question_number": 4,
         "question": "What detail about Aaron's death at Mount Hor is stated in Numbers 33:38 that gives it a covenant-calendar significance?",
-        "option_a": "He died on the same day of the year as the golden calf incident",
-        "option_b": "He died on the first day of the fifth month in the fortieth year, marking the end of the generation that left Egypt",
+        "option_a": "He died on the first day of the fifth month in the fortieth year, marking the end of the generation that left Egypt",
+        "option_b": "He died on the same day of the year as the golden calf incident",
         "option_c": "He died during the Feast of Weeks",
         "option_d": "He died on the Sabbath day, making it a day of rest",
         "correct_answer": "a",
@@ -5672,8 +5672,8 @@
       {
         "question_number": 5,
         "question": "What does the inclusion of Caleb the son of Jephunneh among the land distributors signify about God's faithfulness?",
-        "option_a": "Caleb was chosen because he was the oldest surviving leader",
-        "option_b": "It fulfills the specific promise in Numbers 14:24 that Caleb would enter the land and his seed would possess it",
+        "option_a": "It fulfills the specific promise in Numbers 14:24 that Caleb would enter the land and his seed would possess it",
+        "option_b": "Caleb was chosen because he was the oldest surviving leader",
         "option_c": "Caleb was the most skilled administrator among the tribal leaders",
         "option_d": "Caleb was chosen to honor his father Jephunneh",
         "correct_answer": "a",

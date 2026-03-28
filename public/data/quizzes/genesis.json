@@ -5778,10 +5778,10 @@
       {
         "question_number": 4,
         "question": "How old was Isaac when he died?",
-        "option_a": "One hundred and eighty years",
+        "option_a": "Two hundred years",
         "option_b": "One hundred and fifty years",
         "option_c": "One hundred and sixty years",
-        "option_d": "Two hundred years",
+        "option_d": "One hundred and eighty years",
         "correct_answer": "a",
         "explanation": "Isaac was an hundred and fourscore (180) years old when he died. See Genesis 35:28."
       },
