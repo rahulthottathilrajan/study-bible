@@ -23,7 +23,7 @@ export default function BibleView() {
     chapterHighlights, chapterNotes, chapterCommunityNotes,
     setPrayerModal, setPrayerTitle, setPrayerText, noteRef,
     isOT, currentVerse, verseNums, t, ht, darkMode, bookInfo,
-    hasVerseId, saveNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
+    hasVerseId, saveNote, deleteNote, toggleNotePublic, toggleHighlight, toggleBookmarkHL,
     copyVerseText, shareVerseImage, nav, goBack,
     chapterReads, markChapterRead, quizScores, bibleTranslation, bp,
     audioPlaying, audioVisible, setAudioPlaying, setAudioVisible,
@@ -185,7 +185,7 @@ export default function BibleView() {
             <div style={{ padding:"16px 18px",marginBottom:18,background:`linear-gradient(135deg,${t.accentLight},${t.card})`,border:`1px solid ${t.accentBorder}`,borderRadius:14,textAlign:"center" }}>
               <div style={{ fontSize:22,marginBottom:6 }}>📜</div>
               <div style={{ fontFamily:t.heading,fontSize:15,fontWeight:700,color:t.dark,marginBottom:4 }}>Study notes coming soon</div>
-              <div style={{ fontFamily:t.ui,fontSize:12,color:t.muted,lineHeight:1.5 }}>Genesis is fully seeded with verse-by-verse study notes, Hebrew text, and cross-references. More books are being prepared.</div>
+              <div style={{ fontFamily:t.ui,fontSize:12,color:t.muted,lineHeight:1.5 }}>27 books are fully seeded with verse-by-verse study notes, original language text, and cross-references. More books are being prepared.</div>
             </div>
           )}
 
@@ -777,8 +777,8 @@ export default function BibleView() {
 
             {/* Always-visible action bar */}
             {user && (
-              <div style={{borderRadius:10,padding:"8px 4px",marginTop:8,background:`${t.accent}0A`,border:`1px solid ${t.accentBorder}`,opacity:hasVerseId?1:0.4,pointerEvents:hasVerseId?"auto":"none"}}>
-                {!hasVerseId && <div style={{fontFamily:t.ui,fontSize:10,color:t.muted,textAlign:"center",padding:"4px 0 2px"}}>Features available for seeded chapters</div>}
+              <div style={{borderRadius:10,padding:"8px 4px",marginTop:8,background:`${t.accent}0A`,border:`1px solid ${t.accentBorder}`}}>
+                {!hasVerseId && <div style={{fontFamily:t.ui,fontSize:10,color:t.muted,textAlign:"center",padding:"4px 0 2px"}}>Highlight, bookmark &amp; notes available for seeded chapters</div>}
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly"}}>
                   {[
                     { label:"Highlight", active:showColors && hasVerseId, onClick:() => setShowColors(c => !c),
@@ -796,19 +796,22 @@ export default function BibleView() {
                       svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg> },
                     { label:"Share", onClick:shareVerseImage,
                       svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> },
-                  ].map((a,i) => (
-                    <button key={i} onClick={a.onClick}
-                      style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:3,minWidth:44,padding:"5px 4px",borderRadius:8,border:"none",background:a.active?`${a.activeColor||t.accent}15`:"transparent",color:a.active?(a.activeColor||t.accent):t.muted,cursor:"pointer",transition:"all 0.15s"}}>
+                  ].map((a,i) => {
+                    const needsVerse = i < 3; // Highlight, Bookmark, Note need Supabase verse ID
+                    const dimmed = needsVerse && !hasVerseId;
+                    return (
+                    <button key={i} onClick={dimmed ? undefined : a.onClick} aria-label={a.label} disabled={dimmed}
+                      style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:3,minWidth:44,padding:"5px 4px",borderRadius:8,border:"none",background:a.active && !dimmed?`${a.activeColor||t.accent}15`:"transparent",color:a.active && !dimmed?(a.activeColor||t.accent):t.muted,cursor:dimmed?"default":"pointer",transition:"all 0.15s",opacity:dimmed?0.35:1}}>
                       {a.active && a.svgActive ? a.svgActive : a.svg}
                       <span style={{fontFamily:t.ui,fontSize:8,fontWeight:600,lineHeight:1,letterSpacing:"0.02em"}}>{a.label}</span>
                     </button>
-                  ))}
+                  );})}
                 </div>
 
                 {/* Highlight color picker — expands below */}
                 {showColors && (
                   <div style={{display:"flex",gap:7,paddingTop:8,animation:"fadeIn 0.15s ease",alignItems:"center",justifyContent:"center"}}>
-                    {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} style={{width:26,height:26,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?`3px solid ${t.dark}`:`2px solid ${c}88`,cursor:"pointer",transition:"all 0.15s",transform:highlight?.highlight_color===c?"scale(1.15)":"scale(1)"}} />)}
+                    {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} aria-label={({["#FFD700"]:"Gold",["#FF9B71"]:"Coral",["#7ED4AD"]:"Green",["#82B1FF"]:"Blue",["#CE93D8"]:"Purple",["#F48FB1"]:"Pink"})[c] + " highlight"} style={{width:26,height:26,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?`3px solid ${t.dark}`:`2px solid ${c}88`,cursor:"pointer",transition:"all 0.15s",transform:highlight?.highlight_color===c?"scale(1.15)":"scale(1)"}} />)}
                     {highlight?.highlight_color && <button onClick={() => toggleHighlight(highlight.highlight_color)} style={{fontFamily:t.ui,fontSize:10,color:t.muted,background:"none",border:"none",cursor:"pointer",textDecoration:"underline",marginLeft:4}}>Clear</button>}
                   </div>
                 )}
@@ -871,9 +874,15 @@ export default function BibleView() {
                   <button onClick={toggleNotePublic} style={{ padding:"8px 14px",borderRadius:8,border:`1px solid ${savedNote.is_public?'#7ED4AD':t.divider}`,background:savedNote.is_public?'#7ED4AD22':'transparent',fontFamily:t.ui,fontSize:12,fontWeight:600,color:savedNote.is_public?'#2E7D5B':t.muted,cursor:"pointer" }}>
                     {savedNote.is_public ? "🌍 Shared" : "🔒 Private"} — tap to {savedNote.is_public ? "make private" : "share"}
                   </button>
+                  <button aria-label="Delete note" onClick={async () => { if (confirm("Delete this note? This cannot be undone.")) await deleteNote(); }} disabled={noteLoading} style={{ padding:"8px 14px",borderRadius:8,border:`1px solid rgba(239,68,68,0.3)`,background:"transparent",fontFamily:t.ui,fontSize:12,fontWeight:600,color:"#ef4444",cursor:"pointer" }}>
+                    Delete
+                  </button>
                 </>}
               </div>
-              {savedNote && <div style={{fontFamily:t.ui,fontSize:10,color:t.light,marginTop:8}}>Last saved: {new Date(savedNote.updated_at).toLocaleString()}</div>}
+              {savedNote && <>
+                <div style={{fontFamily:t.ui,fontSize:10,color:t.light,marginTop:8}}>Last saved: {new Date(savedNote.updated_at).toLocaleString()}</div>
+                {savedNote.is_public && <div style={{fontFamily:t.ui,fontSize:10,color:t.light,marginTop:4}}>By sharing, you confirm this is your original content and does not contain copyrighted material.</div>}
+              </>}
             </Card>
 
             <button onClick={() => { setPrayerTitle(`Prayer for ${book} ${chapter}:${verse}`); setPrayerText(""); setPrayerModal(true); }} style={{ padding:"14px",borderRadius:12,border:`1px dashed ${t.accentBorder}`,background:t.accentLight,fontFamily:t.ui,fontSize:14,fontWeight:600,color:t.accent,cursor:"pointer",textAlign:"center" }}>

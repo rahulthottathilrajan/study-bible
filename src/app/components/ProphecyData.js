@@ -23,6 +23,22 @@
 //    watchFor     — (Revelation/Awaiting only) signs scholars point to
 //  }
 // ============================================================
+//
+// FAIR USE & ATTRIBUTION NOTICE
+// All commentary text in this file consists of original paraphrases
+// that attribute scholarly arguments by name. No copyrighted text is
+// reproduced verbatim. Citations reference publicly known scholarly
+// positions. Where scholars are named, their published works are:
+//
+//   - Edersheim, Alfred. *The Life and Times of Jesus the Messiah* (1883, public domain)
+//   - Alford, Henry. *The Greek New Testament* (1849–1861, public domain)
+//   - Kaiser, Walter C. *The Messiah in the Old Testament* (Zondervan, 1995)
+//   - Motyer, J. Alec. *The Prophecy of Isaiah* (IVP Academic, 1993)
+//   - Anderson, Sir Robert. *The Coming Prince* (1894, public domain)
+//   - Hoehner, Harold W. *Chronological Aspects of the Life of Christ* (Zondervan, 1977)
+//
+// All Bible text is from the King James Version (1611, public domain).
+// ============================================================
 
 export const PROPHECY_CATEGORIES = [
   { id: "All",         label: "All",                color: "#2D1B4E" },
