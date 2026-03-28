@@ -136,6 +136,85 @@ const MONTHS = [
   { label: "Nov", weeks: [44,45,46,47] }, { label: "Dec", weeks: [48,49,50,51,52] },
 ];
 
+const MOODS = [
+  { id: "grateful",   icon: "\uD83D\uDE0A", label: "Grateful",   key: "moodGrateful" },
+  { id: "challenged", icon: "\uD83D\uDCAA", label: "Challenged", key: "moodChallenged" },
+  { id: "inspired",   icon: "\u2728",       label: "Inspired",   key: "moodInspired" },
+  { id: "convicted",  icon: "\uD83D\uDE4F", label: "Convicted",  key: "moodConvicted" },
+  { id: "peaceful",   icon: "\uD83D\uDD4A\uFE0F",  label: "Peaceful",   key: "moodPeaceful" },
+];
+
+// ── Share Card Generator ──
+const generateShareCard = async (stats, TC) => {
+  const W = 600, H = 400;
+  const canvas = document.createElement("canvas");
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext("2d");
+
+  // Background gradient
+  const grad = ctx.createLinearGradient(0, 0, W, H);
+  grad.addColorStop(0, "#1E1B4B"); grad.addColorStop(0.5, "#312E81"); grad.addColorStop(1, "#4F46E5");
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, W, H);
+
+  // Subtle pattern overlay
+  ctx.fillStyle = "rgba(255,255,255,0.03)";
+  for (let i = 0; i < 20; i++) { ctx.beginPath(); ctx.arc(Math.random()*W, Math.random()*H, Math.random()*40+10, 0, Math.PI*2); ctx.fill(); }
+
+  // Title
+  ctx.fillStyle = "#fff"; ctx.font = "bold 28px 'Georgia', serif"; ctx.textAlign = "center";
+  ctx.fillText("My Bible Study Journey", W/2, 60);
+
+  // Divider line
+  ctx.strokeStyle = "rgba(255,255,255,0.2)"; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(100, 80); ctx.lineTo(500, 80); ctx.stroke();
+
+  // Stats grid
+  const statsY = 130;
+  const statItems = [
+    { label: "Lessons", value: `${stats.completed}/52` },
+    { label: "Streak", value: `${stats.streak} days` },
+    { label: "Level", value: stats.level },
+    { label: "XP", value: stats.xp.toLocaleString() },
+  ];
+  statItems.forEach((s, i) => {
+    const x = 75 + i * 150;
+    ctx.fillStyle = "rgba(255,255,255,0.1)"; roundRect(ctx, x-50, statsY-20, 120, 60, 8);
+    ctx.fillStyle = "#fff"; ctx.font = "bold 22px 'Georgia', serif"; ctx.textAlign = "center";
+    ctx.fillText(s.value, x+10, statsY+10);
+    ctx.fillStyle = "rgba(255,255,255,0.5)"; ctx.font = "600 10px 'Arial', sans-serif";
+    ctx.fillText(s.label.toUpperCase(), x+10, statsY+30);
+  });
+
+  // Memory verse
+  if (stats.verse) {
+    ctx.fillStyle = "rgba(255,255,255,0.08)"; roundRect(ctx, 40, 220, W-80, 100, 10);
+    ctx.fillStyle = "rgba(255,255,255,0.4)"; ctx.font = "600 9px 'Arial', sans-serif"; ctx.textAlign = "center";
+    ctx.fillText("MEMORY VERSE", W/2, 240);
+    ctx.fillStyle = "#fff"; ctx.font = "italic 14px 'Georgia', serif";
+    const words = stats.verse.split(" ");
+    let line = "", y = 262;
+    for (const word of words) {
+      const test = line + word + " ";
+      if (ctx.measureText(test).width > W - 120) { ctx.fillText(line.trim(), W/2, y); y += 20; line = word + " "; }
+      else line = test;
+    }
+    if (line.trim()) ctx.fillText(line.trim(), W/2, y);
+  }
+
+  // Watermark
+  ctx.fillStyle = "rgba(255,255,255,0.3)"; ctx.font = "bold 12px 'Arial', sans-serif"; ctx.textAlign = "center";
+  ctx.fillText("The Bible Scrollers", W/2, H - 20);
+
+  return new Promise(resolve => canvas.toBlob(resolve, "image/png"));
+};
+
+const roundRect = (ctx, x, y, w, h, r) => {
+  ctx.beginPath(); ctx.moveTo(x+r, y); ctx.lineTo(x+w-r, y); ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+  ctx.lineTo(x+w, y+h-r); ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h); ctx.lineTo(x+r, y+h);
+  ctx.quadraticCurveTo(x, y+h, x, y+h-r); ctx.lineTo(x, y+r); ctx.quadraticCurveTo(x, y, x+r, y);
+  ctx.closePath(); ctx.fill();
+};
+
 const TERM_WEEKS = {
   "Term 1": [1,2,3,4,5,6,7,8,9,10,11,12,13],
   "Term 2": [14,15,16,17,18,19,20,21,22,23,24,25,26],
@@ -162,6 +241,8 @@ export default function TeensCurriculum({ nav, darkMode }) {
   const [revealedHints, setRevealedHints]       = useState({});
   const [journalEntries, setJournalEntries]     = useState({});
   const [journalDraft, setJournalDraft]         = useState("");
+  const [draftMood, setDraftMood]               = useState(null);
+  const [moodFilter, setMoodFilter]             = useState("All");
 
   // ── Engagement State ──
   const [studyStreak, setStudyStreak]           = useState({ count: 0, lastDate: null, history: [] });
@@ -269,6 +350,7 @@ export default function TeensCurriculum({ nav, darkMode }) {
     setExpandedSections({ 0: true });
     setRevealedHints({});
     setJournalDraft(journalEntries[lesson.week]?.text || "");
+    setDraftMood(journalEntries[lesson.week]?.mood || null);
     setScrollPct(0);
     sectionTimers.current = {};
     setTimeout(() => setAnimIn(true), 20);
@@ -362,13 +444,13 @@ export default function TeensCurriculum({ nav, darkMode }) {
   const saveJournal = useCallback((week) => {
     if (!journalDraft.trim()) return;
     setJournalEntries(p => {
-      const next = { ...p, [week]: { text: journalDraft.trim(), date: todayStr() } };
+      const next = { ...p, [week]: { text: journalDraft.trim(), date: todayStr(), mood: draftMood } };
       if (Object.keys(next).length >= 10 && awardBadge) awardBadge("journaler");
       return next;
     });
     addXP(25);
     recordActivity();
-  }, [journalDraft, awardBadge, addXP, recordActivity]);
+  }, [journalDraft, draftMood, awardBadge, addXP, recordActivity]);
 
   const deleteJournal = useCallback((week, e) => {
     if (e) e.stopPropagation();
@@ -376,9 +458,9 @@ export default function TeensCurriculum({ nav, darkMode }) {
   }, []);
 
   // ── Today tab callbacks ──
-  const onSaveReflection = useCallback((week, text) => {
+  const onSaveReflection = useCallback((week, text, mood) => {
     setJournalEntries(p => {
-      const next = { ...p, [week]: { text, date: todayStr() } };
+      const next = { ...p, [week]: { text, date: todayStr(), mood: mood || null } };
       if (Object.keys(next).length >= 10 && awardBadge) awardBadge("journaler");
       return next;
     });
@@ -397,6 +479,29 @@ export default function TeensCurriculum({ nav, darkMode }) {
     addXP(15);
     recordActivity();
   }, [awardBadge, addXP, recordActivity]);
+
+  // ── Share ──
+  const handleShare = useCallback(async (type = "journey", lessonWeek) => {
+    const verse = currentLesson?.memoryVerse || "";
+    const stats = { completed: completedCount, streak: studyStreak.count, level, xp, verse };
+    try {
+      const blob = await generateShareCard(stats, TC);
+      if (!blob) return;
+      const file = new File([blob], "bible-study-journey.png", { type: "image/png" });
+      if (navigator.share && navigator.canShare?.({ files: [file] })) {
+        await navigator.share({
+          title: type === "journey" ? "My Bible Study Journey" : `Week ${lessonWeek} Complete!`,
+          text: type === "journey" ? `I've completed ${completedCount}/52 lessons!` : `I just completed Week ${lessonWeek} of the Teens Bible Study!`,
+          files: [file],
+        });
+      } else {
+        // Fallback: download
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a"); a.href = url; a.download = "bible-study-journey.png";
+        document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+      }
+    } catch {}
+  }, [completedCount, studyStreak.count, level, xp, currentLesson, TC]);
 
   const onVerseMastery = useCallback((week, gotIt) => {
     setVerseMastery(prev => {
@@ -599,6 +704,16 @@ export default function TeensCurriculum({ nav, darkMode }) {
               <div style={{ fontFamily: TC.body, fontSize: 13.5, color: TC.text, lineHeight: 1.8, marginBottom: 10 }}>{L.journalPrompt.prompt}</div>
               <textarea value={journalDraft} onChange={(e) => setJournalDraft(e.target.value)} placeholder="Write your reflection here..." aria-label="Journal reflection"
                 style={{ width: "100%", minHeight: 100, border: `1px solid ${TC.divider}`, borderRadius: 8, padding: 12, fontFamily: TC.body, fontSize: 13, color: TC.text, background: TC.bg, resize: "vertical", boxSizing: "border-box" }} />
+              {/* Mood selector */}
+              <div style={{ display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }}>
+                {MOODS.map(m => (
+                  <button key={m.id} onClick={() => setDraftMood(draftMood === m.id ? null : m.id)}
+                    aria-pressed={draftMood === m.id} aria-label={m.label}
+                    style={{ padding: "4px 10px", borderRadius: 16, border: `1px solid ${draftMood === m.id ? TC[m.key] : TC.divider}`, background: draftMood === m.id ? TC[m.key] + "18" : "transparent", fontFamily: TC.ui, fontSize: 10, fontWeight: 600, color: draftMood === m.id ? TC[m.key] : TC.muted, cursor: "pointer", transition: "all 0.15s" }}>
+                    {m.icon} {m.label}
+                  </button>
+                ))}
+              </div>
               <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 8 }}>
                 <button onClick={() => saveJournal(L.week)} style={{ padding: "8px 20px", background: TC.accent, color: "#fff", border: "none", borderRadius: 8, fontFamily: TC.ui, fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
                   {journalEntries[L.week] ? "Update Entry" : "Save Entry (+25 XP)"}
@@ -631,15 +746,23 @@ export default function TeensCurriculum({ nav, darkMode }) {
 
           {/* Footer */}
           <div style={{ padding: "12px 16px", borderTop: `1px solid ${TC.divider}`, background: TC.card, flexShrink: 0 }}>
-            <button onClick={() => toggleComplete(L.week)} style={{
-              width: "100%", padding: "14px", borderRadius: 10, border: "none",
-              background: isComplete ? TC.completionGreen : TC.accent, color: "#fff",
-              fontFamily: TC.ui, fontSize: 14, fontWeight: 700, cursor: "pointer",
-              transition: "all 0.2s",
-              animation: allRead && !isComplete ? "correctPulse 1.5s infinite" : "none",
-            }}>
-              {isComplete ? "\u2705 Lesson Complete" : `Mark Lesson as Complete (+100 XP)`}
-            </button>
+            <div style={{ display: "flex", gap: 8 }}>
+              <button onClick={() => toggleComplete(L.week)} style={{
+                flex: 1, padding: "14px", borderRadius: 10, border: "none",
+                background: isComplete ? TC.completionGreen : TC.accent, color: "#fff",
+                fontFamily: TC.ui, fontSize: 14, fontWeight: 700, cursor: "pointer",
+                transition: "all 0.2s",
+                animation: allRead && !isComplete ? "correctPulse 1.5s infinite" : "none",
+              }}>
+                {isComplete ? "\u2705 Lesson Complete" : `Mark Lesson as Complete (+100 XP)`}
+              </button>
+              {isComplete && (
+                <button onClick={() => handleShare("lesson", L.week)} aria-label="Share completion"
+                  style={{ width: 48, borderRadius: 10, border: `1px solid ${TC.divider}`, background: TC.card, cursor: "pointer", fontSize: 18, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  {"\uD83D\uDCE4"}
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -844,40 +967,67 @@ export default function TeensCurriculum({ nav, darkMode }) {
           <TeensJourneyPath
             TC={TC} completedLessons={completedLessons} lessonProgress={lessonProgress}
             xp={xp} level={level} completedCount={completedCount} studyStreak={studyStreak}
-            onOpenLesson={openLesson}
+            onOpenLesson={openLesson} onShare={() => handleShare("journey")}
           />
         )}
 
         {/* JOURNAL */}
-        {activeTab === "journal" && (
-          <div>
-            <div style={{ fontFamily: TC.heading, fontSize: 18, fontWeight: 700, color: TC.text, marginBottom: 4 }}>My Journal</div>
-            <div style={{ fontFamily: TC.ui, fontSize: 12, color: TC.muted, marginBottom: 16 }}>Your personal reflections from each lesson</div>
-            {journalCount === 0 && (
-              <div style={{ textAlign: "center", padding: 40, fontFamily: TC.body, fontSize: 13, color: TC.muted }}>
-                No journal entries yet. Open a lesson and write your first reflection!
-              </div>
-            )}
-            {Object.entries(journalEntries).sort((a, b) => Number(a[0]) - Number(b[0])).map(([week, entry]) => {
-              const lesson = TEEN_LESSONS.find(l => l.week === Number(week));
-              return (
-                <div key={week} style={{ background: TC.card, border: `1px solid ${TC.divider}`, borderRadius: 10, padding: 14, marginBottom: 10, position: "relative" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                    <div role="button" tabIndex={0} onClick={() => lesson && openLesson(lesson)} onKeyDown={(e) => { if ((e.key === "Enter" || e.key === " ") && lesson) { e.preventDefault(); openLesson(lesson); } }} style={{ fontFamily: TC.ui, fontSize: 12, fontWeight: 700, color: TC.accent, cursor: lesson ? "pointer" : "default" }}>
-                      Week {week}{lesson ? `: ${lesson.title}` : ""}
-                    </div>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                      <div style={{ fontFamily: TC.ui, fontSize: 10, color: TC.muted }}>{entry.date}</div>
-                      <button onClick={(e) => deleteJournal(week, e)} aria-label={`Delete journal entry for week ${week}`} style={{ background: "none", border: "none", cursor: "pointer", color: TC.challengeColor, fontSize: 14, padding: "2px 4px", borderRadius: 4, lineHeight: 1 }}>{"\u2715"}</button>
-                    </div>
-                  </div>
-                  <div onClick={() => lesson && openLesson(lesson)} style={{ fontFamily: TC.body, fontSize: 13, color: TC.text, lineHeight: 1.7, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden", cursor: lesson ? "pointer" : "default" }}>{entry.text}</div>
-                  <div style={{ fontFamily: TC.ui, fontSize: 10, color: TC.muted, marginTop: 6 }}>{entry.text.split(/\s+/).length} words</div>
+        {activeTab === "journal" && (() => {
+          const entries = Object.entries(journalEntries)
+            .filter(([, e]) => moodFilter === "All" || e.mood === moodFilter)
+            .sort((a, b) => Number(a[0]) - Number(b[0]));
+          return (
+            <div>
+              <div style={{ fontFamily: TC.heading, fontSize: 18, fontWeight: 700, color: TC.text, marginBottom: 4 }}>My Journal</div>
+              <div style={{ fontFamily: TC.ui, fontSize: 12, color: TC.muted, marginBottom: 12 }}>Your personal reflections from each lesson</div>
+
+              {/* Mood filter */}
+              {journalCount > 0 && (
+                <div style={{ display: "flex", gap: 6, marginBottom: 16, flexWrap: "wrap" }}>
+                  <button onClick={() => setMoodFilter("All")} aria-pressed={moodFilter === "All"} style={{ padding: "4px 12px", borderRadius: 16, border: `1px solid ${moodFilter === "All" ? TC.accent : TC.divider}`, background: moodFilter === "All" ? TC.accent : "transparent", color: moodFilter === "All" ? "#fff" : TC.muted, fontFamily: TC.ui, fontSize: 10, fontWeight: 600, cursor: "pointer" }}>All</button>
+                  {MOODS.map(m => (
+                    <button key={m.id} onClick={() => setMoodFilter(moodFilter === m.id ? "All" : m.id)} aria-pressed={moodFilter === m.id}
+                      style={{ padding: "4px 10px", borderRadius: 16, border: `1px solid ${moodFilter === m.id ? TC[m.key] : TC.divider}`, background: moodFilter === m.id ? TC[m.key] + "18" : "transparent", fontFamily: TC.ui, fontSize: 10, fontWeight: 600, color: moodFilter === m.id ? TC[m.key] : TC.muted, cursor: "pointer" }}>
+                      {m.icon} {m.label}
+                    </button>
+                  ))}
                 </div>
-              );
-            })}
-          </div>
-        )}
+              )}
+
+              {journalCount === 0 && (
+                <div style={{ textAlign: "center", padding: 40, fontFamily: TC.body, fontSize: 13, color: TC.muted }}>
+                  No journal entries yet. Open a lesson and write your first reflection!
+                </div>
+              )}
+              {entries.length === 0 && journalCount > 0 && (
+                <div style={{ textAlign: "center", padding: 30, fontFamily: TC.ui, fontSize: 12, color: TC.muted }}>No entries match this mood filter.</div>
+              )}
+              {entries.map(([week, entry]) => {
+                const lesson = TEEN_LESSONS.find(l => l.week === Number(week));
+                const mood = MOODS.find(m => m.id === entry.mood);
+                const moodColor = mood ? TC[mood.key] : TC.divider;
+                return (
+                  <div key={week} style={{ background: TC.card, border: `1px solid ${TC.divider}`, borderLeft: `4px solid ${moodColor}`, borderRadius: 10, padding: 14, marginBottom: 10 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                        <div role="button" tabIndex={0} onClick={() => lesson && openLesson(lesson)} onKeyDown={(e) => { if ((e.key === "Enter" || e.key === " ") && lesson) { e.preventDefault(); openLesson(lesson); } }} style={{ fontFamily: TC.ui, fontSize: 12, fontWeight: 700, color: TC.accent, cursor: lesson ? "pointer" : "default" }}>
+                          Week {week}{lesson ? `: ${lesson.title}` : ""}
+                        </div>
+                        {mood && <span style={{ fontFamily: TC.ui, fontSize: 9, fontWeight: 600, color: moodColor, background: moodColor + "15", borderRadius: 4, padding: "1px 6px" }}>{mood.icon} {mood.label}</span>}
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <div style={{ fontFamily: TC.ui, fontSize: 10, color: TC.muted }}>{entry.date}</div>
+                        <button onClick={(e) => deleteJournal(week, e)} aria-label={`Delete journal entry for week ${week}`} style={{ background: "none", border: "none", cursor: "pointer", color: TC.challengeColor, fontSize: 14, padding: "2px 4px", borderRadius: 4, lineHeight: 1 }}>{"\u2715"}</button>
+                      </div>
+                    </div>
+                    <div onClick={() => lesson && openLesson(lesson)} style={{ fontFamily: TC.body, fontSize: 13, color: TC.text, lineHeight: 1.7, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden", cursor: lesson ? "pointer" : "default" }}>{entry.text}</div>
+                    <div style={{ fontFamily: TC.ui, fontSize: 10, color: TC.muted, marginTop: 6 }}>{entry.text.split(/\s+/).length} words</div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })()}
       </div>
 
       {modalOpen && <LessonModal />}

@@ -12,6 +12,14 @@ const dayOfYear = () => {
 };
 const today = () => new Date().toISOString().slice(0, 10);
 
+const MOODS = [
+  { id: "grateful",   icon: "\uD83D\uDE0A", label: "Grateful",   key: "moodGrateful" },
+  { id: "challenged", icon: "\uD83D\uDCAA", label: "Challenged", key: "moodChallenged" },
+  { id: "inspired",   icon: "\u2728",       label: "Inspired",   key: "moodInspired" },
+  { id: "convicted",  icon: "\uD83D\uDE4F", label: "Convicted",  key: "moodConvicted" },
+  { id: "peaceful",   icon: "\uD83D\uDD4A\uFE0F",  label: "Peaceful",   key: "moodPeaceful" },
+];
+
 const STREAK_MSGS = {
   0:  "Start your journey today!",
   1:  "Great start — keep it going!",
@@ -39,6 +47,7 @@ export default function TeensTodayTab({
   const [flipped, setFlipped] = useState(false);
   const [reflectionOpen, setReflectionOpen] = useState(false);
   const [reflectionText, setReflectionText] = useState("");
+  const [reflectionMood, setReflectionMood] = useState(null);
   const [challengeExpanded, setChallengeExpanded] = useState(false);
   const [revealedHints, setRevealedHints] = useState({});
 
@@ -85,10 +94,11 @@ export default function TeensTodayTab({
 
   const handleSaveReflection = useCallback(() => {
     if (!reflectionText.trim()) return;
-    onSaveReflection(reflectionLesson.week, reflectionText.trim());
+    onSaveReflection(reflectionLesson.week, reflectionText.trim(), reflectionMood);
     setReflectionText("");
+    setReflectionMood(null);
     setReflectionOpen(false);
-  }, [reflectionText, reflectionLesson.week, onSaveReflection]);
+  }, [reflectionText, reflectionMood, reflectionLesson.week, onSaveReflection]);
 
   return (
     <div style={{ animation: "fadeIn 0.4s ease" }}>
@@ -221,6 +231,15 @@ export default function TeensTodayTab({
                   aria-label="Daily reflection"
                   style={{ width: "100%", minHeight: 80, border: `1px solid ${TC.divider}`, borderRadius: 8, padding: 10, fontFamily: TC.body, fontSize: 13, color: TC.text, background: TC.bg, resize: "vertical", boxSizing: "border-box" }}
                 />
+                <div style={{ display: "flex", gap: 5, marginTop: 8, flexWrap: "wrap" }}>
+                  {MOODS.map(m => (
+                    <button key={m.id} onClick={() => setReflectionMood(reflectionMood === m.id ? null : m.id)}
+                      aria-pressed={reflectionMood === m.id} aria-label={m.label}
+                      style={{ padding: "3px 8px", borderRadius: 14, border: `1px solid ${reflectionMood === m.id ? TC[m.key] : TC.divider}`, background: reflectionMood === m.id ? TC[m.key] + "18" : "transparent", fontFamily: TC.ui, fontSize: 9, fontWeight: 600, color: reflectionMood === m.id ? TC[m.key] : TC.muted, cursor: "pointer", transition: "all 0.15s" }}>
+                      {m.icon} {m.label}
+                    </button>
+                  ))}
+                </div>
                 <button onClick={handleSaveReflection} style={{ marginTop: 8, padding: "8px 20px", borderRadius: 10, border: "none", background: TC.accent, color: "#fff", fontFamily: TC.ui, fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
                   Save Reflection
                 </button>

@@ -40,7 +40,7 @@ const ConfettiParticles = ({ active, TC }) => {
 // ═══════════════════════════════════════════════════
 export default function TeensJourneyPath({
   TC, completedLessons, lessonProgress, xp, level,
-  completedCount, studyStreak, onOpenLesson,
+  completedCount, studyStreak, onOpenLesson, onShare,
 }) {
   const pathRef = useRef(null);
 
@@ -75,7 +75,14 @@ export default function TeensJourneyPath({
 
       {/* ── Stats Card ── */}
       <div style={{ background: TC.card, border: `1px solid ${TC.divider}`, borderRadius: 14, padding: "18px 20px", marginBottom: 20 }}>
-        <div style={{ fontFamily: TC.ui, fontSize: 13, fontWeight: 700, color: TC.text, marginBottom: 14 }}>My Journey</div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+          <div style={{ fontFamily: TC.ui, fontSize: 13, fontWeight: 700, color: TC.text }}>My Journey</div>
+          {completedCount > 0 && onShare && (
+            <button onClick={onShare} style={{ padding: "6px 14px", borderRadius: 8, border: `1px solid ${TC.accentBorder}`, background: TC.accentLight, color: TC.accent, fontFamily: TC.ui, fontSize: 11, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 4 }}>
+              {"\uD83D\uDCE4"} Share My Journey
+            </button>
+          )}
+        </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 8, textAlign: "center" }}>
           {[
             { n: completedCount, l: "Lessons", c: TC.accent },
