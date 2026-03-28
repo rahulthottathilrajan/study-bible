@@ -1559,12 +1559,24 @@ export function AppProvider({ children }) {
     if (prophecyCount >= 10 && !earned.prophet) awardBadge("prophet");
     const archCount = learnExploration.archaeologyViewed?.length || 0;
     if (archCount >= 5 && !earned.archaeologist) awardBadge("archaeologist");
-    // Maps badges
-    const mapsExp = learnExploration.mapsExplored || {};
+    // Maps badges (read from dedicated localStorage)
+    let mapsExp = {};
+    try { mapsExp = JSON.parse(localStorage.getItem("mapsExplored") || "{}"); } catch {}
     const totalMapLocs = Object.values(mapsExp).reduce((sum, arr) => sum + (arr?.length || 0), 0);
     if (totalMapLocs >= 1 && !earned.map_explorer) awardBadge("map_explorer");
     if (totalMapLocs >= 50 && !earned.cartographer) awardBadge("cartographer");
     if (totalMapLocs >= 150 && !earned.atlas_master) awardBadge("atlas_master");
+    // Timeline Book badges (read from dedicated localStorage)
+    let tlViewedBooks = [];
+    let tlViewedGenres = [];
+    let tlStreak = 0;
+    try { tlViewedBooks = JSON.parse(localStorage.getItem("timeline_viewed_books") || "[]"); } catch {}
+    try { tlViewedGenres = JSON.parse(localStorage.getItem("timeline_viewed_genres") || "[]"); } catch {}
+    try { tlStreak = parseInt(localStorage.getItem("timeline_visit_streak") || "0", 10); } catch {}
+    if (tlViewedBooks.length >= 10 && !earned.timeline_explorer) awardBadge("timeline_explorer");
+    if (tlViewedBooks.length >= 66 && !earned.timeline_complete) awardBadge("timeline_complete");
+    if (tlStreak >= 7 && !earned.timeline_streak) awardBadge("timeline_streak");
+    if (tlViewedGenres.length >= 7 && !earned.timeline_scholar) awardBadge("timeline_scholar");
     // Apologetics badges
     const apolCount = learnExploration.apologeticsStudied?.length || 0;
     if (apolCount >= 1 && !earned.first_defense) awardBadge("first_defense");

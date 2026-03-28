@@ -581,6 +581,11 @@ export const BADGES = [
   { id:"debate_champion",  category:"learn", name:"Debate Champion",   icon:"\u2694\uFE0F", description:"Score 3/3 on 10 debate challenges" },
   { id:"apol_streak_7",    category:"learn", name:"Faithful Defender", icon:"\u{1F525}", description:"7-day apologetics study streak" },
   { id:"master_apologist", category:"learn", name:"Master Apologist",  icon:"\u{1F451}", description:"Study all 20 apologetics topics" },
+  // Timeline Books (4)
+  { id:"timeline_explorer",  category:"learn", name:"Time Traveler",     icon:"⌛", description:"View 10 books in the Bible Book Timeline" },
+  { id:"timeline_complete",  category:"learn", name:"Chronicler",        icon:"📜", description:"View all 66 books in the Bible Book Timeline" },
+  { id:"timeline_streak",    category:"learn", name:"History Buff",      icon:"🔥", description:"Visit the Bible Book Timeline 7 days in a row" },
+  { id:"timeline_scholar",   category:"learn", name:"Genre Scholar",     icon:"🏛️", description:"Explore all 7 genre categories in the timeline" },
   // Community (1)
   { id:"birthday_blessed", category:"community", name:"Birthday Blessed", icon:"🎂", description:"Open the app on your birthday" },
 ];
