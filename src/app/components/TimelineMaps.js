@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 import { st as stLight, ANIM_STYLE } from "./maps/shared";
+import { LOTDHeroCard, markLOTDSeen } from "./LocationOfTheDay";
 
 const stDark = {
   ...stLight,
@@ -70,9 +71,140 @@ const ALL_DETAILS = {
   ...SEVEN_CHURCHES_DETAILS,
 };
 
+// ─── LOCATION LISTS PER MAP ─────────────────────────
+const MAP_LOCATIONS = {
+  eden:      Object.keys(EDEN_DETAILS),
+  abraham:   Object.keys(ABRAHAM_DETAILS),
+  exodus:    Object.keys(EXODUS_DETAILS),
+  conquest:  Object.keys(CONQUEST_DETAILS),
+  tribes:    Object.keys(TRIBES_DETAILS),
+  david:     Object.keys(DAVID_DETAILS),
+  divided:   Object.keys(DIVIDED_DETAILS),
+  assyrian:  Object.keys(ASSYRIAN_DETAILS),
+  babylon:   Object.keys(BABYLONIAN_DETAILS),
+  return:    Object.keys(RETURN_DETAILS),
+  jesus:     Object.keys(JESUS_DETAILS),
+  jerusalem: Object.keys(JERUSALEM_DETAILS),
+  paul:      Object.keys(PAUL_DETAILS),
+  roman:     Object.keys(ROMAN_DETAILS),
+  churches:  Object.keys(SEVEN_CHURCHES_DETAILS),
+};
+
+// ─── SCRIPTURE PARSER ────────────────────────────
+const parseScriptureRef = (text) => {
+  if (!text) return null;
+  const ref = text.split(" — ")[0];
+  const m = ref.match(/^(\d?\s*[A-Za-z]+(?:\s+[A-Za-z]+)*)\s+(\d+):(\d+)/);
+  if (!m) return null;
+  return { book: m[1].trim(), chapter: parseInt(m[2]), verse: parseInt(m[3]) };
+};
+
+// ─── ROUTE CONFIGS (for animated journeys) ──────
+const ROUTE_CONFIGS = {
+  abraham: {
+    path: "M82,62 C75,50 70,38 68,24 C64,22 58,24 54,28 C50,32 48,36 46,40 C44,42 44,48 44,56 C36,58 28,60 22,62",
+    locationOrder: ["ur","haran","shechem","bethel","hebron","moriah","beersheba","egypt","canaan"],
+    color: "#D4A853",
+  },
+  exodus: {
+    path: "M73,32 L80,38 L84,45 L81,54 L76,62 L70,69 L65,75 L59,88 L43,70 L33,35",
+    locationOrder: ["rameses","succoth","etham","pihahiroth","redsea","marah","elim","sinai","kadesh","canaan"],
+    color: "#C06C3E",
+  },
+  babylon: {
+    path: "M38,46 C42,38 48,30 52,26 C58,22 62,20 68,18 C72,16 76,16 80,18 C84,22 80,36 78,44",
+    locationOrder: ["jerusalem","mizpah","riblah","haran","carchemish","tel_abib","chebar","babylon","nippur","egypt"],
+    color: "#8B5CF6",
+  },
+  return: {
+    path: "M76,46 C70,40 64,32 58,28 C50,24 44,20 38,22 C36,28 36,36 36,46",
+    locationOrder: ["babylon","cyrus","ezra","euphrates","tadmor","samaria","bethel","temple","jerusalem","walls"],
+    color: "#D4A853",
+  },
+};
+
+// ─── JOURNEY PLAYER ──────────────────────────────
+function JourneyPlayer({ routeConfig, mapLocs, onSelectLocation, st, mapColor }) {
+  const [playing, setPlaying] = useState(false);
+  const [currentStop, setCurrentStop] = useState(-1);
+  const timerRef = useRef(null);
+  const stops = routeConfig.locationOrder;
+
+  const play = () => {
+    setPlaying(true);
+    setCurrentStop(0);
+    onSelectLocation({ id: stops[0] });
+  };
+
+  const pause = () => {
+    setPlaying(false);
+    if (timerRef.current) clearTimeout(timerRef.current);
+  };
+
+  const reset = () => {
+    setPlaying(false);
+    setCurrentStop(-1);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    onSelectLocation(null);
+  };
+
+  useEffect(() => {
+    if (!playing || currentStop < 0) return;
+    if (currentStop >= stops.length) { setPlaying(false); return; }
+    timerRef.current = setTimeout(() => {
+      const nextIdx = currentStop + 1;
+      if (nextIdx < stops.length) {
+        setCurrentStop(nextIdx);
+        onSelectLocation({ id: stops[nextIdx] });
+      } else {
+        setPlaying(false);
+      }
+    }, 2500);
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+  }, [playing, currentStop, stops, onSelectLocation]);
+
+  const c = mapColor || routeConfig.color;
+
+  return (
+    <div style={{
+      display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
+      padding: "10px 14px", marginTop: 12, marginBottom: 4,
+      background: `${c}0A`, borderRadius: 12, border: `1px solid ${c}25`,
+    }}>
+      {!playing ? (
+        <button onClick={play} style={{
+          background: c, color: "#fff", border: "none", borderRadius: 8,
+          padding: "6px 16px", cursor: "pointer", fontFamily: st.ui,
+          fontSize: 12, fontWeight: 700, display: "flex", alignItems: "center", gap: 6,
+        }}>
+          <span style={{ fontSize: 14 }}>▶</span> Play Journey
+        </button>
+      ) : (
+        <>
+          <button onClick={pause} style={{
+            background: `${c}20`, color: c, border: `1px solid ${c}40`,
+            borderRadius: 8, padding: "6px 12px", cursor: "pointer",
+            fontFamily: st.ui, fontSize: 11, fontWeight: 700,
+          }}>⏸ Pause</button>
+          <button onClick={reset} style={{
+            background: "none", color: st.muted, border: `1px solid ${st.divider}`,
+            borderRadius: 8, padding: "6px 12px", cursor: "pointer",
+            fontFamily: st.ui, fontSize: 11, fontWeight: 700,
+          }}>↺ Reset</button>
+        </>
+      )}
+      {currentStop >= 0 && (
+        <span style={{ fontFamily: st.ui, fontSize: 11, color: st.muted, fontWeight: 600, marginLeft: 4 }}>
+          {currentStop + 1} of {stops.length}
+        </span>
+      )}
+    </div>
+  );
+}
+
 // ─── MAP RENDERER ─────────────────────────────────
-function MapRenderer({ mapId, onSelectLocation, selectedLocation }) {
-  const props = { onSelectLocation, selectedLocation };
+function MapRenderer({ mapId, onSelectLocation, selectedLocation, dark }) {
+  const props = { onSelectLocation, selectedLocation, dark };
   switch (mapId) {
     case "eden":      return <EdenMap            {...props} />;
     case "abraham":   return <AbrahamMap         {...props} />;
@@ -94,7 +226,11 @@ function MapRenderer({ mapId, onSelectLocation, selectedLocation }) {
 }
 
 // ─── GALLERY CARD ─────────────────────────────────
-function GalleryCard({ map, onSelect, st }) {
+function GalleryCard({ map, onSelect, st, index, explored }) {
+  const sites = MAP_LOCATIONS[map.id]?.length || 0;
+  const expCount = explored?.length || 0;
+  const pct = sites > 0 ? (expCount / sites) * 100 : 0;
+  const complete = pct >= 100;
   return (
     <button
       onClick={() => !map.soon && onSelect()}
@@ -106,36 +242,98 @@ function GalleryCard({ map, onSelect, st }) {
         boxShadow: map.soon ? "none" : "0 2px 8px rgba(0,0,0,0.05)",
         borderLeft:`4px solid ${map.soon ? map.color+"55" : map.color}`,
         opacity: map.soon ? 0.6 : 1,
-        transition:"all 0.15s",
+        transition:"transform 0.15s, box-shadow 0.15s",
+        animation: `fadeIn 0.4s ease ${index * 0.04}s both`,
+        position:"relative", overflow:"hidden",
       }}>
-      <div style={{ width:46, height:46, borderRadius:12, background:`${map.color}18`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:24, flexShrink:0 }}>
+      <div style={{ width:46, height:46, borderRadius:12, background:`${map.color}18`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:24, flexShrink:0, position:"relative" }}>
         {map.icon}
+        {complete && <div style={{ position:"absolute", bottom:-2, right:-2, width:16, height:16, borderRadius:"50%", background:"#22C55E", display:"flex", alignItems:"center", justifyContent:"center", fontSize:10, color:"#fff", border:"2px solid "+st.card }}>✓</div>}
       </div>
       <div style={{ flex:1, minWidth:0 }}>
         <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:2 }}>
           <div style={{ fontFamily:st.heading, fontSize:15, fontWeight:700, color:st.dark, lineHeight:1.2 }}>{map.title}</div>
           {map.soon && <span style={{ fontFamily:st.ui, fontSize:8, color:st.light, background:st.divider, borderRadius:4, padding:"2px 5px", fontWeight:700, textTransform:"uppercase", flexShrink:0 }}>Soon</span>}
         </div>
-        <div style={{ fontFamily:st.ui, fontSize:10, color:map.color, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.04em", marginBottom:2 }}>{map.era}</div>
+        <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:2 }}>
+          <div style={{ fontFamily:st.ui, fontSize:10, color:map.color, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.04em" }}>{map.era}</div>
+          {sites > 0 && !map.soon && (
+            <div style={{ fontFamily:st.ui, fontSize:9, color:st.muted, fontWeight:600, background:`${map.color}10`, borderRadius:6, padding:"1px 6px" }}>
+              {expCount > 0 ? `${expCount}/${sites}` : `${sites} sites`}
+            </div>
+          )}
+        </div>
         <div style={{ fontFamily:st.body, fontSize:12, color:st.muted, fontStyle:"italic" }}>{map.subtitle}</div>
       </div>
       {!map.soon && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={st.light} strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>}
+      {pct > 0 && <div style={{ position:"absolute", bottom:0, left:0, height:3, width:`${pct}%`, background:complete ? "#22C55E" : map.color, borderRadius:"0 3px 0 0", transition:"width 0.4s ease" }} />}
     </button>
+  );
+}
+
+// ─── CONFETTI ────────────────────────────────────
+function MapConfetti() {
+  const colors = ["#D4A853","#E8625C","#1B7A6E","#8B5CF6","#C06C3E","#6BAE75","#B8860B","#7A6B8A"];
+  return (
+    <div style={{ position:"fixed", top:0, left:0, right:0, bottom:0, pointerEvents:"none", zIndex:999 }}>
+      {colors.map((c,i) => (
+        <div key={i} style={{
+          position:"absolute",
+          left:`${12 + (i * 11)}%`,
+          top:"30%",
+          width:8, height:8, borderRadius:"50%",
+          background:c,
+          animation:`confettiFloat 1.5s ease-out ${i*0.08}s forwards`,
+          opacity:0.9,
+        }} />
+      ))}
+    </div>
   );
 }
 
 // ─── MAIN EXPORT ─────────────────────────────────
 export default function TimelineMaps({ nav, darkMode }) {
-  const { bp } = useApp();
+  const { bp, checkBadges } = useApp();
   const st = darkMode ? stDark : stLight;
   const [selectedMap,      setSelectedMap]      = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [mapsExplored, setMapsExplored] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("mapsExplored") || "{}"); } catch { return {}; }
+  });
+  const detailRef = useRef(null);
+
+  useEffect(() => {
+    if (selectedLocation && detailRef.current) {
+      detailRef.current.focus();
+      detailRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [selectedLocation]);
 
   const handleSelectLocation = (loc) => {
-    setSelectedLocation(prev => prev?.id === loc.id ? null : loc);
+    const isDeselect = loc.id === selectedLocation?.id;
+    setSelectedLocation(isDeselect ? null : loc);
+    if (!isDeselect && selectedMap) {
+      const mapId = selectedMap.id;
+      const prev = mapsExplored[mapId] || [];
+      if (!prev.includes(loc.id)) {
+        const updated = { ...mapsExplored, [mapId]: [...prev, loc.id] };
+        setMapsExplored(updated);
+        try { localStorage.setItem("mapsExplored", JSON.stringify(updated)); } catch {}
+        const total = MAP_LOCATIONS[mapId]?.length || 0;
+        if (updated[mapId].length >= total) {
+          setShowConfetti(true);
+          setTimeout(() => setShowConfetti(false), 2000);
+        }
+        setTimeout(() => checkBadges(), 100);
+      }
+    }
   };
 
   const locationDetail = selectedLocation ? ALL_DETAILS[selectedLocation.id] : null;
+  const scriptureRef = locationDetail ? parseScriptureRef(locationDetail.scripture) : null;
+  const mapLocs = selectedMap ? (MAP_LOCATIONS[selectedMap.id] || []) : [];
+  const locIdx = selectedLocation ? mapLocs.indexOf(selectedLocation.id) : -1;
   const otMaps = MAPS.slice(0, 10);
   const ntMaps = MAPS.slice(10);
 
@@ -149,7 +347,7 @@ export default function TimelineMaps({ nav, darkMode }) {
 
         <div style={{ background:st.headerGradient, padding:"14px 20px 18px", position:"sticky", top:0, zIndex:10 }}>
           <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-            <button onClick={() => nav("timeline-home")}
+            <button onClick={() => nav("timeline-home")} aria-label="Back to timeline"
               style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:8, padding:8, cursor:"pointer", color:st.headerText, display:"flex", alignItems:"center" }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
@@ -162,33 +360,20 @@ export default function TimelineMaps({ nav, darkMode }) {
 
         <div style={{ padding:`20px ${bp.pad}px 40px`, maxWidth:bp.content, margin:"0 auto" }}>
 
-          {/* Hero */}
-          <div style={{ background:st.headerGradient, borderRadius:20, padding:"28px 20px", marginBottom:24, textAlign:"center", position:"relative", overflow:"hidden" }}>
-            <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 20%,rgba(232,98,92,0.25),transparent 65%)" }}/>
-            <div style={{ position:"relative", zIndex:1 }}>
-              <div style={{ fontSize:48, marginBottom:10 }}>🗺️</div>
-              <div style={{ fontFamily:st.heading, fontSize:24, fontWeight:700, color:st.headerText, marginBottom:6 }}>Biblical Atlas</div>
-              <div style={{ fontFamily:st.body, fontSize:13, color:`${st.headerText}88`, fontStyle:"italic", lineHeight:1.6 }}>
-                15 maps spanning 6,000 years of biblical history — from Eden to the seven churches of Revelation
-              </div>
-              <div style={{ display:"flex", justifyContent:"center", gap:20, marginTop:14 }}>
-                {[["15","Maps"],["15","Live"],["0","Coming"]].map(([n,l]) => (
-                  <div key={l} style={{ textAlign:"center" }}>
-                    <div style={{ fontFamily:st.heading, fontSize:20, fontWeight:800, color:st.accent }}>{n}</div>
-                    <div style={{ fontFamily:st.ui, fontSize:10, color:`${st.headerText}70`, textTransform:"uppercase", letterSpacing:"0.08em" }}>{l}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          {/* Location of the Day Hero */}
+          <LOTDHeroCard st={st} onExplore={(loc) => {
+            markLOTDSeen();
+            const map = MAPS.find(m => m.id === loc.mapId);
+            if (map) { setSelectedMap(map); setSelectedLocation({ id: loc.id }); }
+          }} />
 
           {/* OT Maps */}
           <div style={{ fontFamily:st.ui, fontSize:10, fontWeight:800, color:st.muted, textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:10 }}>
             📜 Old Testament
           </div>
           <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:22 }}>
-            {otMaps.map(map => (
-              <GalleryCard key={map.id} map={map} st={st} onSelect={() => { setSelectedMap(map); setSelectedLocation(null); }} />
+            {otMaps.map((map, i) => (
+              <GalleryCard key={map.id} map={map} st={st} index={i} explored={mapsExplored[map.id]} onSelect={() => { setSelectedMap(map); setSelectedLocation(null); }} />
             ))}
           </div>
 
@@ -197,8 +382,8 @@ export default function TimelineMaps({ nav, darkMode }) {
             ✝️ New Testament
           </div>
           <div style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:24 }}>
-            {ntMaps.map(map => (
-              <GalleryCard key={map.id} map={map} st={st} onSelect={() => { setSelectedMap(map); setSelectedLocation(null); }} />
+            {ntMaps.map((map, i) => (
+              <GalleryCard key={map.id} map={map} st={st} index={i + 10} explored={mapsExplored[map.id]} onSelect={() => { setSelectedMap(map); setSelectedLocation(null); }} />
             ))}
           </div>
 
@@ -207,7 +392,7 @@ export default function TimelineMaps({ nav, darkMode }) {
             <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 80% 50%,rgba(232,98,92,0.15),transparent 60%)" }}/>
             <div style={{ position:"relative", zIndex:1 }}>
               <div style={{ fontFamily:st.body, fontSize:14, color:st.headerText, fontStyle:"italic", lineHeight:1.8, marginBottom:6 }}>
-                "He set the earth on its foundations; it can never be moved."
+                "Who laid the foundations of the earth, that it should not be removed for ever."
               </div>
               <div style={{ fontFamily:st.ui, fontSize:11, color:st.accent, fontWeight:700 }}>Psalm 104:5</div>
             </div>
@@ -228,10 +413,11 @@ export default function TimelineMaps({ nav, darkMode }) {
   return (
     <div style={{ minHeight:"100vh", background:st.bg, paddingBottom:80 }}>
       <style>{ANIM_STYLE}</style>
+      {showConfetti && <MapConfetti />}
 
       <div style={{ background:st.headerGradient, padding:"14px 20px 18px", position:"sticky", top:0, zIndex:10 }}>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-          <button onClick={() => { setSelectedMap(null); setSelectedLocation(null); }}
+          <button onClick={() => { setSelectedMap(null); setSelectedLocation(null); }} aria-label="Back to map gallery"
             style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:8, padding:8, cursor:"pointer", color:st.headerText, display:"flex", alignItems:"center" }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
@@ -248,11 +434,22 @@ export default function TimelineMaps({ nav, darkMode }) {
           {selectedMap.subtitle} — tap any location to learn more
         </div>
 
-        <MapRenderer mapId={selectedMap.id} onSelectLocation={handleSelectLocation} selectedLocation={selectedLocation} />
+        <MapRenderer mapId={selectedMap.id} onSelectLocation={handleSelectLocation} selectedLocation={selectedLocation} dark={darkMode} />
+
+        {/* Journey Player (for route-based maps) */}
+        {ROUTE_CONFIGS[selectedMap.id] && (
+          <JourneyPlayer
+            routeConfig={ROUTE_CONFIGS[selectedMap.id]}
+            mapLocs={mapLocs}
+            onSelectLocation={(loc) => loc ? handleSelectLocation(loc) : setSelectedLocation(null)}
+            st={st}
+            mapColor={selectedMap.color}
+          />
+        )}
 
         {/* Detail panel */}
         {selectedLocation && locationDetail && (
-          <div className="detail-panel" style={{
+          <div className="detail-panel" ref={detailRef} tabIndex={-1} style={{
             marginTop:16, background:st.card, borderRadius:18,
             border:`1px solid ${selectedMap.color}44`,
             borderLeft:`4px solid ${selectedMap.color}`,
@@ -260,7 +457,7 @@ export default function TimelineMaps({ nav, darkMode }) {
           }}>
             <div style={{ padding:"14px 16px 12px", background:`${selectedMap.color}0D`, display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
               <div style={{ fontFamily:st.heading, fontSize:18, fontWeight:700, color:st.dark, flex:1, lineHeight:1.25 }}>{locationDetail.title}</div>
-              <button onClick={() => setSelectedLocation(null)}
+              <button onClick={() => setSelectedLocation(null)} aria-label="Close detail panel"
                 style={{ background:"none", border:"none", cursor:"pointer", color:st.muted, fontSize:20, padding:"0 0 0 12px", flexShrink:0, lineHeight:1 }}>✕</button>
             </div>
             <div style={{ padding:"12px 16px 16px" }}>
@@ -269,6 +466,40 @@ export default function TimelineMaps({ nav, darkMode }) {
                 <div style={{ fontFamily:st.ui, fontSize:10, fontWeight:700, color:selectedMap.color, textTransform:"uppercase", letterSpacing:"0.07em", marginBottom:5 }}>📖 Scripture</div>
                 <div style={{ fontFamily:st.body, fontSize:13.5, color:st.text, lineHeight:1.75, fontStyle:"italic" }}>{locationDetail.scripture}</div>
               </div>
+              {scriptureRef && (
+                <button onClick={() => nav("verses", scriptureRef)}
+                  style={{ width:"100%", padding:"10px", marginTop:12, background:`${selectedMap.color}12`,
+                    border:`1px solid ${selectedMap.color}30`, borderRadius:10,
+                    cursor:"pointer", fontFamily:st.ui, fontSize:12, fontWeight:700,
+                    color:selectedMap.color, textAlign:"center", transition:"background 0.15s",
+                  }}>
+                  Read {scriptureRef.book} {scriptureRef.chapter} in Bible →
+                </button>
+              )}
+              {mapLocs.length > 1 && (
+                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center",
+                  marginTop:12, paddingTop:10, borderTop:`1px solid ${st.divider}` }}>
+                  <button
+                    onClick={() => locIdx > 0 && setSelectedLocation({ id: mapLocs[locIdx - 1] })}
+                    aria-label="Previous location"
+                    style={{ background:"none", border:"none", cursor: locIdx > 0 ? "pointer" : "default",
+                      fontFamily:st.ui, fontSize:11, fontWeight:700, color: locIdx > 0 ? selectedMap.color : st.light,
+                      padding:"4px 8px", opacity: locIdx > 0 ? 1 : 0.4 }}>
+                    ‹ Prev
+                  </button>
+                  <span style={{ fontFamily:st.ui, fontSize:11, color:st.muted, fontWeight:600 }}>
+                    {locIdx + 1} of {mapLocs.length}
+                  </span>
+                  <button
+                    onClick={() => locIdx < mapLocs.length - 1 && setSelectedLocation({ id: mapLocs[locIdx + 1] })}
+                    aria-label="Next location"
+                    style={{ background:"none", border:"none", cursor: locIdx < mapLocs.length - 1 ? "pointer" : "default",
+                      fontFamily:st.ui, fontSize:11, fontWeight:700, color: locIdx < mapLocs.length - 1 ? selectedMap.color : st.light,
+                      padding:"4px 8px", opacity: locIdx < mapLocs.length - 1 ? 1 : 0.4 }}>
+                    Next ›
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         )}

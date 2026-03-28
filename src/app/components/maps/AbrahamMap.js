@@ -32,29 +32,29 @@ export const ABRAHAM_DETAILS = {
   canaan:    { title:"Canaan — The Promised Land",         body:"God promised this entire land to Abraham and his descendants — from the river of Egypt to the great river Euphrates. Though Abraham owned only a burial cave, he lived as a stranger in the land of promise — looking for a city whose builder is God.", scripture:"Genesis 15:18 — 'In the same day the LORD made a covenant with Abram, saying, Unto thy seed have I given this land, from the river of Egypt unto the great river, the river Euphrates.'" },
 };
 
-export default function AbrahamMap({ onSelectLocation, selectedLocation }) {
+export default function AbrahamMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#E8625C" label="Starting Point" />
-      <LegendDot color="#C06C3E" label="Stop" />
-      <LegendDot color="#D4A853" label="Promise / Altar" />
-      <LegendDot color="#8B5CF6" label="Key Event" />
-      <LegendDot color="#1B7A6E" label="Destination" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#E8625C" label="Starting Point" />
+      <LegendDot dark={dark} color="#C06C3E" label="Stop" />
+      <LegendDot dark={dark} color="#D4A853" label="Promise / Altar" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Key Event" />
+      <LegendDot dark={dark} color="#1B7A6E" label="Destination" />
     </>}>
-      <svg viewBox="0 0 110 80" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 110 80" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of Abraham's journey from Ur to Canaan">
         <SeaDef id="sea-abr" />
         <ParchBg w={110} h={80} vigId="vig-abr" />
 
         {/* Mediterranean */}
-        <polygon points="0,0 30,0 32,16 28,36 22,48 14,52 0,50 0,0" fill="url(#sea-abr)" opacity="0.78" />
+        <polygon points="0,0 30,0 32,16 28,36 22,48 14,52 0,50 0,0" fill="url(#sea-abr)" opacity="0.78" className="sea-shimmer" />
         <HaloText x={8} y={28} text="MEDITERRANEAN" fontSize={2.4} bold opacity={0.55} color={P.inkFaint} />
 
         {/* Red Sea */}
-        <polygon points="22,52 30,48 36,58 32,70 22,68 18,60" fill="url(#sea-abr)" opacity="0.65" />
+        <polygon points="22,52 30,48 36,58 32,70 22,68 18,60" fill="url(#sea-abr)" opacity="0.65" className="sea-shimmer" />
         <HaloText x={22} y={66} text="RED SEA" fontSize={2.2} bold opacity={0.5} color={P.inkFaint} />
 
         {/* Persian Gulf */}
-        <polygon points="76,66 90,64 94,78 72,80" fill="url(#sea-abr)" opacity="0.70" />
+        <polygon points="76,66 90,64 94,78 72,80" fill="url(#sea-abr)" opacity="0.70" className="sea-shimmer" />
         <HaloText x={82} y={75} text="PERSIAN GULF" fontSize={2.2} bold opacity={0.55} color={P.inkFaint} />
 
         {/* Anatolia */}
@@ -78,14 +78,14 @@ export default function AbrahamMap({ onSelectLocation, selectedLocation }) {
         <HaloText x={54} y={28} text="SYRIA" fontSize={2.5} bold opacity={0.45} color={P.inkFaint} />
 
         {/* Euphrates river */}
-        <path d="M66,22 C64,30 62,38 62,46 C62,54 64,60 66,68" fill="none" stroke="#7AAEC8" strokeWidth="1.6" opacity="0.65" strokeLinecap="round" />
+        <path d="M66,22 C64,30 62,38 62,46 C62,54 64,60 66,68" fill="none" stroke="#7AAEC8" strokeWidth="1.6" opacity="0.65" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={58} y={44} text="Euphrates" fontSize={2.2} opacity={0.6} color={P.inkFaint} anchor="end" />
 
         {/* Jordan River */}
-        <path d="M44,32 C44,38 44,46 44,54 C44,60 42,64 40,68" fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.6" strokeLinecap="round" />
+        <path d="M44,32 C44,38 44,46 44,54 C44,60 42,64 40,68" fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.6" strokeLinecap="round" className="river-shimmer" />
 
         {/* Dead Sea */}
-        <ellipse cx="43" cy="58" rx="2.2" ry="4" fill="#7EB8D4" opacity="0.75" />
+        <ellipse cx="43" cy="58" rx="2.2" ry="4" fill="#7EB8D4" opacity="0.75" className="sea-shimmer" />
 
         {/* Journey route */}
         <path d={journeyRoute} fill="none" stroke="#D4A853" strokeWidth="1.6" strokeDasharray="4,2.5" opacity="0.85" />

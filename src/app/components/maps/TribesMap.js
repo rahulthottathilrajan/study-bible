@@ -35,26 +35,26 @@ export const TRIBES_DETAILS = {
   manasseh_e: { title:"Tribe of Manasseh (East)",  body:"The eastern half of Manasseh settled in Bashan. Like Reuben and Gad, the eastern Manassites were among the first tribes exiled by Assyria.", scripture:"Joshua 13:29-31; 2 Kings 15:29" },
 };
 
-export default function TribesMap({ onSelectLocation, selectedLocation }) {
+export default function TribesMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={
-      <span style={{ fontFamily:"'Nunito',sans-serif", fontSize:10, color:P.inkFaint, fontWeight:600 }}>
+    <MapCard dark={dark} legend={
+      <span style={{ fontFamily:"'Nunito',sans-serif", fontSize:10, color: dark ? "#D0B898" : P.inkFaint, fontWeight:600 }}>
         Tap any tribe territory to explore its history and scripture
       </span>
     }>
-      <svg viewBox="0 0 90 110" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 90 110" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the twelve tribes of Israel territories">
         <SeaDef id="sea-tribes" />
         <ParchBg w={90} h={110} vigId="vig-tribes" />
-        <polygon points="0,0 26,0 28,14 26,44 24,68 22,86 0,86 0,0" fill="url(#sea-tribes)" opacity="0.82" />
+        <polygon points="0,0 26,0 28,14 26,44 24,68 22,86 0,86 0,0" fill="url(#sea-tribes)" opacity="0.82" className="sea-shimmer" />
         <text x="2" y="60" fill={P.inkFaint} fontSize="2.8" fontFamily="'Nunito',sans-serif"
           fontWeight="700" opacity="0.6" transform="rotate(-90,2,60)">MEDITERRANEAN SEA</text>
         <polygon points="24,0 90,0 90,110 22,110 24,90 22,68 24,44 26,14" fill={P.fertile} opacity="0.38" />
         <path d="M54,12 C55,24 52,36 54,52 C56,66 54,82 53,104"
-          fill="none" stroke="#7AAEC8" strokeWidth="2.8" opacity="0.72" strokeLinecap="round" />
+          fill="none" stroke="#7AAEC8" strokeWidth="2.8" opacity="0.72" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={57} y={50} text="Jordan" fontSize={2.5} opacity={0.65} color={P.inkFaint} />
-        <ellipse cx="53" cy="26" rx="3.2" ry="4.8" fill="#7EB8D4" opacity="0.82" />
+        <ellipse cx="53" cy="26" rx="3.2" ry="4.8" fill="#7EB8D4" opacity="0.82" className="sea-shimmer" />
         <HaloText x={57} y={26} text="Sea of Galilee" fontSize={2.2} opacity={0.7} anchor="start" color={P.inkFaint} />
-        <ellipse cx="52" cy="72" rx="2.8" ry="6.5" fill="#7EB8D4" opacity="0.78" />
+        <ellipse cx="52" cy="72" rx="2.8" ry="6.5" fill="#7EB8D4" opacity="0.78" className="sea-shimmer" />
         <HaloText x={56} y={72} text="Dead Sea" fontSize={2.2} opacity={0.7} anchor="start" color={P.inkFaint} />
         <polygon points="74,14 78,8 82,14" fill={P.mountain} opacity="0.28" />
         <polygon points="78,18 82,12 86,18" fill={P.mountain} opacity="0.22" />
@@ -62,7 +62,10 @@ export default function TribesMap({ onSelectLocation, selectedLocation }) {
         {tribes.map(tribe => {
           const isSel = selectedLocation?.id === tribe.id;
           return (
-            <g key={tribe.id} onClick={() => onSelectLocation(tribe)} style={{ cursor:"pointer" }}>
+            <g key={tribe.id} onClick={() => onSelectLocation(tribe)}
+              tabIndex={0} role="button" aria-label={`Tribe of ${tribe.label}`}
+              onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelectLocation(tribe); } }}
+              style={{ cursor:"pointer" }}>
               <polygon points={tribe.points} fill={tribe.color}
                 opacity={isSel ? 0.58 : 0.26}
                 stroke={tribe.color}

@@ -7,6 +7,7 @@ import GoToBar from "../components/GoToBar";
 import UtilityStrip from "../components/UtilityStrip";
 import PrayerOfTheDay from "../components/PrayerOfTheDay";
 import { BIRTHDAY_VERSES, THEMES, PODCAST_PALETTES } from "../constants";
+import { LOTDHomeCard } from "../components/LocationOfTheDay";
 import { READING_PLANS, getPlanReadings, getNextReading, getReadingStreak, countCompletedDays } from "../components/ReadingPlansData";
 
 function getDayOfYear() {
@@ -371,6 +372,8 @@ export default function HomeView() {
           {/* ── TODAY'S MANNA + LEARNING CENTRE ── */}
           {/* ── TODAY'S PODCAST EPISODE ── */}
           <PodcastHeroCard ht={ht} nav={nav} />
+          {/* ── LOCATION OF THE DAY ── */}
+          <LOTDHomeCard ht={ht} nav={nav} />
           {/* ── LEARNING CENTRE ── */}
           <style>{`@keyframes navGlow { 0%,100% { border-color: rgba(212,168,83,0.35); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 6px rgba(212,168,83,0.1); } 50% { border-color: rgba(212,168,83,0.7); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
           <div style={{ marginBottom:16 }}>

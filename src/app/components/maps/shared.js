@@ -18,6 +18,19 @@ export const ANIM_STYLE = `
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0);    }
   }
+  @keyframes waterShimmer {
+    0%, 100% { filter: brightness(1); }
+    50%      { filter: brightness(1.08) saturate(1.1); }
+  }
+  .sea-shimmer { animation: waterShimmer 4s ease-in-out infinite; }
+  .river-shimmer { animation: waterShimmer 3.2s ease-in-out infinite 1.2s; }
+  .map-dot {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.15s ease;
+  }
+  .map-dot:hover { transform: scale(1.18); }
+  .map-dot:focus-visible { outline: 2px solid #E8625C; outline-offset: 3px; }
   .detail-panel { animation: panelIn 0.28s ease; }
 `;
 
@@ -84,7 +97,10 @@ export const Dot = ({ cx, cy, r = 3, color, selected, onClick, label, side = "ri
   const lx = side === "right" ? cx + dr + 3 : cx - dr - 3;
   const anchor = side === "right" ? "start" : "end";
   return (
-    <g onClick={onClick} style={{ cursor: "pointer" }}>
+    <g onClick={onClick} className="map-dot" tabIndex={0} role="button"
+       aria-label={label || "Map location"}
+       onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(); } }}
+       style={{ cursor: "pointer" }}>
       <circle cx={cx} cy={cy} r={dr + 5} fill={color} opacity="0.08" />
       {selected && <circle cx={cx} cy={cy} r={dr + 3} fill={color} opacity="0.25" className="map-pulse" />}
       <circle cx={cx} cy={cy} r={dr} fill={color} stroke="#fff" strokeWidth={selected ? 1.5 : 1} opacity="0.95" />
@@ -135,19 +151,21 @@ export const Compass = ({ x, y }) => (
 );
 
 // ─── MAP CARD WRAPPER ─────────────────────────────
-export const MapCard = ({ children, legend }) => (
+export const MapCard = ({ children, legend, dark }) => (
   <div style={{
     borderRadius: 18,
     overflow: "hidden",
-    boxShadow: `0 6px 28px rgba(60,40,10,0.22), 0 1px 4px rgba(0,0,0,0.08)`,
-    border: `1.5px solid #C8A86A`,
+    boxShadow: dark
+      ? "0 6px 28px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.3)"
+      : "0 6px 28px rgba(60,40,10,0.22), 0 1px 4px rgba(0,0,0,0.08)",
+    border: `1.5px solid ${dark ? "#3A2A1A" : "#C8A86A"}`,
   }}>
     {children}
     {legend && (
       <div style={{
         padding: "10px 14px",
-        background: "#EAD9B2",
-        borderTop: `1px solid #C8A86A`,
+        background: dark ? "#201A16" : "#EAD9B2",
+        borderTop: `1px solid ${dark ? "#3A2A1A" : "#C8A86A"}`,
         display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center",
       }}>
         {legend}
@@ -157,15 +175,15 @@ export const MapCard = ({ children, legend }) => (
 );
 
 // ─── LEGEND DOT ──────────────────────────────────
-export const LegendDot = ({ color, label }) => (
+export const LegendDot = ({ color, label, dark }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
     <div style={{
       width: 9, height: 9, borderRadius: "50%",
       background: color,
-      border: "1.5px solid rgba(255,255,255,0.75)",
+      border: `1.5px solid ${dark ? "rgba(0,0,0,0.4)" : "rgba(255,255,255,0.75)"}`,
       boxShadow: `0 0 0 1px ${color}44`,
     }} />
-    <span style={{ fontFamily: "'Nunito',sans-serif", fontSize: 9.5, color: "#7A6040", fontWeight: 700 }}>
+    <span style={{ fontFamily: "'Nunito',sans-serif", fontSize: 9.5, color: dark ? "#D0B898" : "#7A6040", fontWeight: 700 }}>
       {label}
     </span>
   </div>

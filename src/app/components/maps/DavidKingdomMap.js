@@ -32,25 +32,25 @@ export const DAVID_DETAILS = {
   damascus:  { title:"Damascus — Under David's Control",  body:"David defeated the Syrians of Damascus when they came to help Hadadezer king of Zobah. David put garrisons in Syria and the Syrians became his servants. The kingdom of Israel briefly extended its influence as far as the Euphrates River.", scripture:"2 Samuel 8:6 — 'Then David put garrisons in Syria of Damascus: and the Syrians became servants to David, and brought gifts.'" },
 };
 
-export default function DavidKingdomMap({ onSelectLocation, selectedLocation }) {
+export default function DavidKingdomMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#D4A853" label="Capital" />
-      <LegendDot color="#E8625C" label="Temple" />
-      <LegendDot color="#C06C3E" label="Royal City" />
-      <LegendDot color="#8B5CF6" label="Conquest" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#D4A853" label="Capital" />
+      <LegendDot dark={dark} color="#E8625C" label="Temple" />
+      <LegendDot dark={dark} color="#C06C3E" label="Royal City" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Conquest" />
     </>}>
-      <svg viewBox="0 0 100 100" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 100 100" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the kingdom of David and Solomon">
         <SeaDef id="sea-david" />
         <ParchBg w={100} h={100} vigId="vig-david" />
 
         {/* Mediterranean */}
-        <polygon points="0,0 26,0 28,14 24,36 20,56 16,70 0,70 0,0" fill="url(#sea-david)" opacity="0.78" />
+        <polygon points="0,0 26,0 28,14 24,36 20,56 16,70 0,70 0,0" fill="url(#sea-david)" opacity="0.78" className="sea-shimmer" />
         <text x="2" y="48" fill={P.inkFaint} fontSize="2.6" fontFamily="'Nunito',sans-serif"
           fontWeight="700" opacity="0.55" transform="rotate(-90,2,48)">MEDITERRANEAN SEA</text>
 
         {/* Red Sea */}
-        <polygon points="30,80 40,76 46,88 42,100 28,100 24,90" fill="url(#sea-david)" opacity="0.65" />
+        <polygon points="30,80 40,76 46,88 42,100 28,100 24,90" fill="url(#sea-david)" opacity="0.65" className="sea-shimmer" />
         <HaloText x={32} y={94} text="RED SEA" fontSize={2.4} bold opacity={0.55} color={P.inkFaint} />
 
         {/* Kingdom boundary - David/Solomon at greatest extent */}
@@ -83,14 +83,14 @@ export default function DavidKingdomMap({ onSelectLocation, selectedLocation }) 
 
         {/* Jordan River */}
         <path d="M50,12 C50,20 50,28 52,38 C52,50 52,62 50,76"
-          fill="none" stroke="#7AAEC8" strokeWidth="2.2" opacity="0.68" strokeLinecap="round" />
+          fill="none" stroke="#7AAEC8" strokeWidth="2.2" opacity="0.68" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={53} y={36} text="Jordan" fontSize={2.2} opacity={0.6} anchor="start" color={P.inkFaint} />
 
         {/* Sea of Galilee */}
-        <ellipse cx="52" cy="22" rx="3.5" ry="5" fill="#7EB8D4" opacity="0.80" />
+        <ellipse cx="52" cy="22" rx="3.5" ry="5" fill="#7EB8D4" opacity="0.80" className="sea-shimmer" />
 
         {/* Dead Sea */}
-        <ellipse cx="52" cy="60" rx="3" ry="7" fill="#7EB8D4" opacity="0.75" />
+        <ellipse cx="52" cy="60" rx="3" ry="7" fill="#7EB8D4" opacity="0.75" className="sea-shimmer" />
         <HaloText x={57} y={60} text="Dead Sea" fontSize={2.2} opacity={0.6} anchor="start" color={P.inkFaint} />
 
         {/* Cedar of Lebanon hint */}

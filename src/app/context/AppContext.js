@@ -1580,7 +1580,7 @@ export function AppProvider({ children }) {
     // Apologetics badges
     const apolCount = learnExploration.apologeticsStudied?.length || 0;
     if (apolCount >= 1 && !earned.first_defense) awardBadge("first_defense");
-    if (apolCount >= 20 && !earned.master_apologist) awardBadge("master_apologist");
+    if (apolCount >= 50 && !earned.master_apologist) awardBadge("master_apologist");
 
     // Prayer badges
     const totalReactions = Object.values(userReactions).reduce((sum, r) => sum + Object.keys(r).length, 0);

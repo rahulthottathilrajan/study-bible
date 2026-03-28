@@ -11,10 +11,10 @@ const locs = [
   { id:"nazareth",     x:40, y:32, label:"Nazareth",         type:"childhood", side:"left"  },
   { id:"jerusalem",    x:44, y:58, label:"Jerusalem",        type:"passion",   side:"right" },
   { id:"jordan_bap",   x:50, y:54, label:"Baptism (Jordan)", type:"ministry",  side:"right" },
-  { id:"cana",         x:40, y:28, label:"Cana",             type:"miracle",   side:"left"  },
-  { id:"capernaum",    x:46, y:24, label:"Capernaum",        type:"ministry",  side:"right" },
-  { id:"galilee_sea",  x:48, y:26, label:"Sea of Galilee",   type:"ministry",  side:"right" },
-  { id:"mount_sermon", x:44, y:26, label:"Sermon on Mount",  type:"ministry",  side:"left"  },
+  { id:"cana",         x:36, y:30, label:"Cana",             type:"miracle",   side:"left"  },
+  { id:"capernaum",    x:48, y:22, label:"Capernaum",        type:"ministry",  side:"right" },
+  { id:"galilee_sea",  x:52, y:28, label:"Sea of Galilee",   type:"ministry",  side:"right" },
+  { id:"mount_sermon", x:42, y:26, label:"Sermon on Mount",  type:"ministry",  side:"left"  },
   { id:"caesarea_phi", x:50, y:16, label:"Caesarea Philippi",type:"ministry",  side:"right" },
   { id:"jericho",      x:50, y:52, label:"Jericho",          type:"ministry",  side:"right" },
   { id:"bethany",      x:46, y:58, label:"Bethany",          type:"miracle",   side:"right" },
@@ -36,21 +36,21 @@ export const JESUS_DETAILS = {
   egypt_ret:    { title:"Egypt — The Holy Family's Refuge",        body:"Warned in a dream, Joseph fled to Egypt with Mary and the infant Jesus to escape Herod's massacre. They remained until Herod's death — fulfilling Hosea's prophecy: 'Out of Egypt have I called my Son.' The very nation where Israel was enslaved became the refuge for the Saviour of Israel.", scripture:"Matthew 2:14-15 — 'When he arose, he took the young child and his mother by night, and departed into Egypt... that it might be fulfilled which was spoken of the Lord by the prophet, saying, Out of Egypt have I called my son.'" },
 };
 
-export default function JesusLifeMap({ onSelectLocation, selectedLocation }) {
+export default function JesusLifeMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#D4A853" label="Birth" />
-      <LegendDot color="#C06C3E" label="Childhood" />
-      <LegendDot color="#1B7A6E" label="Ministry" />
-      <LegendDot color="#8B5CF6" label="Miracle" />
-      <LegendDot color="#E8625C" label="Passion" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#D4A853" label="Birth" />
+      <LegendDot dark={dark} color="#C06C3E" label="Childhood" />
+      <LegendDot dark={dark} color="#1B7A6E" label="Ministry" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Miracle" />
+      <LegendDot dark={dark} color="#E8625C" label="Passion" />
     </>}>
-      <svg viewBox="0 0 85 100" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 85 100" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the life of Jesus">
         <SeaDef id="sea-jes" />
         <ParchBg w={85} h={100} vigId="vig-jes" />
 
         {/* Mediterranean */}
-        <polygon points="0,0 20,0 22,14 18,38 14,60 10,74 0,74 0,0" fill="url(#sea-jes)" opacity="0.80" />
+        <polygon points="0,0 20,0 22,14 18,38 14,60 10,74 0,74 0,0" fill="url(#sea-jes)" opacity="0.80" className="sea-shimmer" />
         <text x="2" y="50" fill={P.inkFaint} fontSize="2.5" fontFamily="'Nunito',sans-serif"
           fontWeight="700" opacity="0.55" transform="rotate(-90,2,50)">MEDITERRANEAN SEA</text>
 
@@ -80,14 +80,14 @@ export default function JesusLifeMap({ onSelectLocation, selectedLocation }) {
 
         {/* Jordan River */}
         <path d="M52,14 C52,22 50,34 50,44 C50,56 50,66 48,82"
-          fill="none" stroke="#7AAEC8" strokeWidth="2.4" opacity="0.70" strokeLinecap="round" />
+          fill="none" stroke="#7AAEC8" strokeWidth="2.4" opacity="0.70" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={54} y={48} text="Jordan" fontSize={2.2} opacity={0.6} anchor="start" color={P.inkFaint} />
 
         {/* Sea of Galilee */}
-        <ellipse cx="50" cy="22" rx="4" ry="6" fill="#7EB8D4" opacity="0.82" />
+        <ellipse cx="50" cy="22" rx="4" ry="6" fill="#7EB8D4" opacity="0.82" className="sea-shimmer" />
 
         {/* Dead Sea */}
-        <ellipse cx="50" cy="62" rx="3.5" ry="7.5" fill="#7EB8D4" opacity="0.75" />
+        <ellipse cx="50" cy="62" rx="3.5" ry="7.5" fill="#7EB8D4" opacity="0.75" className="sea-shimmer" />
         <HaloText x={55} y={62} text="Dead Sea" fontSize={2.2} opacity={0.6} anchor="start" color={P.inkFaint} />
 
         {/* Ministry route: Galilee → Jerusalem */}

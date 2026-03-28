@@ -32,25 +32,25 @@ export const ASSYRIAN_DETAILS = {
   damascus:  { title:"Damascus — Syria Falls First",         body:"Damascus, capital of Aram (Syria), fell to Tiglath-Pileser III in 732 BC — before Samaria. The Syrians were deported to Kir as Amos had prophesied. This fulfilled the word of the LORD spoken through Amos decades earlier: 'I will send a fire into the house of Hazael, which shall devour the palaces of Ben-hadad.'", scripture:"2 Kings 16:9 — 'And the king of Assyria hearkened unto him: for the king of Assyria went up against Damascus, and took it, and carried the people of it captive to Kir, and slew Rezin.'" },
 };
 
-export default function AssyrianExileMap({ onSelectLocation, selectedLocation }) {
+export default function AssyrianExileMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#E8625C" label="City Falls" />
-      <LegendDot color="#D4A853" label="Assyrian Capital" />
-      <LegendDot color="#8B5CF6" label="Exile Destination" />
-      <LegendDot color="#2E4A33" label="Miraculously Saved" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#E8625C" label="City Falls" />
+      <LegendDot dark={dark} color="#D4A853" label="Assyrian Capital" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Exile Destination" />
+      <LegendDot dark={dark} color="#2E4A33" label="Miraculously Saved" />
     </>}>
-      <svg viewBox="0 0 110 80" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 110 80" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the Assyrian exile of the northern tribes">
         <SeaDef id="sea-ass" />
         <ParchBg w={110} h={80} vigId="vig-ass" />
 
         {/* Mediterranean */}
-        <polygon points="0,0 22,0 24,14 20,38 16,54 0,54 0,0" fill="url(#sea-ass)" opacity="0.78" />
+        <polygon points="0,0 22,0 24,14 20,38 16,54 0,54 0,0" fill="url(#sea-ass)" opacity="0.78" className="sea-shimmer" />
         <text x="2" y="36" fill={P.inkFaint} fontSize="2.4" fontFamily="'Nunito',sans-serif"
           fontWeight="700" opacity="0.55" transform="rotate(-90,2,36)">MEDITERRANEAN</text>
 
         {/* Persian Gulf */}
-        <polygon points="88,60 100,58 104,72 90,76 84,68" fill="url(#sea-ass)" opacity="0.65" />
+        <polygon points="88,60 100,58 104,72 90,76 84,68" fill="url(#sea-ass)" opacity="0.65" className="sea-shimmer" />
         <HaloText x={94} y={70} text="PERSIAN GULF" fontSize={2.2} bold opacity={0.5} color={P.inkFaint} />
 
         {/* Caspian Sea */}
@@ -84,18 +84,18 @@ export default function AssyrianExileMap({ onSelectLocation, selectedLocation })
         <path d="M44,42 C54,40 62,38 70,36 C78,34 82,30 82,28" fill="none" stroke="#8B5CF6" strokeWidth="1.4" strokeDasharray="3,2" opacity="0.65" />
 
         {/* Tigris River */}
-        <path d="M80,8 C80,18 78,30 76,44 C74,56 72,64 70,72" fill="none" stroke="#7AAEC8" strokeWidth="1.6" opacity="0.60" strokeLinecap="round" />
+        <path d="M80,8 C80,18 78,30 76,44 C74,56 72,64 70,72" fill="none" stroke="#7AAEC8" strokeWidth="1.6" opacity="0.60" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={72} y={50} text="Tigris" fontSize={2.2} opacity={0.55} color={P.inkFaint} anchor="start" />
 
         {/* Euphrates River */}
-        <path d="M60,14 C60,22 58,32 56,44 C54,56 52,64 50,74" fill="none" stroke="#7AAEC8" strokeWidth="1.4" opacity="0.55" strokeLinecap="round" />
+        <path d="M60,14 C60,22 58,32 56,44 C54,56 52,64 50,74" fill="none" stroke="#7AAEC8" strokeWidth="1.4" opacity="0.55" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={48} y={44} text="Euphrates" fontSize={2.2} opacity={0.55} color={P.inkFaint} anchor="end" />
 
         {/* Jordan River */}
-        <path d="M44,22 C44,30 44,40 44,52 C42,60 40,66 38,72" fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.55" strokeLinecap="round" />
+        <path d="M44,22 C44,30 44,40 44,52 C42,60 40,66 38,72" fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.55" strokeLinecap="round" className="river-shimmer" />
 
         {/* Dead Sea */}
-        <ellipse cx="43" cy="56" rx="2.5" ry="5" fill="#7EB8D4" opacity="0.72" />
+        <ellipse cx="43" cy="56" rx="2.5" ry="5" fill="#7EB8D4" opacity="0.72" className="sea-shimmer" />
 
         {/* Vignette */}
         <rect x="0" y="0" width="110" height="80" fill="url(#vig-ass)" pointerEvents="none" />

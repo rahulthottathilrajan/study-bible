@@ -34,24 +34,24 @@ export const EXODUS_DETAILS = {
   canaan:     { title:"Canaan — The Promised Land",     body:"The destination of the entire Exodus. God had promised this land to Abraham, Isaac, and Jacob — and now, 40 years after leaving Egypt, Joshua led the people across the Jordan into their inheritance.", scripture:"Joshua 1:2 — 'Moses my servant is dead; now therefore arise, go over this Jordan, thou, and all this people, unto the land which I do give to them.'" },
 };
 
-export default function ExodusMap({ onSelectLocation, selectedLocation }) {
+export default function ExodusMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#E8625C" label="Start / End" />
-      <LegendDot color="#D4A853" label="Miracle" />
-      <LegendDot color="#8B5CF6" label="Milestone" />
-      <LegendDot color="#2E4A33" label="Camp" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#E8625C" label="Start / End" />
+      <LegendDot dark={dark} color="#D4A853" label="Miracle" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Milestone" />
+      <LegendDot dark={dark} color="#2E4A33" label="Camp" />
     </>}>
-      <svg viewBox="0 0 120 110" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 120 110" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the Exodus route from Egypt to Canaan">
         <SeaDef id="sea-ex" />
         <ParchBg w={120} h={110} vigId="vig-ex" />
-        <rect x="0" y="0" width="120" height="27" fill="url(#sea-ex)" opacity="0.88" />
+        <rect x="0" y="0" width="120" height="27" fill="url(#sea-ex)" opacity="0.88" className="sea-shimmer" />
         <HaloText x={26} y={17} text="MEDITERRANEAN  SEA" fontSize={3.5} bold opacity={0.7} color={P.inkFaint} />
-        <polygon points="72,53 90,53 96,110 78,110" fill="url(#sea-ex)" opacity="0.75" />
-        <polygon points="56,72 67,72 68,110 54,110" fill="url(#sea-ex)" opacity="0.55" />
+        <polygon points="72,53 90,53 96,110 78,110" fill="url(#sea-ex)" opacity="0.75" className="sea-shimmer" />
+        <polygon points="56,72 67,72 68,110 54,110" fill="url(#sea-ex)" opacity="0.55" className="sea-shimmer" />
         <HaloText x={86} y={86} text="RED SEA" fontSize={3} bold opacity={0.6} color={P.inkFaint} />
         <ellipse cx="58" cy="28" rx="16" ry="6" fill={P.fertile} opacity="0.65" />
-        <path d="M58,6 C59,14 57,20 58,28" fill="none" stroke="#8ABFD0" strokeWidth="1.6" opacity="0.7" />
+        <path d="M58,6 C59,14 57,20 58,28" fill="none" stroke="#8ABFD0" strokeWidth="1.6" opacity="0.7" className="river-shimmer" />
         <HaloText x={46} y={24} text="Nile Delta" fontSize={2.5} opacity={0.7} color={P.inkFaint} />
         <polygon points="44,27 96,27 97,54 90,53 84,50 80,56 76,64 70,72 62,90 52,110 44,110" fill={P.desert} opacity="0.72" />
         <HaloText x={74} y={40} text="EGYPT" fontSize={6} opacity={0.22} color={P.inkFaint} bold />

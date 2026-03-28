@@ -10,9 +10,9 @@ const locs = [
   { id:"ephesus_re",   x:50, y:26, label:"Ephesus",   type:"church",  side:"left"  },
   { id:"antioch_re",   x:66, y:26, label:"Antioch",   type:"church",  side:"right" },
   { id:"caesarea_re",  x:63, y:32, label:"Caesarea",  type:"city",    side:"right" },
-  { id:"nazareth",     x:60, y:37, label:"Nazareth",  type:"holy",    side:"left"  },
+  { id:"nazareth",     x:64, y:34, label:"Nazareth",  type:"holy",    side:"left"  },
   { id:"jerusalem_re", x:65, y:41, label:"Jerusalem", type:"holy",    side:"right" },
-  { id:"bethlehem",    x:60, y:45, label:"Bethlehem", type:"holy",    side:"left"  },
+  { id:"bethlehem",    x:64, y:44, label:"Bethlehem", type:"holy",    side:"left"  },
   { id:"alexandria",   x:52, y:48, label:"Alexandria",type:"city",    side:"left"  },
 ];
 
@@ -29,18 +29,18 @@ export const ROMAN_DETAILS = {
   caesarea_re:  { title:"Caesarea Maritima",                   body:"Built by Herod the Great to honour Caesar Augustus — a magnificent Roman city with a man-made harbour, theatre, and hippodrome. Pontius Pilate lived here, not in Jerusalem.", scripture:"Acts 10:1 — 'There was a certain man in Caesarea called Cornelius, a centurion of the band called the Italian band.'" },
 };
 
-export default function RomanMap({ onSelectLocation, selectedLocation }) {
+export default function RomanMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#D4A853" label="Capital" />
-      <LegendDot color="#E8625C" label="Holy Site" />
-      <LegendDot color="#1B7A6E" label="Church" />
-      <LegendDot color="#8B5CF6" label="City" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#D4A853" label="Capital" />
+      <LegendDot dark={dark} color="#E8625C" label="Holy Site" />
+      <LegendDot dark={dark} color="#1B7A6E" label="Church" />
+      <LegendDot dark={dark} color="#8B5CF6" label="City" />
     </>}>
-      <svg viewBox="0 0 100 65" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 100 65" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the Roman Empire in the time of Christ">
         <SeaDef id="sea-roman" />
         <ParchBg w={100} h={65} vigId="vig-roman" />
-        <rect x="0" y="0" width="100" height="65" fill="url(#sea-roman)" opacity="0.55" />
+        <rect x="0" y="0" width="100" height="65" fill="url(#sea-roman)" opacity="0.55" className="sea-shimmer" />
         <polygon points="6,4 40,3 44,7 80,5 88,10 90,46 80,54 66,56 50,54 32,48 18,46 8,36 6,20"
           fill={P.land} opacity="0.78" stroke={P.edge} strokeWidth="0.6" strokeDasharray="1.5,1" strokeOpacity="0.5" />
         <polygon points="6,6 20,4 22,10 20,24 12,28 6,22" fill={P.land} opacity="0.88" stroke={P.edge} strokeWidth="0.3" />

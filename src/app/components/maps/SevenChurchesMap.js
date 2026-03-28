@@ -5,7 +5,7 @@ const typeColors = {
   commended: "#1B7A6E",
   warned:    "#E8625C",
   mixed:     "#D4A853",
-  dead:      "#8B5CF6",
+  lukewarm:  "#8B5CF6",
 };
 
 const locs = [
@@ -13,9 +13,9 @@ const locs = [
   { id:"smyrna",        x:28, y:40, label:"Smyrna",        type:"commended", side:"left"  },
   { id:"pergamum",      x:26, y:28, label:"Pergamum",      type:"warned",    side:"left"  },
   { id:"thyatira",      x:36, y:34, label:"Thyatira",      type:"warned",    side:"right" },
-  { id:"sardis",        x:38, y:44, label:"Sardis",        type:"dead",      side:"right" },
+  { id:"sardis",        x:38, y:44, label:"Sardis",        type:"warned",    side:"right" },
   { id:"philadelphia",  x:44, y:48, label:"Philadelphia",  type:"commended", side:"right" },
-  { id:"laodicea",      x:50, y:56, label:"Laodicea",      type:"warned",    side:"right" },
+  { id:"laodicea",      x:50, y:56, label:"Laodicea",      type:"lukewarm",  side:"right" },
 ];
 
 // Circuit route connecting all 7 churches
@@ -59,25 +59,25 @@ export const SEVEN_CHURCHES_DETAILS = {
   },
 };
 
-export default function SevenChurchesMap({ onSelectLocation, selectedLocation }) {
+export default function SevenChurchesMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#1B7A6E" label="Commended Only" />
-      <LegendDot color="#D4A853" label="Mixed" />
-      <LegendDot color="#E8625C" label="Strongly Warned" />
-      <LegendDot color="#8B5CF6" label="Dead / Lukewarm" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#1B7A6E" label="Commended Only" />
+      <LegendDot dark={dark} color="#D4A853" label="Mixed" />
+      <LegendDot dark={dark} color="#E8625C" label="Warned / Dead" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Lukewarm" />
     </>}>
-      <svg viewBox="0 0 90 80" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 90 80" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the seven churches of Revelation">
         <SeaDef id="sea-7ch" />
         <ParchBg w={90} h={80} vigId="vig-7ch" />
 
         {/* Aegean Sea - west */}
-        <polygon points="0,0 18,0 20,16 18,36 14,56 10,68 0,68 0,0" fill="url(#sea-7ch)" opacity="0.80" />
+        <polygon points="0,0 18,0 20,16 18,36 14,56 10,68 0,68 0,0" fill="url(#sea-7ch)" opacity="0.80" className="sea-shimmer" />
         <text x="2" y="44" fill={P.inkFaint} fontSize="2.4" fontFamily="'Nunito',sans-serif"
           fontWeight="700" opacity="0.55" transform="rotate(-90,2,44)">AEGEAN SEA</text>
 
         {/* Mediterranean - south */}
-        <polygon points="0,68 90,68 90,80 0,80" fill="url(#sea-7ch)" opacity="0.72" />
+        <polygon points="0,68 90,68 90,80 0,80" fill="url(#sea-7ch)" opacity="0.72" className="sea-shimmer" />
         <HaloText x={44} y={76} text="MEDITERRANEAN SEA" fontSize={2.8} bold opacity={0.5} color={P.inkFaint} />
 
         {/* Asia Minor land mass */}
@@ -102,12 +102,12 @@ export default function SevenChurchesMap({ onSelectLocation, selectedLocation })
 
         {/* Hermos River */}
         <path d="M20,40 C28,38 36,36 44,34 C52,32 60,30 70,28"
-          fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.55" strokeLinecap="round" />
+          fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.55" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={46} y={30} text="Hermos R." fontSize={2.2} opacity={0.5} anchor="middle" color={P.inkFaint} />
 
         {/* Maeander River */}
         <path d="M20,58 C28,56 36,54 46,52 C54,52 60,54 68,56"
-          fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.50" strokeLinecap="round" />
+          fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.50" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={46} y={60} text="Maeander R." fontSize={2.2} opacity={0.45} anchor="middle" color={P.inkFaint} />
 
         {/* Patmos island */}

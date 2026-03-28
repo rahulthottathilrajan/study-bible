@@ -32,20 +32,20 @@ export const CONQUEST_DETAILS = {
   shechem: { title:"Shechem — The Covenant Renewed", body:"After the conquest, Joshua gathered all Israel at Shechem — the site of Abraham's first altar. He reviewed all of God's faithfulness and challenged the people to choose whom they would serve. 'As for me and my house, we will serve the LORD.'", scripture:"Joshua 24:15 — 'As for me and my house, we will serve the LORD.'" },
 };
 
-export default function ConquestMap({ onSelectLocation, selectedLocation }) {
+export default function ConquestMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#D4A853" label="Entry Point" />
-      <LegendDot color="#8B5CF6" label="Miracle" />
-      <LegendDot color="#E8625C" label="Victory" />
-      <LegendDot color="#2E4A33" label="Camp / Covenant" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#D4A853" label="Entry Point" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Miracle" />
+      <LegendDot dark={dark} color="#E8625C" label="Victory" />
+      <LegendDot dark={dark} color="#2E4A33" label="Camp / Covenant" />
     </>}>
-      <svg viewBox="0 0 85 100" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 85 100" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of Joshua's conquest of Canaan">
         <SeaDef id="sea-con" />
         <ParchBg w={85} h={100} vigId="vig-con" />
 
         {/* Mediterranean */}
-        <polygon points="0,0 22,0 24,12 22,36 18,58 14,72 0,72 0,0" fill="url(#sea-con)" opacity="0.80" />
+        <polygon points="0,0 22,0 24,12 22,36 18,58 14,72 0,72 0,0" fill="url(#sea-con)" opacity="0.80" className="sea-shimmer" />
         <text x="2" y="50" fill={P.inkFaint} fontSize="2.6" fontFamily="'Nunito',sans-serif"
           fontWeight="700" opacity="0.55" transform="rotate(-90,2,50)">MEDITERRANEAN SEA</text>
 
@@ -54,20 +54,20 @@ export default function ConquestMap({ onSelectLocation, selectedLocation }) {
 
         {/* Jordan River */}
         <path d="M56,10 C56,18 54,28 54,38 C54,50 54,62 52,80 C50,90 48,96 46,100"
-          fill="none" stroke="#7AAEC8" strokeWidth="2.4" opacity="0.70" strokeLinecap="round" />
+          fill="none" stroke="#7AAEC8" strokeWidth="2.4" opacity="0.70" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={58} y={50} text="Jordan River" fontSize={2.4} opacity={0.6} color={P.inkFaint} anchor="start" />
 
         {/* Sea of Galilee */}
-        <ellipse cx="56" cy="18" rx="4" ry="5.5" fill="#7EB8D4" opacity="0.80" />
+        <ellipse cx="56" cy="18" rx="4" ry="5.5" fill="#7EB8D4" opacity="0.80" className="sea-shimmer" />
         <HaloText x={62} y={18} text="Sea of Galilee" fontSize={2.2} opacity={0.65} anchor="start" color={P.inkFaint} />
 
         {/* Dead Sea */}
-        <ellipse cx="54" cy="58" rx="3.5" ry="7" fill="#7EB8D4" opacity="0.75" />
+        <ellipse cx="54" cy="58" rx="3.5" ry="7" fill="#7EB8D4" opacity="0.75" className="sea-shimmer" />
         <HaloText x={59} y={58} text="Dead Sea" fontSize={2.2} opacity={0.65} anchor="start" color={P.inkFaint} />
 
         {/* Regions */}
         <HaloText x={35} y={20} text="GALILEE"   fontSize={3.5} bold opacity={0.3} color={P.inkFaint} />
-        <HaloText x={35} y={38} text="SAMARIA"   fontSize={3.5} bold opacity={0.3} color={P.inkFaint} />
+        <HaloText x={35} y={38} text="HILL COUNTRY" fontSize={3} bold opacity={0.3} color={P.inkFaint} />
         <HaloText x={33} y={52} text="JUDAH"     fontSize={3.5} bold opacity={0.3} color={P.inkFaint} />
         <HaloText x={64} y={38} text="GILEAD"    fontSize={3} bold opacity={0.3} color={P.inkFaint} />
         <HaloText x={64} y={55} text="MOAB"      fontSize={3} bold opacity={0.3} color={P.inkFaint} />

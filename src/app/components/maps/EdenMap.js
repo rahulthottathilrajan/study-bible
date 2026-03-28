@@ -32,29 +32,29 @@ export const EDEN_DETAILS = {
   canaan:    { title:"The Land of Canaan",      body:"Named after Ham's son Canaan, this land became the focus of God's redemptive plan. Promised to Abraham, Isaac, and Jacob, it was the destination of the Exodus and the inheritance of the twelve tribes — the land flowing with milk and honey.", scripture:"Genesis 12:7 — 'And the LORD appeared unto Abram, and said, Unto thy seed will I give this land.'" },
 };
 
-export default function EdenMap({ onSelectLocation, selectedLocation }) {
+export default function EdenMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#E8625C" label="Origin" />
-      <LegendDot color="#1B7A6E" label="River" />
-      <LegendDot color="#C06C3E" label="City" />
-      <LegendDot color="#8B5CF6" label="Key Event" />
-      <LegendDot color="#2E4A33" label="Region" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#E8625C" label="Origin" />
+      <LegendDot dark={dark} color="#1B7A6E" label="River" />
+      <LegendDot dark={dark} color="#C06C3E" label="City" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Key Event" />
+      <LegendDot dark={dark} color="#2E4A33" label="Region" />
     </>}>
-      <svg viewBox="0 0 110 80" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 110 80" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the Garden of Eden and early civilisations">
         <SeaDef id="sea-eden" />
         <ParchBg w={110} h={80} vigId="vig-eden" />
 
         {/* Persian Gulf */}
-        <polygon points="68,62 85,62 90,80 60,80" fill="url(#sea-eden)" opacity="0.75" />
+        <polygon points="68,62 85,62 90,80 60,80" fill="url(#sea-eden)" opacity="0.75" className="sea-shimmer" />
         <HaloText x={78} y={74} text="PERSIAN GULF" fontSize={2.5} bold opacity={0.6} color={P.inkFaint} />
 
         {/* Mediterranean */}
-        <polygon points="0,0 35,0 38,20 34,40 28,50 18,52 0,48 0,0" fill="url(#sea-eden)" opacity="0.75" />
+        <polygon points="0,0 35,0 38,20 34,40 28,50 18,52 0,48 0,0" fill="url(#sea-eden)" opacity="0.75" className="sea-shimmer" />
         <HaloText x={10} y={28} text="MEDITERRANEAN" fontSize={2.4} bold opacity={0.55} color={P.inkFaint} />
 
         {/* Red Sea */}
-        <polygon points="28,52 36,50 40,62 34,72 24,70 22,60" fill="url(#sea-eden)" opacity="0.65" />
+        <polygon points="28,52 36,50 40,62 34,72 24,70 22,60" fill="url(#sea-eden)" opacity="0.65" className="sea-shimmer" />
         <HaloText x={26} y={66} text="RED SEA" fontSize={2.2} bold opacity={0.55} color={P.inkFaint} />
 
         {/* Caspian Sea */}
@@ -86,13 +86,13 @@ export default function EdenMap({ onSelectLocation, selectedLocation }) {
         <polygon points="64,20 68,13 72,20" fill={P.mountain} opacity="0.45" />
 
         {/* Euphrates river */}
-        <path d="M52,22 C54,28 58,34 60,40 C62,46 66,50 68,56" fill="none" stroke="#7AAEC8" strokeWidth="1.8" opacity="0.7" strokeLinecap="round" />
+        <path d="M52,22 C54,28 58,34 60,40 C62,46 66,50 68,56" fill="none" stroke="#7AAEC8" strokeWidth="1.8" opacity="0.7" strokeLinecap="round" className="river-shimmer" />
 
         {/* Tigris river */}
-        <path d="M62,20 C64,28 68,36 72,44 C74,50 74,56 72,62" fill="none" stroke="#7AAEC8" strokeWidth="1.4" opacity="0.6" strokeLinecap="round" />
+        <path d="M62,20 C64,28 68,36 72,44 C74,50 74,56 72,62" fill="none" stroke="#7AAEC8" strokeWidth="1.4" opacity="0.6" strokeLinecap="round" className="river-shimmer" />
 
         {/* Nile river */}
-        <path d="M26,52 C27,44 28,36 28,28 C28,20 26,12 24,4" fill="none" stroke="#7AAEC8" strokeWidth="1.4" opacity="0.6" strokeLinecap="round" />
+        <path d="M26,52 C27,44 28,36 28,28 C28,20 26,12 24,4" fill="none" stroke="#7AAEC8" strokeWidth="1.4" opacity="0.6" strokeLinecap="round" className="river-shimmer" />
 
         {/* Vignette */}
         <rect x="0" y="0" width="110" height="80" fill="url(#vig-eden)" pointerEvents="none" />

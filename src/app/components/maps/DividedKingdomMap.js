@@ -32,21 +32,21 @@ export const DIVIDED_DETAILS = {
   lachish:   { title:"Lachish — Judah's Second City",       body:"Lachish was the most important fortified city in Judah after Jerusalem. When Sennacherib invaded in 701 BC, he besieged Lachish while sending his Rabshakeh to Jerusalem. The Lachish siege is depicted in famous Assyrian reliefs now in the British Museum. Hezekiah paid tribute of 300 talents of silver and 30 talents of gold.", scripture:"2 Kings 18:14 — 'And Hezekiah king of Judah sent to the king of Assyria to Lachish, saying, I have offended; return from me: that which thou puttest on me will I bear.'" },
 };
 
-export default function DividedKingdomMap({ onSelectLocation, selectedLocation }) {
+export default function DividedKingdomMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#E8625C" label="Israel (North)" />
-      <LegendDot color="#1B7A6E" label="Judah (South)" />
-      <LegendDot color="#D4A853" label="Capital" />
-      <LegendDot color="#8B5CF6" label="Prophet" />
-      <LegendDot color="#C06C3E" label="Battle" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#E8625C" label="Israel (North)" />
+      <LegendDot dark={dark} color="#1B7A6E" label="Judah (South)" />
+      <LegendDot dark={dark} color="#D4A853" label="Capital" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Prophet" />
+      <LegendDot dark={dark} color="#C06C3E" label="Battle" />
     </>}>
-      <svg viewBox="0 0 85 100" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 85 100" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the divided kingdom of Israel and Judah">
         <SeaDef id="sea-div" />
         <ParchBg w={85} h={100} vigId="vig-div" />
 
         {/* Mediterranean */}
-        <polygon points="0,0 20,0 22,12 18,36 14,58 10,72 0,72 0,0" fill="url(#sea-div)" opacity="0.80" />
+        <polygon points="0,0 20,0 22,12 18,36 14,58 10,72 0,72 0,0" fill="url(#sea-div)" opacity="0.80" className="sea-shimmer" />
         <text x="2" y="48" fill={P.inkFaint} fontSize="2.5" fontFamily="'Nunito',sans-serif"
           fontWeight="700" opacity="0.55" transform="rotate(-90,2,48)">MEDITERRANEAN SEA</text>
 
@@ -81,15 +81,15 @@ export default function DividedKingdomMap({ onSelectLocation, selectedLocation }
 
         {/* Jordan River */}
         <path d="M52,8 C52,18 52,28 52,40 C52,52 50,64 48,80"
-          fill="none" stroke="#7AAEC8" strokeWidth="2.2" opacity="0.68" strokeLinecap="round" />
+          fill="none" stroke="#7AAEC8" strokeWidth="2.2" opacity="0.68" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={54} y={36} text="Jordan" fontSize={2.2} opacity={0.6} anchor="start" color={P.inkFaint} />
 
         {/* Sea of Galilee */}
-        <ellipse cx="52" cy="18" rx="3.5" ry="5" fill="#7EB8D4" opacity="0.80" />
+        <ellipse cx="52" cy="18" rx="3.5" ry="5" fill="#7EB8D4" opacity="0.80" className="sea-shimmer" />
         <HaloText x={57} y={18} text="Galilee" fontSize={2.2} opacity={0.6} anchor="start" color={P.inkFaint} />
 
         {/* Dead Sea */}
-        <ellipse cx="52" cy="58" rx="3" ry="7" fill="#7EB8D4" opacity="0.75" />
+        <ellipse cx="52" cy="58" rx="3" ry="7" fill="#7EB8D4" opacity="0.75" className="sea-shimmer" />
         <HaloText x={57} y={58} text="Dead Sea" fontSize={2.2} opacity={0.6} anchor="start" color={P.inkFaint} />
 
         {/* Vignette */}

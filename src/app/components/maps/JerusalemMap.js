@@ -7,16 +7,16 @@ const typeColors = {
 };
 
 const locs = [
-  { id:"temple_mount", x:56, y:42, label:"Temple Mount",     type:"temple",  side:"right" },
-  { id:"holy_of_holies",x:55,y:38, label:"Holy of Holies",   type:"temple",  side:"right" },
-  { id:"golgotha",     x:42, y:36, label:"Golgotha",         type:"passion", side:"left"  },
-  { id:"upper_room",   x:46, y:54, label:"Upper Room",       type:"ministry",side:"left"  },
-  { id:"gethsemane",   x:62, y:40, label:"Gethsemane",       type:"passion", side:"right" },
-  { id:"pool_siloam",  x:52, y:58, label:"Pool of Siloam",   type:"pool",    side:"left"  },
-  { id:"pool_bethesda",x:56, y:34, label:"Pool of Bethesda", type:"pool",    side:"right" },
-  { id:"praetorium",   x:46, y:40, label:"Praetorium",       type:"passion", side:"left"  },
-  { id:"antonia",      x:56, y:36, label:"Antonia Fortress", type:"gate",    side:"right" },
-  { id:"kidron",       x:64, y:46, label:"Kidron Valley",    type:"ministry",side:"right" },
+  { id:"temple_mount", x:56, y:44, label:"Temple Mount",     type:"temple",  side:"right" },
+  { id:"holy_of_holies",x:53,y:38, label:"Holy of Holies",   type:"temple",  side:"left"  },
+  { id:"golgotha",     x:40, y:30, label:"Golgotha",         type:"passion", side:"left"  },
+  { id:"upper_room",   x:42, y:56, label:"Upper Room",       type:"ministry",side:"left"  },
+  { id:"gethsemane",   x:66, y:38, label:"Gethsemane",       type:"passion", side:"right" },
+  { id:"pool_siloam",  x:50, y:60, label:"Pool of Siloam",   type:"pool",    side:"left"  },
+  { id:"pool_bethesda",x:58, y:30, label:"Pool of Bethesda", type:"pool",    side:"right" },
+  { id:"praetorium",   x:42, y:42, label:"Praetorium",       type:"passion", side:"left"  },
+  { id:"antonia",      x:60, y:34, label:"Antonia Fortress", type:"gate",    side:"right" },
+  { id:"kidron",       x:68, y:48, label:"Kidron Valley",    type:"ministry",side:"right" },
 ];
 
 export const JERUSALEM_DETAILS = {
@@ -32,16 +32,16 @@ export const JERUSALEM_DETAILS = {
   kidron:       { title:"The Kidron Valley",                 body:"The Kidron Valley separated Jerusalem from the Mount of Olives. Jesus crossed it on the night of His arrest to reach Gethsemane. David had crossed it weeping when fleeing Absalom. The valley is lined with ancient tombs. At the end of the age, the nations will be judged in the 'valley of decision' nearby — the Valley of Jehoshaphat.", scripture:"John 18:1 — 'When Jesus had spoken these words, he went forth with his disciples over the brook Cedron, where was a garden, into the which he entered.'" },
 };
 
-export default function JerusalemMap({ onSelectLocation, selectedLocation }) {
+export default function JerusalemMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#D4A853" label="Temple" />
-      <LegendDot color="#E8625C" label="Passion Sites" />
-      <LegendDot color="#1B7A6E" label="Ministry" />
-      <LegendDot color="#8B5CF6" label="Pools" />
-      <LegendDot color="#C06C3E" label="Gates / Fortress" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#D4A853" label="Temple" />
+      <LegendDot dark={dark} color="#E8625C" label="Passion Sites" />
+      <LegendDot dark={dark} color="#1B7A6E" label="Ministry" />
+      <LegendDot dark={dark} color="#8B5CF6" label="Pools" />
+      <LegendDot dark={dark} color="#C06C3E" label="Gates / Fortress" />
     </>}>
-      <svg viewBox="0 0 90 80" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 90 80" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of Jerusalem in Jesus' day">
         <SeaDef id="sea-jeru" />
         <ParchBg w={90} h={80} vigId="vig-jeru" />
 
@@ -67,7 +67,7 @@ export default function JerusalemMap({ onSelectLocation, selectedLocation }) {
         <HaloText x={50} y={62} text="LOWER CITY" fontSize={2.2} bold opacity={0.4} color={P.inkFaint} />
 
         {/* Kidron Valley */}
-        <polygon points="70,28 82,28 84,52 72,56 68,44 68,32" fill="url(#sea-jeru)" opacity="0.22" />
+        <polygon points="70,28 82,28 84,52 72,56 68,44 68,32" fill="url(#sea-jeru)" opacity="0.22" className="sea-shimmer" />
         <HaloText x={76} y={42} text="KIDRON" fontSize={2.2} bold opacity={0.45} color={P.inkFaint} />
 
         {/* Mount of Olives */}
@@ -75,7 +75,7 @@ export default function JerusalemMap({ onSelectLocation, selectedLocation }) {
         <HaloText x={78} y={26} text="Mt. of Olives" fontSize={2.2} bold opacity={0.5} color={P.inkFaint} />
 
         {/* Hinnom Valley */}
-        <path d="M24,60 C28,66 36,70 46,70 C54,70 62,66 64,62" fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.45" />
+        <path d="M24,60 C28,66 36,70 46,70 C54,70 62,66 64,62" fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.45" className="river-shimmer" />
         <HaloText x={42} y={74} text="Hinnom Valley" fontSize={2.2} opacity={0.4} color={P.inkFaint} />
 
         {/* Golgotha - outside walls */}

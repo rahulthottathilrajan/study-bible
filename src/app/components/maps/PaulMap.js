@@ -37,23 +37,23 @@ export const PAUL_DETAILS = {
   caesarea:     { title:"Caesarea Maritima",                 body:"The Roman administrative capital of Judea. Here Cornelius, the first Gentile convert, received the Holy Spirit. Paul was imprisoned here for two years before his voyage to Rome.", scripture:"Acts 10:1 — 'There was a certain man in Caesarea called Cornelius, a centurion of the band called the Italian band.'" },
 };
 
-export default function PaulMap({ onSelectLocation, selectedLocation }) {
+export default function PaulMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
+    <MapCard dark={dark} legend={<>
       {[[j1,"1st Journey","Acts 13–14"],[j2,"2nd Journey","Acts 15–18"],[j3,"3rd Journey","Acts 18–21"]].map(([color, label, ref]) => (
         <div key={label} style={{ display:"flex", alignItems:"center", gap:5 }}>
           <div style={{ width:22, height:3, background:color, borderRadius:2, opacity:0.9 }} />
           <div>
-            <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:9.5, fontWeight:700, color:P.inkFaint }}>{label}</div>
-            <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:8, color:P.inkFaint, opacity:0.65 }}>{ref}</div>
+            <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:9.5, fontWeight:700, color: dark ? "#D0B898" : P.inkFaint }}>{label}</div>
+            <div style={{ fontFamily:"'Nunito',sans-serif", fontSize:8, color: dark ? "#D0B898" : P.inkFaint, opacity:0.65 }}>{ref}</div>
           </div>
         </div>
       ))}
     </>}>
-      <svg viewBox="0 0 100 70" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 100 70" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of Paul's missionary journeys">
         <SeaDef id="sea-paul" />
         <ParchBg w={100} h={70} vigId="vig-paul" />
-        <rect x="0" y="0" width="100" height="70" fill="url(#sea-paul)" opacity="0.62" />
+        <rect x="0" y="0" width="100" height="70" fill="url(#sea-paul)" opacity="0.62" className="sea-shimmer" />
         <HaloText x={16} y={56} text="MEDITERRANEAN  SEA" fontSize={3.8} bold opacity={0.45} color={P.inkFaint} />
         <polygon points="16,6 24,4 27,10 26,22 24,30 20,38 16,38 12,30 11,18" fill={P.land} opacity="0.9" stroke={P.edge} strokeWidth="0.4" />
         <polygon points="20,40 28,38 30,44 24,46 18,44" fill={P.land} opacity="0.85" stroke={P.edge} strokeWidth="0.3" />

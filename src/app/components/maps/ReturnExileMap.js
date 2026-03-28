@@ -10,13 +10,13 @@ const locs = [
   { id:"babylon",    x:76, y:46, label:"Babylon",         type:"origin",      side:"right" },
   { id:"jerusalem",  x:36, y:48, label:"Jerusalem",       type:"destination", side:"left"  },
   { id:"cyrus",      x:86, y:36, label:"Susa (Persia)",   type:"leader",      side:"right" },
-  { id:"temple",     x:37, y:46, label:"Temple Rebuilt",  type:"rebuild",     side:"right" },
-  { id:"walls",      x:35, y:50, label:"Walls Rebuilt",   type:"rebuild",     side:"left"  },
+  { id:"temple",     x:40, y:44, label:"Temple Rebuilt",  type:"rebuild",     side:"right" },
+  { id:"walls",      x:32, y:52, label:"Walls Rebuilt",   type:"rebuild",     side:"left"  },
   { id:"ezra",       x:74, y:52, label:"Nippur (Ezra)",   type:"leader",      side:"right" },
-  { id:"samaria",    x:38, y:38, label:"Samaria (Opposed)", type:"route",     side:"left"  },
+  { id:"samaria",    x:38, y:36, label:"Samaria (Opposed)", type:"route",     side:"left"  },
   { id:"euphrates",  x:58, y:30, label:"River Crossing",  type:"route",       side:"right" },
   { id:"tadmor",     x:62, y:26, label:"Desert Route",    type:"route",       side:"left"  },
-  { id:"bethel",     x:36, y:44, label:"Bethel",          type:"destination", side:"left"  },
+  { id:"bethel",     x:33, y:40, label:"Bethel",          type:"destination", side:"left"  },
 ];
 
 export const RETURN_DETAILS = {
@@ -32,25 +32,25 @@ export const RETURN_DETAILS = {
   bethel:    { title:"Bethel — Resettled",                   body:"Among the towns resettled by returning exiles was Bethel — the ancient site of Jacob's dream and Abraham's altar. The exile had emptied the land of its Israelite inhabitants, and the return was a gradual repopulation of towns across Judah and Benjamin. Lists in Ezra and Nehemiah record the families who returned.", scripture:"Nehemiah 11:31 — 'The children also of Benjamin from Geba dwelt at Michmash, and Aija, and Bethel, and in their villages.'" },
 };
 
-export default function ReturnExileMap({ onSelectLocation, selectedLocation }) {
+export default function ReturnExileMap({ onSelectLocation, selectedLocation, dark }) {
   return (
-    <MapCard legend={<>
-      <LegendDot color="#8B5CF6" label="Starting Point" />
-      <LegendDot color="#1B7A6E" label="Destination" />
-      <LegendDot color="#D4A853" label="Key Leader" />
-      <LegendDot color="#E8625C" label="Rebuilt" />
+    <MapCard dark={dark} legend={<>
+      <LegendDot dark={dark} color="#8B5CF6" label="Starting Point" />
+      <LegendDot dark={dark} color="#1B7A6E" label="Destination" />
+      <LegendDot dark={dark} color="#D4A853" label="Key Leader" />
+      <LegendDot dark={dark} color="#E8625C" label="Rebuilt" />
     </>}>
-      <svg viewBox="0 0 110 80" style={{ width:"100%", display:"block" }}>
+      <svg viewBox="0 0 110 80" style={{ width:"100%", display:"block" }} role="img" aria-label="Map of the return from exile">
         <SeaDef id="sea-ret" />
         <ParchBg w={110} h={80} vigId="vig-ret" />
 
         {/* Mediterranean */}
-        <polygon points="0,0 18,0 20,14 16,36 12,52 0,52 0,0" fill="url(#sea-ret)" opacity="0.78" />
+        <polygon points="0,0 18,0 20,14 16,36 12,52 0,52 0,0" fill="url(#sea-ret)" opacity="0.78" className="sea-shimmer" />
         <text x="2" y="34" fill={P.inkFaint} fontSize="2.4" fontFamily="'Nunito',sans-serif"
           fontWeight="700" opacity="0.55" transform="rotate(-90,2,34)">MEDITERRANEAN</text>
 
         {/* Persian Gulf */}
-        <polygon points="80,62 96,58 100,72 84,76 76,68" fill="url(#sea-ret)" opacity="0.65" />
+        <polygon points="80,62 96,58 100,72 84,76 76,68" fill="url(#sea-ret)" opacity="0.65" className="sea-shimmer" />
         <HaloText x={88} y={70} text="PERSIAN GULF" fontSize={2.2} bold opacity={0.5} color={P.inkFaint} />
 
         {/* Persian Empire shading */}
@@ -80,20 +80,20 @@ export default function ReturnExileMap({ onSelectLocation, selectedLocation }) {
           fill="none" stroke="#D4A853" strokeWidth="1.8" strokeDasharray="4,2.5" opacity="0.85" />
 
         {/* Euphrates */}
-        <path d="M58,14 C58,24 56,36 54,48 C52,58 50,66 48,76" fill="none" stroke="#7AAEC8" strokeWidth="1.6" opacity="0.60" strokeLinecap="round" />
+        <path d="M58,14 C58,24 56,36 54,48 C52,58 50,66 48,76" fill="none" stroke="#7AAEC8" strokeWidth="1.6" opacity="0.60" strokeLinecap="round" className="river-shimmer" />
         <HaloText x={50} y={42} text="Euphrates" fontSize={2.2} opacity={0.55} color={P.inkFaint} anchor="end" />
 
         {/* Tigris */}
-        <path d="M72,12 C72,22 70,34 68,46 C66,56 64,64 62,74" fill="none" stroke="#7AAEC8" strokeWidth="1.4" opacity="0.55" strokeLinecap="round" />
+        <path d="M72,12 C72,22 70,34 68,46 C66,56 64,64 62,74" fill="none" stroke="#7AAEC8" strokeWidth="1.4" opacity="0.55" strokeLinecap="round" className="river-shimmer" />
 
         {/* Jordan River */}
-        <path d="M36,26 C36,34 36,44 36,54 C34,62 32,68 30,74" fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.55" strokeLinecap="round" />
+        <path d="M36,26 C36,34 36,44 36,54 C34,62 32,68 30,74" fill="none" stroke="#7AAEC8" strokeWidth="1.2" opacity="0.55" strokeLinecap="round" className="river-shimmer" />
 
         {/* Dead Sea */}
-        <ellipse cx="35" cy="56" rx="2.2" ry="4.5" fill="#7EB8D4" opacity="0.72" />
+        <ellipse cx="35" cy="56" rx="2.2" ry="4.5" fill="#7EB8D4" opacity="0.72" className="sea-shimmer" />
 
         {/* Sea of Galilee */}
-        <ellipse cx="38" cy="28" rx="2.5" ry="3.5" fill="#7EB8D4" opacity="0.70" />
+        <ellipse cx="38" cy="28" rx="2.5" ry="3.5" fill="#7EB8D4" opacity="0.70" className="sea-shimmer" />
 
         {/* Vignette */}
         <rect x="0" y="0" width="110" height="80" fill="url(#vig-ret)" pointerEvents="none" />
