@@ -1581,6 +1581,15 @@ export function AppProvider({ children }) {
     const apolCount = learnExploration.apologeticsStudied?.length || 0;
     if (apolCount >= 1 && !earned.first_defense) awardBadge("first_defense");
     if (apolCount >= 50 && !earned.master_apologist) awardBadge("master_apologist");
+    // Apologetics streak badge (read from localStorage)
+    let apolStreak = { current: 0 };
+    try { apolStreak = JSON.parse(localStorage.getItem("apologeticsStreak")) || { current: 0 }; } catch {}
+    if (apolStreak.current >= 7 && !earned.apol_streak_7) awardBadge("apol_streak_7");
+    // Debate champion badge
+    let apolStudied = {};
+    try { apolStudied = JSON.parse(localStorage.getItem("apologeticsStudied")) || {}; } catch {}
+    const perfectDebates = Object.values(apolStudied).filter(s => s && s.quizScore === 3).length;
+    if (perfectDebates >= 10 && !earned.debate_champion) awardBadge("debate_champion");
 
     // Prayer badges
     const totalReactions = Object.values(userReactions).reduce((sum, r) => sum + Object.keys(r).length, 0);

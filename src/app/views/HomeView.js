@@ -8,6 +8,7 @@ import UtilityStrip from "../components/UtilityStrip";
 import PrayerOfTheDay from "../components/PrayerOfTheDay";
 import { BIRTHDAY_VERSES, THEMES, PODCAST_PALETTES } from "../constants";
 import { LOTDHomeCard } from "../components/LocationOfTheDay";
+import { APOLOGETICS_TOPICS } from "../components/Apologetics";
 import { READING_PLANS, getPlanReadings, getNextReading, getReadingStreak, countCompletedDays } from "../components/ReadingPlansData";
 
 function getDayOfYear() {
@@ -374,6 +375,28 @@ export default function HomeView() {
           <PodcastHeroCard ht={ht} nav={nav} />
           {/* ── LOCATION OF THE DAY ── */}
           <LOTDHomeCard ht={ht} nav={nav} />
+          {/* ── DEFENSE OF THE DAY ── */}
+          {(() => {
+            const dotd = APOLOGETICS_TOPICS[getDayOfYear() % APOLOGETICS_TOPICS.length];
+            if (!dotd) return null;
+            let apolStudied = false, apolStreak = 0;
+            try { const s = JSON.parse(localStorage.getItem("apologeticsStudied") || "{}"); apolStudied = s[dotd.id]?.lastStudied === new Date().toISOString().slice(0, 10); } catch {}
+            try { apolStreak = (JSON.parse(localStorage.getItem("apologeticsStreak")) || {}).current || 0; } catch {}
+            return (
+              <button onClick={() => nav("apologetics-home")} className="pressable" style={{ width:"100%",display:"flex",alignItems:"center",gap:12,padding:"14px 16px",borderRadius:14,cursor:"pointer",border:`1px solid ${dotd.color}30`,textAlign:"left",background:`linear-gradient(135deg,${dotd.color}08,${ht.card})`,marginBottom:16,animation:"fadeIn 0.4s ease 0.2s both",position:"relative" }}>
+                <div style={{ width:44,height:44,borderRadius:12,background:`${dotd.color}18`,border:`1px solid ${dotd.color}30`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0 }}>{dotd.icon}</div>
+                <div style={{ flex:1,minWidth:0 }}>
+                  <div style={{ display:"flex",alignItems:"center",gap:6 }}>
+                    <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:dotd.color,textTransform:"uppercase",letterSpacing:"0.08em" }}>{"\u{1F6E1}\uFE0F"} Defense of the Day</span>
+                    {apolStreak > 0 && <span style={{ fontSize:10 }}>{apolStreak >= 30 ? "\u{1F525}\u{1F525}\u{1F525}" : apolStreak >= 7 ? "\u{1F525}\u{1F525}" : "\u{1F525}"} <span style={{ fontFamily:ht.ui,fontSize:8,color:ht.muted }}>{apolStreak}</span></span>}
+                  </div>
+                  <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:ht.dark,lineHeight:1.2,marginTop:2 }}>{dotd.title}</div>
+                  <div style={{ fontFamily:ht.ui,fontSize:9,color:ht.muted,marginTop:2 }}>{dotd.category}</div>
+                </div>
+                {apolStudied ? <span style={{ fontSize:14,color:"#22C55E" }}>{"\u2713"}</span> : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={`${ht.muted}88`} strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>}
+              </button>
+            );
+          })()}
           {/* ── LEARNING CENTRE ── */}
           <style>{`@keyframes navGlow { 0%,100% { border-color: rgba(212,168,83,0.35); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 6px rgba(212,168,83,0.1); } 50% { border-color: rgba(212,168,83,0.7); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
           <div style={{ marginBottom:16 }}>

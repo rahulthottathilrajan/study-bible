@@ -37,7 +37,7 @@ const CONFETTI_COLORS = ["#D4A853", "#C8A24D", "#E8D5A0", "#B89440", "#8B5CF6", 
 const LS_KEY = "apologeticsStudied";
 const LS_STREAK = "apologeticsStreak";
 
-function getDayOfYear() {
+export function getDayOfYear() {
   const now = new Date();
   const start = new Date(now.getFullYear(), 0, 0);
   return Math.floor((now - start) / (1000 * 60 * 60 * 24));
@@ -89,7 +89,7 @@ function MasteryRing({ percentage = 0, size = 48, theme }) {
   );
 }
 
-const APOLOGETICS_TOPICS = [
+export const APOLOGETICS_TOPICS = [
   {
     id: 1, icon: "\u{1F531}", title: "The Trinity",
     question: "Where does the Bible say God is three?",
