@@ -1243,7 +1243,7 @@ export const TEEN_LESSONS = [
       ntRef: "Galatians 3:8, 3:16",
       ntText: "And the scripture, foreseeing that God would justify the heathen through faith, preached before the gospel unto Abraham, saying, In thee shall all nations be blessed... Now to Abraham and his seed were the promises made. He saith not, And to seeds, as of many; but as of one, And to thy seed, which is Christ.",
       explanation: "The promise God made to Abraham in Genesis 12:3 — 'in thee shall all families of the earth be blessed' — was not primarily about Abraham's physical descendants. Paul reveals in Galatians 3 that 'seed' is singular, pointing to one specific descendant: Jesus Christ. The gospel was preached to Abraham 2,000 years before Calvary. Every nation on earth has been blessed through Abraham's obedience — because that obedience set the lineage that would bring the Saviour into the world.",
-      status: "Literal Fulfilment — Jesus Christ",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -1332,7 +1332,7 @@ export const TEEN_LESSONS = [
       ntRef: "John 1:29, Romans 8:32",
       ntText: "The next day John seeth Jesus coming unto him, and saith, Behold the Lamb of God, which taketh away the sin of the world. / He that spared not his own Son, but delivered him up for us all, how shall he not with him also freely give us all things?",
       explanation: "Genesis 22 is one of the most detailed prophetic types in all of Scripture. Isaac = the beloved son freely offered. The ram = the substitute sacrifice. Mount Moriah = the mountain where Solomon later built the Temple, and where Jerusalem stands — the city where Jesus was crucified. The thorns of the thicket = the crown of thorns. Abraham's words 'God will provide himself a lamb' were not just comfort to Isaac — they were prophecy. God provided the ram as a shadow and His own Son as the reality. Romans 8:32 echoes Genesis 22:16 almost word for word: the God who 'spared not his own Son' is the same God who accepted Abraham's offering on that mountain.",
-      status: "Prophetic Type — Fulfilled in Jesus Christ at Calvary",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -1421,7 +1421,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 27:3-5, Acts 2:23-24",
       ntText: "Then Judas, which had betrayed him, when he saw that he was condemned, repented himself, and brought again the thirty pieces of silver to the chief priests... / Him, being delivered by the determinate counsel and foreknowledge of God, ye have taken, and by wicked hands have crucified and slain: Whom God hath raised up.",
       explanation: "Joseph is one of the most complete types of Christ in the Old Testament: beloved son of his father, rejected and betrayed by his brothers, sold for pieces of silver, falsely accused, imprisoned with two others (one saved, one condemned), and ultimately exalted to the highest position. As Jesus was betrayed for thirty pieces of silver by Judas and falsely condemned, Joseph was sold for twenty pieces of silver and falsely accused. Both were raised from their lowest point to the position of saviour — Joseph to save Egypt and his family from famine; Jesus to save the world from sin.",
-      status: "Prophetic Type — Fulfilled in Jesus Christ",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -1510,7 +1510,7 @@ export const TEEN_LESSONS = [
       ntRef: "Acts 7:9-10, Acts 2:36-38",
       ntText: "And the patriarchs, moved with envy, sold Joseph into Egypt: but God was with him, And delivered him out of all his afflictions, and gave him favour and wisdom in the sight of Pharaoh king of Egypt; and he made him governor over Egypt and all his house. / Therefore let all the house of Israel know assuredly, that God hath made that same Jesus, whom ye have crucified, both Lord and Christ.",
       explanation: "Stephen's sermon in Acts 7 explicitly identifies Joseph as a type of Christ: the beloved son rejected by his brothers who became the saviour of the very people who rejected him. As Joseph revealed himself to his brothers and said 'I am Joseph,' Jesus will one day be revealed to a world that rejected Him. As Joseph's brothers asked 'What shall we do?' and were met with forgiveness, so on Pentecost Peter's hearers asked 'What shall we do?' — and were met with the forgiveness of Christ. The pattern is unmistakable. The God who worked through Joseph's suffering is the same God who worked through the Cross.",
-      status: "Prophetic Type — Fulfilled in Jesus Christ",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -1599,7 +1599,7 @@ export const TEEN_LESSONS = [
       ntRef: "Acts 3:22-23, John 1:21, John 6:14",
       ntText: "For Moses truly said unto the fathers, A prophet shall the Lord your God raise up unto you of your brethren, like unto me; him shall ye hear in all things whatsoever he shall say unto you. / And they asked him, What then? Art thou Elias? And he saith, I am not. Art thou that prophet? And he answered, No. / Then those men, when they had seen the miracle that Jesus did, said, This is of a truth that prophet that should come into the world.",
       explanation: "Moses himself predicted a coming Prophet greater than himself (Deuteronomy 18:15) — one whom Israel must obey. The New Testament explicitly identifies this Prophet as Jesus Christ (Acts 3:22). The parallels are intentional: Moses was born under a death sentence (Pharaoh's decree) — so was Jesus (Herod's massacre). Moses spent time in exile and returned — so did Jesus (Egypt, Matthew 2:15). Moses gave the Law from a mountain — Jesus gave the new law from a mountain (Sermon on the Mount). Moses interceded for rebellious Israel — Jesus intercedes at the right hand of the Father.",
-      status: "Direct Prediction — Fulfilled in Jesus Christ",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -1688,7 +1688,7 @@ export const TEEN_LESSONS = [
       ntRef: "John 19:33-36, 1 Corinthians 5:7",
       ntText: "But when they came to Jesus, and saw that he was dead already, they brake not his legs... For these things were done, that the scripture should be fulfilled, A bone of him shall not be broken. / For even Christ our passover is sacrificed for us.",
       explanation: "The precision of the prophetic type is staggering. The Passover lamb specifications in Exodus 12 function as a detailed description of the crucifixion: without blemish (Jesus was sinless), a male of the first year (Jesus in his prime), slain at evening between the two evenings (Jesus died at approximately 3pm on Passover day), no bone broken (verified at the Cross when soldiers broke the legs of the two thieves but not Jesus) — an action John explicitly notes as fulfilment of Exodus 12:46. Paul calls Jesus 'our passover' without qualification. The Exodus Passover was not symbolically similar to Calvary — it was Calvary in prophetic preview.",
-      status: "Detailed Prophetic Type — Fulfilled at Calvary with surgical precision",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -1777,7 +1777,7 @@ export const TEEN_LESSONS = [
       ntRef: "Hebrews 8:10, 2 Corinthians 3:3",
       ntText: "For this is the covenant that I will make with the house of Israel after those days, saith the Lord; I will put my laws into their mind, and write them in their hearts: and I will be to them a God, and they shall be to me a people. / Ye are manifestly declared to be the epistle of Christ ministered by us, written not with ink, but with the Spirit of the living God; not in tables of stone, but in fleshy tables of the heart.",
       explanation: "The Ten Commandments were written on stone — external, durable, unyielding. Jeremiah prophesied a New Covenant in which God would write His law not on stone but on hearts — from the inside out. Paul confirms that this has been fulfilled through the Holy Spirit: the law that was external and demanding becomes internal and transforming when the Spirit of God indwells a believer. The New Covenant does not abolish the Law's moral standard — it relocates it. The goal has always been a people who love God fully and neighbour truly. The Holy Spirit makes that possible from within.",
-      status: "Direct Prophetic Prediction — Fulfilled in the New Covenant through the Holy Spirit",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -1866,7 +1866,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 1:21, Hebrews 4:8-9",
       ntText: "And she shall bring forth a son, and thou shalt call his name JESUS: for he shall save his people from their sins. / For if Jesus (Joshua) had given them rest, then would he not afterward have spoken of another day. There remaineth therefore a rest to the people of God.",
       explanation: "Joshua's name (Hebrew: Yehoshua — the LORD saves) is the exact same name as Jesus (Greek form of Yeshua). This is not coincidental. Joshua led Israel into the Promised Land — a physical rest after wilderness wandering. Hebrews 4 explicitly says that the rest Joshua gave was not the ultimate rest God intended — it was a type of the spiritual rest Jesus gives to all who come to Him. Jesus leads His people into the ultimate Promised Land: eternal life and rest in God. As Joshua succeeded Moses (the Law cannot bring you in — only Yeshua can), so Jesus succeeds the Law of Moses as the way into God's rest.",
-      status: "Name Prophecy + Typological Fulfilment in Jesus Christ",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -1955,7 +1955,7 @@ export const TEEN_LESSONS = [
       ntRef: "Galatians 4:4-5, Ephesians 1:7",
       ntText: "But when the fulness of the time was come, God sent forth his Son, made of a woman, made under the law, To redeem them that were under the law... In whom we have redemption through his blood, the forgiveness of sins.",
       explanation: "Boaz as the kinsman-redeemer (go'el) is one of the clearest types of Christ in the Old Testament. The go'el had to be: (1) a near kinsman — Jesus became flesh to be our near kinsman; (2) willing to redeem — Jesus willingly went to the cross; (3) able to pay the price — only the sinless Son of God could pay the price of our sin. Boaz redeemed Ruth from poverty and restored her to a place of honour. Christ redeems sinners from sin's penalty and restores them to the family of God. Ruth — a foreigner outside the covenant — was brought in by the act of the redeemer. Gentile believers — outsiders to the original covenant — are brought into God's family by the redemptive work of Christ.",
-      status: "Typological — Boaz/Go'el fulfilled in Christ the Redeemer",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -2044,7 +2044,7 @@ export const TEEN_LESSONS = [
       ntRef: "Luke 1:31-33, Matthew 1:1",
       ntText: "And, behold, thou shalt conceive in thy womb, and bring forth a son, and shalt call his name JESUS. He shall be great, and shall be called the Son of the Highest: and the Lord God shall give unto him the throne of his father David: And he shall reign over the house of Jacob for ever; and of his kingdom there shall be no end. / The book of the generation of Jesus Christ, the son of David, the son of Abraham.",
       explanation: "The Davidic Covenant (2 Samuel 7) is one of the most important covenants in Scripture: God promised David that one of his descendants would sit on an eternal throne. Solomon's kingdom, though glorious, eventually collapsed. No human Davidic king reigned forever. The New Testament opens with 'Jesus Christ, the son of David' — identifying Jesus as the fulfilment of God's promise to David. The angel's announcement to Mary echoes 2 Samuel 7 almost word for word: 'the throne of his father David... and of his kingdom there shall be no end.' David's line does not end — it culminates in the eternal King.",
-      status: "Davidic Covenant — Fulfilled in Jesus Christ, Son of David",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -2133,7 +2133,7 @@ export const TEEN_LESSONS = [
       ntRef: "Luke 19:41-44",
       ntText: "And when he was come near, he beheld the city, and wept over it, Saying, If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes. For the days shall come upon thee, that thine enemies shall cast a trench about thee.",
       explanation: "Daniel 9 is one of the most remarkable prophetic passages in the Bible. The '70 weeks' prophecy (490 years) predicts the exact timeframe from the decree to rebuild Jerusalem to the coming of the Messiah. Calculated from the decree of Artaxerxes in 445 BC (Nehemiah 2:1), the 69 weeks (483 years) bring us precisely to the year of Jesus' triumphal entry into Jerusalem — which Jesus Himself identified (Luke 19) as the fulfillment of His visitation. The precision of this prophecy is one of the most compelling arguments for the divine authorship of Scripture and the identity of Jesus as the predicted Messiah.",
-      status: "Mathematical Predictive Prophecy — Fulfilled in Jesus' triumphal entry, 33 AD",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -2222,7 +2222,7 @@ export const TEEN_LESSONS = [
       ntRef: "John 8:58, Colossians 1:17",
       ntText: "Jesus said unto them, Verily, verily, I say unto you, Before Abraham was, I am. / And he is before all things, and by him all things consist.",
       explanation: "The 'fourth man' in the furnace — 'like the Son of God' — is widely understood by scholars as a Christophany: a pre-incarnate appearance of the Son of God before His birth in Bethlehem. Jesus is the eternal Son who was present before Creation, who appeared to Abraham, Isaac, Jacob, Moses (the burning bush), Joshua, and here in the furnace. This is consistent with Colossians 1:17 — 'he is before all things.' The Incarnation was not God's first entry into human history — it was His definitive entry. He had been present with His people all along. The God who walked in the furnace with Shadrach, Meshach, and Abednego is the same God who walked on the shores of Galilee.",
-      status: "Christophany — Pre-Incarnate Appearance of the Son of God",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -2311,7 +2311,7 @@ export const TEEN_LESSONS = [
       ntRef: "Galatians 4:4-5, Revelation 12:1-5",
       ntText: "But when the fulness of the time was come, God sent forth his Son, made of a woman, made under the law, To redeem them that were under the law, that we might receive the adoption of sons. / And the dragon stood before the woman which was ready to be delivered, for to devour her child as soon as it was born.",
       explanation: "Haman's genocide attempt was not merely political — it was Satanic. Satan's strategy throughout history has been to destroy the Messianic line before the Seed of the Woman could arrive (Genesis 3:15). Haman's Amalekite ancestry connects him to Israel's oldest enemy. The book of Esther is a battle in the cosmic war to prevent the birth of Jesus Christ. God used a Jewish queen in a Persian palace to preserve the people through whom the Messiah would come. Revelation 12 describes the same war in cosmic terms: the dragon trying to devour the child. Every attack on the Jewish people throughout history has been, at its deepest level, an attack on the Messianic promise. God has consistently, providentially preserved His people — and through them, His plan of redemption.",
-      status: "Providence — God preserving the Messianic line for fulfilment in Jesus Christ",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -2405,7 +2405,7 @@ export const TEEN_LESSONS = [
       ntRef: "1 Peter 2:24, Matthew 8:17, Acts 8:32-35",
       ntText: "Who his own self bare our sins in his own body on the tree, that we, being dead to sins, should live unto righteousness: by whose stripes ye were healed.",
       explanation: "Isaiah 53 is the single most detailed and specific Messianic prophecy in the Old Testament. Written 700 years before Calvary, it predicts: the Servant's rejection by His own people (v.3), His bearing of sin (v.4-5), His silence before accusers (v.7 — fulfilled at Jesus' trial: Matthew 26:63), His death for others' sins (v.8), His burial with the wealthy (v.9 — Joseph of Arimathea's tomb, Matthew 27:57-60), and His resurrection fruit (v.10-11). Philip the evangelist, encountering an Ethiopian official reading this exact passage in Acts 8, answered the official's question — 'Of whom speaketh the prophet?' — with one answer: Jesus. Two thousand years of Christian proclamation have given the same answer.",
-      status: "Fulfilled in precise detail at the crucifixion of Jesus of Nazareth, c. AD 30-33",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -2494,7 +2494,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 2:1-6, Luke 1:26-35, Matthew 1:22-23",
       ntText: "Now when Jesus was born in Bethlehem of Judæa in the days of Herod the king... And they said unto him, In Bethlehem of Judæa: for thus it is written by the prophet. / And, behold, thou shalt conceive in thy womb, and bring forth a son, and shalt call his name JESUS. He shall be great, and shall be called the Son of the Highest.",
       explanation: "Micah 5:2 identifies the precise village of origin — Bethlehem Ephratah, distinguishing it from another Bethlehem in Galilee — and states that the ruler's 'goings forth have been from of old, from everlasting,' indicating His pre-existence. Isaiah 7:14 predicts a virgin birth with the name 'Immanuel' — God with us. Jesus fulfilled both simultaneously: born in Bethlehem (a Nazareth family displaced by a Roman census — the administrative decision of a pagan emperor, orchestrated by God), of a virgin, and named Immanuel — the incarnate God.",
-      status: "Fulfilled at the birth of Jesus in Bethlehem of Judaea, c. 6-4 BC",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -2583,7 +2583,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 4:1-11, Hosea 11:1, Matthew 2:15",
       ntText: "Then was Jesus led up of the Spirit into the wilderness to be tempted of the devil. And when he had fasted forty days and forty nights, he was afterward an hungred. / Out of Egypt have I called my son.",
       explanation: "Israel was called God's 'son' (Exodus 4:22) and spent 40 years in the wilderness — tested and failing repeatedly: idolatry at Sinai, grumbling over water and food, refusing to trust God at the border of Canaan. Jesus, the true Son, entered the same wilderness test for 40 days and succeeded where national Israel failed — quoting Deuteronomy (the book of Israel's wilderness instruction) in each response. Matthew 2:15 explicitly applies Hosea 11:1 ('Out of Egypt I called my son') to Jesus, identifying Him as the true Israel who recapitulates the nation's history and succeeds where they failed. This typological fulfilment means Jesus is not just defeating Satan for Himself — He is succeeding on behalf of the people He represents.",
-      status: "Typological fulfilment — Jesus as the obedient Son and true Israel, succeeding where the nation failed",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -2672,7 +2672,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 5:1-2, 7:28-29, Acts 3:22-23",
       ntText: "And seeing the multitudes, he went up into a mountain: and when he was set, his disciples came unto him: And he opened his mouth, and taught them... And it came to pass, when Jesus had ended these sayings, the people were astonished at his doctrine: For he taught them as one having authority, and not as the scribes.",
       explanation: "Deuteronomy 18:15 promised a Prophet 'like Moses' — a lawgiver, covenant mediator, and national leader. Matthew's Gospel is structured to present Jesus as precisely this: five teaching discourses (paralleling Moses' five books), a mountain sermon, a flight from a murderous king in infancy, and 40 days of wilderness testing. But the comparison reveals a crucial difference: Moses said 'Thus saith the LORD.' Jesus said 'But I say unto you' — not delivering a message from God but speaking as the divine Author Himself. Jesus is not merely the Prophet like Moses. He is the divine Lawgiver Moses pointed toward.",
-      status: "Typological fulfilment — Jesus as the ultimate Prophet-Lawgiver delivering the Kingdom's ethics from a mountain",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -2761,7 +2761,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 11:4-5, Luke 4:18-21, Luke 7:22",
       ntText: "Jesus answered and said unto them, Go and shew John again those things which ye do hear and see: The blind receive their sight, and the lame walk, the lepers are cleansed, and the deaf hear, the dead are raised up, and the poor have the gospel preached to them. / The Spirit of the Lord is upon me, because he hath anointed me to preach the gospel to the poor.",
       explanation: "When John the Baptist, imprisoned and doubting, sent disciples to ask 'Art thou he that should come?' — Jesus did not give a theological argument. He gave a list of miracles, each drawn from Isaiah 35 and 61, and said: 'Go and shew John what you see and hear.' The miracles were the Messianic credentials. Isaiah had specified the signs of the Messianic era: blind seeing, deaf hearing, lame walking, poor receiving good news. Jesus systematically performed each one. He was not claiming to be the Messiah in spite of the miracles — He was proving it through them. The miracles are evidence, not entertainment.",
-      status: "Fulfilled — Jesus performed the specific Messianic signs enumerated in Isaiah as the credentials of the coming deliverer",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -2850,7 +2850,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 21:42-44, Acts 4:10-12, 1 Peter 2:4-8",
       ntText: "Jesus saith unto them, Did ye never read in the scriptures, The stone which the builders rejected, the same is become the head of the corner: this is the Lord's doing, and it is marvellous in our eyes?... This is the stone which was set at nought of you builders, which is become the head of the corner. Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.",
       explanation: "Psalm 118:22 describes a stone rejected by builders that becomes the cornerstone — the most essential structural element of the building. Jesus applies this to Himself (Matthew 21:42) and the Apostles confirm it (Acts 4:10-12). The stone rejected by the religious establishment of Jerusalem — 'the builders,' the guardians of Israel's faith — becomes the foundation of a new building: the Church. Daniel 2's 'stone cut without hands' describes a kingdom that fills the earth and never ends, cutting through every human empire. Both passages converge on the same figure: the One rejected by the establishment, who becomes the unchallenged foundation of what God is building.",
-      status: "Fulfilled — Jesus, rejected by the Jewish religious leadership (John 1:11), becomes the cornerstone of the Church and the eternal kingdom",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -2939,7 +2939,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 13:34-35",
       ntText: "All these things spake Jesus unto the multitude in parables; and without a parable spake he not unto them: That it might be fulfilled which was spoken by the prophet, saying, I will open my mouth in parables; I will utter things which have been kept secret from the foundation of the world.",
       explanation: "Matthew explicitly cites Psalm 78:2 as a prophecy fulfilled by Jesus' parabolic teaching method. Asaph's Psalm opens with the promise to utter 'dark sayings of old' — hidden wisdom disclosed through story. Matthew connects this to Jesus' pattern: in parables, He disclosed 'things which have been kept secret from the foundation of the world' — the mysteries of the kingdom. The method itself was prophesied: the Messiah would teach in parables. This is a detail no Gospel writer would have needed to invent — it is fulfilled by Jesus' natural teaching style, confirmed by eyewitness accounts, and independently verifiable through the four Gospels.",
-      status: "Fulfilled — Jesus habitually taught in parables, fulfilling Psalm 78:2 and disclosing kingdom mysteries hidden from the world's foundation",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3028,7 +3028,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 17:1-9, Matthew 17:12-13, Luke 9:35",
       ntText: "And was transfigured before them: and his face did shine as the sun, and his raiment was white as the light. And, behold, there appeared unto them Moses and Elias talking with him. / And his disciples asked him, saying, Why then say the scribes that Elias must first come? And Jesus answered... But I say unto you, That Elias is come already, and they knew him not. / And there came a voice out of the cloud, which said, This is my beloved Son: hear him.",
       explanation: "Three key OT figures and promises converge at the Transfiguration: Moses (the Law and the Deuteronomy 18 promise of a Prophet like Moses — now fulfilled in Jesus), Elijah (the Malachi 4 promise that Elijah would return before the Messiah — fulfilled in John the Baptist, as Jesus confirms), and the Psalm 2 declaration 'Thou art my Son' (spoken at both the baptism and the Transfiguration). The Transfiguration is the mountaintop convergence of the Law, the Prophets, and the royal Sonship — all three OT streams flowing into one Person, confirmed by the voice of the Father.",
-      status: "Typological and direct fulfilment — Moses, Elijah, and Psalm 2 all converging on Jesus at the Transfiguration",
+      status: "Typological",
     },
 
     thinkDeeper: {
@@ -3117,7 +3117,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 21:1-9, John 12:12-16",
       ntText: "And this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass. / These things understood not his disciples at the first: but when Jesus was glorified, then remembered they that these things were written of him.",
       explanation: "Zechariah 9:9 was written approximately 500 years before Palm Sunday. It specifies: a king, lowly, riding a donkey's colt. It does not describe a Roman triumph. It does not describe a military liberation. It describes exactly what happened on Palm Sunday — a king entering Jerusalem on a colt, greeted with the Hosanna of Psalm 118. Matthew explicitly quotes Zechariah as the fulfilment. John notes that even the disciples did not understand the prophetic nature of the event until after the resurrection. The precision of the prophecy — not just a king, not just a donkey, but 'a colt the foal of an ass' — and the specific Psalm 118 acclamation of the crowd combine to form a verifiable prophetic fulfilment witnessed by hundreds of thousands.",
-      status: "Fulfilled — Jesus deliberately entered Jerusalem on a donkey's colt, fulfilling Zechariah 9:9, accompanied by the Hosanna of Psalm 118, c. AD 30-33",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3206,7 +3206,7 @@ export const TEEN_LESSONS = [
       ntRef: "Luke 22:20, Hebrews 8:6-13, Hebrews 10:16-17",
       ntText: "This cup is the new testament in my blood, which is shed for you. / But now hath he obtained a more excellent ministry, by how much also he is the mediator of a better covenant, which was established upon better promises... For I will be merciful to their unrighteousness, and their sins and their iniquities will I remember no more.",
       explanation: "Jeremiah 31:31-34 is the longest OT quotation in the New Testament (quoted fully in Hebrews 8:8-12) — testimony to its central importance in NT theology. Jeremiah, writing during the catastrophic collapse of Judah, looks forward to a new covenant that will succeed where the Sinai covenant failed: written on hearts (not stone), universal in its scope ('they shall all know me'), and accompanied by definitive, permanent forgiveness. Jesus declares at the Last Supper: 'This cup is the new covenant in my blood.' He is the mediator, the sacrifice, and the seal of everything Jeremiah foresaw. Hebrews 8:13 notes: 'In that he saith, A new covenant, he hath made the first old.' The Sinai covenant was always preparatory, always pointing forward to this moment.",
-      status: "Fulfilled — the New Covenant Jeremiah foresaw is inaugurated by Jesus at the Last Supper and sealed by His blood at the cross",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3295,7 +3295,7 @@ export const TEEN_LESSONS = [
       ntRef: "Luke 22:42-44, Matthew 27:46, Hebrews 5:7-9",
       ntText: "Father, if thou be willing, remove this cup from me: nevertheless not my will, but thine, be done. And there appeared an angel unto him from heaven, strengthening him. And being in an agony he prayed more earnestly: and his sweat was as it were great drops of blood. / And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me?",
       explanation: "Isaiah 53:10 says 'it pleased the LORD to bruise him' and 'he hath put him to grief' — the very anguish Jesus experienced in Gethsemane was foreknown and foretold 700 years earlier. Isaiah 53:12 says 'he poured out his soul unto death' — matching the hematidrosis and the 'strong crying and tears' of Hebrews 5:7. Psalm 22:1 — the cry of dereliction that Jesus quoted from the cross — begins with the exact words of abandonment that Gethsemane was preparing Jesus to experience. The anguish of the garden was not unexpected — it was the foreknown and foreordained experience of the Servant who would bear humanity's sin.",
-      status: "Foretold — the anguish, the 'cup,' and the pouring out of the soul in the garden were all part of the prophetic picture of the Suffering Servant",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3384,7 +3384,7 @@ export const TEEN_LESSONS = [
       ntRef: "John 19:33-37",
       ntText: "But when they came to Jesus, and saw that he was dead already, they brake not his legs: But one of the soldiers with a spear pierced his side, and forthwith came there out blood and water... For these things were done, that the scripture should be fulfilled, A bone of him shall not be broken. And again another scripture saith, They shall look on him whom they pierced.",
       explanation: "John notes two prophetic fulfilments in rapid succession at the foot of the cross. Psalm 34:20 (of the righteous man whose bones God preserves) is fulfilled when the soldiers, finding Jesus already dead, do not break His legs — a standard practice to hasten death by asphyxiation. The Passover Lamb was also required to have no broken bones (Exodus 12:46) — linking Jesus explicitly to the Passover typology. Zechariah 12:10 describes a future moment when 'they shall look upon me whom they have pierced' — and identifies the One pierced as God Himself ('me,' spoken by the LORD). John sees this fulfilled in the soldier's spear thrust into Jesus' side. Revelation 1:7 applies Zechariah 12:10 to the Second Coming: 'every eye shall see him, and they also which pierced him.' The prophecy has both a historical fulfilment (the spear at Calvary) and an eschatological application (the return of Christ).",
-      status: "Fulfilled at Calvary — no bones broken (Psalm 34:20), side pierced (Zechariah 12:10), with eschatological application at Christ's return",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3473,7 +3473,7 @@ export const TEEN_LESSONS = [
       ntRef: "Acts 2:25-32, Acts 13:34-37, 1 Corinthians 15:4",
       ntText: "David speaketh concerning him, I foresaw the Lord always before my face... thou wilt not leave my soul in hell, neither wilt thou suffer thine Holy One to see corruption... He seeing this before spake of the resurrection of Christ, that his soul was not left in hell, neither his flesh did see corruption. / And as concerning that he raised him up from the dead, now no more to return to corruption, he said on this wise... Thou shalt not suffer thine Holy One to see corruption.",
       explanation: "Psalm 16:9-11 is applied by both Peter (Acts 2) and Paul (Acts 13) to the resurrection of Jesus. Peter's argument is explicit and careful: David wrote this Psalm but David himself died and his tomb was known in Jerusalem. Therefore David was prophesying about a future descendant who would not see corruption in the grave — someone who would rise before decay occurred (Jesus rose on the third day; decomposition typically begins within 3-4 days). The precision of the 'third day' corresponds to Hosea 6:2, which Paul references in 1 Corinthians 15:4 ('he rose again the third day according to the scriptures'). The resurrection was not an improvised response to the cross — it was the predetermined, pre-prophesied culmination of the plan.",
-      status: "Fulfilled — Jesus rose bodily on the third day, fulfilling Psalm 16:10-11 and the 'according to the scriptures' pattern of 1 Corinthians 15:4",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3567,7 +3567,7 @@ export const TEEN_LESSONS = [
       ntRef: "Acts 2:16-18",
       ntText: "But this is that which was spoken by the prophet Joel; And it shall come to pass in the last days, saith God, I will pour out of my Spirit upon all flesh: and your sons and your daughters shall prophesy... And on my servants and on my handmaidens I will pour out in those days of my Spirit; and they shall prophesy.",
       explanation: "Peter quotes Joel 2:28-29 as the explicit fulfilment of what the crowd was witnessing at Pentecost. Three remarkable democratisations: across gender (sons AND daughters), across age (old men AND young men), and across social status (servants AND handmaids — the lowest social rank of the ancient world). In the OT, the Spirit was given selectively to kings, priests, and prophets. From Pentecost forward, every believer — regardless of gender, age, or social standing — has direct indwelling access to the Spirit of God. Joel's prophecy reverses the social hierarchy of spiritual access. This is the new covenant reality Peter announces.",
-      status: "Fulfilled at Pentecost, AD 30-33, and continuing in every generation since",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3656,7 +3656,7 @@ export const TEEN_LESSONS = [
       ntRef: "Acts 2:5-11, Ephesians 2:19-22",
       ntText: "And there were dwelling at Jerusalem Jews, devout men, out of every nation under heaven... Parthians, and Medes, and Elamites, and the dwellers in Mesopotamia... we do hear them speak in our tongues the wonderful works of God. / Now therefore ye are no more strangers and foreigners, but fellowcitizens with the saints, and of the household of God.",
       explanation: "Isaiah 56:6-7 prophesied a future gathering where foreigners — 'sons of the stranger' — would be brought into God's house of prayer and accepted on equal terms with Israel. Jesus quoted this text at the Temple cleansing (Matthew 21:13), and Acts 2 shows its fulfilment: the very first day of the church, devout men from every nation under heaven heard the wonderful works of God in their own languages. The barrier between Israel and the nations — which the Temple physically embodied (the Court of the Gentiles, the dividing wall) — was spiritually demolished at Pentecost. Ephesians 2:19-22 declares the result: no more strangers and foreigners, but fellow-citizens, built together into a dwelling place for God. The international, multi-ethnic community of Acts 2 is Isaiah 56:7 in visible, historical form.",
-      status: "Fulfilled at Pentecost (Acts 2) and continuing in the worldwide Church — every language, tribe and nation represented in God's house of prayer",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3745,7 +3745,7 @@ export const TEEN_LESSONS = [
       ntRef: "Acts 7:52, Acts 7:59-60, Matthew 5:10-12",
       ntText: "Which of the prophets have not your fathers persecuted? and they have slain them which shewed before of the coming of the Just One; of whom ye have been now the betrayers and murderers. / And they stoned Stephen, calling upon God, and saying, Lord Jesus, receive my spirit. And he kneeled down, and cried with a loud voice, Lord, lay not this sin to their charge.",
       explanation: "Stephen's speech in Acts 7 explicitly identifies a prophetic pattern: God's messengers are consistently rejected by those they are sent to. This pattern — begun with the prophets, fulfilled supremely in Jesus (Isaiah 53), and now continuing in His witnesses — was part of God's announced design, not a surprising interruption of it. Matthew 5:10-12 is Jesus anticipating this pattern and pronouncing the persecuted 'blessed' — connected directly to the prophets before them. Stephen's death is not a tragedy without meaning: it is the continuation of the line of faithful witnesses, each one bearing testimony to the same truth at the same cost.",
-      status: "Pattern continuously fulfilled — from the OT prophets through Jesus to Stephen to every generation of persecuted believers",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3834,7 +3834,7 @@ export const TEEN_LESSONS = [
       ntRef: "Galatians 1:15-16, Acts 9:15",
       ntText: "But when it pleased God, who separated me from my mother's womb, and called me by his grace, To reveal his Son in me, that I might preach him among the heathen. / For he is a chosen vessel unto me, to bear my name before the Gentiles, and kings, and the children of Israel.",
       explanation: "Paul's language in Galatians 1:15 deliberately echoes Jeremiah 1:5 and Isaiah 49:1 — the pattern of a calling that predates the individual's own consciousness, rooted in God's sovereign choice rather than human qualification. This is not coincidence: Paul understood his Damascus road interruption as the activation of a purpose God had ordained before his birth. The same pattern recurs across Scripture: Samson (Judges 13:5), Samuel (1 Samuel 1:11), John the Baptist (Luke 1:15), and Jesus (Isaiah 7:14) were all set apart from the womb. The calling of individuals to specific purposes is not God improvising in response to events — it is God executing a plan He formed before the individuals even existed.",
-      status: "Pattern fulfilled in Paul's calling and continuing in every believer called to specific service by sovereign grace",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -3923,7 +3923,7 @@ export const TEEN_LESSONS = [
       ntRef: "1 Corinthians 12:8-11, John 16:13-14",
       ntText: "For to one is given by the Spirit the word of wisdom; to another the word of knowledge by the same Spirit; To another faith by the same Spirit; to another the gifts of healing by the same Spirit... But all these worketh that one and the selfsame Spirit, dividing to every man severally as he will.",
       explanation: "Isaiah 11:2-3 describes the Spirit resting on the Messianic Servant with specific capacities: wisdom, understanding, counsel, might, knowledge, fear of the Lord. These gifts rested on Jesus fully and completely (Colossians 2:3 — 'in whom are hid all the treasures of wisdom and knowledge'). What 1 Corinthians 12 reveals is that the Spirit distributes aspects of these capacities across the body of Christ: what was concentrated wholly in Christ is now distributed diversely through His people. No single believer has all of what Jesus had — but the body together, each member contributing their portion, reflects the fullness of Christ to the world (Ephesians 4:13 — 'unto the measure of the stature of the fulness of Christ').",
-      status: "Fulfilled in Christ supremely; distributed and continuing in the Spirit-gifted body of Christ",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -4012,7 +4012,7 @@ export const TEEN_LESSONS = [
       ntRef: "Ephesians 6:14-17",
       ntText: "Stand therefore, having your loins girt about with truth, and having on the breastplate of righteousness; And your feet shod with the preparation of the gospel of peace; Above all, taking the shield of faith, wherewith ye shall be able to quench all the fiery darts of the wicked. And take the helmet of salvation, and the sword of the Spirit, which is the word of God.",
       explanation: "Isaiah 59:17 describes God Himself putting on armour for battle against injustice and evil — righteousness as a breastplate, salvation as a helmet. Paul in Ephesians 6 transfers this divine armour to the believer. This is theologically significant: the believer is not fighting in their own equipment. They are wearing God's own armour — the righteousness, salvation, and truth that belong first to God, given to the believer as divine provision. When the Christian stands against evil, they do so wearing the very armour that God wears. The battle is the Lord's. The armour is the Lord's. The victory is the Lord's. The believer's role is to put on what has already been provided.",
-      status: "Pattern established in Isaiah 59; fulfilled and transferred to believers through Christ; continuous in the life of the church",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -4101,7 +4101,7 @@ export const TEEN_LESSONS = [
       ntRef: "Romans 8:3-4, 2 Corinthians 3:18, Hebrews 8:10",
       ntText: "For what the law could not do, in that it was weak through the flesh, God sending his own Son in the likeness of sinful flesh, and for sin, condemned sin in the flesh: That the righteousness of the law might be fulfilled in us, who walk not after the flesh, but after the Spirit. / But we all, with open face beholding as in a glass the glory of the Lord, are changed into the same image from glory to glory, even as by the Spirit of the Lord.",
       explanation: "Ezekiel 36:26-27 is the OT description of the New Covenant's most radical promise: not just forgiven sin but transformed nature. The 'stony heart' — resistant to God, hardened against His commands — is replaced with an 'heart of flesh,' responsive and soft. And the Spirit is placed within, actively enabling ('cause you to walk') the obedience the old covenant demanded but could not produce. Romans 8:3-4 fulfils this exactly: what the law could not do — produce righteousness in sinful humanity — is fulfilled in those who walk after the Spirit. The sanctification the Spirit produces is the actual fulfilment of the Old Covenant law's intent, accomplished from the inside by grace rather than from the outside by command.",
-      status: "Fulfilled in every believer who receives the Spirit and is being progressively transformed into the image of Christ",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -4190,7 +4190,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 6:7-8, John 14:13-14, James 5:16",
       ntText: "But when ye pray, use not vain repetitions, as the heathen do: for they think that they shall be heard for their much speaking. Be not ye therefore like unto them: for your Father knoweth what ye need, before ye ask him. / And whatsoever ye shall ask in my name, that will I do, that the Father may be glorified in the Son. If ye shall ask any thing in my name, I will do it.",
       explanation: "God's invitation to prayer runs through the entire Scripture: 'Call unto me, and I will answer.' This is not a conditional offer reserved for the specially holy or the urgently needy — it is the standing invitation of a God who desires relationship with the creatures He made. Jesus in Matthew 6 does not innovate prayer — He purifies it, removing the performance and the mechanistic repetition, and restores it to what God always intended: genuine, personal, trusting conversation between a child and their Father. The promise 'I will answer' is not a promise that every specific request will be granted exactly as asked — the Lord's Prayer itself models surrender to God's will above personal desire. It is a promise that the conversation will always be heard and always received by One who is actively for the person praying.",
-      status: "Continuously fulfilled — God has never stopped hearing the prayers of those who call upon Him in truth (Psalm 145:18)",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -4279,7 +4279,7 @@ export const TEEN_LESSONS = [
       ntRef: "Romans 10:14-15, Acts 1:8",
       ntText: "How then shall they call on him in whom they have not believed? and how shall they believe in him of whom they have not heard? and how shall they hear without a preacher? And how shall they preach, except they be sent? as it is written, How beautiful are the feet of them that preach the gospel of peace, and bring glad tidings of good things!",
       explanation: "Paul quotes Isaiah 52:7 in Romans 10:15 to describe the chain of hearing, believing, calling on the Lord, and being saved. Isaiah had described the messenger who runs to announce the great news — 'thy God reigneth!' — as having beautiful feet. This was not about aesthetics; it was about the beauty of the purpose — the feet that carry the good news are beautiful because of what they carry. Paul applies this to every preacher of the gospel, from apostles to ordinary believers. When you speak about your faith to someone who has not heard, your feet are the beautiful feet Isaiah described. The gospel message running through history — from Isaiah's prophecy to Acts 1:8 to Gladys Aylward on a mountain in China — is the same proclamation: 'Thy God reigneth!'",
-      status: "Continuously fulfilled — wherever the gospel is preached, Isaiah 52:7 is fulfilled afresh",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -4368,7 +4368,7 @@ export const TEEN_LESSONS = [
       ntRef: "2 Corinthians 9:6-8, Luke 6:38",
       ntText: "He which soweth sparingly shall reap also sparingly; and he which soweth bountifully shall reap also bountifully... God loveth a cheerful giver. / Give, and it shall be given unto you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom.",
       explanation: "The generosity principle runs as a consistent thread through the entire Scripture: the liberal soul is made fat; he who scatters still increases; give and it shall be given to you running over. Paul's use of the sowing/reaping metaphor in 2 Corinthians 9:6 is a deliberate echo of the agricultural wisdom of Proverbs. The underlying theology is consistent: God is the ultimate Giver, everything belongs to Him, and those who align their giving with His character participate in His economy rather than the world's. The world's economy says: hold on to what you have, because there is scarcity. God's economy says: give generously, because I am the Source, and I am not scarce.",
-      status: "Continuously valid — the generosity principle has been tested by believers across every generation and culture and found consistent with God's character and promises",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -4457,7 +4457,7 @@ export const TEEN_LESSONS = [
       ntRef: "Ephesians 5:25-27, Revelation 19:7",
       ntText: "Husbands, love your wives, even as Christ also loved the church, and gave himself for it; That he might sanctify and cleanse it with the washing of water by the word, That he might present it to himself a glorious church, not having spot, or wrinkle, or any such thing; but that it should be holy and without blemish. / ...for the marriage of the Lamb is come, and his wife hath made herself ready.",
       explanation: "Hosea's marriage to a woman who was unfaithful to him was a prophetic enactment of God's relationship with Israel — and by extension with humanity. God is the faithful Husband; humanity has been the unfaithful spouse. But the prophetic promise in Hosea 2:19-20 is of re-betrothal — not grudging re-acceptance but the initiating love of God pursuing the one who wandered. Ephesians 5:25-27 reveals the ultimate referent: Christ's sacrificial love for the church is the model and the meaning of human marriage. Human marriage is not ultimate — it is a signpost pointing to the marriage of the Lamb (Revelation 19:7). Purity in human relationships is therefore not merely ethical — it is sacramental: it preserves the sign from distortion so that it can point clearly to the reality it represents.",
-      status: "Pattern fulfilled in Christ's love for the church; ongoing in every Christian marriage that embodies covenant faithfulness",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -4546,7 +4546,7 @@ export const TEEN_LESSONS = [
       ntRef: "Galatians 1:15, Ephesians 2:10, Romans 8:28-30",
       ntText: "But when it pleased God, who separated me from my mother's womb, and called me by his grace... For we are his workmanship, created in Christ Jesus unto good works, which God hath before ordained that we should walk in them. / And we know that all things work together for good to them that love God, to them who are the called according to his purpose. For whom he did foreknow, he also did predestinate to be conformed to the image of his Son.",
       explanation: "The pattern of calling before birth — God knowing and appointing specific people to specific works before they exist — runs from Jeremiah to Isaiah's Servant to Paul to every believer in Romans 8:28-30. This is not a teaching about predestination in the mechanical sense but about the character of God's purposes: they are not reactive to human events but proactive, sovereign, and personal. Every believer is 'the called according to his purpose' (Romans 8:28). The good works of Ephesians 2:10 are the practical, earthly expression of the eternal purpose in which every believer participates. You are not improvising your calling — you are discovering it.",
-      status: "Continuously fulfilled — the pattern of sovereign calling is realised in every believer who discovers and walks in the good works God prepared",
+      status: "Literal Fulfilment",
     },
 
     thinkDeeper: {
@@ -4635,7 +4635,7 @@ export const TEEN_LESSONS = [
       ntRef: "Matthew 24:30, Revelation 1:7, 1 Thessalonians 4:16-17",
       ntText: "And then shall appear the sign of the Son of man in heaven: and then shall all the tribes of the earth mourn, and they shall see the Son of man coming in the clouds of heaven with power and great glory. / Behold, he cometh with clouds; and every eye shall see him. / For the Lord himself shall descend from heaven with a shout, with the voice of the archangel, and with the trump of God.",
       explanation: "Daniel 7:13-14 is one of the most specific and far-reaching prophetic visions in the OT — a 'Son of Man' figure receiving an eternal dominion from the Ancient of Days. Jesus applied this title to Himself more than any other — 'the Son of Man' is His most common self-designation in the Gospels. At His trial, when the high priest asked if He was the Christ, Jesus answered: 'Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven' (Matthew 26:64) — directly quoting Daniel 7:13. Matthew 24:30, Revelation 1:7, and 1 Thessalonians 4:16-17 all describe His return in language that echoes Daniel. The return of Christ is not an obscure NT appendix — it is the culmination of a prophetic trajectory spanning seven centuries from Daniel to Revelation.",
-      status: "Partially fulfilled at the ascension (Acts 1:9 — 'a cloud received him out of their sight'); to be finally fulfilled at the parousia, when 'every eye shall see him' (Revelation 1:7)",
+      status: "Partial",
     },
 
     thinkDeeper: {
