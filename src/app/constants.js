@@ -535,6 +535,10 @@ export const BADGES = [
   { id:"historian",      category:"learn",  name:"Historian",         icon:"📅", description:"Explore all 14 timeline eras" },
   { id:"prophet",        category:"learn",  name:"Prophet",           icon:"🔭", description:"Read 10 prophecies" },
   { id:"archaeologist",  category:"learn",  name:"Archaeologist",     icon:"⛏️", description:"View 5 archaeology cards" },
+  { id:"map_explorer",   category:"learn",  name:"Map Explorer",      icon:"🗺️", description:"Explore your first biblical location" },
+  { id:"cartographer",   category:"learn",  name:"Biblical Cartographer", icon:"📍", description:"Explore 50 locations across all maps" },
+  { id:"atlas_master",   category:"learn",  name:"Atlas Master",      icon:"🏆", description:"Explore every location on all 15 maps" },
+  { id:"daily_discoverer",category:"learn", name:"Daily Discoverer",  icon:"🔭", description:"7-day Location of the Day streak" },
   // Prayer (4)
   { id:"intercessor",       category:"prayer", name:"Intercessor",       icon:"🙏", description:"React to 10 community prayers" },
   { id:"prayer_warrior",    category:"prayer", name:"Prayer Warrior",    icon:"⚔️", description:"Complete 5 prayer slots" },
@@ -551,11 +555,19 @@ export const BADGES = [
   { id:"podcast_devotee",      category:"podcast", name:"Devotee",          icon:"🏅", description:"Listen to 30 podcast episodes" },
   { id:"podcast_streak_7",     category:"podcast", name:"Weekly Listener",  icon:"🔥", description:"Listen to podcasts 7 days in a row" },
   { id:"podcast_streak_30",    category:"podcast", name:"Faithful Listener",icon:"🏆", description:"Listen to podcasts 30 days in a row" },
+  // Kids Curriculum (4)
+  { id:"first_lesson_kids", category:"learn", name:"Little Learner",    icon:"🧒", description:"Complete your first kids lesson" },
+  { id:"term_complete_kids",category:"learn", name:"Term Star",         icon:"⭐", description:"Complete all 13 lessons in a kids term" },
+  { id:"halfway_kids",      category:"learn", name:"Halfway Hero",      icon:"🌟", description:"Complete 26 kids lessons" },
+  { id:"graduate_kids",     category:"learn", name:"Kids Graduate",     icon:"🎓", description:"Complete all 52 kids lessons" },
   // Teens (4)
   { id:"first_lesson_teen", category:"learn", name:"First Lesson",     icon:"\uD83D\uDCD6", description:"Complete your first teens lesson" },
   { id:"term_complete_teen",category:"learn", name:"Term Complete",    icon:"\uD83C\uDFAF", description:"Complete all 13 lessons in a term" },
   { id:"journaler",         category:"learn", name:"Journaler",        icon:"\uD83D\uDCD3", description:"Write 10 journal entries" },
   { id:"graduate_teen",     category:"learn", name:"Graduate",         icon:"\uD83C\uDF93", description:"Complete all 52 teens lessons" },
+  { id:"verse_master_teen", category:"learn", name:"Verse Master",    icon:"\uD83C\uDCCF", description:"Master 10 memory verses" },
+  { id:"streak_warrior_teen",category:"learn",name:"Streak Warrior",  icon:"\uD83D\uDD25", description:"Maintain a 30-day study streak" },
+  { id:"deep_thinker_teen", category:"learn", name:"Deep Thinker",    icon:"\uD83E\uDDE0", description:"Complete 20 daily challenges" },
   // Reading Plans (7)
   { id:"plan_starter",    category:"reading", name:"Plan Starter",    icon:"\uD83D\uDCD6", description:"Start your first reading plan" },
   { id:"faithful_reader", category:"reading", name:"Faithful Reader", icon:"\uD83D\uDD25", description:"Complete 7 days of a reading plan" },
@@ -564,6 +576,11 @@ export const BADGES = [
   { id:"streak_7",        category:"reading", name:"Week Warrior",   icon:"\u2694\uFE0F", description:"7-day reading plan streak" },
   { id:"streak_30",       category:"reading", name:"Monthly Maven",  icon:"\uD83D\uDC51", description:"30-day reading plan streak" },
   { id:"plan_halfpoint",  category:"reading", name:"Halfway There",  icon:"\uD83C\uDFD4\uFE0F", description:"Reach 50% of any reading plan" },
+  // Apologetics (4)
+  { id:"first_defense",    category:"learn", name:"First Defense",     icon:"\u{1F6E1}\uFE0F", description:"Study your first apologetics topic" },
+  { id:"debate_champion",  category:"learn", name:"Debate Champion",   icon:"\u2694\uFE0F", description:"Score 3/3 on 10 debate challenges" },
+  { id:"apol_streak_7",    category:"learn", name:"Faithful Defender", icon:"\u{1F525}", description:"7-day apologetics study streak" },
+  { id:"master_apologist", category:"learn", name:"Master Apologist",  icon:"\u{1F451}", description:"Study all 20 apologetics topics" },
   // Community (1)
   { id:"birthday_blessed", category:"community", name:"Birthday Blessed", icon:"🎂", description:"Open the app on your birthday" },
 ];

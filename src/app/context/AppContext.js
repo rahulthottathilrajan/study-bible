@@ -288,7 +288,7 @@ export function AppProvider({ children }) {
   const [earnedBadges, setEarnedBadges] = useState({});
   const [chapterReads, setChapterReads] = useState([]);
   const [badgeToast, setBadgeToast] = useState(null);
-  const [learnExploration, setLearnExploration] = useState({ erasExplored: [], propheciesRead: [], archaeologyViewed: [] });
+  const [learnExploration, setLearnExploration] = useState({ erasExplored: [], propheciesRead: [], archaeologyViewed: [], mapsExplored: {} });
   const [notesCount, setNotesCount] = useState(0);
   // ─── Quiz state ───
   const [quizScores, setQuizScores] = useState({});
@@ -486,6 +486,7 @@ export function AppProvider({ children }) {
         erasExplored: saved.erasExplored || [],
         propheciesRead: saved.propheciesRead || [],
         archaeologyViewed: saved.archaeologyViewed || [],
+        mapsExplored: saved.mapsExplored || {},
       });
     } catch {}
   }, []);
@@ -1558,6 +1559,16 @@ export function AppProvider({ children }) {
     if (prophecyCount >= 10 && !earned.prophet) awardBadge("prophet");
     const archCount = learnExploration.archaeologyViewed?.length || 0;
     if (archCount >= 5 && !earned.archaeologist) awardBadge("archaeologist");
+    // Maps badges
+    const mapsExp = learnExploration.mapsExplored || {};
+    const totalMapLocs = Object.values(mapsExp).reduce((sum, arr) => sum + (arr?.length || 0), 0);
+    if (totalMapLocs >= 1 && !earned.map_explorer) awardBadge("map_explorer");
+    if (totalMapLocs >= 50 && !earned.cartographer) awardBadge("cartographer");
+    if (totalMapLocs >= 150 && !earned.atlas_master) awardBadge("atlas_master");
+    // Apologetics badges
+    const apolCount = learnExploration.apologeticsStudied?.length || 0;
+    if (apolCount >= 1 && !earned.first_defense) awardBadge("first_defense");
+    if (apolCount >= 20 && !earned.master_apologist) awardBadge("master_apologist");
 
     // Prayer badges
     const totalReactions = Object.values(userReactions).reduce((sum, r) => sum + Object.keys(r).length, 0);
