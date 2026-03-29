@@ -117,6 +117,27 @@ const STYLES = `
     from { opacity:0; transform:translateY(22px) scale(0.97); }
     to   { opacity:1; transform:translateY(0)    scale(1); }
   }
+  @keyframes sealPulse {
+    0%,100% { transform: scale(1); opacity: 0.95; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+  @keyframes sealCrack {
+    0% { clip-path: circle(50% at 50% 50%); opacity: 1; }
+    60% { clip-path: polygon(10% 0%,30% 10%,50% 0%,70% 10%,90% 0%,100% 20%,90% 40%,100% 60%,90% 80%,100% 100%,70% 90%,50% 100%,30% 90%,0% 100%,10% 80%,0% 60%,10% 40%,0% 20%); opacity: 0.8; }
+    100% { clip-path: polygon(10% 0%,30% 10%,50% 0%,70% 10%,90% 0%,100% 20%,90% 40%,100% 60%,90% 80%,100% 100%,70% 90%,50% 100%,30% 90%,0% 100%,10% 80%,0% 60%,10% 40%,0% 20%); opacity: 0; }
+  }
+  @keyframes particleRise {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-80px) scale(0.3); opacity: 0; }
+  }
+  @keyframes ringGlow {
+    0%,100% { filter: drop-shadow(0 0 2px rgba(212,168,83,0.3)); }
+    50% { filter: drop-shadow(0 0 6px rgba(212,168,83,0.6)); }
+  }
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 `;
 
 // ─── Wooden roller ────────────────────────────────────────────────────────────
@@ -193,24 +214,50 @@ const StatusBadge = ({ status, parchment }) => {
   );
 };
 
+// ─── Mastery Ring (SVG progress arc) ────────────────────────────────────────
+const MasteryRing = ({ read, total, color, size = 32 }) => {
+  const pct = total > 0 ? read / total : 0;
+  const r = (size - 4) / 2;
+  const circ = 2 * Math.PI * r;
+  const offset = circ * (1 - pct);
+  const complete = pct >= 1;
+  return (
+    <svg width={size} height={size} style={complete ? { animation: "ringGlow 2s ease-in-out infinite" } : {}}>
+      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="rgba(100,60,20,0.12)" strokeWidth={3} />
+      {pct > 0 && (
+        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={color} strokeWidth={3}
+          strokeDasharray={circ} strokeDashoffset={offset}
+          strokeLinecap="round" transform={`rotate(-90 ${size/2} ${size/2})`}
+          style={{ transition: "stroke-dashoffset 0.6s ease" }} />
+      )}
+      <text x={size/2} y={size/2+1} textAnchor="middle" dominantBaseline="middle"
+        style={{ fontFamily: "'Nunito',sans-serif", fontSize: size < 36 ? 7 : 8, fontWeight: 700, fill: color }}>
+        {read}/{total}
+      </text>
+    </svg>
+  );
+};
+
 // ─── Category Hub Card ────────────────────────────────────────────────────────
-const HubCard = ({ categoryId, onClick, index }) => {
+const HubCard = ({ categoryId, onClick, index, readIds, todayCategory }) => {
   const color  = CATEGORY_COLORS[categoryId];
   const icon   = CATEGORY_ICONS[categoryId];
   const label  = CATEGORY_LABELS[categoryId];
   const desc   = CATEGORY_DESCRIPTIONS[categoryId];
-  const count  = PROPHECIES.filter(p => p.category === categoryId).length;
-  const fulfilled = PROPHECIES.filter(p =>
-    p.category === categoryId &&
-    (p.status === "Literal Fulfilment" || p.status === "History Confirmed")
-  ).length;
-  const awaiting = PROPHECIES.filter(p =>
-    p.category === categoryId && p.status === "Awaiting"
-  ).length;
+  const { count, fulfilled, awaiting } = PROPHECIES.reduce((acc, p) => {
+    if (p.category !== categoryId) return acc;
+    acc.count++;
+    if (p.status === "Literal Fulfilment" || p.status === "History Confirmed") acc.fulfilled++;
+    if (p.status === "Awaiting") acc.awaiting++;
+    return acc;
+  }, { count: 0, fulfilled: 0, awaiting: 0 });
+  const catProphecies = PROPHECIES.filter(p => p.category === categoryId);
+  const readCount = catProphecies.filter(p => readIds[p.id]).length;
 
   return (
     <button
       onClick={onClick}
+      aria-label={`Open ${label} — ${count} prophecies, ${fulfilled} fulfilled`}
       style={{
         width: "100%", textAlign: "left", border: "none", cursor: "pointer",
         padding: 0, background: "transparent",
@@ -265,8 +312,16 @@ const HubCard = ({ categoryId, onClick, index }) => {
                 {count} {count === 1 ? "prophecy" : "prophecies"}
               </div>
             </div>
-            {/* Chevron */}
-            <div style={{ color: P.inkFaint, fontSize: 24, flexShrink: 0 }}>›</div>
+            {/* Mastery ring + Today dot */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flexShrink: 0 }}>
+              <MasteryRing read={readCount} total={count} color={color} size={36} />
+              {todayCategory === categoryId && (
+                <div style={{
+                  width: 6, height: 6, borderRadius: "50%", background: color,
+                  animation: "shimmerPulse 2s infinite",
+                }} />
+              )}
+            </div>
           </div>
 
           {/* Description */}
@@ -388,8 +443,13 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
         <Roller shadow={true} />
 
         {/* Parchment face */}
-        <button
+        <div
+          role="button"
+          tabIndex={0}
+          aria-expanded={isOpen}
+          aria-label={`${prophecy.title} — ${prophecy.status}`}
           onClick={() => onSelect(prophecy)}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelect(prophecy); } }}
           style={{
             width: "100%", textAlign: "left", cursor: "pointer", border: "none",
             background: isOpen
@@ -491,7 +551,7 @@ const ScrollCard = ({ prophecy, isOpen, onSelect, onClose, nav, index, isFeature
               ›
             </div>
           </div>
-        </button>
+        </div>
 
         {/* Unrolled content */}
         {isOpen && (
@@ -561,6 +621,192 @@ const SectionDivider = ({ label, t }) => (
   </div>
 );
 
+// ─── Wax Seal Break Overlay ─────────────────────────────────────────────────
+const WaxSealOverlay = ({ onDone }) => {
+  const [phase, setPhase] = useState("pulse"); // pulse → crack → done
+  useEffect(() => {
+    const t1 = setTimeout(() => setPhase("crack"), 600);
+    const t2 = setTimeout(() => { setPhase("done"); onDone(); }, 1500);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+  if (phase === "done") return null;
+  return (
+    <div style={{
+      position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+      zIndex: 100, display: "flex", alignItems: "center", justifyContent: "center",
+      background: "rgba(45,27,78,0.85)",
+      animation: phase === "crack" ? "sealCrack 0.9s ease forwards" : undefined,
+      pointerEvents: "none",
+    }}>
+      {/* Particles */}
+      {[...Array(8)].map((_, i) => (
+        <div key={i} style={{
+          position: "absolute",
+          width: 4 + Math.random() * 4, height: 4 + Math.random() * 4,
+          borderRadius: "50%",
+          background: `hsl(${40 + Math.random() * 20}, 80%, ${55 + Math.random() * 20}%)`,
+          top: `${45 + Math.random() * 10}%`,
+          left: `${40 + Math.random() * 20}%`,
+          animation: `particleRise ${1.2 + Math.random() * 0.8}s ease ${0.3 + i * 0.08}s forwards`,
+          opacity: 0.8,
+        }} />
+      ))}
+      {/* Seal */}
+      <div style={{
+        width: 80, height: 80, borderRadius: "50%",
+        background: "radial-gradient(circle, #D4A853 0%, #8B6914 60%, #4A2D8E 100%)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        boxShadow: "0 0 30px rgba(212,168,83,0.4), 0 0 60px rgba(139,92,246,0.2)",
+        animation: phase === "pulse" ? "sealPulse 0.6s ease infinite" : "sealCrack 0.9s ease forwards",
+        fontSize: 28,
+      }}>
+        ✦
+      </div>
+    </div>
+  );
+};
+
+// ─── Daily rotation helper ──────────────────────────────────────────────────
+function getDayOfYear() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  return Math.floor((now - start) / (1000 * 60 * 60 * 24));
+}
+
+// ─── Today's Prophecy Hero (Hub) ────────────────────────────────────────────
+const TodaysProphecyHero = ({ prophecy, color, icon, isRead, onSelect }) => (
+  <button
+    onClick={() => onSelect(prophecy)}
+    aria-label={`Today's prophecy: ${prophecy.title}`}
+    style={{
+      width: "100%", textAlign: "left", cursor: "pointer", border: "none",
+      padding: 0, background: "transparent",
+      animation: "hubCardIn 0.35s ease both",
+    }}
+  >
+    <div style={{
+      background: `linear-gradient(135deg, #F8F0DC, #EAD9AA)`,
+      border: `1.5px solid ${isRead ? "rgba(58,125,68,0.4)" : "rgba(200,168,106,0.5)"}`,
+      borderRadius: 14, padding: "14px 16px", position: "relative", overflow: "hidden",
+    }}>
+      <div style={{
+        position: "absolute", top: 0, left: 0, right: 0, height: 3,
+        background: `linear-gradient(90deg, ${color}, #D4A853)`,
+      }} />
+      <div style={{
+        fontFamily: "'Nunito',sans-serif", fontSize: 9, fontWeight: 800,
+        color: "#9B7A50", textTransform: "uppercase", letterSpacing: "0.12em",
+        marginBottom: 8, display: "flex", alignItems: "center", gap: 6,
+      }}>
+        <span style={{ animation: "shimmerPulse 2.2s infinite" }}>✦</span>
+        Today's Prophecy — {new Date().toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+        {isRead && <span style={{ color: "#3A7D44", marginLeft: "auto" }}>✓ Studied</span>}
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{
+          width: 42, height: 42, borderRadius: 11,
+          background: `${color}22`, border: `1.5px solid ${color}44`,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: 20, flexShrink: 0,
+        }}>
+          {icon}
+        </div>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{
+            fontFamily: "'DM Serif Display',serif", fontSize: 16,
+            color: "#2A1A08", lineHeight: 1.2, marginBottom: 3,
+          }}>
+            {prophecy.title}
+          </div>
+          <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+            <span style={{
+              fontFamily: "'Nunito',sans-serif", fontSize: 9, color: "#9B7A50",
+              background: "rgba(100,60,20,0.1)", borderRadius: 4, padding: "1px 6px",
+            }}>
+              {prophecy.otRef}
+            </span>
+            {prophecy.ntRef && (
+              <>
+                <span style={{ fontSize: 9, color: "#9B7A50" }}>→</span>
+                <span style={{
+                  fontFamily: "'Nunito',sans-serif", fontSize: 9, color: "#9B7A50",
+                  background: "rgba(100,60,20,0.1)", borderRadius: 4, padding: "1px 6px",
+                }}>
+                  {prophecy.ntRef}
+                </span>
+              </>
+            )}
+          </div>
+        </div>
+        <div style={{ color: "#9B7A50", fontSize: 22, flexShrink: 0 }}>›</div>
+      </div>
+    </div>
+  </button>
+);
+
+// ─── Your Prophecy Journey (Progress Card) ──────────────────────────────────
+const JourneyProgress = ({ readIds, streak, onSelect, t }) => {
+  const readCount = Object.keys(readIds).length;
+  if (readCount === 0) return null;
+  const total = PROPHECIES.length;
+  const pct = Math.round((readCount / total) * 100);
+  const next = PROPHECIES.find(p => !readIds[p.id]);
+  const streakIcon = streak >= 30 ? "🔭🔥🔥" : streak >= 7 ? "🔭🔥" : streak >= 1 ? "🔭" : "";
+  return (
+    <div style={{
+      margin: "14px 16px 0",
+      background: `linear-gradient(135deg, ${t.dark}0A, ${t.accent}08)`,
+      border: `1px solid ${t.accent}22`,
+      borderRadius: 14, padding: "14px 16px",
+      animation: "hubCardIn 0.35s ease 0.1s both",
+    }}>
+      <div style={{
+        fontFamily: "'Nunito',sans-serif", fontSize: 10, fontWeight: 700,
+        color: t.light, textTransform: "uppercase", letterSpacing: "0.08em",
+        marginBottom: 10,
+      }}>
+        🔭 Your Prophecy Journey
+      </div>
+      {/* Progress bar */}
+      <div style={{
+        height: 6, borderRadius: 3, background: `${t.dark}12`, marginBottom: 10, overflow: "hidden",
+      }}>
+        <div style={{
+          height: "100%", borderRadius: 3, width: `${pct}%`,
+          background: "linear-gradient(90deg, #8B5CF6, #D4A853, #2E7D32)",
+          transition: "width 0.6s ease",
+        }} />
+      </div>
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "center",
+        fontFamily: "'Nunito',sans-serif", fontSize: 11, color: t.muted,
+      }}>
+        <span><b style={{ color: t.dark }}>{readCount}</b> of {total} studied</span>
+        <div style={{ display: "flex", gap: 8 }}>
+          {streak > 0 && <span>{streakIcon} {streak}-day</span>}
+          <span>👑 {pct}%</span>
+        </div>
+      </div>
+      {next && (
+        <button
+          onClick={() => onSelect(next)}
+          style={{
+            width: "100%", marginTop: 10, padding: "8px 12px",
+            borderRadius: 8, border: `1px solid ${t.accent}33`,
+            background: `${t.accent}0C`, cursor: "pointer",
+            fontFamily: "'Nunito',sans-serif", fontSize: 11, color: t.accent,
+            fontWeight: 700, textAlign: "left",
+            display: "flex", alignItems: "center", gap: 8,
+          }}
+        >
+          <span style={{ flex: 1 }}>Next: "{next.title}" — {next.otRef}</span>
+          <span>→</span>
+        </button>
+      )}
+    </div>
+  );
+};
+
 // ══════════════════════════════════════════════════════════════════════════════
 //  MAIN COMPONENT
 // ══════════════════════════════════════════════════════════════════════════════
@@ -582,7 +828,38 @@ export default function ProphecyFulfilment({ nav, onPositionSave, darkMode, trac
       try { localStorage.setItem("prophecy_read", JSON.stringify(updated)); } catch {}
       return updated;
     });
+    // Update streak
+    try {
+      const today = new Date().toISOString().slice(0, 10);
+      const lastDate = localStorage.getItem("prophecyStreakLastDate") || "";
+      if (lastDate !== today) {
+        const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+        const prev = parseInt(localStorage.getItem("prophecyStreakCount") || "0", 10);
+        const newCount = lastDate === yesterday ? prev + 1 : 1;
+        const longest = Math.max(newCount, parseInt(localStorage.getItem("prophecyStreakLongest") || "0", 10));
+        localStorage.setItem("prophecyStreakCount", String(newCount));
+        localStorage.setItem("prophecyStreakLastDate", today);
+        localStorage.setItem("prophecyStreakLongest", String(longest));
+        setStreak(newCount);
+      }
+    } catch {}
   };
+
+  // Wax seal animation (first visit per session)
+  const [showSeal, setShowSeal] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !sessionStorage.getItem("prophecy_seal_shown");
+  });
+  const handleSealDone = () => {
+    setShowSeal(false);
+    try { sessionStorage.setItem("prophecy_seal_shown", "1"); } catch {}
+  };
+
+  // Prophecy streak
+  const [streak, setStreak] = useState(() => {
+    if (typeof window === "undefined") return 0;
+    try { return parseInt(localStorage.getItem("prophecyStreakCount") || "0", 10); } catch { return 0; }
+  });
 
   // Scroll opened card into view
   useEffect(() => {
@@ -603,6 +880,11 @@ export default function ProphecyFulfilment({ nav, onPositionSave, darkMode, trac
     if (prophecy && onPositionSave) onPositionSave("prophecy", { topicName: prophecy.title });
     if (prophecy && trackLearnExploration) trackLearnExploration("propheciesRead", prophecy.id);
   };
+
+  // Today's prophecy
+  const todayProphecy = PROPHECIES[getDayOfYear() % PROPHECIES.length];
+  const todayColor = CATEGORY_COLORS[todayProphecy.category] || st.accent;
+  const todayIcon = CATEGORY_ICONS[todayProphecy.category] || "🔭";
 
   const goToCategory = (catId) => {
     setSelected(null);
@@ -627,6 +909,9 @@ export default function ProphecyFulfilment({ nav, onPositionSave, darkMode, trac
   return (
     <div style={{ minHeight: "100vh", background: t.bg, paddingBottom: 48 }}>
       <style>{STYLES}</style>
+
+      {/* Wax Seal Break Animation */}
+      {showSeal && <WaxSealOverlay onDone={handleSealDone} />}
 
       {/* ── Sticky Header ── */}
       <div style={{
@@ -697,6 +982,20 @@ export default function ProphecyFulfilment({ nav, onPositionSave, darkMode, trac
         <>
           <HubIntro t={t} />
 
+          {/* Today's Prophecy Hero */}
+          <div style={{ padding: "14px 16px 0" }}>
+            <TodaysProphecyHero
+              prophecy={todayProphecy}
+              color={todayColor}
+              icon={todayIcon}
+              isRead={!!readIds[todayProphecy.id]}
+              onSelect={(p) => { goToCategory(p.category); setTimeout(() => handleSelect(p), 100); }}
+            />
+          </div>
+
+          {/* Journey Progress */}
+          <JourneyProgress readIds={readIds} streak={streak} onSelect={(p) => { goToCategory(p.category); setTimeout(() => handleSelect(p), 100); }} t={t} />
+
           <div style={{ padding: "20px 16px 0", display: "flex", flexDirection: "column", gap: 14 }}>
 
             {/* Category cards — in order */}
@@ -706,6 +1005,8 @@ export default function ProphecyFulfilment({ nav, onPositionSave, darkMode, trac
                 categoryId={catId}
                 onClick={() => goToCategory(catId)}
                 index={i}
+                readIds={readIds}
+                todayCategory={todayProphecy.category}
               />
             ))}
 

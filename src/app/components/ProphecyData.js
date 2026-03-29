@@ -423,39 +423,6 @@ export const PROPHECIES = [
   },
 
   {
-    id: "r03",
-    category: "Revelation",
-    featured: false,
-    status: "Partial",
-    title: "The Two Witnesses",
-    summary: "Two witnesses prophesy 1,260 days, are killed, then rise after three and a half days",
-    otRef: "Zechariah 4:11-14",
-    otBook: "Zechariah",
-    otText: "Then answered I, and said unto him, What are these two olive trees upon the right side of the candlestick and upon the left side thereof?... These are the two anointed ones, that stand by the LORD of the whole earth.",
-    ntRef: "Revelation 11:3-6",
-    ntBook: "Revelation",
-    ntText: "And I will give power unto my two witnesses, and they shall prophesy a thousand two hundred and threescore days, clothed in sackcloth... These have power to shut heaven, that it rain not in the days of their prophecy: and have power over waters to turn them to blood, and to smite the earth with all plagues, as often as they will.",
-    commentary: "The two witnesses combine the characteristics of Moses (turning water to blood, plagues) and Elijah (shutting heaven from rain) — leading many scholars to identify them as these two figures returning, or as representatives of the Law and the Prophets. Their 1,260-day ministry, death, three-and-a-half-day lying in the street visible to 'all the world,' and resurrection were impossible to imagine as a literal scenario before the age of global television and internet — yet John describes them in AD 95.",
-    interpretations: [
-      {
-        school: "Futurist",
-        color: "#1B7A6E",
-        label: "🔵 Futurist / Literal",
-        description: "Moses and Elijah (both appeared at the Transfiguration) return physically to Jerusalem for 1,260 days during the Great Tribulation. Their global visibility at death (Revelation 11:9) requires modern media technology.",
-      },
-      {
-        school: "Symbolic",
-        color: "#8B5CF6",
-        label: "🟣 Symbolic",
-        description: "The two witnesses represent the church's prophetic witness throughout the age — the Law and the Prophets, or the Old and New Testaments. Their 'death' represents periods of suppression; their resurrection, revival.",
-      },
-    ],
-    watchFor: "Two individuals with miraculous powers appearing in Jerusalem; global simultaneous broadcast of events in one city.",
-    historicalNote: null,
-    empires: null,
-  },
-
-  {
     id: "r04",
     category: "Revelation",
     featured: false,
@@ -488,45 +455,6 @@ export const PROPHECIES = [
     empires: null,
   },
 
-  {
-    id: "r05",
-    category: "Revelation",
-    featured: false,
-    status: "Awaiting",
-    title: "The Thousand-Year Reign",
-    summary: "Christ reigns on earth for a thousand years — Satan bound",
-    otRef: "Isaiah 11:6-9",
-    otBook: "Isaiah",
-    otText: "The wolf also shall dwell with the lamb, and the leopard shall lie down with the kid; and the calf and the young lion and the fatling together; and a little child shall lead them... They shall not hurt nor destroy in all my holy mountain: for the earth shall be full of the knowledge of the LORD, as the waters cover the sea.",
-    ntRef: "Revelation 20:4-6",
-    ntBook: "Revelation",
-    ntText: "And I saw thrones, and they sat upon them, and judgment was given unto them: and I saw the souls of them that were beheaded for the witness of Jesus... and they lived and reigned with Christ a thousand years... Blessed and holy is he that hath part in the first resurrection: on such the second death hath no power, but they shall be priests of God and of Christ, and shall reign with him a thousand years.",
-    commentary: "The Millennium (Latin: mille anni — thousand years) is the most debated eschatological doctrine in church history, generating three major positions. Alford, writing in the 1870s, defended premillennialism as the plain reading of Revelation 20, noting that 'the first resurrection' must refer to a bodily rising (since the second resurrection in v.12 is clearly bodily). The Isaiah passage presents a transformed natural order — suggesting not merely a spiritual reign but a physical renewal of creation preceding the New Heavens and New Earth.",
-    interpretations: [
-      {
-        school: "Premillennial",
-        color: "#1B7A6E",
-        label: "🔵 Premillennial",
-        description: "Christ returns before the Millennium and reigns physically on earth for 1,000 years. Satan is literally bound. The Millennium fulfils OT promises to Israel. Held by Alford, many early church fathers.",
-      },
-      {
-        school: "Amillennial",
-        color: "#8B5CF6",
-        label: "🟣 Amillennial",
-        description: "The Millennium is the current church age — Christ reigns from heaven; Satan's power is restrained (not eliminated). The 1,000 years is symbolic of completeness. Held by Augustine, Calvin, most Reformed theologians.",
-      },
-      {
-        school: "Postmillennial",
-        color: "#2E7D32",
-        label: "🟢 Postmillennial",
-        description: "The Millennium is a future golden age of gospel advance before Christ's return. The church gradually Christianises the world, ushering in the Kingdom. Christ returns after the Millennium.",
-      },
-    ],
-    watchFor: "The return of Christ; the binding of Satan; the physical resurrection of martyrs; universal knowledge of God filling the earth.",
-    historicalNote: null,
-    empires: null,
-  },
-
   // ══════════════════════════════════════════════════════════
   //  NATION OF ISRAEL — 5 prophecies
   // ══════════════════════════════════════════════════════════
@@ -552,26 +480,6 @@ export const PROPHECIES = [
   },
 
   {
-    id: "i02",
-    category: "Israel",
-    featured: false,
-    status: "Literal Fulfilment",
-    title: "The Worldwide Scattering",
-    summary: "Scattered among all people — Israel's diaspora foretold 3,400 years ago",
-    otRef: "Deuteronomy 28:64-65",
-    otBook: "Deuteronomy",
-    otText: "And the LORD shall scatter thee among all people, from the one end of the earth even unto the other; and there thou shalt serve other gods, which neither thou nor thy fathers have known, even wood and stone. And among these nations shalt thou find no ease, neither shall the sole of thy foot have rest.",
-    ntRef: null,
-    ntBook: null,
-    ntText: null,
-    commentary: "Deuteronomy 28 contains the most detailed predictive prophecy in the entire Old Testament — Moses warns Israel of consequences for covenant disobedience written before Israel even entered the land. Verses 64-65 predict a worldwide diaspora, and history records exactly this: the Assyrian captivity (722 BC), Babylonian exile (586 BC), and the Roman destruction of Jerusalem (AD 70) scattered Jewish communities into every continent. The phrase 'no ease' and 'no rest for the sole of thy foot' has been borne out through centuries of persecution — from Roman subjugation to medieval expulsions to the Holocaust. Yet Israel has survived as a distinct people, fulfilling Moses' implicit promise that they would not be absorbed and destroyed (v.63 speaks of them being 'plucked off the land' — not annihilated).",
-    historicalNote: null,
-    interpretations: null,
-    empires: null,
-    watchFor: null,
-  },
-
-  {
     id: "i03",
     category: "Israel",
     featured: false,
@@ -586,46 +494,6 @@ export const PROPHECIES = [
     ntText: null,
     commentary: "Written c. 520 BC, when Jerusalem was a ruined, sparsely populated backwater of the Persian Empire, Zechariah prophesied that the city would become the centre of international controversy — a 'burdensome stone' for all nations. Today Jerusalem is the most contested city on earth, the subject of more United Nations resolutions than any other city in history, and the flashpoint of ongoing international conflict. No human strategist in 520 BC could have foreseen that a decimated provincial town would occupy the centre of global diplomacy 2,500 years later.",
     historicalNote: null,
-    interpretations: null,
-    empires: null,
-    watchFor: null,
-  },
-
-  {
-    id: "i04",
-    category: "Israel",
-    featured: false,
-    status: "Partial",
-    title: "The Dry Bones — National Resurrection",
-    summary: "The valley of dry bones — Israel rises from national death to life",
-    otRef: "Ezekiel 37:11-12",
-    otBook: "Ezekiel",
-    otText: "Then he said unto me, Son of man, these bones are the whole house of Israel: behold, they say, Our bones are dried, and our hope is lost: we are cut off for our parts. Therefore prophesy and say unto them, Thus saith the Lord GOD; Behold, O my people, I will open your graves, and cause you to come up out of your graves, and bring you into the land of Israel.",
-    ntRef: null,
-    ntBook: null,
-    ntText: null,
-    commentary: "Ezekiel 37 presents the vision of a valley of dry bones that come together, receive flesh, and finally receive breath. God interprets the vision explicitly (v.11-12) as the national resurrection of Israel — brought back from exile to their own land. The two-stage process (bones → flesh, then breath) may correspond to physical return to the land (1948) followed by spiritual renewal ('they shall know that I am the LORD'). The status is marked Partial because the second stage — Israel's national spiritual awakening and recognition of their Messiah (Zechariah 12:10) — remains future.",
-    historicalNote: null,
-    interpretations: null,
-    empires: null,
-    watchFor: "National spiritual awakening in Israel; large-scale recognition of Jesus as Messiah among Jewish people; the fulfilment of Zechariah 12:10.",
-  },
-
-  {
-    id: "i05",
-    category: "Israel",
-    featured: false,
-    status: "Literal Fulfilment",
-    title: "The Destruction of Jerusalem — AD 70",
-    summary: "Not one stone left upon another — fulfilled within a generation",
-    otRef: "Micah 3:12",
-    otBook: "Micah",
-    otText: "Therefore shall Zion for your sake be plowed as a field, and Jerusalem shall become heaps, and the mountain of the house as the high places of the forest.",
-    ntRef: "Matthew 24:1-2",
-    ntBook: "Matthew",
-    ntText: "And Jesus went out, and departed from the temple: and his disciples came to him for to shew him the buildings of the temple. And Jesus said unto them, See ye not all these things? verily I say unto you, There shall not be left here one stone upon another, that shall not be thrown down.",
-    commentary: "Jesus' prophecy in Matthew 24:2 was fulfilled with terrible precision by the Roman general Titus in AD 70. Josephus, an eyewitness, records that the city and Temple were so completely destroyed that visitors could not believe it had ever been inhabited (Jewish War, VII.1.1). The Roman soldiers dismantled the Temple walls stone by stone to retrieve the melted gold from the burning building — fulfilling 'not one stone upon another' literally. This prophecy, delivered c. AD 30, was fulfilled within 40 years — within the generation Jesus specified (Matthew 24:34).",
-    historicalNote: "Josephus records 1.1 million deaths and 97,000 enslaved during the siege of Jerusalem (Jewish War VI.9.3). The Temple was burned on 9 Av, AD 70 — the same date Nebuchadnezzar burned Solomon's Temple in 586 BC. Roman coins were struck with the inscription 'Judaea Capta' (Judea Captured).",
     interpretations: null,
     empires: null,
     watchFor: null,
@@ -649,26 +517,6 @@ export const PROPHECIES = [
     ntBook: "Acts",
     ntText: "For so hath the Lord commanded us, saying, I have set thee to be a light of the Gentiles, that thou shouldest be for salvation unto the ends of the earth.",
     commentary: "Isaiah 49:6 extends the Servant's mission beyond Israel to the Gentiles — and Paul explicitly quotes it in Acts 13:47 as the mandate for his missionary journeys. Written c. 700 BC, when Israel was surrounded by Assyrian power and the Gentile nations were considered outside the covenant, this verse anticipated a universal gospel. Today Christianity is the world's largest religion, present in every nation on earth — a reality unprecedented in human history and directly traceable to the apostolic mission launched from Jerusalem after Pentecost.",
-    historicalNote: null,
-    interpretations: null,
-    empires: null,
-    watchFor: null,
-  },
-
-  {
-    id: "rs02",
-    category: "Restoration",
-    featured: false,
-    status: "Literal Fulfilment",
-    title: "A New Covenant",
-    summary: "The law written on the heart — not tablets of stone",
-    otRef: "Jeremiah 31:31-33",
-    otBook: "Jeremiah",
-    otText: "Behold, the days come, saith the LORD, that I will make a new covenant with the house of Israel, and with the house of Judah: Not according to the covenant that I made with their fathers in the day that I took them by the hand to bring them out of the land of Egypt... But this shall be the covenant that I will make with the house of Israel; After those days, saith the LORD, I will put my law in their inward parts, and write it in their hearts; and will be their God, and they shall be my people.",
-    ntRef: "Hebrews 8:8-10",
-    ntBook: "Hebrews",
-    ntText: "For finding fault with them, he saith, Behold, the days come, saith the Lord, when I will make a new covenant with the house of Israel and with the house of Judah... I will put my laws into their mind, and write them in their hearts: and I will be to them a God, and they shall be to me a people.",
-    commentary: "Jeremiah 31:31-34 is the longest verbatim quotation of the Old Testament in the New Testament — cited in full in Hebrews 8. It is the clearest Old Testament prediction of the New Covenant established by Christ at the Last Supper ('This cup is the new testament in my blood,' Luke 22:20). The key distinction from the Mosaic covenant is internal transformation: not external law-keeping but heart renewal by the Holy Spirit. Kaiser notes that 'new covenant' language appears only once in the entire Old Testament (Jeremiah 31:31) — making this the prophetic foundation for the entire New Testament era.",
     historicalNote: null,
     interpretations: null,
     empires: null,
@@ -1170,18 +1018,6 @@ export const PROPHECIES = [
     empires: null,
     watchFor: "The complete fulfilment awaits the salvation of 'all Israel' (Romans 11:26) and the universal knowledge of God described in v.34 — a condition not yet fully realised.",
   },
-  // ══════════════════════════════════════════════════════════════════════
-//  BATCH ADDITIONS — Paste these entries into ProphecyData.js
-//  BEFORE the closing ];  (after the rs05 entry)
-//
-//  New entries:  m19, m20, m21, m22  (Messianic)
-//                d08                 (Daniel)
-//                i10, i11, i12       (Israel)
-//                rs06                (Restoration)
-//                r08                 (Revelation)
-//
-//  Total prophecies after paste: 46 + 10 = 56
-// ══════════════════════════════════════════════════════════════════════
 
   // ══════════════════════════════════════════════════════════
   //  MESSIANIC — 4 new additions (m19–m22)
@@ -1458,7 +1294,7 @@ export const PROPHECIES = [
       {
         school: "Idealist",
         color: "#8B5CF6",
-        label: "🔵 Idealist",
+        label: "🟣 Idealist",
         description: "The Beast is a symbolic representation of any and all political power that sets itself against God and demands absolute allegiance — Rome in John's day, totalitarian regimes throughout history, and whatever form state idolatry takes in any era. The number 666 represents human pretension to divine status (seven being divine perfection; six falling short). No single historical or future figure is intended.",
       },
     ],

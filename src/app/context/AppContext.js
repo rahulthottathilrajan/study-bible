@@ -246,6 +246,11 @@ export function AppProvider({ children }) {
   const [hebrewPracticeAnswer, setHebrewPracticeAnswer] = useState(null);
   const [hebrewPracticeScore, setHebrewPracticeScore] = useState(0);
   const hebrewCache = useRef({});
+  // Hebrew engagement state (localStorage-backed)
+  const [hebrewXP, setHebrewXP] = useState(0);
+  const [hebrewStreak, setHebrewStreak] = useState({ count: 0, lastDate: null, longest: 0 });
+  const [hebrewDailyDone, setHebrewDailyDone] = useState(null);
+  const [hebrewFlashcardHistory, setHebrewFlashcardHistory] = useState({});
   const navStack = useRef([{ view: "home" }]);
   const [readingStep, setReadingStep] = useState(0);
   const [showLetters, setShowLetters] = useState(false);
@@ -1501,6 +1506,9 @@ export function AppProvider({ children }) {
     if (hebAlphabetTotal > 0 && hebAlphabetDone >= hebAlphabetTotal && !earned.aleph_bet) awardBadge("aleph_bet");
     if (hebCompleted.length >= 22 && !earned.hebrew_scholar) awardBadge("hebrew_scholar");
     if (hebCompleted.some(p => p.score >= 100) && !earned.perfect_hebrew) awardBadge("perfect_hebrew");
+    if (hebrewStreak.longest >= 7 && !earned.hebrew_streak_7) awardBadge("hebrew_streak_7");
+    if (hebrewStreak.longest >= 30 && !earned.hebrew_streak_30) awardBadge("hebrew_streak_30");
+    if (hebrewXP >= 3000 && !earned.hebrew_sofer) awardBadge("hebrew_sofer");
 
     // Greek badges (Bug A5 fixed: alpha_omega filters alphabet-only)
     const greekCompleted = Object.values(greekProgress).filter(p => p.completed);
@@ -1616,7 +1624,7 @@ export function AppProvider({ children }) {
     if (podcastCount >= 30 && !earned.podcast_devotee) awardBadge("podcast_devotee");
     if (podcastStreak?.current >= 7 && !earned.podcast_streak_7) awardBadge("podcast_streak_7");
     if (podcastStreak?.current >= 30 && !earned.podcast_streak_30) awardBadge("podcast_streak_30");
-  }, [user, chapterReads, allHighlights, notesCount, streak, hebrewProgress, hebrewLessons,
+  }, [user, chapterReads, allHighlights, notesCount, streak, hebrewProgress, hebrewLessons, hebrewStreak, hebrewXP,
       greekProgress, greekStreak, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, listenedChapters, podcastListenedEpisodes, podcastStreak, awardBadge]);
 
   useEffect(() => { checkBadges(); }, [checkBadges]);
@@ -1678,6 +1686,35 @@ export function AppProvider({ children }) {
 
   useEffect(() => { if (view === "hebrew-home") { loadHebrewLessons(hebrewCategory); loadHebrewProgress(); } }, [view, hebrewCategory, loadHebrewLessons, loadHebrewProgress]);
   useEffect(() => { if (view === "hebrew-lesson" && hebrewLesson?.id) loadHebrewLesson(hebrewLesson.id); }, [view]);
+
+  // Hebrew engagement — localStorage persistence
+  useEffect(() => {
+    try {
+      const xp = localStorage.getItem("hebrewXP");
+      if (xp) setHebrewXP(JSON.parse(xp));
+      const st = localStorage.getItem("hebrewStreak");
+      if (st) setHebrewStreak(JSON.parse(st));
+      const dd = localStorage.getItem("hebrewDailyDone");
+      if (dd) setHebrewDailyDone(dd);
+      const fh = localStorage.getItem("hebrewFlashcardHistory");
+      if (fh) setHebrewFlashcardHistory(JSON.parse(fh));
+    } catch {}
+  }, []);
+  useEffect(() => { try { localStorage.setItem("hebrewXP", JSON.stringify(hebrewXP)); } catch {} }, [hebrewXP]);
+  useEffect(() => { try { localStorage.setItem("hebrewStreak", JSON.stringify(hebrewStreak)); } catch {} }, [hebrewStreak]);
+  useEffect(() => { if (hebrewDailyDone) try { localStorage.setItem("hebrewDailyDone", hebrewDailyDone); } catch {} }, [hebrewDailyDone]);
+  useEffect(() => { try { localStorage.setItem("hebrewFlashcardHistory", JSON.stringify(hebrewFlashcardHistory)); } catch {} }, [hebrewFlashcardHistory]);
+
+  const awardHebrewXP = useCallback((amount) => { setHebrewXP(prev => prev + amount); }, []);
+  const updateHebrewStreak = useCallback(() => {
+    const today = new Date().toISOString().split("T")[0];
+    setHebrewStreak(prev => {
+      if (prev.lastDate === today) return prev;
+      const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
+      const newCount = prev.lastDate === yesterday ? prev.count + 1 : 1;
+      return { count: newCount, lastDate: today, longest: Math.max(newCount, prev.longest) };
+    });
+  }, []);
 
   // ═══ GREEK LEARNING ═══
   const loadGreekLessons = useCallback(async (cat = 'alphabet') => {
@@ -1900,7 +1937,7 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"books", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "greek-lexicon":"greek-home", "greek-flashcards":"greek-home", "greek-journal":"greek-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", "podcast-home":"learn-home", "podcast-detail":"podcast-home", "podcast-episode":"podcast-detail", "smart-chat":"home", };
+  const BACK_MAP = { "verse":"verses", "verses":"books", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-flashcards":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "greek-lexicon":"greek-home", "greek-flashcards":"greek-home", "greek-journal":"greek-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", "podcast-home":"learn-home", "podcast-detail":"podcast-home", "podcast-episode":"podcast-detail", "smart-chat":"home", };
 
   const addToCart = (product, qty = 1, size = null) => {
     setCart(prev => {
@@ -2097,6 +2134,8 @@ export function AppProvider({ children }) {
     hebrewPracticeScore, setHebrewPracticeScore, readingStep, setReadingStep,
     showLetters, setShowLetters, readingVerse, setReadingVerse,
     vocabGroup, setVocabGroup, grammarLesson, setGrammarLesson, grammarLessonIds,
+    hebrewXP, awardHebrewXP, hebrewStreak, updateHebrewStreak,
+    hebrewDailyDone, setHebrewDailyDone, hebrewFlashcardHistory, setHebrewFlashcardHistory,
     // Greek
     greekLessons, greekLesson, setGreekLesson, greekAlphabet, setGreekAlphabet, greekVocab, setGreekVocab,
     greekCategory, setGreekCategory, greekProgress, greekPracticeIdx, setGreekPracticeIdx,

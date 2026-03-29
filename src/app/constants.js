@@ -525,6 +525,10 @@ export const BADGES = [
   { id:"aleph_bet",      category:"hebrew", name:"Aleph-Bet Master",  icon:"📜", description:"Complete all alphabet lessons" },
   { id:"hebrew_scholar", category:"hebrew", name:"Hebrew Scholar",    icon:"🕎", description:"Complete all Hebrew lessons" },
   { id:"perfect_hebrew", category:"hebrew", name:"Perfect Hebrew",    icon:"💯", description:"Score 100% on a Hebrew practice" },
+  { id:"hebrew_streak_7",  category:"hebrew", name:"Weekly Scholar",    icon:"🔥", description:"7-day Hebrew study streak" },
+  { id:"hebrew_streak_30", category:"hebrew", name:"Monthly Devotee",   icon:"🏆", description:"30-day Hebrew study streak" },
+  { id:"hebrew_sofer",     category:"hebrew", name:"Sofer",             icon:"📜", description:"Reach Sofer level (3000 XP)" },
+  { id:"hebrew_daily_7",   category:"hebrew", name:"Daily Discipline",  icon:"✡️", description:"Complete 7 daily challenges" },
   // Greek (4)
   { id:"alpha",          category:"greek",  name:"Alpha",             icon:"A",  description:"Complete your first Greek lesson" },
   { id:"alpha_omega",    category:"greek",  name:"Alpha-Omega Master",icon:"🏛️", description:"Complete all alphabet lessons" },

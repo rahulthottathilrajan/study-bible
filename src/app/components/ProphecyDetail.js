@@ -40,7 +40,7 @@ const stDark = {
   light:   "#6A5840",
   divider: "rgba(232,98,92,0.15)",
 };
-// Alias for helper components (font references only)
+// Alias for FONT references only (heading/body/ui) — never use for colors
 const st = stLight;
 
 // ─── Parchment palette (used in scrollMode) ───────────────────────────────────
@@ -66,7 +66,7 @@ const CATEGORY_COLORS = {
 
 // ── Shared sub-components — aware of scrollMode ───────────────────────────────
 
-const ScriptureBlock = ({ reference, text, book, nav, accentColor, scrollMode }) => (
+const ScriptureBlock = ({ reference, text, book, nav, accentColor, scrollMode, t }) => (
   <div style={{
     background: scrollMode
       ? `linear-gradient(135deg, ${P.scripture}, ${P.bgMid})`
@@ -74,7 +74,7 @@ const ScriptureBlock = ({ reference, text, book, nav, accentColor, scrollMode })
     border: scrollMode
       ? `1px solid rgba(160,100,30,0.3)`
       : `1px solid rgba(232,98,92,0.15)`,
-    borderLeft: `3px solid ${accentColor || st.accent}`,
+    borderLeft: `3px solid ${accentColor || t.accent}`,
     borderRadius: 10,
     padding: "13px 14px",
     marginBottom: 12,
@@ -85,7 +85,7 @@ const ScriptureBlock = ({ reference, text, book, nav, accentColor, scrollMode })
     }}>
       <div style={{
         fontFamily: st.ui, fontSize: 10, fontWeight: 700,
-        color: accentColor || st.accent,
+        color: accentColor || t.accent,
         textTransform: "uppercase", letterSpacing: "0.07em",
       }}>
         KJV — {reference}
@@ -95,9 +95,9 @@ const ScriptureBlock = ({ reference, text, book, nav, accentColor, scrollMode })
           onClick={() => nav("chapter", { book })}
           style={{
             fontFamily: st.ui, fontSize: 10, fontWeight: 700,
-            color: accentColor || st.accent,
-            background: `${accentColor || st.accent}18`,
-            border: `1px solid ${accentColor || st.accent}33`,
+            color: accentColor || t.accent,
+            background: `${accentColor || t.accent}18`,
+            border: `1px solid ${accentColor || t.accent}33`,
             borderRadius: 5, padding: "2px 8px", cursor: "pointer",
           }}
         >
@@ -107,7 +107,7 @@ const ScriptureBlock = ({ reference, text, book, nav, accentColor, scrollMode })
     </div>
     <p style={{
       fontFamily: st.body, fontSize: 13.5,
-      color: scrollMode ? P.ink : st.dark,
+      color: scrollMode ? P.ink : t.dark,
       lineHeight: 1.85, margin: 0, fontStyle: "italic",
     }}>
       "{text}"
@@ -115,10 +115,10 @@ const ScriptureBlock = ({ reference, text, book, nav, accentColor, scrollMode })
   </div>
 );
 
-const SectionLabel = ({ children, color, scrollMode }) => (
+const SectionLabel = ({ children, color, scrollMode, t }) => (
   <div style={{
     fontFamily: st.ui, fontSize: 10, fontWeight: 700,
-    color: color || (scrollMode ? P.inkFaint : st.light),
+    color: color || (scrollMode ? P.inkFaint : t.light),
     textTransform: "uppercase", letterSpacing: "0.07em",
     marginBottom: 7, marginTop: 16,
   }}>
@@ -126,7 +126,7 @@ const SectionLabel = ({ children, color, scrollMode }) => (
   </div>
 );
 
-const CommentaryBlock = ({ text, scrollMode }) => (
+const CommentaryBlock = ({ text, scrollMode, t }) => (
   <div style={{
     background: scrollMode ? P.comment : "rgba(45,27,78,0.04)",
     border: scrollMode
@@ -136,14 +136,14 @@ const CommentaryBlock = ({ text, scrollMode }) => (
   }}>
     <div style={{
       fontFamily: st.ui, fontSize: 10, fontWeight: 700,
-      color: scrollMode ? P.inkFaint : st.light,
+      color: scrollMode ? P.inkFaint : t.light,
       textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 7,
     }}>
       📚 Scholarly Commentary
     </div>
     <p style={{
       fontFamily: st.body, fontSize: 13,
-      color: scrollMode ? P.inkMid : st.muted,
+      color: scrollMode ? P.inkMid : t.muted,
       lineHeight: 1.8, margin: 0, fontStyle: "italic",
     }}>
       {text}
@@ -151,7 +151,7 @@ const CommentaryBlock = ({ text, scrollMode }) => (
   </div>
 );
 
-const HistoricalBlock = ({ text, scrollMode }) => (
+const HistoricalBlock = ({ text, scrollMode, t }) => (
   <div style={{
     background: scrollMode ? "rgba(180,130,40,0.08)" : "rgba(212,168,83,0.06)",
     border: scrollMode
@@ -161,7 +161,7 @@ const HistoricalBlock = ({ text, scrollMode }) => (
   }}>
     <p style={{
       fontFamily: st.ui, fontSize: 12.5,
-      color: scrollMode ? P.inkMid : st.text,
+      color: scrollMode ? P.inkMid : t.text,
       lineHeight: 1.75, margin: 0,
     }}>
       {text}
@@ -169,7 +169,7 @@ const HistoricalBlock = ({ text, scrollMode }) => (
   </div>
 );
 
-const WatchForBlock = ({ text, scrollMode }) => (
+const WatchForBlock = ({ text, scrollMode, t }) => (
   <div style={{
     background: scrollMode ? "rgba(180,80,50,0.07)" : "rgba(232,98,92,0.06)",
     border: scrollMode
@@ -179,7 +179,7 @@ const WatchForBlock = ({ text, scrollMode }) => (
   }}>
     <p style={{
       fontFamily: st.ui, fontSize: 12.5,
-      color: scrollMode ? P.inkMid : st.text,
+      color: scrollMode ? P.inkMid : t.text,
       lineHeight: 1.75, margin: 0,
     }}>
       {text}
@@ -246,15 +246,15 @@ const ScrollCloseRow = ({ onClose, prophecy, color }) => {
 };
 
 // ── 1. STANDARD DETAIL ────────────────────────────────────────────────────────
-const StandardDetail = ({ prophecy, color, nav, scrollMode }) => {
+const StandardDetail = ({ prophecy, color, nav, scrollMode, t }) => {
   const status = STATUS_CONFIG[prophecy.status];
   return (
     <>
-      <SectionLabel color={color} scrollMode={scrollMode}>🕍 Old Testament Prophecy</SectionLabel>
+      <SectionLabel color={color} scrollMode={scrollMode} t={t}>🕍 Old Testament Prophecy</SectionLabel>
       <ScriptureBlock
         reference={prophecy.otRef} text={prophecy.otText}
         book={prophecy.otBook} nav={nav}
-        accentColor={color} scrollMode={scrollMode}
+        accentColor={color} scrollMode={scrollMode} t={t}
       />
 
       <div style={{
@@ -265,29 +265,29 @@ const StandardDetail = ({ prophecy, color, nav, scrollMode }) => {
 
       {prophecy.ntRef && prophecy.ntText ? (
         <>
-          <SectionLabel color={scrollMode ? P.inkFaint : st.accent} scrollMode={scrollMode}>
+          <SectionLabel color={scrollMode ? P.inkFaint : t.accent} scrollMode={scrollMode} t={t}>
             ✝️ New Testament Fulfilment
           </SectionLabel>
           <ScriptureBlock
             reference={prophecy.ntRef} text={prophecy.ntText}
             book={prophecy.ntBook} nav={nav}
-            accentColor={st.accent} scrollMode={scrollMode}
+            accentColor={t.accent} scrollMode={scrollMode} t={t}
           />
         </>
       ) : (
         <div style={{
           textAlign: "center",
           background: scrollMode ? "rgba(180,80,50,0.07)" : `${status?.bg || "rgba(232,98,92,0.08)"}`,
-          border: `1px dashed ${scrollMode ? "rgba(180,80,50,0.3)" : (status?.color || st.accent) + "55"}`,
+          border: `1px dashed ${scrollMode ? "rgba(180,80,50,0.3)" : (status?.color || t.accent) + "55"}`,
           borderRadius: 10, padding: "16px", marginBottom: 12,
         }}>
           <div style={{ fontSize: 24, marginBottom: 6 }}>{status?.icon}</div>
-          <div style={{ fontFamily: st.ui, fontSize: 13, fontWeight: 700, color: status?.color || st.accent }}>
+          <div style={{ fontFamily: st.ui, fontSize: 13, fontWeight: 700, color: status?.color || t.accent }}>
             {prophecy.status}
           </div>
           <div style={{
             fontFamily: st.body, fontSize: 12,
-            color: scrollMode ? P.inkFaint : st.muted,
+            color: scrollMode ? P.inkFaint : t.muted,
             marginTop: 4, fontStyle: "italic",
           }}>
             Fulfilment yet to come
@@ -297,48 +297,48 @@ const StandardDetail = ({ prophecy, color, nav, scrollMode }) => {
 
       {prophecy.historicalNote && (
         <>
-          <SectionLabel color={scrollMode ? P.inkFaint : st.muted} scrollMode={scrollMode}>
+          <SectionLabel color={scrollMode ? P.inkFaint : t.muted} scrollMode={scrollMode} t={t}>
             📜 Historical Record
           </SectionLabel>
-          <HistoricalBlock text={prophecy.historicalNote} scrollMode={scrollMode} />
+          <HistoricalBlock text={prophecy.historicalNote} scrollMode={scrollMode} t={t} />
         </>
       )}
 
       {prophecy.watchFor && (
         <>
-          <SectionLabel color={scrollMode ? "rgba(180,80,50,0.8)" : "#E8625C"} scrollMode={scrollMode}>
+          <SectionLabel color={scrollMode ? "rgba(180,80,50,0.8)" : "#E8625C"} scrollMode={scrollMode} t={t}>
             👁 What to Watch For
           </SectionLabel>
-          <WatchForBlock text={prophecy.watchFor} scrollMode={scrollMode} />
+          <WatchForBlock text={prophecy.watchFor} scrollMode={scrollMode} t={t} />
         </>
       )}
 
-      <CommentaryBlock text={prophecy.commentary} scrollMode={scrollMode} />
+      <CommentaryBlock text={prophecy.commentary} scrollMode={scrollMode} t={t} />
     </>
   );
 };
 
 // ── 2. DANIEL DETAIL ─────────────────────────────────────────────────────────
-const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
+const DanielDetail = ({ prophecy, color, nav, scrollMode, t }) => {
   const is70Weeks = prophecy.id === "d02";
   return (
     <>
-      <SectionLabel color={color} scrollMode={scrollMode}>📖 The Prophecy</SectionLabel>
+      <SectionLabel color={color} scrollMode={scrollMode} t={t}>📖 The Prophecy</SectionLabel>
       <ScriptureBlock
         reference={prophecy.otRef} text={prophecy.otText}
         book={prophecy.otBook} nav={nav}
-        accentColor={color} scrollMode={scrollMode}
+        accentColor={color} scrollMode={scrollMode} t={t}
       />
 
       {prophecy.ntRef && prophecy.ntText && (
         <>
-          <SectionLabel color={scrollMode ? P.inkFaint : st.accent} scrollMode={scrollMode}>
+          <SectionLabel color={scrollMode ? P.inkFaint : t.accent} scrollMode={scrollMode} t={t}>
             ✝️ New Testament Echo
           </SectionLabel>
           <ScriptureBlock
             reference={prophecy.ntRef} text={prophecy.ntText}
             book={prophecy.ntBook} nav={nav}
-            accentColor={st.accent} scrollMode={scrollMode}
+            accentColor={t.accent} scrollMode={scrollMode} t={t}
           />
         </>
       )}
@@ -346,7 +346,7 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
       {/* Empire blocks */}
       {prophecy.empires && (
         <>
-          <SectionLabel color={color} scrollMode={scrollMode}>🏛️ The Four Kingdoms — History's Verdict</SectionLabel>
+          <SectionLabel color={color} scrollMode={scrollMode} t={t}>🏛️ The Four Kingdoms — History's Verdict</SectionLabel>
           <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
             {prophecy.empires.map((emp, i) => (
               <div key={i} style={{
@@ -364,7 +364,7 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
                   <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                     <span style={{
                       fontFamily: st.heading, fontSize: 15,
-                      color: scrollMode ? P.ink : st.dark,
+                      color: scrollMode ? P.ink : t.dark,
                       fontWeight: 700,
                     }}>
                       {emp.empire}
@@ -379,7 +379,7 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
                   </div>
                   <div style={{
                     fontFamily: st.ui, fontSize: 11,
-                    color: scrollMode ? P.inkMid : st.muted,
+                    color: scrollMode ? P.inkMid : t.muted,
                     marginTop: 2,
                   }}>
                     {emp.dates} · {emp.king}
@@ -387,7 +387,7 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
                   {emp.note && (
                     <div style={{
                       fontFamily: st.body, fontSize: 11.5,
-                      color: scrollMode ? P.inkFaint : st.light,
+                      color: scrollMode ? P.inkFaint : t.light,
                       fontStyle: "italic", marginTop: 2,
                     }}>
                       {emp.note}
@@ -403,7 +403,7 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
       {/* 70 Weeks calculation */}
       {is70Weeks && (
         <>
-          <SectionLabel color={color} scrollMode={scrollMode}>🧮 The Anderson Calculation</SectionLabel>
+          <SectionLabel color={color} scrollMode={scrollMode} t={t}>🧮 The Anderson Calculation</SectionLabel>
           <div style={{
             background: scrollMode ? "rgba(180,130,40,0.07)" : "rgba(212,168,83,0.06)",
             border: scrollMode ? "1px solid rgba(160,110,30,0.22)" : "1px solid rgba(212,168,83,0.2)",
@@ -427,7 +427,7 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
               }}>
                 <div style={{
                   fontFamily: st.ui, fontSize: 11,
-                  color: scrollMode ? P.inkFaint : st.muted,
+                  color: scrollMode ? P.inkFaint : t.muted,
                   flex: 1,
                 }}>
                   {row.label}
@@ -435,13 +435,13 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
                 <div style={{ textAlign: "right" }}>
                   <div style={{
                     fontFamily: st.ui, fontSize: 12, fontWeight: 700,
-                    color: scrollMode ? P.ink : st.dark,
+                    color: scrollMode ? P.ink : t.dark,
                   }}>
                     {row.value}
                   </div>
                   <div style={{
                     fontFamily: st.body, fontSize: 10.5,
-                    color: scrollMode ? P.inkFaint : st.light,
+                    color: scrollMode ? P.inkFaint : t.light,
                     fontStyle: "italic",
                   }}>
                     {row.note}
@@ -452,7 +452,7 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
           </div>
 
           <div style={{
-            background: scrollMode ? `rgba(${color},0.07)` : `${color}12`,
+            background: `${color}12`,
             border: scrollMode ? `1px solid rgba(160,110,30,0.25)` : `1px solid ${color}33`,
             borderRadius: 10, padding: "12px 14px", marginBottom: 12,
             textAlign: "center",
@@ -460,14 +460,14 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
             <div style={{ fontSize: 28, marginBottom: 4 }}>🎯</div>
             <div style={{
               fontFamily: st.heading, fontSize: 16,
-              color: scrollMode ? P.ink : st.dark,
+              color: scrollMode ? P.ink : t.dark,
               marginBottom: 4,
             }}>
               173,880 days — exact to the day
             </div>
             <div style={{
               fontFamily: st.body, fontSize: 12.5,
-              color: scrollMode ? P.inkMid : st.muted,
+              color: scrollMode ? P.inkMid : t.muted,
               fontStyle: "italic", lineHeight: 1.6,
             }}>
               Written c. 539 BC. Fulfilled AD 32.
@@ -479,16 +479,16 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
 
       {prophecy.historicalNote && (
         <>
-          <SectionLabel color={scrollMode ? P.inkFaint : st.muted} scrollMode={scrollMode}>
+          <SectionLabel color={scrollMode ? P.inkFaint : t.muted} scrollMode={scrollMode} t={t}>
             📜 Historical Confirmation
           </SectionLabel>
-          <HistoricalBlock text={prophecy.historicalNote} scrollMode={scrollMode} />
+          <HistoricalBlock text={prophecy.historicalNote} scrollMode={scrollMode} t={t} />
         </>
       )}
 
       {prophecy.interpretations && (
         <>
-          <SectionLabel color={color} scrollMode={scrollMode}>🔭 Scholarly Interpretations</SectionLabel>
+          <SectionLabel color={color} scrollMode={scrollMode} t={t}>🔭 Scholarly Interpretations</SectionLabel>
           <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
             {prophecy.interpretations.map((interp, i) => (
               <div key={i} style={{
@@ -505,7 +505,7 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
                 </div>
                 <p style={{
                   fontFamily: st.body, fontSize: 12.5,
-                  color: scrollMode ? P.inkMid : st.text,
+                  color: scrollMode ? P.inkMid : t.text,
                   lineHeight: 1.7, margin: 0,
                 }}>
                   {interp.description}
@@ -518,37 +518,37 @@ const DanielDetail = ({ prophecy, color, nav, scrollMode }) => {
 
       {prophecy.watchFor && (
         <>
-          <SectionLabel color={scrollMode ? "rgba(180,80,50,0.8)" : "#E8625C"} scrollMode={scrollMode}>
+          <SectionLabel color={scrollMode ? "rgba(180,80,50,0.8)" : "#E8625C"} scrollMode={scrollMode} t={t}>
             👁 What to Watch For
           </SectionLabel>
-          <WatchForBlock text={prophecy.watchFor} scrollMode={scrollMode} />
+          <WatchForBlock text={prophecy.watchFor} scrollMode={scrollMode} t={t} />
         </>
       )}
 
-      <CommentaryBlock text={prophecy.commentary} scrollMode={scrollMode} />
+      <CommentaryBlock text={prophecy.commentary} scrollMode={scrollMode} t={t} />
     </>
   );
 };
 
 // ── 3. REVELATION DETAIL ──────────────────────────────────────────────────────
-const RevelationDetail = ({ prophecy, color, nav, scrollMode }) => (
+const RevelationDetail = ({ prophecy, color, nav, scrollMode, t }) => (
   <>
     {prophecy.otText && (
       <>
-        <SectionLabel color="#1B7A6E" scrollMode={scrollMode}>🕍 Old Testament Background</SectionLabel>
+        <SectionLabel color="#1B7A6E" scrollMode={scrollMode} t={t}>🕍 Old Testament Background</SectionLabel>
         <ScriptureBlock
           reference={prophecy.otRef} text={prophecy.otText}
           book={prophecy.otBook} nav={nav}
-          accentColor="#1B7A6E" scrollMode={scrollMode}
+          accentColor="#1B7A6E" scrollMode={scrollMode} t={t}
         />
       </>
     )}
 
-    <SectionLabel color={color} scrollMode={scrollMode}>📖 The Prophecy — Revelation</SectionLabel>
+    <SectionLabel color={color} scrollMode={scrollMode} t={t}>📖 The Prophecy — Revelation</SectionLabel>
     <ScriptureBlock
       reference={prophecy.ntRef} text={prophecy.ntText}
       book={prophecy.ntBook} nav={nav}
-      accentColor={color} scrollMode={scrollMode}
+      accentColor={color} scrollMode={scrollMode} t={t}
     />
 
     <div style={{
@@ -561,13 +561,13 @@ const RevelationDetail = ({ prophecy, color, nav, scrollMode }) => (
       <div>
         <div style={{
           fontFamily: st.ui, fontSize: 12, fontWeight: 700,
-          color: scrollMode ? "rgba(160,60,30,0.9)" : st.accent,
+          color: scrollMode ? "rgba(160,60,30,0.9)" : t.accent,
         }}>
           {prophecy.status} — Interpretations vary
         </div>
         <div style={{
           fontFamily: st.body, fontSize: 11.5,
-          color: scrollMode ? P.inkFaint : st.muted,
+          color: scrollMode ? P.inkFaint : t.muted,
           fontStyle: "italic", marginTop: 2,
         }}>
           The app presents all major scholarly views without endorsing one.
@@ -577,7 +577,7 @@ const RevelationDetail = ({ prophecy, color, nav, scrollMode }) => (
 
     {prophecy.interpretations && (
       <>
-        <SectionLabel color={color} scrollMode={scrollMode}>🔭 How Scholars Interpret This</SectionLabel>
+        <SectionLabel color={color} scrollMode={scrollMode} t={t}>🔭 How Scholars Interpret This</SectionLabel>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 12 }}>
           {prophecy.interpretations.map((interp, i) => (
             <div key={i} style={{
@@ -594,7 +594,7 @@ const RevelationDetail = ({ prophecy, color, nav, scrollMode }) => (
               </div>
               <p style={{
                 fontFamily: st.body, fontSize: 13,
-                color: scrollMode ? P.inkMid : st.text,
+                color: scrollMode ? P.inkMid : t.text,
                 lineHeight: 1.75, margin: 0,
               }}>
                 {interp.description}
@@ -607,14 +607,14 @@ const RevelationDetail = ({ prophecy, color, nav, scrollMode }) => (
 
     {prophecy.watchFor && (
       <>
-        <SectionLabel color={scrollMode ? "rgba(180,80,50,0.8)" : "#E8625C"} scrollMode={scrollMode}>
+        <SectionLabel color={scrollMode ? "rgba(180,80,50,0.8)" : "#E8625C"} scrollMode={scrollMode} t={t}>
           👁 Signs to Watch For
         </SectionLabel>
-        <WatchForBlock text={prophecy.watchFor} scrollMode={scrollMode} />
+        <WatchForBlock text={prophecy.watchFor} scrollMode={scrollMode} t={t} />
       </>
     )}
 
-    <CommentaryBlock text={prophecy.commentary} scrollMode={scrollMode} />
+    <CommentaryBlock text={prophecy.commentary} scrollMode={scrollMode} t={t} />
   </>
 );
 
@@ -625,7 +625,7 @@ export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = fa
   if (!prophecy) return null;
 
   const t = darkMode ? stDark : stLight;
-  const color      = CATEGORY_COLORS[prophecy.category] || st.accent;
+  const color      = CATEGORY_COLORS[prophecy.category] || t.accent;
   const status     = STATUS_CONFIG[prophecy.status];
   const isRevelation = prophecy.category === "Revelation";
   const isDaniel     = prophecy.category === "Daniel";
@@ -639,11 +639,11 @@ export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = fa
 
         {/* Route to renderer */}
         {isRevelation ? (
-          <RevelationDetail prophecy={prophecy} color={color} nav={nav} scrollMode={true} />
+          <RevelationDetail prophecy={prophecy} color={color} nav={nav} scrollMode={true} t={t} />
         ) : isDaniel ? (
-          <DanielDetail prophecy={prophecy} color={color} nav={nav} scrollMode={true} />
+          <DanielDetail prophecy={prophecy} color={color} nav={nav} scrollMode={true} t={t} />
         ) : (
-          <StandardDetail prophecy={prophecy} color={color} nav={nav} scrollMode={true} />
+          <StandardDetail prophecy={prophecy} color={color} nav={nav} scrollMode={true} t={t} />
         )}
 
         {/* Mark as Read */}
@@ -777,11 +777,11 @@ export default function ProphecyDetail({ prophecy, onClose, nav, scrollMode = fa
       {/* Panel body */}
       <div style={{ padding: "14px 16px 16px" }}>
         {isRevelation ? (
-          <RevelationDetail prophecy={prophecy} color={color} nav={nav} scrollMode={false} />
+          <RevelationDetail prophecy={prophecy} color={color} nav={nav} scrollMode={false} t={t} />
         ) : isDaniel ? (
-          <DanielDetail prophecy={prophecy} color={color} nav={nav} scrollMode={false} />
+          <DanielDetail prophecy={prophecy} color={color} nav={nav} scrollMode={false} t={t} />
         ) : (
-          <StandardDetail prophecy={prophecy} color={color} nav={nav} scrollMode={false} />
+          <StandardDetail prophecy={prophecy} color={color} nav={nav} scrollMode={false} t={t} />
         )}
       </div>
     </div>
