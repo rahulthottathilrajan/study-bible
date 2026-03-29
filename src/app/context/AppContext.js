@@ -455,23 +455,22 @@ export function AppProvider({ children }) {
     } catch {}
   }, []);
 
+  // Load grammar lesson ID maps from static JSON (no Supabase)
   useEffect(() => {
-    supabase.from("hebrew_lessons").select("id, lesson_number").eq("category","grammar").then(({data}) => {
-      if (data) {
-        const map = {};
-        data.forEach(l => { map[l.lesson_number] = l.id; });
-        setGrammarLessonIds(map);
-      }
-    });
+    fetch("/data/hebrew-lessons.json").then(r => r.json()).then(json => {
+      const grammar = json.categories?.grammar || [];
+      const map = {};
+      grammar.forEach(l => { map[l.lesson_number] = l.id; });
+      setGrammarLessonIds(map);
+    }).catch(() => {});
   }, []);
   useEffect(() => {
-    supabase.from("greek_lessons").select("id, lesson_number").eq("category","grammar").then(({data}) => {
-      if (data) {
-        const map = {};
-        data.forEach(l => { map[l.lesson_number] = l.id; });
-        setGreekGrammarLessonIds(map);
-      }
-    });
+    fetch("/data/greek-lessons.json").then(r => r.json()).then(json => {
+      const grammar = json.categories?.grammar || [];
+      const map = {};
+      grammar.forEach(l => { map[l.lesson_number] = l.id; });
+      setGreekGrammarLessonIds(map);
+    }).catch(() => {});
   }, []);
 
   const bookInfo = useMemo(() => book ? BIBLE_BOOKS.find(b => b.name === book) : null, [book]);
@@ -1630,16 +1629,31 @@ export function AppProvider({ children }) {
 
   useEffect(() => { checkBadges(); }, [checkBadges]);
 
-  // ═══ HEBREW LEARNING ═══
+  // ═══ HEBREW LEARNING (static JSON — zero Supabase calls for lesson content) ═══
+  const hebrewJsonCache = useRef(null); // caches the full JSON once fetched
+
+  const ensureHebrewJson = useCallback(async () => {
+    if (hebrewJsonCache.current) return hebrewJsonCache.current;
+    try {
+      const res = await fetch("/data/hebrew-lessons.json");
+      if (!res.ok) throw new Error("Failed to fetch hebrew-lessons.json");
+      const json = await res.json();
+      hebrewJsonCache.current = json;
+      return json;
+    } catch (err) { console.error("ensureHebrewJson:", err); return null; }
+  }, []);
+
   const loadHebrewLessons = useCallback(async (cat = 'alphabet') => {
     const cacheKey = `lessons-${cat}`;
     if (hebrewCache.current[cacheKey]) { setHebrewLessons(hebrewCache.current[cacheKey]); return; }
     try {
-      const { data, error } = await supabase.from("hebrew_lessons").select("*").eq("category", cat).order("lesson_number");
-      if (error) throw error;
-      if (data) { hebrewCache.current[cacheKey] = data; setHebrewLessons(data); }
+      const json = await ensureHebrewJson();
+      if (!json) { setHebrewLessons([]); return; }
+      const data = json.categories[cat] || [];
+      hebrewCache.current[cacheKey] = data;
+      setHebrewLessons(data);
     } catch (err) { console.error("loadHebrewLessons:", err); setHebrewLessons([]); }
-  }, []);
+  }, [ensureHebrewJson]);
 
   const loadHebrewLesson = useCallback(async (lessonId) => {
     const cacheKey = `lesson-${lessonId}`;
@@ -1649,16 +1663,21 @@ export function AppProvider({ children }) {
       return;
     }
     try {
-      const { data: lesson, error: e1 } = await supabase.from("hebrew_lessons").select("*").eq("id", lessonId).single();
-      if (e1) throw e1;
-      const { data: alphabet } = await supabase.from("hebrew_alphabet").select("*").eq("lesson_id", lessonId).single();
-      const { data: vocab } = await supabase.from("hebrew_vocabulary").select("*").eq("lesson_id", lessonId).order("id");
-      if (lesson) setHebrewLesson(lesson);
-      if (alphabet) setHebrewAlphabet(alphabet);
-      setHebrewVocab(vocab || []);
-      hebrewCache.current[cacheKey] = { lesson, alphabet, vocab: vocab || [] };
+      const json = await ensureHebrewJson();
+      if (!json) return;
+      // Search all categories for the lesson
+      let lesson = null;
+      for (const cat of Object.values(json.categories)) {
+        lesson = cat.find(l => l.id === lessonId);
+        if (lesson) break;
+      }
+      if (!lesson) return;
+      const alphabet = lesson._alphabet || null;
+      const vocab = lesson._vocabulary || [];
+      setHebrewLesson(lesson); setHebrewAlphabet(alphabet); setHebrewVocab(vocab);
+      hebrewCache.current[cacheKey] = { lesson, alphabet, vocab };
     } catch (err) { console.error("loadHebrewLesson:", err); }
-  }, []);
+  }, [ensureHebrewJson]);
 
   const loadHebrewProgress = useCallback(async () => {
     if (!user) return;
@@ -1717,24 +1736,36 @@ export function AppProvider({ children }) {
     });
   }, []);
 
-  // ═══ GREEK LEARNING ═══
+  // ═══ GREEK LEARNING (static JSON — zero Supabase calls for lesson content) ═══
+  const greekJsonCache = useRef(null);
+
+  const ensureGreekJson = useCallback(async () => {
+    if (greekJsonCache.current) return greekJsonCache.current;
+    try {
+      const res = await fetch("/data/greek-lessons.json");
+      if (!res.ok) throw new Error("Failed to fetch greek-lessons.json");
+      const json = await res.json();
+      greekJsonCache.current = json;
+      return json;
+    } catch (err) { console.error("ensureGreekJson:", err); return null; }
+  }, []);
+
   const loadGreekLessons = useCallback(async (cat = 'alphabet') => {
     setGreekError(null);
     try {
       const cacheKey = `greek-lessons-${cat}`;
       if (greekCache.current[cacheKey]) { setGreekLessons(greekCache.current[cacheKey]); return; }
-      const { data, error } = await supabase.from("greek_lessons").select("*").eq("category", cat).order("lesson_number");
-      if (error) throw error;
-      if (data) {
-        greekCache.current[cacheKey] = data;
-        setGreekLessons(data);
-        data.forEach(l => { greekLessonCategories.current[l.id] = l.category; });
-      }
+      const json = await ensureGreekJson();
+      if (!json) { setGreekError("Unable to load lessons."); return; }
+      const data = json.categories[cat] || [];
+      greekCache.current[cacheKey] = data;
+      setGreekLessons(data);
+      data.forEach(l => { greekLessonCategories.current[l.id] = l.category; });
     } catch (e) {
       console.error("loadGreekLessons error:", e);
       setGreekError("Unable to load lessons. Please check your connection.");
     }
-  }, []);
+  }, [ensureGreekJson]);
 
   const loadGreekLesson = useCallback(async (lessonId) => {
     try {
@@ -1744,13 +1775,18 @@ export function AppProvider({ children }) {
         setGreekLesson(cached.lesson); setGreekAlphabet(cached.alphabet); setGreekVocab(cached.vocab);
         return;
       }
-      const { data: lesson } = await supabase.from("greek_lessons").select("*").eq("id", lessonId).single();
-      const { data: alphabet } = await supabase.from("greek_alphabet").select("*").eq("lesson_id", lessonId).single();
-      const { data: vocab } = await supabase.from("greek_vocabulary").select("*").eq("lesson_id", lessonId).order("id");
-      if (lesson) setGreekLesson(lesson);
-      if (alphabet) setGreekAlphabet(alphabet);
-      setGreekVocab(vocab || []);
-      greekCache.current[cacheKey] = { lesson, alphabet, vocab: vocab || [] };
+      const json = await ensureGreekJson();
+      if (!json) return;
+      let lesson = null;
+      for (const cat of Object.values(json.categories)) {
+        lesson = cat.find(l => l.id === lessonId);
+        if (lesson) break;
+      }
+      if (!lesson) return;
+      const alphabet = lesson._alphabet || null;
+      const vocab = lesson._vocabulary || [];
+      setGreekLesson(lesson); setGreekAlphabet(alphabet); setGreekVocab(vocab);
+      greekCache.current[cacheKey] = { lesson, alphabet, vocab };
     } catch (e) {
       console.error("loadGreekLesson error:", e);
     }
@@ -1846,18 +1882,28 @@ export function AppProvider({ children }) {
     if (translated) return translated;
 
     try {
-      const res = await fetch(`https://bible.helloao.org/api/${tDef.cdnId}/${bookCode}/${chNum}.json`);
-      if (!res.ok) return null;
-      const data = await res.json();
-      translated = {};
-      (data.chapter?.content || [])
-        .filter(item => item.type === "verse")
-        .forEach(item => {
-          translated[item.number] = (item.content || [])
-            .filter(c => typeof c === 'string' || c.text)
-            .map(c => typeof c === 'string' ? c : c.text)
-            .join('');
-        });
+      // Try local static JSON first, fall back to CDN
+      let data = null;
+      try {
+        const localRes = await fetch(`/data/translations/${translationId}/${bookCode}/${chNum}.json`);
+        if (localRes.ok) {
+          translated = await localRes.json(); // Already in { "1": "text", "2": "text" } format
+        }
+      } catch {}
+      if (!translated) {
+        const res = await fetch(`https://bible.helloao.org/api/${tDef.cdnId}/${bookCode}/${chNum}.json`);
+        if (!res.ok) return null;
+        data = await res.json();
+        translated = {};
+        (data.chapter?.content || [])
+          .filter(item => item.type === "verse")
+          .forEach(item => {
+            translated[item.number] = (item.content || [])
+              .filter(c => typeof c === 'string' || c.text)
+              .map(c => typeof c === 'string' ? c : c.text)
+              .join('');
+          });
+      }
       if (!translationCache.current[translationId]) translationCache.current[translationId] = {};
       translationCache.current[translationId][cacheKey] = translated;
       return translated;
