@@ -1542,16 +1542,36 @@ export default function Apologetics({ nav, onPositionSave, darkMode }) {
   const [debateAnswer, setDebateAnswer] = useState(null); // index chosen
   const [celebration, setCelebration]   = useState(null); // "category"|"master"|null
   const [pressedId, setPressedId] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchTimeout = useRef(null);
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [vaultOpen, setVaultOpen] = useState(false);
 
   const modalRef = useRef(null);
   const closeBtnRef = useRef(null);
   const triggerRef = useRef(null);
 
+  // ── Debounced search ──
+  useEffect(() => {
+    if (searchTimeout.current) clearTimeout(searchTimeout.current);
+    searchTimeout.current = setTimeout(() => setDebouncedSearch(searchQuery.toLowerCase().trim()), 300);
+    return () => { if (searchTimeout.current) clearTimeout(searchTimeout.current); };
+  }, [searchQuery]);
+
   const topic = APOLOGETICS_TOPICS.find(t => t.id === selected);
   const categories = ["All", ...CATEGORIES_LIST];
-  const visible = filterCat === "All"
-    ? APOLOGETICS_TOPICS
-    : APOLOGETICS_TOPICS.filter(t => t.category === filterCat);
+  const visible = useMemo(() => {
+    let list = filterCat === "All" ? APOLOGETICS_TOPICS : APOLOGETICS_TOPICS.filter(t => t.category === filterCat);
+    if (debouncedSearch) {
+      list = list.filter(t =>
+        t.title.toLowerCase().includes(debouncedSearch) ||
+        t.objection.toLowerCase().includes(debouncedSearch) ||
+        t.category.toLowerCase().includes(debouncedSearch) ||
+        t.keyVerse.ref.toLowerCase().includes(debouncedSearch)
+      );
+    }
+    return list;
+  }, [filterCat, debouncedSearch]);
 
   // ── Defense of the Day ──
   const dotdTopic = APOLOGETICS_TOPICS[getDayOfYear() % APOLOGETICS_TOPICS.length];
@@ -1833,8 +1853,33 @@ export default function Apologetics({ nav, onPositionSave, darkMode }) {
 
       {/* ══ GRID ══ */}
       <div id="apologetics-grid" role="tabpanel" style={{ padding:`8px ${bp.pad}px 48px`, maxWidth:bp.contentWide, margin:"0 auto" }}>
+        {/* ── SEARCH BAR ── */}
+        <div style={{ position:"relative", marginBottom:12 }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={st.muted} strokeWidth="2" strokeLinecap="round" style={{ position:"absolute", left:12, top:"50%", transform:"translateY(-50%)", pointerEvents:"none" }}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+            placeholder="Search topics, objections, verses..."
+            aria-label="Search apologetics topics"
+            style={{
+              width:"100%", padding:"10px 12px 10px 34px", borderRadius:10,
+              border:`1.5px solid ${st.divider}`, background: st.card,
+              fontFamily: st.body, fontSize:13, color: st.text,
+              outline:"none", boxSizing:"border-box",
+            }}
+          />
+          {searchQuery && (
+            <button onClick={() => setSearchQuery("")} aria-label="Clear search" style={{
+              position:"absolute", right:8, top:"50%", transform:"translateY(-50%)",
+              background:"none", border:"none", cursor:"pointer", color: st.muted, fontSize:16, padding:4,
+            }}>{"\u00D7"}</button>
+          )}
+        </div>
         <p style={{ fontFamily: st.ui, fontSize:12, color: st.muted, margin:"0 0 14px", fontStyle:"italic" }}>
-          {visible.length} defense{visible.length !== 1 ? "s" : ""} &middot; tap a card to be challenged
+          {debouncedSearch
+            ? `${visible.length} result${visible.length !== 1 ? "s" : ""} for \u201C${debouncedSearch}\u201D`
+            : `${visible.length} defense${visible.length !== 1 ? "s" : ""} \u00B7 tap a card to be challenged`}
         </p>
 
         <div style={{ display:"grid", gridTemplateColumns: gridCols, gap:12 }}>
@@ -1927,6 +1972,53 @@ export default function Apologetics({ nav, onPositionSave, darkMode }) {
             );
           })}
         </div>
+      </div>
+
+      {/* ══ EVIDENCE VAULT ══ */}
+      <div style={{ padding:`0 ${bp.pad}px 32px`, maxWidth:bp.contentWide, margin:"0 auto" }}>
+        <button onClick={() => setVaultOpen(v => !v)} aria-expanded={vaultOpen} aria-controls="evidence-vault" style={{
+          width:"100%", display:"flex", alignItems:"center", justifyContent:"space-between",
+          padding:"14px 16px", borderRadius:12, cursor:"pointer",
+          background: `${st.accent}0A`, border:`1.5px solid ${st.accentBorder}`,
+          fontFamily: st.heading, fontSize:14, fontWeight:700, color: st.accent,
+        }}>
+          <span>{"\u{1F5DD}"} Evidence Vault</span>
+          <span style={{ fontSize:18, transition:"transform 0.2s", transform: vaultOpen ? "rotate(180deg)" : "rotate(0)" }}>{"\u25BE"}</span>
+        </button>
+        {vaultOpen && (
+          <div id="evidence-vault" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:10, marginTop:12, animation:"fadeIn 0.3s ease" }}>
+            {[
+              { icon: "\u{1F4DC}", stat: "5,800+", label: "Greek NT manuscripts", src: "More than any ancient text by 10x" },
+              { icon: "\u{1F4DA}", stat: "24,000+", label: "Total manuscript witnesses", src: "Greek, Latin, Syriac, Coptic, Armenian" },
+              { icon: "\u{1F9EC}", stat: "99.5%", label: "Manuscript agreement", src: "No variant affects any doctrine" },
+              { icon: "\u23F3", stat: "25-50 yrs", label: "NT originals → earliest copies", src: "vs. 1,000+ years for most ancient texts" },
+              { icon: "\u{1F4C5}", stat: "125 AD", label: "P52 (oldest NT fragment)", src: "John 18 — within 30 years of writing" },
+              { icon: "\u{1F4DC}", stat: "1947", label: "Dead Sea Scrolls discovered", src: "Isaiah scroll 1,000 years older, virtually identical" },
+              { icon: "\u{1F3DB}\uFE0F", stat: "1961", label: "Pilate Stone discovered", src: "Caesarea Maritima — confirms Gospel account" },
+              { icon: "\u{1F451}", stat: "1993", label: "Tel Dan Inscription", src: "'House of David' — first extra-biblical reference" },
+              { icon: "\u{1F3CA}", stat: "2004", label: "Pool of Siloam excavated", src: "Exactly where John's Gospel placed it" },
+              { icon: "\u{1F4A7}", stat: "2012", label: "James Ossuary acquittal", src: "7-year trial: 'James, son of Joseph, brother of Jesus'" },
+              { icon: "\u{1F52D}", stat: "500+", label: "Resurrection witnesses", src: "1 Corinthians 15:6 — majority still alive when Paul wrote" },
+              { icon: "\u{1F4D6}", stat: "2,000+", label: "Fulfilled prophecies", src: "J. Barton Payne's Encyclopedia of Biblical Prophecy" },
+              { icon: "\u{1F9D1}\u200D\u{1F393}", stat: "N.T. Wright", label: "Resurrection scholar", src: "817-page academic case for bodily resurrection" },
+              { icon: "\u{1F9D1}\u200D\u{1F393}", stat: "William Lane Craig", label: "Philosopher", src: "Kalam argument, resurrection historicity, moral argument" },
+              { icon: "\u{1F9D1}\u200D\u{1F393}", stat: "Alvin Plantinga", label: "Philosopher", src: "Free Will Defense, modal ontological argument, EAAN" },
+              { icon: "\u{1F4AC}", stat: "C.S. Lewis", label: "Apologist", src: "Mere Christianity, Problem of Pain, Miracles, Trilemma" },
+            ].map((e, i) => (
+              <div key={i} style={{
+                padding:"12px", borderRadius:10, background: st.card,
+                border:`1px solid ${st.divider}`,
+              }}>
+                <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:6 }}>
+                  <span style={{ fontSize:16 }}>{e.icon}</span>
+                  <span style={{ fontFamily: st.heading, fontSize:18, fontWeight:700, color: st.accent }}>{e.stat}</span>
+                </div>
+                <div style={{ fontFamily: st.ui, fontSize:11, fontWeight:600, color: st.text, lineHeight:1.3 }}>{e.label}</div>
+                <div style={{ fontFamily: st.ui, fontSize:9, color: st.muted, marginTop:3, lineHeight:1.3 }}>{e.src}</div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* ══ MODAL ══ */}
