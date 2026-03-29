@@ -252,6 +252,7 @@ export function AppProvider({ children }) {
   const [hebrewDailyDone, setHebrewDailyDone] = useState(null);
   const [hebrewFlashcardHistory, setHebrewFlashcardHistory] = useState({});
   const navStack = useRef([{ view: "home" }]);
+  const navSource = useRef({}); // tracks {targetView: sourceView} for context-aware back
   const [readingStep, setReadingStep] = useState(0);
   const [showLetters, setShowLetters] = useState(false);
   const [readingVerse, setReadingVerse] = useState('gen1v1');
@@ -1957,7 +1958,10 @@ export function AppProvider({ children }) {
   const clearCart = () => setCart([]);
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
   const goBack = () => {
-    const target = BACK_MAP[view] || "home";
+    // Context-aware: if we know the source view, go there instead of static BACK_MAP
+    const source = navSource.current[view];
+    const target = source || BACK_MAP[view] || "home";
+    if (source) delete navSource.current[view]; // one-time use
     if (navStack.current.length > 1) navStack.current.pop();
     goingBack.current = true;
     setView(target);
@@ -1967,6 +1971,8 @@ export function AppProvider({ children }) {
   const nav = useCallback((v, opts = {}) => {
     const snapshot = { view: v, testament, book, chapter, verse, tab, ...opts };
     navStack.current.push(snapshot);
+    // Track source for context-aware back (Home-launched vs Learn-launched)
+    navSource.current[v] = view;
     setView(v);
     if (opts.testament !== undefined) setTestament(opts.testament);
     if (opts.book !== undefined) setBook(opts.book);

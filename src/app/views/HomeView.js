@@ -3,7 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import { useApp } from "../context/AppContext";
 import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
-import GreekWordOfTheDay from "../components/GreekWordOfTheDay";
+import { GWOTD_POOL } from "../components/GreekData";
+import { HWOTD_POOL } from "../components/HebrewData";
 import GoToBar from "../components/GoToBar";
 import UtilityStrip from "../components/UtilityStrip";
 import PrayerOfTheDay from "../components/PrayerOfTheDay";
@@ -368,53 +369,130 @@ export default function HomeView() {
           </div>
           {/* ── VERSE OF THE DAY ── */}
           <VerseOfTheDay nav={nav} ht={ht} />
-          {/* ── GREEK WORD OF THE DAY ── */}
-          <GreekWordOfTheDay nav={nav} ht={ht} />
-          {/* ── PRAYER OF THE DAY ── */}
+          {/* ── PRAYER OF THE DAY (premium spot) ── */}
           <PrayerOfTheDay nav={nav} ht={ht} />
-          {/* ── TODAY'S READING PLAN ── */}
-          <TodaysReadingCard ht={ht} nav={nav} />
-          {/* ── TODAY'S MANNA + LEARNING CENTRE ── */}
-          {/* ── TODAY'S PODCAST EPISODE ── */}
-          <PodcastHeroCard ht={ht} nav={nav} />
-          {/* ── LOCATION OF THE DAY ── */}
-          <LOTDHomeCard ht={ht} nav={nav} />
-          {/* ── DEFENSE OF THE DAY ── */}
+
+          {/* ── TODAY'S WORDS — Hebrew + Greek side-by-side stained glass ── */}
           {(() => {
-            const dotd = APOLOGETICS_TOPICS[getDayOfYear() % APOLOGETICS_TOPICS.length];
-            if (!dotd) return null;
-            let apolStudied = false, apolStreak = 0;
-            try { const s = JSON.parse(localStorage.getItem("apologeticsStudied") || "{}"); apolStudied = s[dotd.id]?.lastStudied === new Date().toISOString().slice(0, 10); } catch {}
-            try { apolStreak = (JSON.parse(localStorage.getItem("apologeticsStreak")) || {}).current || 0; } catch {}
+            const hWord = HWOTD_POOL[getDayOfYear() % HWOTD_POOL.length];
+            const gWord = GWOTD_POOL[getDayOfYear() % GWOTD_POOL.length];
             return (
-              <button onClick={() => nav("apologetics-home")} className="pressable" style={{ width:"100%",display:"flex",alignItems:"center",gap:12,padding:"14px 16px",borderRadius:14,cursor:"pointer",border:`1px solid ${dotd.color}30`,textAlign:"left",background:`linear-gradient(135deg,${dotd.color}08,${ht.card})`,marginBottom:16,animation:"fadeIn 0.4s ease 0.2s both",position:"relative" }}>
-                <div style={{ width:44,height:44,borderRadius:12,background:`${dotd.color}18`,border:`1px solid ${dotd.color}30`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0 }}>{dotd.icon}</div>
-                <div style={{ flex:1,minWidth:0 }}>
-                  <div style={{ display:"flex",alignItems:"center",gap:6 }}>
-                    <span style={{ fontFamily:ht.ui,fontSize:9,fontWeight:700,color:dotd.color,textTransform:"uppercase",letterSpacing:"0.08em" }}>{"\u{1F6E1}\uFE0F"} Defense of the Day</span>
-                    {apolStreak > 0 && <span style={{ fontSize:10 }}>{apolStreak >= 30 ? "\u{1F525}\u{1F525}\u{1F525}" : apolStreak >= 7 ? "\u{1F525}\u{1F525}" : "\u{1F525}"} <span style={{ fontFamily:ht.ui,fontSize:8,color:ht.muted }}>{apolStreak}</span></span>}
-                  </div>
-                  <div style={{ fontFamily:ht.heading,fontSize:13,fontWeight:700,color:ht.dark,lineHeight:1.2,marginTop:2 }}>{dotd.title}</div>
-                  <div style={{ fontFamily:ht.ui,fontSize:9,color:ht.muted,marginTop:2 }}>{dotd.category}</div>
+              <div style={{ marginBottom:16 }}>
+                <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:10,display:"flex",alignItems:"center",gap:8 }}>
+                  <span>📖</span> Today's Words
                 </div>
-                {apolStudied ? <span style={{ fontSize:14,color:"#22C55E" }}>{"\u2713"}</span> : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={`${ht.muted}88`} strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>}
-              </button>
+                <div style={{ display:"flex",gap:10 }}>
+                  {/* Hebrew Card — Warm Stained Glass */}
+                  <button onClick={() => nav("hebrew-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 4px 12px rgba(0,0,0,0.18))" }}>
+                    <div style={{ borderRadius:12,overflow:"hidden",border:"1.5px solid #C06C3E" }}>
+                      <div style={{ background:"linear-gradient(180deg,#1A1208,#2A1A0A)",padding:"14px 8px 10px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+                        <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(192,108,62,0.2),transparent 70%)" }}/>
+                        <div style={{ position:"absolute",top:0,left:"35%",width:"1px",height:"100%",background:"rgba(180,160,100,0.12)" }}/>
+                        <div style={{ position:"absolute",top:0,left:"65%",width:"1px",height:"100%",background:"rgba(180,160,100,0.12)" }}/>
+                        <div style={{ position:"relative",zIndex:1 }}>
+                          <div style={{ fontFamily:ht.ui,fontSize:7,fontWeight:700,color:"#C06C3E",textTransform:"uppercase",letterSpacing:"0.15em",marginBottom:4 }}>Hebrew</div>
+                          <div style={{ fontFamily:"'Times New Roman',serif",fontSize:24,color:"#F0D080",direction:"rtl",lineHeight:1.1,textShadow:"0 2px 8px rgba(192,108,62,0.4)" }}>{hWord.hebrew}</div>
+                        </div>
+                      </div>
+                      <div style={{ background:"linear-gradient(180deg,#FFF8EC,#F5E8D0)",padding:"8px 8px 10px",textAlign:"center",borderTop:"1.5px solid #C06C3E" }}>
+                        <div style={{ fontFamily:ht.body,fontSize:10,color:"#3A2408",fontStyle:"italic" }}>{hWord.transliteration}</div>
+                        <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#6B4A10",marginTop:2,lineHeight:1.2 }}>{hWord.meaning.length > 22 ? hWord.meaning.slice(0,22) + "..." : hWord.meaning}</div>
+                        <div style={{ fontFamily:ht.ui,fontSize:8,fontWeight:700,color:"#C06C3E",marginTop:4,textTransform:"uppercase",letterSpacing:"0.06em" }}>Study →</div>
+                      </div>
+                    </div>
+                  </button>
+                  {/* Greek Card — Ocean Stained Glass */}
+                  <button onClick={() => nav("greek-home")} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 4px 12px rgba(0,0,0,0.18))" }}>
+                    <div style={{ borderRadius:12,overflow:"hidden",border:"1.5px solid #1B7A6E" }}>
+                      <div style={{ background:"linear-gradient(180deg,#0A1818,#0F2A2A)",padding:"14px 8px 10px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+                        <div style={{ position:"absolute",inset:0,background:"radial-gradient(ellipse at 50% 30%,rgba(27,122,110,0.2),transparent 70%)" }}/>
+                        <div style={{ position:"absolute",top:0,left:"35%",width:"1px",height:"100%",background:"rgba(100,180,170,0.12)" }}/>
+                        <div style={{ position:"absolute",top:0,left:"65%",width:"1px",height:"100%",background:"rgba(100,180,170,0.12)" }}/>
+                        <div style={{ position:"relative",zIndex:1 }}>
+                          <div style={{ fontFamily:ht.ui,fontSize:7,fontWeight:700,color:"#1B7A6E",textTransform:"uppercase",letterSpacing:"0.15em",marginBottom:4 }}>Greek</div>
+                          <div style={{ fontFamily:"'Times New Roman',serif",fontSize:24,color:"#7ED4CA",lineHeight:1.1,textShadow:"0 2px 8px rgba(27,122,110,0.4)" }}>{gWord.greek}</div>
+                        </div>
+                      </div>
+                      <div style={{ background:"linear-gradient(180deg,#ECF8F6,#D0F0EA)",padding:"8px 8px 10px",textAlign:"center",borderTop:"1.5px solid #1B7A6E" }}>
+                        <div style={{ fontFamily:ht.body,fontSize:10,color:"#0A2A28",fontStyle:"italic" }}>{gWord.transliteration}</div>
+                        <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#105A50",marginTop:2,lineHeight:1.2 }}>{gWord.meaning.length > 22 ? gWord.meaning.slice(0,22) + "..." : gWord.meaning}</div>
+                        <div style={{ fontFamily:ht.ui,fontSize:8,fontWeight:700,color:"#1B7A6E",marginTop:4,textTransform:"uppercase",letterSpacing:"0.06em" }}>Study →</div>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
             );
           })()}
-          {/* ── PROPHECY OF THE DAY ── */}
-          <ProphecyOfTheDay nav={nav} ht={ht} />
-          {/* ── LEARNING CENTRE ── */}
-          <style>{`@keyframes navGlow { 0%,100% { border-color: rgba(212,168,83,0.35); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 6px rgba(212,168,83,0.1); } 50% { border-color: rgba(212,168,83,0.7); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
-          <div style={{ marginBottom:16 }}>
-            <button onClick={() => nav("learn-home")} className="pressable" style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"12px 14px",borderRadius:12,border:"1px solid rgba(212,168,83,0.35)",background:ht.headerGradient,cursor:"pointer",animation:"navGlow 3s ease-in-out infinite" }}>
-              <span style={{ fontSize:18 }}>{"\uD83C\uDF93"}</span>
-              <div>
-                <div style={{ fontFamily:ht.heading,fontSize:12,fontWeight:700,color:ht.headerText,lineHeight:1.2 }}>Learning Centre</div>
-                <div style={{ fontFamily:ht.ui,fontSize:9,color:`${ht.headerText}77`,marginTop:1 }}>Languages · History · Curriculum</div>
+
+          {/* ── DAILY DISCOVERY — 4 dark glass tiles ── */}
+          {(() => {
+            const podEp = (() => { try { const d = JSON.parse(localStorage.getItem("podcastNavState") || "{}"); return d.epNum || ""; } catch { return ""; } })();
+            const dotd = APOLOGETICS_TOPICS[getDayOfYear() % APOLOGETICS_TOPICS.length];
+            const tiles = [
+              { icon:"🎙️", label:"Today's\nWord", subtitle:podEp ? `Ep ${podEp}` : "Podcast", color:"#D4A853", glow:"rgba(212,168,83,0.25)", nav:() => nav("podcast-home") },
+              { icon:"🗺️", label:"Location\nof Day", subtitle:"Explore", color:"#8B6914", glow:"rgba(139,105,20,0.2)", nav:() => nav("timeline-maps") },
+              { icon:"🛡️", label:"Defense\nof Day", subtitle:dotd?.category?.slice(0,12) || "Apologetics", color:"#4A6FA5", glow:"rgba(74,111,165,0.25)", nav:() => nav("apologetics-home") },
+              { icon:"🔭", label:"Prophecy\nof Day", subtitle:"Fulfilment", color:"#8B5CF6", glow:"rgba(139,92,246,0.25)", nav:() => nav("prophecy-home") },
+            ];
+            return (
+              <div style={{ marginBottom:16 }}>
+                <div style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.12em",marginBottom:10,display:"flex",alignItems:"center",gap:8 }}>
+                  <span>✨</span> Daily Discovery
+                </div>
+                <div style={{ display:"flex",gap:8 }}>
+                  {tiles.map((t,i) => (
+                    <button key={i} onClick={t.nav} style={{ flex:1,cursor:"pointer",border:"none",background:"transparent",padding:0 }}>
+                      <div style={{ borderRadius:14,overflow:"hidden",background:"linear-gradient(180deg,#0D0D0D,#1A1A1A)",border:`1.5px solid ${t.color}40`,position:"relative",padding:"16px 4px 12px",textAlign:"center",boxShadow:`0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)` }}>
+                        {/* Colored radial glow */}
+                        <div style={{ position:"absolute",top:"-20%",left:"50%",transform:"translateX(-50%)",width:"120%",height:"80%",background:`radial-gradient(ellipse at 50% 50%,${t.glow},transparent 70%)`,pointerEvents:"none" }}/>
+                        {/* Lead caming lines */}
+                        <div style={{ position:"absolute",top:0,left:"50%",width:"1px",height:"100%",background:`${t.color}15` }}/>
+                        <div style={{ position:"absolute",top:"45%",left:0,width:"100%",height:"1px",background:`${t.color}10` }}/>
+                        <div style={{ position:"relative",zIndex:1 }}>
+                          <div style={{ fontSize:24,marginBottom:6,filter:`drop-shadow(0 2px 6px ${t.glow})` }}>{t.icon}</div>
+                          <div style={{ fontFamily:ht.ui,fontSize:8,fontWeight:700,color:"#fff",lineHeight:1.3,whiteSpace:"pre-line",textShadow:"0 1px 3px rgba(0,0,0,0.6)" }}>{t.label}</div>
+                          <div style={{ fontFamily:ht.ui,fontSize:7,color:`${t.color}`,marginTop:3,fontWeight:600,letterSpacing:"0.03em" }}>{t.subtitle}</div>
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={`${ht.headerText}60`} strokeWidth="2" style={{ marginLeft:"auto" }}><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-          </div>
+            );
+          })()}
+
+          {/* ── READING JOURNEY — Stained Glass Hero ── */}
+          {(() => {
+            // TodaysReadingCard replaced with stained glass hero
+            return (
+              <div style={{ marginBottom:16 }}>
+                <button onClick={() => nav("reading-plans-home")} style={{ width:"100%",cursor:"pointer",border:"none",background:"transparent",padding:0,filter:"drop-shadow(0 6px 18px rgba(0,0,0,0.2))" }}>
+                  <div style={{ borderRadius:14,overflow:"hidden",border:"2px solid #2D5A2D",boxShadow:"inset 0 1px 0 rgba(255,255,255,0.2)" }}>
+                    {/* Glass panel — forest green cathedral */}
+                    <div style={{ background:"linear-gradient(180deg,#0A1A0A,#142814)",padding:"22px 16px 16px",textAlign:"center",position:"relative",overflow:"hidden" }}>
+                      <div style={{ position:"absolute",top:"-20%",left:"50%",transform:"translateX(-50%)",width:"140%",height:"140%",background:"radial-gradient(ellipse at 50% 30%,rgba(45,90,45,0.25) 0%,rgba(34,139,34,0.1) 25%,rgba(20,80,20,0.05) 50%,transparent 70%)" }}/>
+                      <div style={{ position:"absolute",top:0,left:"25%",width:"1px",height:"100%",background:"rgba(100,180,100,0.1)" }}/>
+                      <div style={{ position:"absolute",top:0,left:"75%",width:"1px",height:"100%",background:"rgba(100,180,100,0.1)" }}/>
+                      <div style={{ position:"absolute",top:0,left:"10%",right:"10%",height:"50%",borderRadius:"0 0 50% 50%",background:"radial-gradient(ellipse at 50% 0%,rgba(100,200,100,0.08),transparent 70%)" }}/>
+                      <div style={{ position:"relative",zIndex:1,fontSize:32,marginBottom:6,filter:"drop-shadow(0 2px 8px rgba(34,139,34,0.4))" }}>📖</div>
+                      <div style={{ position:"relative",zIndex:1,fontFamily:"serif",fontSize:13,color:"#90D090",lineHeight:1,textShadow:"0 0 12px rgba(100,200,100,0.3),0 1px 3px rgba(0,0,0,0.6)" }}>Your Reading Journey</div>
+                    </div>
+                    {/* Info panel — sage green cream */}
+                    <div style={{ background:"linear-gradient(180deg,#F0F8F0,#E0F0E0,#D4E8D4)",padding:"14px 14px 16px",textAlign:"center",borderTop:"2px solid #2D5A2D",boxShadow:"inset 0 2px 8px rgba(45,90,45,0.08)" }}>
+                      <div style={{ fontFamily:ht.heading,fontSize:14,fontWeight:700,color:"#1A3A1A",marginBottom:4 }}>Start a Reading Journey</div>
+                      <div style={{ width:28,height:2,background:"linear-gradient(90deg,transparent,#2D5A2D,transparent)",borderRadius:2,margin:"0 auto 6px" }}/>
+                      <div style={{ fontFamily:ht.ui,fontSize:10.5,color:"#3A6A3A",lineHeight:1.6,marginBottom:10 }}>16 guided plans through the Word of God</div>
+                      <div style={{ display:"inline-block",padding:"6px 16px",borderRadius:6,background:"rgba(45,90,45,0.1)",border:"1px solid rgba(45,90,45,0.35)",boxShadow:"inset 0 1px 2px rgba(0,0,0,0.04)" }}>
+                        <span style={{ fontFamily:ht.ui,fontSize:10,fontWeight:700,color:"#1A4A1A",textTransform:"uppercase",letterSpacing:"0.07em" }}>Explore Plans →</span>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            );
+          })()}
+
           {/* ── CONTINUE READING ── */}
           <ContinueReading nav={nav} ht={ht} user={user} />
 
@@ -430,89 +508,71 @@ export default function HomeView() {
             </button>
           )}
 
-          {/* ── DAILY QUIZ ── */}
+          {/* ── DAILY QUIZ — Enhanced with golden glow + Browse link ── */}
           {(() => {
             const dq = getDailyQuiz();
             if (!dq) return null;
             const streakCount = quizStreak?.current_streak || 0;
             const completed = dailyQuizCompleted;
             return (
-              <div style={{ marginBottom: 16 }}>
+              <div style={{ marginBottom:16 }}>
                 <div style={{
-                  background: `linear-gradient(135deg, ${ht.accent}15, ${ht.card})`,
+                  background: completed ? `linear-gradient(135deg, rgba(34,197,94,0.08), ${ht.card})` : `linear-gradient(135deg, ${ht.accent}15, ${ht.card})`,
                   border: `1.5px solid ${completed ? "rgba(34,197,94,0.3)" : ht.accentBorder}`,
                   borderRadius: 14, padding: "18px 18px", position: "relative", overflow: "hidden",
-                  animation: completed ? undefined : "pulseGlow 3s ease-in-out infinite",
                 }}>
                   {/* Gold accent line at top */}
-                  <div style={{
-                    position: "absolute", top: 0, left: 0, right: 0, height: 2,
-                    background: `linear-gradient(90deg, transparent, ${ht.accent}, transparent)`,
-                    backgroundSize: "200% 100%", animation: "goldFlow 3s linear infinite",
-                  }} />
-                  <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  {!completed && <div style={{ position:"absolute",top:0,left:0,right:0,height:2,background:`linear-gradient(90deg, transparent, ${ht.accent}, transparent)`,backgroundSize:"200% 100%",animation:"goldFlow 3s linear infinite" }}/>}
+                  <div style={{ display:"flex",alignItems:"center",gap:14 }}>
+                    {/* Quiz icon with golden glow ring when incomplete */}
                     <div style={{
-                      width: 44, height: 44, borderRadius: 12,
-                      background: completed ? "rgba(34,197,94,0.12)" : `${ht.accent}18`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      flexShrink: 0, fontSize: 22,
+                      width:48, height:48, borderRadius:14,
+                      background: completed ? "rgba(34,197,94,0.12)" : `${ht.accent}15`,
+                      border: completed ? "2px solid rgba(34,197,94,0.3)" : `2px solid ${ht.accent}44`,
+                      display:"flex", alignItems:"center", justifyContent:"center",
+                      flexShrink:0, fontSize:24,
+                      boxShadow: completed ? "none" : `0 0 12px ${ht.accent}30, 0 0 24px ${ht.accent}15`,
                     }}>
                       {completed ? "✅" : "📝"}
                     </div>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontFamily: ht.heading, fontSize: 14, fontWeight: 700, color: ht.dark, lineHeight: 1.2 }}>
+                    <div style={{ flex:1 }}>
+                      <div style={{ fontFamily:ht.heading, fontSize:15, fontWeight:700, color:ht.dark, lineHeight:1.2 }}>
                         Daily Quiz
-                        {streakCount > 0 && (
-                          <span style={{ marginLeft: 8, fontFamily: ht.ui, fontSize: 11, fontWeight: 700, color: "#D4A853" }}>
-                            🔥 {streakCount}
-                          </span>
-                        )}
+                        {streakCount > 0 && <span style={{ marginLeft:8, fontFamily:ht.ui, fontSize:11, fontWeight:700, color:"#D4A853" }}>🔥 {streakCount}</span>}
                       </div>
-                      <div style={{ fontFamily: ht.ui, fontSize: 11, color: completed ? "#22c55e" : ht.muted, marginTop: 2 }}>
+                      <div style={{ fontFamily:ht.ui, fontSize:11, color:completed ? "#22c55e" : ht.muted, marginTop:3 }}>
                         {completed ? "Come back tomorrow!" : `${dq.book} ${dq.chapter}`}
                       </div>
                     </div>
-                    {!completed && (
-                      <div style={{ display: "flex", gap: 6 }}>
-                        {["kids", "teens", "adults"].map(diff => (
-                          <button key={diff} onClick={() => {
-                            setQuizDifficulty(diff);
-                            loadQuizQuestions(dq.book, dq.chapter, diff);
-                            nav("quiz-active", { book: dq.book, chapter: dq.chapter });
-                          }} style={{
-                            padding: "6px 10px", borderRadius: 8, border: `1px solid ${ht.accentBorder}`,
-                            background: ht.accentLight, cursor: "pointer",
-                            fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.accent,
-                            textTransform: "capitalize",
-                          }}>
-                            {diff === "kids" ? "🧒" : diff === "teens" ? "🎓" : "📖"}
-                          </button>
-                        ))}
-                      </div>
-                    )}
                   </div>
+                  {/* Better CTA — gradient button instead of tiny emoji buttons */}
+                  {!completed && (
+                    <div style={{ display:"flex", gap:8, marginTop:14 }}>
+                      {[{diff:"kids",label:"Kids",emoji:"🧒"},{diff:"teens",label:"Teens",emoji:"🎓"},{diff:"adults",label:"Adults",emoji:"📖"}].map(d => (
+                        <button key={d.diff} onClick={() => {
+                          setQuizDifficulty(d.diff);
+                          loadQuizQuestions(dq.book, dq.chapter, d.diff);
+                          nav("quiz-active", { book: dq.book, chapter: dq.chapter });
+                        }} style={{
+                          flex:1, padding:"10px 8px", borderRadius:10,
+                          border: `1px solid ${ht.accentBorder}`,
+                          background: `linear-gradient(135deg, ${ht.accent}12, ${ht.accentLight})`,
+                          cursor:"pointer", textAlign:"center",
+                        }}>
+                          <div style={{ fontSize:18, marginBottom:2 }}>{d.emoji}</div>
+                          <div style={{ fontFamily:ht.ui, fontSize:9, fontWeight:700, color:ht.accent, textTransform:"uppercase", letterSpacing:"0.05em" }}>{d.label}</div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {/* Browse all books link */}
+                  <button onClick={() => nav("quiz-browser")} style={{ width:"100%", marginTop:12, padding:0, border:"none", background:"transparent", cursor:"pointer", textAlign:"center" }}>
+                    <span style={{ fontFamily:ht.ui, fontSize:10, fontWeight:600, color:ht.muted, textDecoration:"underline", textUnderlineOffset:2 }}>Browse all 26 books →</span>
+                  </button>
                 </div>
               </div>
             );
           })()}
-          {/* ── QUIZ MASTER ── */}
-          <div style={{ marginBottom: 22 }}>
-            <div style={{ fontFamily: ht.ui, fontSize: 10, fontWeight: 700, color: ht.muted, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 14, display: "flex", alignItems: "center", gap: 8 }}>
-              <span>🏆</span> Quiz Master
-            </div>
-            <div onClick={() => nav("quiz-browser")} className="pressable" style={{ background: `linear-gradient(135deg,${ht.accent}12,${ht.card})`, border: `1px solid ${ht.accentBorder}`, borderRadius: 14, padding: "18px 18px", display: "flex", alignItems: "center", gap: 14, cursor: "pointer", position: "relative", overflow: "hidden" }}>
-              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg,${ht.accent},${ht.accent}88,${ht.accent})`, opacity: 0.6, borderRadius: "0 0 14px 14px" }} />
-              <div style={{ width: 52, height: 52, borderRadius: 14, background: `${ht.accent}20`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 30, flexShrink: 0 }}>🏆</div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontFamily: ht.heading, fontSize: 17, fontWeight: 700, color: ht.dark, lineHeight: 1.3 }}>Test Your Bible Knowledge</div>
-                <div style={{ fontFamily: ht.ui, fontSize: 11, color: ht.accent, fontWeight: 600, marginTop: 1 }}>26 Books · 3 Difficulty Levels</div>
-                <div style={{ fontFamily: ht.ui, fontSize: 12, color: ht.muted, marginTop: 4, lineHeight: 1.6 }}>Kids, Teens &amp; Adults — choose your level and dive into a chapter quiz.</div>
-              </div>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={ht.accent} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </div>
-          </div>
 
           {/* ── LITTLE DISCIPLES ── */}
           <div style={{ marginBottom:22,marginTop:10 }}>
