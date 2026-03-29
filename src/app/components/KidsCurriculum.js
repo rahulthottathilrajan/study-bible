@@ -42,8 +42,8 @@ const KC_DARK = {
   gameChip:"rgba(5,150,105,0.1)", gameChipBorder:"rgba(5,150,105,0.25)",
 };
 
-const AGE_BADGES = { "3-5":{bg:"#FEF3C7",color:"#92400E",label:"Ages 3\u20135"}, "6-8":{bg:"#DBEAFE",color:"#1E40AF",label:"Ages 6\u20138"}, "9-12":{bg:"#EDE9FE",color:"#5B21B6",label:"Ages 9\u201312"} };
-const TERM_BADGES = { "Term 1":{bg:"#FEE2E2",color:"#991B1B",label:"Term 1 \u00B7 Jan\u2013Mar"}, "Term 2":{bg:"#FEF3C7",color:"#92400E",label:"Term 2 \u00B7 Apr\u2013Jun"}, "Term 3":{bg:"#DBEAFE",color:"#1E40AF",label:"Term 3 \u00B7 Jul\u2013Sep"}, "Term 4":{bg:"#EDE9FE",color:"#5B21B6",label:"Term 4 \u00B7 Oct\u2013Dec"} };
+const AGE_BADGES = { "3-5":{bg:"#FEF3C7",color:"#92400E",label:"Ages 3–5"}, "6-8":{bg:"#DBEAFE",color:"#1E40AF",label:"Ages 6–8"}, "9-12":{bg:"#EDE9FE",color:"#5B21B6",label:"Ages 9–12"} };
+const TERM_BADGES = { "Term 1":{bg:"#FEE2E2",color:"#991B1B",label:"Term 1 \· Jan–Mar"}, "Term 2":{bg:"#FEF3C7",color:"#92400E",label:"Term 2 \· Apr–Jun"}, "Term 3":{bg:"#DBEAFE",color:"#1E40AF",label:"Term 3 \· Jul–Sep"}, "Term 4":{bg:"#EDE9FE",color:"#5B21B6",label:"Term 4 \· Oct–Dec"} };
 const TERM_WEEKS = { "Term 1":[1,2,3,4,5,6,7,8,9,10,11,12,13], "Term 2":[14,15,16,17,18,19,20,21,22,23,24,25,26], "Term 3":[27,28,29,30,31,32,33,34,35,36,37,38,39], "Term 4":[40,41,42,43,44,45,46,47,48,49,50,51,52] };
 const MONTHS = [
   {label:"All",weeks:null},{label:"Jan",weeks:[1,2,3,4]},{label:"Feb",weeks:[5,6,7,8]},{label:"Mar",weeks:[9,10,11,12,13]},
@@ -52,7 +52,7 @@ const MONTHS = [
   {label:"Oct",weeks:[40,41,42,43]},{label:"Nov",weeks:[44,45,46,47,48]},{label:"Dec",weeks:[49,50,51,52]},
 ];
 const CELEBRATION_MSGS = ["Wonderful!","Great Job!","Well Done!","Amazing!","God Bless You!"];
-const MILESTONES = [{ at:13,label:"Term 1 Complete",icon:"\u2B50" },{ at:26,label:"Halfway Hero",icon:"\u{1F31F}" },{ at:39,label:"Term 3 Complete",icon:"\u{1F3AF}" },{ at:52,label:"Kids Graduate",icon:"\u{1F393}" }];
+const MILESTONES = [{ at:13,label:"Term 1 Complete",icon:"⭐" },{ at:26,label:"Halfway Hero",icon:"🌟" },{ at:39,label:"Term 3 Complete",icon:"🎯" },{ at:52,label:"Kids Graduate",icon:"🎓" }];
 
 const getCurrentWeek = () => {
   const now = new Date();
@@ -304,7 +304,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
 
   // ── Verse game ─────────────────────────────
   const startVerseGame = useCallback((verse) => {
-    const text = verse.split("\u2014")[0].trim();
+    const text = verse.split("—")[0].trim();
     let words = text.split(/\s+/);
     // Age adaptation
     if (ageFilter === "3-5") words = words.slice(0, Math.min(8, words.length));
@@ -318,7 +318,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
   }, [ageFilter]);
 
   const tapGameWord = useCallback((word, idx) => {
-    const text = selectedLesson?.memoryVerse.split("\u2014")[0].trim() || "";
+    const text = selectedLesson?.memoryVerse.split("—")[0].trim() || "";
     let correctWords = text.split(/\s+/);
     if (ageFilter === "3-5") correctWords = correctWords.slice(0, Math.min(8, correctWords.length));
     else if (ageFilter === "6-8") correctWords = correctWords.slice(0, Math.min(15, correctWords.length));
@@ -348,7 +348,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
           <h3 style={{ fontFamily:KC.heading, fontSize:15, fontWeight:700, color:KC.text, margin:0 }}>{title}</h3>
           {timing && <div style={{ fontFamily:KC.ui, fontSize:10, color:KC.muted, marginTop:1 }}>{timing}</div>}
         </div>
-        {onToggle && <span aria-hidden="true" style={{ fontSize:13, color:KC.muted, transition:"transform 0.2s", transform:collapsed ? "rotate(0deg)" : "rotate(180deg)" }}>{"\u25BC"}</span>}
+        {onToggle && <span aria-hidden="true" style={{ fontSize:13, color:KC.muted, transition:"transform 0.2s", transform:collapsed ? "rotate(0deg)" : "rotate(180deg)" }}>{"▼"}</span>}
       </div>
       {!collapsed && <div style={{ padding:"16px 20px", background:altBg || KC.card, borderBottom:`1px solid ${KC.divider}` }}>{children}</div>}
     </div>
@@ -388,7 +388,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
             THIS WEEK
           </div>
         )}
-        {done && !isThisWeek && <div aria-label="Completed" style={{ position:"absolute", top:8, right:8, width:22, height:22, borderRadius:"50%", background:"#059669", display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, color:"#fff", zIndex:2 }}>{"\u2713"}</div>}
+        {done && !isThisWeek && <div aria-label="Completed" style={{ position:"absolute", top:8, right:8, width:22, height:22, borderRadius:"50%", background:"#059669", display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, color:"#fff", zIndex:2 }}>{"✓"}</div>}
         <div style={{ padding:"14px 14px 12px" }}>
           <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:8 }}>
             <span style={{ background:lesson.color+"18", color:lesson.color, fontFamily:KC.ui, fontSize:10, fontWeight:700, padding:"2px 8px", borderRadius:6, letterSpacing:0.5, textTransform:"uppercase" }}>Week {lesson.week}</span>
@@ -397,7 +397,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
           <div style={{ fontFamily:KC.heading, fontSize:15, fontWeight:700, color:KC.text, lineHeight:1.3, marginBottom:4 }}>{lesson.title}</div>
           <div style={{ fontFamily:KC.ui, fontSize:11, color:KC.muted, marginBottom:8 }}>{lesson.bibleRef}</div>
           <div style={{ fontFamily:KC.body, fontSize:12, color:KC.accent, fontStyle:"italic", lineHeight:1.45, marginBottom:10, display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" }}>
-            &ldquo;{lesson.keyVerse.split("\u2014")[0].trim()}&rdquo;
+            &ldquo;{lesson.keyVerse.split("—")[0].trim()}&rdquo;
           </div>
           <div style={{ display:"flex", alignItems:"center", gap:6, flexWrap:"wrap" }}>
             <span style={{ background:tb.bg, color:tb.color, fontFamily:KC.ui, fontSize:9, fontWeight:600, padding:"2px 7px", borderRadius:4 }}>{lesson.term}</span>
@@ -405,8 +405,8 @@ export default function KidsCurriculum({ nav, darkMode }) {
           </div>
         </div>
         <div style={{ borderTop:`1px solid ${KC.divider}`, padding:"8px 14px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-          <span style={{ fontFamily:KC.ui, fontSize:11, fontWeight:600, color:KC.accent }}>{done ? "View Again \u2192" : "View Lesson \u2192"}</span>
-          <span style={{ fontFamily:KC.body, fontSize:11, color:KC.muted }}>{lesson.theme}{lessonViews[lesson.week] > 1 ? ` \u00B7 ${lessonViews[lesson.week]}x` : ""}</span>
+          <span style={{ fontFamily:KC.ui, fontSize:11, fontWeight:600, color:KC.accent }}>{done ? "View Again →" : "View Lesson →"}</span>
+          <span style={{ fontFamily:KC.body, fontSize:11, color:KC.muted }}>{lesson.theme}{lessonViews[lesson.week] > 1 ? ` \· ${lessonViews[lesson.week]}x` : ""}</span>
         </div>
       </div>
     );
@@ -434,7 +434,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
         }}>
           {/* Sticky Header */}
           <div style={{ background:L.color, padding:"16px 20px 14px", display:"flex", alignItems:"flex-start", gap:12, flexShrink:0 }}>
-            <button ref={closeBtnRef} onClick={closeModal} aria-label="Close lesson" style={{ background:"rgba(255,255,255,0.2)", border:"none", borderRadius:8, padding:"6px 10px", color:"#fff", fontSize:15, cursor:"pointer", fontFamily:KC.ui }}>{"\u2715"}</button>
+            <button ref={closeBtnRef} onClick={closeModal} aria-label="Close lesson" style={{ background:"rgba(255,255,255,0.2)", border:"none", borderRadius:8, padding:"6px 10px", color:"#fff", fontSize:15, cursor:"pointer", fontFamily:KC.ui }}>{"✕"}</button>
             <div style={{ flex:1 }}>
               <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:4 }}>
                 <span style={{ background:"rgba(255,255,255,0.2)", color:"#fff", fontFamily:KC.ui, fontSize:10, fontWeight:700, padding:"2px 8px", borderRadius:6 }}>WEEK {L.week}</span>
@@ -450,10 +450,10 @@ export default function KidsCurriculum({ nav, darkMode }) {
                   const story = typeof L.story === "string" ? L.story : (L.story[ageFilter] || L.story["6-8"] || "");
                   const scripture = typeof L.scripture === "string" ? L.scripture : (L.scripture[ageFilter] || L.scripture["6-8"] || "");
                   const activities = typeof L.activities === "string" ? L.activities : (L.activities[ageFilter] || L.activities["6-8"] || "");
-                  printW.document.write(`<!DOCTYPE html><html><head><title>Week ${L.week}: ${L.title}</title><style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:0 20px;color:#1F2937;line-height:1.8}h1{font-size:24px;border-bottom:2px solid #059669;padding-bottom:8px}h2{font-size:16px;color:#059669;margin-top:24px}blockquote{background:#FFFBEB;border-left:4px solid #D97706;padding:12px 16px;margin:12px 0;font-style:italic;white-space:pre-line}.supplies{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:12px 16px;margin:12px 0}.verse-box{background:#ECFDF5;border:1px solid #A7F3D0;border-radius:8px;padding:16px;text-align:center;font-style:italic;font-size:18px}.prayer{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:12px 16px;font-style:italic}@media print{body{margin:20px}}</style></head><body><h1>${L.icon} Week ${L.week}: ${L.title}</h1><p><strong>${L.bibleRef}</strong> \u00B7 ${L.theme} \u00B7 ${AGE_BADGES[ageFilter]?.label || ""}</p><h2>\u{1F31F} Before We Start</h2><p>${L.warmUp}</p><h2>\u{1F4D6} The Story</h2><p>${story}</p><h2>\u{1F4DC} Scripture</h2><blockquote>${scripture}</blockquote><h2>\u{1F4AD} Discussion Questions</h2><ol>${L.discussionQuestions.map(q => `<li>${q}</li>`).join("")}</ol><h2>\u{1F3A8} Create & Explore</h2>${L.supplies ? `<div class="supplies"><strong>\u{1F4E6} Supplies:</strong> ${L.supplies}</div>` : ""}<p>${activities}</p><h2>\u2728 Memory Verse</h2><div class="verse-box">${L.memoryVerse}</div><h2>\u{1F4DD} What I Learned</h2><p>${L.reflection}</p><h2>\u{1F64F} Prayer</h2><div class="prayer">${L.prayer}</div><h2>\u{1F468}\u200D\u{1F3EB} Teacher Notes</h2><p style="font-size:13px;color:#666">${L.teacherNote}</p><hr><p style="text-align:center;color:#999;font-size:12px">The Bible Scrollers \u2014 Kids Church Curriculum \u2014 Week ${L.week}</p></body></html>`);
+                  printW.document.write(`<!DOCTYPE html><html><head><title>Week ${L.week}: ${L.title}</title><style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:0 20px;color:#1F2937;line-height:1.8}h1{font-size:24px;border-bottom:2px solid #059669;padding-bottom:8px}h2{font-size:16px;color:#059669;margin-top:24px}blockquote{background:#FFFBEB;border-left:4px solid #D97706;padding:12px 16px;margin:12px 0;font-style:italic;white-space:pre-line}.supplies{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:12px 16px;margin:12px 0}.verse-box{background:#ECFDF5;border:1px solid #A7F3D0;border-radius:8px;padding:16px;text-align:center;font-style:italic;font-size:18px}.prayer{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:12px 16px;font-style:italic}@media print{body{margin:20px}}</style></head><body><h1>${L.icon} Week ${L.week}: ${L.title}</h1><p><strong>${L.bibleRef}</strong> \· ${L.theme} \· ${AGE_BADGES[ageFilter]?.label || ""}</p><h2>🌟 Before We Start</h2><p>${L.warmUp}</p><h2>📖 The Story</h2><p>${story}</p><h2>📜 Scripture</h2><blockquote>${scripture}</blockquote><h2>💭 Discussion Questions</h2><ol>${L.discussionQuestions.map(q => `<li>${q}</li>`).join("")}</ol><h2>🎨 Create & Explore</h2>${L.supplies ? `<div class="supplies"><strong>📦 Supplies:</strong> ${L.supplies}</div>` : ""}<p>${activities}</p><h2>✨ Memory Verse</h2><div class="verse-box">${L.memoryVerse}</div><h2>📝 What I Learned</h2><p>${L.reflection}</p><h2>🙏 Prayer</h2><div class="prayer">${L.prayer}</div><h2>👨‍🏫 Teacher Notes</h2><p style="font-size:13px;color:#666">${L.teacherNote}</p><hr><p style="text-align:center;color:#999;font-size:12px">The Bible Scrollers — Kids Church Curriculum — Week ${L.week}</p></body></html>`);
                   printW.document.close();
                   printW.print();
-                }} aria-label="Print lesson" style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:6, padding:"4px 8px", color:"#fff", fontSize:12, cursor:"pointer", fontFamily:KC.ui }}>{"\u{1F5A8}"} Print</button>
+                }} aria-label="Print lesson" style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:6, padding:"4px 8px", color:"#fff", fontSize:12, cursor:"pointer", fontFamily:KC.ui }}>{"🖨"} Print</button>
                 <button onClick={() => {
                   if (typeof window === "undefined" || !window.speechSynthesis) return;
                   if (window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); return; }
@@ -462,7 +462,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
                   utter.rate = ageFilter === "3-5" ? 0.8 : 0.9;
                   utter.pitch = 1.1;
                   window.speechSynthesis.speak(utter);
-                }} aria-label="Read story aloud" style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:6, padding:"4px 8px", color:"#fff", fontSize:12, cursor:"pointer", fontFamily:KC.ui }}>{"\u{1F50A}"} Read Aloud</button>
+                }} aria-label="Read story aloud" style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:6, padding:"4px 8px", color:"#fff", fontSize:12, cursor:"pointer", fontFamily:KC.ui }}>{"🔊"} Read Aloud</button>
               </div>
             </div>
           </div>
@@ -499,7 +499,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
                 padding:"4px 10px", borderRadius:12, border:`1px solid ${autoScrolling ? KC.accent : KC.divider}`,
                 background:autoScrolling ? KC.accentLight : "transparent", color:autoScrolling ? KC.accent : KC.muted,
                 fontFamily:KC.ui, fontSize:10, fontWeight:600, cursor:"pointer", transition:"all 0.15s",
-              }}>{autoScrolling ? "\u23F8 Pause" : "\u25B6 Auto-scroll"}</button>
+              }}>{autoScrolling ? "⏸ Pause" : "▶ Auto-scroll"}</button>
               {autoScrolling && [1,2,3].map(s => (
                 <button key={s} onClick={() => setAutoScrollSpeed(s)} style={{
                   width:22, height:22, borderRadius:"50%", border:`1px solid ${autoScrollSpeed === s ? KC.accent : KC.divider}`,
@@ -509,11 +509,11 @@ export default function KidsCurriculum({ nav, darkMode }) {
               ))}
             </div>
 
-            <Section icon="\u{1F31F}" title="Before We Start" timing="5 minutes" sectionIndex={0}>
+            <Section icon="🌟" title="Before We Start" timing="5 minutes" sectionIndex={0}>
               <p style={{ fontFamily:KC.body, fontSize:14.5, color:KC.text, lineHeight:1.7, margin:0 }}>{L.warmUp}</p>
             </Section>
 
-            <Section icon="\u{1F4D6}" title="The Story" timing="10 minutes" sectionIndex={1}>
+            <Section icon="📖" title="The Story" timing="10 minutes" sectionIndex={1}>
               {ageFilter === "3-5" ? (() => {
                 const text = getAge(L.story);
                 const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
@@ -526,8 +526,8 @@ export default function KidsCurriculum({ nav, darkMode }) {
                       <p style={{ fontFamily:KC.body, fontSize:16, color:KC.text, lineHeight:1.8, margin:0, textAlign:"center", animation:anim("fadeIn 0.3s ease") }} key={storyPanel}>{panels[storyPanel] || ""}</p>
                     </div>
                     <div style={{ display:"flex", gap:8, justifyContent:"center" }}>
-                      <button disabled={storyPanel === 0} onClick={() => setStoryPanel(p => p - 1)} style={{ padding:"8px 18px", borderRadius:10, border:`1px solid ${KC.divider}`, background:storyPanel === 0 ? KC.divider : KC.card, color:storyPanel === 0 ? KC.muted : KC.text, fontFamily:KC.ui, fontSize:12, fontWeight:600, cursor:storyPanel === 0 ? "default" : "pointer", opacity:storyPanel === 0 ? 0.4 : 1 }}>{"\u2039"} Back</button>
-                      <button disabled={storyPanel >= panels.length - 1} onClick={() => setStoryPanel(p => p + 1)} style={{ padding:"8px 18px", borderRadius:10, border:"none", background:storyPanel >= panels.length - 1 ? KC.divider : KC.accent, color:storyPanel >= panels.length - 1 ? KC.muted : "#fff", fontFamily:KC.ui, fontSize:12, fontWeight:600, cursor:storyPanel >= panels.length - 1 ? "default" : "pointer", opacity:storyPanel >= panels.length - 1 ? 0.4 : 1 }}>Next {"\u203A"}</button>
+                      <button disabled={storyPanel === 0} onClick={() => setStoryPanel(p => p - 1)} style={{ padding:"8px 18px", borderRadius:10, border:`1px solid ${KC.divider}`, background:storyPanel === 0 ? KC.divider : KC.card, color:storyPanel === 0 ? KC.muted : KC.text, fontFamily:KC.ui, fontSize:12, fontWeight:600, cursor:storyPanel === 0 ? "default" : "pointer", opacity:storyPanel === 0 ? 0.4 : 1 }}>{"‹"} Back</button>
+                      <button disabled={storyPanel >= panels.length - 1} onClick={() => setStoryPanel(p => p + 1)} style={{ padding:"8px 18px", borderRadius:10, border:"none", background:storyPanel >= panels.length - 1 ? KC.divider : KC.accent, color:storyPanel >= panels.length - 1 ? KC.muted : "#fff", fontFamily:KC.ui, fontSize:12, fontWeight:600, cursor:storyPanel >= panels.length - 1 ? "default" : "pointer", opacity:storyPanel >= panels.length - 1 ? 0.4 : 1 }}>Next {"›"}</button>
                     </div>
                     <div style={{ display:"flex", justifyContent:"center", gap:4, marginTop:8 }}>
                       {panels.map((_, i) => <div key={i} style={{ width:6, height:6, borderRadius:"50%", background:i === storyPanel ? KC.accent : KC.divider, transition:"all 0.2s" }} />)}
@@ -539,11 +539,11 @@ export default function KidsCurriculum({ nav, darkMode }) {
               )}
             </Section>
 
-            <Section icon="\u{1F4DC}" title="Scripture Reading" timing="5 minutes" sectionIndex={2}>
+            <Section icon="📜" title="Scripture Reading" timing="5 minutes" sectionIndex={2}>
               <ScriptureBlock text={getAge(L.scripture)} />
             </Section>
 
-            <Section icon="\u{1F4AD}" title="Think About It" timing="10 minutes" sectionIndex={3}>
+            <Section icon="💭" title="Think About It" timing="10 minutes" sectionIndex={3}>
               <p style={{ fontFamily:KC.ui, fontSize:12, color:KC.muted, margin:"0 0 12px", lineHeight:1.5 }}>Tap each question to reveal it. Talk about it with your family or class!</p>
               {L.discussionQuestions.map((q, i) => (
                 <div key={i} role="button" tabIndex={0} aria-label={revealedQs[i] ? `Question ${i+1}: ${q}` : `Reveal question ${i+1}`}
@@ -558,10 +558,10 @@ export default function KidsCurriculum({ nav, darkMode }) {
               ))}
             </Section>
 
-            <Section icon="\u{1F3A8}" title="Create & Explore" timing="15 minutes" altBg={KC.createAlt} sectionIndex={4}>
+            <Section icon="🎨" title="Create & Explore" timing="15 minutes" altBg={KC.createAlt} sectionIndex={4}>
               {L.supplies && (
                 <div style={{ background:KC.suppliesBg, border:`1px solid ${KC.suppliesBorder}`, borderRadius:8, padding:"10px 14px", marginBottom:14 }}>
-                  <div style={{ fontFamily:KC.ui, fontSize:11, fontWeight:700, color:KC.suppliesTitle, marginBottom:4 }}>{"\u{1F4E6}"} You will need:</div>
+                  <div style={{ fontFamily:KC.ui, fontSize:11, fontWeight:700, color:KC.suppliesTitle, marginBottom:4 }}>{"📦"} You will need:</div>
                   <div style={{ fontFamily:KC.body, fontSize:13, color:KC.suppliesText, lineHeight:1.6 }}>{L.supplies}</div>
                 </div>
               )}
@@ -569,10 +569,10 @@ export default function KidsCurriculum({ nav, darkMode }) {
             </Section>
 
             {/* Memory Verse + Game */}
-            <Section icon="\u2728" title="Memory Verse" sectionIndex={5}>
+            <Section icon="✨" title="Memory Verse" sectionIndex={5}>
               <div style={{ background:KC.memoryGrad, border:`1px solid ${KC.memoryBorder}`, borderRadius:12, padding:20, textAlign:"center" }}>
-                <div style={{ fontFamily:KC.heading, fontSize:18, color:KC.memoryText, lineHeight:1.6, fontStyle:"italic" }}>&ldquo;{L.memoryVerse.split("\u2014")[0].trim()}&rdquo;</div>
-                <div style={{ fontFamily:KC.ui, fontSize:12, color:KC.memoryRef, fontWeight:600, marginTop:8 }}>{"\u2014"} {L.memoryVerse.split("\u2014").slice(1).join("\u2014").trim()}</div>
+                <div style={{ fontFamily:KC.heading, fontSize:18, color:KC.memoryText, lineHeight:1.6, fontStyle:"italic" }}>&ldquo;{L.memoryVerse.split("—")[0].trim()}&rdquo;</div>
+                <div style={{ fontFamily:KC.ui, fontSize:12, color:KC.memoryRef, fontWeight:600, marginTop:8 }}>{"—"} {L.memoryVerse.split("—").slice(1).join("—").trim()}</div>
               </div>
               {/* Verse Game */}
               {!verseGameActive ? (
@@ -582,7 +582,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
                     color:KC.accent, fontFamily:KC.ui, fontSize:13, fontWeight:700, cursor:"pointer", transition:"all 0.15s",
                   }} onMouseEnter={e => { e.currentTarget.style.background = KC.accent; e.currentTarget.style.color = "#fff"; }}
                     onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = KC.accent; }}>
-                    {"\u{1F3AE}"} Challenge Me!
+                    {"🎮"} Challenge Me!
                   </button>
                 </div>
               ) : (
@@ -597,7 +597,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
                   </div>
                   {verseGameComplete ? (
                     <div style={{ textAlign:"center", padding:"12px 0" }} aria-live="polite">
-                      <div style={{ fontFamily:KC.heading, fontSize:20, color:KC.accent, fontWeight:700, animation:anim("scaleIn 0.3s ease") }}>You did it! {"\u{1F389}"}</div>
+                      <div style={{ fontFamily:KC.heading, fontSize:20, color:KC.accent, fontWeight:700, animation:anim("scaleIn 0.3s ease") }}>You did it! {"🎉"}</div>
                       <button onClick={() => { setVerseGameActive(false); setVerseGameComplete(false); }} style={{ marginTop:10, padding:"8px 20px", borderRadius:16, border:"none", background:KC.accent, color:"#fff", fontFamily:KC.ui, fontSize:12, fontWeight:600, cursor:"pointer" }}>Done</button>
                     </div>
                   ) : (
@@ -625,22 +625,22 @@ export default function KidsCurriculum({ nav, darkMode }) {
               )}
             </Section>
 
-            <Section icon="\u{1F4DD}" title="What I Learned Today" sectionIndex={6}>
+            <Section icon="📝" title="What I Learned Today" sectionIndex={6}>
               <div style={{ background:KC.reflectionBg, border:`1px dashed ${KC.reflectionBorder}`, borderRadius:10, padding:"16px 18px" }}>
                 <p style={{ fontFamily:KC.body, fontSize:14.5, color:KC.text, lineHeight:1.7, margin:0 }}>{L.reflection}</p>
               </div>
             </Section>
 
-            <Section icon="\u{1F64F}" title="Let's Pray" sectionIndex={7}>
+            <Section icon="🙏" title="Let's Pray" sectionIndex={7}>
               <div style={{ background:KC.prayerBg, border:`1px solid ${KC.prayerBorder}`, borderRadius:10, padding:"16px 18px" }}>
                 <p style={{ fontFamily:KC.body, fontSize:14.5, color:KC.prayerText, lineHeight:1.75, margin:0, fontStyle:"italic" }}>{L.prayer}</p>
               </div>
             </Section>
 
-            <Section icon="\u{1F468}\u200D\u{1F3EB}" title="Parent & Teacher Notes" collapsed={!parentNotesOpen} onToggle={() => setParentNotesOpen(!parentNotesOpen)} altBg={KC.sectionAlt} sectionIndex={8}>
+            <Section icon="👨‍🏫" title="Parent & Teacher Notes" collapsed={!parentNotesOpen} onToggle={() => setParentNotesOpen(!parentNotesOpen)} altBg={KC.sectionAlt} sectionIndex={8}>
               {/* Prep Checklist */}
               <div style={{ background:KC.accentLight, border:`1px solid ${KC.accent}40`, borderRadius:10, padding:"12px 16px", marginBottom:14 }}>
-                <div style={{ fontFamily:KC.ui, fontSize:12, fontWeight:700, color:KC.accent, marginBottom:8 }}>{"\u2705"} Prep Checklist</div>
+                <div style={{ fontFamily:KC.ui, fontSize:12, fontWeight:700, color:KC.accent, marginBottom:8 }}>{"✅"} Prep Checklist</div>
                 {PREP_ITEMS.map((item, idx) => {
                   const checked = prepChecks[`${L.week}-${idx}`];
                   return (
@@ -663,7 +663,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
                 background:done ? KC.sectionAlt : KC.accent, color:done ? KC.muted : "#fff",
                 fontFamily:KC.ui, fontSize:15, fontWeight:700, cursor:"pointer", transition:"all 0.2s",
                 boxShadow:done ? "none" : "0 2px 8px rgba(5,150,105,0.3)",
-              }}>{done ? "\u2713 Lesson Complete" : "Mark Lesson as Taught"}</button>
+              }}>{done ? "✓ Lesson Complete" : "Mark Lesson as Taught"}</button>
             </div>
 
             {/* Celebration overlay */}
@@ -675,19 +675,19 @@ export default function KidsCurriculum({ nav, darkMode }) {
               }}>
                 <div style={{ position:"relative", display:"inline-block" }}>
                   <ConfettiParticles count={12} colors={["#059669","#D4A853","#34D399","#F59E0B"]} />
-                  <div style={{ width:56, height:56, borderRadius:"50%", background:KC.accent, display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 12px", animation:anim("scaleIn 0.4s ease"), fontSize:28, color:"#fff" }}>{"\u2713"}</div>
+                  <div style={{ width:56, height:56, borderRadius:"50%", background:KC.accent, display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 12px", animation:anim("scaleIn 0.4s ease"), fontSize:28, color:"#fff" }}>{"✓"}</div>
                 </div>
                 <div style={{ fontFamily:KC.heading, fontSize:24, fontWeight:700, color:KC.celebrationText, animation:anim("fadeIn 0.4s ease 0.2s both") }}>
                   {CELEBRATION_MSGS[Math.floor(Math.random() * CELEBRATION_MSGS.length)]}
                 </div>
                 <div style={{ fontFamily:KC.ui, fontSize:14, color:KC.celebrationSub, marginTop:6, animation:anim("fadeIn 0.4s ease 0.4s both") }}>
-                  Week {celebratingWeek} complete {"\u2014"} {completedLessons.length} of 52 lessons taught!
+                  Week {celebratingWeek} complete {"—"} {completedLessons.length} of 52 lessons taught!
                 </div>
                 {nextLesson && (
                   <button onClick={() => { setShowCelebration(false); openLesson(nextLesson); }} style={{
                     marginTop:16, padding:"12px 28px", borderRadius:12, border:"none", background:KC.accent, color:"#fff",
                     fontFamily:KC.ui, fontSize:14, fontWeight:700, cursor:"pointer", animation:anim("fadeIn 0.4s ease 0.6s both"),
-                  }}>Next Lesson: Week {nextLesson.week} {"\u2192"}</button>
+                  }}>Next Lesson: Week {nextLesson.week} {"→"}</button>
                 )}
               </div>
             )}
@@ -716,7 +716,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
             <div style={{ fontFamily:KC.ui, fontSize:11, color:KC.muted }}>{starPreview.bibleRef}</div>
           </div>
           <button onClick={() => { setStarPreview(null); openLesson(starPreview); }} style={{ padding:"6px 14px", borderRadius:8, border:"none", background:KC.accent, color:"#fff", fontFamily:KC.ui, fontSize:11, fontWeight:700, cursor:"pointer" }}>
-            {completedLessons.includes(starPreview.week) ? "Review" : "Start"} {"\u2192"}
+            {completedLessons.includes(starPreview.week) ? "Review" : "Start"} {"→"}
           </button>
         </div>
       )}
@@ -766,7 +766,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
                     }}
                     onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.2)"; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = ""; }}
-                  >{done ? "\u2605" : "\u2606"}</button>
+                  >{done ? "★" : "☆"}</button>
                 );
               })}
             </div>
@@ -785,7 +785,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
       <div id="panel-progress" role="tabpanel" aria-label="Progress" style={{ padding:"20px 16px 40px" }}>
         {/* Multi-child profiles */}
         <div style={{ background:KC.card, borderRadius:14, padding:16, border:`1px solid ${KC.divider}`, marginBottom:16 }}>
-          <div style={{ fontFamily:KC.heading, fontSize:15, color:KC.text, marginBottom:10 }}>{"\u{1F46A}"} Children</div>
+          <div style={{ fontFamily:KC.heading, fontSize:15, color:KC.text, marginBottom:10 }}>{"👪"} Children</div>
           {children.length > 0 && (
             <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:10 }}>
               {children.map(c => (
@@ -799,7 +799,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
                   <button onClick={() => removeChild(c.id)} aria-label={`Remove ${c.name}`} style={{
                     width:18, height:18, borderRadius:"50%", border:"none", background:KC.divider,
                     color:KC.muted, fontSize:10, cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", padding:0,
-                  }}>{"\u2715"}</button>
+                  }}>{"✕"}</button>
                 </div>
               ))}
             </div>
@@ -827,9 +827,9 @@ export default function KidsCurriculum({ nav, darkMode }) {
           <div style={{ fontFamily:KC.ui, fontSize:13, color:KC.muted }}>of 52 lessons taught</div>
           {streak > 0 && (
             <div role="status" style={{ display:"inline-flex", alignItems:"center", gap:6, marginTop:12, background:KC.streakBg, padding:"6px 14px", borderRadius:20 }}>
-              <span style={{ fontSize:18 }} aria-hidden="true">{"\u{1F525}"}</span>
+              <span style={{ fontSize:18 }} aria-hidden="true">{"🔥"}</span>
               <span style={{ fontFamily:KC.ui, fontSize:13, fontWeight:700, color:KC.streakGold }}>{streak} week streak</span>
-              {bestStreak > streak && <span style={{ fontFamily:KC.ui, fontSize:11, color:KC.muted }}>{"\u00B7"} Best: {bestStreak}</span>}
+              {bestStreak > streak && <span style={{ fontFamily:KC.ui, fontSize:11, color:KC.muted }}>{"\·"} Best: {bestStreak}</span>}
             </div>
           )}
         </div>
@@ -854,7 +854,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
         {/* Character Collection */}
         {collectedChars.length > 0 && (
           <div style={{ background:KC.card, borderRadius:14, padding:16, border:`1px solid ${KC.divider}`, marginBottom:16 }}>
-            <div style={{ fontFamily:KC.heading, fontSize:15, color:KC.text, marginBottom:10 }}>{"\u{1F4DA}"} Character Collection</div>
+            <div style={{ fontFamily:KC.heading, fontSize:15, color:KC.text, marginBottom:10 }}>{"📚"} Character Collection</div>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(60px, 1fr))", gap:8 }}>
               {LESSONS.map(l => {
                 const unlocked = completedLessons.includes(l.week);
@@ -884,7 +884,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
         {/* Milestones */}
         {Object.keys(milestones).length > 0 && (
           <div style={{ marginBottom:16 }}>
-            <div style={{ fontFamily:KC.heading, fontSize:15, color:KC.text, marginBottom:10 }}>{"\u{1F3C6}"} Milestones</div>
+            <div style={{ fontFamily:KC.heading, fontSize:15, color:KC.text, marginBottom:10 }}>{"🏆"} Milestones</div>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(2, 1fr)", gap:8 }}>
               {MILESTONES.map(ms => {
                 const achieved = milestones[ms.at];
@@ -906,7 +906,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
         {/* Empty state */}
         {completedCount === 0 && (
           <div style={{ textAlign:"center", padding:30 }}>
-            <div style={{ fontSize:48, marginBottom:12 }} aria-hidden="true">{"\u{1F331}"}</div>
+            <div style={{ fontSize:48, marginBottom:12 }} aria-hidden="true">{"🌱"}</div>
             <div style={{ fontFamily:KC.heading, fontSize:17, color:KC.text }}>Your journey begins here!</div>
             <div style={{ fontFamily:KC.body, fontSize:14, color:KC.muted, marginTop:8, lineHeight:1.6 }}>Open any lesson and tap &ldquo;Mark Lesson as Taught&rdquo; when you finish. Your progress will appear here.</div>
           </div>
@@ -915,7 +915,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
         {/* Celebration at 52 */}
         {completedCount >= 52 && (
           <div style={{ background:KC.celebrationGrad, borderRadius:14, padding:24, textAlign:"center", marginTop:16, border:`1px solid ${KC.celebrationBorder}` }}>
-            <div style={{ fontSize:48, marginBottom:8 }} aria-hidden="true">{"\u{1F389}"}</div>
+            <div style={{ fontSize:48, marginBottom:8 }} aria-hidden="true">{"🎉"}</div>
             <div style={{ fontFamily:KC.heading, fontSize:20, fontWeight:700, color:KC.celebrationText }}>Congratulations!</div>
             <div style={{ fontFamily:KC.body, fontSize:14, color:KC.celebrationSub, lineHeight:1.6, marginTop:8 }}>You have completed all 52 lessons! A full year of God&apos;s Word, from Creation to the New Creation. Well done, good and faithful servant!</div>
           </div>
@@ -939,16 +939,16 @@ export default function KidsCurriculum({ nav, darkMode }) {
             top:`${20 + i * 25}%`, right:`${10 + i * 20}%`,
             animation:anim(`confettiFloat ${3 + i * 0.5}s ease-in-out ${i * 0.8}s infinite`),
             pointerEvents:"none",
-          }}>{"\u2728"}</span>
+          }}>{"✨"}</span>
         ))}
 
         <button onClick={() => nav("learn-home")} aria-label="Back to Learn" style={{
           background:"rgba(255,255,255,0.15)", border:"none", borderRadius:8, padding:"6px 12px",
           color:"#fff", fontFamily:KC.ui, fontSize:13, cursor:"pointer", marginBottom:14,
-        }}>{"\u2190"} Back</button>
+        }}>{"←"} Back</button>
 
         <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:4 }}>
-          <span style={{ fontSize:36, animation:anim("fadeIn 0.4s ease 0.1s both") }} aria-hidden="true">{"\u{1F9D2}"}</span>
+          <span style={{ fontSize:36, animation:anim("fadeIn 0.4s ease 0.1s both") }} aria-hidden="true">{"🧒"}</span>
           <div>
             <h1 style={{ fontFamily:KC.heading, fontSize:24, fontWeight:700, color:"#fff", margin:0, lineHeight:1.2, animation:anim("fadeIn 0.4s ease 0.15s both") }}>Kids Church Curriculum</h1>
             <p style={{ fontFamily:KC.ui, fontSize:13, color:"rgba(255,255,255,0.8)", margin:"2px 0 0", fontStyle:"italic", animation:anim("fadeIn 0.4s ease 0.25s both") }}>A 52-Week Bible Adventure</p>
@@ -958,7 +958,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
         {/* Streak */}
         {streak > 0 && (
           <div role="status" style={{ position:"absolute", top:20, right:20, display:"flex", alignItems:"center", gap:4, background:"rgba(255,255,255,0.15)", borderRadius:16, padding:"4px 10px" }}>
-            <span style={{ fontSize:14 }}>{"\u{1F525}"}</span>
+            <span style={{ fontSize:14 }}>{"🔥"}</span>
             <span style={{ fontFamily:KC.ui, fontSize:12, fontWeight:700, color:"#fff" }}>{streak}</span>
           </div>
         )}
@@ -976,12 +976,12 @@ export default function KidsCurriculum({ nav, darkMode }) {
             <div style={{ flex:1, minWidth:0 }}>
               <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:3 }}>
                 <span style={{ fontFamily:KC.ui, fontSize:9, fontWeight:800, color:"#fff", background:"rgba(255,255,255,0.25)", padding:"2px 8px", borderRadius:6, letterSpacing:1, textTransform:"uppercase", animation:anim("pulseGlow 3s ease-in-out infinite") }}>THIS WEEK</span>
-                {completedLessons.includes(thisWeekLesson.week) && <span style={{ fontSize:12, color:"#6EE7B7" }}>{"\u2713"}</span>}
+                {completedLessons.includes(thisWeekLesson.week) && <span style={{ fontSize:12, color:"#6EE7B7" }}>{"✓"}</span>}
               </div>
               <div style={{ fontFamily:KC.heading, fontSize:14, fontWeight:700, color:"#fff", lineHeight:1.3 }}>{thisWeekLesson.title}</div>
               <div style={{ fontFamily:KC.ui, fontSize:11, color:"rgba(255,255,255,0.7)" }}>{thisWeekLesson.bibleRef}</div>
             </div>
-            <span style={{ fontFamily:KC.ui, fontSize:20, color:"rgba(255,255,255,0.6)" }}>{"\u203A"}</span>
+            <span style={{ fontFamily:KC.ui, fontSize:20, color:"rgba(255,255,255,0.6)" }}>{"›"}</span>
           </div>
         )}
 
@@ -1014,7 +1014,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
 
       {/* ── Tabs ──────────────────────────────── */}
       <div style={{ display:"flex", background:KC.card, borderBottom:`1px solid ${KC.divider}`, position:"sticky", top:0, zIndex:100 }} role="tablist" aria-label="Curriculum sections">
-        {[{id:"lessons",label:"\u{1F4DA} Lessons"},{id:"stars",label:"\u2B50 Stars"},{id:"progress",label:"\u{1F3C6} Progress"}].map(tab => (
+        {[{id:"lessons",label:"📚 Lessons"},{id:"stars",label:"⭐ Stars"},{id:"progress",label:"🏆 Progress"}].map(tab => (
           <button key={tab.id} onClick={() => setActiveTab(tab.id)} role="tab" aria-selected={activeTab === tab.id} aria-controls={`panel-${tab.id}`}
             style={{
               flex:1, padding:"12px 0", border:"none", background:"transparent",
@@ -1072,7 +1072,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))", gap:12, padding:"0 16px 30px" }}>
             {filteredLessons.length > 0 ? filteredLessons.map((l, i) => LessonCard(l, i)) : (
               <div style={{ gridColumn:"1 / -1", textAlign:"center", padding:40 }}>
-                <div style={{ fontSize:40, marginBottom:12 }} aria-hidden="true">{"\u{1F4ED}"}</div>
+                <div style={{ fontSize:40, marginBottom:12 }} aria-hidden="true">{"📭"}</div>
                 <div style={{ fontFamily:KC.heading, fontSize:16, color:KC.text }}>No lessons for this period</div>
                 <div style={{ fontFamily:KC.ui, fontSize:13, color:KC.muted, marginTop:6 }}>Try adjusting your filters above.</div>
               </div>
