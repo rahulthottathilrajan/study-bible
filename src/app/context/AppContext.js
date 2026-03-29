@@ -1580,7 +1580,7 @@ export function AppProvider({ children }) {
     // Apologetics badges
     const apolCount = learnExploration.apologeticsStudied?.length || 0;
     if (apolCount >= 1 && !earned.first_defense) awardBadge("first_defense");
-    if (apolCount >= 50 && !earned.master_apologist) awardBadge("master_apologist");
+    if (apolCount >= 100 && !earned.master_apologist) awardBadge("master_apologist");
     // Apologetics streak badge (read from localStorage)
     let apolStreak = { current: 0 };
     try { apolStreak = JSON.parse(localStorage.getItem("apologeticsStreak")) || { current: 0 }; } catch {}
