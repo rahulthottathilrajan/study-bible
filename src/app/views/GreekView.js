@@ -172,7 +172,7 @@ export default function GreekView() {
           <div style={{ fontFamily:gt.ui, fontSize:10, color:gt.accent, letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:6 }}>Word of the Day</div>
           <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8, marginBottom:8 }}>
             <div style={{ fontFamily:"'Times New Roman',serif", fontSize:48, color:gt.headerText, lineHeight:1.2, textShadow:"0 4px 20px rgba(0,0,0,0.3)" }}>{word.greek}</div>
-            <PronunciationButton lang="greek" wordId={`word-${word.strongs.toLowerCase()}`} size={22} color={gt.accent} />
+            <PronunciationButton lang="greek" wordId={`word-${word.strongs.toLowerCase()}`} size={24} color={gt.headerText} style={{ background:"rgba(255,255,255,0.15)",borderRadius:10,padding:6 }} />
           </div>
           <div style={{ fontFamily:gt.heading, fontSize:18, color:gt.accent, marginBottom:4 }}>{word.transliteration}</div>
           <div style={{ fontFamily:gt.body, fontSize:14, color:`${gt.headerText}99`, fontStyle:"italic", marginBottom:6 }}>{word.meaning}</div>
@@ -396,7 +396,7 @@ export default function GreekView() {
                 </div>
                 <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8, marginBottom:4 }}>
                   <div style={{ fontFamily:gt.heading, fontSize:26, color:gt.accent }}>{content.name || greekAlphabet?.letter_name}</div>
-                  <PronunciationButton lang="greek" wordId={`letter-${(content.name || greekAlphabet?.letter_name || "alpha").toLowerCase()}`} size={20} color={gt.accent} />
+                  <PronunciationButton lang="greek" wordId={`letter-${(content.name || greekAlphabet?.letter_name || "alpha").toLowerCase()}`} size={22} color={gt.headerText} style={{ background:"rgba(255,255,255,0.15)",borderRadius:10,padding:6 }} />
                 </div>
                 <div style={{ fontFamily:gt.body, fontSize:15, color:`${gt.headerText}88`, fontStyle:"italic", marginBottom:10 }}>{content.transliteration || greekAlphabet?.transliteration}</div>
                 <div style={{ display:"inline-block", background:"rgba(27,122,110,0.25)", borderRadius:20, padding:"5px 16px", fontFamily:gt.ui, fontSize:11, color:gt.accent }}>
@@ -914,7 +914,7 @@ export default function GreekView() {
             <div style={{ position:"relative", zIndex:1 }}>
               <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:10 }}>
                 <div style={{ fontFamily:"'Times New Roman',serif", fontSize:64, color:gt.headerText, lineHeight:1.1, marginBottom:10, textShadow:"0 4px 24px rgba(0,0,0,0.3)" }}>{currentWord.greek}</div>
-                <PronunciationButton lang="greek" wordId={`word-${(currentWord.greek || "").replace(/[^α-ωΑ-Ωά-ώ]/g, "").toLowerCase()}`} size={24} color={gt.accent} style={{ marginBottom:10 }} />
+                <PronunciationButton lang="greek" wordId={`word-${(currentWord.greek || "").replace(/[^α-ωΑ-Ωά-ώ]/g, "").toLowerCase()}`} size={26} color={gt.headerText} style={{ marginBottom:10, background:"rgba(255,255,255,0.15)",borderRadius:10,padding:6 }} />
               </div>
               <div style={{ fontFamily:gt.heading, fontSize:22, color:gt.accent, marginBottom:4 }}>{currentWord.transliteration}</div>
               <div style={{ fontFamily:gt.body, fontSize:15, color:`${gt.headerText}88`, fontStyle:"italic" }}>{currentWord.meaning}</div>
@@ -1099,7 +1099,7 @@ export default function GreekView() {
                 <div style={{ position:"relative", zIndex:1 }}>
                   <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:10 }}>
                     <div style={{ fontFamily:"'Times New Roman',serif", fontSize:64, color:gt.headerText, lineHeight:1.1, marginBottom:12, textShadow:"0 4px 24px rgba(0,0,0,0.3)" }}>{card.greek}</div>
-                    <PronunciationButton lang="greek" wordId={`word-${card.strongs.toLowerCase()}`} size={22} color={gt.accent} style={{ marginBottom:12 }} />
+                    <PronunciationButton lang="greek" wordId={`word-${card.strongs.toLowerCase()}`} size={24} color={gt.headerText} style={{ marginBottom:12, background:"rgba(255,255,255,0.15)",borderRadius:10,padding:6 }} />
                   </div>
                   <div style={{ fontFamily:gt.heading, fontSize:20, color:gt.accent }}>{card.transliteration}</div>
                   <div style={{ fontFamily:gt.ui, fontSize:12, color:`${gt.headerText}66`, marginTop:16 }}>Tap to reveal</div>

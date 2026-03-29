@@ -297,7 +297,7 @@ export default function HebrewView() {
               <div style={{ position:"relative",zIndex:1 }}>
                 <div style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:10,marginBottom:14 }}>
                   <div style={{ fontFamily:"'Times New Roman',serif",fontSize:52,color:ht2.headerText,direction:"rtl",lineHeight:1.2,textShadow:"0 4px 24px rgba(0,0,0,0.35)",letterSpacing:2 }} lang="he">{content.word}</div>
-                  <PronunciationButton lang="hebrew" wordId={`lesson-${(content.strongs || "").toLowerCase()}`} size={22} color={ht2.accent} />
+                  <PronunciationButton lang="hebrew" wordId={`lesson-${(content.strongs || "").toLowerCase()}`} size={24} color={ht2.headerText} style={{ background:"rgba(255,255,255,0.15)",borderRadius:10,padding:6 }} />
                 </div>
                 <div style={{ fontFamily:ht2.heading,fontSize:24,color:ht2.accent,marginBottom:4 }}>{content.transliteration}</div>
                 <div style={{ fontFamily:ht2.body,fontSize:14,color:`${ht2.headerText}88`,fontStyle:"italic",marginBottom:10 }}>{content.part_of_speech}</div>
@@ -327,7 +327,7 @@ export default function HebrewView() {
                   </div>
                   <div style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:8,marginBottom:4 }}>
                     <div style={{ fontFamily:ht2.heading,fontSize:26,color:ht2.accent }}>{content.name || hebrewAlphabet?.letter_name}</div>
-                    <PronunciationButton lang="hebrew" wordId={`letter-${(content.name || hebrewAlphabet?.letter_name || "aleph").toLowerCase()}`} size={20} color={ht2.accent} />
+                    <PronunciationButton lang="hebrew" wordId={`letter-${(content.name || hebrewAlphabet?.letter_name || "aleph").toLowerCase()}`} size={22} color={ht2.headerText} style={{ background:"rgba(255,255,255,0.15)",borderRadius:10,padding:6 }} />
                   </div>
                   <div style={{ fontFamily:ht2.body,fontSize:15,color:`${ht2.headerText}88`,fontStyle:"italic",marginBottom:10 }}>{content.transliteration || hebrewAlphabet?.transliteration}</div>
                   <div style={{ display:"inline-block",background:"rgba(192,108,62,0.25)",borderRadius:20,padding:"5px 16px",fontFamily:ht2.ui,fontSize:11,color:ht2.accent,letterSpacing:"0.05em" }}>
@@ -1007,7 +1007,7 @@ export default function HebrewView() {
               <div style={{ fontFamily:"'Times New Roman',serif", fontSize:64, color:ht2.accent, direction:"rtl", lineHeight:1.2, marginBottom:10, textShadow:`0 2px 12px ${ht2.accentLight}` }}>
                 {currentWord.hebrew}
               </div>
-              <PronunciationButton lang="hebrew" wordId={`word-${(currentWord.hebrew || "").replace(/[\u0591-\u05C7]/g, "").toLowerCase()}`} size={24} color={ht2.accent} style={{ marginBottom:10 }} />
+              <PronunciationButton lang="hebrew" wordId={`word-${(currentWord.hebrew || "").replace(/[\u0591-\u05C7]/g, "").toLowerCase()}`} size={26} color={ht2.accent} style={{ marginBottom:10, background:`${ht2.accent}18`, borderRadius:10, padding:6 }} />
             </div>
             <div style={{ fontFamily:ht2.heading, fontSize:22, color:ht2.dark, marginBottom:4 }}>{currentWord.transliteration}</div>
             <div style={{ fontFamily:ht2.body, fontSize:16, color:ht2.muted, fontStyle:"italic", marginBottom:10 }}>{currentWord.meaning}</div>
