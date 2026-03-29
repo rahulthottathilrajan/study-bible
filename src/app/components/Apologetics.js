@@ -15,6 +15,14 @@ const CATEGORY_COLORS = {
   "The Bible & Other Books": { bg: "#FEF3C7", text: "#78350F", border: "#D97706" },
   "Jesus & Salvation":       { bg: "#FCE7F3", text: "#831843", border: "#EC4899" },
   "The Church & Modern Challenges": { bg: "#E0E7FF", text: "#3730A3", border: "#6366F1" },
+  "Prophecy as Evidence":    { bg: "#FEF3C7", text: "#78350F", border: "#D97706" },
+  "Archaeology Confirms Scripture": { bg: "#DBEAFE", text: "#1E3A5F", border: "#3B82F6" },
+  "Science & Faith":         { bg: "#ECFDF5", text: "#065F46", border: "#10B981" },
+  "Ethics & Pastoral":       { bg: "#FFF1F2", text: "#881337", border: "#F43F5E" },
+  "Textual Criticism":       { bg: "#FFF7ED", text: "#9A3412", border: "#FB923C" },
+  "World Religions Compared": { bg: "#F5F3FF", text: "#5B21B6", border: "#8B5CF6" },
+  "Advanced Philosophy":     { bg: "#EDE9FE", text: "#4C1D95", border: "#7C3AED" },
+  "Practical Christian Life": { bg: "#ECFDF5", text: "#065F46", border: "#34D399" },
 };
 const DARK_CATEGORY_COLORS = {
   "The Godhead":          { bg: "rgba(107,33,168,0.15)", text: "#C084FC", border: "#6B21A880" },
@@ -27,6 +35,14 @@ const DARK_CATEGORY_COLORS = {
   "The Bible & Other Books": { bg: "rgba(217,119,6,0.12)", text: "#D97706", border: "#78350F80" },
   "Jesus & Salvation":       { bg: "rgba(236,72,153,0.12)", text: "#EC4899", border: "#83184380" },
   "The Church & Modern Challenges": { bg: "rgba(99,102,241,0.12)", text: "#6366F1", border: "#3730A380" },
+  "Prophecy as Evidence":    { bg: "rgba(217,119,6,0.12)", text: "#FBBF24", border: "#78350F80" },
+  "Archaeology Confirms Scripture": { bg: "rgba(59,130,246,0.12)", text: "#60A5FA", border: "#1E3A5F80" },
+  "Science & Faith":         { bg: "rgba(16,185,129,0.12)", text: "#34D399", border: "#065F4680" },
+  "Ethics & Pastoral":       { bg: "rgba(244,63,94,0.12)", text: "#FB7185", border: "#88133780" },
+  "Textual Criticism":       { bg: "rgba(251,146,60,0.12)", text: "#FB923C", border: "#9A341280" },
+  "World Religions Compared": { bg: "rgba(139,92,246,0.12)", text: "#A78BFA", border: "#5B21B680" },
+  "Advanced Philosophy":     { bg: "rgba(124,58,237,0.12)", text: "#A78BFA", border: "#4C1D9580" },
+  "Practical Christian Life": { bg: "rgba(52,211,153,0.12)", text: "#34D399", border: "#065F4680" },
 };
 
 const SUCCESS = { light: { bg: "#F0FDF4", border: "#86EFAC", text: "#166534", check: "#22C55E" }, dark: { bg: "rgba(5,150,105,0.08)", border: "#86EFAC60", text: "#4ADE80", check: "#22C55E" } };
