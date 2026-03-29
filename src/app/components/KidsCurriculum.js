@@ -112,6 +112,21 @@ export default function KidsCurriculum({ nav, darkMode }) {
   const [milestones, setMilestones] = useState({});
   // Modal section tracking
   const [activeSection, setActiveSection] = useState(0);
+  // Parent prep checklist
+  const [prepChecks, setPrepChecks] = useState({});
+  // Lesson review counter
+  const [lessonViews, setLessonViews] = useState({});
+  // Multi-child profiles
+  const [children, setChildren] = useState([]);
+  const [activeChild, setActiveChild] = useState(null);
+  const [addChildName, setAddChildName] = useState("");
+  // Auto-scroll
+  const [autoScrolling, setAutoScrolling] = useState(false);
+  const [autoScrollSpeed, setAutoScrollSpeed] = useState(1); // 1=slow, 2=medium, 3=fast
+  const scrollContainerRef = useRef(null);
+  const autoScrollRef = useRef(null);
+  // Story mode
+  const [storyPanel, setStoryPanel] = useState(0);
 
   const modalRef = useRef(null);
   const closeBtnRef = useRef(null);
@@ -131,6 +146,16 @@ export default function KidsCurriculum({ nav, darkMode }) {
       if (lw) setLastStreakWeek(lw);
       const ms = localStorage.getItem("kidsMilestones");
       if (ms) setMilestones(JSON.parse(ms));
+      const pc = localStorage.getItem("kidsPrepChecks");
+      if (pc) setPrepChecks(JSON.parse(pc));
+      const lv = localStorage.getItem("kidsLessonViews");
+      if (lv) setLessonViews(JSON.parse(lv));
+      const ch = localStorage.getItem("kidsChildren");
+      if (ch) {
+        const parsed = JSON.parse(ch);
+        setChildren(parsed);
+        if (parsed.length > 0) setActiveChild(parsed[0].id);
+      }
     } catch {}
   }, []);
 
@@ -140,6 +165,9 @@ export default function KidsCurriculum({ nav, darkMode }) {
   useEffect(() => { try { localStorage.setItem("kidsBestStreak", String(bestStreak)); } catch {} }, [bestStreak]);
   useEffect(() => { try { if (lastStreakWeek) localStorage.setItem("kidsLastStreakWeek", lastStreakWeek); } catch {} }, [lastStreakWeek]);
   useEffect(() => { try { localStorage.setItem("kidsMilestones", JSON.stringify(milestones)); } catch {} }, [milestones]);
+  useEffect(() => { try { localStorage.setItem("kidsPrepChecks", JSON.stringify(prepChecks)); } catch {} }, [prepChecks]);
+  useEffect(() => { try { localStorage.setItem("kidsLessonViews", JSON.stringify(lessonViews)); } catch {} }, [lessonViews]);
+  useEffect(() => { try { localStorage.setItem("kidsChildren", JSON.stringify(children)); } catch {} }, [children]);
 
   // ── Filtered lessons ───────────────────────
   const filteredLessons = useMemo(() =>
@@ -158,6 +186,8 @@ export default function KidsCurriculum({ nav, darkMode }) {
     prevFocusRef.current = document.activeElement;
     setSelectedLesson(lesson); setModalOpen(true); setRevealedQs({}); setParentNotesOpen(false);
     setShowCelebration(false); setVerseGameActive(false); setVerseGameComplete(false); setActiveSection(0);
+    setStoryPanel(0); setAutoScrolling(false);
+    setLessonViews(prev => ({ ...prev, [lesson.week]: (prev[lesson.week] || 0) + 1 }));
     setTimeout(() => { setAnimIn(true); closeBtnRef.current?.focus(); }, 20);
   };
 
@@ -202,6 +232,41 @@ export default function KidsCurriculum({ nav, darkMode }) {
   }, [awardBadge, streak]);
 
   const toggleQ = (i) => setRevealedQs(prev => ({ ...prev, [i]: !prev[i] }));
+
+  // Prep checklist toggle
+  const PREP_ITEMS = ["Read the Bible passage","Gather supplies","Prepare the activity","Pray for the children"];
+  const togglePrep = (week, idx) => {
+    setPrepChecks(prev => {
+      const key = `${week}-${idx}`;
+      return { ...prev, [key]: !prev[key] };
+    });
+  };
+
+  // Auto-scroll
+  useEffect(() => {
+    if (!autoScrolling || !scrollContainerRef.current) { if (autoScrollRef.current) cancelAnimationFrame(autoScrollRef.current); return; }
+    const speed = [0.4, 0.8, 1.5][autoScrollSpeed - 1];
+    const tick = () => {
+      if (scrollContainerRef.current) scrollContainerRef.current.scrollTop += speed;
+      autoScrollRef.current = requestAnimationFrame(tick);
+    };
+    autoScrollRef.current = requestAnimationFrame(tick);
+    return () => { if (autoScrollRef.current) cancelAnimationFrame(autoScrollRef.current); };
+  }, [autoScrolling, autoScrollSpeed]);
+
+  // Multi-child helpers
+  const addChild = () => {
+    const name = addChildName.trim();
+    if (!name) return;
+    const id = Date.now().toString(36);
+    setChildren(prev => [...prev, { id, name }]);
+    if (!activeChild) setActiveChild(id);
+    setAddChildName("");
+  };
+  const removeChild = (id) => {
+    setChildren(prev => prev.filter(c => c.id !== id));
+    if (activeChild === id) setActiveChild(children.find(c => c.id !== id)?.id || null);
+  };
 
   // ── Scroll lock + keyboard ─────────────────
   useEffect(() => {
@@ -341,7 +406,7 @@ export default function KidsCurriculum({ nav, darkMode }) {
         </div>
         <div style={{ borderTop:`1px solid ${KC.divider}`, padding:"8px 14px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
           <span style={{ fontFamily:KC.ui, fontSize:11, fontWeight:600, color:KC.accent }}>{done ? "View Again \u2192" : "View Lesson \u2192"}</span>
-          <span style={{ fontFamily:KC.body, fontSize:11, color:KC.muted }}>{lesson.theme}</span>
+          <span style={{ fontFamily:KC.body, fontSize:11, color:KC.muted }}>{lesson.theme}{lessonViews[lesson.week] > 1 ? ` \u00B7 ${lessonViews[lesson.week]}x` : ""}</span>
         </div>
       </div>
     );
@@ -377,6 +442,28 @@ export default function KidsCurriculum({ nav, darkMode }) {
               </div>
               <h2 style={{ fontFamily:KC.heading, fontSize:20, fontWeight:700, color:"#fff", lineHeight:1.25, margin:0 }}>{L.title}</h2>
               <div style={{ fontFamily:KC.ui, fontSize:12, color:"rgba(255,255,255,0.8)", marginTop:4 }}>{L.bibleRef}</div>
+              {/* Print + TTS buttons */}
+              <div style={{ display:"flex", gap:6, marginTop:8 }}>
+                <button onClick={() => {
+                  const printW = window.open("", "_blank");
+                  if (!printW) return;
+                  const story = typeof L.story === "string" ? L.story : (L.story[ageFilter] || L.story["6-8"] || "");
+                  const scripture = typeof L.scripture === "string" ? L.scripture : (L.scripture[ageFilter] || L.scripture["6-8"] || "");
+                  const activities = typeof L.activities === "string" ? L.activities : (L.activities[ageFilter] || L.activities["6-8"] || "");
+                  printW.document.write(`<!DOCTYPE html><html><head><title>Week ${L.week}: ${L.title}</title><style>body{font-family:Georgia,serif;max-width:700px;margin:40px auto;padding:0 20px;color:#1F2937;line-height:1.8}h1{font-size:24px;border-bottom:2px solid #059669;padding-bottom:8px}h2{font-size:16px;color:#059669;margin-top:24px}blockquote{background:#FFFBEB;border-left:4px solid #D97706;padding:12px 16px;margin:12px 0;font-style:italic;white-space:pre-line}.supplies{background:#FFF7ED;border:1px solid #FDBA74;border-radius:8px;padding:12px 16px;margin:12px 0}.verse-box{background:#ECFDF5;border:1px solid #A7F3D0;border-radius:8px;padding:16px;text-align:center;font-style:italic;font-size:18px}.prayer{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:12px 16px;font-style:italic}@media print{body{margin:20px}}</style></head><body><h1>${L.icon} Week ${L.week}: ${L.title}</h1><p><strong>${L.bibleRef}</strong> \u00B7 ${L.theme} \u00B7 ${AGE_BADGES[ageFilter]?.label || ""}</p><h2>\u{1F31F} Before We Start</h2><p>${L.warmUp}</p><h2>\u{1F4D6} The Story</h2><p>${story}</p><h2>\u{1F4DC} Scripture</h2><blockquote>${scripture}</blockquote><h2>\u{1F4AD} Discussion Questions</h2><ol>${L.discussionQuestions.map(q => `<li>${q}</li>`).join("")}</ol><h2>\u{1F3A8} Create & Explore</h2>${L.supplies ? `<div class="supplies"><strong>\u{1F4E6} Supplies:</strong> ${L.supplies}</div>` : ""}<p>${activities}</p><h2>\u2728 Memory Verse</h2><div class="verse-box">${L.memoryVerse}</div><h2>\u{1F4DD} What I Learned</h2><p>${L.reflection}</p><h2>\u{1F64F} Prayer</h2><div class="prayer">${L.prayer}</div><h2>\u{1F468}\u200D\u{1F3EB} Teacher Notes</h2><p style="font-size:13px;color:#666">${L.teacherNote}</p><hr><p style="text-align:center;color:#999;font-size:12px">The Bible Scrollers \u2014 Kids Church Curriculum \u2014 Week ${L.week}</p></body></html>`);
+                  printW.document.close();
+                  printW.print();
+                }} aria-label="Print lesson" style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:6, padding:"4px 8px", color:"#fff", fontSize:12, cursor:"pointer", fontFamily:KC.ui }}>{"\u{1F5A8}"} Print</button>
+                <button onClick={() => {
+                  if (typeof window === "undefined" || !window.speechSynthesis) return;
+                  if (window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); return; }
+                  const story = typeof L.story === "string" ? L.story : (L.story[ageFilter] || L.story["6-8"] || "");
+                  const utter = new SpeechSynthesisUtterance(story);
+                  utter.rate = ageFilter === "3-5" ? 0.8 : 0.9;
+                  utter.pitch = 1.1;
+                  window.speechSynthesis.speak(utter);
+                }} aria-label="Read story aloud" style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:6, padding:"4px 8px", color:"#fff", fontSize:12, cursor:"pointer", fontFamily:KC.ui }}>{"\u{1F50A}"} Read Aloud</button>
+              </div>
             </div>
           </div>
 
@@ -405,13 +492,51 @@ export default function KidsCurriculum({ nav, darkMode }) {
           </div>
 
           {/* Scrollable Content */}
-          <div style={{ flex:1, overflowY:"auto", WebkitOverflowScrolling:"touch", position:"relative" }}>
+          <div ref={scrollContainerRef} style={{ flex:1, overflowY:"auto", WebkitOverflowScrolling:"touch", position:"relative" }}>
+            {/* Auto-scroll bar */}
+            <div style={{ display:"flex", alignItems:"center", justifyContent:"flex-end", gap:6, padding:"6px 20px", borderBottom:`1px solid ${KC.divider}`, background:KC.card }}>
+              <button onClick={() => setAutoScrolling(s => !s)} style={{
+                padding:"4px 10px", borderRadius:12, border:`1px solid ${autoScrolling ? KC.accent : KC.divider}`,
+                background:autoScrolling ? KC.accentLight : "transparent", color:autoScrolling ? KC.accent : KC.muted,
+                fontFamily:KC.ui, fontSize:10, fontWeight:600, cursor:"pointer", transition:"all 0.15s",
+              }}>{autoScrolling ? "\u23F8 Pause" : "\u25B6 Auto-scroll"}</button>
+              {autoScrolling && [1,2,3].map(s => (
+                <button key={s} onClick={() => setAutoScrollSpeed(s)} style={{
+                  width:22, height:22, borderRadius:"50%", border:`1px solid ${autoScrollSpeed === s ? KC.accent : KC.divider}`,
+                  background:autoScrollSpeed === s ? KC.accent : "transparent", color:autoScrollSpeed === s ? "#fff" : KC.muted,
+                  fontFamily:KC.ui, fontSize:9, fontWeight:700, cursor:"pointer", padding:0, display:"flex", alignItems:"center", justifyContent:"center",
+                }}>{s}x</button>
+              ))}
+            </div>
+
             <Section icon="\u{1F31F}" title="Before We Start" timing="5 minutes" sectionIndex={0}>
               <p style={{ fontFamily:KC.body, fontSize:14.5, color:KC.text, lineHeight:1.7, margin:0 }}>{L.warmUp}</p>
             </Section>
 
             <Section icon="\u{1F4D6}" title="The Story" timing="10 minutes" sectionIndex={1}>
-              <p style={{ fontFamily:KC.body, fontSize:14.5, color:KC.text, lineHeight:1.75, margin:0 }}>{getAge(L.story)}</p>
+              {ageFilter === "3-5" ? (() => {
+                const text = getAge(L.story);
+                const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+                const panels = [];
+                for (let i = 0; i < sentences.length; i += 2) panels.push(sentences.slice(i, i + 2).join(" ").trim());
+                return (
+                  <div>
+                    <div style={{ background:KC.accentLight, borderRadius:12, padding:"20px 18px", minHeight:120, display:"flex", alignItems:"center", justifyContent:"center", marginBottom:12, position:"relative" }}>
+                      <div style={{ position:"absolute", top:8, right:12, fontFamily:KC.ui, fontSize:10, color:KC.accent, fontWeight:600 }}>{storyPanel + 1}/{panels.length}</div>
+                      <p style={{ fontFamily:KC.body, fontSize:16, color:KC.text, lineHeight:1.8, margin:0, textAlign:"center", animation:anim("fadeIn 0.3s ease") }} key={storyPanel}>{panels[storyPanel] || ""}</p>
+                    </div>
+                    <div style={{ display:"flex", gap:8, justifyContent:"center" }}>
+                      <button disabled={storyPanel === 0} onClick={() => setStoryPanel(p => p - 1)} style={{ padding:"8px 18px", borderRadius:10, border:`1px solid ${KC.divider}`, background:storyPanel === 0 ? KC.divider : KC.card, color:storyPanel === 0 ? KC.muted : KC.text, fontFamily:KC.ui, fontSize:12, fontWeight:600, cursor:storyPanel === 0 ? "default" : "pointer", opacity:storyPanel === 0 ? 0.4 : 1 }}>{"\u2039"} Back</button>
+                      <button disabled={storyPanel >= panels.length - 1} onClick={() => setStoryPanel(p => p + 1)} style={{ padding:"8px 18px", borderRadius:10, border:"none", background:storyPanel >= panels.length - 1 ? KC.divider : KC.accent, color:storyPanel >= panels.length - 1 ? KC.muted : "#fff", fontFamily:KC.ui, fontSize:12, fontWeight:600, cursor:storyPanel >= panels.length - 1 ? "default" : "pointer", opacity:storyPanel >= panels.length - 1 ? 0.4 : 1 }}>Next {"\u203A"}</button>
+                    </div>
+                    <div style={{ display:"flex", justifyContent:"center", gap:4, marginTop:8 }}>
+                      {panels.map((_, i) => <div key={i} style={{ width:6, height:6, borderRadius:"50%", background:i === storyPanel ? KC.accent : KC.divider, transition:"all 0.2s" }} />)}
+                    </div>
+                  </div>
+                );
+              })() : (
+                <p style={{ fontFamily:KC.body, fontSize:14.5, color:KC.text, lineHeight:1.75, margin:0 }}>{getAge(L.story)}</p>
+              )}
             </Section>
 
             <Section icon="\u{1F4DC}" title="Scripture Reading" timing="5 minutes" sectionIndex={2}>
@@ -513,6 +638,19 @@ export default function KidsCurriculum({ nav, darkMode }) {
             </Section>
 
             <Section icon="\u{1F468}\u200D\u{1F3EB}" title="Parent & Teacher Notes" collapsed={!parentNotesOpen} onToggle={() => setParentNotesOpen(!parentNotesOpen)} altBg={KC.sectionAlt} sectionIndex={8}>
+              {/* Prep Checklist */}
+              <div style={{ background:KC.accentLight, border:`1px solid ${KC.accent}40`, borderRadius:10, padding:"12px 16px", marginBottom:14 }}>
+                <div style={{ fontFamily:KC.ui, fontSize:12, fontWeight:700, color:KC.accent, marginBottom:8 }}>{"\u2705"} Prep Checklist</div>
+                {PREP_ITEMS.map((item, idx) => {
+                  const checked = prepChecks[`${L.week}-${idx}`];
+                  return (
+                    <label key={idx} style={{ display:"flex", alignItems:"center", gap:8, padding:"6px 0", cursor:"pointer", fontFamily:KC.body, fontSize:13, color:KC.text }}>
+                      <input type="checkbox" checked={!!checked} onChange={() => togglePrep(L.week, idx)} style={{ width:18, height:18, accentColor:KC.accent, cursor:"pointer" }} />
+                      <span style={{ textDecoration:checked ? "line-through" : "none", opacity:checked ? 0.6 : 1, transition:"all 0.15s" }}>{item}</span>
+                    </label>
+                  );
+                })}
+              </div>
               <div style={{ background:KC.teacherBg, border:`1px solid ${KC.teacherBorder}`, borderRadius:10, padding:"16px 18px" }}>
                 <p style={{ fontFamily:KC.body, fontSize:13.5, color:KC.teacherText, lineHeight:1.8, margin:0 }}>{L.teacherNote}</p>
               </div>
@@ -562,12 +700,26 @@ export default function KidsCurriculum({ nav, darkMode }) {
   // ═══════════════════════════════════════════════
   // RENDER — STAR BOARD
   // ═══════════════════════════════════════════════
+  const [starPreview, setStarPreview] = useState(null);
   const StarBoard = () => (
     <div id="panel-stars" role="tabpanel" aria-label="Star Board" style={{ padding:"20px 16px 40px" }}>
       <div style={{ textAlign:"center", marginBottom:20 }}>
         <div style={{ fontFamily:KC.heading, fontSize:18, color:KC.text, marginBottom:4 }}>Your Star Collection</div>
         <div style={{ fontFamily:KC.ui, fontSize:13, color:KC.muted }}>{completedCount} of 52 stars earned</div>
       </div>
+      {/* Star preview card */}
+      {starPreview && (
+        <div style={{ background:KC.card, borderRadius:12, padding:"12px 14px", marginBottom:16, border:`1px solid ${KC.divider}`, borderLeft:`4px solid ${starPreview.color}`, display:"flex", alignItems:"center", gap:12, animation:anim("fadeIn 0.25s ease") }}>
+          <span style={{ fontSize:24 }} aria-hidden="true">{starPreview.icon}</span>
+          <div style={{ flex:1 }}>
+            <div style={{ fontFamily:KC.heading, fontSize:13, fontWeight:700, color:KC.text }}>Week {starPreview.week}: {starPreview.title}</div>
+            <div style={{ fontFamily:KC.ui, fontSize:11, color:KC.muted }}>{starPreview.bibleRef}</div>
+          </div>
+          <button onClick={() => { setStarPreview(null); openLesson(starPreview); }} style={{ padding:"6px 14px", borderRadius:8, border:"none", background:KC.accent, color:"#fff", fontFamily:KC.ui, fontSize:11, fontWeight:700, cursor:"pointer" }}>
+            {completedLessons.includes(starPreview.week) ? "Review" : "Start"} {"\u2192"}
+          </button>
+        </div>
+      )}
       {Object.entries(TERM_WEEKS).map(([term, weeks]) => {
         const termDone = weeks.filter(w => completedLessons.includes(w)).length;
         const tb = TERM_BADGES[term];
@@ -581,18 +733,32 @@ export default function KidsCurriculum({ nav, darkMode }) {
               </div>
               <span style={{ marginLeft:"auto", background:tb.bg, color:tb.color, fontFamily:KC.ui, fontSize:9, fontWeight:600, padding:"2px 8px", borderRadius:4 }}>{tb.label}</span>
             </div>
-            <div style={{ display:"grid", gridTemplateColumns:"repeat(13, 1fr)", gap:4 }}>
+            <div style={{ display:"grid", gridTemplateColumns:"repeat(13, 1fr)", gap:4, position:"relative" }}>
+              {/* Constellation lines between adjacent completed stars */}
+              {weeks.map((w, i) => {
+                if (i === 0) return null;
+                const prevDone = completedLessons.includes(weeks[i-1]);
+                const curDone = completedLessons.includes(w);
+                if (!prevDone || !curDone) return null;
+                return <div key={`line-${w}`} style={{
+                  position:"absolute", top:"50%", height:2, borderRadius:1,
+                  background:`linear-gradient(90deg, ${KC.starGold}, ${KC.starGold}88)`,
+                  left:`calc(${(i-1)/13*100}% + ${100/26}%)`, width:`calc(${100/13}%)`,
+                  transform:"translateY(-1px)", zIndex:0, opacity:0.5,
+                  animation:anim(`fadeIn 0.4s ease ${i*0.04}s both`),
+                }} />;
+              })}
               {weeks.map((w, i) => {
                 const done = completedLessons.includes(w);
                 const isCurrent = w === currentWeek;
                 const lesson = LESSONS.find(l => l.week === w);
                 return (
-                  <button key={w} onClick={() => { if (lesson) openLesson(lesson); }}
+                  <button key={w} onClick={() => { if (lesson) { if (done) openLesson(lesson); else setStarPreview(lesson); } }}
                     aria-label={`Week ${w}: ${lesson?.title || ""}${done ? " (completed)" : ""}`}
                     style={{
                       width:"100%", aspectRatio:"1", borderRadius:"50%", border:"none", cursor:"pointer",
                       display:"flex", alignItems:"center", justifyContent:"center",
-                      fontSize:18, lineHeight:1, padding:0,
+                      fontSize:18, lineHeight:1, padding:0, position:"relative", zIndex:1,
                       background: done ? KC.starGold : isCurrent ? KC.accentLight : "transparent",
                       color: done ? "#fff" : isCurrent ? KC.accent : KC.starOutline,
                       animation: done ? anim(`scaleIn 0.3s ease ${i * 0.04}s both`) : isCurrent ? anim("breathe 2s ease-in-out infinite") : "none",
@@ -617,6 +783,42 @@ export default function KidsCurriculum({ nav, darkMode }) {
     const collectedChars = LESSONS.filter(l => completedLessons.includes(l.week) && l.character);
     return (
       <div id="panel-progress" role="tabpanel" aria-label="Progress" style={{ padding:"20px 16px 40px" }}>
+        {/* Multi-child profiles */}
+        <div style={{ background:KC.card, borderRadius:14, padding:16, border:`1px solid ${KC.divider}`, marginBottom:16 }}>
+          <div style={{ fontFamily:KC.heading, fontSize:15, color:KC.text, marginBottom:10 }}>{"\u{1F46A}"} Children</div>
+          {children.length > 0 && (
+            <div style={{ display:"flex", gap:6, flexWrap:"wrap", marginBottom:10 }}>
+              {children.map(c => (
+                <div key={c.id} style={{ display:"flex", alignItems:"center", gap:4 }}>
+                  <button onClick={() => setActiveChild(c.id)} style={{
+                    padding:"5px 12px", borderRadius:16, border:`1px solid ${activeChild === c.id ? KC.accent : KC.divider}`,
+                    background:activeChild === c.id ? KC.accentLight : "transparent",
+                    color:activeChild === c.id ? KC.accent : KC.muted,
+                    fontFamily:KC.ui, fontSize:11, fontWeight:activeChild === c.id ? 700 : 500, cursor:"pointer",
+                  }}>{c.name}</button>
+                  <button onClick={() => removeChild(c.id)} aria-label={`Remove ${c.name}`} style={{
+                    width:18, height:18, borderRadius:"50%", border:"none", background:KC.divider,
+                    color:KC.muted, fontSize:10, cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", padding:0,
+                  }}>{"\u2715"}</button>
+                </div>
+              ))}
+            </div>
+          )}
+          <div style={{ display:"flex", gap:6 }}>
+            <input value={addChildName} onChange={e => setAddChildName(e.target.value)}
+              onKeyDown={e => { if (e.key === "Enter") addChild(); }}
+              placeholder="Add child name..." style={{
+                flex:1, padding:"6px 10px", borderRadius:8, border:`1px solid ${KC.divider}`, background:KC.bg,
+                fontFamily:KC.ui, fontSize:12, color:KC.text, outline:"none",
+              }} />
+            <button onClick={addChild} disabled={!addChildName.trim()} style={{
+              padding:"6px 14px", borderRadius:8, border:"none", background:addChildName.trim() ? KC.accent : KC.divider,
+              color:addChildName.trim() ? "#fff" : KC.muted, fontFamily:KC.ui, fontSize:11, fontWeight:600, cursor:addChildName.trim() ? "pointer" : "default",
+            }}>Add</button>
+          </div>
+          <div style={{ fontFamily:KC.ui, fontSize:10, color:KC.muted, marginTop:6, lineHeight:1.4 }}>Track progress for each child separately. Each child gets their own star board and completion history.</div>
+        </div>
+
         {/* Overall Ring */}
         <div style={{ background:KC.card, borderRadius:14, padding:24, border:`1px solid ${KC.divider}`, marginBottom:16, textAlign:"center" }}>
           <div style={{ display:"flex", justifyContent:"center", marginBottom:12 }}>
