@@ -27,7 +27,7 @@ export default function BibleView() {
     copyVerseText, shareVerseImage, nav, goBack,
     chapterReads, markChapterRead, quizScores, bibleTranslation, bp,
     audioPlaying, audioVisible, setAudioPlaying, setAudioVisible,
-    audioMode, audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
+    audioAvailable, audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
     audioCurrentWord,
     listenedChapters,
     getChapterFromCache, loadUserDataForChapter, fetchTranslatedVerses,
@@ -431,7 +431,7 @@ export default function BibleView() {
 
   // ── Karaoke text renderer (word-level highlighting for HD audio) ──
   const renderVerseText = (text, verseNum, style) => {
-    const isKaraoke = audioMode === "hd" && audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verseNum;
+    const isKaraoke = audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verseNum;
     if (!isKaraoke || isRtl) {
       return <div style={style}>{text}</div>;
     }
@@ -469,7 +469,7 @@ export default function BibleView() {
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <Header title={`${bookDisplayName} ${visibleChNum}`} onBack={goBack} showFontSize hideUser hidePrayer
-          right={
+          right={audioAvailable ?
             <button onClick={() => {
               if (isListeningHere) { setAudioPlaying(false); } else {
                 setAudioSource("verseList");
@@ -489,7 +489,7 @@ export default function BibleView() {
                 {isListeningHere ? "Listening" : "Listen"}
               </span>
             </button>
-          }
+          : undefined}
         />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`16px ${bp.pad}px ${audioVisible ? 160 : 100}px` }}>
 
@@ -734,8 +734,8 @@ export default function BibleView() {
             <div style={{position:"absolute",top:2,right:14,fontSize:90,color:`${t.accent}07`,fontFamily:t.heading,lineHeight:1,pointerEvents:"none",userSelect:"none",zIndex:0}}>❝</div>
             <div style={{position:"relative",zIndex:1,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
               <Label icon="📖" t={t}>{bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}</Label>
-              <button
-                onClick={() => { if (audioPlaying) { setAudioPlaying(false); } else { setAudioSource("verseStudy"); if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel(); setAudioVisible(true); setAudioPlaying(true); } }}
+              {audioAvailable && <button
+                onClick={() => { if (audioPlaying) { setAudioPlaying(false); } else { setAudioSource("verseStudy"); setAudioVisible(true); setAudioPlaying(true); } }}
                 title={audioPlaying ? "Pause" : "Listen to this verse"}
                 style={{ display:"flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:16,border:`1px solid ${audioPlaying?t.accent:t.accentBorder}`,background:audioPlaying?`${t.accent}15`:"transparent",color:audioPlaying?t.accent:t.muted,cursor:"pointer",transition:"all 0.15s",fontFamily:t.ui,fontSize:11,fontWeight:600 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -744,13 +744,13 @@ export default function BibleView() {
                   {audioPlaying && <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>}
                 </svg>
                 {audioPlaying ? "Playing" : "Listen"}
-              </button>
+              </button>}
             </div>
 
             {/* Verse text */}
             <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:2.0,padding:"12px 0 16px",...rtlStyle}}>
               <span style={{fontSize:"clamp(28px,8vw,36px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:10,marginLeft:isRtl?10:0,marginTop:2,fontFamily:t.heading,textShadow:`0 0 20px ${t.accent}45`}}>{verse}</span>
-              {audioMode === "hd" && audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verse && !isRtl
+              {audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verse && !isRtl
                 ? (() => { const words = currentVerse.kjv_text.split(/(\s+)/); let wIdx = 0; return words.map((w, i) => {
                     if (/^\s+$/.test(w)) return <span key={i}>{w}</span>;
                     const isActive = audioCurrentWord.verseWordIdx === wIdx; wIdx++;
@@ -1036,7 +1036,7 @@ export default function BibleView() {
   return (
     <>
       {content}
-      {(view === "verses" || view === "verse") && <AudioPlayer />}
+      {(view === "verses" || view === "verse") && audioAvailable && <AudioPlayer />}
     </>
   );
 }
