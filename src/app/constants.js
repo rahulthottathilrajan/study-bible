@@ -530,6 +530,10 @@ export const BADGES = [
   { id:"alpha_omega",    category:"greek",  name:"Alpha-Omega Master",icon:"🏛️", description:"Complete all alphabet lessons" },
   { id:"greek_scholar",  category:"greek",  name:"Greek Scholar",     icon:"📘", description:"Complete all Greek lessons" },
   { id:"perfect_greek",  category:"greek",  name:"Perfect Greek",     icon:"💯", description:"Score 100% on a Greek practice" },
+  { id:"greek_streak_7", category:"greek",  name:"7-Day Greek Streak",icon:"🔥", description:"Study Greek 7 days in a row" },
+  { id:"greek_streak_30",category:"greek",  name:"Greek Marathon",    icon:"🏛️", description:"30-day Greek study streak" },
+  { id:"lexicon_50",     category:"greek",  name:"Word Collector",    icon:"📖", description:"Collect 50 words in your lexicon" },
+  { id:"daily_challenger",category:"greek", name:"Daily Challenger",  icon:"⚡", description:"Complete 7 daily challenges" },
   // Learn (4)
   { id:"time_traveler",  category:"learn",  name:"Time Traveler",     icon:"⏳", description:"Explore your first timeline era" },
   { id:"historian",      category:"learn",  name:"Historian",         icon:"📅", description:"Explore all 14 timeline eras" },
@@ -576,6 +580,11 @@ export const BADGES = [
   { id:"streak_7",        category:"reading", name:"Week Warrior",   icon:"\u2694\uFE0F", description:"7-day reading plan streak" },
   { id:"streak_30",       category:"reading", name:"Monthly Maven",  icon:"\uD83D\uDC51", description:"30-day reading plan streak" },
   { id:"plan_halfpoint",  category:"reading", name:"Halfway There",  icon:"\uD83C\uDFD4\uFE0F", description:"Reach 50% of any reading plan" },
+  // Prophecy (4)
+  { id:"first_prophecy",      category:"learn", name:"Prophecy Seeker",      icon:"\u{1F52D}", description:"Study your first prophecy" },
+  { id:"prophecy_streak_7",   category:"learn", name:"Prophetic Watcher",    icon:"\u{1F525}", description:"7-day prophecy study streak" },
+  { id:"prophecy_streak_30",  category:"learn", name:"Prophet's Discipline", icon:"\u26A1",    description:"30-day prophecy study streak" },
+  { id:"prophecy_master",     category:"learn", name:"Master of Prophecy",   icon:"\u{1F451}", description:"Study all 50 prophecies" },
   // Apologetics (4)
   { id:"first_defense",    category:"learn", name:"First Defense",     icon:"\u{1F6E1}\uFE0F", description:"Study your first apologetics topic" },
   { id:"debate_champion",  category:"learn", name:"Debate Champion",   icon:"\u2694\uFE0F", description:"Score 3/3 on 10 debate challenges" },
@@ -638,12 +647,6 @@ export const BIBLE_TRANSLATIONS = [
   { id: "spa_r09", label: "Espa\u00F1ol", name: "Reina Valera 1909", lang: "Spanish", group: "International", cdnId: "spa_r09" },
   { id: "cmn_cu1", label: "\u4E2D\u6587", name: "Chinese Union Version", lang: "Chinese", group: "International", cdnId: "cmn_cu1" },
   { id: "ARBNAV", label: "\u0627\u0644\u0639\u0631\u0628\u064A\u0629", name: "New Arabic Version", lang: "Arabic", group: "International", cdnId: "ARBNAV", rtl: true },
-];
-
-export const CDN_NARRATORS = [
-  { id: "gilbert", label: "Gilbert", description: "Clear, measured reading" },
-  { id: "hays",    label: "Hays",    description: "Warm, pastoral tone" },
-  { id: "souer",   label: "Souer",   description: "Traditional narration" },
 ];
 
 // Pre-generated HD audio (Google Cloud TTS) — translations with MP3s in Supabase Storage

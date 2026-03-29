@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useApp } from "../context/AppContext";
 import ContinueReading from "../components/ContinueReading";
 import VerseOfTheDay from "../components/VerseOfTheDay";
+import GreekWordOfTheDay from "../components/GreekWordOfTheDay";
 import GoToBar from "../components/GoToBar";
 import UtilityStrip from "../components/UtilityStrip";
 import PrayerOfTheDay from "../components/PrayerOfTheDay";
@@ -10,6 +11,7 @@ import { BIRTHDAY_VERSES, THEMES, PODCAST_PALETTES } from "../constants";
 import { LOTDHomeCard } from "../components/LocationOfTheDay";
 import { APOLOGETICS_TOPICS } from "../components/Apologetics";
 import { READING_PLANS, getPlanReadings, getNextReading, getReadingStreak, countCompletedDays } from "../components/ReadingPlansData";
+import ProphecyOfTheDay from "../components/ProphecyOfTheDay";
 
 function getDayOfYear() {
   const now = new Date();
@@ -366,6 +368,8 @@ export default function HomeView() {
           </div>
           {/* ── VERSE OF THE DAY ── */}
           <VerseOfTheDay nav={nav} ht={ht} />
+          {/* ── GREEK WORD OF THE DAY ── */}
+          <GreekWordOfTheDay nav={nav} ht={ht} />
           {/* ── PRAYER OF THE DAY ── */}
           <PrayerOfTheDay nav={nav} ht={ht} />
           {/* ── TODAY'S READING PLAN ── */}
@@ -397,6 +401,8 @@ export default function HomeView() {
               </button>
             );
           })()}
+          {/* ── PROPHECY OF THE DAY ── */}
+          <ProphecyOfTheDay nav={nav} ht={ht} />
           {/* ── LEARNING CENTRE ── */}
           <style>{`@keyframes navGlow { 0%,100% { border-color: rgba(212,168,83,0.35); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 6px rgba(212,168,83,0.1); } 50% { border-color: rgba(212,168,83,0.7); box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 0 10px rgba(212,168,83,0.2); } }`}</style>
           <div style={{ marginBottom:16 }}>

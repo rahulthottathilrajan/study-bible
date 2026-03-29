@@ -45,6 +45,11 @@ button {
   100% { background-position: 200% 50%; }
 }
 
+@keyframes wordReveal {
+  from { opacity: 0; filter: blur(8px); transform: translateY(10px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
 .goto-wheel {
   scrollbar-width: none;
   -ms-overflow-style: none;

@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "../../lib/supabase";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP, CDN_NARRATORS, HD_AUDIO_TRANSLATIONS, HD_AUDIO_BUCKET, HIGHLIGHT_COLORS, QUIZ_BOOKS } from "../constants";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, BADGES, BIRTHDAY_VERSES, BIBLE_TRANSLATIONS, BOOK_CODE_MAP, HD_AUDIO_TRANSLATIONS, HD_AUDIO_BUCKET, HIGHLIGHT_COLORS, QUIZ_BOOKS } from "../constants";
 import { detectCurrency } from "../utils/currency";
 
 // ─── Derive dbChapters from BIBLE_BOOKS (synchronous, no Supabase needed) ───
@@ -222,7 +222,6 @@ export function AppProvider({ children }) {
   const bookCache = useRef({}); // { "genesis": fullBookJSON, ... } — cached static JSON
   const verseIdMap = useRef({}); // { verseNumber: supabaseUUID } — for user data writes
   const translationCache = useRef({}); // { "HINIRV": { "GEN:1": {1:"text",2:"text"} } }
-  const audioLinksCache = useRef({}); // { "BSB:GEN:1": { gilbert:"url", ... } }
   const podcastAudioRef = useRef(null); // HTML5 Audio element (separate from Bible audio)
 
   // ─── Wrapped verse setter — clears stale per-verse user data in same render batch ───
@@ -271,6 +270,10 @@ export function AppProvider({ children }) {
   const [greekGrammarLessonIds, setGreekGrammarLessonIds] = useState({});
   const [greekReadingVerse, setGreekReadingVerse] = useState('john1v1');
   const [greekReadingStep, setGreekReadingStep] = useState(0);
+  const [greekShowLetters, setGreekShowLetters] = useState(false);
+  const [greekError, setGreekError] = useState(null);
+  const [greekStreak, setGreekStreak] = useState(() => { try { return parseInt(localStorage.getItem("greekStreakCount") || "0"); } catch { return 0; } });
+  const greekLessonCategories = useRef({});
 
   // ─── Timeline state ───
   const [timelineEras, setTimelineEras] = useState([]);
@@ -300,11 +303,6 @@ export function AppProvider({ children }) {
   // ─── Audio state ───
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [audioVisible, setAudioVisible] = useState(false);
-  const [audioMode, setAudioMode] = useState("tts"); // "tts" | "cdn" | "hd"
-  const [audioNarrator, setAudioNarrator] = useState(() => {
-    try { return localStorage.getItem("audioNarrator") || "gilbert"; } catch { return "gilbert"; }
-  });
-  const [audioChapterLinks, setAudioChapterLinks] = useState(null);
   const [sleepTimer, setSleepTimer] = useState(0); // 0=off, 15, 30, 45, 60 minutes
   const [audioSource, setAudioSource] = useState("verseStudy"); // "verseStudy" | "verseList"
   const [audioCurrentVerse, setAudioCurrentVerse] = useState(null);
@@ -346,33 +344,9 @@ export function AppProvider({ children }) {
     });
   }, []);
 
-  // Persist narrator preference
-  useEffect(() => {
-    try { localStorage.setItem("audioNarrator", audioNarrator); } catch {}
-  }, [audioNarrator]);
-
   useEffect(() => {
     try { localStorage.setItem("podcastListenedEpisodes", JSON.stringify(podcastListenedEpisodes)); } catch {}
   }, [podcastListenedEpisodes]);
-
-  // Fetch CDN audio links (BSB has narrated audio via helloao)
-  const fetchAudioLinks = useCallback(async (bookName, chNum) => {
-    const bookCode = BOOK_CODE_MAP[bookName];
-    if (!bookCode) return null;
-    const cacheKey = `BSB:${bookCode}:${chNum}`;
-    if (audioLinksCache.current[cacheKey]) return audioLinksCache.current[cacheKey];
-    try {
-      const res = await fetch(`https://bible.helloao.org/api/BSB/${bookCode}/${chNum}.json`);
-      if (!res.ok) return null;
-      const data = await res.json();
-      const links = data.thisChapterAudioLinks;
-      if (links && Object.keys(links).length > 0) {
-        audioLinksCache.current[cacheKey] = links;
-        return links;
-      }
-      return null;
-    } catch { return null; }
-  }, []);
 
   // Construct Supabase Storage URL for pre-generated HD audio
   const getHdAudioUrl = useCallback((bookName, chNum, translation) => {
@@ -399,32 +373,17 @@ export function AppProvider({ children }) {
     } catch { return null; }
   }, []);
 
-  // 3-tier audio mode: BSB CDN → HD pre-generated → TTS fallback
+  // HD audio: set URL + pre-fetch timestamps when translation has pre-generated audio
+  const audioAvailable = HD_AUDIO_TRANSLATIONS.includes(bibleTranslation);
   useEffect(() => {
-    if (bibleTranslation === "bsb" && book && chapter) {
-      // Tier 1: BSB CDN narrated audio
-      fetchAudioLinks(book, chapter).then(links => {
-        setAudioChapterLinks(links);
-        setHdAudioUrl(null);
-        setAudioMode(links && Object.keys(links).length > 0 ? "cdn" : "tts");
-      });
-    } else if (HD_AUDIO_TRANSLATIONS.includes(bibleTranslation) && book && chapter) {
-      // Tier 2: Pre-generated HD audio from Supabase Storage (Google Cloud TTS)
-      const url = getHdAudioUrl(book, chapter, bibleTranslation);
-      setAudioChapterLinks(null);
-      setHdAudioUrl(url);
-      setAudioMode("hd");
-      // Pre-fetch timestamps for verse tracking
+    if (audioAvailable && book && chapter) {
+      setHdAudioUrl(getHdAudioUrl(book, chapter, bibleTranslation));
       fetchAudioTimestamps(book, chapter, bibleTranslation);
     } else {
-      // Tier 3: Browser TTS fallback
-      setAudioChapterLinks(null);
       setHdAudioUrl(null);
-      setAudioMode("tts");
     }
-    // Clear karaoke word highlight on chapter/translation change
     setAudioCurrentWord(null);
-  }, [bibleTranslation, book, chapter, fetchAudioLinks, getHdAudioUrl, fetchAudioTimestamps]);
+  }, [audioAvailable, bibleTranslation, book, chapter, getHdAudioUrl, fetchAudioTimestamps]);
 
   // ═══ PODCAST ═══
 
@@ -441,7 +400,6 @@ export function AppProvider({ children }) {
     setAudioVisible(false);
     setAudioCurrentVerse(null);
     setAudioCurrentWord(null);
-    if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
   }, []);
 
   // ─── Podcast listening streak ───
@@ -1544,12 +1502,21 @@ export function AppProvider({ children }) {
     if (hebCompleted.length >= 22 && !earned.hebrew_scholar) awardBadge("hebrew_scholar");
     if (hebCompleted.some(p => p.score >= 100) && !earned.perfect_hebrew) awardBadge("perfect_hebrew");
 
-    // Greek badges
+    // Greek badges (Bug A5 fixed: alpha_omega filters alphabet-only)
     const greekCompleted = Object.values(greekProgress).filter(p => p.completed);
     if (greekCompleted.length >= 1 && !earned.alpha) awardBadge("alpha");
-    if (greekCompleted.length >= 24 && !earned.alpha_omega) awardBadge("alpha_omega");
+    const greekAlphabetDone = greekCompleted.filter(p => greekLessonCategories.current[p.lesson_id] === "alphabet").length;
+    if (greekAlphabetDone >= 24 && !earned.alpha_omega) awardBadge("alpha_omega");
     if (greekCompleted.length >= 50 && !earned.greek_scholar) awardBadge("greek_scholar");
     if (greekCompleted.some(p => p.score >= 100) && !earned.perfect_greek) awardBadge("perfect_greek");
+    // Greek engagement badges
+    const gStreak = parseInt(localStorage.getItem("greekStreakCount") || "0");
+    if (gStreak >= 7 && !earned.greek_streak_7) awardBadge("greek_streak_7");
+    if (gStreak >= 30 && !earned.greek_streak_30) awardBadge("greek_streak_30");
+    const gLexicon = JSON.parse(localStorage.getItem("greekLexicon") || "[]");
+    if (gLexicon.length >= 50 && !earned.lexicon_50) awardBadge("lexicon_50");
+    const gChallengeCount = parseInt(localStorage.getItem("greekChallengeCount") || "0");
+    if (gChallengeCount >= 7 && !earned.daily_challenger) awardBadge("daily_challenger");
 
     // Learn badges
     const erasCount = learnExploration.erasExplored?.length || 0;
@@ -1577,6 +1544,16 @@ export function AppProvider({ children }) {
     if (tlViewedBooks.length >= 66 && !earned.timeline_complete) awardBadge("timeline_complete");
     if (tlStreak >= 7 && !earned.timeline_streak) awardBadge("timeline_streak");
     if (tlViewedGenres.length >= 7 && !earned.timeline_scholar) awardBadge("timeline_scholar");
+    // Prophecy badges
+    let prophecyRead = {};
+    try { prophecyRead = JSON.parse(localStorage.getItem("prophecy_read") || "{}"); } catch {}
+    const prophecyReadCount = Object.keys(prophecyRead).length;
+    if (prophecyReadCount >= 1 && !earned.first_prophecy) awardBadge("first_prophecy");
+    if (prophecyReadCount >= 50 && !earned.prophecy_master) awardBadge("prophecy_master");
+    let prophStreak = { current: 0 };
+    try { const c = parseInt(localStorage.getItem("prophecyStreakCount") || "0", 10); prophStreak.current = c; } catch {}
+    if (prophStreak.current >= 7 && !earned.prophecy_streak_7) awardBadge("prophecy_streak_7");
+    if (prophStreak.current >= 30 && !earned.prophecy_streak_30) awardBadge("prophecy_streak_30");
     // Apologetics badges
     const apolCount = learnExploration.apologeticsStudied?.length || 0;
     if (apolCount >= 1 && !earned.first_defense) awardBadge("first_defense");
@@ -1640,7 +1617,7 @@ export function AppProvider({ children }) {
     if (podcastStreak?.current >= 7 && !earned.podcast_streak_7) awardBadge("podcast_streak_7");
     if (podcastStreak?.current >= 30 && !earned.podcast_streak_30) awardBadge("podcast_streak_30");
   }, [user, chapterReads, allHighlights, notesCount, streak, hebrewProgress, hebrewLessons,
-      greekProgress, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, listenedChapters, podcastListenedEpisodes, podcastStreak, awardBadge]);
+      greekProgress, greekStreak, learnExploration, userReactions, communityPrayers, quizScores, isBirthdayToday, profile, listenedChapters, podcastListenedEpisodes, podcastStreak, awardBadge]);
 
   useEffect(() => { checkBadges(); }, [checkBadges]);
 
@@ -1648,8 +1625,11 @@ export function AppProvider({ children }) {
   const loadHebrewLessons = useCallback(async (cat = 'alphabet') => {
     const cacheKey = `lessons-${cat}`;
     if (hebrewCache.current[cacheKey]) { setHebrewLessons(hebrewCache.current[cacheKey]); return; }
-    const { data } = await supabase.from("hebrew_lessons").select("*").eq("category", cat).order("lesson_number");
-    if (data) { hebrewCache.current[cacheKey] = data; setHebrewLessons(data); }
+    try {
+      const { data, error } = await supabase.from("hebrew_lessons").select("*").eq("category", cat).order("lesson_number");
+      if (error) throw error;
+      if (data) { hebrewCache.current[cacheKey] = data; setHebrewLessons(data); }
+    } catch (err) { console.error("loadHebrewLessons:", err); setHebrewLessons([]); }
   }, []);
 
   const loadHebrewLesson = useCallback(async (lessonId) => {
@@ -1659,33 +1639,41 @@ export function AppProvider({ children }) {
       setHebrewLesson(cached.lesson); setHebrewAlphabet(cached.alphabet); setHebrewVocab(cached.vocab);
       return;
     }
-    const { data: lesson } = await supabase.from("hebrew_lessons").select("*").eq("id", lessonId).single();
-    const { data: alphabet } = await supabase.from("hebrew_alphabet").select("*").eq("lesson_id", lessonId).single();
-    const { data: vocab } = await supabase.from("hebrew_vocabulary").select("*").eq("lesson_id", lessonId).order("id");
-    if (lesson) setHebrewLesson(lesson);
-    if (alphabet) setHebrewAlphabet(alphabet);
-    setHebrewVocab(vocab || []);
-    hebrewCache.current[cacheKey] = { lesson, alphabet, vocab: vocab || [] };
+    try {
+      const { data: lesson, error: e1 } = await supabase.from("hebrew_lessons").select("*").eq("id", lessonId).single();
+      if (e1) throw e1;
+      const { data: alphabet } = await supabase.from("hebrew_alphabet").select("*").eq("lesson_id", lessonId).single();
+      const { data: vocab } = await supabase.from("hebrew_vocabulary").select("*").eq("lesson_id", lessonId).order("id");
+      if (lesson) setHebrewLesson(lesson);
+      if (alphabet) setHebrewAlphabet(alphabet);
+      setHebrewVocab(vocab || []);
+      hebrewCache.current[cacheKey] = { lesson, alphabet, vocab: vocab || [] };
+    } catch (err) { console.error("loadHebrewLesson:", err); }
   }, []);
 
   const loadHebrewProgress = useCallback(async () => {
     if (!user) return;
-    const { data } = await supabase.from("user_hebrew_progress").select("*").eq("user_id", user.id);
-    if (data) {
-      const map = {}; data.forEach(p => { map[p.lesson_id] = p; });
-      setHebrewProgress(map);
-    }
+    try {
+      const { data, error } = await supabase.from("user_hebrew_progress").select("*").eq("user_id", user.id);
+      if (error) throw error;
+      if (data) {
+        const map = {}; data.forEach(p => { map[p.lesson_id] = p; });
+        setHebrewProgress(map);
+      }
+    } catch (err) { console.error("loadHebrewProgress:", err); }
   }, [user]);
 
   const markHebrewComplete = async (lessonId, score) => {
     if (!user) return;
-    const existing = hebrewProgress[lessonId];
-    if (existing) {
-      await supabase.from("user_hebrew_progress").update({ completed: true, score: score || existing.score, completed_at: new Date().toISOString() }).eq("id", existing.id);
-    } else {
-      await supabase.from("user_hebrew_progress").insert({ user_id: user.id, lesson_id: lessonId, completed: true, score, completed_at: new Date().toISOString() });
-    }
-    loadHebrewProgress();
+    try {
+      const existing = hebrewProgress[lessonId];
+      if (existing) {
+        await supabase.from("user_hebrew_progress").update({ completed: true, score: score || existing.score, completed_at: new Date().toISOString() }).eq("id", existing.id);
+      } else {
+        await supabase.from("user_hebrew_progress").insert({ user_id: user.id, lesson_id: lessonId, completed: true, score, completed_at: new Date().toISOString() });
+      }
+      loadHebrewProgress();
+    } catch (err) { console.error("markHebrewComplete:", err); }
   };
 
   useEffect(() => { if (view === "hebrew-home") { loadHebrewLessons(hebrewCategory); loadHebrewProgress(); } }, [view, hebrewCategory, loadHebrewLessons, loadHebrewProgress]);
@@ -1693,47 +1681,82 @@ export function AppProvider({ children }) {
 
   // ═══ GREEK LEARNING ═══
   const loadGreekLessons = useCallback(async (cat = 'alphabet') => {
-    const cacheKey = `greek-lessons-${cat}`;
-    if (greekCache.current[cacheKey]) { setGreekLessons(greekCache.current[cacheKey]); return; }
-    const { data } = await supabase.from("greek_lessons").select("*").eq("category", cat).order("lesson_number");
-    if (data) { greekCache.current[cacheKey] = data; setGreekLessons(data); }
+    setGreekError(null);
+    try {
+      const cacheKey = `greek-lessons-${cat}`;
+      if (greekCache.current[cacheKey]) { setGreekLessons(greekCache.current[cacheKey]); return; }
+      const { data, error } = await supabase.from("greek_lessons").select("*").eq("category", cat).order("lesson_number");
+      if (error) throw error;
+      if (data) {
+        greekCache.current[cacheKey] = data;
+        setGreekLessons(data);
+        data.forEach(l => { greekLessonCategories.current[l.id] = l.category; });
+      }
+    } catch (e) {
+      console.error("loadGreekLessons error:", e);
+      setGreekError("Unable to load lessons. Please check your connection.");
+    }
   }, []);
 
   const loadGreekLesson = useCallback(async (lessonId) => {
-    const cacheKey = `greek-lesson-${lessonId}`;
-    if (greekCache.current[cacheKey]) {
-      const cached = greekCache.current[cacheKey];
-      setGreekLesson(cached.lesson); setGreekAlphabet(cached.alphabet); setGreekVocab(cached.vocab);
-      return;
+    try {
+      const cacheKey = `greek-lesson-${lessonId}`;
+      if (greekCache.current[cacheKey]) {
+        const cached = greekCache.current[cacheKey];
+        setGreekLesson(cached.lesson); setGreekAlphabet(cached.alphabet); setGreekVocab(cached.vocab);
+        return;
+      }
+      const { data: lesson } = await supabase.from("greek_lessons").select("*").eq("id", lessonId).single();
+      const { data: alphabet } = await supabase.from("greek_alphabet").select("*").eq("lesson_id", lessonId).single();
+      const { data: vocab } = await supabase.from("greek_vocabulary").select("*").eq("lesson_id", lessonId).order("id");
+      if (lesson) setGreekLesson(lesson);
+      if (alphabet) setGreekAlphabet(alphabet);
+      setGreekVocab(vocab || []);
+      greekCache.current[cacheKey] = { lesson, alphabet, vocab: vocab || [] };
+    } catch (e) {
+      console.error("loadGreekLesson error:", e);
     }
-    const { data: lesson } = await supabase.from("greek_lessons").select("*").eq("id", lessonId).single();
-    const { data: alphabet } = await supabase.from("greek_alphabet").select("*").eq("lesson_id", lessonId).single();
-    const { data: vocab } = await supabase.from("greek_vocabulary").select("*").eq("lesson_id", lessonId).order("id");
-    if (lesson) setGreekLesson(lesson);
-    if (alphabet) setGreekAlphabet(alphabet);
-    setGreekVocab(vocab || []);
-    greekCache.current[cacheKey] = { lesson, alphabet, vocab: vocab || [] };
   }, []);
 
   const loadGreekProgress = useCallback(async () => {
     if (!user) return;
-    const { data } = await supabase.from("user_greek_progress").select("*").eq("user_id", user.id);
-    if (data) {
-      const map = {}; data.forEach(p => { map[p.lesson_id] = p; });
-      setGreekProgress(map);
+    try {
+      const { data } = await supabase.from("user_greek_progress").select("*").eq("user_id", user.id);
+      if (data) {
+        const map = {}; data.forEach(p => { map[p.lesson_id] = p; });
+        setGreekProgress(map);
+      }
+    } catch (e) {
+      console.error("loadGreekProgress error:", e);
     }
   }, [user]);
 
   const markGreekComplete = async (lessonId, score) => {
     if (!user) return;
-    const existing = greekProgress[lessonId];
-    if (existing) {
-      await supabase.from("user_greek_progress").update({ completed: true, score: score || existing.score, completed_at: new Date().toISOString() }).eq("id", existing.id);
-    } else {
-      await supabase.from("user_greek_progress").insert({ user_id: user.id, lesson_id: lessonId, completed: true, score, completed_at: new Date().toISOString() });
+    try {
+      const existing = greekProgress[lessonId];
+      if (existing) {
+        await supabase.from("user_greek_progress").update({ completed: true, score: Math.max(score, existing.score || 0), completed_at: new Date().toISOString() }).eq("id", existing.id);
+      } else {
+        await supabase.from("user_greek_progress").insert({ user_id: user.id, lesson_id: lessonId, completed: true, score, completed_at: new Date().toISOString() });
+      }
+      loadGreekProgress();
+    } catch (e) {
+      console.error("markGreekComplete error:", e);
     }
-    loadGreekProgress();
   };
+
+  const updateGreekStreak = useCallback(() => {
+    const today = new Date().toISOString().slice(0, 10);
+    const lastDate = localStorage.getItem("greekStreakLastDate");
+    let count = parseInt(localStorage.getItem("greekStreakCount") || "0");
+    if (lastDate === today) return;
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    count = lastDate === yesterday ? count + 1 : 1;
+    localStorage.setItem("greekStreakCount", String(count));
+    localStorage.setItem("greekStreakLastDate", today);
+    setGreekStreak(count);
+  }, []);
 
   useEffect(() => { if (view === "greek-home") { loadGreekLessons(greekCategory); loadGreekProgress(); } }, [view, greekCategory, loadGreekLessons, loadGreekProgress]);
 
@@ -1877,7 +1900,7 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"books", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", "podcast-home":"learn-home", "podcast-detail":"podcast-home", "podcast-episode":"podcast-detail", "smart-chat":"home", };
+  const BACK_MAP = { "verse":"verses", "verses":"books", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "greek-lexicon":"greek-home", "greek-flashcards":"greek-home", "greek-journal":"greek-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", "podcast-home":"learn-home", "podcast-detail":"podcast-home", "podcast-episode":"podcast-detail", "smart-chat":"home", };
 
   const addToCart = (product, qty = 1, size = null) => {
     setCart(prev => {
@@ -2013,7 +2036,7 @@ export function AppProvider({ children }) {
         localStorage.setItem("cr_hebrew", JSON.stringify(data));
         savePositionToSupabase("hebrew", data);
       }
-      if (view === "greek-home" || view === "greek-lesson" || view === "greek-practice") {
+      if (view === "greek-home" || view === "greek-lesson" || view === "greek-practice" || view === "greek-reading" || view === "greek-flashcards" || view === "greek-lexicon" || view === "greek-journal") {
         const name = greekLesson?.title || greekCategory || "Greek";
         const data = { lessonName: name, view };
         localStorage.setItem("cr_greek", JSON.stringify(data));
@@ -2080,6 +2103,7 @@ export function AppProvider({ children }) {
     greekPracticeAnswer, setGreekPracticeAnswer, greekPracticeScore, setGreekPracticeScore,
     greekVocabGroup, setGreekVocabGroup, greekGrammarLesson, setGreekGrammarLesson,
     greekGrammarLessonIds, greekReadingVerse, setGreekReadingVerse, greekReadingStep, setGreekReadingStep,
+    greekShowLetters, setGreekShowLetters, greekStreak, updateGreekStreak, greekError,
     // Timeline
     timelineEras, timelineEvents, timelineSelectedEra, setTimelineSelectedEra,
     timelineSelectedEvent, setTimelineSelectedEvent, timelineLoading, timelineEventsLoading,
@@ -2124,10 +2148,9 @@ export function AppProvider({ children }) {
     quizStreak, getDailyQuiz, dailyQuizCompleted, updateQuizStreak, quizMastery,
     // Audio
     audioPlaying, setAudioPlaying, audioVisible, setAudioVisible,
-    audioMode, setAudioMode, audioNarrator, setAudioNarrator,
-    audioChapterLinks, sleepTimer, setSleepTimer,
+    audioAvailable, sleepTimer, setSleepTimer,
     audioSource, setAudioSource, audioCurrentVerse, setAudioCurrentVerse,
-    listenedChapters, markChapterListened, fetchAudioLinks,
+    listenedChapters, markChapterListened,
     hdAudioUrl, fetchAudioTimestamps,
     audioCurrentWord, setAudioCurrentWord,
     // Podcast (minimal — player is self-contained)
