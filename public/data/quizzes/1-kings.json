@@ -56,8 +56,8 @@
       {
         "question_number": 3,
         "question": "What did Adonijah do when he heard that Solomon had been anointed king?",
-        "option_a": "He caught hold on the horns of the altar",
-        "option_b": "He fled the country",
+        "option_a": "He fled the country",
+        "option_b": "He caught hold on the horns of the altar",
         "option_c": "He gathered an army to fight",
         "option_d": "He went into hiding",
         "correct_answer": "a",
@@ -1334,10 +1334,10 @@
       {
         "question_number": 8,
         "question": "What happens to the priests when they cannot stand to minister because of the cloud, and what does this signify?",
-        "option_a": "The priests fell prostrate in worship and could not stand",
+        "option_a": "The overwhelming presence of God's glory filling the house made priestly service impossible, showing God's actual indwelling",
         "option_b": "The priests were temporarily blinded by a heavenly light",
         "option_c": "The weight of the cloud collapsed part of the structure",
-        "option_d": "The overwhelming presence of God's glory filling the house made priestly service impossible, showing God's actual indwelling",
+        "option_d": "The priests fell prostrate in worship and could not stand",
         "correct_answer": "a",
         "explanation": "1 Kings 8:11 — \"So that the priests could not stand to minister because of the cloud: for the glory of the LORD had filled the house of the LORD.\""
       }
@@ -2510,9 +2510,9 @@
       {
         "question_number": 8,
         "question": "What does the phrase \"nevertheless Asa's heart was perfect with the LORD all his days\" suggest about the Deuteronomistic standard when compared to earlier kings?",
-        "option_a": "It means the high places were acceptable to God",
+        "option_a": "It signals a wholehearted personal devotion even though Asa did not remove all the high places — the historian distinguishes between structural religious failures and sincere personal fidelity",
         "option_b": "It means Asa committed no sins whatsoever",
-        "option_c": "It signals a wholehearted personal devotion even though Asa did not remove all the high places — the historian distinguishes between structural religious failures and sincere personal fidelity",
+        "option_c": "It means the high places were acceptable to God",
         "option_d": "It applies only to Asa's last years",
         "correct_answer": "a",
         "explanation": "1 Kings 15:14 — \"But the high places were not removed: nevertheless Asa's heart was perfect with the LORD all his days.\" This nuanced evaluation shows the historian can award positive verdicts despite incomplete reforms, provided personal loyalty to Yahweh is genuine."
@@ -2786,8 +2786,8 @@
       {
         "question_number": 2,
         "question": "How does the drought Elijah announces function as a direct polemic against Baal worship?",
-        "option_a": "The drought was only a political punishment",
-        "option_b": "Baal was the Canaanite storm and fertility deity responsible for rain and agricultural abundance — a drought under Yahweh's command was a direct demonstration that Baal had no power over weather",
+        "option_a": "Baal was the Canaanite storm and fertility deity responsible for rain and agricultural abundance — a drought under Yahweh's command was a direct demonstration that Baal had no power over weather",
+        "option_b": "The drought was only a political punishment",
         "option_c": "It tested Ahab's agricultural management",
         "option_d": "It had no connection to the Baal cult's claims",
         "correct_answer": "a",
@@ -2826,8 +2826,8 @@
       {
         "question_number": 6,
         "question": "What does the drying of the brook Cherith after Elijah had been sustained there teach about divine provision?",
-        "option_a": "The brook dried up due to normal weather patterns only",
-        "option_b": "God's means of provision are temporary and varied — He moves His servants to new places of dependence rather than allowing them to settle into relying on a fixed mechanism of supply",
+        "option_a": "God's means of provision are temporary and varied — He moves His servants to new places of dependence rather than allowing them to settle into relying on a fixed mechanism of supply",
+        "option_b": "The brook dried up due to normal weather patterns only",
         "option_c": "It was a punishment for some sin of Elijah",
         "option_d": "It showed the drought was not fully under God's control",
         "correct_answer": "a",
@@ -3132,10 +3132,10 @@
       {
         "question_number": 3,
         "question": "How does the theophany at Horeb — wind, earthquake, fire, then still small voice — contrast with Elijah's recent experience at Carmel?",
-        "option_a": "It suggests the still small voice was a rebuke for the Carmel drama",
+        "option_a": "At Carmel God acted through dramatic public fire; at Horeb God passed by in a still small voice — teaching that divine presence is not always in spectacular power but often in quiet, direct word",
         "option_b": "It shows God changed His methods permanently",
         "option_c": "It indicates Elijah misidentified the Carmel miracle",
-        "option_d": "At Carmel God acted through dramatic public fire; at Horeb God passed by in a still small voice — teaching that divine presence is not always in spectacular power but often in quiet, direct word",
+        "option_d": "It suggests the still small voice was a rebuke for the Carmel drama",
         "correct_answer": "a",
         "explanation": "1 Kings 19:11-12 — \"A great and strong wind rent the mountains... but the LORD was not in the wind: and after the wind an earthquake; but the LORD was not in the earthquake: And after the earthquake a fire; but the LORD was not in the fire: and after the fire a still small voice.\""
       },

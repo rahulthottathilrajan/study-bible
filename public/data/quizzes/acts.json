@@ -266,8 +266,8 @@
       {
         "question_number": 2,
         "question": "How does the gift of tongues at Pentecost relate to the Tower of Babel narrative?",
-        "option_a": "Tongues and Babel are unrelated",
-        "option_b": "At Babel (Genesis 11), God confused languages to scatter rebellious humanity. At Pentecost, the Spirit enables communication across language barriers to unite people in the gospel. Pentecost is the reversal of Babel — where sin divided humanity by language, grace reunites humanity through the Spirit",
+        "option_a": "At Babel (Genesis 11), God confused languages to scatter rebellious humanity. At Pentecost, the Spirit enables communication across language barriers to unite people in the gospel. Pentecost is the reversal of Babel — where sin divided humanity by language, grace reunites humanity through the Spirit",
+        "option_b": "Tongues and Babel are unrelated",
         "option_c": "Pentecost created new confusion like Babel",
         "option_d": "Only Hebrew was spoken at Pentecost",
         "correct_answer": "a",
@@ -424,8 +424,8 @@
       {
         "question_number": 1,
         "question": "What does the healing at the Beautiful Gate demonstrate about the nature of apostolic ministry?",
-        "option_a": "Peter was showing off his personal power",
-        "option_b": "The apostles continue Jesus' ministry of compassion and power — Peter's words (\"such as I have give I thee\") show that the church's true wealth is spiritual authority in Christ's name, not material resources. The healing validates the apostolic message and demonstrates the risen Christ working through His church",
+        "option_a": "The apostles continue Jesus' ministry of compassion and power — Peter's words (\"such as I have give I thee\") show that the church's true wealth is spiritual authority in Christ's name, not material resources. The healing validates the apostolic message and demonstrates the risen Christ working through His church",
+        "option_b": "Peter was showing off his personal power",
         "option_c": "Healings were only meant to attract crowds",
         "option_d": "The healing was purely symbolic",
         "correct_answer": "a",
@@ -494,10 +494,10 @@
       {
         "question_number": 8,
         "question": "How does Peter's sermon in chapter 3 advance beyond his Pentecost sermon in chapter 2?",
-        "option_a": "Peter contradicts his earlier sermon",
+        "option_a": "While both sermons proclaim Jesus' death, resurrection, and exaltation, chapter 3 adds the themes of cosmic restoration (apokatastasis), the prophet-like-Moses typology, the Abrahamic covenant's universal scope, and a stronger emphasis on Israel's priority in receiving the gospel. It also addresses the practical implication of Christ's power (the healing) and the call to repentance based on ignorance",
         "option_b": "It simply repeats the same points",
         "option_c": "Chapter 3 has less theological content",
-        "option_d": "While both sermons proclaim Jesus' death, resurrection, and exaltation, chapter 3 adds the themes of cosmic restoration (apokatastasis), the prophet-like-Moses typology, the Abrahamic covenant's universal scope, and a stronger emphasis on Israel's priority in receiving the gospel. It also addresses the practical implication of Christ's power (the healing) and the call to repentance based on ignorance",
+        "option_d": "Peter contradicts his earlier sermon",
         "correct_answer": "a",
         "explanation": "Peter's second sermon builds on the first: same core (death/resurrection/repentance) but expanded framework — Moses typology (3:22), Abrahamic covenant (3:25), \"all the prophets from Samuel\" (3:24), and the eschatological vision of \"restitution of all things\" (3:21). Luke shows the apostolic message deepening."
       }
@@ -642,10 +642,10 @@
       {
         "question_number": 6,
         "question": "What principle does Peter establish in 4:19-20 about civil disobedience?",
-        "option_a": "The principle applies only to apostles",
+        "option_a": "Peter establishes that obedience to God takes absolute priority over obedience to human authority when they conflict — \"Whether it be right in the sight of God to hearken unto you more than unto God, judge ye.\" This is not anarchy but principled, non-violent disobedience: they continue witnessing but do not resist arrest",
         "option_b": "Christians must always obey the government",
         "option_c": "Peter was calling for armed rebellion",
-        "option_d": "Peter establishes that obedience to God takes absolute priority over obedience to human authority when they conflict — \"Whether it be right in the sight of God to hearken unto you more than unto God, judge ye.\" This is not anarchy but principled, non-violent disobedience: they continue witnessing but do not resist arrest",
+        "option_d": "The principle applies only to apostles",
         "correct_answer": "a",
         "explanation": "Acts 4:19-20 — Peter's principle echoes Socrates' \"I shall obey God rather than you\" (Apology 29d) but has deeper theological grounding. When human law contradicts divine command, God's authority is supreme. The apostles model respectful but firm non-compliance."
       },
@@ -938,8 +938,8 @@
       {
         "question_number": 2,
         "question": "What is the significance of all seven chosen men having Greek names?",
-        "option_a": "Greek names were common for all Jews",
-        "option_b": "All seven names are Greek (Stephen, Philip, Prochorus, Nicanor, Timon, Parmenas, Nicolas), and Nicolas is identified as a Gentile proselyte. This suggests the church selected leaders from the aggrieved community to oversee the distribution — a remarkable act of trust and reconciliation. The majority placed the minority's representatives in charge",
+        "option_a": "All seven names are Greek (Stephen, Philip, Prochorus, Nicanor, Timon, Parmenas, Nicolas), and Nicolas is identified as a Gentile proselyte. This suggests the church selected leaders from the aggrieved community to oversee the distribution — a remarkable act of trust and reconciliation. The majority placed the minority's representatives in charge",
+        "option_b": "Greek names were common for all Jews",
         "option_c": "It is purely coincidental",
         "option_d": "Only one name is Greek",
         "correct_answer": "a",
@@ -1136,9 +1136,9 @@
       {
         "question_number": 5,
         "question": "What is the theological significance of Stephen calling the council \"stiffnecked and uncircumcised in heart and ears\" (7:51)?",
-        "option_a": "Uncircumcised in heart was a compliment",
+        "option_a": "Stephen inverts their self-understanding: the physically circumcised Sanhedrin is spiritually uncircumcised — a devastating charge using Moses' own language (Deuteronomy 10:16, Jeremiah 4:4). They claim to defend Moses but embody the very rebellion Moses condemned. The \"stiffnecked\" language echoes Exodus 32:9 (golden calf incident), equating the council with the idolaters",
         "option_b": "Stephen was using random insults",
-        "option_c": "Stephen inverts their self-understanding: the physically circumcised Sanhedrin is spiritually uncircumcised — a devastating charge using Moses' own language (Deuteronomy 10:16, Jeremiah 4:4). They claim to defend Moses but embody the very rebellion Moses condemned. The \"stiffnecked\" language echoes Exodus 32:9 (golden calf incident), equating the council with the idolaters",
+        "option_c": "Uncircumcised in heart was a compliment",
         "option_d": "The phrase has no Old Testament background",
         "correct_answer": "a",
         "explanation": "Acts 7:51 — \"Ye stiffnecked and uncircumcised in heart and ears.\" Deuteronomy 10:16: \"Circumcise therefore the foreskin of your heart, and be no more stiffnecked.\" Jeremiah 4:4: \"Circumcise yourselves to the LORD, and take away the foreskins of your heart.\" Stephen's accusers are Moses' true violators."
@@ -1166,8 +1166,8 @@
       {
         "question_number": 8,
         "question": "What is the narrative significance of Saul's introduction at Stephen's death?",
-        "option_a": "Saul's presence was coincidental",
-        "option_b": "Luke introduces Saul at the moment of maximum hostility to the gospel — \"consenting unto his death\" and later \"made havock of the church\" (8:1,3). This sets up the dramatic reversal of Saul's conversion (chapter 9). Stephen's prayer for his killers may be implicitly answered in Saul's salvation — the church's first martyr's prayer produces its greatest missionary",
+        "option_a": "Luke introduces Saul at the moment of maximum hostility to the gospel — \"consenting unto his death\" and later \"made havock of the church\" (8:1,3). This sets up the dramatic reversal of Saul's conversion (chapter 9). Stephen's prayer for his killers may be implicitly answered in Saul's salvation — the church's first martyr's prayer produces its greatest missionary",
+        "option_b": "Saul's presence was coincidental",
         "option_c": "Saul tried to stop the stoning",
         "option_d": "Luke mentions Saul only for historical accuracy",
         "correct_answer": "a",
@@ -1304,10 +1304,10 @@
       {
         "question_number": 5,
         "question": "How does Philip's encounter with the Ethiopian eunuch advance Luke's theme of gospel expansion?",
-        "option_a": "Philip met the Ethiopian by accident",
+        "option_a": "The Ethiopian is a God-fearer — a Gentile on the margins of Judaism (eunuchs were excluded from the assembly, Deuteronomy 23:1, though Isaiah 56:3-5 promises their inclusion). His conversion represents the gospel reaching Africa and the margins of Jewish acceptability. Philip's Spirit-directed encounter shows God orchestrating individual salvation within the larger mission",
         "option_b": "The Ethiopian was already a Christian",
         "option_c": "The encounter had no theological significance",
-        "option_d": "The Ethiopian is a God-fearer — a Gentile on the margins of Judaism (eunuchs were excluded from the assembly, Deuteronomy 23:1, though Isaiah 56:3-5 promises their inclusion). His conversion represents the gospel reaching Africa and the margins of Jewish acceptability. Philip's Spirit-directed encounter shows God orchestrating individual salvation within the larger mission",
+        "option_d": "Philip met the Ethiopian by accident",
         "correct_answer": "a",
         "explanation": "Acts 8:26-29 — \"The angel of the Lord spake unto Philip... the Spirit said unto Philip, Go near, and join thyself to this chariot.\" Divine direction at every step. The Ethiopian's identity — eunuch, African, God-fearer — fulfils Isaiah 56:3-5: \"Neither let the eunuch say, Behold, I am a dry tree.\""
       },
@@ -1324,10 +1324,10 @@
       {
         "question_number": 7,
         "question": "What is the significance of the Spirit \"catching away\" Philip (8:39)?",
-        "option_a": "Philip was taken to heaven permanently",
+        "option_a": "Philip's supernatural removal echoes Elijah's translation (1 Kings 18:12, 2 Kings 2:16) and demonstrates that the Spirit sovereignly directs the missionary enterprise. The Spirit brought Philip to the Ethiopian and then removed him — human agents serve at the Spirit's initiative and disposal. Mission is Spirit-driven, not humanly managed",
         "option_b": "Philip simply walked away quickly",
         "option_c": "The \"catching away\" is a metaphor for death",
-        "option_d": "Philip's supernatural removal echoes Elijah's translation (1 Kings 18:12, 2 Kings 2:16) and demonstrates that the Spirit sovereignly directs the missionary enterprise. The Spirit brought Philip to the Ethiopian and then removed him — human agents serve at the Spirit's initiative and disposal. Mission is Spirit-driven, not humanly managed",
+        "option_d": "Philip was taken to heaven permanently",
         "correct_answer": "a",
         "explanation": "Acts 8:39 — \"The Spirit of the Lord caught away Philip.\" The verb \"harpazo\" (caught/snatched) is the same word used for Paul's rapture to the third heaven (2 Corinthians 12:2). Philip's sudden removal underscores the Spirit's absolute sovereignty over the mission."
       },
@@ -1442,9 +1442,9 @@
       {
         "question_number": 2,
         "question": "How does Saul's conversion demonstrate the sovereign, initiative-taking nature of divine grace?",
-        "option_a": "Saul chose to convert on his own",
+        "option_a": "Saul was not seeking Christ — he was actively persecuting Him. His conversion was wholly God's initiative: the light, the voice, the commission through Ananias were all divine actions. Saul contributed nothing but hostility. This is the paradigmatic case of grace overcoming opposition, demonstrating that conversion is God's work, not human achievement",
         "option_b": "Saul was already sympathetic to Christianity",
-        "option_c": "Saul was not seeking Christ — he was actively persecuting Him. His conversion was wholly God's initiative: the light, the voice, the commission through Ananias were all divine actions. Saul contributed nothing but hostility. This is the paradigmatic case of grace overcoming opposition, demonstrating that conversion is God's work, not human achievement",
+        "option_c": "Saul chose to convert on his own",
         "option_d": "Ananias persuaded Saul through arguments",
         "correct_answer": "a",
         "explanation": "Acts 9:1-6 — Saul was \"breathing out threatenings and slaughter\" (v.1) when Christ intercepted him. He was the most unlikely convert. Paul himself later reflects: \"By the grace of God I am what I am\" (1 Corinthians 15:10). His conversion is Exhibit A of prevenient, sovereign grace."
@@ -1452,8 +1452,8 @@
       {
         "question_number": 3,
         "question": "What is the significance of Jesus telling Ananias that Saul would suffer \"great things\" for His name?",
-        "option_a": "Suffering was optional for Paul",
-        "option_b": "Jesus reveals that Saul's calling includes suffering as an essential component, not an accidental obstacle. The persecutor will become the persecuted. This redefines apostleship: bearing Christ's name means bearing His cross. Paul's later catalogue of sufferings (2 Corinthians 11:23-28) fulfils this prediction precisely",
+        "option_a": "Jesus reveals that Saul's calling includes suffering as an essential component, not an accidental obstacle. The persecutor will become the persecuted. This redefines apostleship: bearing Christ's name means bearing His cross. Paul's later catalogue of sufferings (2 Corinthians 11:23-28) fulfils this prediction precisely",
+        "option_b": "Suffering was optional for Paul",
         "option_c": "This prediction was never fulfilled",
         "option_d": "Jesus was threatening Saul as punishment",
         "correct_answer": "a",
@@ -1462,9 +1462,9 @@
       {
         "question_number": 4,
         "question": "What role does Ananias play in Saul's conversion, and what does this reveal about the body of Christ?",
-        "option_a": "Saul did not need Ananias at all",
+        "option_a": "Ananias is an ordinary disciple — not an apostle — yet God uses him to lay hands on the church's greatest persecutor. This demonstrates that God mediates grace through the community of believers. Even the apostle to the Gentiles needed a simple disciple to welcome him, heal him, and connect him to the church",
         "option_b": "Ananias was one of the twelve apostles",
-        "option_c": "Ananias is an ordinary disciple — not an apostle — yet God uses him to lay hands on the church's greatest persecutor. This demonstrates that God mediates grace through the community of believers. Even the apostle to the Gentiles needed a simple disciple to welcome him, heal him, and connect him to the church",
+        "option_c": "Saul did not need Ananias at all",
         "option_d": "Ananias converted Saul through persuasion",
         "correct_answer": "a",
         "explanation": "Acts 9:10-18 — Ananias is called simply \"a certain disciple\" (v.10). He overcomes understandable fear to obey God, addresses Saul as \"Brother Saul\" (v.17), and mediates healing and the Spirit. God could have done everything directly but chose to use a community member — showing the church is Christ's instrument."
@@ -1472,9 +1472,9 @@
       {
         "question_number": 5,
         "question": "How does Barnabas's advocacy for Saul (9:26-27) illustrate the role of mediators in the community of faith?",
-        "option_a": "The apostles accepted Saul immediately",
+        "option_a": "When the Jerusalem disciples feared Saul (understandably), Barnabas (\"son of encouragement\") risked his reputation by vouching for him, bringing him to the apostles and testifying to his conversion. Without Barnabas's bridge-building, Saul might have been permanently excluded. This shows the crucial role of trusted intermediaries in reconciliation",
         "option_b": "Barnabas was required to vouch for all newcomers",
-        "option_c": "When the Jerusalem disciples feared Saul (understandably), Barnabas (\"son of encouragement\") risked his reputation by vouching for him, bringing him to the apostles and testifying to his conversion. Without Barnabas's bridge-building, Saul might have been permanently excluded. This shows the crucial role of trusted intermediaries in reconciliation",
+        "option_c": "The apostles accepted Saul immediately",
         "option_d": "Barnabas acted selfishly for personal gain",
         "correct_answer": "a",
         "explanation": "Acts 9:26-27 — \"When Saul was come to Jerusalem... they were all afraid of him... But Barnabas took him, and brought him to the apostles, and declared unto them how he had seen the Lord.\" Barnabas bridges distrust with testimony, risking his standing to include the converted persecutor."
@@ -1502,10 +1502,10 @@
       {
         "question_number": 8,
         "question": "What does Peter staying with Simon the tanner (9:43) subtly foreshadow?",
-        "option_a": "Simon the tanner was a Pharisee",
+        "option_a": "Tanners were considered ritually unclean by Jews because they handled dead animal skins. Peter lodging with a tanner shows his ritual boundaries already loosening — preparing him for the vision in chapter 10 where God declares all foods clean. Luke subtly shows Peter being moved by the Spirit toward Gentile inclusion before the explicit revelation",
         "option_b": "Tanning was a prestigious Jewish profession",
         "option_c": "Peter chose the house randomly",
-        "option_d": "Tanners were considered ritually unclean by Jews because they handled dead animal skins. Peter lodging with a tanner shows his ritual boundaries already loosening — preparing him for the vision in chapter 10 where God declares all foods clean. Luke subtly shows Peter being moved by the Spirit toward Gentile inclusion before the explicit revelation",
+        "option_d": "Simon the tanner was a Pharisee",
         "correct_answer": "a",
         "explanation": "Acts 9:43 — \"He tarried many days in Joppa with one Simon a tanner.\" Tanners worked with dead animals (ritually defiling in Jewish law). Peter's willingness to stay in a tanner's house signals his readiness for the revolutionary vision of Acts 10. Luke's detail is theologically purposeful."
       }
@@ -1610,9 +1610,9 @@
       {
         "question_number": 2,
         "question": "How does Peter's rooftop vision function on multiple levels?",
-        "option_a": "Peter never understood the vision",
+        "option_a": "The vision operates literally (clean/unclean foods) and metaphorically (clean/unclean people). Peter initially understands it as about food, but the Spirit's instruction to go with Cornelius's men reveals its deeper meaning: the Jewish purity system that separated Jews from Gentiles has been transcended in Christ. \"What God hath cleansed, call not thou common\" applies to people, not just food",
         "option_b": "The vision was only about dietary laws",
-        "option_c": "The vision operates literally (clean/unclean foods) and metaphorically (clean/unclean people). Peter initially understands it as about food, but the Spirit's instruction to go with Cornelius's men reveals its deeper meaning: the Jewish purity system that separated Jews from Gentiles has been transcended in Christ. \"What God hath cleansed, call not thou common\" applies to people, not just food",
+        "option_c": "Peter never understood the vision",
         "option_d": "The vision was a hallucination from hunger",
         "correct_answer": "a",
         "explanation": "Acts 10:14-15,28 — Peter says \"Not so, Lord; for I have never eaten any thing that is common or unclean.\" Three repetitions (v.16) emphasise the point. Peter's own interpretation (v.28): \"God hath shewed me that I should not call any man common or unclean.\" The food vision is a parable about people."
@@ -1660,9 +1660,9 @@
       {
         "question_number": 7,
         "question": "How does Luke's threefold repetition of the Cornelius story (chapters 10, 11, 15) indicate its importance?",
-        "option_a": "Each account describes a different event",
+        "option_a": "Like Paul's conversion (3 tellings), the Cornelius event is narrated three times — in chapter 10 (event), chapter 11 (Peter's defence to Jerusalem), and chapter 15 (Peter's argument at the council). Triple repetition in Luke's narrative signals supreme importance. The Gentile inclusion is the second most pivotal event in Acts after Pentecost",
         "option_b": "Luke was being repetitive by mistake",
-        "option_c": "Like Paul's conversion (3 tellings), the Cornelius event is narrated three times — in chapter 10 (event), chapter 11 (Peter's defence to Jerusalem), and chapter 15 (Peter's argument at the council). Triple repetition in Luke's narrative signals supreme importance. The Gentile inclusion is the second most pivotal event in Acts after Pentecost",
+        "option_c": "Each account describes a different event",
         "option_d": "Only one telling is accurate",
         "correct_answer": "a",
         "explanation": "Acts 10 (narrative), 11:1-18 (Peter's retelling to Jerusalem), 15:7-11 (Peter's testimony at the council). Each repetition serves a different function: establishing the event, defending it to sceptics, and using it as precedent for church policy."
@@ -1670,8 +1670,8 @@
       {
         "question_number": 8,
         "question": "What does Cornelius's character (devout, prayerful, generous, God-fearing) teach about the relationship between pre-conversion piety and saving faith?",
-        "option_a": "Cornelius was already saved before Peter arrived",
-        "option_b": "Cornelius was genuinely pious and his prayers \"came up for a memorial before God\" (v.4), yet he still needed to hear the gospel and believe in Jesus for salvation (11:14). His piety made him receptive but did not save him — it prepared the soil but only the gospel seed produces salvation. Pre-conversion seeking is real but insufficient without Christ",
+        "option_a": "Cornelius was genuinely pious and his prayers \"came up for a memorial before God\" (v.4), yet he still needed to hear the gospel and believe in Jesus for salvation (11:14). His piety made him receptive but did not save him — it prepared the soil but only the gospel seed produces salvation. Pre-conversion seeking is real but insufficient without Christ",
+        "option_b": "Cornelius was already saved before Peter arrived",
         "option_c": "His good works earned him salvation",
         "option_d": "Pre-conversion piety is irrelevant to God",
         "correct_answer": "a",
@@ -1768,9 +1768,9 @@
       {
         "question_number": 1,
         "question": "What does the Jerusalem church's initial reaction to Peter (11:2-3) reveal about the challenge of Gentile inclusion?",
-        "option_a": "Table fellowship was unimportant",
+        "option_a": "Even after Pentecost, the Jerusalem believers' instinct was to maintain Jewish-Gentile boundaries. Their objection was not about conversion but about table fellowship — eating with uncircumcised Gentiles violated purity norms. This shows that theological breakthroughs (God accepts Gentiles) must also become practical realities (Jews and Gentiles eat together)",
         "option_b": "The Jerusalem church was immediately supportive",
-        "option_c": "Even after Pentecost, the Jerusalem believers' instinct was to maintain Jewish-Gentile boundaries. Their objection was not about conversion but about table fellowship — eating with uncircumcised Gentiles violated purity norms. This shows that theological breakthroughs (God accepts Gentiles) must also become practical realities (Jews and Gentiles eat together)",
+        "option_c": "Table fellowship was unimportant",
         "option_d": "Peter was criticised for the wrong reasons",
         "correct_answer": "a",
         "explanation": "Acts 11:2-3 — \"They of the circumcision contended with him, Saying, Thou wentest in to men uncircumcised, and didst eat with them.\" The issue is table fellowship — the social expression of spiritual inclusion. This same tension erupts again in Galatians 2:11-14. Theology must reshape practice."
@@ -1808,20 +1808,20 @@
       {
         "question_number": 5,
         "question": "What does \"Then hath God also to the Gentiles granted repentance unto life\" (11:18) imply about the nature of repentance?",
-        "option_a": "Repentance is unnecessary for Gentiles",
+        "option_a": "The Jerusalem church recognises repentance as a divine gift — God \"grants\" it, not merely demands it. Repentance unto life is something God gives (cf. 2 Timothy 2:25). This theological insight shapes the church's understanding: Gentile conversion is not human achievement but divine bestowal, just as with Jewish conversion",
         "option_b": "Repentance is purely a human decision",
         "option_c": "Only Jews can truly repent",
-        "option_d": "The Jerusalem church recognises repentance as a divine gift — God \"grants\" it, not merely demands it. Repentance unto life is something God gives (cf. 2 Timothy 2:25). This theological insight shapes the church's understanding: Gentile conversion is not human achievement but divine bestowal, just as with Jewish conversion",
+        "option_d": "Repentance is unnecessary for Gentiles",
         "correct_answer": "a",
         "explanation": "Acts 11:18 — \"Then hath God also to the Gentiles granted repentance unto life.\" The verb \"granted\" (edoken = gave) presents repentance as God's gift. This matches Acts 5:31 (\"to give repentance to Israel\") and 2 Timothy 2:25 (\"if God peradventure will give them repentance\"). Salvation is grace-initiated from start to finish."
       },
       {
         "question_number": 6,
         "question": "What role does Barnabas play in the development of Pauline ministry?",
-        "option_a": "Barnabas hindered Paul's ministry",
+        "option_a": "Barnabas is the catalyst for Paul's re-entry into active ministry — he sought Saul out in Tarsus (where Saul had been for perhaps a decade) and brought him to Antioch. Without Barnabas's initiative, Paul might have remained in obscurity. Barnabas's gift of encouragement and willingness to share leadership prepared the way for the Gentile mission",
         "option_b": "Barnabas was Paul's superior throughout Acts",
         "option_c": "Paul would have succeeded without any help",
-        "option_d": "Barnabas is the catalyst for Paul's re-entry into active ministry — he sought Saul out in Tarsus (where Saul had been for perhaps a decade) and brought him to Antioch. Without Barnabas's initiative, Paul might have remained in obscurity. Barnabas's gift of encouragement and willingness to share leadership prepared the way for the Gentile mission",
+        "option_d": "Barnabas hindered Paul's ministry",
         "correct_answer": "a",
         "explanation": "Acts 11:25-26 — \"Then departed Barnabas to Tarsus, for to seek Saul.\" Barnabas had already vouched for Saul in Jerusalem (9:27). Now he retrieves him from Tarsus and gives him a year of co-ministry in Antioch. Barnabas consistently uses his reputation to open doors for others."
       },
@@ -1872,8 +1872,8 @@
       {
         "question_number": 3,
         "question": "What did the servant girl Rhoda do when she heard Peter's voice at the gate?",
-        "option_a": "She opened the gate right away",
-        "option_b": "She was so happy that she forgot to open the gate and ran to tell the others",
+        "option_a": "She was so happy that she forgot to open the gate and ran to tell the others",
+        "option_b": "She opened the gate right away",
         "option_c": "She screamed and ran away",
         "option_d": "She did not recognise his voice",
         "correct_answer": "a",
@@ -1946,8 +1946,8 @@
       {
         "question_number": 2,
         "question": "What does the church praying \"without ceasing\" while Peter was in prison teach about prayer and God's sovereignty?",
-        "option_a": "The church's prayer had no effect",
-        "option_b": "The church prayed earnestly yet were shocked when their prayer was answered (v.15-16). This reveals that persistent prayer and imperfect faith can coexist — God answers prayer even when the pray-ers doubt. Their astonishment at the answer does not invalidate the prayer. God's faithfulness exceeds human faith",
+        "option_a": "The church prayed earnestly yet were shocked when their prayer was answered (v.15-16). This reveals that persistent prayer and imperfect faith can coexist — God answers prayer even when the pray-ers doubt. Their astonishment at the answer does not invalidate the prayer. God's faithfulness exceeds human faith",
+        "option_b": "The church's prayer had no effect",
         "option_c": "Perfect faith is required for answered prayer",
         "option_d": "The angel would have come without prayer",
         "correct_answer": "a",
@@ -1956,8 +1956,8 @@
       {
         "question_number": 3,
         "question": "What does Herod Agrippa I's death by divine judgment reveal about the theme of opposition to God in Acts?",
-        "option_a": "Herod's death was coincidental",
-        "option_b": "Herod represents the ultimate futility of opposing God — he killed James, imprisoned Peter, and accepted divine worship. His gruesome death contrasts with the church's growth: \"But the word of God grew and multiplied\" (v.24). The pattern throughout Acts: opponents of the gospel are defeated while the word advances",
+        "option_a": "Herod represents the ultimate futility of opposing God — he killed James, imprisoned Peter, and accepted divine worship. His gruesome death contrasts with the church's growth: \"But the word of God grew and multiplied\" (v.24). The pattern throughout Acts: opponents of the gospel are defeated while the word advances",
+        "option_b": "Herod's death was coincidental",
         "option_c": "God does not judge political leaders",
         "option_d": "Herod was punished for a minor offence",
         "correct_answer": "a",
@@ -2104,8 +2104,8 @@
       {
         "question_number": 1,
         "question": "How does the Antioch church's commissioning of Barnabas and Saul (13:1-4) establish a pattern for missionary sending?",
-        "option_a": "Barnabas and Saul decided on their own",
-        "option_b": "The commissioning combines prophetic direction (\"the Holy Ghost said\"), communal discernment (church leaders fasting and praying), and formal commission (laying on of hands). The mission is Spirit-initiated, church-confirmed, and community-supported — not an individual venture. This threefold pattern becomes the model for all subsequent missionary sending",
+        "option_a": "The commissioning combines prophetic direction (\"the Holy Ghost said\"), communal discernment (church leaders fasting and praying), and formal commission (laying on of hands). The mission is Spirit-initiated, church-confirmed, and community-supported — not an individual venture. This threefold pattern becomes the model for all subsequent missionary sending",
+        "option_b": "Barnabas and Saul decided on their own",
         "option_c": "Only the apostles in Jerusalem could send missionaries",
         "option_d": "The commissioning was a formality with no significance",
         "correct_answer": "a",
@@ -2114,8 +2114,8 @@
       {
         "question_number": 2,
         "question": "How does Paul's Antioch-in-Pisidia sermon (13:16-41) parallel Peter's Pentecost sermon while adapting it for a diaspora synagogue audience?",
-        "option_a": "Paul's sermon is completely different from Peter's",
-        "option_b": "Both follow the same kerygmatic structure: Israel's history leading to Jesus, His death and resurrection, Scripture proofs (both cite Psalm 16), and a call to respond. But Paul adapts by adding more historical review (patriarchs, exodus, judges, Saul, David), invoking \"the children of the stock of Abraham\" (v.26), and introducing justification language: \"by him all that believe are justified from all things, from which ye could not be justified by the law of Moses\" (v.39)",
+        "option_a": "Both follow the same kerygmatic structure: Israel's history leading to Jesus, His death and resurrection, Scripture proofs (both cite Psalm 16), and a call to respond. But Paul adapts by adding more historical review (patriarchs, exodus, judges, Saul, David), invoking \"the children of the stock of Abraham\" (v.26), and introducing justification language: \"by him all that believe are justified from all things, from which ye could not be justified by the law of Moses\" (v.39)",
+        "option_b": "Paul's sermon is completely different from Peter's",
         "option_c": "Both sermons are identical word for word",
         "option_d": "Paul only quoted from the book of Moses",
         "correct_answer": "a",
@@ -2322,9 +2322,9 @@
       {
         "question_number": 6,
         "question": "What is the theological significance of Paul's statement that God \"suffered all nations to walk in their own ways\" (14:16)?",
-        "option_a": "The nations were punished for walking in their own ways",
+        "option_a": "Paul acknowledges a period of divine forbearance when God allowed the nations to follow their own paths without the revelation given to Israel (cf. Romans 3:25, Acts 17:30). This is not divine approval of paganism but patient tolerance. Now, through the gospel, God is calling all nations to repentance — the era of overlooked ignorance is ending",
         "option_b": "God approved of pagan worship",
-        "option_c": "Paul acknowledges a period of divine forbearance when God allowed the nations to follow their own paths without the revelation given to Israel (cf. Romans 3:25, Acts 17:30). This is not divine approval of paganism but patient tolerance. Now, through the gospel, God is calling all nations to repentance — the era of overlooked ignorance is ending",
+        "option_c": "The nations were punished for walking in their own ways",
         "option_d": "This era of forbearance continues indefinitely",
         "correct_answer": "a",
         "explanation": "Acts 14:16 — \"Who in times past suffered all nations to walk in their own ways.\" Compare Acts 17:30: \"The times of this ignorance God winked at; but now commandeth all men every where to repent.\" The forbearance era is ending — the gospel inaugurates universal accountability."
@@ -2332,8 +2332,8 @@
       {
         "question_number": 7,
         "question": "How does the phrase \"opened the door of faith unto the Gentiles\" (14:27) summarise the first missionary journey?",
-        "option_a": "Paul opened the door through his eloquence",
-        "option_b": "The metaphor of an \"opened door\" attributes the Gentile mission to God's initiative — God opened the door, not Paul. Faith is the entry point, not circumcision or Torah observance. This summary statement prepares for the Jerusalem Council (chapter 15) where the question of Gentile admission will be formally debated. The first journey established the practical precedent",
+        "option_a": "The metaphor of an \"opened door\" attributes the Gentile mission to God's initiative — God opened the door, not Paul. Faith is the entry point, not circumcision or Torah observance. This summary statement prepares for the Jerusalem Council (chapter 15) where the question of Gentile admission will be formally debated. The first journey established the practical precedent",
+        "option_b": "Paul opened the door through his eloquence",
         "option_c": "The door was opened by Roman political support",
         "option_d": "Faith was secondary to circumcision",
         "correct_answer": "a",
@@ -2480,8 +2480,8 @@
       {
         "question_number": 5,
         "question": "How does James's use of Amos 9:11-12 support the council's decision?",
-        "option_a": "James misquoted Amos",
-        "option_b": "James quotes Amos's prophecy that God will rebuild David's fallen tabernacle so that \"the residue of men might seek after the Lord, and all the Gentiles, upon whom my name is called.\" James argues that Gentile inclusion was always part of God's prophetic plan — it is not an innovation but a fulfilment. The rebuilt Davidic kingdom includes Gentiles by divine design",
+        "option_a": "James quotes Amos's prophecy that God will rebuild David's fallen tabernacle so that \"the residue of men might seek after the Lord, and all the Gentiles, upon whom my name is called.\" James argues that Gentile inclusion was always part of God's prophetic plan — it is not an innovation but a fulfilment. The rebuilt Davidic kingdom includes Gentiles by divine design",
+        "option_b": "James misquoted Amos",
         "option_c": "Amos was speaking only about Israel's national restoration",
         "option_d": "The quotation contradicted the council's decision",
         "correct_answer": "a",
@@ -2510,10 +2510,10 @@
       {
         "question_number": 8,
         "question": "What is the significance of the letter being addressed to \"the brethren which are of the Gentiles in Antioch and Syria and Cilicia\" (15:23)?",
-        "option_a": "The term \"brethren\" excluded Gentiles",
+        "option_a": "The address acknowledges Gentile believers as \"brethren\" — full siblings in the faith, not second-class members. The geographic scope (Antioch, Syria, Cilicia) targets the regions where the circumcision controversy was most acute. The letter format — a formal decree from Jerusalem — gives the decision institutional authority and provides Gentile churches with a written document to counter Judaising pressure",
         "option_b": "The letter was a private note with no authority",
         "option_c": "Only Antioch was addressed",
-        "option_d": "The address acknowledges Gentile believers as \"brethren\" — full siblings in the faith, not second-class members. The geographic scope (Antioch, Syria, Cilicia) targets the regions where the circumcision controversy was most acute. The letter format — a formal decree from Jerusalem — gives the decision institutional authority and provides Gentile churches with a written document to counter Judaising pressure",
+        "option_d": "The term \"brethren\" excluded Gentiles",
         "correct_answer": "a",
         "explanation": "Acts 15:23 — \"The apostles and elders and brethren send greeting unto the brethren which are of the Gentiles.\" Calling Gentiles \"brethren\" is theologically loaded — it affirms their full membership in the covenant community. The letter provides written, authoritative backing for Gentile freedom."
       }
@@ -2638,8 +2638,8 @@
       {
         "question_number": 4,
         "question": "What is the significance of Paul asserting his Roman citizenship after the beating (16:37)?",
-        "option_a": "Paul was seeking revenge for his beating",
-        "option_b": "Paul's appeal to citizenship serves a strategic purpose: by demanding a public apology, he protects the fledgling Philippian church from future persecution. The magistrates' fear of having violated a citizen's rights (\"they feared, when they heard that they were Romans,\" v.38) creates legal precedent that shields the believers. Paul uses legal tools for the church's benefit, not personal vengeance",
+        "option_a": "Paul's appeal to citizenship serves a strategic purpose: by demanding a public apology, he protects the fledgling Philippian church from future persecution. The magistrates' fear of having violated a citizen's rights (\"they feared, when they heard that they were Romans,\" v.38) creates legal precedent that shields the believers. Paul uses legal tools for the church's benefit, not personal vengeance",
+        "option_b": "Paul was seeking revenge for his beating",
         "option_c": "Roman citizenship had no legal significance",
         "option_d": "Paul made up his citizenship",
         "correct_answer": "a",
@@ -2786,9 +2786,9 @@
       {
         "question_number": 2,
         "question": "What is the theological significance of Paul's declaration that God \"dwelleth not in temples made with hands\" (17:24)?",
-        "option_a": "Greek temples were acceptable to God",
+        "option_a": "Paul echoes Stephen's argument (Acts 7:48) and Isaiah 66:1-2 to challenge both Jewish temple-centrism and Greek temple religion. The transcendent Creator cannot be contained in human constructions. This is both a bridge (Stoics agreed God pervaded all things) and a challenge (Epicureans separated gods from human affairs). Paul affirms both divine transcendence and immanence",
         "option_b": "Paul was only criticising Jewish worship",
-        "option_c": "Paul echoes Stephen's argument (Acts 7:48) and Isaiah 66:1-2 to challenge both Jewish temple-centrism and Greek temple religion. The transcendent Creator cannot be contained in human constructions. This is both a bridge (Stoics agreed God pervaded all things) and a challenge (Epicureans separated gods from human affairs). Paul affirms both divine transcendence and immanence",
+        "option_c": "Greek temples were acceptable to God",
         "option_d": "Paul rejected all forms of worship",
         "correct_answer": "a",
         "explanation": "Acts 17:24-25 — \"God that made the world and all things therein, seeing that he is Lord of heaven and earth, dwelleth not in temples made with hands; Neither is worshipped with men's hands, as though he needed any thing.\" This challenges every religious system that domesticates God — Jewish, Greek, or otherwise."
@@ -2954,8 +2954,8 @@
       {
         "question_number": 2,
         "question": "What does the Lord's night vision to Paul (18:9-10) reveal about the human side of apostolic ministry?",
-        "option_a": "Paul was never afraid",
-        "option_b": "The vision implies Paul was afraid — otherwise the command \"be not afraid\" would be unnecessary. Even the great apostle experienced fear and discouragement. After Athens' modest response and Corinth's initial opposition, Paul needed divine encouragement. The Lord's promise (\"I have much people in this city\") sustains mission with the assurance that God has already prepared a harvest",
+        "option_a": "The vision implies Paul was afraid — otherwise the command \"be not afraid\" would be unnecessary. Even the great apostle experienced fear and discouragement. After Athens' modest response and Corinth's initial opposition, Paul needed divine encouragement. The Lord's promise (\"I have much people in this city\") sustains mission with the assurance that God has already prepared a harvest",
+        "option_b": "Paul was never afraid",
         "option_c": "The vision was Paul's imagination",
         "option_d": "Fear is incompatible with faith",
         "correct_answer": "a",
@@ -2964,8 +2964,8 @@
       {
         "question_number": 3,
         "question": "What is the significance of Gallio's ruling for the legal status of early Christianity?",
-        "option_a": "Gallio was sympathetic to Christianity",
-        "option_b": "Gallio's dismissal of the case effectively treated Christianity as an internal Jewish matter — a religio licita (legal religion) under the umbrella of Judaism. This set an informal legal precedent: Roman officials should not prosecute Christians for religious beliefs. Gallio's ruling gave Paul (and Christianity) de facto legal protection throughout the province of Achaia",
+        "option_a": "Gallio's dismissal of the case effectively treated Christianity as an internal Jewish matter — a religio licita (legal religion) under the umbrella of Judaism. This set an informal legal precedent: Roman officials should not prosecute Christians for religious beliefs. Gallio's ruling gave Paul (and Christianity) de facto legal protection throughout the province of Achaia",
+        "option_b": "Gallio was sympathetic to Christianity",
         "option_c": "The ruling had no lasting impact",
         "option_d": "Gallio condemned Paul",
         "correct_answer": "a",
@@ -2974,9 +2974,9 @@
       {
         "question_number": 4,
         "question": "What does the Apollos episode (18:24-28) teach about the relationship between knowledge, boldness, and teachability?",
-        "option_a": "Priscilla and Aquila publicly rebuked him",
+        "option_a": "Apollos was eloquent, scripturally knowledgeable, and bold — yet his understanding was incomplete (\"knowing only the baptism of John\"). When Priscilla and Aquila privately instructed him, he accepted correction with humility. The episode shows that spiritual gifts and rhetorical skill need theological precision, and that even gifted leaders need ongoing formation by the body of Christ",
         "option_b": "Apollos was uneducated and needed basic instruction",
-        "option_c": "Apollos was eloquent, scripturally knowledgeable, and bold — yet his understanding was incomplete (\"knowing only the baptism of John\"). When Priscilla and Aquila privately instructed him, he accepted correction with humility. The episode shows that spiritual gifts and rhetorical skill need theological precision, and that even gifted leaders need ongoing formation by the body of Christ",
+        "option_c": "Priscilla and Aquila publicly rebuked him",
         "option_d": "Apollos rejected their teaching",
         "correct_answer": "a",
         "explanation": "Acts 18:24-26 — Apollos: \"eloquent\" (logios), \"mighty in the scriptures,\" \"instructed in the way of the Lord,\" \"fervent in the spirit,\" spoke \"boldly\" — yet needed \"the way of God more perfectly.\" Priscilla and Aquila's private instruction (not public correction) models gracious discipleship of gifted but incomplete leaders."
@@ -2984,9 +2984,9 @@
       {
         "question_number": 5,
         "question": "What is the significance of Priscilla being named before Aquila in 18:26?",
-        "option_a": "Only Aquila did the teaching",
+        "option_a": "Luke and Paul (Romans 16:3, 2 Timothy 4:19) often name Priscilla first, suggesting she was the more prominent teacher or had higher social status. Her leading role in teaching Apollos — a gifted male preacher — demonstrates that women exercised significant teaching ministry in the early church. The couple models collaborative, private theological mentoring",
         "option_b": "The name order is alphabetical and meaningless",
-        "option_c": "Luke and Paul (Romans 16:3, 2 Timothy 4:19) often name Priscilla first, suggesting she was the more prominent teacher or had higher social status. Her leading role in teaching Apollos — a gifted male preacher — demonstrates that women exercised significant teaching ministry in the early church. The couple models collaborative, private theological mentoring",
+        "option_c": "Only Aquila did the teaching",
         "option_d": "Luke made a scribal error",
         "correct_answer": "a",
         "explanation": "Acts 18:26 — \"Aquila and Priscilla\" (v.2) but \"Priscilla and Aquila\" (v.26, also Romans 16:3, 2 Timothy 4:19). Name order reversal in ancient texts typically indicates prominence. Priscilla's leading role in instructing the eloquent Apollos is one of the clearest examples of female teaching ministry in the New Testament."
@@ -3014,8 +3014,8 @@
       {
         "question_number": 8,
         "question": "How does Acts 18 mark the end of the second missionary journey and what has been accomplished?",
-        "option_a": "The second journey was a failure",
-        "option_b": "Paul returns to Antioch (v.22) having established churches across Macedonia and Achaia (Philippi, Thessalonica, Berea, Athens, Corinth). The gospel has crossed from Asia to Europe, reached major cultural centres (Athens) and commercial hubs (Corinth), and gained de facto Roman legal protection (Gallio ruling). Christianity is now a trans-continental movement with a growing network of churches",
+        "option_a": "Paul returns to Antioch (v.22) having established churches across Macedonia and Achaia (Philippi, Thessalonica, Berea, Athens, Corinth). The gospel has crossed from Asia to Europe, reached major cultural centres (Athens) and commercial hubs (Corinth), and gained de facto Roman legal protection (Gallio ruling). Christianity is now a trans-continental movement with a growing network of churches",
+        "option_b": "The second journey was a failure",
         "option_c": "No new churches were established",
         "option_d": "Paul returned to Jerusalem only",
         "correct_answer": "a",
@@ -3172,9 +3172,9 @@
       {
         "question_number": 7,
         "question": "How does Acts 19:20 (\"So mightily grew the word of God and prevailed\") function as a narrative summary?",
-        "option_a": "The word's growth stopped after this",
+        "option_a": "This is Luke's fifth progress report (cf. 6:7, 9:31, 12:24, 16:5). Each marks the gospel's advance past a major obstacle. Here, the word prevails over occultism (the magic books), counterfeit spirituality (sons of Sceva), and economic opposition (Demetrius). The verb \"prevailed\" (ischuen) means to demonstrate strength — the word is a conquering force that overcomes all opposition",
         "option_b": "It is a minor transitional phrase",
-        "option_c": "This is Luke's fifth progress report (cf. 6:7, 9:31, 12:24, 16:5). Each marks the gospel's advance past a major obstacle. Here, the word prevails over occultism (the magic books), counterfeit spirituality (sons of Sceva), and economic opposition (Demetrius). The verb \"prevailed\" (ischuen) means to demonstrate strength — the word is a conquering force that overcomes all opposition",
+        "option_c": "The word's growth stopped after this",
         "option_d": "Only Luke uses such summaries",
         "correct_answer": "a",
         "explanation": "Acts 19:20 — \"So mightily grew the word of God and prevailed.\" The Greek katischuen means \"won strength against\" — military language for victory. After each obstacle (occult practices, fake exorcists, economic riot), the word grows stronger. Luke's progress reports are theological declarations: God's word cannot be stopped."
@@ -3310,8 +3310,8 @@
       {
         "question_number": 4,
         "question": "How does Paul's quotation of an unrecorded saying of Jesus (\"It is more blessed to give than to receive,\" 20:35) affect our understanding of the Gospel traditions?",
-        "option_a": "Paul invented this saying",
-        "option_b": "This saying, not found in any canonical Gospel, demonstrates that the written Gospels do not contain everything Jesus said (cf. John 21:25). The early church preserved oral traditions of Jesus' sayings (agrapha) alongside the written accounts. Paul's access to authentic Jesus traditions through the apostolic community shows the richness of early oral tradition",
+        "option_a": "This saying, not found in any canonical Gospel, demonstrates that the written Gospels do not contain everything Jesus said (cf. John 21:25). The early church preserved oral traditions of Jesus' sayings (agrapha) alongside the written accounts. Paul's access to authentic Jesus traditions through the apostolic community shows the richness of early oral tradition",
+        "option_b": "Paul invented this saying",
         "option_c": "Only written Gospel sayings are authentic",
         "option_d": "This contradicts the Gospels",
         "correct_answer": "a",
@@ -3448,9 +3448,9 @@
       {
         "question_number": 1,
         "question": "How does Agabus's prophecy (21:10-14) relate to Paul's determination to go to Jerusalem?",
-        "option_a": "Paul disobeyed the Holy Spirit by going",
+        "option_a": "Agabus prophesies accurately (Paul will be bound and delivered to Gentiles) but does not command Paul to avoid Jerusalem. The friends' plea (\"we besought him not to go up\") is their interpretation of the prophecy, not its content. Paul discerns that the Spirit reveals what will happen without forbidding it — knowing the cost does not change the calling. \"The will of the Lord be done\" (v.14) shows communal submission",
         "option_b": "Agabus forbade Paul to go to Jerusalem",
-        "option_c": "Agabus prophesies accurately (Paul will be bound and delivered to Gentiles) but does not command Paul to avoid Jerusalem. The friends' plea (\"we besought him not to go up\") is their interpretation of the prophecy, not its content. Paul discerns that the Spirit reveals what will happen without forbidding it — knowing the cost does not change the calling. \"The will of the Lord be done\" (v.14) shows communal submission",
+        "option_c": "Paul disobeyed the Holy Spirit by going",
         "option_d": "The prophecy was inaccurate",
         "correct_answer": "a",
         "explanation": "Acts 21:11-14 — Agabus says \"Thus saith the Holy Ghost\" but prophesies events, not commands. Compare 20:23 where the Spirit \"witnesseth\" bonds and afflictions without saying \"don't go.\" Paul distinguishes between prophetic revelation (this will happen) and divine command (do/don't do this). The community submits: \"The will of the Lord be done.\""
@@ -3478,10 +3478,10 @@
       {
         "question_number": 4,
         "question": "What does Paul's arrest in the temple mark in the narrative structure of Acts?",
-        "option_a": "There are no parallels with Jesus' passion",
+        "option_a": "Paul's arrest begins his passion narrative — paralleling Jesus' journey to Jerusalem, arrest, trials before Jewish and Roman authorities, and journey to Rome (=death). From chapter 21 to 28, Paul is a prisoner. Like Jesus, he enters Jerusalem knowing what awaits (cf. Luke 9:51, Acts 20:22-24), is seized in the temple, faces the Sanhedrin, is delivered to Roman custody, and is repeatedly declared innocent",
         "option_b": "The arrest is a minor incident",
         "option_c": "Paul's story ends here",
-        "option_d": "Paul's arrest begins his passion narrative — paralleling Jesus' journey to Jerusalem, arrest, trials before Jewish and Roman authorities, and journey to Rome (=death). From chapter 21 to 28, Paul is a prisoner. Like Jesus, he enters Jerusalem knowing what awaits (cf. Luke 9:51, Acts 20:22-24), is seized in the temple, faces the Sanhedrin, is delivered to Roman custody, and is repeatedly declared innocent",
+        "option_d": "There are no parallels with Jesus' passion",
         "correct_answer": "a",
         "explanation": "Acts 21:33 — Paul bound with two chains (cf. Jesus bound, Mark 15:1). The parallels with Jesus' passion are extensive: Jerusalem journey with foreknowledge (20:22/Luke 9:51), temple arrest (21:30/Luke 22:54), Sanhedrin trial (22:30-23:10/Luke 22:66-71), Roman trial (24-26/Luke 23:1-25), innocence declared (23:29, 25:25, 26:31/Luke 23:4,14,22). Paul walks in his Master's footsteps."
       },
@@ -3518,9 +3518,9 @@
       {
         "question_number": 8,
         "question": "How does Acts 21 demonstrate the theme of divine sovereignty working through human opposition?",
-        "option_a": "The arrest was a setback for the mission",
+        "option_a": "Every hostile act advances God's plan: the riot leads to Roman custody, which leads to testimony before governors and kings (as Jesus predicted in Luke 21:12-13), which leads to Rome. The accusers intended to destroy Paul; God intended to transport him. The same pattern governs all of Acts: persecution scatters the church (8:1), opposition creates legal precedents (18:14-16), and imprisonment enables witness (28:30-31)",
         "option_b": "God was absent during Paul's arrest",
-        "option_c": "Every hostile act advances God's plan: the riot leads to Roman custody, which leads to testimony before governors and kings (as Jesus predicted in Luke 21:12-13), which leads to Rome. The accusers intended to destroy Paul; God intended to transport him. The same pattern governs all of Acts: persecution scatters the church (8:1), opposition creates legal precedents (18:14-16), and imprisonment enables witness (28:30-31)",
+        "option_c": "The arrest was a setback for the mission",
         "option_d": "Human opposition always defeats God's purposes",
         "correct_answer": "a",
         "explanation": "Acts 21-28 — Paul's arrest (21:33) leads to witness before the Sanhedrin (23:1), Felix (24:10), Festus (25:8), Agrippa (26:1), and ultimately Rome (28:16). Jesus had said: \"Thou must bear witness also at Rome\" (23:11). Every step of opposition becomes a step toward the mission's completion."
@@ -3656,9 +3656,9 @@
       {
         "question_number": 5,
         "question": "How does the chief captain's purchased versus Paul's inherited citizenship illustrate Roman social dynamics?",
-        "option_a": "Purchased citizenship was more prestigious",
+        "option_a": "Claudius Lysias \"bought\" (ektesamen) citizenship at \"great price\" — common under Emperor Claudius when freedmen sold citizenship for profit. Paul's freeborn status (eleutheros) was higher, acquired through family (possibly ancestors received it for service to Rome). The contrast reveals social stratification: purchased citizens were common but freeborn citizens had greater prestige. Paul's status gives him legal superiority over his own captor",
         "option_b": "Both types of citizenship were identical",
-        "option_c": "Claudius Lysias \"bought\" (ektesamen) citizenship at \"great price\" — common under Emperor Claudius when freedmen sold citizenship for profit. Paul's freeborn status (eleutheros) was higher, acquired through family (possibly ancestors received it for service to Rome). The contrast reveals social stratification: purchased citizens were common but freeborn citizens had greater prestige. Paul's status gives him legal superiority over his own captor",
+        "option_c": "Purchased citizenship was more prestigious",
         "option_d": "Paul's citizenship was unverifiable",
         "correct_answer": "a",
         "explanation": "Acts 22:28 — \"With a great sum obtained I this freedom. But I was free born.\" Under Claudius, citizenship sales were widespread (Dio Cassius 60.17). Birth citizenship (from a citizen father) was more prestigious. The irony: the Roman commander is socially outranked by his prisoner — Roman law protects Paul against Roman abuse."
@@ -3794,9 +3794,9 @@
       {
         "question_number": 2,
         "question": "Was Paul's exploitation of the Pharisee-Sadducee division (23:6-8) legitimate strategy or dishonest manipulation?",
-        "option_a": "The resurrection was irrelevant to the case",
+        "option_a": "Paul's claim to be \"a Pharisee, the son of a Pharisee\" was factually true, and his statement about resurrection was the genuine theological issue. The resurrection was both the doctrinal point of contention and the heart of the gospel. Paul framed the trial correctly: the real issue was whether Jesus rose from the dead. His strategy was truthful even if tactically shrewd",
         "option_b": "Paul was lying about being a Pharisee",
-        "option_c": "Paul's claim to be \"a Pharisee, the son of a Pharisee\" was factually true, and his statement about resurrection was the genuine theological issue. The resurrection was both the doctrinal point of contention and the heart of the gospel. Paul framed the trial correctly: the real issue was whether Jesus rose from the dead. His strategy was truthful even if tactically shrewd",
+        "option_c": "The resurrection was irrelevant to the case",
         "option_d": "Paul was simply being manipulative",
         "correct_answer": "a",
         "explanation": "Acts 23:6 — Paul's double claim is factual: he was a Pharisee by training (Philippians 3:5) and the resurrection was indeed the core issue (cf. 24:15,21; 26:6-8). By identifying the theological centre, Paul exposed the council's internal contradictions and prevented a unified condemnation. Truth and strategy aligned."
@@ -3804,9 +3804,9 @@
       {
         "question_number": 3,
         "question": "What does Paul's response to the high priest (\"God shall smite thee, thou whited wall\") echo, and how does Paul handle the aftermath?",
-        "option_a": "He deliberately insulted the high priest",
+        "option_a": "Paul's \"whited wall\" echoes Jesus' \"whited sepulchres\" (Matthew 23:27) — both describe hypocrisy that appears righteous outside but is corrupt within. When informed he addressed the high priest, Paul immediately quotes Exodus 22:28 (\"Thou shalt not speak evil of the ruler of thy people\"), showing respect for the office despite condemning the man's injustice. His retraction shows submission to Scripture",
         "option_b": "Paul was simply rude with no deeper meaning",
-        "option_c": "Paul's \"whited wall\" echoes Jesus' \"whited sepulchres\" (Matthew 23:27) — both describe hypocrisy that appears righteous outside but is corrupt within. When informed he addressed the high priest, Paul immediately quotes Exodus 22:28 (\"Thou shalt not speak evil of the ruler of thy people\"), showing respect for the office despite condemning the man's injustice. His retraction shows submission to Scripture",
+        "option_c": "He deliberately insulted the high priest",
         "option_d": "Paul never corrected himself",
         "correct_answer": "a",
         "explanation": "Acts 23:3,5 — \"Whited wall\" parallels Matthew 23:27. Paul's correction (\"I wist not that he was the high priest\") may be literal (poor eyesight, unfamiliar robes) or ironic (this man acts nothing like a high priest). Either way, Paul defers to Scripture (Exodus 22:28), modelling principle over emotion."
@@ -3834,9 +3834,9 @@
       {
         "question_number": 6,
         "question": "How does Paul's transfer from Jerusalem to Caesarea advance both the plot and the theological theme of Acts?",
-        "option_a": "Paul preferred Caesarea to Jerusalem",
+        "option_a": "The transfer removes Paul from the volatile Jerusalem environment to the Roman administrative capital of Judaea, placing him under direct Roman jurisdiction. This sets up the extended trial narratives (chapters 24-26) before Felix, Festus, and Agrippa, fulfilling both 23:11 (Rome) and Jesus' prediction that disciples would testify before governors and kings (Luke 21:12-13)",
         "option_b": "The transfer was a routine administrative matter",
-        "option_c": "The transfer removes Paul from the volatile Jerusalem environment to the Roman administrative capital of Judaea, placing him under direct Roman jurisdiction. This sets up the extended trial narratives (chapters 24-26) before Felix, Festus, and Agrippa, fulfilling both 23:11 (Rome) and Jesus' prediction that disciples would testify before governors and kings (Luke 21:12-13)",
+        "option_c": "Paul preferred Caesarea to Jerusalem",
         "option_d": "The transfer delayed the gospel",
         "correct_answer": "a",
         "explanation": "Acts 23:23-33 — Jerusalem to Caesarea: from Jewish jurisdiction to Roman. This geographic shift mirrors Acts' overall movement from Jewish centre to Roman capital. Paul will testify before Felix (governor), Festus (governor), and Agrippa (king) — fulfilling Luke 21:12-13 and Acts 9:15 (\"to bear my name before Gentiles, and kings\")."
@@ -3962,10 +3962,10 @@
       {
         "question_number": 2,
         "question": "How does Paul's defence redefine \"the Way\" as legitimate Judaism rather than heresy?",
-        "option_a": "Paul made no connection to Judaism",
+        "option_a": "Paul insists that \"the Way\" is not a heretical sect but the true expression of ancestral faith: \"I worship the God of my fathers, believing all things which are written in the law and in the prophets\" (v.14). He claims continuity with Judaism, not departure from it. The \"heresy\" charge (hairesis = sect) is reframed: Christianity is Judaism fulfilled, not Judaism abandoned",
         "option_b": "Paul admitted the Way was a new religion",
         "option_c": "He agreed it was a heretical sect",
-        "option_d": "Paul insists that \"the Way\" is not a heretical sect but the true expression of ancestral faith: \"I worship the God of my fathers, believing all things which are written in the law and in the prophets\" (v.14). He claims continuity with Judaism, not departure from it. The \"heresy\" charge (hairesis = sect) is reframed: Christianity is Judaism fulfilled, not Judaism abandoned",
+        "option_d": "Paul made no connection to Judaism",
         "correct_answer": "a",
         "explanation": "Acts 24:14-15 — Paul's defence: the Way worships Israel's God, believes Israel's Scriptures, and hopes for Israel's resurrection. He adds: \"they themselves also allow, that there shall be a resurrection of the dead\" (v.15) — Pharisees believe the same thing. Paul positions Christianity as within Judaism, not outside it."
       },
@@ -4022,10 +4022,10 @@
       {
         "question_number": 8,
         "question": "How do chapters 22-24 collectively demonstrate that Paul committed no crime against Roman or Jewish law?",
-        "option_a": "The legal proceedings were irrelevant to Luke",
+        "option_a": "Through three hearings — the crowd (ch.22), the Sanhedrin (ch.23), and Felix (ch.24) — no formal charge sticks. Lysias found no Roman crime (23:29), the Sanhedrin could not agree (23:10), and Felix deferred without conviction (24:22-27). Luke systematically shows Paul declared innocent at every level, building a cumulative legal apologetic: Christianity threatens neither Rome nor Judaism",
         "option_b": "Paul was found guilty at one hearing",
         "option_c": "Only one hearing took place",
-        "option_d": "Through three hearings — the crowd (ch.22), the Sanhedrin (ch.23), and Felix (ch.24) — no formal charge sticks. Lysias found no Roman crime (23:29), the Sanhedrin could not agree (23:10), and Felix deferred without conviction (24:22-27). Luke systematically shows Paul declared innocent at every level, building a cumulative legal apologetic: Christianity threatens neither Rome nor Judaism",
+        "option_d": "The legal proceedings were irrelevant to Luke",
         "correct_answer": "a",
         "explanation": "Acts 22-24 — Lysias: \"nothing worthy of death or of bonds\" (23:29). The Sanhedrin: split with Pharisees defending Paul (23:9). Felix: no verdict, only delay (24:22-27). Luke's legal apologetic accumulates: three proceedings, zero convictions. Christianity is legally vindicated at every turn."
       }
@@ -4120,8 +4120,8 @@
       {
         "question_number": 1,
         "question": "What does Paul's appeal to Caesar (provocatio ad Caesarem) signify legally and theologically?",
-        "option_a": "The appeal was illegal for Roman citizens",
-        "option_b": "Legally, as a Roman citizen, Paul exercised his right to have his case heard by the emperor — removing it from provincial jurisdiction. Theologically, the appeal is the human mechanism through which God's promise (\"thou must bear witness at Rome,\" 23:11) is fulfilled. Paul's legal right becomes the vehicle of divine destiny",
+        "option_a": "Legally, as a Roman citizen, Paul exercised his right to have his case heard by the emperor — removing it from provincial jurisdiction. Theologically, the appeal is the human mechanism through which God's promise (\"thou must bear witness at Rome,\" 23:11) is fulfilled. Paul's legal right becomes the vehicle of divine destiny",
+        "option_b": "The appeal was illegal for Roman citizens",
         "option_c": "Paul acted impulsively without divine guidance",
         "option_d": "The appeal delayed the gospel",
         "correct_answer": "a",
@@ -4160,19 +4160,19 @@
       {
         "question_number": 5,
         "question": "How does Acts 25 fulfil Jesus' prediction in Luke 21:12-13 and Acts 9:15?",
-        "option_a": "Paul never appeared before a king",
+        "option_a": "Jesus predicted: \"They shall bring you before kings and rulers for my name's sake. And it shall turn to you for a testimony\" (Luke 21:12-13). Acts 9:15: Paul would \"bear my name before the Gentiles, and kings.\" Now Paul stands before a king (Agrippa), governors (Felix, Festus), and will eventually reach the emperor. The trials are not obstacles but platforms — persecution becomes proclamation",
         "option_b": "These predictions were not fulfilled",
         "option_c": "Only the Agrippa hearing counts",
-        "option_d": "Jesus predicted: \"They shall bring you before kings and rulers for my name's sake. And it shall turn to you for a testimony\" (Luke 21:12-13). Acts 9:15: Paul would \"bear my name before the Gentiles, and kings.\" Now Paul stands before a king (Agrippa), governors (Felix, Festus), and will eventually reach the emperor. The trials are not obstacles but platforms — persecution becomes proclamation",
+        "option_d": "Paul never appeared before a king",
         "correct_answer": "a",
         "explanation": "Acts 25 — Paul before Festus (governor) and Agrippa (king) = Luke 21:12-13 and Acts 9:15 fulfilled. The trial is transformed from prosecution into pulpit. Every legal proceeding in chapters 22-26 is simultaneously a gospel presentation. Opposition creates opportunities for witness before the powerful."
       },
       {
         "question_number": 6,
         "question": "What does Festus's behaviour — wanting to \"do the Jews a pleasure\" by sending Paul to Jerusalem (25:9) — reveal about political corruption and its limits?",
-        "option_a": "Paul had no legal options",
+        "option_a": "Like Felix before him (24:27), Festus prioritises political expediency over justice. Yet Paul's appeal to Caesar removes the case from corrupt provincial politics. God uses legal rights to protect against political manipulation. Luke shows that while Roman justice is imperfect (governors are corruptible), the system itself provides safeguards (the right of appeal) that serve God's purposes",
         "option_b": "Festus was acting justly",
-        "option_c": "Like Felix before him (24:27), Festus prioritises political expediency over justice. Yet Paul's appeal to Caesar removes the case from corrupt provincial politics. God uses legal rights to protect against political manipulation. Luke shows that while Roman justice is imperfect (governors are corruptible), the system itself provides safeguards (the right of appeal) that serve God's purposes",
+        "option_c": "Paul had no legal options",
         "option_d": "Roman justice was entirely corrupt",
         "correct_answer": "a",
         "explanation": "Acts 25:9 — \"Festus, willing to do the Jews a pleasure, answered Paul...\" Festus repeats Felix's error (24:27 — \"willing to shew the Jews a pleasure\"). Both governors sacrifice justice for political favour. Yet Paul's appeal to Caesar (a legal right) overrides gubernatorial corruption. God works through imperfect systems."
@@ -4180,9 +4180,9 @@
       {
         "question_number": 7,
         "question": "How does the Agrippa-Festus dynamic function in the trial narrative?",
-        "option_a": "Agrippa was hostile to Paul",
+        "option_a": "Festus provides Roman administrative perspective (political charges) while Agrippa provides Jewish religious expertise (theological charges). Together they cover all possible angles of accusation. Yet both find Paul innocent — the Jewish expert and the Roman administrator agree. Luke uses their complementary competencies to provide comprehensive vindication",
         "option_b": "Only Festus was involved in the case",
-        "option_c": "Festus provides Roman administrative perspective (political charges) while Agrippa provides Jewish religious expertise (theological charges). Together they cover all possible angles of accusation. Yet both find Paul innocent — the Jewish expert and the Roman administrator agree. Luke uses their complementary competencies to provide comprehensive vindication",
+        "option_c": "Agrippa was hostile to Paul",
         "option_d": "Their perspectives were identical",
         "correct_answer": "a",
         "explanation": "Festus: \"no crime worthy of death\" (25:25). Agrippa: \"this man might have been set at liberty\" (26:32). The Roman administrator and the Jewish king independently reach the same conclusion: Paul is innocent. Luke builds his case through expert witnesses from both jurisdictions."
@@ -4318,8 +4318,8 @@
       {
         "question_number": 4,
         "question": "What does Agrippa's response (\"Almost thou persuadest me to be a Christian,\" 26:28) reveal?",
-        "option_a": "Agrippa became a Christian",
-        "option_b": "Whether sincere or sarcastic (the Greek en oligo is ambiguous — \"in a little\" = briefly/almost/easily), Agrippa's response shows the gospel pressing for a decision. Paul's response treats it as genuine engagement: \"I would to God... all were such as I am.\" Even a possible deflection becomes a gospel opportunity. Agrippa acknowledges the force of Paul's argument without submitting to it — the tragedy of the unconverted intellectual",
+        "option_a": "Whether sincere or sarcastic (the Greek en oligo is ambiguous — \"in a little\" = briefly/almost/easily), Agrippa's response shows the gospel pressing for a decision. Paul's response treats it as genuine engagement: \"I would to God... all were such as I am.\" Even a possible deflection becomes a gospel opportunity. Agrippa acknowledges the force of Paul's argument without submitting to it — the tragedy of the unconverted intellectual",
+        "option_b": "Agrippa became a Christian",
         "option_c": "The response was purely sarcastic",
         "option_d": "Paul was disappointed by Agrippa's answer",
         "correct_answer": "a",
@@ -4328,9 +4328,9 @@
       {
         "question_number": 5,
         "question": "What does the verdict \"This man might have been set at liberty, if he had not appealed unto Caesar\" (26:32) accomplish in Luke's narrative?",
-        "option_a": "The appeal to Caesar was a mistake",
+        "option_a": "It is the climactic vindication: the highest Jewish authority (Agrippa) and the highest Roman authority in Judaea (Festus) agree Paul is innocent. The appeal to Caesar, which seems to prevent release, actually fulfils divine purpose — Paul must reach Rome (23:11). Human innocence and divine necessity intersect: Paul is legally innocent yet divinely bound for Rome",
         "option_b": "The verdict meant Paul was guilty",
-        "option_c": "It is the climactic vindication: the highest Jewish authority (Agrippa) and the highest Roman authority in Judaea (Festus) agree Paul is innocent. The appeal to Caesar, which seems to prevent release, actually fulfils divine purpose — Paul must reach Rome (23:11). Human innocence and divine necessity intersect: Paul is legally innocent yet divinely bound for Rome",
+        "option_c": "The appeal to Caesar was a mistake",
         "option_d": "Agrippa's opinion did not matter",
         "correct_answer": "a",
         "explanation": "Acts 26:31-32 — \"This man doeth nothing worthy of death or of bonds.\" The progression: Lysias (23:29), Felix (24:25 — no verdict but no condemnation), Festus (25:25), Agrippa (26:31-32). Four officials, zero convictions. The appeal to Caesar is not a legal error but a divine vehicle. Innocence and destiny converge."
@@ -4358,8 +4358,8 @@
       {
         "question_number": 8,
         "question": "How does Acts 26 represent the climax of Paul's defence speeches and their collective theological contribution?",
-        "option_a": "Chapter 26 is the weakest of Paul's speeches",
-        "option_b": "Acts 26 is the fullest and most theologically developed of Paul's defence speeches, integrating his biography, Christology, soteriology, and missiology. The progression from ch.22 (Jewish crowd) through ch.24 (Felix) to ch.26 (Agrippa) shows increasing theological depth and wider audience. Together, the speeches demonstrate that the gospel is historically grounded, scripturally rooted, personally transformative, and universally relevant",
+        "option_a": "Acts 26 is the fullest and most theologically developed of Paul's defence speeches, integrating his biography, Christology, soteriology, and missiology. The progression from ch.22 (Jewish crowd) through ch.24 (Felix) to ch.26 (Agrippa) shows increasing theological depth and wider audience. Together, the speeches demonstrate that the gospel is historically grounded, scripturally rooted, personally transformative, and universally relevant",
+        "option_b": "Chapter 26 is the weakest of Paul's speeches",
         "option_c": "The speeches are repetitive without development",
         "option_d": "Paul never discussed theology in his defences",
         "correct_answer": "a",
@@ -4526,9 +4526,9 @@
       {
         "question_number": 8,
         "question": "How does Paul's transformation from prisoner to de facto leader of the ship illustrate a key theme of Acts?",
-        "option_a": "The centurion was the only leader",
+        "option_a": "Throughout the voyage, Paul progressively assumes leadership: advising the centurion (v.10), receiving divine revelation (v.23-24), preventing the sailors' escape (v.31), encouraging the crew (v.34-36), and directing the meal (v.35). The prisoner becomes the captain, the accused becomes the authority. This reversal illustrates Acts' consistent theme: the gospel inverts power structures — the weak become strong, the bound become free",
         "option_b": "Paul remained passive throughout",
-        "option_c": "Throughout the voyage, Paul progressively assumes leadership: advising the centurion (v.10), receiving divine revelation (v.23-24), preventing the sailors' escape (v.31), encouraging the crew (v.34-36), and directing the meal (v.35). The prisoner becomes the captain, the accused becomes the authority. This reversal illustrates Acts' consistent theme: the gospel inverts power structures — the weak become strong, the bound become free",
+        "option_c": "The centurion was the only leader",
         "option_d": "Paul's leadership was accidental",
         "correct_answer": "a",
         "explanation": "Paul's authority grows throughout chapter 27: ignored advisor (v.11) → prophetic voice (v.24) → practical commander (v.31) → spiritual leader (v.35). The prisoner is the only person on board with access to divine knowledge and genuine hope. Acts consistently shows worldly power inverted by spiritual authority."
@@ -4684,9 +4684,9 @@
       {
         "question_number": 7,
         "question": "How does the phrase \"for the hope of Israel I am bound with this chain\" (28:20) encapsulate Paul's entire defence throughout Acts?",
-        "option_a": "The hope of Israel was irrelevant to his chains",
+        "option_a": "Paul's consistent claim is that Christianity is not a departure from Judaism but its fulfilment. \"The hope of Israel\" is the resurrection (23:6, 24:15, 26:6-8) — the very hope that drove Israel's faith. Paul's chains are evidence not of heterodoxy but of orthodoxy: he suffers for believing what the prophets promised. The gospel is the hope of Israel realised, not abandoned",
         "option_b": "Paul was referring to a political hope",
-        "option_c": "Paul's consistent claim is that Christianity is not a departure from Judaism but its fulfilment. \"The hope of Israel\" is the resurrection (23:6, 24:15, 26:6-8) — the very hope that drove Israel's faith. Paul's chains are evidence not of heterodoxy but of orthodoxy: he suffers for believing what the prophets promised. The gospel is the hope of Israel realised, not abandoned",
+        "option_c": "The hope of Israel was irrelevant to his chains",
         "option_d": "Paul was trying to gain Jewish sympathy falsely",
         "correct_answer": "a",
         "explanation": "Acts 28:20 — \"For the hope of Israel I am bound with this chain.\" This phrase crystallises Paul's apologetic across all his speeches: his imprisonment results from believing the very thing Israel's Scriptures promised. The resurrection is \"the hope of Israel\" — Christianity is Judaism fulfilled. Paul's chains testify to his faithfulness, not his betrayal."

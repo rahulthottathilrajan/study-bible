@@ -256,10 +256,10 @@
       {
         "question_number": 1,
         "question": "What pattern does each of the seven letters follow?",
-        "option_a": "The pattern is unique to each letter",
+        "option_a": "Address to the angel, a christological self-description drawn from chapter 1, commendation (\"I know\"), criticism (\"I have against thee\"), exhortation, a call to hear, and an overcomer promise — though Smyrna and Philadelphia lack criticism",
         "option_b": "They are random with no structure",
         "option_c": "Only three follow a pattern",
-        "option_d": "Address to the angel, a christological self-description drawn from chapter 1, commendation (\"I know\"), criticism (\"I have against thee\"), exhortation, a call to hear, and an overcomer promise — though Smyrna and Philadelphia lack criticism",
+        "option_d": "The pattern is unique to each letter",
         "correct_answer": "a",
         "explanation": "Each letter follows a sevenfold pattern: (1) addressee, (2) Christ's self-identification, (3) \"I know,\" (4) praise, (5) blame, (6) \"He that hath an ear,\" (7) overcomer promise. This literary consistency unifies the seven into a coherent corpus."
       },
@@ -444,10 +444,10 @@
       {
         "question_number": 3,
         "question": "What does \"I will keep thee from the hour of temptation\" promise Philadelphia?",
-        "option_a": "Exemption from daily temptation",
+        "option_a": "Protection during (or from) the coming period of worldwide testing — the preposition ek (\"out of\") suggests either preservation through the trial or removal before it; this is a key text in pretribulational, midtribulational, and posttribulational debates",
         "option_b": "A simple promise of easy life",
         "option_c": "Freedom from all personal struggles",
-        "option_d": "Protection during (or from) the coming period of worldwide testing — the preposition ek (\"out of\") suggests either preservation through the trial or removal before it; this is a key text in pretribulational, midtribulational, and posttribulational debates",
+        "option_d": "Exemption from daily temptation",
         "correct_answer": "a",
         "explanation": "Revelation 3:10 — \"Because thou hast kept the word of my patience, I also will keep thee from (ek) the hour of temptation, which shall come upon all the world, to try them that dwell upon the earth.\" The phrase \"hour of temptation\" denotes a specific eschatological period."
       },
@@ -602,8 +602,8 @@
       {
         "question_number": 2,
         "question": "Who are the twenty-four elders most likely?",
-        "option_a": "Twenty-four literal angels",
-        "option_b": "Representatives of the redeemed community — possibly the twelve patriarchs of Israel and twelve apostles combined, representing the complete people of God from both testaments, enthroned and crowned as priestly kings",
+        "option_a": "Representatives of the redeemed community — possibly the twelve patriarchs of Israel and twelve apostles combined, representing the complete people of God from both testaments, enthroned and crowned as priestly kings",
+        "option_b": "Twenty-four literal angels",
         "option_c": "Twenty-four Roman emperors",
         "option_d": "Twenty-four Old Testament prophets",
         "correct_answer": "a",
@@ -948,8 +948,8 @@
       {
         "question_number": 3,
         "question": "What does the fifth seal's altar scene reveal about theodicy?",
-        "option_a": "God has abandoned the martyrs",
-        "option_b": "Martyrs cry \"How long?\" — acknowledging that divine justice delays but does not fail; they receive white robes (vindication) and are told God's timing includes a determined number of martyrs before final retribution",
+        "option_a": "Martyrs cry \"How long?\" — acknowledging that divine justice delays but does not fail; they receive white robes (vindication) and are told God's timing includes a determined number of martyrs before final retribution",
+        "option_b": "God has abandoned the martyrs",
         "option_c": "The martyrs are punished",
         "option_d": "Justice is arbitrary",
         "correct_answer": "a",
@@ -968,10 +968,10 @@
       {
         "question_number": 5,
         "question": "What is the theological significance of \"the wrath of the Lamb\"?",
-        "option_a": "Wrath contradicts the Lamb imagery",
+        "option_a": "It is a deliberate paradox — lambs are associated with meekness, not wrath; the combination asserts that the sacrificial Saviour is also the eschatological Judge, and those who reject His mercy will face His wrath",
         "option_b": "Lambs are naturally wrathful",
         "option_c": "It is a scribal error",
-        "option_d": "It is a deliberate paradox — lambs are associated with meekness, not wrath; the combination asserts that the sacrificial Saviour is also the eschatological Judge, and those who reject His mercy will face His wrath",
+        "option_d": "Wrath contradicts the Lamb imagery",
         "correct_answer": "a",
         "explanation": "Revelation 6:16 — \"The wrath of the Lamb.\" The oxymoron is theologically potent: the same Lamb whose blood redeems (5:9) also executes judgment. Mercy rejected becomes judgment intensified."
       },
@@ -998,9 +998,9 @@
       {
         "question_number": 8,
         "question": "How does the question \"who shall be able to stand?\" connect to the following chapter?",
-        "option_a": "No one can stand",
+        "option_a": "Chapter 7 answers this question by showing two groups who can stand: the 144,000 sealed Israelites and the innumerable multitude from all nations — those sealed by God and washed in the Lamb's blood can endure divine wrath",
         "option_b": "Chapter 7 does not answer this question",
-        "option_c": "Chapter 7 answers this question by showing two groups who can stand: the 144,000 sealed Israelites and the innumerable multitude from all nations — those sealed by God and washed in the Lamb's blood can endure divine wrath",
+        "option_c": "No one can stand",
         "option_d": "The question is rhetorical with no answer",
         "correct_answer": "a",
         "explanation": "Revelation 6:17 — \"Who shall be able to stand?\" Chapter 7 provides the answer through two visions: the 144,000 sealed on earth (7:1-8) and the great multitude in heaven (7:9-17). God's people are divinely protected through judgment."
@@ -1096,9 +1096,9 @@
       {
         "question_number": 1,
         "question": "What is the literary function of chapter 7 between the sixth and seventh seals?",
-        "option_a": "It continues the seal sequence without pause",
+        "option_a": "It is an interlude (parenthesis) answering the question of 6:17 (\"who shall be able to stand?\") — showing two groups of the redeemed: the 144,000 sealed on earth and the innumerable multitude in heaven, providing assurance before the final seal",
         "option_b": "It is a digression with no purpose",
-        "option_c": "It is an interlude (parenthesis) answering the question of 6:17 (\"who shall be able to stand?\") — showing two groups of the redeemed: the 144,000 sealed on earth and the innumerable multitude in heaven, providing assurance before the final seal",
+        "option_c": "It continues the seal sequence without pause",
         "option_d": "It belongs chronologically before chapter 6",
         "correct_answer": "a",
         "explanation": "Chapter 7 interrupts the seal sequence between the sixth and seventh seals, a pattern repeated between the sixth and seventh trumpets (10:1-11:14). These interludes provide pastoral reassurance amid judgment."
@@ -1472,8 +1472,8 @@
       {
         "question_number": 5,
         "question": "What does the release of the four Euphrates angels signify?",
-        "option_a": "The Euphrates is unimportant",
-        "option_b": "The Euphrates was the eastern boundary of the promised land (Genesis 15:18) and Rome's eastern frontier — its breaching signifies the invasion of destructive forces from beyond the borders; the four angels held in reserve were prepared for a precise divine appointment (\"an hour, a day, a month, a year\")",
+        "option_a": "The Euphrates was the eastern boundary of the promised land (Genesis 15:18) and Rome's eastern frontier — its breaching signifies the invasion of destructive forces from beyond the borders; the four angels held in reserve were prepared for a precise divine appointment (\"an hour, a day, a month, a year\")",
+        "option_b": "The Euphrates is unimportant",
         "option_c": "The angels are benevolent",
         "option_d": "It describes a natural flood",
         "correct_answer": "a",
@@ -1620,10 +1620,10 @@
       {
         "question_number": 3,
         "question": "Why are the seven thunders sealed rather than recorded?",
-        "option_a": "Sealing has no purpose",
+        "option_a": "It demonstrates that not all revelation is for public disclosure — God retains sovereign prerogatives over what is revealed; it also creates narrative tension and reminds readers that God's purposes exceed what Scripture records (cf. 2 Corinthians 12:4; Deuteronomy 29:29)",
         "option_b": "John forgot what they said",
         "option_c": "The thunders were unintelligible",
-        "option_d": "It demonstrates that not all revelation is for public disclosure — God retains sovereign prerogatives over what is revealed; it also creates narrative tension and reminds readers that God's purposes exceed what Scripture records (cf. 2 Corinthians 12:4; Deuteronomy 29:29)",
+        "option_d": "Sealing has no purpose",
         "correct_answer": "a",
         "explanation": "Revelation 10:4 — \"Seal up those things which the seven thunders uttered, and write them not.\" Cf. Daniel 12:4,9 where sealing preserves content for a future time. Here, sealing permanently withholds content, underscoring divine sovereignty over revelation."
       },
@@ -1670,10 +1670,10 @@
       {
         "question_number": 8,
         "question": "How does the \"little book\" (biblaridion) relate to the sealed scroll of chapter 5?",
-        "option_a": "The little book replaces the larger scroll",
+        "option_a": "The diminutive form may indicate a portion or summary of the larger scroll — as seals are opened and trumpets sound, the content progressively unfolds; the open (already unsealed) little book suggests partially revealed content that John must now internalise and proclaim",
         "option_b": "They are completely unrelated documents",
         "option_c": "It is the same scroll unchanged",
-        "option_d": "The diminutive form may indicate a portion or summary of the larger scroll — as seals are opened and trumpets sound, the content progressively unfolds; the open (already unsealed) little book suggests partially revealed content that John must now internalise and proclaim",
+        "option_d": "The little book replaces the larger scroll",
         "correct_answer": "a",
         "explanation": "Revelation 10:2 — The \"little book open\" (biblaridion ēneōgmenon) contrasts with the sealed scroll of 5:1. The scroll was sealed; this book is already open. It may represent the portion of divine revelation now being given to John for prophetic proclamation."
       }
@@ -1838,10 +1838,10 @@
       {
         "question_number": 8,
         "question": "What does the opening of the temple in heaven revealing the ark of the covenant signify?",
-        "option_a": "The temple was destroyed",
+        "option_a": "God's covenant faithfulness is vindicated — the ark, symbol of God's covenant presence and mercy seat, appears in heaven at the moment of triumph; it declares that God has been faithful to every covenant promise despite earth's rebellion",
         "option_b": "The ark was literally transported to heaven",
         "option_c": "It has no symbolic meaning",
-        "option_d": "God's covenant faithfulness is vindicated — the ark, symbol of God's covenant presence and mercy seat, appears in heaven at the moment of triumph; it declares that God has been faithful to every covenant promise despite earth's rebellion",
+        "option_d": "The temple was destroyed",
         "correct_answer": "a",
         "explanation": "Revelation 11:19 — \"The temple of God was opened in heaven, and there was seen in his temple the ark of his testament.\" The earthly ark was lost (Jeremiah 3:16), but the heavenly reality it prefigured is revealed — God's covenant faithfulness stands eternally."
       }
@@ -1996,9 +1996,9 @@
       {
         "question_number": 7,
         "question": "How does the serpent's flood from his mouth and the earth swallowing it function symbolically?",
-        "option_a": "The earth is an enemy of the woman",
+        "option_a": "The flood represents satanic persecution (cf. Psalm 124:4-5 — floodwaters as hostile forces) and the earth swallowing it echoes Numbers 16:32 (the earth swallowing Korah) — God uses natural and providential means to protect His persecuted people",
         "option_b": "It describes a literal weather event",
-        "option_c": "The flood represents satanic persecution (cf. Psalm 124:4-5 — floodwaters as hostile forces) and the earth swallowing it echoes Numbers 16:32 (the earth swallowing Korah) — God uses natural and providential means to protect His persecuted people",
+        "option_c": "The earth is an enemy of the woman",
         "option_d": "The flood has no meaning",
         "correct_answer": "a",
         "explanation": "Revelation 12:15-16 — \"The serpent cast out of his mouth water as a flood after the woman... And the earth helped the woman, and the earth opened her mouth, and swallowed up the flood.\" The created order serves God's protective purposes against satanic assault."
@@ -2052,8 +2052,8 @@
       {
         "question_number": 1,
         "question": "What power did the dragon give to the sea beast?",
-        "option_a": "No power at all",
-        "option_b": "His power, his throne, and great authority — the beast became the dragon's agent on earth",
+        "option_a": "His power, his throne, and great authority — the beast became the dragon's agent on earth",
+        "option_b": "No power at all",
         "option_c": "Only the power to speak",
         "option_d": "Only the power to swim",
         "correct_answer": "a",
@@ -2124,8 +2124,8 @@
       {
         "question_number": 3,
         "question": "How does the second beast (false prophet) function as an anti-Spirit?",
-        "option_a": "The second beast has no religious function",
-        "option_b": "As the Holy Spirit glorifies Christ and directs worship to Him (John 16:14), the false prophet glorifies the first beast and directs worship to him — he performs signs (fire from heaven echoing Elijah/Pentecost), gives breath to the image (parodying the Spirit's life-giving work), and marks people (counterfeiting the Spirit's seal)",
+        "option_a": "As the Holy Spirit glorifies Christ and directs worship to Him (John 16:14), the false prophet glorifies the first beast and directs worship to him — he performs signs (fire from heaven echoing Elijah/Pentecost), gives breath to the image (parodying the Spirit's life-giving work), and marks people (counterfeiting the Spirit's seal)",
+        "option_b": "The second beast has no religious function",
         "option_c": "He opposes both beasts",
         "option_d": "He is a positive figure",
         "correct_answer": "a",
@@ -2292,8 +2292,8 @@
       {
         "question_number": 3,
         "question": "What does \"Babylon is fallen, is fallen\" anticipate?",
-        "option_a": "Babylon has already fallen by this point",
-        "option_b": "It is a proleptic announcement — Babylon's detailed fall is not narrated until chapters 17-18, but the certainty of it is declared here using the prophetic perfect tense (past tense for future events); it echoes Isaiah 21:9 directly",
+        "option_a": "It is a proleptic announcement — Babylon's detailed fall is not narrated until chapters 17-18, but the certainty of it is declared here using the prophetic perfect tense (past tense for future events); it echoes Isaiah 21:9 directly",
+        "option_b": "Babylon has already fallen by this point",
         "option_c": "It refers to the historical city only",
         "option_d": "The repetition is a scribal error",
         "correct_answer": "a",
@@ -2342,10 +2342,10 @@
       {
         "question_number": 8,
         "question": "What does \"Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus\" accomplish pastorally?",
-        "option_a": "It has no pastoral function",
+        "option_a": "It directly addresses persecuted believers between the warnings of judgment — encouraging endurance through the dual reality of obedience (\"commandments of God\") and trust (\"faith of Jesus\"); those who refuse the mark will face temporal suffering but eternal vindication",
         "option_b": "It is a legal requirement",
         "option_c": "It applies only to leaders",
-        "option_d": "It directly addresses persecuted believers between the warnings of judgment — encouraging endurance through the dual reality of obedience (\"commandments of God\") and trust (\"faith of Jesus\"); those who refuse the mark will face temporal suffering but eternal vindication",
+        "option_d": "It has no pastoral function",
         "correct_answer": "a",
         "explanation": "Revelation 14:12 — This pastoral aside (cf. 13:10) positions the call to endurance between the warning of eternal punishment for beast-worshippers (vv.9-11) and the blessing of the faithful dead (v.13) — creating a framework of accountability and hope."
       }
@@ -2500,9 +2500,9 @@
       {
         "question_number": 7,
         "question": "What is the significance of the tabernacle of testimony being opened?",
-        "option_a": "The tabernacle is unrelated to judgment",
+        "option_a": "The \"temple of the tabernacle of the testimony\" (naos tēs skēnēs tou martyriou) links to the wilderness tabernacle housing the ark with the law tablets — judgment proceeds from the place of covenant law; those who violated God's moral order face judgment from the very place where that order was enshrined",
         "option_b": "It is merely an architectural detail",
-        "option_c": "The \"temple of the tabernacle of the testimony\" (naos tēs skēnēs tou martyriou) links to the wilderness tabernacle housing the ark with the law tablets — judgment proceeds from the place of covenant law; those who violated God's moral order face judgment from the very place where that order was enshrined",
+        "option_c": "The tabernacle is unrelated to judgment",
         "option_d": "It refers to a different building",
         "correct_answer": "a",
         "explanation": "Revelation 15:5 — \"The temple of the tabernacle of the testimony in heaven was opened.\" The designation links to Numbers 1:50 (tabernacle of testimony). Judgment flows from the same divine presence that gave the law — covenant violation meets covenant enforcement."
@@ -2608,10 +2608,10 @@
       {
         "question_number": 1,
         "question": "How do the seven bowls intensify the Egyptian plague pattern beyond the trumpets?",
-        "option_a": "The bowls and trumpets are identical",
+        "option_a": "The bowls parallel the trumpets but remove the \"third part\" limitation — the first bowl is boils (sixth Egyptian plague), the second/third turn all water to blood (first Egyptian plague, now total), the fourth is scorching heat, the fifth is darkness (ninth Egyptian plague, now total); the escalation from partial to total judgment signals finality",
         "option_b": "The bowls are milder than the trumpets",
         "option_c": "There is no Egyptian plague connection",
-        "option_d": "The bowls parallel the trumpets but remove the \"third part\" limitation — the first bowl is boils (sixth Egyptian plague), the second/third turn all water to blood (first Egyptian plague, now total), the fourth is scorching heat, the fifth is darkness (ninth Egyptian plague, now total); the escalation from partial to total judgment signals finality",
+        "option_d": "The bowls and trumpets are identical",
         "correct_answer": "a",
         "explanation": "Revelation 16 — Trumpets affected one-third; bowls affect totality. Bowl 1 (boils) = Exodus 9:10. Bowls 2-3 (blood) = Exodus 7:20, now universal. Bowl 5 (darkness) = Exodus 10:21, now total. The exodus pattern escalates to its final, complete expression."
       },
@@ -2954,9 +2954,9 @@
       {
         "question_number": 2,
         "question": "How does the threefold lament of kings, merchants, and sailors function literarily?",
-        "option_a": "Only one group mourns",
+        "option_a": "It echoes Ezekiel 26-27's lament over Tyre — three groups who profited from the city mourn its fall: kings (political allies), merchants (economic partners), and sailors (trade facilitators); each group mourns not Babylon herself but their own lost profit",
         "option_b": "The laments are spontaneous and unstructured",
-        "option_c": "It echoes Ezekiel 26-27's lament over Tyre — three groups who profited from the city mourn its fall: kings (political allies), merchants (economic partners), and sailors (trade facilitators); each group mourns not Babylon herself but their own lost profit",
+        "option_c": "Only one group mourns",
         "option_d": "They mourn from genuine love",
         "correct_answer": "a",
         "explanation": "Revelation 18:9-19 — The three laments parallel Ezekiel 27's structure (Tyre's trading partners). Crucially, each group mourns at a distance (\"standing afar off\" — vv.10,15,17), afraid of sharing her fate. Their grief is self-interested, not compassionate."
@@ -3122,8 +3122,8 @@
       {
         "question_number": 2,
         "question": "How does the marriage of the Lamb fulfil Old Testament covenant imagery?",
-        "option_a": "Marriage imagery is new in Revelation",
-        "option_b": "The OT consistently portrays God's relationship with Israel as a marriage (Hosea 2:19-20; Isaiah 54:5; 62:4-5; Ezekiel 16:8-14) — the Lamb's marriage is the consummation of the covenant relationship: the bride has \"made herself ready\" through faithful obedience, clothed in the righteous acts of the saints",
+        "option_a": "The OT consistently portrays God's relationship with Israel as a marriage (Hosea 2:19-20; Isaiah 54:5; 62:4-5; Ezekiel 16:8-14) — the Lamb's marriage is the consummation of the covenant relationship: the bride has \"made herself ready\" through faithful obedience, clothed in the righteous acts of the saints",
+        "option_b": "Marriage imagery is new in Revelation",
         "option_c": "It applies only to individuals",
         "option_d": "It has no covenant significance",
         "correct_answer": "a",
@@ -3152,9 +3152,9 @@
       {
         "question_number": 5,
         "question": "How does Christ's sole weapon being the sword from His mouth redefine conquest?",
-        "option_a": "The sword is decorative",
+        "option_a": "Christ conquers entirely by His word — no physical army, no conventional weapons; the spoken word of God is sufficient to defeat all opposition; this reinterprets divine warfare as the omnipotent efficacy of Christ's authoritative speech",
         "option_b": "He also uses conventional weapons",
-        "option_c": "Christ conquers entirely by His word — no physical army, no conventional weapons; the spoken word of God is sufficient to defeat all opposition; this reinterprets divine warfare as the omnipotent efficacy of Christ's authoritative speech",
+        "option_c": "The sword is decorative",
         "option_d": "His army does the fighting",
         "correct_answer": "a",
         "explanation": "Revelation 19:15,21 — \"Out of his mouth goeth a sharp sword, that with it he should smite the nations... the remnant were slain with the sword of him that sat upon the horse, which sword proceeded out of his mouth.\" Christ's word alone — creative, judicial, irresistible — is His only weapon."
@@ -3182,9 +3182,9 @@
       {
         "question_number": 8,
         "question": "How does \"the testimony of Jesus is the spirit of prophecy\" define the relationship between testimony and prophecy?",
-        "option_a": "Testimony replaces prophecy",
+        "option_a": "All true prophecy centres on and testifies to Jesus — the Holy Spirit's prophetic activity is fundamentally christocentric; every genuine prophetic word, whether in Scripture or the church, has Jesus as its essential content and goal",
         "option_b": "Prophecy has nothing to do with Jesus",
-        "option_c": "All true prophecy centres on and testifies to Jesus — the Holy Spirit's prophetic activity is fundamentally christocentric; every genuine prophetic word, whether in Scripture or the church, has Jesus as its essential content and goal",
+        "option_c": "Testimony replaces prophecy",
         "option_d": "The statement is unclear",
         "correct_answer": "a",
         "explanation": "Revelation 19:10 — \"The testimony of Jesus is the spirit of prophecy.\" This programmatic statement means that the animating purpose (spirit/pneuma) of all prophecy is testimony about Jesus. Christ is not just one prophetic topic among many — He is the sum and substance of all prophetic revelation."
@@ -3290,9 +3290,9 @@
       {
         "question_number": 2,
         "question": "How does \"Gog and Magog\" connect to Ezekiel 38-39?",
-        "option_a": "Gog and Magog are cities",
+        "option_a": "Ezekiel 38-39 describes a future invasion of restored Israel by Gog from the land of Magog — Revelation universalises this: Gog and Magog become symbols for all nations gathered against God's people in the final rebellion, transcending the original geographical reference",
         "option_b": "There is no connection to Ezekiel",
-        "option_c": "Ezekiel 38-39 describes a future invasion of restored Israel by Gog from the land of Magog — Revelation universalises this: Gog and Magog become symbols for all nations gathered against God's people in the final rebellion, transcending the original geographical reference",
+        "option_c": "Gog and Magog are cities",
         "option_d": "They are historical kings only",
         "correct_answer": "a",
         "explanation": "Revelation 20:8 — \"Gog and Magog, to gather them together to battle: the number of whom is as the sand of the sea.\" John takes Ezekiel's specific northern enemy and universalises it — Gog and Magog become a comprehensive symbol for anti-God humanity."
@@ -3320,8 +3320,8 @@
       {
         "question_number": 5,
         "question": "How does \"the second death hath no power\" over first-resurrection participants function?",
-        "option_a": "The second death has power over everyone",
-        "option_b": "Those who share in the first resurrection (whether physical or spiritual, depending on millennial view) are permanently immune from the lake of fire — they are \"priests of God and of Christ,\" combining Exodus 19:6's royal-priestly vocation with eternal security",
+        "option_a": "Those who share in the first resurrection (whether physical or spiritual, depending on millennial view) are permanently immune from the lake of fire — they are \"priests of God and of Christ,\" combining Exodus 19:6's royal-priestly vocation with eternal security",
+        "option_b": "The second death has power over everyone",
         "option_c": "The promise is conditional",
         "option_d": "It applies only temporarily",
         "correct_answer": "a",
@@ -3340,8 +3340,8 @@
       {
         "question_number": 7,
         "question": "How does fire from heaven consuming the final rebellion echo Ezekiel 38-39?",
-        "option_a": "There is no fire in Ezekiel",
-        "option_b": "Ezekiel 39:6 — \"I will send a fire on Magog\" — God's direct intervention by fire from heaven destroys the armies surrounding \"the camp of the saints and the beloved city\" without any human military action; divine judgment is immediate, total, and sovereign",
+        "option_a": "Ezekiel 39:6 — \"I will send a fire on Magog\" — God's direct intervention by fire from heaven destroys the armies surrounding \"the camp of the saints and the beloved city\" without any human military action; divine judgment is immediate, total, and sovereign",
+        "option_b": "There is no fire in Ezekiel",
         "option_c": "The church fights the battle",
         "option_d": "Nuclear weapons are implied",
         "correct_answer": "a",
@@ -3468,9 +3468,9 @@
       {
         "question_number": 3,
         "question": "How does \"the tabernacle of God is with men\" fulfil the entire biblical narrative?",
-        "option_a": "God has always dwelt with humanity",
+        "option_a": "It consummates the trajectory from Eden (God walking with Adam), through the tabernacle (Exodus 25:8 — \"that I may dwell among them\"), the temple, the incarnation (John 1:14 — \"tabernacled among us\"), to the eternal dwelling — the goal of all redemptive history is achieved: unmediated divine-human communion",
         "option_b": "It describes a physical tent",
-        "option_c": "It consummates the trajectory from Eden (God walking with Adam), through the tabernacle (Exodus 25:8 — \"that I may dwell among them\"), the temple, the incarnation (John 1:14 — \"tabernacled among us\"), to the eternal dwelling — the goal of all redemptive history is achieved: unmediated divine-human communion",
+        "option_c": "God has always dwelt with humanity",
         "option_d": "This is a temporary arrangement",
         "correct_answer": "a",
         "explanation": "Revelation 21:3 — \"Behold, the tabernacle of God is with men, and he will dwell with them, and they shall be his people, and God himself shall be with them, and be their God.\" This is the Bible's final answer to its opening question: God and humanity together."
@@ -3636,8 +3636,8 @@
       {
         "question_number": 3,
         "question": "How does \"the root and the offspring of David\" compress Christ's identity?",
-        "option_a": "He is only David's descendant",
-        "option_b": "He is simultaneously David's ancestor (root — the source from which David sprang, alluding to Isaiah 11:1,10 and His pre-existence) and David's descendant (offspring — born in David's line, fulfilling 2 Samuel 7:12-13); He is both before David and after David — eternal God and incarnate man",
+        "option_a": "He is simultaneously David's ancestor (root — the source from which David sprang, alluding to Isaiah 11:1,10 and His pre-existence) and David's descendant (offspring — born in David's line, fulfilling 2 Samuel 7:12-13); He is both before David and after David — eternal God and incarnate man",
+        "option_b": "He is only David's descendant",
         "option_c": "He is only David's ancestor",
         "option_d": "The title has no christological significance",
         "correct_answer": "a",
@@ -3676,8 +3676,8 @@
       {
         "question_number": 7,
         "question": "How does Revelation 22 bring the entire biblical canon to its intended conclusion?",
-        "option_a": "Revelation is disconnected from Genesis",
-        "option_b": "It reverses every curse of Genesis 3 (no more curse), restores Eden's features (river, tree of life), fulfils Israel's hopes (new Jerusalem, nations healed), completes Christ's work (throne of God and the Lamb), and answers the Bible's first question of broken fellowship with the ultimate answer: \"They shall see his face\"",
+        "option_a": "It reverses every curse of Genesis 3 (no more curse), restores Eden's features (river, tree of life), fulfils Israel's hopes (new Jerusalem, nations healed), completes Christ's work (throne of God and the Lamb), and answers the Bible's first question of broken fellowship with the ultimate answer: \"They shall see his face\"",
+        "option_b": "Revelation is disconnected from Genesis",
         "option_c": "The Bible has no unified narrative",
         "option_d": "Only the New Testament matters",
         "correct_answer": "a",
@@ -3686,9 +3686,9 @@
       {
         "question_number": 8,
         "question": "What does \"The grace of our Lord Jesus Christ be with you all\" reveal about Revelation's genre and purpose?",
-        "option_a": "Revelation is not a letter",
+        "option_a": "The epistolary closing (like Paul's letters) reminds readers that Revelation is not merely apocalyptic spectacle but a pastoral letter to churches — it begins (1:4) and ends with grace; despite the terrifying judgments, the final word is grace, framing the entire book within the gospel",
         "option_b": "It is a standard formality",
-        "option_c": "The epistolary closing (like Paul's letters) reminds readers that Revelation is not merely apocalyptic spectacle but a pastoral letter to churches — it begins (1:4) and ends with grace; despite the terrifying judgments, the final word is grace, framing the entire book within the gospel",
+        "option_c": "Revelation is not a letter",
         "option_d": "Grace is irrelevant to Revelation",
         "correct_answer": "a",
         "explanation": "Revelation 22:21 — \"The grace of our Lord Jesus Christ be with you all. Amen.\" Revelation opens as a letter (1:4 — \"Grace be unto you, and peace\") and closes as one. The entire apocalypse is bookended by grace — the first and last word to the churches is the gospel of grace."

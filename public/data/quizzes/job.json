@@ -4506,8 +4506,8 @@
       {
         "question_number": 6,
         "question": "How does the east wind in Job 27:21 function as a divine instrument of judgment?",
-        "option_a": "The east wind is simply a weather metaphor with no theological significance in the Hebrew Bible",
-        "option_b": "The east wind (qadim) in Hebrew imagery is a hot, devastating sirocco wind from the desert that destroys crops and overwhelms the unprepared; its use here implies that God's judgment on the wicked comes suddenly and irresistibly",
+        "option_a": "The east wind (qadim) in Hebrew imagery is a hot, devastating sirocco wind from the desert that destroys crops and overwhelms the unprepared; its use here implies that God's judgment on the wicked comes suddenly and irresistibly",
+        "option_b": "The east wind is simply a weather metaphor with no theological significance in the Hebrew Bible",
         "option_c": "The east wind represents the armies of the Babylonians who will one day punish the wicked",
         "option_d": "Job borrowed the east wind imagery from Egyptian cosmology to describe divine punishment",
         "correct_answer": "a",
@@ -6304,10 +6304,10 @@
       {
         "question_number": 1,
         "question": "What is the theological significance of God answering Job \"out of the whirlwind\" (se'arah) rather than through a prophet, dream, or theophanic fire?",
-        "option_a": "The whirlwind is the same as Elijah's \"still small voice\" but described differently",
+        "option_a": "The whirlwind represents untamed, overwhelming divine power that cannot be domesticated by human categories — it comes at God's initiative, not Job's summons; the storm medium itself communicates that God is wild, sovereign, and irreducible to human expectations of how revelation should work",
         "option_b": "The whirlwind was simply the weather at that moment with no special significance",
         "option_c": "God chose a whirlwind because it was the loudest way to get Job's attention",
-        "option_d": "The whirlwind represents untamed, overwhelming divine power that cannot be domesticated by human categories — it comes at God's initiative, not Job's summons; the storm medium itself communicates that God is wild, sovereign, and irreducible to human expectations of how revelation should work",
+        "option_d": "The whirlwind is the same as Elijah's \"still small voice\" but described differently",
         "correct_answer": "a",
         "explanation": "Job 38:1 — se'arah (whirlwind/tempest). Cf. Ezek 1:4 — God appears in a se'arah. Nahum 1:3 — \"the LORD hath his way in the whirlwind.\" The medium IS the message: God comes in uncontrollable power, not in a burning bush (domesticated fire) or still small voice (gentle intimacy). The whirlwind matches the book's theme — God is beyond human control or comprehension."
       },
@@ -6670,10 +6670,10 @@
       {
         "question_number": 4,
         "question": "How does the phrase \"which I made with thee\" (Job 40:15) function in God's argument?",
-        "option_a": "It implies that Job and Behemoth are the same species",
+        "option_a": "It establishes creature-to-creature equality between Job and Behemoth — both are God's handiwork; Job has no ontological superiority over Behemoth, yet Behemoth's power dwarfs Job's; this demolishes anthropocentric pride by placing Job alongside creation rather than above it",
         "option_b": "God is saying He made Behemoth at the same time as Job",
         "option_c": "The phrase means Behemoth is Job's pet that God gave him",
-        "option_d": "It establishes creature-to-creature equality between Job and Behemoth — both are God's handiwork; Job has no ontological superiority over Behemoth, yet Behemoth's power dwarfs Job's; this demolishes anthropocentric pride by placing Job alongside creation rather than above it",
+        "option_d": "It implies that Job and Behemoth are the same species",
         "correct_answer": "a",
         "explanation": "Job 40:15 — \"which I made with thee\" (immakh, with you). Both Job and Behemoth are creatures — products of the same divine creative power. Yet Behemoth's strength (v.16-18) vastly exceeds Job's. The argument from scale: if a fellow creature surpasses you this dramatically, how much more does the Creator surpass you?"
       },
@@ -7006,9 +7006,9 @@
       {
         "question_number": 4,
         "question": "What is the significance of Job's restoration being linked to his praying for his friends (42:10)?",
-        "option_a": "Job prayed for his friends because he wanted them to owe him a favour",
+        "option_a": "It introduces vicarious intercession as the mechanism of restoration — Job must pray for the very people who tormented him; forgiveness and blessing are linked; this anticipates Christ's intercessory priesthood (Heb 7:25) and His command to pray for those who persecute you (Matt 5:44)",
         "option_b": "The prayer was simply a ritual requirement with no deeper meaning",
-        "option_c": "It introduces vicarious intercession as the mechanism of restoration — Job must pray for the very people who tormented him; forgiveness and blessing are linked; this anticipates Christ's intercessory priesthood (Heb 7:25) and His command to pray for those who persecute you (Matt 5:44)",
+        "option_c": "Job prayed for his friends because he wanted them to owe him a favour",
         "option_d": "The timing is coincidental — restoration would have happened anyway",
         "correct_answer": "a",
         "explanation": "Job 42:10 — \"the LORD turned the captivity of Job, when he prayed for his friends.\" The sequence: (1) Job was wronged by friends; (2) God validates Job; (3) Job prays FOR his persecutors; (4) restoration follows intercession. Cf. Matt 5:44, Luke 23:34, Stephen in Acts 7:60. The pattern: suffering → vindication → intercession for offenders → restoration. Job as intercessory priest prefigures Christ."

@@ -24,8 +24,8 @@
       {
         "question_number": 3,
         "question": "What did Caleb offer as a reward to whoever captured the city of Debir?",
-        "option_a": "His daughter Achsah as a wife",
-        "option_b": "Gold and silver",
+        "option_a": "Gold and silver",
+        "option_b": "His daughter Achsah as a wife",
         "option_c": "A piece of land by the sea",
         "option_d": "A thousand sheep",
         "correct_answer": "a",
@@ -360,8 +360,8 @@
       {
         "question_number": 3,
         "question": "What did Shamgar use to kill six hundred Philistines?",
-        "option_a": "An ox goad",
-        "option_b": "A sword",
+        "option_a": "A sword",
+        "option_b": "An ox goad",
         "option_c": "A sling and stones",
         "option_d": "A bow and arrows",
         "correct_answer": "a",
@@ -1452,8 +1452,8 @@
       {
         "question_number": 3,
         "question": "How does the fable's bramble (Judges 9:14-15) serve as a self-commentary on Abimelech's character and rule?",
-        "option_a": "The bramble represents the Shechemite people who chose a bad leader",
-        "option_b": "The bramble is the least noble plant — no fruit, only thorns — and its grandiose self-promotion (\"come and put your trust in my shadow\") and its threat to burn down the cedars mirrors Abimelech's worthlessness and destructive violence",
+        "option_a": "The bramble is the least noble plant — no fruit, only thorns — and its grandiose self-promotion (\"come and put your trust in my shadow\") and its threat to burn down the cedars mirrors Abimelech's worthlessness and destructive violence",
+        "option_b": "The bramble represents the Shechemite people who chose a bad leader",
         "option_c": "The bramble is a symbol of Canaanite culture dominating Israelite politics",
         "option_d": "The bramble's threat is purely defensive — warning against enemies of Shechem",
         "correct_answer": "a",
@@ -1482,10 +1482,10 @@
       {
         "question_number": 6,
         "question": "What does the detail that Abimelech used seventy pieces of silver from the house of Baal-berith to hire \"vain and light persons\" (Judges 9:4) reveal about his rule's character?",
-        "option_a": "The \"vain and light persons\" were simply young volunteers, not morally suspect individuals",
+        "option_a": "Temple silver used to fund a mercenary coup shows the intersection of idolatry and political violence — his kingship is funded by pagan religion and executed by moral nihilists, entirely outside covenantal legitimacy",
         "option_b": "The silver amount was a customary payment for tribal leadership transfer",
         "option_c": "Baal-berith was a benevolent deity whose silver was appropriate for political use",
-        "option_d": "Temple silver used to fund a mercenary coup shows the intersection of idolatry and political violence — his kingship is funded by pagan religion and executed by moral nihilists, entirely outside covenantal legitimacy",
+        "option_d": "The \"vain and light persons\" were simply young volunteers, not morally suspect individuals",
         "correct_answer": "a",
         "explanation": "Judges 9:4 — \"They gave him threescore and ten pieces of silver out of the house of Baal-berith, wherewith Abimelech hired vain and light persons, which followed him.\" The source (pagan temple) and agents (morally worthless men) define his regime from its inception."
       },
@@ -1996,9 +1996,9 @@
       {
         "question_number": 7,
         "question": "What does the detail that Ibzan sent his thirty daughters abroad and brought in thirty foreign daughters for his sons suggest about marriage practices in this period?",
-        "option_a": "The daughters were sent as tribute to foreign kings",
+        "option_a": "Exogamous marriage alliances were used politically by leaders to build cross-tribal coalitions",
         "option_b": "Ibzan was disobeying the Mosaic law forbidding intermarriage with Canaanites",
-        "option_c": "Exogamous marriage alliances were used politically by leaders to build cross-tribal coalitions",
+        "option_c": "The daughters were sent as tribute to foreign kings",
         "option_d": "This was a normal religious requirement for judges of Israel",
         "correct_answer": "a",
         "explanation": "Judges 12:9 — \"he sent abroad, and took in thirty daughters from abroad for his sons.\" Whether these marriages were within Israel or outside it is debated, but the pattern reflects the use of marriage for political alliance-building common in the ancient Near East."
@@ -2944,9 +2944,9 @@
       {
         "question_number": 1,
         "question": "What is the theological scandal of the statement in Judges 18:30 that Jonathan son of Gershom son of Manasseh served as priest of Dan's idolatrous shrine?",
-        "option_a": "The name Manasseh refers to the half-tribe, not Moses",
+        "option_a": "Several manuscripts read \"Moses\" not \"Manasseh\" (with a suspended nun), meaning the grandson of Moses himself served as priest of an idolatrous cult — the ultimate irony of Israel's first lawgiver's family leading apostate worship",
         "option_b": "Jonathan was an obscure Levite with no notable ancestry",
-        "option_c": "Several manuscripts read \"Moses\" not \"Manasseh\" (with a suspended nun), meaning the grandson of Moses himself served as priest of an idolatrous cult — the ultimate irony of Israel's first lawgiver's family leading apostate worship",
+        "option_c": "The name Manasseh refers to the half-tribe, not Moses",
         "option_d": "The text clearly reads Manasseh and has no connection to Moses",
         "correct_answer": "a",
         "explanation": "Judges 18:30 — \"And Jonathan, the son of Gershom, the son of Manasseh, he and his sons were priests to the tribe of Dan.\" The Masoretic scribes inserted a \"nun\" to change \"Moses\" to \"Manasseh\" to protect Moses' reputation, but many scholars and the LXX suggest the original reading was \"Moses.\""
@@ -2984,10 +2984,10 @@
       {
         "question_number": 5,
         "question": "How does the description of Laish as \"quiet and secure\" and \"careless\" foreshadow a prophetic theme about complacent nations ripe for judgment?",
-        "option_a": "The \"quiet and secure\" language praises Laish as a model community",
+        "option_a": "It echoes Amos 6:1 \"Woe to them that are at ease in Zion\" and Ezekiel 16:49 on Sodom's complacency — prosperity and isolation that give a false sense of security become vulnerabilities rather than protections",
         "option_b": "The description is purely military with no prophetic overtones",
         "option_c": "Laish's carelessness was morally neutral and the Danites were wrong to attack",
-        "option_d": "It echoes Amos 6:1 \"Woe to them that are at ease in Zion\" and Ezekiel 16:49 on Sodom's complacency — prosperity and isolation that give a false sense of security become vulnerabilities rather than protections",
+        "option_d": "The \"quiet and secure\" language praises Laish as a model community",
         "correct_answer": "a",
         "explanation": "Judges 18:27 — \"And they came unto Laish, unto a people that were at quiet and secure: and they smote them with the edge of the sword.\" The same language of false security appears in Jeremiah 49:31 about Kedar and Ezekiel 38:11 about Israel."
       },
@@ -3468,10 +3468,10 @@
       {
         "question_number": 3,
         "question": "What is the canonical significance of the connection between Jabesh-gilead and Benjamin established in Judges 21, in light of 1 Samuel 11 and 31?",
-        "option_a": "Jabesh-gilead's loyalty to Saul was based on geography, not on the marriage bond of Judges 21",
+        "option_a": "The four hundred virgins given to Benjamin created a bond of loyalty between Jabesh-gilead and Benjamin that explains why Jabesh-gilead rescued Saul's body (1 Sam. 31:11-13) and why Saul, a Benjamite, championed Jabesh-gilead (1 Sam. 11) — Judges 21 provides the backstory for these later events",
         "option_b": "There is no canonical connection between Judges 21 and 1 Samuel",
         "option_c": "The connection is purely geographic and has no genealogical or loyalty dimension",
-        "option_d": "The four hundred virgins given to Benjamin created a bond of loyalty between Jabesh-gilead and Benjamin that explains why Jabesh-gilead rescued Saul's body (1 Sam. 31:11-13) and why Saul, a Benjamite, championed Jabesh-gilead (1 Sam. 11) — Judges 21 provides the backstory for these later events",
+        "option_d": "Jabesh-gilead's loyalty to Saul was based on geography, not on the marriage bond of Judges 21",
         "correct_answer": "a",
         "explanation": "1 Samuel 31:11-12 — \"when the inhabitants of Jabesh-gilead heard of that which the Philistines had done to Saul...all the valiant men arose, and went all night, and took the body of Saul.\" The loyalty to Saul's Benjamite house preserved by the Judges 21 marriage bond makes this one of the Bible's most carefully constructed long-range narrative connections."
       },

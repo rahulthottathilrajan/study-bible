@@ -1798,9 +1798,9 @@
       {
         "question_number": 4,
         "question": "What does the statement \"they strengthened the kingdom of Judah and made Rehoboam the son of Solomon strong, three years\" tell us about the nature of spiritual faithfulness and political stability?",
-        "option_a": "Military fortifications alone secured the kingdom for three years",
+        "option_a": "Faithfulness to God's worship brought national strength, but only lasted three years because Rehoboam eventually forsook the law",
         "option_b": "Three years was the standard probationary period for new kings",
-        "option_c": "Faithfulness to God's worship brought national strength, but only lasted three years because Rehoboam eventually forsook the law",
+        "option_c": "Military fortifications alone secured the kingdom for three years",
         "option_d": "The northern defection actually made Judah stronger long-term",
         "correct_answer": "a",
         "explanation": "2 Chronicles 11:17 — \"So they strengthened the kingdom of Judah, and made Rehoboam the son of Solomon strong, three years: for three years they walked in the way of David and Solomon.\""
@@ -2188,8 +2188,8 @@
       {
         "question_number": 1,
         "question": "Who was the king of Judah who had peace and rest during his early reign?",
-        "option_a": "Abijah",
-        "option_b": "Asa",
+        "option_a": "Asa",
+        "option_b": "Abijah",
         "option_c": "Jehoshaphat",
         "option_d": "Joash",
         "correct_answer": "a",
@@ -2764,8 +2764,8 @@
       {
         "question_number": 5,
         "question": "How large was Jehoshaphat's army according to the detailed military census in this chapter?",
-        "option_a": "Five hundred thousand men in total",
-        "option_b": "Over one million forty thousand armed men from Judah and Benjamin combined under five commanders",
+        "option_a": "Over one million forty thousand armed men from Judah and Benjamin combined under five commanders",
+        "option_b": "Five hundred thousand men in total",
         "option_c": "Three hundred thousand chosen warriors",
         "option_d": "Eight hundred thousand men ready for battle",
         "correct_answer": "a",
@@ -5030,10 +5030,10 @@
       {
         "question_number": 8,
         "question": "What does the Passover's celebration in the second month rather than the first month reveal about the relationship between law and grace in Chronicles?",
-        "option_a": "That the second month Passover was an entirely different feast",
+        "option_a": "That God's mercy allows legitimate adjustments to ritual law when sincere repentance and seeking of God motivates the participants — the spirit of the law can fulfil its intent even with procedural variation",
         "option_b": "That the Mosaic law was no longer binding after the division of the kingdom",
         "option_c": "That Hezekiah had authority to rewrite the law as king",
-        "option_d": "That God's mercy allows legitimate adjustments to ritual law when sincere repentance and seeking of God motivates the participants — the spirit of the law can fulfil its intent even with procedural variation",
+        "option_d": "That the second month Passover was an entirely different feast",
         "correct_answer": "a",
         "explanation": "2 Chronicles 30:2-3 — \"For the king had taken counsel...to keep the passover in the second month. For they could not keep it at that time, because the priests had not sanctified themselves,\" showing pastoral accommodation within covenant faithfulness."
       }

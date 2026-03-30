@@ -113,12 +113,21 @@ const GITHUB_NAME_MAP = {
 
 const BASE_URL = 'https://raw.githubusercontent.com/aruljohn/Bible-kjv/master';
 
-async function fetchBook(bookName) {
+async function fetchBook(bookName, retries = 3) {
   const ghName = GITHUB_NAME_MAP[bookName] || bookName;
   const url = `${BASE_URL}/${encodeURIComponent(ghName)}.json`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${ghName}`);
-  return res.json();
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status} for ${ghName}`);
+      return res.json();
+    } catch (e) {
+      if (attempt === retries) throw e;
+      const delay = Math.pow(2, attempt - 1) * 1000;
+      console.warn(`  Retry ${attempt}/${retries} for ${ghName} in ${delay}ms: ${e.message}`);
+      await new Promise(r => setTimeout(r, delay));
+    }
+  }
 }
 
 async function main() {
@@ -159,9 +168,22 @@ async function main() {
     for (const ch of kjvData.chapters) {
       const chNum = String(ch.chapter);
 
-      if (enriched?.chapters?.[chNum]?.verses?.length > 0) {
+      const enrichedCh = enriched?.chapters?.[chNum];
+      const hasEnrichment = enrichedCh && (
+        enrichedCh.verses?.length > 0 || enrichedCh.meta || enrichedCh.wordStudies
+      );
+
+      if (hasEnrichment) {
         // Use enriched data (has study notes, Greek/Hebrew, etc.)
-        result.chapters[chNum] = enriched.chapters[chNum];
+        // If enriched chapter has meta/wordStudies but empty verses, merge KJV verses in
+        if (!enrichedCh.verses || enrichedCh.verses.length === 0) {
+          enrichedCh.verses = ch.verses.map(v => ({
+            verse_number: parseInt(v.verse),
+            kjv_text: v.text
+          }));
+          console.warn(`  NOTE: ${bookDef.name} ch ${chNum} — enriched metadata preserved, KJV verses merged`);
+        }
+        result.chapters[chNum] = enrichedCh;
         enrichedChapters++;
       } else {
         // KJV text only
@@ -177,7 +199,7 @@ async function main() {
       bookVerses += (result.chapters[chNum].verses || []).length;
     }
 
-    fs.writeFileSync(outPath, JSON.stringify(result));
+    fs.writeFileSync(outPath, JSON.stringify(result, null, 2));
     totalVerses += bookVerses;
 
     const enrichedCount = enriched ? Object.keys(enriched.chapters || {}).length : 0;

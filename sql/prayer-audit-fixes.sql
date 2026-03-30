@@ -29,7 +29,9 @@ END $$;
 --    Nullifies user_id for anonymous prayers so
 --    clients cannot trace anonymous posters
 -- ─────────────────────────────────────────────────
-CREATE OR REPLACE VIEW community_prayers_public AS
+CREATE OR REPLACE VIEW community_prayers_public
+WITH (security_invoker = true)
+AS
 SELECT
   id,
   CASE WHEN is_anonymous THEN NULL ELSE user_id END AS user_id,
@@ -38,7 +40,7 @@ SELECT
   expiry_prompted_at, created_at, updated_at
 FROM community_prayers;
 
--- Grant access (RLS on base table still enforced via SECURITY INVOKER default)
+-- Grant access (RLS on base table enforced via SECURITY INVOKER)
 GRANT SELECT ON community_prayers_public TO authenticated;
 
 -- ─────────────────────────────────────────────────

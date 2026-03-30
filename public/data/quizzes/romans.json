@@ -392,9 +392,9 @@
       {
         "question_number": 3,
         "question": "What does \"come short of the glory of God\" mean?",
-        "option_a": "Only sinners fall short",
+        "option_a": "Everyone has failed to meet God's perfect standard of holiness",
         "option_b": "Some people almost reach God's glory",
-        "option_c": "Everyone has failed to meet God's perfect standard of holiness",
+        "option_c": "Only sinners fall short",
         "option_d": "People can eventually measure up",
         "correct_answer": "a",
         "explanation": "Romans 3:23 — \"For all have sinned, and come short of the glory of God.\" The Greek word means to fall short of a target, like an arrow missing its mark."
@@ -1136,8 +1136,8 @@
       {
         "question_number": 5,
         "question": "What theological truth does Paul establish about the nature of the law in verse 14?",
-        "option_a": "The law is carnal and man is spiritual",
-        "option_b": "The law is spiritual, but I am carnal, sold under sin — the problem is not the law but fallen human nature",
+        "option_a": "The law is spiritual, but I am carnal, sold under sin — the problem is not the law but fallen human nature",
+        "option_b": "The law is carnal and man is spiritual",
         "option_c": "Both the law and man are equally flawed",
         "option_d": "The law has no spiritual dimension",
         "correct_answer": "a",
@@ -1694,10 +1694,10 @@
       {
         "question_number": 2,
         "question": "What picture does Paul use about an olive tree?",
-        "option_a": "The tree has no branches",
+        "option_a": "Wild branches (Gentiles) were grafted into the olive tree, and natural branches (Israel) were broken off",
         "option_b": "The tree was chopped down completely",
         "option_c": "Only Jewish branches grow on the tree",
-        "option_d": "Wild branches (Gentiles) were grafted into the olive tree, and natural branches (Israel) were broken off",
+        "option_d": "The tree has no branches",
         "correct_answer": "a",
         "explanation": "Romans 11:17 — \"And if some of the branches be broken off, and thou, being a wild olive tree, wert graffed in among them.\""
       },
@@ -2510,9 +2510,9 @@
       {
         "question_number": 8,
         "question": "How does Paul's planned journey to Spain reflect his missionary vision?",
-        "option_a": "Paul had relatives in Spain",
+        "option_a": "Paul saw Rome as a staging point for the gospel's advance to the western end of the known world — demonstrating his conviction that the gospel must reach all nations",
         "option_b": "Spain was simply a vacation destination",
-        "option_c": "Paul saw Rome as a staging point for the gospel's advance to the western end of the known world — demonstrating his conviction that the gospel must reach all nations",
+        "option_c": "Paul had relatives in Spain",
         "option_d": "Spain was the only place left",
         "correct_answer": "a",
         "explanation": "Romans 15:24,28 — \"Whensoever I take my journey into Spain, I will come to you... I will come by you into Spain.\" Paul aimed to plant churches in unreached regions across the entire Roman world."
@@ -2618,9 +2618,9 @@
       {
         "question_number": 2,
         "question": "How many individuals does Paul greet by name in this chapter, and what does this reveal?",
-        "option_a": "He greets no one by name",
+        "option_a": "Approximately 26-28 individuals — remarkably, Paul knew this many people in a church he had never visited, showing the interconnectedness of the early church through travel and mission",
         "option_b": "Only two people",
-        "option_c": "Approximately 26-28 individuals — remarkably, Paul knew this many people in a church he had never visited, showing the interconnectedness of the early church through travel and mission",
+        "option_c": "He greets no one by name",
         "option_d": "Exactly twelve people",
         "correct_answer": "a",
         "explanation": "Romans 16:3-16 — Paul greets approximately 26-28 individuals by name, including couples, household churches, and fellow workers — an extraordinary personal network."
@@ -2668,9 +2668,9 @@
       {
         "question_number": 7,
         "question": "What house churches does Paul reference in this chapter?",
-        "option_a": "No house churches are mentioned",
+        "option_a": "The church in the house of Priscilla and Aquila (v.5), the household of Aristobulus (v.10), the household of Narcissus (v.11), and the brethren with Asyncritus (v.14) and Philologus (v.15)",
         "option_b": "Only one large central church",
-        "option_c": "The church in the house of Priscilla and Aquila (v.5), the household of Aristobulus (v.10), the household of Narcissus (v.11), and the brethren with Asyncritus (v.14) and Philologus (v.15)",
+        "option_c": "No house churches are mentioned",
         "option_d": "Three synagogues",
         "correct_answer": "a",
         "explanation": "Romans 16:5,10,11,14,15 — Multiple house churches are named, showing that early Roman Christianity was a network of small congregations meeting in homes."

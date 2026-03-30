@@ -424,8 +424,8 @@
       {
         "question_number": 1,
         "question": "What does Paul say a bishop must be the husband of?",
-        "option_a": "No wife — he must be celibate",
-        "option_b": "One wife — \"mias gunaikos andra\" meaning a one-woman man",
+        "option_a": "One wife — \"mias gunaikos andra\" meaning a one-woman man",
+        "option_b": "No wife — he must be celibate",
         "option_c": "Multiple wives to show he can manage a household",
         "option_d": "A wife from a priestly family",
         "correct_answer": "a",

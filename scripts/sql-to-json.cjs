@@ -167,8 +167,8 @@ function parseChapterMeta(sql) {
   let outline = [];
   try {
     outline = JSON.parse(fields[4]);
-  } catch {
-    // If parse fails, wrap as single-item array
+  } catch (e) {
+    console.warn(`  WARN: Failed to parse outline JSON, wrapping as string: ${(fields[4] || '').substring(0, 60)}...`);
     outline = fields[4] ? [fields[4]] : [];
   }
 
@@ -200,6 +200,9 @@ function parseVerses(sql) {
 
   return tuples.map(t => {
     if (t.length < 2) return null;
+    if (t.length !== 6 && t.length !== 2) {
+      console.warn(`  WARN: Verse tuple has ${t.length} fields (expected 2 or 6), verse ${t[0]}`);
+    }
     return {
       verse_number: t[0],
       kjv_text: t[1],
@@ -257,7 +260,7 @@ function parseWordStudies(sql) {
         // 6-field (word,trans,strongs,definition,usage_note,order) tuples
         const word = t[0], trans = t[1], strongs = t[2];
         const wordOrder = t[t.length - 1]; // always last field
-        const meaning = t.length >= 6 ? t[3] + ' ' + t.slice(4, -1).join(' ') : t[3];
+        const meaning = t.length >= 6 ? t[3] + ' — ' + t.slice(4, -1).join(' ') : t[3];
         const verseNum = mapping[wordOrder];
         if (verseNum === undefined) continue;
         const key = String(verseNum);

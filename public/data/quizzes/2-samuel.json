@@ -14,8 +14,8 @@
       {
         "question_number": 2,
         "question": "What did David and his men do when they heard Saul and Jonathan had died?",
-        "option_a": "They mourned and wept",
-        "option_b": "They celebrated",
+        "option_a": "They celebrated",
+        "option_b": "They mourned and wept",
         "option_c": "They went to battle",
         "option_d": "They fled to the desert",
         "correct_answer": "a",
@@ -36,8 +36,8 @@
       {
         "question_number": 1,
         "question": "Where did David return from when he heard the news of the battle?",
-        "option_a": "From the slaughter of the Amalekites",
-        "option_b": "From Hebron",
+        "option_a": "From Hebron",
+        "option_b": "From the slaughter of the Amalekites",
         "option_c": "From the wilderness of Judah",
         "option_d": "From the city of Gath",
         "correct_answer": "a",
@@ -66,8 +66,8 @@
       {
         "question_number": 4,
         "question": "Why did David have the Amalekite killed?",
-        "option_a": "Because he claimed to have killed the LORD's anointed",
-        "option_b": "Because he was an enemy soldier",
+        "option_a": "Because he was an enemy soldier",
+        "option_b": "Because he claimed to have killed the LORD's anointed",
         "option_c": "Because he had stolen Saul's crown",
         "option_d": "Because he lied to David",
         "correct_answer": "a",
@@ -810,9 +810,9 @@
       {
         "question_number": 6,
         "question": "How does God's instruction to \"wait for the sound of a going in the tops of the mulberry trees\" demonstrate the uniqueness of the second Philistine battle strategy?",
-        "option_a": "The mulberry trees marked the boundary of sacred territory",
+        "option_a": "God gave a supernatural sign before commanding the attack, indicating divine timing and angelic intervention",
         "option_b": "David was told to use stealth rather than direct assault for the first time",
-        "option_c": "God gave a supernatural sign before commanding the attack, indicating divine timing and angelic intervention",
+        "option_c": "The mulberry trees marked the boundary of sacred territory",
         "option_d": "The strategy was borrowed from Philistine military doctrine",
         "correct_answer": "a",
         "explanation": "2 Samuel 5:24 — \"When thou hearest the sound of a going in the tops of the mulberry trees, that then thou shalt bestir thyself: for then shall the LORD go out before thee.\""
@@ -1242,8 +1242,8 @@
       {
         "question_number": 4,
         "question": "What was the name of David's priest and scribe mentioned among his chief officers?",
-        "option_a": "Abiathar and Ahimelech",
-        "option_b": "Zadok and Seraiah (Sheva)",
+        "option_a": "Zadok and Seraiah (Sheva)",
+        "option_b": "Abiathar and Ahimelech",
         "option_c": "Eleazar and Phinehas",
         "option_d": "Benaiah and Hushai",
         "correct_answer": "a",
@@ -1704,9 +1704,9 @@
       {
         "question_number": 3,
         "question": "What happened to Uriah during the battle after David sent a letter to Joab?",
-        "option_a": "He was killed in battle",
+        "option_a": "He was made a commander",
         "option_b": "He was sent home safely",
-        "option_c": "He was made a commander",
+        "option_c": "He was killed in battle",
         "option_d": "He ran away",
         "correct_answer": "a",
         "explanation": "Joab placed Uriah in the hottest part of the battle, and the men of the city smote Uriah, and he died (2 Samuel 11:17)."
@@ -2450,8 +2450,8 @@
       {
         "question_number": 2,
         "question": "What was the significance of Absalom choosing Hebron as the site of his coronation?",
-        "option_a": "Hebron was the site of the tabernacle and the ark of God",
-        "option_b": "Hebron was David's original capital where he had first been made king over Judah, giving Absalom's coup symbolic legitimacy",
+        "option_a": "Hebron was David's original capital where he had first been made king over Judah, giving Absalom's coup symbolic legitimacy",
+        "option_b": "Hebron was the site of the tabernacle and the ark of God",
         "option_c": "Hebron was Absalom's birthplace",
         "option_d": "Hebron was near the Philistine border giving Absalom military advantage",
         "correct_answer": "a",

@@ -494,10 +494,10 @@
       {
         "question_number": 8,
         "question": "What is the relationship between John's baptism with water and the Messiah's baptism with the Holy Ghost and fire?",
-        "option_a": "John's baptism was superior",
+        "option_a": "John's water baptism was preparatory and symbolic — signifying repentance and readiness. The Messiah's baptism with the Holy Spirit (Pentecost, Acts 2) brings regeneration and empowerment, while baptism with fire represents either purifying judgment or the purging fire of the Spirit. The two baptisms fulfil what John's could only prefigure",
         "option_b": "They are identical in effect",
         "option_c": "Fire baptism means physical burning",
-        "option_d": "John's water baptism was preparatory and symbolic — signifying repentance and readiness. The Messiah's baptism with the Holy Spirit (Pentecost, Acts 2) brings regeneration and empowerment, while baptism with fire represents either purifying judgment or the purging fire of the Spirit. The two baptisms fulfil what John's could only prefigure",
+        "option_d": "John's baptism was superior",
         "correct_answer": "a",
         "explanation": "Matthew 3:11 — \"He shall baptize you with the Holy Ghost, and with fire.\" Water baptism symbolises; Spirit baptism actualises. \"Fire\" likely refers to judgment (v.12, \"burn up the chaff\") or purification (Malachi 3:2-3). Christ's baptism accomplishes what John's anticipated."
       }
@@ -602,8 +602,8 @@
       {
         "question_number": 2,
         "question": "What does the devil's use of Scripture (Psalm 91:11-12) in the second temptation teach about handling God's Word?",
-        "option_a": "Satan cannot quote Scripture",
-        "option_b": "Satan can quote Scripture accurately but apply it deceptively — Psalm 91 promises God's protection for those walking in faithful obedience, not for those who manufacture danger to force God's hand. Jesus corrects the misapplication with Deuteronomy 6:16: \"Thou shalt not tempt the Lord thy God\"",
+        "option_a": "Satan can quote Scripture accurately but apply it deceptively — Psalm 91 promises God's protection for those walking in faithful obedience, not for those who manufacture danger to force God's hand. Jesus corrects the misapplication with Deuteronomy 6:16: \"Thou shalt not tempt the Lord thy God\"",
+        "option_b": "Satan cannot quote Scripture",
         "option_c": "Any use of Scripture is automatically valid",
         "option_d": "Jesus agreed with Satan's interpretation",
         "correct_answer": "a",
@@ -612,8 +612,8 @@
       {
         "question_number": 3,
         "question": "What is the significance of Jesus being \"led up of the Spirit\" into the wilderness to be tempted?",
-        "option_a": "Jesus wandered into the wilderness by mistake",
-        "option_b": "The temptation was divinely ordained, not an accident — the Spirit deliberately led Jesus into confrontation with Satan, showing that testing is part of God's plan for proving and demonstrating faithfulness. Jesus' victory over Satan inaugurates His ministry with authority over the enemy",
+        "option_a": "The temptation was divinely ordained, not an accident — the Spirit deliberately led Jesus into confrontation with Satan, showing that testing is part of God's plan for proving and demonstrating faithfulness. Jesus' victory over Satan inaugurates His ministry with authority over the enemy",
+        "option_b": "Jesus wandered into the wilderness by mistake",
         "option_c": "The Spirit had no involvement",
         "option_d": "Satan forced Jesus into the wilderness",
         "correct_answer": "a",
@@ -652,9 +652,9 @@
       {
         "question_number": 7,
         "question": "What does the summary statement in verse 23 reveal about the comprehensive nature of Jesus' ministry?",
-        "option_a": "Healing was not part of His ministry",
+        "option_a": "Teaching (didactic), preaching (kerygmatic), and healing (therapeutic) form a threefold ministry pattern — Jesus addresses the whole person: mind (teaching), spirit (preaching the gospel), and body (healing). This holistic model becomes the pattern for apostolic ministry",
         "option_b": "Jesus only taught in synagogues",
-        "option_c": "Teaching (didactic), preaching (kerygmatic), and healing (therapeutic) form a threefold ministry pattern — Jesus addresses the whole person: mind (teaching), spirit (preaching the gospel), and body (healing). This holistic model becomes the pattern for apostolic ministry",
+        "option_c": "Healing was not part of His ministry",
         "option_d": "Preaching and teaching are identical",
         "correct_answer": "a",
         "explanation": "Matthew 4:23 — \"Teaching in their synagogues, and preaching the gospel of the kingdom, and healing all manner of sickness.\" Three verbs, three modes of ministry. Teaching instructs the mind, preaching announces the kingdom, healing demonstrates its power."
@@ -790,9 +790,9 @@
       {
         "question_number": 4,
         "question": "How do the six antitheses (\"Ye have heard... but I say unto you\") demonstrate Jesus' authority?",
-        "option_a": "He was contradicting Moses",
+        "option_a": "Jesus speaks with unparalleled authority — not \"thus saith the Lord\" (prophetic) nor \"Rabbi X says\" (scribal), but \"I say unto you.\" He claims authority to authoritatively interpret and intensify the Mosaic Law, positioning Himself as the divine Lawgiver, not merely a teacher or commentator",
         "option_b": "Jesus was simply offering personal opinions",
-        "option_c": "Jesus speaks with unparalleled authority — not \"thus saith the Lord\" (prophetic) nor \"Rabbi X says\" (scribal), but \"I say unto you.\" He claims authority to authoritatively interpret and intensify the Mosaic Law, positioning Himself as the divine Lawgiver, not merely a teacher or commentator",
+        "option_c": "He was contradicting Moses",
         "option_d": "The Pharisees gave Him permission to teach",
         "correct_answer": "a",
         "explanation": "Matthew 5:21-22,27-28,31-32,33-34,38-39,43-44 — Six times Jesus uses the formula \"Ye have heard that it was said... But I say unto you.\" The authoritative \"ego\" (I) places Jesus above Moses, the prophets, and rabbinic tradition — an implicit claim to deity."
@@ -800,9 +800,9 @@
       {
         "question_number": 5,
         "question": "What does the salt and light imagery teach about the Christian's relationship to the world?",
-        "option_a": "Salt and light are decorative metaphors",
+        "option_a": "Salt preserves and seasons — Christians prevent moral decay and add \"flavour\" to society. Light illuminates — Christians are to be visible witnesses whose good works point others to God. Both metaphors assume engagement with the world, not withdrawal. Salt that loses its savour and hidden light both fail their purpose",
         "option_b": "Christians should withdraw from the world entirely",
-        "option_c": "Salt preserves and seasons — Christians prevent moral decay and add \"flavour\" to society. Light illuminates — Christians are to be visible witnesses whose good works point others to God. Both metaphors assume engagement with the world, not withdrawal. Salt that loses its savour and hidden light both fail their purpose",
+        "option_c": "Salt and light are decorative metaphors",
         "option_d": "Only religious leaders are salt and light",
         "correct_answer": "a",
         "explanation": "Matthew 5:13-16 — \"Ye are the salt of the earth... Ye are the light of the world. A city that is set on an hill cannot be hid.\" Both metaphors require contact (salt must touch food; light must be visible) and both can fail (tasteless salt, hidden lamp). The purpose: \"that they may see your good works, and glorify your Father.\""
@@ -998,8 +998,8 @@
       {
         "question_number": 8,
         "question": "What does \"mammon\" represent, and why does Jesus personalise wealth as a rival master?",
-        "option_a": "Mammon was a Canaanite god of wealth",
-        "option_b": "Mammon (Aramaic mamona, meaning wealth/possessions) is personalised as a competing lord to expose the idolatrous potential of money. Jesus does not say money is evil but that devotion to it is functionally a rival religion — you will either serve God with money as a tool, or serve money with God as an excuse. There is no middle ground",
+        "option_a": "Mammon (Aramaic mamona, meaning wealth/possessions) is personalised as a competing lord to expose the idolatrous potential of money. Jesus does not say money is evil but that devotion to it is functionally a rival religion — you will either serve God with money as a tool, or serve money with God as an excuse. There is no middle ground",
+        "option_b": "Mammon was a Canaanite god of wealth",
         "option_c": "Money is inherently evil and must be avoided",
         "option_d": "Mammon only refers to dishonest money",
         "correct_answer": "a",
@@ -1264,9 +1264,9 @@
       {
         "question_number": 1,
         "question": "What is the significance of Jesus touching the leper (8:3) in the cultural context?",
-        "option_a": "Jesus was unaware of the purity laws",
+        "option_a": "Touching a leper made a person ceremonially unclean according to Leviticus 13-14. But instead of Jesus becoming unclean, the leper becomes clean — Jesus' purity is contagious, reversing the normal direction of contamination. This is a powerful demonstration of the kingdom's in-breaking power over disease and ritual law",
         "option_b": "Touching lepers was socially acceptable",
-        "option_c": "Touching a leper made a person ceremonially unclean according to Leviticus 13-14. But instead of Jesus becoming unclean, the leper becomes clean — Jesus' purity is contagious, reversing the normal direction of contamination. This is a powerful demonstration of the kingdom's in-breaking power over disease and ritual law",
+        "option_c": "Jesus was unaware of the purity laws",
         "option_d": "The touch was accidental",
         "correct_answer": "a",
         "explanation": "Matthew 8:3 — \"Jesus put forth his hand, and touched him.\" The touch is deliberate and radical. Under the old covenant, uncleanness was contagious (Haggai 2:11-13); under the new, holiness is contagious. Jesus' touch does not contract impurity — it transmits purity."
@@ -1432,8 +1432,8 @@
       {
         "question_number": 1,
         "question": "What is the logical structure of Jesus' argument in healing the paralytic to prove His authority to forgive sins?",
-        "option_a": "The healing was unrelated to the forgiveness",
-        "option_b": "Jesus uses the visible to validate the invisible — both forgiveness and healing require divine power, but healing is publicly verifiable. If Jesus can demonstrably do the harder-to-verify act (forgive sins) through the easier-to-verify act (heal a body), His authority is established. The miracle is evidence, not the essence of His ministry",
+        "option_a": "Jesus uses the visible to validate the invisible — both forgiveness and healing require divine power, but healing is publicly verifiable. If Jesus can demonstrably do the harder-to-verify act (forgive sins) through the easier-to-verify act (heal a body), His authority is established. The miracle is evidence, not the essence of His ministry",
+        "option_b": "The healing was unrelated to the forgiveness",
         "option_c": "Jesus was simply showing compassion",
         "option_d": "The scribes were convinced by the argument",
         "correct_answer": "a",
@@ -1492,9 +1492,9 @@
       {
         "question_number": 7,
         "question": "What does \"the harvest truly is plenteous, but the labourers are few\" reveal about Jesus' view of the world?",
-        "option_a": "The harvest metaphor refers to agriculture",
+        "option_a": "Jesus sees the multitudes not as a problem but as a harvest — ripe, ready, and abundant. The bottleneck is not unwilling people but insufficient workers. His compassion (\"moved with compassion,\" v.36) drives the mission imperative. Prayer for labourers (v.38) precedes sending labourers (ch. 10), showing mission begins in prayer",
         "option_b": "Jesus was overwhelmed by the crowds",
-        "option_c": "Jesus sees the multitudes not as a problem but as a harvest — ripe, ready, and abundant. The bottleneck is not unwilling people but insufficient workers. His compassion (\"moved with compassion,\" v.36) drives the mission imperative. Prayer for labourers (v.38) precedes sending labourers (ch. 10), showing mission begins in prayer",
+        "option_c": "The harvest metaphor refers to agriculture",
         "option_d": "Only the twelve can be labourers",
         "correct_answer": "a",
         "explanation": "Matthew 9:36-38 — \"When he saw the multitudes, he was moved with compassion on them, because they fainted, and were scattered abroad, as sheep having no shepherd.\" The harvest metaphor shifts from agricultural to eschatological gathering. The labourers are sent by God (v.38) in response to prayer."
@@ -1600,9 +1600,9 @@
       {
         "question_number": 1,
         "question": "Why did Jesus initially restrict the mission to \"the lost sheep of the house of Israel\" (10:5-6)?",
-        "option_a": "The restriction was permanent",
+        "option_a": "The restriction is strategic and temporary — salvation-historical priority demanded that Israel hear first (Romans 1:16 \"to the Jew first\"). Israel was God's covenant people and the Messiah's natural audience. This limitation is explicitly removed in the Great Commission (28:19 \"all nations\"), showing progressive revelation",
         "option_b": "Jesus did not care about Gentiles",
-        "option_c": "The restriction is strategic and temporary — salvation-historical priority demanded that Israel hear first (Romans 1:16 \"to the Jew first\"). Israel was God's covenant people and the Messiah's natural audience. This limitation is explicitly removed in the Great Commission (28:19 \"all nations\"), showing progressive revelation",
+        "option_c": "The restriction was permanent",
         "option_d": "It was a suggestion, not a command",
         "correct_answer": "a",
         "explanation": "Matthew 10:5-6 — \"Go rather to the lost sheep of the house of Israel.\" This temporal priority mirrors Paul's pattern in Acts (synagogue first, then Gentiles). Jesus' own ministry crossed ethnic boundaries (8:5-13 centurion, 15:21-28 Canaanite woman), proving the restriction was strategic, not racial."
@@ -1716,8 +1716,8 @@
       {
         "question_number": 1,
         "question": "Why did John the Baptist send messengers to ask Jesus \"Art thou he that should come?\"",
-        "option_a": "John did not believe in Jesus at all",
-        "option_b": "John was in prison and possibly struggling with doubt — Jesus was not overthrowing Rome or judging the wicked as John had expected the Messiah to do, so he sought reassurance",
+        "option_a": "John was in prison and possibly struggling with doubt — Jesus was not overthrowing Rome or judging the wicked as John had expected the Messiah to do, so he sought reassurance",
+        "option_b": "John did not believe in Jesus at all",
         "option_c": "John wanted to publicly embarrass Jesus",
         "option_d": "John had never heard of Jesus before",
         "correct_answer": "a",
@@ -1768,9 +1768,9 @@
       {
         "question_number": 1,
         "question": "How does Jesus' answer to John's question (11:4-6) confirm His messiahship without directly saying \"yes\"?",
-        "option_a": "Jesus did not think He was the Messiah",
+        "option_a": "Jesus points to Isaiah 35:5-6 and 61:1 being fulfilled — the blind see, lame walk, lepers are cleansed, deaf hear, dead are raised, poor hear the gospel. By listing these specific miracles, He lets Scripture identify Him as the Messiah without making a direct political claim that could be misused",
         "option_b": "Jesus was avoiding the question",
-        "option_c": "Jesus points to Isaiah 35:5-6 and 61:1 being fulfilled — the blind see, lame walk, lepers are cleansed, deaf hear, dead are raised, poor hear the gospel. By listing these specific miracles, He lets Scripture identify Him as the Messiah without making a direct political claim that could be misused",
+        "option_c": "Jesus did not think He was the Messiah",
         "option_d": "The miracles were coincidental",
         "correct_answer": "a",
         "explanation": "Matthew 11:4-5 — Jesus catalogues His works using Isaiah's messianic checklist (Isaiah 35:5-6, 61:1). The final beatitude (\"blessed is he, whosoever shall not be offended in me,\" v.6) gently corrects John: the Messiah's programme includes mercy before judgment. Trust the evidence."
@@ -1778,9 +1778,9 @@
       {
         "question_number": 2,
         "question": "What does \"he that is least in the kingdom of heaven is greater than John\" mean?",
-        "option_a": "The least in the kingdom is literally greater in every way",
+        "option_a": "It refers to redemptive-historical position, not personal merit — John was the greatest under the old covenant as the forerunner, but even the least person living under the new covenant (post-cross, post-resurrection, post-Pentecost) has greater spiritual privilege: the indwelling Spirit, completed revelation, and accomplished atonement",
         "option_b": "John was morally inferior to all Christians",
-        "option_c": "It refers to redemptive-historical position, not personal merit — John was the greatest under the old covenant as the forerunner, but even the least person living under the new covenant (post-cross, post-resurrection, post-Pentecost) has greater spiritual privilege: the indwelling Spirit, completed revelation, and accomplished atonement",
+        "option_c": "The least in the kingdom is literally greater in every way",
         "option_d": "Jesus was criticising John",
         "correct_answer": "a",
         "explanation": "Matthew 11:11 — \"He that is least in the kingdom of heaven is greater than he.\" Greater in privilege, not in character. John stood at the threshold looking in; new covenant believers live inside the reality John pointed toward. The distinction is epochal, not personal."
@@ -1996,8 +1996,8 @@
       {
         "question_number": 7,
         "question": "What does \"out of the abundance of the heart the mouth speaketh\" (12:34) teach about the relationship between speech and character?",
-        "option_a": "Words have no connection to the heart",
-        "option_b": "Words are diagnostic — they reveal the true condition of the heart, just as fruit reveals the nature of a tree (v.33). A \"good treasure\" of the heart produces good speech; an \"evil treasure\" produces evil speech. This is why every \"idle word\" (argon — careless, unguarded) will be judged: unguarded words are the most revealing of character",
+        "option_a": "Words are diagnostic — they reveal the true condition of the heart, just as fruit reveals the nature of a tree (v.33). A \"good treasure\" of the heart produces good speech; an \"evil treasure\" produces evil speech. This is why every \"idle word\" (argon — careless, unguarded) will be judged: unguarded words are the most revealing of character",
+        "option_b": "Words have no connection to the heart",
         "option_c": "Only written words matter",
         "option_d": "Idle words are always forgiven",
         "correct_answer": "a",
@@ -2104,9 +2104,9 @@
       {
         "question_number": 1,
         "question": "How does the parable of the sower function as the hermeneutical key to understanding all parables?",
-        "option_a": "The sower parable is the least important",
+        "option_a": "Jesus says \"Know ye not this parable? and how then will ye know all parables?\" (Mark 4:13). The sower parable establishes the fundamental principle: the word (seed) is constant; the variable is the human response (soil). All kingdom parables operate on this axis of human reception of divine truth",
         "option_b": "Each parable is completely independent",
-        "option_c": "Jesus says \"Know ye not this parable? and how then will ye know all parables?\" (Mark 4:13). The sower parable establishes the fundamental principle: the word (seed) is constant; the variable is the human response (soil). All kingdom parables operate on this axis of human reception of divine truth",
+        "option_c": "The sower parable is the least important",
         "option_d": "All parables teach the same lesson identically",
         "correct_answer": "a",
         "explanation": "Matthew 13:18-23 — The sower parable is foundational because it addresses why the kingdom message produces different results in different people. The same seed (word) encounters four soils (hearts). Understanding this dynamic — God sows identically but hearts respond differently — unlocks all kingdom teaching."
@@ -2124,9 +2124,9 @@
       {
         "question_number": 3,
         "question": "What does the parable of the wheat and tares teach about the church and premature judgment?",
-        "option_a": "Tares and wheat are indistinguishable even at harvest",
+        "option_a": "The kingdom on earth will contain both genuine believers (wheat) and counterfeit (tares/darnel, which looks like wheat until harvest). Jesus forbids premature separation — final sorting belongs to God at the end of the age. This counsels patience with the mixed state of the visible church and warns against overzealous purging",
         "option_b": "The church should aggressively excommunicate everyone suspicious",
-        "option_c": "The kingdom on earth will contain both genuine believers (wheat) and counterfeit (tares/darnel, which looks like wheat until harvest). Jesus forbids premature separation — final sorting belongs to God at the end of the age. This counsels patience with the mixed state of the visible church and warns against overzealous purging",
+        "option_c": "Tares and wheat are indistinguishable even at harvest",
         "option_d": "The parable is about literal agriculture",
         "correct_answer": "a",
         "explanation": "Matthew 13:24-30,36-43 — Tares (darnel/zizania) are nearly identical to wheat during growth, distinguishable only at harvest. \"Lest while ye gather up the tares, ye root up also the wheat with them\" (v.29). The separation at \"the end of this world\" (v.40) is God's prerogative, not ours."
@@ -2292,18 +2292,18 @@
       {
         "question_number": 3,
         "question": "How does Jesus walking on the sea assert His divine identity?",
-        "option_a": "Jesus was floating, not walking",
+        "option_a": "In Job 9:8, God alone \"treadeth upon the waves of the sea.\" In Psalm 77:19, \"Thy way is in the sea, and thy path in the great waters.\" Jesus performing this act claims the prerogative of YHWH. His words \"Be of good cheer; it is I\" (ego eimi) echo God's self-revelation \"I AM\" (Exodus 3:14)",
         "option_b": "Walking on water was a common miracle",
         "option_c": "It was a shallow sandbar",
-        "option_d": "In Job 9:8, God alone \"treadeth upon the waves of the sea.\" In Psalm 77:19, \"Thy way is in the sea, and thy path in the great waters.\" Jesus performing this act claims the prerogative of YHWH. His words \"Be of good cheer; it is I\" (ego eimi) echo God's self-revelation \"I AM\" (Exodus 3:14)",
+        "option_d": "Jesus was floating, not walking",
         "correct_answer": "a",
         "explanation": "Matthew 14:25-27 — Jesus walks on the sea and says \"It is I\" (ego eimi). Job 9:8 identifies sea-treading as God's exclusive act. The combination of walking on water + ego eimi constitutes a theophany — God manifesting Himself to His terrified people."
       },
       {
         "question_number": 4,
         "question": "What does Peter's experience of walking on water and then sinking teach about faith?",
-        "option_a": "Peter had no faith at all",
-        "option_b": "Peter's faith enabled the impossible (walking on water) but wavered when he shifted focus from Jesus to the threatening circumstances (wind). \"O thou of little faith\" does not mean no faith but divided focus. The lesson: faith is sustained not by ignoring circumstances but by fixing the gaze on Christ despite them",
+        "option_a": "Peter's faith enabled the impossible (walking on water) but wavered when he shifted focus from Jesus to the threatening circumstances (wind). \"O thou of little faith\" does not mean no faith but divided focus. The lesson: faith is sustained not by ignoring circumstances but by fixing the gaze on Christ despite them",
+        "option_b": "Peter had no faith at all",
         "option_c": "The wind literally blew Peter down",
         "option_d": "Peter was simply too heavy to float",
         "correct_answer": "a",
@@ -2450,10 +2450,10 @@
       {
         "question_number": 2,
         "question": "What is the theological significance of Jesus' encounter with the Canaanite woman?",
-        "option_a": "The woman had no real faith",
+        "option_a": "This encounter tests and demonstrates faith that transcends ethnic boundaries. Jesus' initial silence and apparent refusal (\"I am not sent but unto the lost sheep of the house of Israel\") heighten the tension to showcase the woman's extraordinary faith. Her persistence and humility result in the only person in Matthew whom Jesus praises with \"great is thy faith\"",
         "option_b": "Jesus was genuinely refusing to help Gentiles",
         "option_c": "The story shows Jesus changing His mind about Gentiles",
-        "option_d": "This encounter tests and demonstrates faith that transcends ethnic boundaries. Jesus' initial silence and apparent refusal (\"I am not sent but unto the lost sheep of the house of Israel\") heighten the tension to showcase the woman's extraordinary faith. Her persistence and humility result in the only person in Matthew whom Jesus praises with \"great is thy faith\"",
+        "option_d": "The woman had no real faith",
         "correct_answer": "a",
         "explanation": "Matthew 15:22-28 — The woman's faith overcomes every obstacle: silence (v.23), apparent rejection (v.24), and cultural insult (v.26 \"dogs\"). Her response (v.27) shows humble, tenacious trust — she does not challenge the priority of Israel but claims even the crumbs of God's mercy are sufficient. Jesus commends \"great\" (megale) faith."
       },
@@ -2470,8 +2470,8 @@
       {
         "question_number": 4,
         "question": "How does Jesus' confrontation with the Pharisees over tradition vs. commandment (15:1-9) address the perennial tension between Scripture and tradition?",
-        "option_a": "Tradition is always equal to Scripture",
-        "option_b": "Jesus establishes an absolute hierarchy: the commandment of God supersedes all human traditions. When tradition contradicts Scripture (as Corban nullified the fifth commandment), tradition must yield. The quotation of Isaiah 29:13 (\"their heart is far from me\") diagnoses the root problem: external religious performance without internal devotion",
+        "option_a": "Jesus establishes an absolute hierarchy: the commandment of God supersedes all human traditions. When tradition contradicts Scripture (as Corban nullified the fifth commandment), tradition must yield. The quotation of Isaiah 29:13 (\"their heart is far from me\") diagnoses the root problem: external religious performance without internal devotion",
+        "option_b": "Tradition is always equal to Scripture",
         "option_c": "All traditions are wrong",
         "option_d": "The Pharisees had no traditions",
         "correct_answer": "a",
@@ -2500,9 +2500,9 @@
       {
         "question_number": 7,
         "question": "How does Jesus' statement \"Let them alone: they be blind leaders of the blind\" guide responses to false teaching?",
-        "option_a": "All religious leaders are blind",
+        "option_a": "Jesus counsels disengagement from persistent, incorrigible false teachers — not endless debate but strategic withdrawal. The blind-leading-blind metaphor warns that following false teachers leads to shared destruction (both fall into the ditch). Discernment means knowing when to engage and when to leave false teachers to their own devices",
         "option_b": "Christians should always debate false teachers",
-        "option_c": "Jesus counsels disengagement from persistent, incorrigible false teachers — not endless debate but strategic withdrawal. The blind-leading-blind metaphor warns that following false teachers leads to shared destruction (both fall into the ditch). Discernment means knowing when to engage and when to leave false teachers to their own devices",
+        "option_c": "All religious leaders are blind",
         "option_d": "Blindness refers to physical disability",
         "correct_answer": "a",
         "explanation": "Matthew 15:14 — \"Let them alone: they be blind leaders of the blind.\" Jesus does not say \"argue with them endlessly\" but \"let them alone.\" The Pharisees' blindness is wilful (12:24, attributing miracles to Satan) — beyond the point where argument helps. Sometimes the most faithful response is walking away."
@@ -2786,8 +2786,8 @@
       {
         "question_number": 2,
         "question": "How does the Transfiguration function as a preview of the Second Coming?",
-        "option_a": "The Transfiguration was a hallucination",
-        "option_b": "Peter himself interprets the Transfiguration as a preview of Christ's \"power and coming\" (2 Peter 1:16-18). The elements match eschatological imagery: glorified body, bright cloud (Shekinah), heavenly voice, and appearing with OT saints. It temporarily lifts the veil of Jesus' humanity to reveal the glory hidden beneath",
+        "option_a": "Peter himself interprets the Transfiguration as a preview of Christ's \"power and coming\" (2 Peter 1:16-18). The elements match eschatological imagery: glorified body, bright cloud (Shekinah), heavenly voice, and appearing with OT saints. It temporarily lifts the veil of Jesus' humanity to reveal the glory hidden beneath",
+        "option_b": "The Transfiguration was a hallucination",
         "option_c": "It has no connection to future events",
         "option_d": "The Second Coming will be nothing like the Transfiguration",
         "correct_answer": "a",
@@ -2806,9 +2806,9 @@
       {
         "question_number": 4,
         "question": "What does \"this kind goeth not out but by prayer and fasting\" teach about spiritual warfare?",
-        "option_a": "Prayer and fasting are merely dietary practices",
+        "option_a": "Some spiritual challenges require deeper dependence on God than others — not all demons (or spiritual obstacles) yield to the same level of faith. Prayer and fasting represent intensified reliance on God, acknowledging that some battles require a depth of communion with God that casual faith does not achieve",
         "option_b": "All demons are equally easy to cast out",
-        "option_c": "Some spiritual challenges require deeper dependence on God than others — not all demons (or spiritual obstacles) yield to the same level of faith. Prayer and fasting represent intensified reliance on God, acknowledging that some battles require a depth of communion with God that casual faith does not achieve",
+        "option_c": "Prayer and fasting are merely dietary practices",
         "option_d": "This verse was Jesus' only teaching on spiritual warfare",
         "correct_answer": "a",
         "explanation": "Matthew 17:21 — \"Howbeit this kind goeth not out but by prayer and fasting.\" The disciples' failure (v.16) stemmed from \"unbelief\" (v.20) — insufficient spiritual preparation. Prayer and fasting are not magical formulas but disciplines that cultivate the deep-faith relationship with God that overcomes the most entrenched spiritual opposition."
@@ -2964,10 +2964,10 @@
       {
         "question_number": 3,
         "question": "What does the parable of the unforgiving servant (18:21-35) teach about the relationship between divine and human forgiveness?",
-        "option_a": "The two debts are roughly equivalent",
+        "option_a": "The ten thousand talents (billions in modern currency) vs. one hundred pence (a few dollars) illustrates the infinite disproportion between God's forgiveness of us and our forgiveness of others. Anyone who has truly experienced God's mercy will naturally extend mercy. Refusal to forgive reveals that one has not genuinely grasped grace",
         "option_b": "Human forgiveness earns divine forgiveness",
         "option_c": "The parable teaches that forgiveness has limits",
-        "option_d": "The ten thousand talents (billions in modern currency) vs. one hundred pence (a few dollars) illustrates the infinite disproportion between God's forgiveness of us and our forgiveness of others. Anyone who has truly experienced God's mercy will naturally extend mercy. Refusal to forgive reveals that one has not genuinely grasped grace",
+        "option_d": "The two debts are roughly equivalent",
         "correct_answer": "a",
         "explanation": "Matthew 18:32-33 — \"I forgave thee all that debt... shouldest not thou also have had compassion on thy fellowservant, even as I had pity on thee?\" The ratio is extreme: 10,000 talents vs. 100 denarii = roughly 600,000:1. Our debts against each other are trivial compared to our debt before God."
       },
@@ -3112,9 +3112,9 @@
       {
         "question_number": 1,
         "question": "How does Jesus' teaching on marriage (19:3-9) go beyond the Pharisees' debate about acceptable grounds for divorce?",
-        "option_a": "Jesus abolished marriage",
+        "option_a": "The Pharisees debated whether divorce was permitted for \"any cause\" (Hillel) or only for sexual immorality (Shammai). Jesus bypasses both schools by going back to creation (Genesis 1:27, 2:24) — establishing God's original intent as the standard. Divorce was never God's design but a concession to human sinfulness",
         "option_b": "Jesus sided with the school of Hillel",
-        "option_c": "The Pharisees debated whether divorce was permitted for \"any cause\" (Hillel) or only for sexual immorality (Shammai). Jesus bypasses both schools by going back to creation (Genesis 1:27, 2:24) — establishing God's original intent as the standard. Divorce was never God's design but a concession to human sinfulness",
+        "option_c": "Jesus abolished marriage",
         "option_d": "The Pharisees never discussed divorce",
         "correct_answer": "a",
         "explanation": "Matthew 19:3-8 — The Pharisees ask about grounds for divorce; Jesus redirects to God's design for marriage. By citing Genesis before Deuteronomy, He establishes creation-intent as normative: \"from the beginning it was not so.\" Divorce is a concession to fallenness, not a component of the created order."
@@ -3122,10 +3122,10 @@
       {
         "question_number": 2,
         "question": "What does the rich young ruler episode reveal about the relationship between wealth and salvation?",
-        "option_a": "Jesus approved of the young man's choice",
+        "option_a": "The young man's attachment to wealth prevented him from following Jesus — his possessions possessed him. Jesus does not condemn wealth per se but exposes its idolatrous potential: when wealth becomes the thing you cannot surrender, it has become your god. The camel/needle metaphor shows that self-salvation through riches is humanly impossible",
         "option_b": "Wealthy people cannot be saved",
         "option_c": "Poverty guarantees salvation",
-        "option_d": "The young man's attachment to wealth prevented him from following Jesus — his possessions possessed him. Jesus does not condemn wealth per se but exposes its idolatrous potential: when wealth becomes the thing you cannot surrender, it has become your god. The camel/needle metaphor shows that self-salvation through riches is humanly impossible",
+        "option_d": "Jesus approved of the young man's choice",
         "correct_answer": "a",
         "explanation": "Matthew 19:21-24 — \"If thou wilt be perfect, go and sell that thou hast... he went away sorrowful.\" The young man's sorrow reveals his true master. The command was diagnostic: \"sell all\" exposed the idol. The camel/needle imagery means human impossibility — only divine grace can save the wealthy or anyone else (v.26)."
       },
@@ -3152,10 +3152,10 @@
       {
         "question_number": 5,
         "question": "Why does Jesus initially respond \"Why callest thou me good? there is none good but one, that is, God\" (19:17)?",
-        "option_a": "Jesus did not understand the question",
+        "option_a": "Jesus is not denying His goodness or deity but challenging the young man's casual use of \"good.\" Either \"good\" is a superficial compliment (in which case it is hollow) or it implies deity (in which case the young man should follow through on its implications). Jesus forces him to take his own words seriously",
         "option_b": "Jesus was denying His divinity",
         "option_c": "Jesus was being humble and nothing more",
-        "option_d": "Jesus is not denying His goodness or deity but challenging the young man's casual use of \"good.\" Either \"good\" is a superficial compliment (in which case it is hollow) or it implies deity (in which case the young man should follow through on its implications). Jesus forces him to take his own words seriously",
+        "option_d": "Jesus did not understand the question",
         "correct_answer": "a",
         "explanation": "Matthew 19:17 — \"Why callest thou me good? there is none good but one, that is, God.\" Jesus does not say \"I am not good\" but asks \"Why do you call me good?\" The implied logic: if goodness belongs to God alone, and you rightly call me good, what does that say about who I am? The question is Christological, not a denial."
       },
@@ -3468,9 +3468,9 @@
       {
         "question_number": 3,
         "question": "What does the cursing of the fig tree symbolise?",
-        "option_a": "The fig tree represents Rome",
+        "option_a": "The fig tree represents Israel: outward appearance of vitality (leaves) but no fruit (deeds of righteousness). Jesus' cursing enacts a prophetic judgment on fruitless religion — specifically the temple establishment that looked religious but bore no spiritual fruit. The withering demonstrates that God judges appearance without substance",
         "option_b": "Jesus was merely hungry and disappointed",
-        "option_c": "The fig tree represents Israel: outward appearance of vitality (leaves) but no fruit (deeds of righteousness). Jesus' cursing enacts a prophetic judgment on fruitless religion — specifically the temple establishment that looked religious but bore no spiritual fruit. The withering demonstrates that God judges appearance without substance",
+        "option_c": "The fig tree represents Rome",
         "option_d": "It was a random act of power",
         "correct_answer": "a",
         "explanation": "Matthew 21:19 — \"And when he saw a fig tree in the way, he came to it, and found nothing thereon, but leaves only.\" The fig tree is a common OT symbol for Israel (Jeremiah 8:13, Hosea 9:10, Micah 7:1). Leaves without fruit = outward religion without genuine righteousness. The temple cleansing (vv.12-13) and fig tree (vv.18-19) interpret each other."
@@ -3636,10 +3636,10 @@
       {
         "question_number": 3,
         "question": "How does Jesus' resurrection argument from Exodus 3:6 work logically?",
-        "option_a": "The present tense is insignificant",
+        "option_a": "God says \"I AM (present tense) the God of Abraham, Isaac, and Jacob\" — not \"I WAS.\" If these patriarchs ceased to exist at death, God would be the God of nothing. Since He is the God of the living, the patriarchs must still exist, implying resurrection. Jesus argues from a text the Sadducees accepted (Pentateuch) using grammar to prove resurrection",
         "option_b": "The argument is purely about grammar",
         "option_c": "The Sadducees already believed in resurrection",
-        "option_d": "God says \"I AM (present tense) the God of Abraham, Isaac, and Jacob\" — not \"I WAS.\" If these patriarchs ceased to exist at death, God would be the God of nothing. Since He is the God of the living, the patriarchs must still exist, implying resurrection. Jesus argues from a text the Sadducees accepted (Pentateuch) using grammar to prove resurrection",
+        "option_d": "The present tense is insignificant",
         "correct_answer": "a",
         "explanation": "Matthew 22:31-32 — \"I am the God of Abraham, and the God of Isaac, and the God of Jacob? God is not the God of the dead, but of the living.\" The argument is brilliant: (1) God identifies Himself as their God in present tense; (2) God is God of the living; (3) therefore they must be alive; (4) therefore resurrection is real. QED."
       },
@@ -3666,10 +3666,10 @@
       {
         "question_number": 6,
         "question": "What does the progression of three hostile questions (taxes, resurrection, greatest commandment) reveal about Jesus' opponents?",
-        "option_a": "Jesus refused to answer any questions",
+        "option_a": "Pharisees, Herodians, and Sadducees — normally enemies — unite against Jesus (cf. Psalm 2:2, \"rulers take counsel together, against the LORD, and against his anointed\"). Each group attacks from their specialty: politics (taxes), theology (resurrection), and ethics (greatest command). Jesus defeats all three, silencing them permanently (v.46)",
         "option_b": "The questioners were genuinely curious",
         "option_c": "Only one group opposed Jesus",
-        "option_d": "Pharisees, Herodians, and Sadducees — normally enemies — unite against Jesus (cf. Psalm 2:2, \"rulers take counsel together, against the LORD, and against his anointed\"). Each group attacks from their specialty: politics (taxes), theology (resurrection), and ethics (greatest command). Jesus defeats all three, silencing them permanently (v.46)",
+        "option_d": "Jesus refused to answer any questions",
         "correct_answer": "a",
         "explanation": "Matthew 22:15-46 — Three hostile interrogations: (1) Pharisees + Herodians on taxes (vv.15-22); (2) Sadducees on resurrection (vv.23-33); (3) Pharisees on the Law (vv.34-40). After Jesus' counter-question (vv.41-46), \"no man was able to answer him a word, neither durst any man from that day forth ask him any more questions.\""
       },
@@ -3686,10 +3686,10 @@
       {
         "question_number": 8,
         "question": "What does \"many are called, but few are chosen\" (22:14) mean in the wedding feast context?",
-        "option_a": "Called and chosen are identical concepts",
+        "option_a": "The invitation goes out broadly (\"many called\" — both the original invitees and the highway gatherers), but not all who respond genuinely enter the kingdom (\"few chosen\"). Being \"called\" means receiving the invitation; being \"chosen\" means having the proper wedding garment — genuine faith that accepts God's provision of righteousness, not self-righteousness",
         "option_b": "God secretly predetermines who is chosen regardless of response",
         "option_c": "Everyone who shows up is automatically chosen",
-        "option_d": "The invitation goes out broadly (\"many called\" — both the original invitees and the highway gatherers), but not all who respond genuinely enter the kingdom (\"few chosen\"). Being \"called\" means receiving the invitation; being \"chosen\" means having the proper wedding garment — genuine faith that accepts God's provision of righteousness, not self-righteousness",
+        "option_d": "Called and chosen are identical concepts",
         "correct_answer": "a",
         "explanation": "Matthew 22:14 — In context, \"called\" = invited (all who hear the gospel); \"chosen\" = those who properly respond (wearing the garment). The man without the garment was called but not chosen — he responded outwardly but rejected God's terms. Election and responsibility are held together."
       }
@@ -3732,9 +3732,9 @@
       {
         "question_number": 1,
         "question": "How many \"woes\" did Jesus pronounce on the scribes and Pharisees?",
-        "option_a": "Ten woes",
+        "option_a": "Seven woes — each one exposing a different form of hypocrisy",
         "option_b": "Three woes",
-        "option_c": "Seven woes — each one exposing a different form of hypocrisy",
+        "option_c": "Ten woes",
         "option_d": "One woe",
         "correct_answer": "a",
         "explanation": "Matthew 23:13-29 — Jesus pronounces seven woes: (1) shutting up the kingdom (v.13), (2) making converts twice the children of hell (v.15), (3) blind guides with oaths (v.16), (4) tithing herbs but neglecting justice (v.23), (5) cleaning the outside of the cup (v.25), (6) whitewashed tombs (v.27), (7) building prophets' tombs while plotting murder (v.29)."
@@ -3992,8 +3992,8 @@
       {
         "question_number": 5,
         "question": "What does the Noah comparison (24:37-39) warn about?",
-        "option_a": "Jesus condemns eating and drinking",
-        "option_b": "The danger is not exceptional wickedness (the Genesis 6 sins are not mentioned) but normal life without eschatological awareness — \"eating and drinking, marrying\" represent routine existence. The judgment catches people not in the act of sinning but in the state of unconcern. The warning is against normalcy without readiness, not against ordinary activities",
+        "option_a": "The danger is not exceptional wickedness (the Genesis 6 sins are not mentioned) but normal life without eschatological awareness — \"eating and drinking, marrying\" represent routine existence. The judgment catches people not in the act of sinning but in the state of unconcern. The warning is against normalcy without readiness, not against ordinary activities",
+        "option_b": "Jesus condemns eating and drinking",
         "option_c": "Noah's generation was unusually wicked and the comparison is about sin",
         "option_d": "Marriage is wrong in the last days",
         "correct_answer": "a",
@@ -4002,10 +4002,10 @@
       {
         "question_number": 6,
         "question": "What does the faithful vs. evil servant parable (24:45-51) teach about pastoral responsibility?",
-        "option_a": "The evil servant represents non-Christians only",
+        "option_a": "Leaders are stewards who will be evaluated by how they served those under their care during the master's absence. The faithful servant provides \"meat in due season\" (consistent spiritual nourishment). The evil servant exploits the master's delay — beating fellow servants and self-indulging. The parable warns church leaders that Christ's return will expose how they exercised their authority",
         "option_b": "The parable is about household management only",
         "option_c": "Church leaders are exempt from this judgment",
-        "option_d": "Leaders are stewards who will be evaluated by how they served those under their care during the master's absence. The faithful servant provides \"meat in due season\" (consistent spiritual nourishment). The evil servant exploits the master's delay — beating fellow servants and self-indulging. The parable warns church leaders that Christ's return will expose how they exercised their authority",
+        "option_d": "The evil servant represents non-Christians only",
         "correct_answer": "a",
         "explanation": "Matthew 24:45-51 — The evil servant reasons: \"My lord delayeth his coming\" (v.48) — perceived delay leads to abuse of power and self-indulgence. The master returns unexpectedly and cuts the servant asunder (dichotomeo — severe judgment). Delay is a test of faithfulness: true stewards serve consistently whether the master is present or absent."
       },
@@ -4130,8 +4130,8 @@
       {
         "question_number": 2,
         "question": "How does the parable of the talents define faithfulness?",
-        "option_a": "Only the five-talent servant was faithful",
-        "option_b": "Faithfulness is measured not by the amount produced but by proportional stewardship — the five-talent and two-talent servants both doubled their investment and received identical commendation. The one-talent servant failed not by producing little but by producing nothing. God judges stewardship relative to capacity, not absolute results",
+        "option_a": "Faithfulness is measured not by the amount produced but by proportional stewardship — the five-talent and two-talent servants both doubled their investment and received identical commendation. The one-talent servant failed not by producing little but by producing nothing. God judges stewardship relative to capacity, not absolute results",
+        "option_b": "Only the five-talent servant was faithful",
         "option_c": "Faithfulness requires extraordinary results",
         "option_d": "The one-talent servant was treated unfairly",
         "correct_answer": "a",
@@ -4190,8 +4190,8 @@
       {
         "question_number": 8,
         "question": "What does \"outer darkness\" and \"weeping and gnashing of teeth\" (25:30) signify eschatologically?",
-        "option_a": "Outer darkness is a temporary state",
-        "option_b": "\"Outer darkness\" contrasts with the \"joy\" and \"light\" of the master's feast — exclusion from God's presence and the community of the blessed. \"Weeping\" suggests grief; \"gnashing of teeth\" suggests rage or anguish. Together they describe not annihilation but conscious, ongoing experience of loss, regret, and separation from God",
+        "option_a": "\"Outer darkness\" contrasts with the \"joy\" and \"light\" of the master's feast — exclusion from God's presence and the community of the blessed. \"Weeping\" suggests grief; \"gnashing of teeth\" suggests rage or anguish. Together they describe not annihilation but conscious, ongoing experience of loss, regret, and separation from God",
+        "option_b": "Outer darkness is a temporary state",
         "option_c": "Gnashing of teeth is a sign of cold weather",
         "option_d": "The terms are purely metaphorical with no real consequence",
         "correct_answer": "a",
@@ -4298,18 +4298,18 @@
       {
         "question_number": 2,
         "question": "What does \"this is my blood of the new testament, which is shed for many for the remission of sins\" establish?",
-        "option_a": "Blood sacrifice was unnecessary",
+        "option_a": "Jesus institutes the New Covenant (Jeremiah 31:31-34), sealed not with animal blood (Exodus 24:8) but with His own blood. \"Remission of sins\" (aphesis hamartion) identifies the cross as the definitive atonement. The Lord's Supper is the covenant meal that commemorates and participates in Christ's sacrifice",
         "option_b": "The cup was symbolic only with no theological meaning",
         "option_c": "The new testament refers to a new book",
-        "option_d": "Jesus institutes the New Covenant (Jeremiah 31:31-34), sealed not with animal blood (Exodus 24:8) but with His own blood. \"Remission of sins\" (aphesis hamartion) identifies the cross as the definitive atonement. The Lord's Supper is the covenant meal that commemorates and participates in Christ's sacrifice",
+        "option_d": "Blood sacrifice was unnecessary",
         "correct_answer": "a",
         "explanation": "Matthew 26:28 — \"My blood of the new testament\" echoes Exodus 24:8 (\"the blood of the covenant\") and Jeremiah 31:31 (\"I will make a new covenant\"). Jesus' blood ratifies the new covenant, providing what the old covenant could only anticipate: actual forgiveness of sins through a perfect sacrifice."
       },
       {
         "question_number": 3,
         "question": "What does Jesus' Gethsemane prayer reveal about the relationship between His human and divine wills?",
-        "option_a": "Jesus had no human will",
-        "option_b": "Gethsemane reveals the genuine human will of Jesus recoiling from the cup (divine wrath) while voluntarily submitting to the Father's will. The three prayers show intensifying agony but consistent submission: \"not as I will, but as thou wilt.\" This affirms that Jesus had a real human will that could desire otherwise, yet He freely chose obedience — the supreme act of love",
+        "option_a": "Gethsemane reveals the genuine human will of Jesus recoiling from the cup (divine wrath) while voluntarily submitting to the Father's will. The three prayers show intensifying agony but consistent submission: \"not as I will, but as thou wilt.\" This affirms that Jesus had a real human will that could desire otherwise, yet He freely chose obedience — the supreme act of love",
+        "option_b": "Jesus had no human will",
         "option_c": "The Father forced Jesus against His will",
         "option_d": "Jesus felt no real anguish",
         "correct_answer": "a",
@@ -4318,10 +4318,10 @@
       {
         "question_number": 4,
         "question": "What does Jesus' response to the high priest (\"Thou hast said... Hereafter shall ye see the Son of man sitting on the right hand of power\") combine?",
-        "option_a": "The high priest accepted Jesus' answer",
+        "option_a": "Jesus affirms His messiahship (\"Thou hast said\" = yes) and then combines Daniel 7:13 (Son of man coming with clouds) with Psalm 110:1 (sitting at God's right hand) — claiming both heavenly enthronement and eschatological authority. This fusion of two supreme divine texts is the statement the Sanhedrin calls blasphemy",
         "option_b": "Jesus denied being the Messiah",
         "option_c": "He quoted only one Old Testament passage",
-        "option_d": "Jesus affirms His messiahship (\"Thou hast said\" = yes) and then combines Daniel 7:13 (Son of man coming with clouds) with Psalm 110:1 (sitting at God's right hand) — claiming both heavenly enthronement and eschatological authority. This fusion of two supreme divine texts is the statement the Sanhedrin calls blasphemy",
+        "option_d": "The high priest accepted Jesus' answer",
         "correct_answer": "a",
         "explanation": "Matthew 26:64 — \"Thou hast said\" (affirmative) + Daniel 7:13 (\"coming in the clouds of heaven\") + Psalm 110:1 (\"sitting on the right hand of power\"). By combining these texts, Jesus claims to be the divine figure who shares God's throne and comes in eschatological judgment. The high priest understood perfectly — and called it blasphemy."
       },
@@ -4486,8 +4486,8 @@
       {
         "question_number": 4,
         "question": "How does Pilate's hand-washing (27:24) fail to absolve him of guilt?",
-        "option_a": "Pilate was truly innocent after washing his hands",
-        "option_b": "Pilate's gesture is an empty ritual — a physical act that cannot cleanse moral guilt. He acknowledges Jesus' innocence (\"this just person\") yet delivers Him to be crucified. His authority means his responsibility. Washing hands while wielding power to save but choosing not to is the epitome of moral cowardice — appearance of innocence while perpetrating injustice",
+        "option_a": "Pilate's gesture is an empty ritual — a physical act that cannot cleanse moral guilt. He acknowledges Jesus' innocence (\"this just person\") yet delivers Him to be crucified. His authority means his responsibility. Washing hands while wielding power to save but choosing not to is the epitome of moral cowardice — appearance of innocence while perpetrating injustice",
+        "option_b": "Pilate was truly innocent after washing his hands",
         "option_c": "Hand-washing was a valid legal ritual in Roman law",
         "option_d": "Pilate had no choice in the matter",
         "correct_answer": "a",
@@ -4516,9 +4516,9 @@
       {
         "question_number": 7,
         "question": "What is the theological significance of Barabbas being released instead of Jesus?",
-        "option_a": "The name Barabbas has no significance",
+        "option_a": "Barabbas (\"son of the father\") — a guilty insurrectionist — goes free while Jesus (the true Son of the Father) — the innocent one — is condemned. This is substitutionary atonement enacted dramatically: the guilty is released because the innocent takes his place. Every believer is Barabbas — set free because Christ took their cross",
         "option_b": "Barabbas' release was a routine legal procedure",
-        "option_c": "Barabbas (\"son of the father\") — a guilty insurrectionist — goes free while Jesus (the true Son of the Father) — the innocent one — is condemned. This is substitutionary atonement enacted dramatically: the guilty is released because the innocent takes his place. Every believer is Barabbas — set free because Christ took their cross",
+        "option_c": "The name Barabbas has no significance",
         "option_d": "Jesus and Barabbas had nothing in common",
         "correct_answer": "a",
         "explanation": "Matthew 27:26 — \"Then released he Barabbas unto them: and when he had scourged Jesus, he delivered him to be crucified.\" The name Bar-Abbas (\"son of the father\") creates a profound irony: the false \"son of the father\" walks free while the true Son of the Father is executed. Barabbas is the living illustration of substitution."

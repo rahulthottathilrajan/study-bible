@@ -14,8 +14,8 @@
       {
         "question_number": 2,
         "question": "Who was the priest at Shiloh that spoke to Hannah?",
-        "option_a": "Samuel",
-        "option_b": "Eli",
+        "option_a": "Eli",
+        "option_b": "Samuel",
         "option_c": "Elkanah",
         "option_d": "Peninnah",
         "correct_answer": "a",
@@ -192,8 +192,8 @@
       {
         "question_number": 3,
         "question": "Who told Eli that his family would be punished?",
-        "option_a": "Samuel",
-        "option_b": "A man of God",
+        "option_a": "A man of God",
+        "option_b": "Samuel",
         "option_c": "The LORD in a dream",
         "option_d": "An angel",
         "correct_answer": "a",
@@ -204,8 +204,8 @@
       {
         "question_number": 1,
         "question": "In Hannah's prayer, whom does she say the LORD kills and makes alive?",
-        "option_a": "The LORD killeth and maketh alive; he bringeth down to the grave and bringeth up",
-        "option_b": "The LORD kills the wicked and makes the righteous alive",
+        "option_a": "The LORD kills the wicked and makes the righteous alive",
+        "option_b": "The LORD killeth and maketh alive; he bringeth down to the grave and bringeth up",
         "option_c": "The LORD destroys enemies and raises His servants",
         "option_d": "The LORD kills the proud and restores the humble",
         "correct_answer": "a",
@@ -434,9 +434,9 @@
       {
         "question_number": 2,
         "question": "What is the significance of the lamp of God mentioned in 1 Samuel 3:3?",
-        "option_a": "The lamp was lit to help Samuel find his way to Eli",
+        "option_a": "The lamp had not yet gone out, placing the call before dawn during the morning watch",
         "option_b": "The lamp was the symbol of God's presence departing",
-        "option_c": "The lamp had not yet gone out, placing the call before dawn during the morning watch",
+        "option_c": "The lamp was lit to help Samuel find his way to Eli",
         "option_d": "The lamp indicates God was still watching over the tabernacle",
         "correct_answer": "a",
         "explanation": "1 Samuel 3:3 — \"And ere the lamp of God went out in the temple of the LORD, where the ark of God was, and Samuel was laid down to sleep.\""
@@ -508,8 +508,8 @@
       {
         "question_number": 1,
         "question": "What happened to the ark of God in this chapter?",
-        "option_a": "It was hidden by Samuel",
-        "option_b": "The Philistines captured it",
+        "option_a": "The Philistines captured it",
+        "option_b": "It was hidden by Samuel",
         "option_c": "It was taken to Jerusalem",
         "option_d": "It was destroyed in battle",
         "correct_answer": "a",
@@ -1084,10 +1084,10 @@
       {
         "question_number": 5,
         "question": "In what cities did Samuel judge Israel each year by making a circuit?",
-        "option_a": "Dan, Bethel, and Gilgal",
+        "option_a": "Bethel, Gilgal, and Mizpeh — and then returned to Ramah",
         "option_b": "Shiloh, Hebron, and Beersheba",
         "option_c": "Ramah, Gibeah, and Jerusalem",
-        "option_d": "Bethel, Gilgal, and Mizpeh — and then returned to Ramah",
+        "option_d": "Dan, Bethel, and Gilgal",
         "correct_answer": "a",
         "explanation": "1 Samuel 7:16 — \"He went from year to year in circuit to Bethel, and Gilgal, and Mizpeh, and judged Israel in all those places.\""
       }
@@ -1334,10 +1334,10 @@
       {
         "question_number": 8,
         "question": "How does Samuel's warning about the \"manner of the king\" (mishpat hammelek) reflect the cautions God gave about kings in Deuteronomy 17?",
-        "option_a": "Samuel's warning adds economic details not present in Deuteronomy 17",
+        "option_a": "Both passages warn that a king will accumulate wealth, horses, and power, leading the people away from dependence on God",
         "option_b": "Samuel's warning contradicts Deuteronomy by opposing kingship entirely",
         "option_c": "Deuteronomy 17 only addresses foreign kings, not Israelite ones",
-        "option_d": "Both passages warn that a king will accumulate wealth, horses, and power, leading the people away from dependence on God",
+        "option_d": "Samuel's warning adds economic details not present in Deuteronomy 17",
         "correct_answer": "a",
         "explanation": "Deuteronomy 17:16-17 warns the king not to multiply horses, wives, or silver and gold. Samuel's warning in 1 Samuel 8:11-18 details exactly these abuses, showing the king's \"manner\" would violate Deuteronomic limits."
       }
@@ -3060,10 +3060,10 @@
       {
         "question_number": 1,
         "question": "What did Jonathan do when Saul told him to kill David?",
-        "option_a": "He asked Samuel to speak to Saul on David's behalf",
+        "option_a": "He spoke well of David and reminded Saul how David had risked his life to kill the Philistine and won a great victory for Israel",
         "option_b": "He refused and left Saul's court in anger",
         "option_c": "He warned David secretly without confronting Saul",
-        "option_d": "He spoke well of David and reminded Saul how David had risked his life to kill the Philistine and won a great victory for Israel",
+        "option_d": "He asked Samuel to speak to Saul on David's behalf",
         "correct_answer": "a",
         "explanation": "1 Samuel 19:4-5 — \"Jonathan spake good of David unto Saul his father, and said unto him, Let not the king sin against his servant David; because he hath not sinned against thee, and because his works have been to thee-ward very good.\""
       },
@@ -3478,10 +3478,10 @@
       {
         "question_number": 4,
         "question": "What does the presence of Doeg \"detained before the LORD\" at Nob imply about the setting, and how does it function in the narrative?",
-        "option_a": "The phrase \"detained before the LORD\" means he was sick and seeking healing there",
+        "option_a": "Doeg was likely fulfilling a religious vow or purification requirement at the sanctuary — the detail of sacred space makes his later treachery (reporting to Saul and slaughtering the priests) all the more sinister as a violation of both sanctuary law and loyalty",
         "option_b": "Doeg was a priest in training at Nob and used his inside knowledge to help Saul",
         "option_c": "He was detained as a prisoner and had no special access to sanctuary events",
-        "option_d": "Doeg was likely fulfilling a religious vow or purification requirement at the sanctuary — the detail of sacred space makes his later treachery (reporting to Saul and slaughtering the priests) all the more sinister as a violation of both sanctuary law and loyalty",
+        "option_d": "The phrase \"detained before the LORD\" means he was sick and seeking healing there",
         "correct_answer": "a",
         "explanation": "1 Samuel 21:7 — \"detained before the LORD.\" The Hebrew (_atzur_) is the same word used of Nazirite vows and ritual separation, implying a religious obligation — making Doeg's presence in a holy place and his subsequent murder of 85 priests a profound desecration."
       },
@@ -4456,10 +4456,10 @@
       {
         "question_number": 1,
         "question": "David's statement \"I shall now perish one day by the hand of Saul\" (27:1) appears immediately after his greatest display of principled faith in chapter 26. What does this juxtaposition reveal about faith and human weakness?",
-        "option_a": "David's fear proves he was not the man of faith portrayed in chapter 26",
+        "option_a": "The juxtaposition shows that moral courage in specific situations does not eliminate ongoing anxiety — David's theology of divine protection coexists with acute fear of Saul; this is not hypocrisy but the authentic complexity of faith that operates alongside, not in replacement of, ordinary human emotion",
         "option_b": "The verse shows David's faith had fundamentally collapsed after chapter 26",
         "option_c": "The juxtaposition is a chronological dislocation with no intended theological comment",
-        "option_d": "The juxtaposition shows that moral courage in specific situations does not eliminate ongoing anxiety — David's theology of divine protection coexists with acute fear of Saul; this is not hypocrisy but the authentic complexity of faith that operates alongside, not in replacement of, ordinary human emotion",
+        "option_d": "David's fear proves he was not the man of faith portrayed in chapter 26",
         "correct_answer": "a",
         "explanation": "1 Samuel 27:1 — \"David said in his heart, I shall now perish one day by the hand of Saul.\" The phrase \"in his heart\" marks this as private anxiety, not public policy — Psalms of this period (Ps. 56, 34) show the same tension between faith and fear."
       },
