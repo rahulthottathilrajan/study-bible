@@ -19,6 +19,8 @@
     "@google-cloud/text-to-speech": "^6.4.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "pg": "^8.20.0"
+    "node-edge-tts": "^1.2.10",
+    "pg": "^8.20.0",
+    "puppeteer": "^24.40.0"
   }
 }

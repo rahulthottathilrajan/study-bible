@@ -47,6 +47,9 @@ scripts/.seed-log.json
 audio-output/
 audio-test/
 
+# Gemini TTS voice audition samples
+audition-samples/
+
 # Google Cloud service account key
 google-tts-key.json
 
