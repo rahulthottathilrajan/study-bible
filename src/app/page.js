@@ -29,6 +29,7 @@ import ShopView from "./views/ShopView";
 import PodcastView from "./views/PodcastView";
 import SmartChat from "./views/SmartChat";
 import PodcastPlayer from "./components/PodcastPlayer";
+import BibleStoriesView from "./views/BibleStoriesView";
 import TermsView from "./views/TermsView";
 
 // ═══════════════════════════════════════════════════
@@ -37,7 +38,7 @@ import TermsView from "./views/TermsView";
 function StudyBibleContent() {
   const { view, darkMode, nav, ht, bp, updateSectionPosition, trackLearnExploration } = useApp();
 
-  const showNav = !["verse","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice"].includes(view);
+  const showNav = !["verse","hebrew-lesson","hebrew-practice","greek-lesson","greek-practice","stories-reader"].includes(view);
 
   return (
     <div style={{ maxWidth:bp.shell,margin:"0 auto",minHeight:"100vh",paddingBottom:showNav?68:0 }}>
@@ -63,6 +64,7 @@ function StudyBibleContent() {
       {view.startsWith("quiz-") && view !== "quiz-browser" && <ErrorBoundary theme={ht} label="Quiz"><QuizView /></ErrorBoundary>}
       {view.startsWith("shop-") && <ErrorBoundary theme={ht} label="Shop"><ShopView /></ErrorBoundary>}
       {view.startsWith("podcast-") && <ErrorBoundary theme={ht} label="Podcast"><PodcastView /></ErrorBoundary>}
+      {view.startsWith("stories-") && <ErrorBoundary theme={ht} label="Bible Stories"><BibleStoriesView /></ErrorBoundary>}
       {view === "smart-chat" && <ErrorBoundary theme={ht} label="Smart Chat"><SmartChat /></ErrorBoundary>}
       {view === "terms" && <ErrorBoundary theme={ht} label="Terms"><TermsView /></ErrorBoundary>}
 

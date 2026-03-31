@@ -1,0 +1,115 @@
+{
+  "series": [
+    {
+      "id": "women",
+      "title": "Women of the Bible",
+      "icon": "\ud83d\udc51",
+      "color": "#9B59B6",
+      "description": "Courage, faith, and destiny",
+      "stories": [
+        {
+          "id": "esther",
+          "title": "Esther: For Such a Time",
+          "subtitle": "A queen's courage saves a nation",
+          "episodes": 6,
+          "coverImage": "/images/bible-stories/esther-cover.webp",
+          "colorUniverse": {
+            "primary": "#5B2D8E",
+            "secondary": "#D4A853",
+            "darkBg": "#1a0a2e",
+            "lightBg": "#FFF5F9",
+            "accent": "#9B59B6",
+            "mood": "dramatic"
+          },
+          "bibleBooks": ["Esther"],
+          "tags": ["courage", "providence", "identity", "faith"]
+        },
+        { "id": "ruth", "title": "Ruth: A Story of Loyalty", "subtitle": "Where you go, I will go", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#B8860B", "secondary": "#8B4513", "darkBg": "#1a1508", "lightBg": "#FFF8F0", "accent": "#DAA520", "mood": "peaceful" }, "bibleBooks": ["Ruth"], "tags": ["loyalty", "redemption", "love", "faithfulness"], "comingSoon": true },
+        { "id": "mary", "title": "Mary: Favoured of God", "subtitle": "The mother who changed the world", "episodes": 5, "coverImage": null, "colorUniverse": { "primary": "#1E3A5F", "secondary": "#87CEEB", "darkBg": "#0a1520", "lightBg": "#F0F8FF", "accent": "#4682B4", "mood": "peaceful" }, "bibleBooks": ["Luke", "John"], "tags": ["obedience", "humility", "faith", "motherhood"], "comingSoon": true },
+        { "id": "deborah", "title": "Deborah: The Warrior Judge", "subtitle": "She arose, a mother in Israel", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#8B0000", "secondary": "#CD853F", "darkBg": "#1a0808", "lightBg": "#FFF5F0", "accent": "#B22222", "mood": "epic" }, "bibleBooks": ["Judges"], "tags": ["leadership", "courage", "justice", "faith"], "comingSoon": true }
+      ]
+    },
+    {
+      "id": "men",
+      "title": "Men of Faith",
+      "icon": "\u2694\ufe0f",
+      "color": "#2C3E50",
+      "description": "Patriarchs, prophets, and warriors of God",
+      "stories": [
+        { "id": "abraham", "title": "Abraham: Father of Nations", "subtitle": "A journey of radical faith", "episodes": 7, "coverImage": null, "colorUniverse": { "primary": "#8B6914", "secondary": "#F5DEB3", "darkBg": "#1a1508", "lightBg": "#FFFAF0", "accent": "#DAA520", "mood": "epic" }, "bibleBooks": ["Genesis"], "tags": ["faith", "promise", "obedience", "covenant"], "comingSoon": true },
+        { "id": "moses", "title": "Moses: Let My People Go", "subtitle": "From basket to burning bush to promised land", "episodes": 8, "coverImage": null, "colorUniverse": { "primary": "#C06C3E", "secondary": "#FFD700", "darkBg": "#1a0d05", "lightBg": "#FFF8F0", "accent": "#D2691E", "mood": "epic" }, "bibleBooks": ["Exodus", "Numbers", "Deuteronomy"], "tags": ["deliverance", "leadership", "faith", "law"], "comingSoon": true },
+        { "id": "david", "title": "David: Heart After God", "subtitle": "Shepherd, warrior, king, worshipper", "episodes": 8, "coverImage": null, "colorUniverse": { "primary": "#2C3E50", "secondary": "#E74C3C", "darkBg": "#0a1018", "lightBg": "#F0F4F8", "accent": "#34495E", "mood": "dramatic" }, "bibleBooks": ["1 Samuel", "2 Samuel"], "tags": ["worship", "courage", "repentance", "kingdom"], "comingSoon": true },
+        { "id": "daniel", "title": "Daniel: Unshakeable", "subtitle": "Faith in the fire, visions of the future", "episodes": 6, "coverImage": null, "colorUniverse": { "primary": "#1B4F72", "secondary": "#F39C12", "darkBg": "#0a1520", "lightBg": "#F0F8FF", "accent": "#2980B9", "mood": "mysterious" }, "bibleBooks": ["Daniel"], "tags": ["faithfulness", "courage", "prophecy", "prayer"], "comingSoon": true }
+      ]
+    },
+    {
+      "id": "miracles",
+      "title": "Miracles & Wonders",
+      "icon": "\u2728",
+      "color": "#D4A853",
+      "description": "When God breaks through the impossible",
+      "stories": [
+        { "id": "red-sea", "title": "Parting the Red Sea", "subtitle": "The walls of water", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#1B4F72", "secondary": "#E74C3C", "darkBg": "#0a1018", "lightBg": "#F0F8FF", "accent": "#2E86C1", "mood": "epic" }, "bibleBooks": ["Exodus"], "tags": ["deliverance", "faith", "power", "freedom"], "comingSoon": true },
+        { "id": "jericho", "title": "The Walls of Jericho", "subtitle": "Seven days, seven trumpets, one shout", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#C06C3E", "secondary": "#D4A853", "darkBg": "#1a0d05", "lightBg": "#FFF8F0", "accent": "#E67E22", "mood": "epic" }, "bibleBooks": ["Joshua"], "tags": ["obedience", "faith", "victory", "worship"], "comingSoon": true },
+        { "id": "feeding-5000", "title": "Feeding the Five Thousand", "subtitle": "Five loaves, two fish, one miracle", "episodes": 2, "coverImage": null, "colorUniverse": { "primary": "#27AE60", "secondary": "#F1C40F", "darkBg": "#0a1a0d", "lightBg": "#F0FFF0", "accent": "#2ECC71", "mood": "joyful" }, "bibleBooks": ["Matthew", "John"], "tags": ["provision", "faith", "generosity", "compassion"], "comingSoon": true },
+        { "id": "resurrection", "title": "The Resurrection", "subtitle": "Death could not hold Him", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#D4A853", "secondary": "#FFFFFF", "darkBg": "#1a1508", "lightBg": "#FFFFF0", "accent": "#F1C40F", "mood": "epic" }, "bibleBooks": ["Matthew", "Mark", "Luke", "John"], "tags": ["hope", "victory", "salvation", "life"], "comingSoon": true }
+      ]
+    },
+    {
+      "id": "parables",
+      "title": "Parables of Jesus",
+      "icon": "\ud83c\udf3f",
+      "color": "#27AE60",
+      "description": "Earthly stories with heavenly meaning",
+      "stories": [
+        { "id": "prodigal-son", "title": "The Prodigal Son", "subtitle": "A father's relentless love", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#8E44AD", "secondary": "#F39C12", "darkBg": "#1a0a20", "lightBg": "#FFF8FF", "accent": "#9B59B6", "mood": "dramatic" }, "bibleBooks": ["Luke"], "tags": ["forgiveness", "grace", "repentance", "love"], "comingSoon": true },
+        { "id": "good-samaritan", "title": "The Good Samaritan", "subtitle": "Who is my neighbour?", "episodes": 2, "coverImage": null, "colorUniverse": { "primary": "#27AE60", "secondary": "#E74C3C", "darkBg": "#0a1a0d", "lightBg": "#F0FFF0", "accent": "#2ECC71", "mood": "peaceful" }, "bibleBooks": ["Luke"], "tags": ["compassion", "mercy", "love", "service"], "comingSoon": true },
+        { "id": "sower", "title": "The Sower", "subtitle": "Four soils, four hearts", "episodes": 2, "coverImage": null, "colorUniverse": { "primary": "#8B6914", "secondary": "#27AE60", "darkBg": "#1a1508", "lightBg": "#FFFFF0", "accent": "#DAA520", "mood": "peaceful" }, "bibleBooks": ["Matthew", "Mark", "Luke"], "tags": ["faith", "growth", "perseverance", "hearing"], "comingSoon": true }
+      ]
+    },
+    {
+      "id": "creation-cross",
+      "title": "Creation to Cross",
+      "icon": "\ud83c\udf05",
+      "color": "#E74C3C",
+      "description": "The greatest story ever told \u2014 from Genesis to Revelation",
+      "stories": [
+        { "id": "in-the-beginning", "title": "In the Beginning", "subtitle": "God creates the heavens and the earth", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#1B2631", "secondary": "#D4A853", "darkBg": "#050810", "lightBg": "#F0F4F8", "accent": "#2C3E50", "mood": "epic" }, "bibleBooks": ["Genesis"], "tags": ["creation", "power", "beauty", "purpose"], "comingSoon": true },
+        { "id": "the-fall", "title": "The Fall", "subtitle": "When paradise was lost", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#4A0E0E", "secondary": "#27AE60", "darkBg": "#1a0505", "lightBg": "#FFF5F5", "accent": "#C0392B", "mood": "dramatic" }, "bibleBooks": ["Genesis"], "tags": ["sin", "consequence", "promise", "redemption"], "comingSoon": true }
+      ]
+    },
+    {
+      "id": "battles",
+      "title": "Battles & Victories",
+      "icon": "\ud83d\udee1\ufe0f",
+      "color": "#C06C3E",
+      "description": "When faith meets the battlefield",
+      "stories": [
+        { "id": "david-and-goliath", "title": "David & Goliath", "subtitle": "The battle is the LORD's", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#2C3E50", "secondary": "#E74C3C", "darkBg": "#0a1018", "lightBg": "#F0F4F8", "accent": "#C06C3E", "mood": "epic" }, "bibleBooks": ["1 Samuel"], "tags": ["courage", "faith", "underdog", "victory"], "comingSoon": true },
+        { "id": "gideon", "title": "Gideon: 300 Against Thousands", "subtitle": "God doesn't need an army", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#1B4F72", "secondary": "#F39C12", "darkBg": "#0a1520", "lightBg": "#F0F8FF", "accent": "#2980B9", "mood": "dramatic" }, "bibleBooks": ["Judges"], "tags": ["faith", "obedience", "humility", "victory"], "comingSoon": true }
+      ]
+    },
+    {
+      "id": "dreams",
+      "title": "Dreams & Visions",
+      "icon": "\ud83c\udf19",
+      "color": "#5B2D8E",
+      "description": "When God speaks in the night",
+      "stories": [
+        { "id": "joseph-dreams", "title": "Joseph: The Dreamer", "subtitle": "From pit to palace", "episodes": 6, "coverImage": null, "colorUniverse": { "primary": "#5B2D8E", "secondary": "#F1C40F", "darkBg": "#1a0a2e", "lightBg": "#F8F0FF", "accent": "#8E44AD", "mood": "dramatic" }, "bibleBooks": ["Genesis"], "tags": ["dreams", "patience", "forgiveness", "providence"], "comingSoon": true },
+        { "id": "daniel-visions", "title": "Daniel's Visions", "subtitle": "Kingdoms rise and fall, but God reigns", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#1B2631", "secondary": "#3498DB", "darkBg": "#050810", "lightBg": "#F0F4F8", "accent": "#2C3E50", "mood": "mysterious" }, "bibleBooks": ["Daniel"], "tags": ["prophecy", "sovereignty", "future", "faith"], "comingSoon": true }
+      ]
+    },
+    {
+      "id": "love",
+      "title": "Love Stories",
+      "icon": "\ud83c\udf39",
+      "color": "#C0392B",
+      "description": "Sacred romance through the ages",
+      "stories": [
+        { "id": "ruth-and-boaz", "title": "Ruth & Boaz", "subtitle": "A love born on the threshing floor", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#B8860B", "secondary": "#C0392B", "darkBg": "#1a1508", "lightBg": "#FFF8F0", "accent": "#DAA520", "mood": "peaceful" }, "bibleBooks": ["Ruth"], "tags": ["love", "loyalty", "redemption", "faithfulness"], "comingSoon": true },
+        { "id": "jacob-and-rachel", "title": "Jacob & Rachel", "subtitle": "Fourteen years for love", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#8B4513", "secondary": "#C0392B", "darkBg": "#1a0d05", "lightBg": "#FFF5F0", "accent": "#D2691E", "mood": "dramatic" }, "bibleBooks": ["Genesis"], "tags": ["love", "patience", "perseverance", "family"], "comingSoon": true }
+      ]
+    }
+  ]
+}

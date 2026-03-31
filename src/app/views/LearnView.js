@@ -33,6 +33,7 @@ export default function LearnView() {
       { id:"reading", icon:"🗓️", label:"Reading Plans", sub:"Guided Bible journeys", color:"#D4A853", bg:"rgba(212,168,83,0.1)", active:true, action:() => nav("reading-plans-home") },
       { id:"podcast", icon:"\uD83C\uDFA7", label:"Podcasts", sub:"Daily devotionals · 5-min episodes", color:"#E85D04", bg:"rgba(232,93,4,0.1)", active:true, action:() => nav("podcast-home") },
       { id:"teens", icon:"\uD83D\uDD25", label:"Teens Deep Study", sub:"52-week · 2hr sessions · Word studies", color:"#4F46E5", bg:"rgba(79,70,229,0.1)", active:true, action:() => nav("teens-curriculum-home") },
+      { id:"stories", icon:"\ud83d\udcda", label:"Bible Stories", sub:"Manga-style visual storytelling · All ages", color:"#5B2D8E", bg:"rgba(91,45,142,0.1)", active:true, action:() => nav("stories-home") },
       { id:"kids", icon:"🐑", label:"Kids Church", sub:"52-week · Ages 3–12 · Fun activities", color:"#059669", bg:"rgba(5,150,105,0.1)", active:true, action:() => nav("kids-curriculum-home") },
     ];
     return (

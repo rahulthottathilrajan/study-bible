@@ -494,7 +494,8 @@ export const BADGE_CATEGORIES = [
   { id:"audio",  label:"Audio",  icon:"🎧" },
   { id:"podcast", label:"Podcast", icon:"🎙️" },
   { id:"reading", label:"Reading Plans", icon:"📅" },
-  { id:"community", label:"Community", icon:"🤝" },
+  { id:"community", label:"Community", icon:"\ud83e\udd1d" },
+  { id:"stories", label:"Stories", icon:"\ud83d\udcda" },
 ];
 
 export const BADGES = [
@@ -600,7 +601,13 @@ export const BADGES = [
   { id:"timeline_streak",    category:"learn", name:"History Buff",      icon:"🔥", description:"Visit the Bible Book Timeline 7 days in a row" },
   { id:"timeline_scholar",   category:"learn", name:"Genre Scholar",     icon:"🏛️", description:"Explore all 7 genre categories in the timeline" },
   // Community (1)
-  { id:"birthday_blessed", category:"community", name:"Birthday Blessed", icon:"🎂", description:"Open the app on your birthday" },
+  { id:"birthday_blessed", category:"community", name:"Birthday Blessed", icon:"\ud83c\udf82", description:"Open the app on your birthday" },
+  // Bible Stories (5)
+  { id:"first_story",      category:"stories", name:"Once Upon a Time",  icon:"\ud83d\udcda", description:"Complete your first Bible story episode" },
+  { id:"story_explorer",   category:"stories", name:"Story Explorer",    icon:"\ud83d\uddfa\ufe0f", description:"Read stories from 3 different series" },
+  { id:"story_marathon",   category:"stories", name:"Marathon Reader",   icon:"\ud83c\udfc3", description:"Complete 5 Bible stories" },
+  { id:"story_scholar",    category:"stories", name:"Story Scholar",     icon:"\ud83c\udf93", description:"Complete all episodes of a story with all reflections" },
+  { id:"esther_complete",  category:"stories", name:"For Such a Time",   icon:"\ud83d\udc51", description:"Complete the Story of Esther" },
 ];
 
 // ═══════════════════════════════════════════════════

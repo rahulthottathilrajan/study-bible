@@ -1,0 +1,537 @@
+{
+  "id": "esther",
+  "title": "Esther: For Such a Time",
+  "subtitle": "A queen's courage saves a nation",
+  "colorUniverse": {
+    "primary": "#5B2D8E",
+    "secondary": "#D4A853",
+    "darkBg": "#1a0a2e",
+    "lightBg": "#FFF5F9",
+    "accent": "#9B59B6",
+    "mood": "dramatic"
+  },
+  "episodes": [
+    {
+      "id": "esther-ep1",
+      "number": 1,
+      "title": "A Kingdom's Feast",
+      "subtitle": "When one queen falls, destiny knocks",
+      "scripture": "Esther 1:1 \u2013 2:20",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "A KINGDOM'S FEAST",
+          "subtitle": "127 provinces. One throne. A banquet that changed everything.",
+          "scripture": "Esther 1:1",
+          "backgroundMood": "royal"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_L",
+          "panels": [
+            {
+              "image": "/images/bible-stories/esther/ep1-feast.webp",
+              "narration": "In the days of King Ahasuerus, who reigned from India to Ethiopia over 127 provinces, the king sat upon the throne of his kingdom in Shushan the palace.",
+              "scripture": "Esther 1:1\u20132",
+              "speech": null
+            },
+            {
+              "image": "/images/bible-stories/esther/ep1-banquet.webp",
+              "narration": "He made a feast for all his princes and servants \u2014 180 days of splendour. Gold and silver couches on marble floors, royal wine in golden vessels.",
+              "scripture": "Esther 1:3\u20137",
+              "speech": null
+            },
+            {
+              "image": "/images/bible-stories/esther/ep1-vashti-refuses.webp",
+              "narration": null,
+              "scripture": "Esther 1:10\u201312",
+              "speech": { "speaker": "King Ahasuerus", "text": "Bring Queen Vashti before me, wearing the royal crown, to show the people her beauty!", "style": "command" }
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": "/images/bible-stories/esther/ep1-vashti-no.webp",
+              "narration": "But Queen Vashti refused to come at the king's command. The king's anger burned within him.",
+              "scripture": "Esther 1:12",
+              "speech": null
+            },
+            {
+              "image": "/images/bible-stories/esther/ep1-advisors.webp",
+              "narration": null,
+              "scripture": "Esther 1:19\u201320",
+              "speech": { "speaker": "Memucan", "text": "Let a royal decree go forth: Vashti shall come no more before the king. Let the king give her royal estate to another who is better than she.", "style": "formal" }
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "A SEARCH BEGINS",
+          "text": "And the king's servants said: Let there be beautiful young women sought for the king\u2026",
+          "scripture": "Esther 2:2",
+          "backgroundMood": "mysterious"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_MANGA",
+          "panels": [
+            {
+              "image": "/images/bible-stories/esther/ep1-mordecai.webp",
+              "narration": "Now in Shushan the palace there lived a Jewish man named Mordecai, of the tribe of Benjamin. He had been carried away from Jerusalem among the captives.",
+              "scripture": "Esther 2:5\u20136",
+              "speech": null
+            },
+            {
+              "image": "/images/bible-stories/esther/ep1-young-esther.webp",
+              "narration": "He raised his cousin Hadassah \u2014 that is, Esther \u2014 as his own daughter, for she had neither father nor mother. The maiden was fair and beautiful.",
+              "scripture": "Esther 2:7",
+              "speech": null
+            },
+            {
+              "image": "/images/bible-stories/esther/ep1-esther-taken.webp",
+              "narration": null,
+              "scripture": "Esther 2:8",
+              "speech": { "speaker": "Mordecai", "text": "Do not reveal your people or your kindred, Esther. Tell no one.", "style": "whisper" }
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": "/images/bible-stories/esther/ep1-hegai.webp",
+              "narration": "Esther found favour in the sight of Hegai, keeper of the women. He gave her the best place in the house and seven maidens to attend her.",
+              "scripture": "Esther 2:9",
+              "speech": null
+            },
+            {
+              "image": "/images/bible-stories/esther/ep1-esther-crowned.webp",
+              "narration": "The king loved Esther above all the women. He set the royal crown upon her head and made her queen instead of Vashti.",
+              "scripture": "Esther 2:17",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "scripture",
+          "verse": "Who knoweth whether thou art come to the kingdom for such a time as this?",
+          "reference": "Esther 4:14",
+          "originalWord": {
+            "hebrew": "\u05e2\u05b5\u05ea",
+            "transliteration": "'et",
+            "meaning": "appointed time, season"
+          },
+          "note": "This verse comes later in the story, but it reveals the divine purpose behind everything that has happened. God was placing Esther exactly where she needed to be \u2014 not by accident, but by appointment."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Esther was brave even though she was scared. Can you think of a time you had to be brave?",
+            "activity": "Draw yourself wearing a crown of courage! What brave thing would you do?"
+          },
+          "teens": {
+            "question": "Mordecai told Esther to hide who she really was. When is it wise to wait for the right time to speak up? When does waiting become hiding?",
+            "journal": "Write about a time you had to choose between fitting in and standing up for what's right."
+          },
+          "adults": {
+            "question": "Esther's elevation to queen appears to be coincidence on the surface \u2014 but the entire book never mentions God by name, yet His providence fills every chapter. Where do you see God working 'behind the scenes' in your own life?",
+            "crossRefs": ["Romans 8:28", "Proverbs 16:9", "Isaiah 46:10", "Jeremiah 29:11"],
+            "application": "Consider the 'coincidences' in your life that positioned you for a purpose. Journal about one moment that felt random then but looks providential now."
+          }
+        }
+      ]
+    },
+    {
+      "id": "esther-ep2",
+      "number": 2,
+      "title": "The Hidden Queen",
+      "subtitle": "Mordecai's loyalty and Haman's deadly plot",
+      "scripture": "Esther 2:21 \u2013 3:15",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE HIDDEN QUEEN",
+          "subtitle": "A plot against the king. A decree against a people. And a secret that could change everything.",
+          "scripture": "Esther 2:21",
+          "backgroundMood": "dark"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Mordecai uncovered a plot by two of the king's officers to assassinate King Ahasuerus. He told Esther, who reported it in Mordecai's name. The plotters were hanged, and the deed was recorded in the chronicles.",
+              "scripture": "Esther 2:21\u201323",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "After these things, the king promoted Haman the Agagite above all the princes. All the king's servants bowed to Haman \u2014 but Mordecai would not bow.",
+              "scripture": "Esther 3:1\u20132",
+              "speech": { "speaker": "Haman", "text": "Who is this man who dares defy me?", "style": "anger" }
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "A DECREE OF DEATH",
+          "text": "Letters were sent to all the king's provinces, to destroy, to kill, and to annihilate all Jews \u2014 young and old, women and children \u2014 in one day.",
+          "scripture": "Esther 3:13",
+          "backgroundMood": "dark"
+        },
+        {
+          "type": "scripture",
+          "verse": "The letters were sent by posts into all the king's provinces, to destroy, to kill, and to cause to perish, all Jews, both young and old, little children and women, in one day.",
+          "reference": "Esther 3:13",
+          "originalWord": {
+            "hebrew": "\u05dc\u05b0\u05d4\u05b7\u05e9\u05c1\u05b0\u05de\u05b4\u05d9\u05d3",
+            "transliteration": "l'hashmid",
+            "meaning": "to destroy, to exterminate"
+          },
+          "note": "This same word is used in other passages about the destruction of nations. Haman's decree was nothing less than genocide \u2014 and it echoes the ancient enmity between Israel and the Amalekites."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Mordecai wouldn't bow to Haman because he only bowed to God. What is something you would never give up, no matter what?",
+            "activity": "Draw Mordecai standing tall while everyone else bows!"
+          },
+          "teens": {
+            "question": "Haman's hatred of one man (Mordecai) led him to want to destroy an entire people. How does unchecked anger and pride grow into something monstrous?",
+            "journal": "Write about a time when a small conflict almost became something much bigger. What stopped it?"
+          },
+          "adults": {
+            "question": "Haman is an Agagite (descendant of Agag, king of the Amalekites). This conflict echoes Saul's failure to fully obey God in 1 Samuel 15. How do the consequences of disobedience echo through generations?",
+            "crossRefs": ["1 Samuel 15:8\u20139", "Exodus 17:14\u201316", "Deuteronomy 25:17\u201319"],
+            "application": "Consider how your choices today might echo in ways you can't foresee. What 'incomplete obedience' might you need to address?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "esther-ep3",
+      "number": 3,
+      "title": "For Such a Time",
+      "subtitle": "The moment of decision",
+      "scripture": "Esther 4",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "FOR SUCH A TIME",
+          "subtitle": "If I perish, I perish.",
+          "scripture": "Esther 4:16",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "When Mordecai learned of the decree, he tore his clothes, put on sackcloth and ashes, and went out into the city with a loud and bitter cry.",
+              "scripture": "Esther 4:1",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Esther 4:13\u201314",
+              "speech": { "speaker": "Mordecai", "text": "Do not think that you will escape in the king's palace any more than all the other Jews. If you remain silent, deliverance will arise from another place \u2014 but you and your father's house will perish. Who knows whether you have come to the kingdom for such a time as this?", "style": "urgent" }
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "THE DECISION",
+          "text": "Go, gather together all the Jews in Shushan, and fast for me. Do not eat or drink for three days, night or day. I and my maidens will fast likewise. And so I will go in unto the king, which is not according to the law. And if I perish, I perish.",
+          "scripture": "Esther 4:16",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "scripture",
+          "verse": "And if I perish, I perish.",
+          "reference": "Esther 4:16",
+          "originalWord": {
+            "hebrew": "\u05d0\u05b8\u05d1\u05b8\u05d3\u05b0\u05ea\u05bc\u05b4\u05d9",
+            "transliteration": "'avad'ti",
+            "meaning": "I am lost, I perish"
+          },
+          "note": "These five words are among the most courageous in all of Scripture. Esther chose obedience over self-preservation, knowing the penalty for approaching the king uninvited was death."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Esther was very scared but she did the right thing anyway. What helps you be brave when you're afraid?",
+            "activity": "Write a prayer asking God to help you be brave like Esther!"
+          },
+          "teens": {
+            "question": "'If I perish, I perish.' Esther counted the cost and decided her people were worth the risk. What would you risk everything for?",
+            "journal": "Write about something worth standing up for, even if it costs you."
+          },
+          "adults": {
+            "question": "Esther's three-day fast before approaching the king mirrors other biblical patterns of fasting before crucial moments. What role does spiritual preparation play before our most important decisions?",
+            "crossRefs": ["Matthew 4:1\u20132", "Acts 13:2\u20133", "2 Chronicles 20:3", "Ezra 8:21\u201323"],
+            "application": "Consider a major decision ahead. What would it look like to prepare spiritually \u2014 through fasting, prayer, or counsel \u2014 before acting?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "esther-ep4",
+      "number": 4,
+      "title": "The Queen's Gambit",
+      "subtitle": "Esther's banquets and Haman's downfall begins",
+      "scripture": "Esther 5\u20136",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE QUEEN'S GAMBIT",
+          "subtitle": "Two banquets. One sleepless night. The threads of providence tighten.",
+          "scripture": "Esther 5:1",
+          "backgroundMood": "royal"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_L",
+          "panels": [
+            {
+              "image": null,
+              "narration": "On the third day, Esther put on her royal apparel and stood in the inner court of the king's house. When the king saw her, she obtained favour in his sight, and he held out the golden sceptre.",
+              "scripture": "Esther 5:1\u20132",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Esther 5:3",
+              "speech": { "speaker": "King Ahasuerus", "text": "What is your request, Queen Esther? It shall be given to you \u2014 even to half the kingdom!", "style": "generous" }
+            },
+            {
+              "image": null,
+              "narration": "But Esther did not reveal her request. Instead, she invited the king and Haman to a banquet \u2014 and then to a second banquet the next day. Patience. Timing. Strategy.",
+              "scripture": "Esther 5:4\u20138",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "That night, the king could not sleep. He ordered the chronicles to be read aloud \u2014 and there, in the records, was Mordecai's unrewarded act of saving the king's life.",
+              "scripture": "Esther 6:1\u20133",
+              "speech": { "speaker": "King", "text": "What honour has been given to Mordecai for this?", "style": "thoughtful" }
+            },
+            {
+              "image": null,
+              "narration": "Haman arrived at court early, planning to ask the king to hang Mordecai. Instead, the king asked him: 'What should be done for the man the king wishes to honour?' Haman, thinking the king meant him\u2026",
+              "scripture": "Esther 6:6\u20139",
+              "speech": { "speaker": "Haman", "text": "Let the royal robe and crown be placed on him! Let him ride through the city with a noble proclaiming: This is what is done for the man the king honours!", "style": "prideful" }
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "THE REVERSAL",
+          "text": "Then the king said to Haman: 'Make haste. Take the robe and the horse, and do even so to Mordecai the Jew.'",
+          "scripture": "Esther 6:10",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "scripture",
+          "verse": "On that night could not the king sleep.",
+          "reference": "Esther 6:1",
+          "originalWord": {
+            "hebrew": "\u05e0\u05b8\u05d3\u05b0\u05d3\u05b8\u05d4",
+            "transliteration": "nad'dah",
+            "meaning": "fled, departed (his sleep fled)"
+          },
+          "note": "One sleepless night changed the course of history. God works in the smallest details \u2014 even a king's insomnia becomes an instrument of deliverance."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "The king couldn't sleep, and that tiny thing changed everything! Can you think of a small thing that turned out to be really important?",
+            "activity": "Draw the king reading his big book in the middle of the night!"
+          },
+          "teens": {
+            "question": "Haman's pride was his downfall \u2014 he designed his own honour and ended up giving it to his enemy. How does pride set traps for us?",
+            "journal": "Write about a time when someone's pride (maybe even yours) backfired."
+          },
+          "adults": {
+            "question": "Esther 6:1 is the theological hinge of the book. A 'coincidental' case of insomnia leads to the reading of forgotten records at the exact moment needed. How does this challenge our understanding of what we call 'coincidence'?",
+            "crossRefs": ["Proverbs 21:1", "Psalm 121:4", "Proverbs 16:33"],
+            "application": "Reflect on the 'divine insomnia' moments in your life \u2014 disruptions that turned out to be redirections."
+          }
+        }
+      ]
+    },
+    {
+      "id": "esther-ep5",
+      "number": 5,
+      "title": "The Tables Turn",
+      "subtitle": "Haman exposed and the decree reversed",
+      "scripture": "Esther 7\u20138",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE TABLES TURN",
+          "subtitle": "The villain is unmasked. The decree is reversed. Justice arrives.",
+          "scripture": "Esther 7:1",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_L",
+          "panels": [
+            {
+              "image": null,
+              "narration": "At the second banquet, the king again asked Esther her request. This time, she spoke.",
+              "scripture": "Esther 7:2",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Esther 7:3\u20134",
+              "speech": { "speaker": "Queen Esther", "text": "If I have found favour in your sight, O king \u2014 let my life be given me, and my people. For we are sold, I and my people, to be destroyed, to be slain, and to perish!", "style": "passionate" }
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Esther 7:5\u20136",
+              "speech": { "speaker": "King", "text": "Who is he? Where is he, that dared presume in his heart to do this?", "style": "fury" }
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "UNMASKED",
+          "text": "And Esther said: The adversary and enemy is this wicked Haman! Then Haman was afraid before the king and the queen.",
+          "scripture": "Esther 7:6",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Haman was hanged on the very gallows he had prepared for Mordecai \u2014 50 cubits high. The instrument of his malice became the instrument of his judgement.",
+              "scripture": "Esther 7:9\u201310",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "The king gave Mordecai his signet ring, and Esther set him over the house of Haman. A new decree was written: the Jews could defend themselves against their enemies.",
+              "scripture": "Esther 8:2, 8:11",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "scripture",
+          "verse": "And in every province, and in every city, whithersoever the king's commandment and his decree came, the Jews had joy and gladness, a feast and a good day.",
+          "reference": "Esther 8:17",
+          "originalWord": {
+            "hebrew": "\u05e9\u05b4\u05c2\u05de\u05b0\u05d7\u05b8\u05d4",
+            "transliteration": "simchah",
+            "meaning": "joy, gladness, mirth"
+          },
+          "note": "From mourning to dancing. The same provinces that received the decree of death now received a decree of deliverance. God's reversals are total."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Haman's mean plan was turned upside down! God turned the sad story into a happy one. When has God surprised you with something good?",
+            "activity": "Draw two pictures: one of the sad moment and one of the happy ending!"
+          },
+          "teens": {
+            "question": "Esther risked her life to speak truth to power. In your world, what does it look like to speak up for people who can't speak for themselves?",
+            "journal": "Write about an injustice you see and what one brave step you could take."
+          },
+          "adults": {
+            "question": "The ironic reversal in Esther (Haman hanged on his own gallows, Mordecai honoured in Haman's planned way) is a literary and theological masterpiece. How does this pattern of divine reversal appear throughout Scripture?",
+            "crossRefs": ["Luke 1:52\u201353", "1 Samuel 2:7\u20138", "Psalm 37:14\u201315", "Proverbs 26:27"],
+            "application": "Where in your life do you need to trust that God can reverse what seems irreversible?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "esther-ep6",
+      "number": 6,
+      "title": "Victory & Remembrance",
+      "subtitle": "Purim established and a legacy for all generations",
+      "scripture": "Esther 9\u201310",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "VICTORY & REMEMBRANCE",
+          "subtitle": "A celebration that echoes through 2,500 years. Never forget.",
+          "scripture": "Esther 9:1",
+          "backgroundMood": "joyful"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "On the thirteenth day of the twelfth month \u2014 the day the enemies of the Jews had hoped to overpower them \u2014 the opposite occurred. The Jews prevailed over those who hated them.",
+              "scripture": "Esther 9:1",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "Mordecai recorded these events and established the feast of Purim \u2014 days of feasting, joy, and sending gifts to one another and to the poor. These days would be remembered and kept throughout every generation.",
+              "scripture": "Esther 9:20\u201322, 28",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "PURIM",
+          "text": "These days of Purim should not fail from among the Jews, nor the memorial of them perish from their seed.",
+          "scripture": "Esther 9:28",
+          "backgroundMood": "joyful"
+        },
+        {
+          "type": "scripture",
+          "verse": "For Mordecai the Jew was next unto king Ahasuerus, and great among the Jews, and accepted of the multitude of his brethren, seeking the wealth of his people, and speaking peace to all his seed.",
+          "reference": "Esther 10:3",
+          "originalWord": {
+            "hebrew": "\u05e9\u05c1\u05b8\u05dc\u05d5\u05b9\u05dd",
+            "transliteration": "shalom",
+            "meaning": "peace, wholeness, welfare"
+          },
+          "note": "The book ends not with war but with shalom. Mordecai's legacy was not conquest but peace and welfare for his people. True greatness serves."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "The Jewish people still celebrate Purim today, over 2,000 years later! What's a special day your family celebrates to remember something good God did?",
+            "activity": "Design your own 'Thank You God' celebration! What would you eat? Who would you invite?"
+          },
+          "teens": {
+            "question": "Purim became a tradition of giving to the poor and sharing with others. Why do you think God attached generosity to this celebration of deliverance?",
+            "journal": "Write about how you could turn a personal victory into a way to bless others."
+          },
+          "adults": {
+            "question": "The Book of Esther never mentions God by name, yet it is perhaps the most powerful portrait of divine providence in all of Scripture. What does this teach us about recognising God's work even when He seems silent?",
+            "crossRefs": ["Isaiah 45:15", "Psalm 10:1", "Habakkuk 1:2\u20134", "Romans 11:33"],
+            "application": "In your own 'silent' seasons, what evidence of God's hidden hand can you identify? Write down three 'Esther moments' \u2014 times God was working even when you couldn't see Him."
+          }
+        }
+      ]
+    }
+  ]
+}

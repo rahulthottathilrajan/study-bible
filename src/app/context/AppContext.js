@@ -340,6 +340,10 @@ export function AppProvider({ children }) {
     try { localStorage.setItem("podcastNavState", JSON.stringify({ podcastSeries, podcastEpisode })); } catch {} // eslint-disable-line no-empty
   }, [podcastSeries, podcastEpisode]);
 
+  // Bible Stories nav state
+  const [storyId, setStoryId] = useState(null);
+  const [storyEpisode, setStoryEpisode] = useState(0);
+
   const markChapterListened = useCallback((bookName, chapterNum) => {
     const key = `${bookName}:${chapterNum}`;
     setListenedChapters(prev => {
@@ -1984,7 +1988,7 @@ export function AppProvider({ children }) {
   }, [bibleTranslation, fetchTranslatedVerses]);
 
   const goingBack = useRef(false);
-  const BACK_MAP = { "verse":"verses", "verses":"books", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-flashcards":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "greek-lexicon":"greek-home", "greek-flashcards":"greek-home", "greek-journal":"greek-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", "podcast-home":"learn-home", "podcast-detail":"podcast-home", "podcast-episode":"podcast-detail", "smart-chat":"home", };
+  const BACK_MAP = { "verse":"verses", "verses":"books", "chapter":"books", "books":"home", "search":"home", "quiz-browser":"home", "quiz-intro":"verses", "quiz-active":"quiz-intro", "quiz-results":"verses", "hebrew-lesson":"hebrew-home", "hebrew-practice":"hebrew-home", "hebrew-flashcards":"hebrew-home", "hebrew-reading":"hebrew-reading-home", "hebrew-grammar-lesson":"hebrew-grammar-home", "hebrew-home":"learn-home", "hebrew-reading-home":"learn-home", "hebrew-grammar-home":"learn-home", "greek-lesson":"greek-home", "greek-practice":"greek-home", "greek-reading":"greek-reading-home", "greek-grammar-lesson":"greek-grammar-home", "greek-home":"learn-home", "greek-reading-home":"learn-home", "greek-grammar-home":"learn-home", "greek-lexicon":"greek-home", "greek-flashcards":"greek-home", "greek-journal":"greek-home", "timeline-era-detail":"timeline-era", "timeline-era":"timeline-home", "timeline-home":"learn-home", "timeline-maps":"learn-home", "timeline-books":"learn-home", "prophecy-home":"learn-home", "timeline-archaeology":"learn-home", "apologetics-home":"learn-home", "reading-plans-home":"learn-home", "kids-curriculum-home":"learn-home", "teens-curriculum-home":"learn-home", "learn-home":"home", "prayer-home":"home", "prayer-community":"prayer-home", "prayer-clock":"prayer-home", "prayer-journal":"prayer-home", "prayer-testimony":"prayer-home", "prayer-slot-active":"prayer-clock", "account":"home", "highlights":"account", "terms":"home", "shop-home":"home", "shop-category":"shop-home", "shop-product":"shop-category", "shop-cart":"shop-home", "shop-order-success":"shop-home", "shop-premium":"shop-home", "podcast-home":"learn-home", "podcast-detail":"podcast-home", "podcast-episode":"podcast-detail", "stories-home":"learn-home", "stories-detail":"stories-home", "stories-reader":"stories-detail", "smart-chat":"home", };
 
   const addToCart = (product, qty = 1, size = null) => {
     setCart(prev => {
@@ -2029,6 +2033,8 @@ export function AppProvider({ children }) {
     if (opts.shopProduct !== undefined) setShopProduct(opts.shopProduct);
     if (opts.podcastSeries !== undefined) setPodcastSeries(opts.podcastSeries);
     if (opts.podcastEpisode !== undefined) setPodcastEpisode(opts.podcastEpisode);
+    if (opts.storyId !== undefined) setStoryId(opts.storyId);
+    if (opts.storyEpisode !== undefined) setStoryEpisode(opts.storyEpisode);
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [testament, book, chapter, verse, tab, changeVerse]);
 
@@ -2249,6 +2255,8 @@ export function AppProvider({ children }) {
     podcastEpisodeInfo, setPodcastEpisodeInfo, podcastAudioRef,
     podcastCurrentTime, setPodcastCurrentTime, podcastDuration, setPodcastDuration,
     podcastListenedEpisodes, podcastSeries, podcastEpisode,
+    // Bible Stories
+    storyId, storyEpisode,
     podcastStreak, updatePodcastStreak,
     stopPodcast, stopBibleAudio, markEpisodeListened,
     // Smart Chat
