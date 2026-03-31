@@ -24,7 +24,7 @@
           "bibleBooks": ["Esther"],
           "tags": ["courage", "providence", "identity", "faith"]
         },
-        { "id": "ruth", "title": "Ruth: A Story of Loyalty", "subtitle": "Where you go, I will go", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#B8860B", "secondary": "#8B4513", "darkBg": "#1a1508", "lightBg": "#FFF8F0", "accent": "#DAA520", "mood": "peaceful" }, "bibleBooks": ["Ruth"], "tags": ["loyalty", "redemption", "love", "faithfulness"], "comingSoon": true },
+        { "id": "ruth", "title": "Ruth: A Story of Loyalty", "subtitle": "Where you go, I will go", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#B8860B", "secondary": "#8B4513", "darkBg": "#1a1508", "lightBg": "#FFF8F0", "accent": "#DAA520", "mood": "peaceful" }, "bibleBooks": ["Ruth"], "tags": ["loyalty", "redemption", "love", "faithfulness"] },
         { "id": "mary", "title": "Mary: Favoured of God", "subtitle": "The mother who changed the world", "episodes": 5, "coverImage": null, "colorUniverse": { "primary": "#1E3A5F", "secondary": "#87CEEB", "darkBg": "#0a1520", "lightBg": "#F0F8FF", "accent": "#4682B4", "mood": "peaceful" }, "bibleBooks": ["Luke", "John"], "tags": ["obedience", "humility", "faith", "motherhood"], "comingSoon": true },
         { "id": "deborah", "title": "Deborah: The Warrior Judge", "subtitle": "She arose, a mother in Israel", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#8B0000", "secondary": "#CD853F", "darkBg": "#1a0808", "lightBg": "#FFF5F0", "accent": "#B22222", "mood": "epic" }, "bibleBooks": ["Judges"], "tags": ["leadership", "courage", "justice", "faith"], "comingSoon": true }
       ]
@@ -62,7 +62,7 @@
       "color": "#27AE60",
       "description": "Earthly stories with heavenly meaning",
       "stories": [
-        { "id": "prodigal-son", "title": "The Prodigal Son", "subtitle": "A father's relentless love", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#8E44AD", "secondary": "#F39C12", "darkBg": "#1a0a20", "lightBg": "#FFF8FF", "accent": "#9B59B6", "mood": "dramatic" }, "bibleBooks": ["Luke"], "tags": ["forgiveness", "grace", "repentance", "love"], "comingSoon": true },
+        { "id": "prodigal-son", "title": "The Prodigal Son", "subtitle": "A father's relentless love", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#8E44AD", "secondary": "#F39C12", "darkBg": "#1a0a20", "lightBg": "#FFF8FF", "accent": "#9B59B6", "mood": "dramatic" }, "bibleBooks": ["Luke"], "tags": ["forgiveness", "grace", "repentance", "love"] },
         { "id": "good-samaritan", "title": "The Good Samaritan", "subtitle": "Who is my neighbour?", "episodes": 2, "coverImage": null, "colorUniverse": { "primary": "#27AE60", "secondary": "#E74C3C", "darkBg": "#0a1a0d", "lightBg": "#F0FFF0", "accent": "#2ECC71", "mood": "peaceful" }, "bibleBooks": ["Luke"], "tags": ["compassion", "mercy", "love", "service"], "comingSoon": true },
         { "id": "sower", "title": "The Sower", "subtitle": "Four soils, four hearts", "episodes": 2, "coverImage": null, "colorUniverse": { "primary": "#8B6914", "secondary": "#27AE60", "darkBg": "#1a1508", "lightBg": "#FFFFF0", "accent": "#DAA520", "mood": "peaceful" }, "bibleBooks": ["Matthew", "Mark", "Luke"], "tags": ["faith", "growth", "perseverance", "hearing"], "comingSoon": true }
       ]
@@ -85,7 +85,7 @@
       "color": "#C06C3E",
       "description": "When faith meets the battlefield",
       "stories": [
-        { "id": "david-and-goliath", "title": "David & Goliath", "subtitle": "The battle is the LORD's", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#2C3E50", "secondary": "#E74C3C", "darkBg": "#0a1018", "lightBg": "#F0F4F8", "accent": "#C06C3E", "mood": "epic" }, "bibleBooks": ["1 Samuel"], "tags": ["courage", "faith", "underdog", "victory"], "comingSoon": true },
+        { "id": "david-and-goliath", "title": "David & Goliath", "subtitle": "The battle is the LORD's", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#2C3E50", "secondary": "#E74C3C", "darkBg": "#0a1018", "lightBg": "#F0F4F8", "accent": "#C06C3E", "mood": "epic" }, "bibleBooks": ["1 Samuel"], "tags": ["courage", "faith", "underdog", "victory"] },
         { "id": "gideon", "title": "Gideon: 300 Against Thousands", "subtitle": "God doesn't need an army", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#1B4F72", "secondary": "#F39C12", "darkBg": "#0a1520", "lightBg": "#F0F8FF", "accent": "#2980B9", "mood": "dramatic" }, "bibleBooks": ["Judges"], "tags": ["faith", "obedience", "humility", "victory"], "comingSoon": true }
       ]
     },

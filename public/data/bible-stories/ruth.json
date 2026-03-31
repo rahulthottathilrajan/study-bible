@@ -1,0 +1,370 @@
+{
+  "id": "ruth",
+  "title": "Ruth: A Story of Loyalty",
+  "subtitle": "Where you go, I will go",
+  "colorUniverse": {
+    "primary": "#B8860B",
+    "secondary": "#8B4513",
+    "darkBg": "#1a1508",
+    "lightBg": "#FFF8F0",
+    "accent": "#DAA520",
+    "mood": "peaceful"
+  },
+  "episodes": [
+    {
+      "id": "ruth-ep1",
+      "number": 1,
+      "title": "A Journey of Loss",
+      "subtitle": "From Bethlehem to Moab and back again",
+      "scripture": "Ruth 1",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "A JOURNEY OF LOSS",
+          "subtitle": "Famine drives a family from Bethlehem. Death takes everything. But love refuses to let go.",
+          "scripture": "Ruth 1:1",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Now it came to pass in the days when the judges ruled, that there was a famine in the land. And a certain man of Bethlehemjudah went to sojourn in the country of Moab, he, and his wife, and his two sons.",
+              "scripture": "Ruth 1:1",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "The man's name was Elimelech, and his wife's name Naomi, and his two sons Mahlon and Chilion. They came into the country of Moab, and continued there. Then Elimelech died; and Naomi was left with her two sons, who married women of Moab \u2014 Orpah and Ruth. After ten years, both Mahlon and Chilion also died.",
+              "scripture": "Ruth 1:2\u20135",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_L",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Naomi heard that the LORD had visited his people in giving them bread. She rose to return to Bethlehem, and her two daughters-in-law went with her.",
+              "scripture": "Ruth 1:6\u20137",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Ruth 1:8\u20139",
+              "speech": { "speaker": "Naomi", "text": "Go, return each to her mother's house: the LORD deal kindly with you, as ye have dealt with the dead, and with me.", "style": "gentle" }
+            },
+            {
+              "image": null,
+              "narration": "And they lifted up their voice, and wept. Orpah kissed her mother-in-law, and returned. But Ruth clave unto her.",
+              "scripture": "Ruth 1:14",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "RUTH'S VOW",
+          "text": "Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God.",
+          "scripture": "Ruth 1:16",
+          "backgroundMood": "peaceful"
+        },
+        {
+          "type": "scripture",
+          "verse": "Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God.",
+          "reference": "Ruth 1:16",
+          "originalWord": {
+            "hebrew": "\u05D3\u05BC\u05B8\u05D1\u05B7\u05E7",
+            "transliteration": "davaq",
+            "meaning": "to cling, to cleave, to hold fast"
+          },
+          "note": "The Hebrew word 'davaq' used to describe Ruth clinging to Naomi is the same word used in Genesis 2:24 for a man cleaving to his wife. Ruth's loyalty was a covenant-level commitment \u2014 not mere sentiment, but a binding of destinies."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Ruth loved Naomi so much that she went with her to a new country. Who do you love enough to go anywhere with?",
+            "activity": "Draw Ruth and Naomi walking together on the road to Bethlehem!"
+          },
+          "teens": {
+            "question": "Ruth left everything familiar \u2014 her homeland, her gods, her people \u2014 to follow Naomi and Naomi's God. What would it cost you to follow God into the unknown?",
+            "journal": "Write about a time you had to leave something comfortable behind. What did you gain?"
+          },
+          "adults": {
+            "question": "Ruth's declaration in verse 16 is one of the most beautiful expressions of covenantal loyalty in Scripture. Notice she doesn't just commit to Naomi \u2014 she commits to Naomi's God. How does genuine love for people lead us to the God they serve?",
+            "crossRefs": ["Genesis 2:24", "Proverbs 17:17", "1 Samuel 18:1", "John 15:13"],
+            "application": "Consider your most important relationships. Do they draw you closer to God, or away? How can you practise 'davaq' \u2014 covenant loyalty \u2014 this week?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ruth-ep2",
+      "number": 2,
+      "title": "The Gleaner",
+      "subtitle": "A chance encounter in the fields of Boaz",
+      "scripture": "Ruth 2",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE GLEANER",
+          "subtitle": "A foreign widow in a strange land. A wealthy landowner with a kind heart. And a field that changes everything.",
+          "scripture": "Ruth 2:1",
+          "backgroundMood": "peaceful"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "And Naomi had a kinsman of her husband's, a mighty man of wealth, of the family of Elimelech; and his name was Boaz. Ruth said to Naomi, Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace.",
+              "scripture": "Ruth 2:1\u20132",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "And her hap was to light on a part of the field belonging unto Boaz. And, behold, Boaz came from Bethlehem, and said unto the reapers, The LORD be with you. And they answered him, The LORD bless thee.",
+              "scripture": "Ruth 2:3\u20134",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_MANGA",
+          "panels": [
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Ruth 2:8\u20139",
+              "speech": { "speaker": "Boaz", "text": "Hearest thou not, my daughter? Go not to glean in another field, but abide here fast by my maidens. I have charged the young men that they shall not touch thee.", "style": "gentle" }
+            },
+            {
+              "image": null,
+              "narration": "Then she fell on her face, and bowed herself to the ground.",
+              "scripture": "Ruth 2:10",
+              "speech": { "speaker": "Ruth", "text": "Why have I found grace in thine eyes, that thou shouldest take knowledge of me, seeing I am a stranger?", "style": "whisper" }
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Ruth 2:11\u201312",
+              "speech": { "speaker": "Boaz", "text": "It hath fully been shewed me, all that thou hast done unto thy mother in law since the death of thine husband. The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust.", "style": "formal" }
+            }
+          ]
+        },
+        {
+          "type": "scripture",
+          "verse": "The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust.",
+          "reference": "Ruth 2:12",
+          "originalWord": {
+            "hebrew": "\u05DB\u05BC\u05B0\u05E0\u05B8\u05E4\u05B8\u05D9\u05D5",
+            "transliteration": "k'nafav",
+            "meaning": "his wings (of protection, shelter)"
+          },
+          "note": "Boaz speaks of God's wings as a place of refuge. In chapter 3, Ruth will ask Boaz to spread his 'skirt' over her \u2014 the same Hebrew word (kanaph). Boaz himself becomes the human expression of God's sheltering wings."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Boaz was very kind to Ruth even though she was a stranger. How can you be kind to someone new at school or church?",
+            "activity": "Draw a picture of a harvest field with Ruth gathering grain!"
+          },
+          "teens": {
+            "question": "Ruth's 'chance' led her to the exact field of her future husband. Looking back on your life, can you see moments that seemed random but turned out to be significant?",
+            "journal": "Write about a 'coincidence' in your life that you now think might have been God's leading."
+          },
+          "adults": {
+            "question": "The gleaning laws (Leviticus 19:9\u201310, 23:22) were God's social safety net for the poor and the foreigner. Boaz went beyond the minimum requirement \u2014 he actively protected and provided for Ruth. How does God call us to go beyond mere compliance in caring for the vulnerable?",
+            "crossRefs": ["Leviticus 19:9\u201310", "Deuteronomy 24:19\u201321", "Psalm 91:4", "Matthew 25:35\u201340"],
+            "application": "Who is 'gleaning' at the edges of your life \u2014 someone vulnerable who needs more than just leftover kindness? How can you go beyond the minimum?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ruth-ep3",
+      "number": 3,
+      "title": "The Threshing Floor",
+      "subtitle": "A bold request under the stars",
+      "scripture": "Ruth 3",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE THRESHING FLOOR",
+          "subtitle": "A widow's bold faith. A righteous man's honour. A proposal born of trust.",
+          "scripture": "Ruth 3:1",
+          "backgroundMood": "mysterious"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Ruth 3:1\u20134",
+              "speech": { "speaker": "Naomi", "text": "My daughter, shall I not seek rest for thee? Boaz winnoweth barley to night in the threshingfloor. Wash thyself, and put on thy raiment, and go down. When he lieth down, mark the place, and uncover his feet, and lay thee down.", "style": "whisper" }
+            },
+            {
+              "image": null,
+              "narration": "And she went down unto the threshingfloor, and did according to all that her mother in law bade her. At midnight, the man was afraid, and turned himself: and, behold, a woman lay at his feet.",
+              "scripture": "Ruth 3:6, 8",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "SPREAD THY SKIRT",
+          "text": "And he said, Who art thou? And she answered, I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman.",
+          "scripture": "Ruth 3:9",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Ruth 3:10\u201311",
+              "speech": { "speaker": "Boaz", "text": "Blessed be thou of the LORD, my daughter. Thou hast shewed more kindness in the latter end than at the beginning. Fear not; I will do to thee all that thou requirest: for all the city doth know that thou art a virtuous woman.", "style": "formal" }
+            },
+            {
+              "image": null,
+              "narration": "Boaz explained there was a nearer kinsman. If that man would not redeem, then Boaz would. He sent Ruth home before dawn with six measures of barley, saying, Go not empty unto thy mother in law.",
+              "scripture": "Ruth 3:12\u201315",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "scripture",
+          "verse": "I am Ruth thine handmaid: spread therefore thy skirt over thine handmaid; for thou art a near kinsman.",
+          "reference": "Ruth 3:9",
+          "originalWord": {
+            "hebrew": "\u05D2\u05BC\u05B9\u05D0\u05B5\u05DC",
+            "transliteration": "go'el",
+            "meaning": "kinsman-redeemer, one who rescues"
+          },
+          "note": "The go'el \u2014 kinsman-redeemer \u2014 was obligated to buy back land and marry a deceased relative's widow to preserve the family line. Boaz as go'el foreshadows Christ as our ultimate Redeemer, who purchased us at the cost of His own blood."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Ruth was very brave to ask Boaz for help. Is it ever hard for you to ask for help? Who do you trust to help you?",
+            "activity": "Draw the threshing floor at night with stars above!"
+          },
+          "teens": {
+            "question": "Ruth's request was bold but honourable. She put herself in a vulnerable position, trusting Boaz's character. How do you decide who to trust with your vulnerability?",
+            "journal": "Write about what makes someone trustworthy. What qualities does a person need before you'd be vulnerable with them?"
+          },
+          "adults": {
+            "question": "The kinsman-redeemer (go'el) concept ties together law, family, land, and love. Boaz redeems Ruth, preserves Elimelech's line, and becomes an ancestor of Christ. How does this ancient institution illuminate the gospel?",
+            "crossRefs": ["Leviticus 25:25\u201328", "Isaiah 54:5", "Galatians 3:13\u201314", "Ephesians 1:7"],
+            "application": "Where do you need a 'redeemer' in your life? A situation that seems beyond rescue? Bring it to the true Go'el in prayer."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ruth-ep4",
+      "number": 4,
+      "title": "Redeemed",
+      "subtitle": "A family restored and a lineage that leads to the King",
+      "scripture": "Ruth 4",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "REDEEMED",
+          "subtitle": "A transaction at the gate. A wedding. A child. And a line that leads to David \u2014 and to Christ.",
+          "scripture": "Ruth 4:1",
+          "backgroundMood": "joyful"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_L",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Boaz went up to the gate and sat down there. When the nearer kinsman came by, Boaz called him aside with ten elders of the city as witnesses.",
+              "scripture": "Ruth 4:1\u20132",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "Boaz explained the land and the duty. The nearer kinsman said he could not redeem it, lest he mar his own inheritance. He drew off his shoe and gave it to Boaz \u2014 the custom in Israel to confirm a transaction.",
+              "scripture": "Ruth 4:6\u20137",
+              "speech": { "speaker": "Kinsman", "text": "I cannot redeem it for myself. Redeem thou my right to thyself.", "style": "formal" }
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Ruth 4:9\u201310",
+              "speech": { "speaker": "Boaz", "text": "Ye are witnesses this day, that I have bought all that was Elimelech's. Moreover Ruth the Moabitess have I purchased to be my wife, to raise up the name of the dead upon his inheritance.", "style": "command" }
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "So Boaz took Ruth, and she was his wife. And the LORD gave her conception, and she bare a son. The women of Bethlehem said to Naomi: Blessed be the LORD, which hath not left thee this day without a kinsman.",
+              "scripture": "Ruth 4:13\u201314",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "And Naomi took the child, and laid it in her bosom, and became nurse unto it. The women said, There is a son born to Naomi; and they called his name Obed: he is the father of Jesse, the father of David.",
+              "scripture": "Ruth 4:16\u201317",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "THE LINE OF THE KING",
+          "text": "And they called his name Obed: he is the father of Jesse, the father of David.",
+          "scripture": "Ruth 4:17",
+          "backgroundMood": "joyful"
+        },
+        {
+          "type": "scripture",
+          "verse": "Blessed be the LORD, which hath not left thee this day without a kinsman, that his name may be famous in Israel.",
+          "reference": "Ruth 4:14",
+          "originalWord": {
+            "hebrew": "\u05DE\u05B5\u05E9\u05C1\u05B4\u05D9\u05D1",
+            "transliteration": "meshiv",
+            "meaning": "restorer, one who brings back (of life)"
+          },
+          "note": "The women say this child will be a 'restorer of life' to Naomi. From emptiness came fullness. From a foreign widow came the grandmother of King David \u2014 and ultimately, the lineage of Jesus Christ (Matthew 1:5). God writes the greatest stories with the most unlikely characters."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Naomi was very sad at the beginning, but God gave her a happy ending! What makes you happy when you're sad?",
+            "activity": "Draw baby Obed in Naomi's arms with a big smile on Naomi's face!"
+          },
+          "teens": {
+            "question": "Ruth was a Moabite \u2014 a foreigner, a nobody \u2014 yet she became the great-grandmother of King David and an ancestor of Jesus. How does this challenge the way you think about who God can use?",
+            "journal": "Write about a time you felt unqualified or overlooked. How might God be working through your 'unlikely' story?"
+          },
+          "adults": {
+            "question": "The book of Ruth begins with famine, death, and emptiness, and ends with harvest, marriage, and a baby who will be ancestor to the Messiah. Naomi went from 'call me Mara (bitter)' to nursing her grandson. How does Ruth's story shape your theology of suffering and redemption?",
+            "crossRefs": ["Matthew 1:5", "Romans 8:28", "Isaiah 61:3", "Psalm 30:5", "2 Corinthians 4:17"],
+            "application": "What 'empty' season in your life might God be preparing to fill? Journal about what a 'Ruth 4:14 moment' \u2014 unexpected restoration \u2014 might look like for you."
+          }
+        }
+      ]
+    }
+  ]
+}

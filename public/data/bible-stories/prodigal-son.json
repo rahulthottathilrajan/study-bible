@@ -1,0 +1,284 @@
+{
+  "id": "prodigal-son",
+  "title": "The Prodigal Son",
+  "subtitle": "A father's relentless love",
+  "colorUniverse": {
+    "primary": "#8E44AD",
+    "secondary": "#F39C12",
+    "darkBg": "#1a0a20",
+    "lightBg": "#FFF8FF",
+    "accent": "#9B59B6",
+    "mood": "dramatic"
+  },
+  "episodes": [
+    {
+      "id": "ps-ep1",
+      "number": 1,
+      "title": "The Departure",
+      "subtitle": "A son demands his inheritance and walks away",
+      "scripture": "Luke 15:11\u201316",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE DEPARTURE",
+          "subtitle": "A father's heart. A son's rebellion. The long road to the far country.",
+          "scripture": "Luke 15:11",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "And he said, A certain man had two sons: And the younger of them said to his father, Father, give me the portion of goods that falleth to me. And he divided unto them his living.",
+              "scripture": "Luke 15:11\u201312",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "And not many days after the younger son gathered all together, and took his journey into a far country, and there wasted his substance with riotous living.",
+              "scripture": "Luke 15:13",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_L",
+          "panels": [
+            {
+              "image": null,
+              "narration": "And when he had spent all, there arose a mighty famine in that land; and he began to be in want. And he went and joined himself to a citizen of that country; and he sent him into his fields to feed swine.",
+              "scripture": "Luke 15:14\u201315",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Luke 15:16",
+              "speech": { "speaker": "Narrator", "text": "And he would fain have filled his belly with the husks that the swine did eat: and no man gave unto him.", "style": "whisper" }
+            },
+            {
+              "image": null,
+              "narration": "A Jewish son, heir to his father's estate, now feeding pigs \u2014 the most unclean animal in the Law \u2014 and envying their food. He had hit absolute bottom.",
+              "scripture": "Luke 15:15\u201316",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "scripture",
+          "verse": "And he would fain have filled his belly with the husks that the swine did eat: and no man gave unto him.",
+          "reference": "Luke 15:16",
+          "originalWord": {
+            "greek": "\u03BA\u03B5\u03C1\u03B1\u03C4\u03AF\u03C9\u03BD",
+            "transliteration": "keration",
+            "meaning": "carob pods (swine feed, last resort of the destitute)"
+          },
+          "note": "Jesus' audience would have gasped at this detail. A Jewish son feeding swine and longing for their food \u2014 this is total degradation. Jesus paints the full horror of sin's trajectory: it promises freedom but delivers slavery, promises satisfaction but delivers famine."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "The son left his dad's house and ended up very sad and hungry. What do you think he missed most about home?",
+            "activity": "Draw the son's journey: a happy house on one side, a sad pig field on the other, with a long road between!"
+          },
+          "teens": {
+            "question": "The son wanted freedom from his father's house, but the 'freedom' he found was worse than what he left. Have you ever wanted something so badly that you didn't see where it was really leading?",
+            "journal": "Write about a 'far country' moment \u2014 a time you went your own way and found it wasn't what you expected."
+          },
+          "adults": {
+            "question": "Asking for inheritance while the father is still alive was essentially saying 'I wish you were dead.' Yet the father divides his property willingly. What does this tell us about how God responds to our desire for autonomy \u2014 even destructive autonomy?",
+            "crossRefs": ["Romans 1:24\u201328", "Deuteronomy 30:19", "Genesis 3:6\u20137", "Hosea 11:1\u20134"],
+            "application": "Is there an area where you've asked God for 'your share' and walked away? What has the 'far country' actually given you versus what it promised?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ps-ep2",
+      "number": 2,
+      "title": "The Return",
+      "subtitle": "When he came to himself",
+      "scripture": "Luke 15:17\u201324",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE RETURN",
+          "subtitle": "A prayer rehearsed. A long road home. And a father who was already running.",
+          "scripture": "Luke 15:17",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Luke 15:17\u201319",
+              "speech": { "speaker": "Prodigal Son", "text": "How many hired servants of my father's have bread enough and to spare, and I perish with hunger! I will arise and go to my father, and will say unto him, Father, I have sinned against heaven, and before thee, and am no more worthy to be called thy son: make me as one of thy hired servants.", "style": "whisper" }
+            },
+            {
+              "image": null,
+              "narration": "And he arose, and came to his father. But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him.",
+              "scripture": "Luke 15:20",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "THE FATHER RAN",
+          "text": "But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him.",
+          "scripture": "Luke 15:20",
+          "backgroundMood": "joyful"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_MANGA",
+          "panels": [
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Luke 15:21",
+              "speech": { "speaker": "Prodigal Son", "text": "Father, I have sinned against heaven, and in thy sight, and am no more worthy to be called thy son.", "style": "whisper" }
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Luke 15:22\u201323",
+              "speech": { "speaker": "Father", "text": "Bring forth the best robe, and put it on him; and put a ring on his hand, and shoes on his feet: And bring hither the fatted calf, and kill it; and let us eat, and be merry!", "style": "command" }
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Luke 15:24",
+              "speech": { "speaker": "Father", "text": "For this my son was dead, and is alive again; he was lost, and is found.", "style": "passionate" }
+            }
+          ]
+        },
+        {
+          "type": "scripture",
+          "verse": "But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him.",
+          "reference": "Luke 15:20",
+          "originalWord": {
+            "greek": "\u03C3\u03C0\u03BB\u03B1\u03B3\u03C7\u03BD\u03AF\u03B6\u03BF\u03BC\u03B1\u03B9",
+            "transliteration": "splanchnizomai",
+            "meaning": "to be moved in the inward parts, deep gut-level compassion"
+          },
+          "note": "In the ancient Near East, a dignified patriarch never ran \u2014 it was shameful to hike up one's robes and sprint. But this father runs. He absorbs the shame his son should have faced from the village. This is the gospel: the Father runs toward us, absorbs our shame, and restores us before we can finish our confession."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "The father didn't wait at home \u2014 he ran to his son! How does it feel to know God is running towards you, not away from you?",
+            "activity": "Draw the father running with open arms and the son coming home on the road!"
+          },
+          "teens": {
+            "question": "The son rehearsed a speech: 'Make me a hired servant.' But the father interrupted him with a robe, a ring, and a feast. Have you ever tried to earn back God's love, when He was already giving it freely?",
+            "journal": "Write the 'speech' you'd give God if you were coming back from a far country. Now write what you think He'd say before you finished."
+          },
+          "adults": {
+            "question": "The robe (honour), ring (authority), shoes (sonship \u2014 slaves went barefoot), and feast (celebration) aren't earned \u2014 they're gifts. The son asked to be a servant; the father restored him as a son. How does this parable challenge both legalism and cheap grace?",
+            "crossRefs": ["Ephesians 2:8\u20139", "Romans 5:8", "Isaiah 61:10", "Zephaniah 3:17"],
+            "application": "Are you living as a son/daughter or as a 'hired servant' \u2014 trying to earn what's already freely given? What would it look like to accept the robe today?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ps-ep3",
+      "number": 3,
+      "title": "The Elder Brother",
+      "subtitle": "The one who stayed but never came in",
+      "scripture": "Luke 15:25\u201332",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE ELDER BROTHER",
+          "subtitle": "He never left home. But he was just as lost.",
+          "scripture": "Luke 15:25",
+          "backgroundMood": "mysterious"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Now his elder son was in the field: and as he came and drew nigh to the house, he heard musick and dancing. He called one of the servants, and asked what these things meant.",
+              "scripture": "Luke 15:25\u201326",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "And the servant said, Thy brother is come; and thy father hath killed the fatted calf, because he hath received him safe and sound. And he was angry, and would not go in.",
+              "scripture": "Luke 15:27\u201328",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_MANGA",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Therefore came his father out, and intreated him.",
+              "scripture": "Luke 15:28",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Luke 15:29\u201330",
+              "speech": { "speaker": "Elder Son", "text": "Lo, these many years do I serve thee, neither transgressed I at any time thy commandment: and yet thou never gavest me a kid, that I might make merry with my friends! But as soon as this thy son was come, which hath devoured thy living with harlots, thou hast killed for him the fatted calf!", "style": "anger" }
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Luke 15:31\u201332",
+              "speech": { "speaker": "Father", "text": "Son, thou art ever with me, and all that I have is thine. It was meet that we should make merry, and be glad: for this thy brother was dead, and is alive again; and was lost, and is found.", "style": "gentle" }
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "ALL THAT I HAVE IS THINE",
+          "text": "Son, thou art ever with me, and all that I have is thine.",
+          "scripture": "Luke 15:31",
+          "backgroundMood": "peaceful"
+        },
+        {
+          "type": "scripture",
+          "verse": "It was meet that we should make merry, and be glad: for this thy brother was dead, and is alive again; and was lost, and is found.",
+          "reference": "Luke 15:32",
+          "originalWord": {
+            "greek": "\u03B5\u03C5\u03C6\u03C1\u03B1\u03AF\u03BD\u03C9",
+            "transliteration": "euphraino",
+            "meaning": "to be glad, to celebrate, to rejoice"
+          },
+          "note": "Jesus told this parable to the Pharisees, who grumbled that He ate with sinners (Luke 15:2). The elder brother IS the Pharisee \u2014 dutiful, resentful, and standing outside the feast. The story ends without telling us if he went in. Jesus leaves the question open: will the religious insiders join the celebration of grace?"
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "The big brother was angry that his dad threw a party. Have you ever felt jealous when something good happened to someone else?",
+            "activity": "Draw the party scene with the father inviting the big brother to come inside!"
+          },
+          "teens": {
+            "question": "The elder brother did everything 'right' but was full of resentment. Is it possible to obey God on the outside but be far from Him on the inside? What's the difference between duty and love?",
+            "journal": "Write honestly: are you more like the younger brother (who left and came back) or the elder brother (who stayed but is bitter)? Why?"
+          },
+          "adults": {
+            "question": "The parable has two lost sons: one lost in the far country, one lost at home. The younger son's sin is obvious (rebellion); the elder son's sin is hidden (self-righteousness). Jesus told this to Pharisees. Who is more dangerously lost \u2014 the one who knows they're far from God, or the one who thinks proximity equals relationship?",
+            "crossRefs": ["Luke 15:1\u20132", "Matthew 23:27\u201328", "Luke 18:9\u201314", "Isaiah 64:6"],
+            "application": "The story ends open. We never learn if the elder brother went in. Where are you standing \u2014 inside at the feast, or outside calculating what you're owed? What would it take to go in?"
+          }
+        }
+      ]
+    }
+  ]
+}

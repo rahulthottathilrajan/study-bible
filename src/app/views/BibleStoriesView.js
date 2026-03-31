@@ -12,8 +12,8 @@ import StoryReader from "../components/StoryReader";
    ═══════════════════════════════════════════════════════════════ */
 
 // Story-specific theme (deep purple + gold)
-const BS_LIGHT = { bg: "#FAF5FF", card: "#fff", text: "#2a1a10", muted: "#8B7355", accent: "#5B2D8E", accentLight: "#5B2D8E12", accentBorder: "#5B2D8E30", divider: "#E8E0D8", heading: "'Playfair Display','DM Serif Display',serif", body: "'Lora',serif", ui: "'Outfit',sans-serif", headerGradient: "linear-gradient(135deg, #2D1548 0%, #5B2D8E 50%, #3D1F6B 100%)", headerText: "#F5E6CC" };
-const BS_DARK = { bg: "#0D0818", card: "#1A1028", text: "#F5E6CC", muted: "#A89070", accent: "#D4A853", accentLight: "#D4A85315", accentBorder: "#D4A85330", divider: "#2A2035", heading: "'Playfair Display','DM Serif Display',serif", body: "'Lora',serif", ui: "'Outfit',sans-serif", headerGradient: "linear-gradient(135deg, #1A0A2E 0%, #2D1548 50%, #0D0818 100%)", headerText: "#F5E6CC" };
+const BS_LIGHT = { bg: "#FAF6F0", card: "#fff", text: "#2a1a10", muted: "#8B7355", accent: "#5B2D8E", accentLight: "#5B2D8E12", accentBorder: "#5B2D8E30", divider: "#E8E0D8", heading: "'Playfair Display','DM Serif Display',serif", body: "'Lora',serif", ui: "'Outfit',sans-serif", headerGradient: "linear-gradient(165deg, #2D1548 0%, #5B2D8E 50%, #3D1F6B 100%)", headerText: "#F5E6CC" };
+const BS_DARK = { bg: "#0D0818", card: "#1A1028", text: "#F5E6CC", muted: "#A89070", accent: "#D4A853", accentLight: "#D4A85315", accentBorder: "#D4A85330", divider: "#2A2035", heading: "'Playfair Display','DM Serif Display',serif", body: "'Lora',serif", ui: "'Outfit',sans-serif", headerGradient: "linear-gradient(165deg, #1A0A2E 0%, #2D1548 50%, #0D0818 100%)", headerText: "#F5E6CC" };
 
 export default function BibleStoriesView() {
   const { view, darkMode, nav, goBack, bp, storyId, storyEpisode } = useApp();

@@ -1,0 +1,267 @@
+{
+  "id": "david-and-goliath",
+  "title": "David & Goliath",
+  "subtitle": "The battle is the LORD's",
+  "colorUniverse": {
+    "primary": "#2C3E50",
+    "secondary": "#E74C3C",
+    "darkBg": "#0a1018",
+    "lightBg": "#F0F4F8",
+    "accent": "#C06C3E",
+    "mood": "epic"
+  },
+  "episodes": [
+    {
+      "id": "dg-ep1",
+      "number": 1,
+      "title": "The Challenge",
+      "subtitle": "Forty days of fear in the Valley of Elah",
+      "scripture": "1 Samuel 17:1\u201330",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE CHALLENGE",
+          "subtitle": "A giant stands between two armies. For forty days, no man dares answer. Then a shepherd boy arrives.",
+          "scripture": "1 Samuel 17:4",
+          "backgroundMood": "epic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_L",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Now the Philistines gathered together their armies to battle. And Saul and the men of Israel were gathered together, and pitched by the valley of Elah, and set the battle in array against the Philistines.",
+              "scripture": "1 Samuel 17:1\u20132",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "And there went out a champion out of the camp of the Philistines, named Goliath, of Gath, whose height was six cubits and a span. He had a helmet of brass, a coat of mail weighing five thousand shekels, and a spear like a weaver's beam.",
+              "scripture": "1 Samuel 17:4\u20137",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "1 Samuel 17:8\u20139",
+              "speech": { "speaker": "Goliath", "text": "Why are ye come out to set your battle in array? Am not I a Philistine, and ye servants to Saul? Choose you a man for you, and let him come down to me!", "style": "shout" }
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "When Saul and all Israel heard those words of the Philistine, they were dismayed, and greatly afraid. For forty days, morning and evening, the Philistine drew near and presented himself.",
+              "scripture": "1 Samuel 17:11, 16",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "Now David was the son of Jesse. His three eldest brothers followed Saul to the battle, but David went and returned from Saul to feed his father's sheep at Bethlehem. Jesse sent David to bring food to his brothers.",
+              "scripture": "1 Samuel 17:12\u201317",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "WHO IS THIS UNCIRCUMCISED PHILISTINE?",
+          "text": "And David spake to the men that stood by him, saying, What shall be done to the man that killeth this Philistine, and taketh away the reproach from Israel? For who is this uncircumcised Philistine, that he should defy the armies of the living God?",
+          "scripture": "1 Samuel 17:26",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "scripture",
+          "verse": "For who is this uncircumcised Philistine, that he should defy the armies of the living God?",
+          "reference": "1 Samuel 17:26",
+          "originalWord": {
+            "hebrew": "\u05D7\u05B5\u05E8\u05B5\u05E3",
+            "transliteration": "chereph",
+            "meaning": "to reproach, to defy, to taunt"
+          },
+          "note": "Where every soldier saw a giant too big to fight, David saw a mortal too small to defy God. The difference was not courage \u2014 it was theology. David knew who God was, and that changed how he saw the giant."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Everyone was scared of Goliath, but David wasn't! What makes you feel brave when things seem scary?",
+            "activity": "Draw the biggest, tallest giant you can imagine \u2014 then draw a tiny David next to him with a big smile!"
+          },
+          "teens": {
+            "question": "David's brothers mocked him for even asking about the giant. Have you ever been dismissed when you tried to step up? How did you respond?",
+            "journal": "Write about a 'Goliath' in your life \u2014 a challenge that seems too big. What would David's perspective look like applied to your situation?"
+          },
+          "adults": {
+            "question": "Israel's army saw Goliath through the lens of military capability. David saw him through the lens of covenant theology \u2014 'the armies of the living God.' How does your theological framework shape what you see as possible or impossible?",
+            "crossRefs": ["Numbers 13:31\u201333", "2 Kings 6:15\u201317", "Psalm 20:7", "2 Chronicles 20:15"],
+            "application": "Identify a situation where you've been seeing through 'Saul's army' eyes \u2014 calculating human odds. Reframe it through David's eyes: what does God's covenant promise say about this?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dg-ep2",
+      "number": 2,
+      "title": "The Shepherd's Courage",
+      "subtitle": "Five smooth stones and the name of the LORD",
+      "scripture": "1 Samuel 17:31\u201349",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE SHEPHERD'S COURAGE",
+          "subtitle": "No armour. No sword. No shield. Just a sling, five stones, and the name of the LORD of hosts.",
+          "scripture": "1 Samuel 17:45",
+          "backgroundMood": "epic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "1 Samuel 17:34\u201336",
+              "speech": { "speaker": "David", "text": "Thy servant kept his father's sheep, and there came a lion, and a bear, and took a lamb. I went out and smote him. Thy servant slew both the lion and the bear: and this uncircumcised Philistine shall be as one of them.", "style": "passionate" }
+            },
+            {
+              "image": null,
+              "narration": "And Saul armed David with his armour. He put a helmet of brass upon his head and a coat of mail. But David could not go \u2014 he had not proved it. David put them off.",
+              "scripture": "1 Samuel 17:38\u201339",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_MANGA",
+          "panels": [
+            {
+              "image": null,
+              "narration": "And he took his staff in his hand, and chose him five smooth stones out of the brook, and put them in a shepherd's bag; and his sling was in his hand: and he drew near to the Philistine.",
+              "scripture": "1 Samuel 17:40",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "1 Samuel 17:43\u201344",
+              "speech": { "speaker": "Goliath", "text": "Am I a dog, that thou comest to me with staves? Come to me, and I will give thy flesh unto the fowls of the air, and to the beasts of the field!", "style": "fury" }
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "1 Samuel 17:45",
+              "speech": { "speaker": "David", "text": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied.", "style": "command" }
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "THE BATTLE IS THE LORD'S",
+          "text": "And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands.",
+          "scripture": "1 Samuel 17:47",
+          "backgroundMood": "epic"
+        },
+        {
+          "type": "scripture",
+          "verse": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied.",
+          "reference": "1 Samuel 17:45",
+          "originalWord": {
+            "hebrew": "\u05D9\u05B0\u05D4\u05D5\u05B8\u05D4 \u05E6\u05B0\u05D1\u05B8\u05D0\u05D5\u05B9\u05EA",
+            "transliteration": "YHWH Tsevaot",
+            "meaning": "the LORD of hosts (armies)"
+          },
+          "note": "This is the first time a boy from Bethlehem invokes the name 'LORD of hosts' on a battlefield. Centuries later, another son of Bethlehem would face the ultimate enemy \u2014 not with a sling, but with a cross. Both victories looked impossible. Both were won by God."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "David didn't use the king's heavy armour \u2014 he used what he already knew! What are you already good at that God might want to use?",
+            "activity": "Find five small stones outside and keep them as a reminder that God can use small things!"
+          },
+          "teens": {
+            "question": "David refused Saul's armour because it wasn't 'proven.' He went with what he knew. When people try to make you fight your battles their way, how do you stay true to who you are?",
+            "journal": "Write about a time someone tried to put their 'armour' on you \u2014 their solution, their way, their expectations. What happened?"
+          },
+          "adults": {
+            "question": "David's declaration contrasts two weapons systems: Goliath's (sword, spear, shield \u2014 human power) versus David's (the name of the LORD of hosts \u2014 divine authority). How do we functionally trust 'swords and spears' (money, connections, credentials) while claiming to trust God?",
+            "crossRefs": ["Psalm 20:7", "Zechariah 4:6", "2 Corinthians 10:4", "Ephesians 6:10\u201312"],
+            "application": "What 'Saul's armour' have you been wearing \u2014 strategies or defences that aren't yours? What would it look like to face your challenge with just your 'sling and stones' \u2014 the gifts and calling God has given you?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dg-ep3",
+      "number": 3,
+      "title": "The Giant Falls",
+      "subtitle": "One stone. One God. Total victory.",
+      "scripture": "1 Samuel 17:49\u201358",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE GIANT FALLS",
+          "subtitle": "One stone. One God. And a valley that would never forget.",
+          "scripture": "1 Samuel 17:49",
+          "backgroundMood": "epic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "And David put his hand in his bag, and took thence a stone, and slang it, and smote the Philistine in his forehead, that the stone sunk into his forehead; and he fell upon his face to the earth.",
+              "scripture": "1 Samuel 17:49",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "So David prevailed over the Philistine with a sling and with a stone, and smote the Philistine, and slew him; but there was no sword in the hand of David.",
+              "scripture": "1 Samuel 17:50",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "VICTORY",
+          "text": "And when the Philistines saw their champion was dead, they fled. And the men of Israel and of Judah arose, and shouted, and pursued the Philistines.",
+          "scripture": "1 Samuel 17:51\u201352",
+          "backgroundMood": "joyful"
+        },
+        {
+          "type": "scripture",
+          "verse": "So David prevailed over the Philistine with a sling and with a stone, and smote the Philistine, and slew him; but there was no sword in the hand of David.",
+          "reference": "1 Samuel 17:50",
+          "originalWord": {
+            "hebrew": "\u05D9\u05B8\u05DB\u05B9\u05DC",
+            "transliteration": "yakol",
+            "meaning": "to prevail, to overcome, to be able"
+          },
+          "note": "The text deliberately emphasises: 'there was no sword in the hand of David.' The victory was won with the weakest weapon on the field. God's pattern throughout Scripture is to use the foolish to confound the wise, the weak to overcome the strong."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "David beat the giant with just a little stone! God can use little things to do big things. What small thing could God use you to do today?",
+            "activity": "Act out the story of David and Goliath with your family! Who wants to be Goliath?"
+          },
+          "teens": {
+            "question": "The text says 'there was no sword in the hand of David.' God didn't need David to have the best equipment \u2014 He needed David to have the right faith. What matters more to God: your resources or your heart?",
+            "journal": "Write about an area where you feel under-equipped. Now write what you'd do if you truly believed 'the battle is the LORD's.'"
+          },
+          "adults": {
+            "question": "David's victory over Goliath is a paradigm for all of Scripture's 'impossible victories' \u2014 the Red Sea, Jericho, Gideon's 300, and ultimately the cross. In each case, God deliberately reduces human capability so that the victory is unmistakably His. Why does God work this way?",
+            "crossRefs": ["1 Corinthians 1:27\u201329", "Judges 7:2", "2 Corinthians 12:9\u201310", "Joshua 6:2\u20135"],
+            "application": "Where has God reduced your resources, closed doors, or made you wait \u2014 not to punish you, but to ensure the coming victory is unmistakably His?"
+          }
+        }
+      ]
+    }
+  ]
+}
