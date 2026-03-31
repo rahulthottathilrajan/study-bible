@@ -1,0 +1,173 @@
+{
+  "id": "moses",
+  "title": "Moses: Let My People Go",
+  "subtitle": "From basket to burning bush to promised land",
+  "colorUniverse": {
+    "primary": "#C06C3E",
+    "secondary": "#FFD700",
+    "darkBg": "#1a0d05",
+    "lightBg": "#FFF8F0",
+    "accent": "#D2691E",
+    "mood": "epic"
+  },
+  "episodes": [
+    {
+      "id": "moses-ep1",
+      "number": 1,
+      "title": "The Baby in the Basket",
+      "subtitle": "A mother's desperate faith saves a deliverer",
+      "scripture": "Exodus 1:8\u20132:10",
+      "pages": [
+        { "type": "splash", "title": "THE BABY IN THE BASKET", "subtitle": "A pharaoh who feared. A mother who believed. A river that carried a nation's hope.", "scripture": "Exodus 1:22", "backgroundMood": "dramatic" },
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": "Now there arose up a new king over Egypt, which knew not Joseph. And he said, The children of Israel are more and mightier than we. And Pharaoh charged all his people, saying, Every son that is born ye shall cast into the river.", "scripture": "Exodus 1:8\u20139, 22", "speech": null },
+          { "image": null, "narration": "And there went a man of the house of Levi, and took to wife a daughter of Levi. And the woman conceived, and bare a son: and when she saw him that he was a goodly child, she hid him three months.", "scripture": "Exodus 2:1\u20132", "speech": null }
+        ]},
+        { "type": "panels", "layout": "LAYOUT_L", "panels": [
+          { "image": null, "narration": "And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river's brink.", "scripture": "Exodus 2:3", "speech": null },
+          { "image": null, "narration": "And the daughter of Pharaoh came down to wash herself at the river. And when she saw the ark among the flags, she sent her maid to fetch it. And when she had opened it, she saw the child: and, behold, the babe wept. And she had compassion on him.", "scripture": "Exodus 2:5\u20136", "speech": null },
+          { "image": null, "narration": null, "scripture": "Exodus 2:10", "speech": { "speaker": "Pharaoh's Daughter", "text": "I drew him out of the water. His name shall be Moses.", "style": "gentle" } }
+        ]},
+        { "type": "scripture", "verse": "And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein.", "reference": "Exodus 2:3", "originalWord": { "hebrew": "\u05EA\u05BC\u05B5\u05D1\u05B7\u05EA", "transliteration": "tevat", "meaning": "ark, chest (same word used for Noah\u2019s ark)" }, "note": "The Hebrew word for Moses' basket is 'tevah' \u2014 the exact same word used for Noah's ark. Only two 'arks' in the Bible: one saved humanity from water, one saved Israel's deliverer from water. Both were acts of faith against impossible odds." },
+        { "type": "reflect", "kids": { "question": "Moses' mummy put him in a basket on the river because she trusted God to keep him safe. Who do you trust to keep you safe?", "activity": "Make a tiny boat out of paper and imagine baby Moses floating in it!" }, "teens": { "question": "Moses' mother did everything she could, then had to let go and trust God. When do you need to stop trying to control everything and trust God with the outcome?", "journal": "Write about something you're holding tightly that you might need to 'put in the river' and trust God with." }, "adults": { "question": "Jochebed's faith (Hebrews 11:23) required both action (building the ark) and surrender (placing it in the river). How do you navigate the tension between doing everything you can and trusting God with what you can't control?", "crossRefs": ["Hebrews 11:23", "Proverbs 3:5\u20136", "Philippians 4:6\u20137", "1 Peter 5:7"], "application": "What is your 'basket on the river' right now \u2014 the thing you've prepared as best you can but must now release to God?" } }
+      ]
+    },
+    {
+      "id": "moses-ep2",
+      "number": 2,
+      "title": "The Burning Bush",
+      "subtitle": "I AM sends a shepherd to free a nation",
+      "scripture": "Exodus 3:1\u201315",
+      "pages": [
+        { "type": "splash", "title": "THE BURNING BUSH", "subtitle": "Forty years of desert silence. Then a bush that burned but was not consumed. And a voice from the flame.", "scripture": "Exodus 3:2", "backgroundMood": "mysterious" },
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": "Now Moses kept the flock of Jethro his father in law. And he led the flock to the backside of the desert, and came to the mountain of God, even to Horeb. And the angel of the LORD appeared unto him in a flame of fire out of the midst of a bush: and he looked, and, behold, the bush burned with fire, and the bush was not consumed.", "scripture": "Exodus 3:1\u20132", "speech": null },
+          { "image": null, "narration": null, "scripture": "Exodus 3:4\u20135", "speech": { "speaker": "God", "text": "Moses, Moses! Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground.", "style": "command" } }
+        ]},
+        { "type": "reveal", "title": "I AM THAT I AM", "text": "And God said unto Moses, I AM THAT I AM: and he said, Thus shalt thou say unto the children of Israel, I AM hath sent me unto you.", "scripture": "Exodus 3:14", "backgroundMood": "epic" },
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": null, "scripture": "Exodus 3:7\u20138", "speech": { "speaker": "God", "text": "I have surely seen the affliction of my people which are in Egypt, and have heard their cry. I am come down to deliver them.", "style": "command" } },
+          { "image": null, "narration": null, "scripture": "Exodus 3:11", "speech": { "speaker": "Moses", "text": "Who am I, that I should go unto Pharaoh, and that I should bring forth the children of Israel out of Egypt?", "style": "whisper" } }
+        ]},
+        { "type": "scripture", "verse": "And God said unto Moses, I AM THAT I AM: and he said, Thus shalt thou say unto the children of Israel, I AM hath sent me unto you.", "reference": "Exodus 3:14", "originalWord": { "hebrew": "\u05D0\u05B6\u05D4\u05B0\u05D9\u05B6\u05D4 \u05D0\u05B2\u05E9\u05C1\u05B6\u05E8 \u05D0\u05B6\u05D4\u05B0\u05D9\u05B6\u05D4", "transliteration": "Ehyeh Asher Ehyeh", "meaning": "I AM THAT I AM \u2014 the self-existent, eternal One" }, "note": "This is God\u2019s personal name revealed \u2014 not 'I was' or 'I will be,' but the eternal present tense. When Jesus said 'Before Abraham was, I am' (John 8:58), He claimed this exact name. The Jews understood immediately \u2014 they picked up stones." },
+        { "type": "reflect", "kids": { "question": "God spoke to Moses from a burning bush! If God could speak to you from anywhere, where do you think it would be?", "activity": "Draw a bush on fire but not burning up! Use lots of orange and yellow!" }, "teens": { "question": "Moses spent 40 years as a prince, then 40 years as a shepherd, before God called him at 80. Have you ever felt like you're 'just waiting'? What might God be preparing you for?", "journal": "Write about a skill or experience that seemed pointless at the time but turned out to be preparation for something important." }, "adults": { "question": "'I AM THAT I AM' is the most profound self-revelation of God in Scripture. It declares God's self-existence, self-sufficiency, and eternal nature. How does anchoring your faith in the I AM \u2014 rather than circumstances \u2014 change how you face uncertainty?", "crossRefs": ["John 8:58", "Revelation 1:8", "Isaiah 43:10\u201311", "Hebrews 13:8"], "application": "Where are you asking 'Who am I?' like Moses? God's answer isn't about who you are \u2014 it's about who HE is. 'I AM has sent you.' How does that reframe your inadequacy?" } }
+      ]
+    },
+    {
+      "id": "moses-ep3",
+      "number": 3,
+      "title": "Let My People Go",
+      "subtitle": "Ten plagues and the power of God displayed",
+      "scripture": "Exodus 7\u201311",
+      "pages": [
+        { "type": "splash", "title": "LET MY PEOPLE GO", "subtitle": "Water to blood. Frogs. Lice. Flies. Pestilence. Boils. Hail. Locusts. Darkness. And then the worst of all.", "scripture": "Exodus 7:17", "backgroundMood": "dark" },
+        { "type": "panels", "layout": "LAYOUT_MANGA", "panels": [
+          { "image": null, "narration": null, "scripture": "Exodus 7:16\u201317", "speech": { "speaker": "Moses", "text": "The LORD God of the Hebrews hath sent me unto thee, saying, Let my people go! Thus saith the LORD: In this thou shalt know that I am the LORD \u2014 behold, I will smite the waters which are in the river, and they shall be turned to blood.", "style": "command" } },
+          { "image": null, "narration": "But Pharaoh's heart was hardened, neither did he hearken unto them; as the LORD had said.", "scripture": "Exodus 7:22", "speech": null },
+          { "image": null, "narration": "Plague after plague fell upon Egypt: frogs covered the land, lice tormented every man and beast, swarms of flies filled the houses, pestilence killed the cattle, boils broke out on all the Egyptians, hail destroyed the crops, locusts devoured what remained, and thick darkness covered Egypt for three days.", "scripture": "Exodus 8\u201310", "speech": null }
+        ]},
+        { "type": "reveal", "title": "HARDENED HEART", "text": "And the LORD hardened the heart of Pharaoh, and he hearkened not unto them; as the LORD had spoken unto Moses.", "scripture": "Exodus 9:12", "backgroundMood": "dark" },
+        { "type": "scripture", "verse": "And in very deed for this cause have I raised thee up, for to shew in thee my power; and that my name may be declared throughout all the earth.", "reference": "Exodus 9:16", "originalWord": { "hebrew": "\u05DB\u05BC\u05B9\u05D7\u05B4\u05D9", "transliteration": "kochi", "meaning": "my power, my strength" }, "note": "Each plague was directed at a specific Egyptian god: the Nile god (blood), Heqet the frog goddess (frogs), Ra the sun god (darkness). God wasn't just freeing Israel \u2014 He was systematically dismantling Egypt's entire belief system, proving that He alone is God." },
+        { "type": "reflect", "kids": { "question": "God sent ten plagues to show Pharaoh that He is the most powerful. What is something amazing about God's power that you've seen?", "activity": "Draw your favourite plague! (Frogs everywhere is a fun one!)" }, "teens": { "question": "Pharaoh kept saying 'yes' when things were bad and 'no' when they got better. Do you ever only turn to God when life is hard, then forget Him when things improve?", "journal": "Write about a time you made a promise to God during a hard time. Did you keep it when things got better?" }, "adults": { "question": "The hardening of Pharaoh's heart raises deep theological questions. Exodus alternates between Pharaoh hardening his own heart (8:15, 8:32) and God hardening it (9:12, 10:20). How do divine sovereignty and human responsibility coexist?", "crossRefs": ["Romans 9:17\u201318", "Exodus 9:16", "Romans 1:24", "2 Thessalonians 2:11\u201312"], "application": "Where might you be 'hardening your heart' through repeated refusal to obey? What would softness look like in that area?" } }
+      ]
+    },
+    {
+      "id": "moses-ep4",
+      "number": 4,
+      "title": "The Passover",
+      "subtitle": "The blood of the lamb and the angel of death",
+      "scripture": "Exodus 12:1\u201336",
+      "pages": [
+        { "type": "splash", "title": "THE PASSOVER", "subtitle": "One night. One lamb. Blood on the doorposts. And the angel of death passes over.", "scripture": "Exodus 12:13", "backgroundMood": "dark" },
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": null, "scripture": "Exodus 12:3, 5\u20137", "speech": { "speaker": "God", "text": "Speak unto all the congregation of Israel: take a lamb without blemish. And they shall take of the blood, and strike it on the two side posts and on the upper door post of the houses.", "style": "command" } },
+          { "image": null, "narration": null, "scripture": "Exodus 12:12\u201313", "speech": { "speaker": "God", "text": "I will pass through the land of Egypt this night, and will smite all the firstborn. And the blood shall be to you for a token upon your houses: and when I see the blood, I will pass over you.", "style": "command" } }
+        ]},
+        { "type": "reveal", "title": "WHEN I SEE THE BLOOD", "text": "And the blood shall be to you for a token upon your houses: and when I see the blood, I will pass over you, and the plague shall not be upon you to destroy you.", "scripture": "Exodus 12:13", "backgroundMood": "dramatic" },
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": "And it came to pass, that at midnight the LORD smote all the firstborn in the land of Egypt. And Pharaoh rose up in the night, and there was a great cry in Egypt; for there was not a house where there was not one dead.", "scripture": "Exodus 12:29\u201330", "speech": null },
+          { "image": null, "narration": "And he called for Moses and Aaron by night, and said, Rise up, and get you forth from among my people. And the children of Israel journeyed \u2014 about six hundred thousand on foot that were men, beside children.", "scripture": "Exodus 12:31, 37", "speech": null }
+        ]},
+        { "type": "scripture", "verse": "And the blood shall be to you for a token upon your houses: and when I see the blood, I will pass over you, and the plague shall not be upon you to destroy you, when I smite the land of Egypt.", "reference": "Exodus 12:13", "originalWord": { "hebrew": "\u05E4\u05BC\u05B6\u05E1\u05B7\u05D7", "transliteration": "pesach", "meaning": "to pass over, to spare, to leap over" }, "note": "The Passover is the most explicit Old Testament picture of the gospel. A lamb without blemish dies in the place of the firstborn. Its blood on the doorposts forms the shape of a cross. Paul writes: 'Christ our passover is sacrificed for us' (1 Corinthians 5:7). Jesus was crucified on Passover. The typology is exact." },
+        { "type": "reflect", "kids": { "question": "God protected the families who put the lamb's blood on their doors. How does God protect you?", "activity": "Draw a door with red paint on the top and sides, and a happy family inside!" }, "teens": { "question": "The Passover lamb had to be 'without blemish' \u2014 perfect. Why do you think God required perfection, and what does that point to?", "journal": "Write about what the Passover means to you now that you know Jesus is called 'the Lamb of God.'" }, "adults": { "question": "The Passover is not merely historical \u2014 it is typological. Every detail points to Christ: the unblemished lamb (1 Peter 1:19), the blood applied personally (Romans 3:25), no broken bones (John 19:36), eaten in haste as pilgrims (1 Peter 2:11). How does understanding the Passover deepen your understanding of the cross?", "crossRefs": ["1 Corinthians 5:7", "John 1:29", "1 Peter 1:18\u201319", "Revelation 5:6\u20139"], "application": "Have you personally 'applied the blood' \u2014 not just known about the Lamb, but trusted in Him? The Israelites who knew about the lamb but didn't apply the blood were not spared." } }
+      ]
+    },
+    {
+      "id": "moses-ep5",
+      "number": 5,
+      "title": "Through the Sea",
+      "subtitle": "Walls of water and the end of Pharaoh's army",
+      "scripture": "Exodus 14",
+      "pages": [
+        { "type": "splash", "title": "THROUGH THE SEA", "subtitle": "Behind them, an army. Before them, an ocean. Above them, a God who makes a way.", "scripture": "Exodus 14:13", "backgroundMood": "epic" },
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": "And when Pharaoh drew nigh, the children of Israel lifted up their eyes, and, behold, the Egyptians marched after them; and they were sore afraid.", "scripture": "Exodus 14:10", "speech": null },
+          { "image": null, "narration": null, "scripture": "Exodus 14:13\u201314", "speech": { "speaker": "Moses", "text": "Fear ye not, stand still, and see the salvation of the LORD. The LORD shall fight for you, and ye shall hold your peace.", "style": "command" } }
+        ]},
+        { "type": "reveal", "title": "THE SEA DIVIDES", "text": "And Moses stretched out his hand over the sea; and the LORD caused the sea to go back by a strong east wind all that night, and made the sea dry land, and the waters were divided.", "scripture": "Exodus 14:21", "backgroundMood": "epic" },
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": "And the children of Israel went into the midst of the sea upon the dry ground: and the waters were a wall unto them on their right hand, and on their left.", "scripture": "Exodus 14:22", "speech": null },
+          { "image": null, "narration": "And the waters returned, and covered the chariots, and the horsemen, and all the host of Pharaoh that came into the sea after them; there remained not so much as one of them.", "scripture": "Exodus 14:28", "speech": null }
+        ]},
+        { "type": "scripture", "verse": "Fear ye not, stand still, and see the salvation of the LORD, which he will shew to you to day.", "reference": "Exodus 14:13", "originalWord": { "hebrew": "\u05D9\u05B0\u05E9\u05C1\u05D5\u05BC\u05E2\u05B7\u05EA", "transliteration": "y'shuat", "meaning": "salvation, deliverance (root of the name Yeshua/Jesus)" }, "note": "The Hebrew word for 'salvation' here \u2014 y'shuah \u2014 is the root of the name Yeshua (Jesus). When Moses said 'see the salvation of the LORD,' he was, unknowingly, speaking the name of Jesus. God's deliverance always points to the ultimate Deliverer." },
+        { "type": "reflect", "kids": { "question": "God made a path right through the sea! Have you ever been in a situation that seemed impossible, but God helped you through?", "activity": "Draw the sea split in two with the Israelites walking through on dry ground!" }, "teens": { "question": "'Stand still and see the salvation of the LORD.' That's the hardest advice when you're terrified. When is doing nothing and trusting God actually the bravest thing you can do?", "journal": "Write about a 'Red Sea' moment in your life \u2014 a time you were trapped between a rock and a hard place. How did God make a way?" }, "adults": { "question": "God deliberately led Israel to the Red Sea \u2014 a dead end \u2014 so that the deliverance would be unmistakably His. He engineers impossible situations to display impossible power. How does this pattern (God leads you into impossibility before delivering you through it) show up in your spiritual journey?", "crossRefs": ["Isaiah 43:2", "Psalm 77:19\u201320", "1 Corinthians 10:1\u20132", "Hebrews 11:29"], "application": "Are you standing at a 'Red Sea' right now? What would it look like to obey the command: 'Fear not, stand still, and see'?" } }
+      ]
+    },
+    {
+      "id": "moses-ep6",
+      "number": 6,
+      "title": "The Mountain of God",
+      "subtitle": "Sinai trembles and the Law is given",
+      "scripture": "Exodus 19\u201320",
+      "pages": [
+        { "type": "splash", "title": "THE MOUNTAIN OF GOD", "subtitle": "Thunder. Lightning. Smoke. A trumpet growing louder. And a God who descends to speak.", "scripture": "Exodus 19:16", "backgroundMood": "epic" },
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": "And mount Sinai was altogether on a smoke, because the LORD descended upon it in fire: and the smoke thereof ascended as the smoke of a furnace, and the whole mount quaked greatly. And when the voice of the trumpet sounded long, and waxed louder and louder, Moses spake, and God answered him by a voice.", "scripture": "Exodus 19:18\u201319", "speech": null },
+          { "image": null, "narration": null, "scripture": "Exodus 19:5\u20136", "speech": { "speaker": "God", "text": "If ye will obey my voice indeed, and keep my covenant, then ye shall be a peculiar treasure unto me above all people: for all the earth is mine. And ye shall be unto me a kingdom of priests, and an holy nation.", "style": "command" } }
+        ]},
+        { "type": "reveal", "title": "THE TEN COMMANDMENTS", "text": "And God spake all these words, saying, I am the LORD thy God, which have brought thee out of the land of Egypt, out of the house of bondage. Thou shalt have no other gods before me.", "scripture": "Exodus 20:1\u20133", "backgroundMood": "epic" },
+        { "type": "scripture", "verse": "And all the people saw the thunderings, and the lightnings, and the noise of the trumpet, and the mountain smoking: and when the people saw it, they removed, and stood afar off.", "reference": "Exodus 20:18", "originalWord": { "hebrew": "\u05E7\u05D5\u05B9\u05DC\u05D5\u05B9\u05EA", "transliteration": "qolot", "meaning": "voices, thunders, sounds" }, "note": "The same God who whispered to Elijah (1 Kings 19:12) thundered at Sinai. He adapts His approach to the need. At Sinai, Israel needed to understand God's holiness and the seriousness of His covenant. The Law was not given to condemn, but to reveal God's character and humanity's need for a Saviour." },
+        { "type": "reflect", "kids": { "question": "God gave rules because He loves us, like how your parents give you rules to keep you safe. What is a rule you're thankful for?", "activity": "Write your own 'Top 5 Rules for Being a Good Friend' on a piece of paper shaped like a stone tablet!" }, "teens": { "question": "God introduced the Ten Commandments by saying 'I am the LORD thy God, which have brought thee out of Egypt.' He reminded them of grace BEFORE giving the law. Why is the order important?", "journal": "Write about how knowing you're loved first (before any rules) changes how you respond to God's expectations." }, "adults": { "question": "The Law was given to a people already redeemed (Exodus 20:2 \u2014 'I have brought you out'). Obedience was a response to grace, not a condition for it. How does understanding 'indicative before imperative' (who you ARE before what you should DO) transform your relationship with God's commands?", "crossRefs": ["Romans 3:20", "Galatians 3:24\u201325", "Matthew 5:17", "Romans 7:7\u20138"], "application": "Do you relate to God's commandments as a burden or as a response to love? How would your obedience change if every morning you heard: 'I have already delivered you. Now here's how to live free'?" } }
+      ]
+    },
+    {
+      "id": "moses-ep7",
+      "number": 7,
+      "title": "The Golden Calf",
+      "subtitle": "Israel's greatest failure and God's greatest mercy",
+      "scripture": "Exodus 32",
+      "pages": [
+        { "type": "splash", "title": "THE GOLDEN CALF", "subtitle": "Forty days. Moses on the mountain. Israel in the valley. And a golden idol where God should have been.", "scripture": "Exodus 32:1", "backgroundMood": "dark" },
+        { "type": "panels", "layout": "LAYOUT_L", "panels": [
+          { "image": null, "narration": "And when the people saw that Moses delayed to come down out of the mount, the people gathered themselves together unto Aaron.", "scripture": "Exodus 32:1", "speech": { "speaker": "Israel", "text": "Up, make us gods, which shall go before us; for as for this Moses, we know not what is become of him.", "style": "shout" } },
+          { "image": null, "narration": "And Aaron received the gold from their hands, and fashioned it with a graving tool, and made it a molten calf: and they said, These be thy gods, O Israel, which brought thee up out of the land of Egypt.", "scripture": "Exodus 32:4", "speech": null },
+          { "image": null, "narration": null, "scripture": "Exodus 32:9\u201310", "speech": { "speaker": "God", "text": "I have seen this people, and, behold, it is a stiffnecked people: Now therefore let me alone, that my wrath may wax hot against them, and that I may consume them.", "style": "fury" } }
+        ]},
+        { "type": "reveal", "title": "MOSES INTERCEDES", "text": "And Moses besought the LORD his God, and said, LORD, why doth thy wrath wax hot against thy people? Turn from thy fierce wrath, and repent of this evil against thy people. Remember Abraham, Isaac, and Israel.", "scripture": "Exodus 32:11\u201313", "backgroundMood": "dramatic" },
+        { "type": "scripture", "verse": "And the LORD repented of the evil which he thought to do unto his people.", "reference": "Exodus 32:14", "originalWord": { "hebrew": "\u05D5\u05B7\u05D9\u05BC\u05B4\u05E0\u05BC\u05B8\u05D7\u05B6\u05DD", "transliteration": "vayyinnachem", "meaning": "and he relented, and he was moved to compassion" }, "note": "Moses stands as intercessor between God's righteous anger and Israel's sin. This is a picture of Christ, our mediator, who stands between God's justice and our rebellion. Moses offered himself ('blot me out of thy book' \u2014 v.32); Jesus actually gave Himself." },
+        { "type": "reflect", "kids": { "question": "The people forgot about God very quickly and made a golden statue instead. What helps you remember God every day?", "activity": "Draw something that reminds you of God \u2014 maybe a cross, a Bible, or a sunset!" }, "teens": { "question": "Israel built the golden calf only weeks after God miraculously delivered them. How quickly do we forget what God has done? What's your 'golden calf' \u2014 the thing you run to instead of God?", "journal": "Write about three amazing things God has done in your life. Then write about what you tend to turn to when you're impatient or anxious." }, "adults": { "question": "Moses' intercession in Exodus 32 is one of the boldest prayers in Scripture. He appeals not to Israel's merit but to God's character, reputation, and covenant promises. How should this shape our understanding of intercessory prayer?", "crossRefs": ["1 Timothy 2:5", "Hebrews 7:25", "Romans 8:34", "Exodus 32:32"], "application": "Who are you called to intercede for \u2014 to stand in the gap between them and God's purposes? Pray for them today the way Moses prayed: appealing to God's character, not their performance." } }
+      ]
+    },
+    {
+      "id": "moses-ep8",
+      "number": 8,
+      "title": "The Promised Land",
+      "subtitle": "Moses sees it from afar, and Joshua leads the way",
+      "scripture": "Deuteronomy 34",
+      "pages": [
+        { "type": "splash", "title": "THE PROMISED LAND", "subtitle": "A lifetime of leading. A mountaintop view. And a God who buries His servant with His own hands.", "scripture": "Deuteronomy 34:1", "backgroundMood": "peaceful" },
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": "And Moses went up from the plains of Moab unto the mountain of Nebo. And the LORD shewed him all the land of Gilead, unto Dan, and all Naphtali, and the land of Ephraim, and Manasseh, and all the land of Judah, unto the utmost sea.", "scripture": "Deuteronomy 34:1\u20132", "speech": null },
+          { "image": null, "narration": null, "scripture": "Deuteronomy 34:4", "speech": { "speaker": "God", "text": "This is the land which I sware unto Abraham, unto Isaac, and unto Jacob, saying, I will give it unto thy seed: I have caused thee to see it with thine eyes, but thou shalt not go over thither.", "style": "gentle" } }
+        ]},
+        { "type": "panels", "layout": "LAYOUT_SPLIT_V", "panels": [
+          { "image": null, "narration": "So Moses the servant of the LORD died there in the land of Moab, according to the word of the LORD. And he buried him in a valley in the land of Moab: but no man knoweth of his sepulchre unto this day.", "scripture": "Deuteronomy 34:5\u20136", "speech": null },
+          { "image": null, "narration": "And Moses was an hundred and twenty years old when he died: his eye was not dim, nor his natural force abated. And the children of Israel wept for Moses thirty days.", "scripture": "Deuteronomy 34:7\u20138", "speech": null }
+        ]},
+        { "type": "reveal", "title": "NONE LIKE MOSES", "text": "And there arose not a prophet since in Israel like unto Moses, whom the LORD knew face to face.", "scripture": "Deuteronomy 34:10", "backgroundMood": "peaceful" },
+        { "type": "scripture", "verse": "And there arose not a prophet since in Israel like unto Moses, whom the LORD knew face to face.", "reference": "Deuteronomy 34:10", "originalWord": { "hebrew": "\u05E4\u05BC\u05B8\u05E0\u05B4\u05D9\u05DD \u05D0\u05B6\u05DC\u05BE\u05E4\u05BC\u05B8\u05E0\u05B4\u05D9\u05DD", "transliteration": "panim el-panim", "meaning": "face to face (intimate, direct presence)" }, "note": "God buried Moses personally \u2014 an honour given to no other human in Scripture. Moses couldn't enter Canaan, but centuries later he appeared on the Mount of Transfiguration (Matthew 17:3) \u2014 standing in the Promised Land at last, talking with Jesus. God always keeps His promises, sometimes in ways we never imagined." },
+        { "type": "reflect", "kids": { "question": "Moses didn't get to enter the promised land, but God still loved him so much. Have you ever not gotten something you wanted, but God gave you something even better?", "activity": "Draw Moses on top of the mountain looking at the beautiful land below!" }, "teens": { "question": "Moses led faithfully for 40 years but never reached the destination. Sometimes we plant seeds we'll never see grow. Are you okay with that? What does faithfulness without reward look like?", "journal": "Write about something you're working towards that you might not see completed. How do you stay motivated when the finish line isn't yours?" }, "adults": { "question": "Moses' story ends with profound bittersweetness: he sees but doesn't enter. Yet Hebrews 11:26 says he chose suffering 'for he had respect unto the recompence of the reward.' His real promised land was never Canaan. How does an eternal perspective change how you evaluate 'success' and 'failure' in your life?", "crossRefs": ["Hebrews 11:24\u201326", "Matthew 17:1\u20133", "2 Corinthians 4:17\u201318", "Philippians 3:13\u201314"], "application": "What 'promised land' are you fixated on reaching? What if God's plan is bigger than your Canaan? Where might He be asking you to trust that the real reward is beyond what you can see?" } }
+      ]
+    }
+  ]
+}

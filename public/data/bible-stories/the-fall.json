@@ -1,0 +1,279 @@
+{
+  "id": "the-fall",
+  "title": "The Fall",
+  "subtitle": "When paradise was lost",
+  "colorUniverse": {
+    "primary": "#4A0E0E",
+    "secondary": "#27AE60",
+    "darkBg": "#1a0505",
+    "lightBg": "#FFF5F5",
+    "accent": "#C0392B",
+    "mood": "dramatic"
+  },
+  "episodes": [
+    {
+      "id": "fall-ep1",
+      "number": 1,
+      "title": "The Serpent",
+      "subtitle": "A question that changed everything",
+      "scripture": "Genesis 3:1\u20137",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "THE SERPENT",
+          "subtitle": "One question. One doubt. One bite. And paradise shattered.",
+          "scripture": "Genesis 3:1",
+          "backgroundMood": "dark"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Now the serpent was more subtil than any beast of the field which the LORD God had made.",
+              "scripture": "Genesis 3:1",
+              "speech": { "speaker": "Serpent", "text": "Yea, hath God said, Ye shall not eat of every tree of the garden?", "style": "whisper" }
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Genesis 3:2\u20133",
+              "speech": { "speaker": "Eve", "text": "We may eat of the fruit of the trees of the garden: But of the fruit of the tree which is in the midst of the garden, God hath said, Ye shall not eat of it, neither shall ye touch it, lest ye die.", "style": "gentle" }
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "YE SHALL NOT SURELY DIE",
+          "text": "And the serpent said unto the woman, Ye shall not surely die: For God doth know that in the day ye eat thereof, then your eyes shall be opened, and ye shall be as gods, knowing good and evil.",
+          "scripture": "Genesis 3:4\u20135",
+          "backgroundMood": "dark"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "And when the woman saw that the tree was good for food, and that it was pleasant to the eyes, and a tree to be desired to make one wise, she took of the fruit thereof, and did eat, and gave also unto her husband with her; and he did eat.",
+              "scripture": "Genesis 3:6",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "And the eyes of them both were opened, and they knew that they were naked; and they sewed fig leaves together, and made themselves aprons.",
+              "scripture": "Genesis 3:7",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "scripture",
+          "verse": "And when the woman saw that the tree was good for food, and that it was pleasant to the eyes, and a tree to be desired to make one wise, she took of the fruit thereof, and did eat.",
+          "reference": "Genesis 3:6",
+          "originalWord": {
+            "hebrew": "\u05EA\u05B7\u05D0\u05B2\u05D5\u05B8\u05D4",
+            "transliteration": "ta'avah",
+            "meaning": "desire, longing, craving"
+          },
+          "note": "The serpent's strategy is the template for every temptation since: question God's word ('hath God said?'), deny God's consequences ('ye shall not surely die'), and offer counterfeit godhood ('ye shall be as gods'). First John 2:16 identifies the same three patterns: lust of the flesh (good for food), lust of the eyes (pleasant to the eyes), pride of life (desired to make one wise)."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "The serpent tricked Eve by making her doubt what God said. Has anyone ever tried to get you to do something wrong by making it sound okay?",
+            "activity": "Draw the beautiful garden with the one tree that was off limits!"
+          },
+          "teens": {
+            "question": "The serpent's strategy was: (1) question God's word, (2) deny consequences, (3) promise you'll be like God. Can you spot that same pattern in temptations you face today?",
+            "journal": "Write about a temptation you face regularly. Break it down: what lie does it tell you about God? What consequence does it hide? What does it promise?"
+          },
+          "adults": {
+            "question": "Eve added to God's command ('neither shall ye touch it' \u2014 God never said that) before she subtracted from it. The progression from misquoting God to disobeying God is tragically short. How careful are you with what God actually says versus what you assume He says?",
+            "crossRefs": ["1 John 2:16", "James 1:14\u201315", "Matthew 4:1\u201311", "2 Corinthians 11:3"],
+            "application": "Identify one area where you might be adding to or subtracting from what God's Word actually says. Go back to the text itself this week."
+          }
+        }
+      ]
+    },
+    {
+      "id": "fall-ep2",
+      "number": 2,
+      "title": "Where Art Thou?",
+      "subtitle": "God seeks the ones who hid",
+      "scripture": "Genesis 3:8\u201319",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "WHERE ART THOU?",
+          "subtitle": "They hid from God. But God came looking.",
+          "scripture": "Genesis 3:9",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "And they heard the voice of the LORD God walking in the garden in the cool of the day: and Adam and his wife hid themselves from the presence of the LORD God amongst the trees of the garden.",
+              "scripture": "Genesis 3:8",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Genesis 3:9\u201310",
+              "speech": { "speaker": "God", "text": "Where art thou?", "style": "gentle" }
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "WHERE ART THOU?",
+          "text": "And the LORD God called unto Adam, and said unto him, Where art thou? And he said, I heard thy voice in the garden, and I was afraid, because I was naked; and I hid myself.",
+          "scripture": "Genesis 3:9\u201310",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_L",
+          "panels": [
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Genesis 3:11\u201312",
+              "speech": { "speaker": "Adam", "text": "The woman whom thou gavest to be with me, she gave me of the tree, and I did eat.", "style": "whisper" }
+            },
+            {
+              "image": null,
+              "narration": null,
+              "scripture": "Genesis 3:13",
+              "speech": { "speaker": "Eve", "text": "The serpent beguiled me, and I did eat.", "style": "whisper" }
+            },
+            {
+              "image": null,
+              "narration": "And the LORD God said unto the serpent, Because thou hast done this, thou art cursed above all cattle. And I will put enmity between thee and the woman, and between thy seed and her seed; it shall bruise thy head, and thou shalt bruise his heel.",
+              "scripture": "Genesis 3:14\u201315",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "scripture",
+          "verse": "And I will put enmity between thee and the woman, and between thy seed and her seed; it shall bruise thy head, and thou shalt bruise his heel.",
+          "reference": "Genesis 3:15",
+          "originalWord": {
+            "hebrew": "\u05D9\u05B0\u05E9\u05C1\u05D5\u05BC\u05E4\u05B0\u05DA\u05B8",
+            "transliteration": "y'shufkha",
+            "meaning": "he shall crush you (the head)"
+          },
+          "note": "This verse is called the 'protoevangelium' \u2014 the first gospel. In the very moment of the curse, God embeds a promise: a descendant of the woman will crush the serpent's head. The serpent will wound His heel (the cross), but the Seed will destroy the serpent (the resurrection). The gospel was preached before the garden gates closed."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "When Adam and Eve did something wrong, they tried to hide. Do you ever try to hide when you've done something wrong? What's a better thing to do?",
+            "activity": "Draw Adam and Eve hiding behind the trees, and God looking for them with love!"
+          },
+          "teens": {
+            "question": "God asked 'Where art thou?' \u2014 not because He didn't know, but because He wanted Adam to face the truth. When you mess up, do you tend to hide, blame others, or own it? Why?",
+            "journal": "Write about a time you blamed someone else for your mistake. What would honesty have looked like instead?"
+          },
+          "adults": {
+            "question": "Genesis 3:15 is the first messianic prophecy \u2014 embedded in the curse itself. Even in judgement, God's first instinct is redemption. The 'seed of the woman' (unusual phrasing \u2014 seed is normally attributed to the man) points to the virgin birth. How does finding the gospel in Genesis 3 change how you read the rest of the Bible?",
+            "crossRefs": ["Romans 16:20", "Galatians 4:4", "Revelation 12:9", "Colossians 2:15"],
+            "application": "God's question to Adam is His question to you: 'Where art thou?' Not geographically, but relationally. Where are you hiding from God right now? What would it look like to come out from behind the trees?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fall-ep3",
+      "number": 3,
+      "title": "East of Eden",
+      "subtitle": "Banished from paradise, but not from hope",
+      "scripture": "Genesis 3:20\u201324",
+      "pages": [
+        {
+          "type": "splash",
+          "title": "EAST OF EDEN",
+          "subtitle": "The gates close. The cherubim stand guard. But God clothes them before they go.",
+          "scripture": "Genesis 3:21",
+          "backgroundMood": "dramatic"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "Unto Adam also and to his wife did the LORD God make coats of skins, and clothed them.",
+              "scripture": "Genesis 3:21",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "And Adam called his wife's name Eve; because she was the mother of all living.",
+              "scripture": "Genesis 3:20",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "reveal",
+          "title": "CLOTHED BY GOD",
+          "text": "Unto Adam also and to his wife did the LORD God make coats of skins, and clothed them.",
+          "scripture": "Genesis 3:21",
+          "backgroundMood": "peaceful"
+        },
+        {
+          "type": "panels",
+          "layout": "LAYOUT_SPLIT_V",
+          "panels": [
+            {
+              "image": null,
+              "narration": "And the LORD God said, Behold, the man is become as one of us, to know good and evil: and now, lest he put forth his hand, and take also of the tree of life, and eat, and live for ever \u2014 Therefore the LORD God sent him forth from the garden of Eden, to till the ground from whence he was taken.",
+              "scripture": "Genesis 3:22\u201323",
+              "speech": null
+            },
+            {
+              "image": null,
+              "narration": "So he drove out the man; and he placed at the east of the garden of Eden Cherubims, and a flaming sword which turned every way, to keep the way of the tree of life.",
+              "scripture": "Genesis 3:24",
+              "speech": null
+            }
+          ]
+        },
+        {
+          "type": "scripture",
+          "verse": "Unto Adam also and to his wife did the LORD God make coats of skins, and clothed them.",
+          "reference": "Genesis 3:21",
+          "originalWord": {
+            "hebrew": "\u05DB\u05B8\u05BC\u05EA\u05B0\u05E0\u05D5\u05B9\u05EA \u05E2\u05D5\u05B9\u05E8",
+            "transliteration": "kotnot 'or",
+            "meaning": "tunics of skin"
+          },
+          "note": "Adam and Eve made coverings of fig leaves \u2014 their own effort. God replaced them with coats of skin \u2014 which required the death of an animal. This is the first sacrifice, the first shedding of blood to cover human shame. The pattern of the gospel: we cannot cover ourselves; God must provide the covering, and it costs a life."
+        },
+        {
+          "type": "reflect",
+          "kids": {
+            "question": "Even though Adam and Eve disobeyed, God still took care of them and made them clothes. What does this tell you about how God loves you even when you make mistakes?",
+            "activity": "Draw the gate of Eden with the angels and flaming sword. Then draw God giving Adam and Eve warm coats!"
+          },
+          "teens": {
+            "question": "Adam and Eve tried to fix their shame with fig leaves. God replaced them with something that cost a life. What 'fig leaves' do you use to cover your shame \u2014 and what would it look like to let God replace them?",
+            "journal": "Write about something you're ashamed of. Then write what you think God would say about it, based on what you've learned in this story."
+          },
+          "adults": {
+            "question": "Paradoxically, God's banishment from Eden was an act of mercy \u2014 preventing humanity from eating from the tree of life and living forever in a fallen state. Sometimes God's 'no' is protection we can't see. How does this reframe the painful closed doors in your life?",
+            "crossRefs": ["Hebrews 9:22", "Isaiah 61:10", "Revelation 22:1\u20132", "Romans 5:12\u201321"],
+            "application": "The story of the Bible is the story of getting back to the tree of life (Revelation 22:2). What was lost in Genesis 3 is restored in Revelation 22. Where are you in that story \u2014 still in the far country, on the road home, or sitting at the feast?"
+          }
+        }
+      ]
+    }
+  ]
+}

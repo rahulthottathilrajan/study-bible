@@ -37,7 +37,7 @@
       "description": "Patriarchs, prophets, and warriors of God",
       "stories": [
         { "id": "abraham", "title": "Abraham: Father of Nations", "subtitle": "A journey of radical faith", "episodes": 7, "coverImage": null, "colorUniverse": { "primary": "#8B6914", "secondary": "#F5DEB3", "darkBg": "#1a1508", "lightBg": "#FFFAF0", "accent": "#DAA520", "mood": "epic" }, "bibleBooks": ["Genesis"], "tags": ["faith", "promise", "obedience", "covenant"], "comingSoon": true },
-        { "id": "moses", "title": "Moses: Let My People Go", "subtitle": "From basket to burning bush to promised land", "episodes": 8, "coverImage": null, "colorUniverse": { "primary": "#C06C3E", "secondary": "#FFD700", "darkBg": "#1a0d05", "lightBg": "#FFF8F0", "accent": "#D2691E", "mood": "epic" }, "bibleBooks": ["Exodus", "Numbers", "Deuteronomy"], "tags": ["deliverance", "leadership", "faith", "law"], "comingSoon": true },
+        { "id": "moses", "title": "Moses: Let My People Go", "subtitle": "From basket to burning bush to promised land", "episodes": 8, "coverImage": null, "colorUniverse": { "primary": "#C06C3E", "secondary": "#FFD700", "darkBg": "#1a0d05", "lightBg": "#FFF8F0", "accent": "#D2691E", "mood": "epic" }, "bibleBooks": ["Exodus", "Numbers", "Deuteronomy"], "tags": ["deliverance", "leadership", "faith", "law"] },
         { "id": "david", "title": "David: Heart After God", "subtitle": "Shepherd, warrior, king, worshipper", "episodes": 8, "coverImage": null, "colorUniverse": { "primary": "#2C3E50", "secondary": "#E74C3C", "darkBg": "#0a1018", "lightBg": "#F0F4F8", "accent": "#34495E", "mood": "dramatic" }, "bibleBooks": ["1 Samuel", "2 Samuel"], "tags": ["worship", "courage", "repentance", "kingdom"], "comingSoon": true },
         { "id": "daniel", "title": "Daniel: Unshakeable", "subtitle": "Faith in the fire, visions of the future", "episodes": 6, "coverImage": null, "colorUniverse": { "primary": "#1B4F72", "secondary": "#F39C12", "darkBg": "#0a1520", "lightBg": "#F0F8FF", "accent": "#2980B9", "mood": "mysterious" }, "bibleBooks": ["Daniel"], "tags": ["faithfulness", "courage", "prophecy", "prayer"], "comingSoon": true }
       ]
@@ -74,8 +74,8 @@
       "color": "#E74C3C",
       "description": "The greatest story ever told \u2014 from Genesis to Revelation",
       "stories": [
-        { "id": "in-the-beginning", "title": "In the Beginning", "subtitle": "God creates the heavens and the earth", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#1B2631", "secondary": "#D4A853", "darkBg": "#050810", "lightBg": "#F0F4F8", "accent": "#2C3E50", "mood": "epic" }, "bibleBooks": ["Genesis"], "tags": ["creation", "power", "beauty", "purpose"], "comingSoon": true },
-        { "id": "the-fall", "title": "The Fall", "subtitle": "When paradise was lost", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#4A0E0E", "secondary": "#27AE60", "darkBg": "#1a0505", "lightBg": "#FFF5F5", "accent": "#C0392B", "mood": "dramatic" }, "bibleBooks": ["Genesis"], "tags": ["sin", "consequence", "promise", "redemption"], "comingSoon": true }
+        { "id": "in-the-beginning", "title": "In the Beginning", "subtitle": "God creates the heavens and the earth", "episodes": 4, "coverImage": null, "colorUniverse": { "primary": "#1B2631", "secondary": "#D4A853", "darkBg": "#050810", "lightBg": "#F0F4F8", "accent": "#2C3E50", "mood": "epic" }, "bibleBooks": ["Genesis"], "tags": ["creation", "power", "beauty", "purpose"] },
+        { "id": "the-fall", "title": "The Fall", "subtitle": "When paradise was lost", "episodes": 3, "coverImage": null, "colorUniverse": { "primary": "#4A0E0E", "secondary": "#27AE60", "darkBg": "#1a0505", "lightBg": "#FFF5F5", "accent": "#C0392B", "mood": "dramatic" }, "bibleBooks": ["Genesis"], "tags": ["sin", "consequence", "promise", "redemption"] }
       ]
     },
     {
