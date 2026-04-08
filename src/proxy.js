@@ -9,8 +9,6 @@ const RATE_LIMITS = {
   '/api/checkout':        { limit: 10, windowMs: 60 * 60 * 1000 }, // 10/hour
   '/api/shop-checkout':   { limit: 10, windowMs: 60 * 60 * 1000 }, // 10/hour
   '/api/donate':          { limit: 20, windowMs: 60 * 60 * 1000 }, // 20/hour
-  '/api/semantic-search': { limit: 20, windowMs: 60 * 1000 },      // 20/minute
-  '/api/similar-verses':  { limit: 30, windowMs: 60 * 1000 },      // 30/minute
 };
 
 // In-memory store: Map<key, { count, windowStart }>
@@ -77,5 +75,5 @@ export function proxy(request) {
 }
 
 export const config = {
-  matcher: ['/api/checkout', '/api/shop-checkout', '/api/donate', '/api/semantic-search', '/api/similar-verses'],
+  matcher: ['/api/checkout', '/api/shop-checkout', '/api/donate'],
 };

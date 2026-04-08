@@ -6,6 +6,7 @@ import { Card, Label, CrossIcon, ChevIcon } from "../components/ui";
 import { BADGES, BADGE_CATEGORIES, QUIZ_BOOKS, BIBLE_BOOKS } from "../constants";
 import { getTier, getTierColor } from "../components/MasteryRing";
 import { SUPPORTED_CURRENCIES } from "../utils/currency";
+import { supabase } from "../../lib/supabase";
 
 export default function AccountView() {
   const {
@@ -52,9 +53,37 @@ export default function AccountView() {
   // Shop state
   const [shopHelpOpen, setShopHelpOpen] = useState(false);
   const [wishlistCount, setWishlistCount] = useState(0);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [deleteError, setDeleteError] = useState("");
   useEffect(() => {
     try { setWishlistCount(JSON.parse(localStorage.getItem("shop_wishlist") || "[]").length); } catch {}
   }, []);
+
+  const handleDeleteAccount = async () => {
+    const confirmed = confirm("Delete your account and all synced data permanently? This cannot be undone.");
+    if (!confirmed) return;
+
+    setDeleteLoading(true);
+    setDeleteError("");
+    try {
+      const session = await supabase.auth.getSession();
+      const token = session.data.session?.access_token;
+      if (!token) throw new Error("You need to be signed in to delete your account.");
+
+      const res = await fetch("/api/user/delete", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "We could not delete your account right now.");
+
+      await handleLogout();
+      nav("home");
+    } catch (error) {
+      setDeleteError(error.message || "We could not delete your account right now.");
+    }
+    setDeleteLoading(false);
+  };
 
   return (
     <div style={{ minHeight:"100vh",background:ht.bg,paddingBottom:80 }}>
@@ -525,6 +554,24 @@ export default function AccountView() {
                 <span style={{fontSize:18}}>❓</span>
                 <span style={{fontFamily:ht.ui,fontSize:14,fontWeight:600,color:ht.dark,flex:1}}>Store Help</span>
                 <div style={{color:ht.light}}><ChevIcon /></div>
+              </button>
+            </Card>
+
+            <Card t={ht}>
+              <Label icon="!" t={ht} color={ht.muted}>Danger Zone</Label>
+              <div style={{fontFamily:ht.ui,fontSize:12,color:ht.muted,lineHeight:1.7,marginBottom:12}}>
+                Deleting your account permanently removes synced notes, highlights, prayers, reading positions, and profile data.
+              </div>
+              {deleteError && (
+                <div style={{fontFamily:ht.ui,fontSize:12,color:"#E8625C",marginBottom:10}}>
+                  {deleteError}
+                </div>
+              )}
+              <button
+                onClick={handleDeleteAccount}
+                disabled={deleteLoading}
+                style={{width:"100%",padding:"13px",borderRadius:12,border:`1.5px solid #E8625C44`,background:"#E8625C08",color:"#E8625C",fontFamily:ht.ui,fontSize:13,fontWeight:700,cursor:deleteLoading?"wait":"pointer",opacity:deleteLoading?0.7:1}}>
+                {deleteLoading ? "Deleting Account..." : "Delete Account"}
               </button>
             </Card>
 

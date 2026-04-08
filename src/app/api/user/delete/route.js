@@ -1,62 +1,43 @@
-export const dynamic = 'force-dynamic';
+import { getRequiredEnvForContext } from "../../../../lib/server/env";
+import { logServerError, logServerEvent } from "../../../../lib/server/logging";
+import { createSupabaseAdmin, requireAuthenticatedUser } from "../../../../lib/server/supabase-admin";
+import { deleteUserData } from "../../../../lib/server/user-delete";
 
-// GDPR Right to Erasure — deletes ALL user data and auth account
+export const dynamic = "force-dynamic";
+
 export async function POST(request) {
-  const { createClient } = await import('@supabase/supabase-js');
+  getRequiredEnvForContext("supabase");
+  const supabaseAdmin = createSupabaseAdmin();
 
-  const supabaseAdmin = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-
-  // ── Verify auth token ──
-  const authHeader = request.headers.get('authorization');
-  const token = authHeader?.split(' ')[1];
-  if (!token) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-  const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(token);
+  const { user, error: authError } = await requireAuthenticatedUser(request, supabaseAdmin);
   if (authError || !user) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 });
+    return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
-  const userId = user.id;
 
   try {
-    // Delete all user data in order (respect foreign key dependencies)
-    const tables = [
-      'user_notes',
-      'user_highlights',
-      'prayer_journal',
-      'prayer_reactions',
-      'community_prayers',
-      'prayer_slots',
-      'user_badges',
-      'user_chapter_reads',
-      'user_quiz_scores',
-      'user_reading_position',
-      'user_hebrew_progress',
-      'user_greek_progress',
-      'subscriptions',
-      'shop_orders',
-      'votd_user_likes',
-      'user_profiles',
-    ];
+    logServerEvent("user_delete_requested", { userId: user.id });
+    const deleteResult = await deleteUserData(supabaseAdmin, user.id);
 
-    for (const table of tables) {
-      const col = table === 'user_profiles' ? 'id' : 'user_id';
-      await supabaseAdmin.from(table).delete().eq(col, userId);
+    if (!deleteResult.ok) {
+      logServerError("user_delete_dependency_error", deleteResult.error, {
+        userId: user.id,
+        table: deleteResult.table,
+      });
+      return Response.json(
+        { error: "We could not safely delete your account right now. No auth data was removed." },
+        { status: 500 }
+      );
     }
 
-    // Delete the auth account itself
-    const { error: deleteError } = await supabaseAdmin.auth.admin.deleteUser(userId);
+    const { error: deleteError } = await supabaseAdmin.auth.admin.deleteUser(user.id);
     if (deleteError) {
-      console.error('[user/delete] Auth delete error:', deleteError);
-      return Response.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
+      logServerError("user_delete_auth_error", deleteError, { userId: user.id });
+      return Response.json({ error: "Something went wrong. Please try again." }, { status: 500 });
     }
 
     return Response.json({ success: true });
-  } catch (error) {
-    console.error('[user/delete] Error:', error);
-    return Response.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
+  } catch (deleteError) {
+    logServerError("user_delete_error", deleteError, { userId: user.id });
+    return Response.json({ error: "Something went wrong. Please try again." }, { status: 500 });
   }
 }

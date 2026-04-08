@@ -80,7 +80,7 @@ What We Do Not Do
 \u2022 We do not share your data with external parties except as required by payment processing (Stripe)
 
 Data Deletion
-You may request deletion of your account and all associated data at any time by contacting us. Upon deletion, all your notes, highlights, prayers, and profile information will be permanently removed.
+You may delete your account and associated study data from the app account settings, or contact us if you need support with the process. If deletion cannot be completed safely, we may ask you to contact support so we can finish the removal manually. Upon deletion, your notes, highlights, prayers, and profile information will be permanently removed.
 
 Cookies & Local Storage
 The App uses browser localStorage to persist preferences (dark mode, font size, Bible translation, navigation state). No tracking cookies are used.`

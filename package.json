@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:critical": "eslint src/lib/server src/app/api/checkout/route.js src/app/api/donate/route.js src/app/api/semantic-search/route.js src/app/api/shop-checkout/route.js src/app/api/user/delete/route.js src/app/api/webhook/route.js src/app/views/TermsView.js src/app/layout.js",
+    "test": "node --experimental-default-type=module tests/server/run-tests.mjs",
+    "check": "npm run lint:critical && npm run test",
+    "validate-env": "node scripts/validate-env.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.95.3",

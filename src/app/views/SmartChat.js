@@ -3,6 +3,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 import { getBookName } from "../constants";
 import Header from "../components/Header";
+import { supabase } from "../../lib/supabase";
 
 const OT_BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi"];
 
@@ -20,7 +21,7 @@ const SUGGESTIONS = [
 let msgId = 0;
 
 export default function SmartChat() {
-  const { ht, nav, goBack, bibleTranslation, bp, chatMessages, setChatMessages } = useApp();
+  const { ht, nav, goBack, bibleTranslation, bp, chatMessages, setChatMessages, requireAuth } = useApp();
   const [inputText, setInputText] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef(null);
@@ -36,6 +37,7 @@ export default function SmartChat() {
   const sendQuery = useCallback(async (text) => {
     const q = text.trim();
     if (!q || q.length < 3 || loading) return;
+    if (!requireAuth()) return;
 
     const userMsg = { id: ++msgId, role: "user", text: q };
     setChatMessages(prev => [...prev, userMsg]);
@@ -43,11 +45,17 @@ export default function SmartChat() {
     setLoading(true);
 
     try {
+      const session = await supabase.auth.getSession();
+      const token = session.data.session?.access_token;
       const res = await fetch("/api/semantic-search", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
         body: JSON.stringify({ query: q, include_podcasts: true }),
       });
+      if (res.status === 401) throw new Error("Sign in required for semantic Bible search");
       if (!res.ok) throw new Error("Search failed");
       const data = await res.json();
       const verses = (data.results || []).filter(v => v.similarity >= 0.55);
@@ -60,18 +68,19 @@ export default function SmartChat() {
         podcasts,
       };
       setChatMessages(prev => [...prev, assistantMsg]);
-    } catch {
+    } catch (error) {
       setChatMessages(prev => [...prev, {
         id: ++msgId,
         role: "assistant",
         error: true,
+        errorMessage: error.message || "Search failed",
         query: q,
         verses: [],
         podcasts: [],
       }]);
     }
     setLoading(false);
-  }, [loading, setChatMessages]);
+  }, [loading, requireAuth, setChatMessages]);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -90,7 +99,7 @@ export default function SmartChat() {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: ht.bg }}>
       {/* Header */}
-      <Header title="Smart Search" onBack={goBack} theme={ht} hidePrayer hideUser />
+      <Header title="Semantic Search" onBack={goBack} theme={ht} hidePrayer hideUser />
 
       {/* Messages area */}
       <div ref={scrollRef} style={{ flex: 1, overflowY: "auto", padding: `16px ${bp.pad}px 8px` }}>
@@ -114,10 +123,10 @@ export default function SmartChat() {
                     ✦
                   </div>
                   <div style={{ fontFamily: ht.heading, fontSize: 15, fontWeight: 700, color: ht.dark, marginBottom: 6 }}>
-                    Ask me anything about the Bible
+                    Search the Bible by meaning
                   </div>
                   <div style={{ fontFamily: ht.ui, fontSize: 13, color: ht.muted, lineHeight: 1.6, marginBottom: 14 }}>
-                    I&apos;ll find the most relevant verses and passages. Try one of these:
+                    Sign in to run semantic Bible search and find the most relevant verses and related episodes.
                   </div>
                   {/* Suggestion chips */}
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -180,7 +189,7 @@ export default function SmartChat() {
             value={inputText}
             onChange={e => setInputText(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask a question about the Bible..."
+            placeholder="Describe a topic or question..."
             style={{
               flex: 1, padding: "12px 16px", borderRadius: 24,
               border: `1.5px solid ${ht.divider}`, background: ht.bg,
@@ -228,7 +237,7 @@ function UserBubble({ text, ht }) {
 /* ── Assistant Bubble ── */
 function AssistantBubble({ msg, ht, nav, bibleTranslation }) {
   const [expanded, setExpanded] = useState(false);
-  const { verses, podcasts, error } = msg;
+  const { verses, podcasts, error, errorMessage } = msg;
   const hasResults = verses.length > 0 || podcasts.length > 0;
   const visibleVerses = expanded ? verses : verses.slice(0, 5);
 
@@ -242,7 +251,7 @@ function AssistantBubble({ msg, ht, nav, bibleTranslation }) {
         {/* Error state */}
         {error && (
           <div style={{ fontFamily: ht.ui, fontSize: 13, color: ht.muted, lineHeight: 1.6 }}>
-            Sorry, I couldn&apos;t search right now. Please try again.
+            {errorMessage || "Sorry, I couldn't search right now. Please try again."}
           </div>
         )}
 

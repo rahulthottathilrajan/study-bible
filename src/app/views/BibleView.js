@@ -1,17 +1,12 @@
 "use client";
-import { useState, useEffect, useRef, useCallback } from "react";
 import { useApp } from "../context/AppContext";
-import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, HIGHLIGHT_COLORS, BIBLE_TRANSLATIONS, getBookName, QUIZ_BOOKS } from "../constants"; // CAT_ICONS used in Chapters view
-import { ChevIcon, Badge, Label, Card, Spinner } from "../components/ui";
+import { THEMES, DARK_THEMES, CATEGORY_THEME, BIBLE_BOOKS, CAT_ICONS, CHAPTER_GROUPS, BIBLE_TRANSLATIONS, getBookName, QUIZ_BOOKS } from "../constants"; // CAT_ICONS used in Chapters view
+import { ChevIcon, Spinner } from "../components/ui";
 import Header from "../components/Header";
 import AudioPlayer from "../components/AudioPlayer";
-
-const OT_BOOKS_LIST = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi"];
-
-function parseVerseRef(ref) {
-  const m = ref.match(/^(.+?)\s+(\d+):(\d+)$/);
-  return m ? { book: m[1], chapter: +m[2], verse: +m[3] } : null;
-}
+import { SimilarVersesPanel, VerseOverviewCard, VerseStudyPanels, VerseStudyTabs, VerseTextCard } from "./components/BibleStudyShared";
+import { useBibleVerseListState } from "./hooks/useBibleVerseListState";
+import { useBibleVerseStudyState } from "./hooks/useBibleVerseStudyState";
 
 export default function BibleView() {
   const {
@@ -33,435 +28,77 @@ export default function BibleView() {
     getChapterFromCache, loadUserDataForChapter, fetchTranslatedVerses,
   } = useApp();
 
-  const [showColors, setShowColors] = useState(false);
-  const [similarVerses, setSimilarVerses] = useState([]);
-  const [similarLoading, setSimilarLoading] = useState(false);
-  const [similarOpen, setSimilarOpen] = useState(false);
-  const similarCache = useRef({});
   const currentTransDef = BIBLE_TRANSLATIONS.find(tr => tr.id === bibleTranslation);
   const isRtl = currentTransDef?.rtl || false;
   const rtlStyle = isRtl ? { direction: "rtl", textAlign: "right" } : {};
   const isEnglishTrans = bibleTranslation === "kjv" || bibleTranslation === "bsb";
-
-  // Reset color picker when verse changes
-  useEffect(() => { setShowColors(false); }, [verse]);
-
-  // Auto-switch away from Study Notes tab when non-English translation is active
-  // (moved from VerseStudy inner function to BibleView level for stable hook ordering)
-  useEffect(() => { if (!isEnglishTrans && tab === "study") setTab("original"); }, [isEnglishTrans]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Fetch similar verses when verse study is open
-  useEffect(() => {
-    if (view !== "verse" || !book || !chapter || !verse) return;
-    const ref = `${book} ${chapter}:${verse}`;
-    if (similarCache.current[ref]) {
-      setSimilarVerses(similarCache.current[ref]);
-      return;
-    }
-    setSimilarLoading(true);
-    setSimilarVerses([]);
-    let cancelled = false;
-    fetch("/api/similar-verses", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ verse_ref: ref }),
-    })
-      .then(r => r.ok ? r.json() : { results: [] })
-      .then(({ results }) => {
-        if (cancelled) return;
-        setSimilarVerses(results || []);
-        similarCache.current[ref] = results || [];
-      })
-      .catch(() => { if (!cancelled) setSimilarVerses([]); })
-      .finally(() => { if (!cancelled) setSimilarLoading(false); });
-    return () => { cancelled = true; };
-  }, [view, book, chapter, verse]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // ═══ BOOKS ═══
-  const Books = () => {
-    const books = BIBLE_BOOKS.filter(b => b.testament === testament);
-    return (
-      <div style={{ minHeight:"100vh",background:ht.bg }}>
-        <Header title="The Holy Scriptures" onBack={goBack} theme={ht} hidePrayer hideUser />
-        <div style={{ padding:`20px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
-
-          {/* ── Testament Picker (Parchment Scrolls) ── */}
-          <div style={{ display:"flex", gap:12, marginBottom:20 }}>
-            {[
-              { t:"OT", l:"Old Testament", s:"39 Books", sub:"Genesis — Malachi", o:"בְּרֵאשִׁית", om:"In the Beginning", thm:"garden", icon:"📜" },
-              { t:"NT", l:"New Testament", s:"27 Books", sub:"Matthew — Revelation", o:"Καινὴ Διαθήκη", om:"The New Covenant", thm:"ocean", icon:"✝️" },
-            ].map(item => {
-              const isSel = testament === item.t;
-              const st = THEMES[item.thm];
-              return (
-                <button key={item.t} onClick={() => nav("books",{testament:item.t})}
-                  style={{ flex:1, cursor:"pointer", border:"none", background:"transparent", padding:0, display:"flex", flexDirection:"column", filter:`drop-shadow(0 4px 12px rgba(0,0,0,${isSel?0.2:0.1}))`, opacity:isSel?1:0.65, transition:"opacity 0.2s, filter 0.2s" }}>
-                  <div style={{ height:18, background:st.headerGradient, borderRadius:"10px 10px 0 0", position:"relative", overflow:"hidden" }}>
-                    <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"55%", height:6, background:"rgba(255,255,255,0.12)", borderRadius:10 }}/>
-                  </div>
-                  <div style={{ background:darkMode?"linear-gradient(180deg,#2A2620 0%,#231F1A 40%,#2A2620 100%)":"linear-gradient(180deg,#FEF3D8 0%,#FAE8BB 40%,#FEF3D8 100%)", padding:"14px 8px 12px", borderLeft:`1px solid rgba(180,140,60,0.3)`, borderRight:`1px solid rgba(180,140,60,0.3)`, textAlign:"center", flex:1 }}>
-                    <div style={{ fontSize:26, marginBottom:6, filter:"drop-shadow(0 2px 4px rgba(0,0,0,0.2))" }}>{item.icon}</div>
-                    <div style={{ fontFamily:ht.heading, fontSize:14, fontWeight:700, color:st.dark, lineHeight:1.3, marginBottom:4 }}>{item.l}</div>
-                    <div style={{ width:24, height:2, background:st.accent, borderRadius:2, margin:"0 auto 6px" }}/>
-                    <div style={{ fontFamily:ht.ui, fontSize:10, color:st.muted, letterSpacing:"0.02em" }}>{item.s}</div>
-                    <div style={{ fontFamily:"'Times New Roman',serif", fontSize:item.t==="OT"?15:12, color:st.accent, fontWeight:700, marginTop:6, direction:item.t==="OT"?"rtl":"ltr", lineHeight:1.4 }}>{item.o}</div>
-                    <div style={{ fontFamily:ht.body, fontSize:9.5, color:st.muted, fontStyle:"italic", lineHeight:1.5 }}>{item.om}</div>
-                  </div>
-                  <div style={{ height:18, background:st.headerGradient, borderRadius:"0 0 10px 10px", position:"relative", overflow:"hidden" }}>
-                    <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"55%", height:6, background:"rgba(255,255,255,0.12)", borderRadius:10 }}/>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* ── Stats ── */}
-          <div style={{ display:"flex",justifyContent:"center",marginBottom:16 }}>
-            {[{n:"66",l:"Books"},{n:"1,189",l:"Chapters"},{n:"31,102",l:"Verses"}].map((s,i) => (
-              <div key={i} style={{ textAlign:"center",flex:1,borderRight:i<2?`1px solid ${ht.divider}`:"none",padding:"0 8px" }}>
-                <div style={{ fontFamily:ht.heading,fontSize:18,fontWeight:700,color:ht.dark,letterSpacing:"-0.02em" }}>{s.n}</div>
-                <div style={{ fontFamily:ht.ui,fontSize:9,fontWeight:600,color:ht.muted,textTransform:"uppercase",letterSpacing:"0.1em",marginTop:1 }}>{s.l}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* ── Selected Testament Label ── */}
-          <div style={{ fontFamily:ht.ui, fontSize:10, fontWeight:700, color:ht.muted, textTransform:"uppercase", letterSpacing:"0.12em", marginBottom:14, display:"flex", alignItems:"center", gap:8 }}>
-            <span>{testament === "OT" ? "📜" : "✝️"}</span> {testament === "OT" ? "Old Testament" : "New Testament"} · {books.length} Books
-          </div>
-
-          {/* ── Flat Book List with Category Tags ── */}
-          <div style={{ background:ht.card, borderRadius:14, border:`1px solid ${ht.divider}`, overflow:"hidden", boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
-            {books.map((b, bi) => {
-              const ct = THEMES[CATEGORY_THEME[b.category] || "home"];
-              return (
-                <button key={b.name} className="pressable" onClick={() => nav("verses",{book:b.name,chapter:1})}
-                  style={{ width:"100%",background:"transparent",border:"none",borderBottom:bi<books.length-1?`1px solid ${ht.divider}`:"none",padding:"14px 16px",cursor:"pointer",textAlign:"left",display:"flex",alignItems:"center",gap:12,transition:"background 0.15s" }}>
-                  <div style={{ flex:1,minWidth:0 }}>
-                    <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:3 }}>
-                      <span style={{ fontFamily:ht.heading,fontSize:15,fontWeight:700,color:ht.dark }}>{getBookName(b.name, bibleTranslation)}</span>
-                      <span style={{ fontFamily:ct.ui,fontSize:9,fontWeight:700,color:ct.accent,background:`${ct.accent}15`,borderRadius:10,padding:"2px 8px",textTransform:"uppercase",letterSpacing:"0.04em",flexShrink:0 }}>{b.category}</span>
-                    </div>
-                    <div style={{ fontFamily:ht.ui,fontSize:11,color:ht.muted }}>{b.chapters} chapters · {b.original} <span style={{ fontStyle:"italic",fontSize:10 }}>· {b.meaning}</span></div>
-                  </div>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={ht.light} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{flexShrink:0}}><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  // ═══ CHAPTERS ═══
-  const Chapters = () => {
-    if (!bookInfo) return null;
-    const avail = dbChapters[book] || [];
-    const availNums = avail.map(a => a.num);
-    const getTheme = (ch) => { const found = avail.find(a => a.num === ch); return found?.theme || null; };
-    const groups = CHAPTER_GROUPS[book] || [{ label:"All Chapters", icon:"📖", chapters:Array.from({length:bookInfo.chapters},(_,i)=>i+1) }];
-    const toggleGroup = (i) => setCollapsed(prev => ({...prev,[i]:!prev[i]}));
-
-    return (
-      <div style={{ minHeight:"100vh",background:t.bg }}>
-        <Header title={getBookName(book, bibleTranslation)} subtitle={`${bookInfo.original} — ${bookInfo.meaning}`} onBack={goBack} />
-        <div style={{ padding:`18px ${bp.pad}px 40px`,maxWidth:bp.content,margin:"0 auto" }}>
-
-          {/* Book info card */}
-          {bookInfo.author && (
-            <div style={{ background:t.card,border:`1px solid ${t.divider}`,borderRadius:14,padding:"14px 16px",marginBottom:18,boxShadow:"0 1px 4px rgba(0,0,0,0.04)" }}>
-              <div style={{ fontFamily:t.ui,fontSize:13,color:t.text,lineHeight:1.8 }}>
-                <span style={{ fontWeight:700,color:t.dark }}>Author: </span>{bookInfo.author}
-                {bookInfo.dateWritten && <><span style={{ color:t.divider }}> · </span><span style={{ fontWeight:700,color:t.dark }}>Date: </span>{bookInfo.dateWritten}</>}
-              </div>
-            </div>
-          )}
-
-
-
-          {/* Empty state banner */}
-          {availNums.length === 0 && (
-            <div style={{ padding:"16px 18px",marginBottom:18,background:`linear-gradient(135deg,${t.accentLight},${t.card})`,border:`1px solid ${t.accentBorder}`,borderRadius:14,textAlign:"center" }}>
-              <div style={{ fontSize:22,marginBottom:6 }}>📜</div>
-              <div style={{ fontFamily:t.heading,fontSize:15,fontWeight:700,color:t.dark,marginBottom:4 }}>Study notes coming soon</div>
-              <div style={{ fontFamily:t.ui,fontSize:12,color:t.muted,lineHeight:1.5 }}>27 books are fully seeded with verse-by-verse study notes, original language text, and cross-references. More books are being prepared.</div>
-            </div>
-          )}
-
-          {/* Grouped chapters */}
-          {groups.map((group, gi) => {
-            const groupHasContent = group.chapters.some(ch => availNums.includes(ch));
-            const isCollapsed = collapsed[gi];
-            return (
-              <div key={gi} style={{ marginBottom:12 }}>
-                {/* Group header */}
-                <button
-                  onClick={() => toggleGroup(gi)}
-                  style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"12px 14px",background:groupHasContent ? `linear-gradient(135deg,${t.accentLight},${t.card})` : t.card,border:`1px solid ${groupHasContent ? t.accentBorder : t.divider}`,borderRadius:isCollapsed ? 12 : "12px 12px 0 0",cursor:"pointer",textAlign:"left",transition:"all 0.2s" }}>
-                  <span style={{ fontSize:18,flexShrink:0 }}>{group.icon}</span>
-                  <div style={{ flex:1 }}>
-                    <div style={{ fontFamily:t.heading,fontSize:15,fontWeight:700,color:groupHasContent ? t.dark : t.muted,lineHeight:1.3 }}>{group.label}</div>
-                    <div style={{ fontFamily:t.ui,fontSize:11,color:t.muted,marginTop:2 }}>
-                      {group.chapters.length === 1 ? `Chapter ${group.chapters[0]}` : `Chapters ${group.chapters[0]}–${group.chapters[group.chapters.length-1]}`}
-                      {groupHasContent && <span style={{ color:t.accent,fontWeight:700 }}> · Study available</span>}
-                    </div>
-                  </div>
-                  <span style={{ fontFamily:t.ui,fontSize:12,color:t.muted,transform:isCollapsed?"rotate(0deg)":"rotate(180deg)",transition:"transform 0.2s" }}>▾</span>
-                </button>
-
-                {/* Chapter rows */}
-                {!isCollapsed && (
-                  <div style={{ border:`1px solid ${groupHasContent ? t.accentBorder : t.divider}`,borderTop:"none",borderRadius:"0 0 12px 12px",overflow:"hidden",background:t.card }}>
-                    {group.chapters.map((ch, ci) => {
-                      const has = availNums.includes(ch);
-                      const theme = getTheme(ch);
-                      const isLast = ci === group.chapters.length - 1;
-                      const isRead = chapterReads.some(r => r.book_name === book && r.chapter_number === ch);
-                      const isListened = listenedChapters.includes(`${book}:${ch}`);
-                      const chKey = `${book}-${ch}`;
-                      const qScores = quizScores[chKey] || [];
-                      const bestPct = qScores.length > 0 ? Math.max(...qScores.map(s => s.percentage)) : null;
-                      return (
-                        <button key={ch}
-                          className={has?"pressable":""}
-                          onClick={() => { if (has) nav("verses",{chapter:ch,verse:null}); }}
-                          style={{ width:"100%",display:"flex",alignItems:"center",padding:"12px 14px",background:"transparent",border:"none",borderBottom:isLast ? "none" : `1px dashed ${t.divider}`,cursor:has?"pointer":"default",textAlign:"left",transition:"background 0.15s",gap:12 }}>
-
-                          {/* Chapter number circle */}
-                          <div style={{ flexShrink:0,width:34,height:34,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",
-                            background:has ? (isRead ? "#22c55e" : t.accent) : "transparent",
-                            border:has ? "none" : `1.5px solid ${t.divider}`,
-                            boxShadow:has ? `0 2px 6px ${isRead ? "rgba(34,197,94,0.25)" : `${t.accent}30`}` : "none",
-                            position:"relative"
-                          }}>
-                            {has && isRead ? (
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            ) : (
-                              <span style={{ fontFamily:t.heading,fontSize:14,fontWeight:700,color:has ? "#fff" : t.light }}>{ch}</span>
-                            )}
-                          </div>
-
-                          {/* Two-line layout */}
-                          <div style={{ flex:1,minWidth:0 }}>
-                            <div style={{ fontFamily:t.ui,fontSize:14,fontWeight:has?600:400,color:has?t.dark:t.light,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",lineHeight:1.3 }}>
-                              {theme || (has ? "Study available" : "Coming soon")}
-                            </div>
-                            <div style={{ fontFamily:t.ui,fontSize:11,color:t.muted,marginTop:2,opacity:has?1:0.5 }}>
-                              {has ? (isRead ? `Ch ${ch} · Completed` : `Ch ${ch} · Study available`) : `Ch ${ch}`}
-                            </div>
-                          </div>
-
-                          {/* Progress badges */}
-                          <div style={{ display:"flex",alignItems:"center",gap:5,flexShrink:0 }}>
-                            {bestPct !== null && (
-                              <span style={{ fontFamily:t.ui,fontSize:10,fontWeight:700,padding:"2px 6px",borderRadius:6,
-                                background:bestPct >= 70 ? "rgba(34,197,94,0.12)" : "rgba(239,68,68,0.1)",
-                                color:bestPct >= 70 ? "#22c55e" : "#ef4444"
-                              }}>{bestPct}%</span>
-                            )}
-                            {isListened && <span style={{ fontSize:12,opacity:0.75 }} title="Listened">🎧</span>}
-                            {has && <div style={{ color:t.light }}><ChevIcon /></div>}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-
-          {/* Stats footer */}
-          <div style={{ display:"flex",justifyContent:"center",gap:28,marginTop:10,padding:"14px 0",borderTop:`1px solid ${t.divider}` }}>
-            <div style={{ textAlign:"center" }}>
-              <div style={{ fontFamily:t.heading,fontSize:20,fontWeight:700,color:t.dark }}>{bookInfo.chapters}</div>
-              <div style={{ fontFamily:t.ui,fontSize:10,color:t.muted,textTransform:"uppercase",letterSpacing:"0.1em" }}>Chapters</div>
-            </div>
-            <div style={{ textAlign:"center" }}>
-              <div style={{ fontFamily:t.heading,fontSize:20,fontWeight:700,color:t.accent }}>{availNums.length}</div>
-              <div style={{ fontFamily:t.ui,fontSize:10,color:t.muted,textTransform:"uppercase",letterSpacing:"0.1em" }}>Study Ready</div>
-            </div>
-            <div style={{ textAlign:"center" }}>
-              <div style={{ fontFamily:t.heading,fontSize:20,fontWeight:700,color:t.dark }}>{groups.length}</div>
-              <div style={{ fontFamily:t.ui,fontSize:10,color:t.muted,textTransform:"uppercase",letterSpacing:"0.1em" }}>Acts</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  // ═══ VERSE LIST ═══
-  // Auto-scroll refs for VerseList audio playback
-  const verseRefs = useRef({});
-  const [autoScrollEnabled, setAutoScrollEnabled] = useState(true);
-  const userScrolledRef = useRef(false);
-
-  // Auto-scroll to current verse during playback
-  useEffect(() => {
-    if (!audioPlaying || audioSource !== "verseList" || !autoScrollEnabled) return;
-    if (audioCurrentVerse && verseRefs.current[audioCurrentVerse]) {
-      verseRefs.current[audioCurrentVerse].scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }, [audioCurrentVerse, audioPlaying, audioSource, autoScrollEnabled]);
-
-  // Detect manual scroll to pause auto-scroll
-  useEffect(() => {
-    if (!audioPlaying || audioSource !== "verseList") { setAutoScrollEnabled(true); return; }
-    let scrollTimeout;
-    const handleScroll = () => {
-      userScrolledRef.current = true;
-      setAutoScrollEnabled(false);
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => { userScrolledRef.current = false; }, 4000);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => { window.removeEventListener("scroll", handleScroll); clearTimeout(scrollTimeout); };
-  }, [audioPlaying, audioSource]);
-
-  // Re-enable auto-scroll when playback stops
-  useEffect(() => { if (!audioPlaying) setAutoScrollEnabled(true); }, [audioPlaying]);
-
-  // ═══ CONTINUOUS READING STATE ═══
-  const [chaptersData, setChaptersData] = useState([]);
-  const [visibleChNum, setVisibleChNum] = useState(chapter);
-  const loadedSetRef = useRef(new Set());
-  const bottomSentinelRef = useRef(null);
-  const chapterHeaderRefs = useRef({});
-  const initBookRef = useRef(null); // track which book we initialized for
-
-  // Load a chapter into the continuous reading state (from bookCache)
-  const appendChapter = useCallback(async (chNum) => {
-    if (!bookInfo || chNum < 1 || chNum > bookInfo.chapters) return;
-    if (loadedSetRef.current.has(chNum)) return;
-
-    const chData = getChapterFromCache(book, chNum);
-    if (!chData) return;
-    loadedSetRef.current.add(chNum);
-
-    let chVerses = [...chData.verses];
-    if (bibleTranslation !== "kjv") {
-      const translated = await fetchTranslatedVerses(book, chNum, bibleTranslation);
-      if (translated) chVerses = chVerses.map(v => ({ ...v, kjv_text: translated[v.verse_number] || v.kjv_text }));
-    }
-
-    const userData = await loadUserDataForChapter(book, chNum);
-
-    setChaptersData(prev => {
-      if (prev.some(c => c.chNum === chNum)) return prev;
-      return [...prev, { chNum, verses: chVerses, meta: chData.meta, ...userData }].sort((a, b) => a.chNum - b.chNum);
-    });
-  }, [book, bookInfo, bibleTranslation, getChapterFromCache, fetchTranslatedVerses, loadUserDataForChapter]);
-
-  // Initialize continuous reading when loadChapter finishes (bookCache populated)
-  useEffect(() => {
-    if (view !== "verses" || loading || !book || !chapter || !bookInfo) return;
-    // Re-init when book changes
-    if (initBookRef.current !== book) {
-      initBookRef.current = book;
-      loadedSetRef.current = new Set();
-      chapterHeaderRefs.current = {};
-      setChaptersData([]);
-      setVisibleChNum(chapter);
-      appendChapter(chapter);
-      return;
-    }
-    // Re-init if chapter jumped outside rendered range (e.g., GoToBar → VerseStudy → back)
-    if (loadedSetRef.current.size > 0 && !loadedSetRef.current.has(chapter)) {
-      loadedSetRef.current = new Set();
-      chapterHeaderRefs.current = {};
-      setChaptersData([]);
-      setVisibleChNum(chapter);
-      appendChapter(chapter);
-      return;
-    }
-    // First init (no chapters loaded yet)
-    if (loadedSetRef.current.size === 0) {
-      initBookRef.current = book;
-      setVisibleChNum(chapter);
-      appendChapter(chapter);
-    }
-  }, [view, loading, book, chapter, bookInfo]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Reset when translation changes (re-overlay all chapters)
-  const prevTransRef = useRef(bibleTranslation);
-  useEffect(() => {
-    if (prevTransRef.current === bibleTranslation) return;
-    prevTransRef.current = bibleTranslation;
-    if (view !== "verses" || !book) return;
-    initBookRef.current = null; // force re-init
-    loadedSetRef.current = new Set();
-    setChaptersData([]);
-    appendChapter(chapter);
-  }, [bibleTranslation]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // IntersectionObserver: load next chapter when bottom sentinel is near viewport
-  useEffect(() => {
-    if (view !== "verses" || chaptersData.length === 0) return;
-    const sentinel = bottomSentinelRef.current;
-    if (!sentinel) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        const lastCh = Math.max(...chaptersData.map(c => c.chNum));
-        if (lastCh < (bookInfo?.chapters || 0)) {
-          appendChapter(lastCh + 1);
-        }
-      }
-    }, { rootMargin: "600px" });
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, [view, chaptersData, bookInfo, appendChapter]);
-
-  // IntersectionObserver: track which chapter header is visible (for dynamic title)
-  useEffect(() => {
-    if (view !== "verses" || chaptersData.length === 0) return;
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const ch = parseInt(entry.target.dataset.chapter);
-          if (ch && !isNaN(ch)) setVisibleChNum(ch);
-        }
-      });
-    }, { rootMargin: "-20% 0px -75% 0px" });
-    const refs = chapterHeaderRefs.current;
-    Object.values(refs).forEach(el => { if (el) observer.observe(el); });
-    return () => observer.disconnect();
-  }, [view, chaptersData]);
-
-  // ── Karaoke text renderer (word-level highlighting for HD audio) ──
-  const renderVerseText = (text, verseNum, style) => {
-    const isKaraoke = audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verseNum;
-    if (!isKaraoke || isRtl) {
-      return <div style={style}>{text}</div>;
-    }
-    // Split text into words and highlight the current word
-    const words = text.split(/(\s+)/);
-    let wordIdx = 0;
-    return (
-      <div style={style}>
-        {words.map((w, i) => {
-          if (/^\s+$/.test(w)) return <span key={i}>{w}</span>;
-          const isActive = audioCurrentWord.verseWordIdx === wordIdx;
-          wordIdx++;
-          return (
-            <span key={i} style={isActive ? {
-              background: `${t.accent}30`,
-              borderRadius: 3,
-              padding: "1px 2px",
-              margin: "-1px -2px",
-              animation: "wordGlow 0.3s ease",
-            } : undefined}>{w}</span>
-          );
-        })}
-      </div>
-    );
-  };
+  const {
+    verseRefs,
+    autoScrollEnabled,
+    setAutoScrollEnabled,
+    chaptersData,
+    visibleChNum,
+    bottomSentinelRef,
+    chapterHeaderRefs,
+    renderVerseText,
+  } = useBibleVerseListState({
+    view,
+    loading,
+    book,
+    chapter,
+    bookInfo,
+    bibleTranslation,
+    getChapterFromCache,
+    fetchTranslatedVerses,
+    loadUserDataForChapter,
+    audioPlaying,
+    audioSource,
+    audioCurrentVerse,
+    audioCurrentWord,
+    isRtl,
+    t,
+  });
+  const {
+    showColors,
+    similarOpen,
+    similarVerses,
+    similarLoading,
+    vWords,
+    vRefs,
+    outline,
+    canPrev,
+    canNext,
+    tabOptions,
+    toggleOverview,
+    toggleHighlightPicker,
+    goPrevVerse,
+    goNextVerse,
+    openVersePrayer,
+    toggleSimilarOpen,
+  } = useBibleVerseStudyState({
+    view,
+    book,
+    chapter,
+    verse,
+    chapterMeta,
+    wordStudies,
+    crossRefs,
+    verseNums,
+    user,
+    isEnglishTrans,
+    isOT,
+    setVerse,
+    setTab,
+    setOverviewOpen,
+    setPrayerTitle,
+    setPrayerText,
+    setPrayerModal,
+  });
 
   const VerseList = () => {
     const bookDisplayName = getBookName(book, bibleTranslation);
     if (loading && chaptersData.length === 0) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${bookDisplayName}`} subtitle="Loading..." onBack={goBack} showFontSize hideUser hidePrayer /><Spinner t={t} /></div>;
-    if (!loading && chaptersData.length === 0) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${bookDisplayName}`} onBack={goBack} showFontSize hideUser hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
+    if (!loading && chaptersData.length === 0) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={`${bookDisplayName}`} onBack={goBack} showFontSize hideUser hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>No verses loaded</div></div></div>;
 
     const isListeningHere = audioPlaying && audioSource === "verseList";
     const totalChapters = bookInfo?.chapters || 1;
@@ -502,7 +139,7 @@ export default function BibleView() {
             return (
               <div key={chNum} style={{ marginBottom: 24 }}>
 
-                {/* ── Chapter Header Card ── */}
+                {/* ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ Chapter Header Card ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ */}
                 <div
                   ref={el => { chapterHeaderRefs.current[chNum] = el; }}
                   data-chapter={chNum}
@@ -522,12 +159,12 @@ export default function BibleView() {
                   )}
                   <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8 }}>
                     <div style={{ width:28, height:1, background:t.accentBorder }} />
-                    <span style={{ fontSize:10, color:t.accent }}>✦</span>
+                    <span style={{ fontSize:10, color:t.accent }}>ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“Ãƒâ€šÃ‚Â¦</span>
                     <div style={{ width:28, height:1, background:t.accentBorder }} />
                   </div>
                 </div>
 
-                {/* ── Verses Card ── */}
+                {/* ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ Verses Card ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ */}
                 {chVerses.length > 0 && (
                   <div style={{background:t.card,borderRadius:14,border:`1px solid ${t.divider}`,overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
                     {chVerses.map((v, vi) => {
@@ -565,8 +202,8 @@ export default function BibleView() {
                           </div>
                           {(isBookmarked || hasNote || communityCount > 0) && (
                             <div style={{display:"flex",alignItems:"center",gap:4,flexShrink:0,alignSelf:"flex-start",marginTop:2}}>
-                              {isBookmarked && <span style={{fontSize:12,color:"#FFD700"}}>★</span>}
-                              {hasNote && <span style={{fontSize:11,color:t.muted}}>✏️</span>}
+                              {isBookmarked && <span style={{fontSize:12,color:"#FFD700"}}>ÃƒÆ’Ã‚Â¢Ãƒâ€¹Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦</span>}
+                              {hasNote && <span style={{fontSize:11,color:t.muted}}>ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â</span>}
                               {communityCount > 0 && <span style={{fontFamily:t.ui,fontSize:9,color:t.accent,fontWeight:700,background:`${t.accent}12`,borderRadius:4,padding:"1px 4px"}}>{communityCount}</span>}
                             </div>
                           )}
@@ -576,7 +213,7 @@ export default function BibleView() {
                   </div>
                 )}
 
-                {/* ── Between-Chapter Action Strip ── */}
+                {/* ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ Between-Chapter Action Strip ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ */}
                 <div style={{ marginTop:16, display:"flex", flexDirection:"column", gap:10 }}>
                   {/* Mark as Read */}
                   <button
@@ -597,7 +234,7 @@ export default function BibleView() {
                     </span>
                   </button>
 
-                  {/* Quiz Hero CTA — only for books with quiz data */}
+                  {/* Quiz Hero CTA ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â only for books with quiz data */}
                   {QUIZ_BOOKS.includes(book) && <button
                     onClick={() => nav("quiz-intro",{book,chapter:chNum})}
                     style={{
@@ -612,7 +249,7 @@ export default function BibleView() {
                     {/* Shimmer overlay */}
                     <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:"linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.08) 50%,transparent 100%)",backgroundSize:"200% 100%",animation:"scanLine 3s linear infinite",pointerEvents:"none"}} />
                     <div style={{ position:"relative", display:"flex", alignItems:"center", gap:12 }}>
-                      <div style={{ fontSize:28, flexShrink:0 }}>🎯</div>
+                      <div style={{ fontSize:28, flexShrink:0 }}>ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸Ãƒâ€¦Ã‚Â½Ãƒâ€šÃ‚Â¯</div>
                       <div style={{ flex:1 }}>
                         <div style={{ fontFamily:t.ui, fontSize:10, fontWeight:700, color:"rgba(255,255,255,0.7)", textTransform:"uppercase", letterSpacing:"0.14em", marginBottom:3 }}>
                           TEST YOUR KNOWLEDGE
@@ -635,10 +272,10 @@ export default function BibleView() {
             );
           })}
 
-          {/* ── Bottom Sentinel (triggers next chapter load) ── */}
+          {/* ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ Bottom Sentinel (triggers next chapter load) ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ */}
           <div ref={bottomSentinelRef} style={{ height:1 }} />
 
-          {/* ── Loading More Indicator ── */}
+          {/* ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ Loading More Indicator ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ */}
           {(chaptersData.length > 0 && chaptersData[chaptersData.length - 1].chNum < totalChapters) && (
             <div style={{ textAlign:"center", padding:"20px 0" }}>
               <Spinner t={t} />
@@ -646,15 +283,15 @@ export default function BibleView() {
             </div>
           )}
 
-          {/* ── End of Book ── */}
+          {/* ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ End of Book ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ */}
           {chaptersData.length > 0 && chaptersData[chaptersData.length - 1].chNum >= totalChapters && (
             <div style={{ textAlign:"center", padding:"32px 20px", margin:"8px 0" }}>
-              <div style={{ fontSize:32, marginBottom:8 }}>📖</div>
+              <div style={{ fontSize:32, marginBottom:8 }}>ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“</div>
               <div style={{ fontFamily:t.heading, fontSize:16, fontWeight:700, color:t.dark, marginBottom:4 }}>
                 End of {bookDisplayName}
               </div>
               <div style={{ fontFamily:t.ui, fontSize:12, color:t.muted }}>
-                {totalChapters} chapters · You made it!
+                {totalChapters} chapters ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· You made it!
               </div>
             </div>
           )}
@@ -683,340 +320,96 @@ export default function BibleView() {
     );
   };
 
-  // ═══ VERSE STUDY ═══
+  // ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢Ãƒâ€šÃ‚Â VERSE STUDY ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢Ãƒâ€šÃ‚Â
   const VerseStudy = () => {
     const bookDisplayName = getBookName(book, bibleTranslation);
     if (loading) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><Spinner t={t} /><div style={{textAlign:"center",fontFamily:t.ui,fontSize:15,color:t.muted}}>Loading...</div></div>;
-    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>📖</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
-
-    const vWords = wordStudies[String(verse)] || [];
-    const vRefs = crossRefs[String(verse)] || [];
-    const outline = chapterMeta?.outline ? JSON.parse(chapterMeta.outline) : [];
+    if (!currentVerse) return <div style={{minHeight:"100vh",background:t.bg}}><Header title={bookDisplayName} onBack={goBack} hidePrayer /><div style={{textAlign:"center",padding:40}}><div style={{fontSize:48,marginBottom:16}}>ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“</div><div style={{fontFamily:t.heading,fontSize:18,color:t.dark}}>Loading...</div></div></div>;
 
     return (
       <div style={{ minHeight:"100vh",background:t.bg }}>
         <Header title={bookDisplayName} onBack={goBack} hidePrayer />
         <div style={{ maxWidth:bp.contentWide,margin:"0 auto",padding:`0 ${bp.pad}px ${audioVisible?68:40}px` }}>
-          {isEnglishTrans && chapterMeta?.overview && (
-            <div style={{margin:"14px 0"}}>
-              <button
-                onClick={() => setOverviewOpen(o => !o)}
-                style={{ width:"100%",display:"flex",alignItems:"center",gap:10,padding:"11px 16px",background:overviewOpen?t.accentLight:t.card,border:`1px solid ${overviewOpen?t.accentBorder:t.divider}`,borderRadius:overviewOpen?"12px 12px 0 0":12,cursor:"pointer",textAlign:"left",transition:"all 0.2s" }}>
-                <span style={{fontSize:16,flexShrink:0}}>📋</span>
-                <div style={{flex:1}}>
-                  <span style={{fontFamily:t.heading,fontSize:14,fontWeight:700,color:t.dark}}>Chapter {chapter} Overview</span>
-                  {!overviewOpen && chapterMeta.key_word_original && <span style={{fontFamily:t.ui,fontSize:11,color:t.muted,marginLeft:8}}>· {chapterMeta.key_word_original}</span>}
-                </div>
-                <span style={{fontFamily:t.ui,fontSize:12,color:t.muted,transform:overviewOpen?"rotate(180deg)":"rotate(0deg)",transition:"transform 0.2s"}}>▾</span>
-              </button>
-              {overviewOpen && (
-                <div style={{background:t.accentLight,border:`1px solid ${t.accentBorder}`,borderTop:"none",borderRadius:"0 0 12px 12px",padding:"14px 16px"}}>
-                  <div style={{fontFamily:t.body,fontSize:14.5,color:t.text,lineHeight:1.65,marginBottom:chapterMeta.key_word_original||outline.length?12:0}}>{chapterMeta.overview}</div>
-                  {chapterMeta.key_word_original && <div style={{padding:"8px 12px",background:"rgba(255,255,255,0.6)",borderRadius:8,display:"flex",alignItems:"center",gap:8,flexWrap:"wrap",marginBottom:outline.length?10:0}}><Badge t={t}>Key Word</Badge><span style={{fontFamily:t.body,fontSize:14,color:t.dark,fontStyle:"italic"}}>{chapterMeta.key_word_original}</span><span style={{fontFamily:t.ui,fontSize:12,color:t.muted}}>— {chapterMeta.key_word_meaning}</span></div>}
-                  {outline.length > 0 && <div><div style={{fontFamily:t.ui,fontSize:10,fontWeight:700,color:t.accent,textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:6}}>Outline</div>{outline.map((o,i) => <div key={i} style={{fontFamily:t.ui,fontSize:13,color:t.text,lineHeight:1.7,paddingLeft:12,borderLeft:`2px solid ${t.accentBorder}`,marginBottom:4}}>{o}</div>)}</div>}
-                </div>
-              )}
-            </div>
-          )}
+          <VerseOverviewCard
+            t={t}
+            chapter={chapter}
+            chapterMeta={chapterMeta}
+            overviewOpen={overviewOpen}
+            outline={outline}
+            toggleOverview={toggleOverview}
+          />
 
-  
+          <VerseTextCard
+            t={t}
+            darkMode={darkMode}
+            highlight={highlight}
+            audioPlaying={audioPlaying}
+            audioAvailable={audioAvailable}
+            setAudioPlaying={setAudioPlaying}
+            setAudioSource={setAudioSource}
+            setAudioVisible={setAudioVisible}
+            verseTextLabel={bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}
+            FS={FS}
+            fontSize={fontSize}
+            rtlStyle={rtlStyle}
+            isRtl={isRtl}
+            verse={verse}
+            audioCurrentWord={audioCurrentWord}
+            currentVerse={currentVerse}
+            canPrev={canPrev}
+            canNext={canNext}
+            verseCount={verseNums.length}
+            goPrevVerse={goPrevVerse}
+            goNextVerse={goNextVerse}
+            user={user}
+            hasVerseId={hasVerseId}
+            showColors={showColors}
+            toggleHighlightPicker={toggleHighlightPicker}
+            toggleBookmarkHL={toggleBookmarkHL}
+            tab={tab}
+            setTab={setTab}
+            openVersePrayer={openVersePrayer}
+            shareCopied={shareCopied}
+            copyVerseText={copyVerseText}
+            shareVerseImage={shareVerseImage}
+            toggleHighlight={toggleHighlight}
+          />
 
-          {/* KJV Text Card */}
-          <div style={{
-            margin:"12px 0 14px",position:"relative",borderRadius:16,padding:"22px 22px 18px",
-            background:highlight?.highlight_color ? `${highlight.highlight_color}15` : `linear-gradient(170deg, ${t.bg}, ${t.card} 40%, ${t.bg} 100%)`,
-            border:`1.5px solid ${audioPlaying ? t.accent : highlight?.highlight_color ? `${highlight.highlight_color}40` : t.divider}`,
-            borderTop:`3px solid ${highlight?.highlight_color || t.accent}`,
-            boxShadow:`inset 0 1px 2px rgba(255,255,255,${darkMode?0.02:0.3}), 0 2px 8px rgba(0,0,0,${darkMode?0.25:0.06})`,
-            transition:"background 0.3s,border-color 0.3s",overflow:"hidden",
-          }}>
-            {/* Decorative quote mark watermark */}
-            <div style={{position:"absolute",top:2,right:14,fontSize:90,color:`${t.accent}07`,fontFamily:t.heading,lineHeight:1,pointerEvents:"none",userSelect:"none",zIndex:0}}>❝</div>
-            <div style={{position:"relative",zIndex:1,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-              <Label icon="📖" t={t}>{bibleTranslation === "kjv" ? "KJV Text" : currentTransDef?.name || "Verse Text"}</Label>
-              {audioAvailable && <button
-                onClick={() => { if (audioPlaying) { setAudioPlaying(false); } else { setAudioSource("verseStudy"); setAudioVisible(true); setAudioPlaying(true); } }}
-                title={audioPlaying ? "Pause" : "Listen to this verse"}
-                style={{ display:"flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:16,border:`1px solid ${audioPlaying?t.accent:t.accentBorder}`,background:audioPlaying?`${t.accent}15`:"transparent",color:audioPlaying?t.accent:t.muted,cursor:"pointer",transition:"all 0.15s",fontFamily:t.ui,fontSize:11,fontWeight:600 }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                  {audioPlaying && <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>}
-                </svg>
-                {audioPlaying ? "Playing" : "Listen"}
-              </button>}
-            </div>
+          <VerseStudyTabs t={t} tabOptions={tabOptions} tab={tab} setTab={setTab} />
 
-            {/* Verse text */}
-            <div style={{fontFamily:t.body,fontSize:FS[fontSize].detail,color:t.dark,lineHeight:2.0,padding:"12px 0 16px",...rtlStyle}}>
-              <span style={{fontSize:"clamp(28px,8vw,36px)",fontWeight:800,color:t.accent,float:isRtl?"right":"left",lineHeight:0.85,marginRight:isRtl?0:10,marginLeft:isRtl?10:0,marginTop:2,fontFamily:t.heading,textShadow:`0 0 20px ${t.accent}45`}}>{verse}</span>
-              {audioPlaying && audioCurrentWord && audioCurrentWord.verseNum === verse && !isRtl
-                ? (() => { const words = currentVerse.kjv_text.split(/(\s+)/); let wIdx = 0; return words.map((w, i) => {
-                    if (/^\s+$/.test(w)) return <span key={i}>{w}</span>;
-                    const isActive = audioCurrentWord.verseWordIdx === wIdx; wIdx++;
-                    return <span key={i} style={isActive ? { background:`${t.accent}30`, borderRadius:3, padding:"1px 2px", margin:"-1px -2px", animation:"wordGlow 0.3s ease" } : undefined}>{w}</span>;
-                  }); })()
-                : currentVerse.kjv_text
-              }
-            </div>
+          <VerseStudyPanels
+            t={t}
+            tab={tab}
+            isEnglishTrans={isEnglishTrans}
+            currentVerse={currentVerse}
+            isOT={isOT}
+            vWords={vWords}
+            vRefs={vRefs}
+            user={user}
+            noteRef={noteRef}
+            userNote={userNote}
+            noteLoading={noteLoading}
+            saveNote={saveNote}
+            savedNote={savedNote}
+            toggleNotePublic={toggleNotePublic}
+            deleteNote={deleteNote}
+            book={book}
+            chapter={chapter}
+            verse={verse}
+            openVersePrayer={openVersePrayer}
+            communityNotes={communityNotes}
+            nav={nav}
+          />
 
-            {/* Prev / Next navigation */}
-            {(() => { const idx = verseNums.indexOf(verse); const canPrev = idx > 0; const canNext = idx < verseNums.length - 1; return (
-            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6}}>
-              <button onClick={() => {if(canPrev){setVerse(verseNums[idx-1]);setTab("study")}}} disabled={!canPrev}
-                style={{padding:"5px 10px",borderRadius:16,border:`1px solid ${canPrev?t.accentBorder:"transparent"}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canPrev?t.accent:t.light,cursor:canPrev?"pointer":"default",opacity:canPrev?1:0.35,transition:"all 0.2s"}}>
-                ‹ Prev
-              </button>
-              <span style={{fontFamily:t.ui,fontSize:11,color:t.muted}}>{verse} of {verseNums.length}</span>
-              <button onClick={() => {if(canNext){setVerse(verseNums[idx+1]);setTab("study")}}} disabled={!canNext}
-                style={{padding:"5px 10px",borderRadius:16,border:`1px solid ${canNext?t.accentBorder:"transparent"}`,background:"transparent",fontFamily:t.ui,fontSize:11,fontWeight:700,color:canNext?t.accent:t.light,cursor:canNext?"pointer":"default",opacity:canNext?1:0.35,transition:"all 0.2s"}}>
-                Next ›
-              </button>
-            </div>
-            ); })()}
-
-            {/* Always-visible action bar */}
-            {user && (
-              <div style={{borderRadius:10,padding:"8px 4px",marginTop:8,background:`${t.accent}0A`,border:`1px solid ${t.accentBorder}`}}>
-                {!hasVerseId && <div style={{fontFamily:t.ui,fontSize:10,color:t.muted,textAlign:"center",padding:"4px 0 2px"}}>Highlight, bookmark &amp; notes available for seeded chapters</div>}
-                <div style={{display:"flex",alignItems:"center",justifyContent:"space-evenly"}}>
-                  {[
-                    { label:"Highlight", active:showColors && hasVerseId, onClick:() => setShowColors(c => !c),
-                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg>,
-                      svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg> },
-                    { label:"Bookmark", active:highlight?.is_bookmarked, onClick:toggleBookmarkHL, activeColor:"#ffd700",
-                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
-                      svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="#ffd700" stroke="#ffd700" strokeWidth="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> },
-                    { label:"Note", active:tab === "my", onClick:() => setTab("my"),
-                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> },
-                    { label:"Pray", onClick:() => { setPrayerTitle(`${book} ${chapter}:${verse}`); setPrayerText(""); setPrayerModal(true); },
-                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21C12 21 8 16.5 5 12.5C3 9.5 4 6 7 5C9 4.2 11 5 12 7C13 5 15 4.2 17 5C20 6 21 9.5 19 12.5C16 16.5 12 21 12 21Z"/></svg> },
-                    { label:shareCopied?"Copied":"Copy", active:shareCopied, onClick:copyVerseText, activeColor:"#22c55e",
-                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>,
-                      svgActive:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg> },
-                    { label:"Share", onClick:shareVerseImage,
-                      svg:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> },
-                  ].map((a,i) => {
-                    const needsVerse = i < 3; // Highlight, Bookmark, Note need Supabase verse ID
-                    const dimmed = needsVerse && !hasVerseId;
-                    return (
-                    <button key={i} onClick={dimmed ? undefined : a.onClick} aria-label={a.label} disabled={dimmed}
-                      style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:3,minWidth:44,padding:"5px 4px",borderRadius:8,border:"none",background:a.active && !dimmed?`${a.activeColor||t.accent}15`:"transparent",color:a.active && !dimmed?(a.activeColor||t.accent):t.muted,cursor:dimmed?"default":"pointer",transition:"all 0.15s",opacity:dimmed?0.35:1}}>
-                      {a.active && a.svgActive ? a.svgActive : a.svg}
-                      <span style={{fontFamily:t.ui,fontSize:8,fontWeight:600,lineHeight:1,letterSpacing:"0.02em"}}>{a.label}</span>
-                    </button>
-                  );})}
-                </div>
-
-                {/* Highlight color picker — expands below */}
-                {showColors && (
-                  <div style={{display:"flex",gap:7,paddingTop:8,animation:"fadeIn 0.15s ease",alignItems:"center",justifyContent:"center"}}>
-                    {HIGHLIGHT_COLORS.map(c => <button key={c} onClick={() => toggleHighlight(c)} aria-label={({["#FFD700"]:"Gold",["#FF9B71"]:"Coral",["#7ED4AD"]:"Green",["#82B1FF"]:"Blue",["#CE93D8"]:"Purple",["#F48FB1"]:"Pink"})[c] + " highlight"} style={{width:26,height:26,borderRadius:"50%",background:c,border:highlight?.highlight_color===c?`3px solid ${t.dark}`:`2px solid ${c}88`,cursor:"pointer",transition:"all 0.15s",transform:highlight?.highlight_color===c?"scale(1.15)":"scale(1)"}} />)}
-                    {highlight?.highlight_color && <button onClick={() => toggleHighlight(highlight.highlight_color)} style={{fontFamily:t.ui,fontSize:10,color:t.muted,background:"none",border:"none",cursor:"pointer",textDecoration:"underline",marginLeft:4}}>Clear</button>}
-                  </div>
-                )}
-              </div>
-            )}
-
-          </div>
-
-          {/* Tabs */}
-          <div style={{ display:"flex",background:t.card,borderRadius:10,padding:3,marginBottom:14,border:`1px solid ${t.divider}`,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none" }}>
-            {[
-              ...(isEnglishTrans ? [{id:"study",label:"Study Notes"}] : []),
-              {id:"original",label:isOT?"Hebrew":"Greek"},
-              {id:"cross",label:`Cross-Refs${vRefs.length?` (${vRefs.length})`:""}`},
-              ...(user ? [{id:"my",label:"My Notes"}] : [])
-            ].map(tb => (
-              <button key={tb.id} onClick={() => setTab(tb.id)} style={{ flex:"0 0 auto",minWidth:80,padding:"10px 8px",border:"none",borderRadius:8,background:tab===tb.id?t.tabActive:"transparent",color:tab===tb.id?t.headerText:t.muted,fontFamily:t.ui,fontSize:12,fontWeight:700,cursor:"pointer",transition:"all 0.15s",whiteSpace:"nowrap" }}>{tb.label}</button>
-            ))}
-          </div>
-
-          {/* Study Notes Tab — English translations only */}
-          {isEnglishTrans && tab === "study" && <div style={{display:"flex",flexDirection:"column",gap:12}}>
-            {currentVerse.study_note && <Card t={t}><Label icon="📝" t={t}>Study Note</Label><div style={{fontFamily:t.body,fontSize:15,color:t.text,lineHeight:1.75}}>{currentVerse.study_note}</div></Card>}
-            {currentVerse.doctrinal_note && <Card accent t={t}><Label icon="⛪" t={t} color={t.dark}>Doctrinal Note</Label><div style={{fontFamily:t.body,fontSize:14.5,color:t.text,lineHeight:1.7,fontStyle:"italic"}}>{currentVerse.doctrinal_note}</div></Card>}
-            {!currentVerse.study_note && !currentVerse.doctrinal_note && <Card t={t}><div style={{fontFamily:t.ui,fontSize:14,color:t.muted,textAlign:"center",padding:16}}>Study notes coming soon.</div></Card>}
-          </div>}
-
-          {/* Hebrew/Greek Tab */}
-          {tab === "original" && <div style={{display:"flex",flexDirection:"column",gap:12}}>
-            {currentVerse.original_text && <Card t={t}><Label icon="🕎" t={t}>{isOT?"Hebrew Text":"Greek Text"}</Label>
-              <div style={{fontFamily:"'Times New Roman',serif",fontSize:isOT?24:19,color:t.dark,lineHeight:2,direction:isOT?"rtl":"ltr",textAlign:isOT?"right":"left",padding:"14px 18px",background:t.hebrewBg,borderRadius:10,marginBottom:10}}>{currentVerse.original_text}</div>
-              {currentVerse.transliteration && <div style={{fontFamily:t.body,fontSize:14,color:t.muted,fontStyle:"italic",lineHeight:1.6}}><span style={{fontWeight:700,fontStyle:"normal",fontSize:10,textTransform:"uppercase",letterSpacing:"0.05em",fontFamily:t.ui}}>Transliteration: </span>{currentVerse.transliteration}</div>}
-            </Card>}
-            {vWords.length > 0 && <Card t={t}><Label icon="🔍" t={t}>Word Study</Label><div style={{display:"flex",flexDirection:"column",gap:9}}>
-              {vWords.map((w,i) => <div key={i} style={{padding:"12px 14px",borderRadius:10,background:t.accentLight,border:`1px solid ${t.accentBorder}`}}>
-                <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:5,flexWrap:"wrap"}}>
-                  <span style={{fontFamily:"'Times New Roman',serif",fontSize:isOT?20:16,color:t.accent,fontWeight:700,direction:isOT?"rtl":"ltr"}}>{w.original_word}</span>
-                  <span style={{fontFamily:t.body,fontSize:13,color:t.muted,fontStyle:"italic"}}>({w.transliteration})</span>
-                  <span style={{background:t.accentLight,border:`1px solid ${t.accentBorder}`,padding:"2px 7px",borderRadius:4,fontFamily:"monospace",fontSize:10.5,color:t.muted}}>{w.strongs_number}</span>
-                </div>
-                <div style={{fontFamily:t.ui,fontSize:13.5,color:t.text,lineHeight:1.6}}>{w.meaning}</div>
-              </div>)}
-            </div></Card>}
-          </div>}
-
-          {/* Cross-Refs Tab */}
-          {tab === "cross" && <Card t={t}><Label icon="🔗" t={t}>Cross References</Label>
-            {vRefs.length > 0 ? <div style={{display:"flex",flexWrap:"wrap",gap:7}}>{vRefs.map((r,i) => <span key={i} style={{background:t.accentLight,border:`1px solid ${t.accentBorder}`,borderRadius:8,padding:"8px 13px",fontFamily:t.ui,fontSize:13.5,color:t.dark,fontWeight:600}}>{r.reference}</span>)}</div>
-            : <div style={{fontFamily:t.ui,fontSize:14,color:t.muted,textAlign:"center",padding:16}}>Cross references coming soon.</div>}
-          </Card>}
-
-          {/* MY NOTES Tab */}
-          {tab === "my" && user && <div style={{display:"flex",flexDirection:"column",gap:12}}>
-            <Card t={t}>
-              <Label icon="✏️" t={t}>My Note on {book} {chapter}:{verse}</Label>
-              <textarea ref={noteRef} defaultValue={userNote} placeholder="Write your personal thoughts, reflections, or insights on this verse..." rows={4} style={{ width:"100%",padding:"12px 14px",borderRadius:10,border:`1px solid ${t.divider}`,fontFamily:t.body,fontSize:14,color:t.text,outline:"none",background:t.bg,resize:"vertical",lineHeight:1.7,boxSizing:"border-box" }} />
-              <div style={{ display:"flex",gap:8,marginTop:10,alignItems:"center",flexWrap:"wrap" }}>
-                <button onClick={saveNote} disabled={noteLoading} style={{ padding:"10px 20px",borderRadius:8,border:"none",background:t.accent,color:"#fff",fontFamily:t.ui,fontSize:13,fontWeight:700,cursor:"pointer" }}>{noteLoading ? "Saving..." : savedNote ? "Update Note" : "Save Note"}</button>
-                {savedNote && <>
-                  <button onClick={toggleNotePublic} style={{ padding:"8px 14px",borderRadius:8,border:`1px solid ${savedNote.is_public?'#7ED4AD':t.divider}`,background:savedNote.is_public?'#7ED4AD22':'transparent',fontFamily:t.ui,fontSize:12,fontWeight:600,color:savedNote.is_public?'#2E7D5B':t.muted,cursor:"pointer" }}>
-                    {savedNote.is_public ? "🌍 Shared" : "🔒 Private"} — tap to {savedNote.is_public ? "make private" : "share"}
-                  </button>
-                  <button aria-label="Delete note" onClick={async () => { if (confirm("Delete this note? This cannot be undone.")) await deleteNote(); }} disabled={noteLoading} style={{ padding:"8px 14px",borderRadius:8,border:`1px solid rgba(239,68,68,0.3)`,background:"transparent",fontFamily:t.ui,fontSize:12,fontWeight:600,color:"#ef4444",cursor:"pointer" }}>
-                    Delete
-                  </button>
-                </>}
-              </div>
-              {savedNote && <>
-                <div style={{fontFamily:t.ui,fontSize:10,color:t.light,marginTop:8}}>Last saved: {new Date(savedNote.updated_at).toLocaleString()}</div>
-                {savedNote.is_public && <div style={{fontFamily:t.ui,fontSize:10,color:t.light,marginTop:4}}>By sharing, you confirm this is your original content and does not contain copyrighted material.</div>}
-              </>}
-            </Card>
-
-            <button onClick={() => { setPrayerTitle(`Prayer for ${book} ${chapter}:${verse}`); setPrayerText(""); setPrayerModal(true); }} style={{ padding:"14px",borderRadius:12,border:`1px dashed ${t.accentBorder}`,background:t.accentLight,fontFamily:t.ui,fontSize:14,fontWeight:600,color:t.accent,cursor:"pointer",textAlign:"center" }}>
-              🙏 Add Prayer for This Verse
-            </button>
-
-            {communityNotes.length > 0 && <Card t={t}>
-              <Label icon="🌍" t={t} color={t.muted}>Community Notes</Label>
-              {communityNotes.map((cn,i) => <div key={i} style={{padding:"10px 12px",borderRadius:8,background:t.bg,marginBottom:6,border:`1px solid ${t.divider}`}}>
-                <div style={{fontFamily:t.ui,fontSize:11,fontWeight:700,color:t.accent,marginBottom:4}}>{cn.user_profiles?.display_name || "Reader"}</div>
-                <div style={{fontFamily:t.body,fontSize:13.5,color:t.text,lineHeight:1.65}}>{cn.note_text}</div>
-              </div>)}
-            </Card>}
-          </div>}
-
-          {/* Not logged in prompt for My Notes tab */}
-          {tab === "my" && !user && <Card t={t}>
-            <div style={{textAlign:"center",padding:20}}>
-              <div style={{fontSize:36,marginBottom:12}}>🔐</div>
-              <div style={{fontFamily:t.heading,fontSize:17,color:t.dark,marginBottom:6}}>Sign In to Add Notes</div>
-              <div style={{fontFamily:t.ui,fontSize:13,color:t.muted,marginBottom:14}}>Save personal notes, highlight verses, and keep a prayer journal.</div>
-              <button onClick={() => nav("account")} style={{padding:"12px 28px",borderRadius:10,border:"none",background:t.tabActive,color:t.headerText,fontFamily:t.ui,fontSize:14,fontWeight:700,cursor:"pointer"}}>Sign In / Sign Up</button>
-            </div>
-          </Card>}
-
-          {/* Similar Verses — collapsible card below tabs */}
-          <div style={{ marginTop: 14 }}>
-            <button
-              onClick={() => setSimilarOpen(o => !o)}
-              style={{
-                width: "100%", display: "flex", alignItems: "center", gap: 10,
-                padding: "11px 16px",
-                background: similarOpen ? t.accentLight : t.card,
-                border: `1px solid ${similarOpen ? t.accentBorder : t.divider}`,
-                borderRadius: similarOpen ? "12px 12px 0 0" : 12,
-                cursor: "pointer", textAlign: "left", transition: "all 0.2s",
-              }}>
-              <span style={{ fontSize: 16, flexShrink: 0 }}>&#x2728;</span>
-              <div style={{ flex: 1 }}>
-                <span style={{ fontFamily: t.heading, fontSize: 14, fontWeight: 700, color: t.dark }}>
-                  Similar Verses
-                </span>
-                {!similarOpen && similarVerses.length > 0 && (
-                  <span style={{ fontFamily: t.ui, fontSize: 11, color: t.muted, marginLeft: 8 }}>
-                    &middot; {similarVerses.length} found
-                  </span>
-                )}
-              </div>
-              <span style={{
-                fontFamily: t.ui, fontSize: 12, color: t.muted,
-                transform: similarOpen ? "rotate(180deg)" : "rotate(0deg)",
-                transition: "transform 0.2s",
-              }}>{"\u25BE"}</span>
-            </button>
-
-            {similarOpen && (
-              <div style={{
-                background: t.accentLight,
-                border: `1px solid ${t.accentBorder}`, borderTop: "none",
-                borderRadius: "0 0 12px 12px", padding: "10px 16px 14px",
-              }}>
-                {similarLoading && (
-                  <div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
-                    <div style={{
-                      width: 20, height: 20,
-                      border: `2px solid ${t.divider}`,
-                      borderTop: `2px solid ${t.accent}`,
-                      borderRadius: "50%", animation: "spin 0.8s linear infinite",
-                    }} />
-                  </div>
-                )}
-
-                {!similarLoading && similarVerses.length === 0 && (
-                  <div style={{ fontFamily: t.ui, fontSize: 13, color: t.muted, textAlign: "center", padding: 12 }}>
-                    No similar verses found for this passage.
-                  </div>
-                )}
-
-                {!similarLoading && similarVerses.map((sv, i) => {
-                  const parsed = parseVerseRef(sv.verse_ref);
-                  const simPct = Math.round(sv.similarity * 100);
-                  const displayRef = parsed
-                    ? `${getBookName(parsed.book, bibleTranslation)} ${parsed.chapter}:${parsed.verse}`
-                    : sv.verse_ref;
-                  const text = sv.kjv_text || "";
-                  const snippet = text.length > 120 ? text.slice(0, 120) + "..." : text;
-
-                  return (
-                    <button key={i} onClick={() => {
-                      if (parsed) {
-                        const tst = OT_BOOKS_LIST.includes(parsed.book) ? "OT" : "NT";
-                        nav("verse", { testament: tst, book: parsed.book, chapter: parsed.chapter, verse: parsed.verse });
-                      }
-                    }}
-                      className="pressable"
-                      style={{
-                        width: "100%", textAlign: "left", cursor: "pointer",
-                        background: t.card, border: `1px solid ${t.divider}`,
-                        borderRadius: 10, padding: "10px 14px", marginBottom: 6,
-                        display: "block", animation: `fadeIn 0.2s ease ${i * 0.05}s both`,
-                      }}>
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
-                        <span style={{ fontFamily: t.ui, fontSize: 12, fontWeight: 700, color: t.accent }}>
-                          {displayRef}
-                        </span>
-                        <span style={{
-                          fontFamily: t.ui, fontSize: 10, fontWeight: 600,
-                          color: simPct > 80 ? "#22c55e" : simPct > 65 ? t.accent : t.muted,
-                          background: `${simPct > 80 ? "#22c55e" : simPct > 65 ? t.accent : t.muted}15`,
-                          padding: "2px 8px", borderRadius: 10,
-                        }}>
-                          {simPct}% match
-                        </span>
-                      </div>
-                      <div style={{
-                        fontFamily: t.body, fontSize: 13, color: t.text,
-                        lineHeight: 1.6,
-                        display: "-webkit-box", WebkitLineClamp: 2,
-                        WebkitBoxOrient: "vertical", overflow: "hidden",
-                      }}>
-                        {snippet}
-                      </div>
-                    </button>
-                  );
-                })}
-
-                {!similarLoading && similarVerses.length > 0 && (
-                  <div style={{ fontFamily: t.ui, fontSize: 9, color: t.light, textAlign: "center", marginTop: 6 }}>
-                    AI-powered similarity &middot; Based on meaning, not keywords
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
+          <SimilarVersesPanel
+            t={t}
+            similarOpen={similarOpen}
+            toggleSimilarOpen={toggleSimilarOpen}
+            similarVerses={similarVerses}
+            similarLoading={similarLoading}
+            nav={nav}
+            bibleTranslation={bibleTranslation}
+          />
 
         </div>
       </div>
@@ -1025,7 +418,7 @@ export default function BibleView() {
 
 
   // Render inner views as function calls (not <Component />) to prevent
-  // unmount/remount on every parent re-render — inner functions get new
+  // unmount/remount on every parent re-render ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â inner functions get new
   // references each render, which React treats as different component types.
   const content = view === "books" ? Books()
     : view === "chapter" ? Chapters()
@@ -1040,3 +433,5 @@ export default function BibleView() {
     </>
   );
 }
+
+

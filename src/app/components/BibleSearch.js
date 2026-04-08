@@ -12,7 +12,7 @@ function parseVerseRef(ref) {
 }
 
 export default function BibleSearch({ nav, ht }) {
-  const { bibleTranslation } = useApp();
+  const { bibleTranslation, requireAuth } = useApp();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -22,6 +22,7 @@ export default function BibleSearch({ nav, ht }) {
   const [semanticResults, setSemanticResults] = useState([]);
   const [semanticSearched, setSemanticSearched] = useState(false);
   const [podcastResults, setPodcastResults] = useState([]);
+  const [semanticError, setSemanticError] = useState("");
   const debounceRef = useRef(null);
 
   // ── Keyword search (existing) ──────────────────────────────
@@ -67,25 +68,34 @@ export default function BibleSearch({ nav, ht }) {
 
   // ── Semantic search (new) ──────────────────────────────────
   const doSemanticSearch = useCallback(async (q) => {
-    if (!q || q.trim().length < 3) { setSemanticResults([]); setSemanticSearched(false); return; }
+    if (!q || q.trim().length < 3) { setSemanticResults([]); setSemanticSearched(false); setSemanticError(""); return; }
+    if (!requireAuth()) return;
     setLoading(true);
     setSemanticSearched(true);
+    setSemanticError("");
     try {
+      const session = await supabase.auth.getSession();
+      const token = session.data.session?.access_token;
       const res = await fetch("/api/semantic-search", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
         body: JSON.stringify({ query: q.trim(), include_podcasts: true }),
       });
+      if (res.status === 401) throw new Error("Sign in required for semantic Bible search");
       if (!res.ok) throw new Error("Search failed");
       const data = await res.json();
       setSemanticResults(data.results || []);
       setPodcastResults(data.podcasts || []);
-    } catch {
+    } catch (error) {
       setSemanticResults([]);
       setPodcastResults([]);
+      setSemanticError(error.message || "Search failed");
     }
     setLoading(false);
-  }, []);
+  }, [requireAuth]);
 
   const handleInput = (val) => {
     setQuery(val);
@@ -109,6 +119,7 @@ export default function BibleSearch({ nav, ht }) {
     setResults([]);
     setSemanticResults([]);
     setPodcastResults([]);
+    setSemanticError("");
     setSearched(false);
     setSemanticSearched(false);
     // Re-trigger search if there's a query
@@ -185,7 +196,7 @@ export default function BibleSearch({ nav, ht }) {
         <div style={{ display: "flex", gap: 6, marginTop: 10 }}>
           {[
             { id: "keyword", label: "Keyword", icon: "Aa" },
-            { id: "smart", label: "Smart Search", icon: "\u2726" },
+            { id: "smart", label: "Semantic Search", icon: "\u2726" },
           ].map(m => (
             <button key={m.id} onClick={() => handleModeChange(m.id)}
               style={{
@@ -223,13 +234,19 @@ export default function BibleSearch({ nav, ht }) {
         {/* Smart search hint */}
         {isSmart && (
           <div style={{ fontFamily: ht.ui, fontSize: 10, color: "rgba(255,255,255,0.4)", marginTop: 6, textAlign: "center" }}>
-            Searches by meaning, not just keywords
+            Sign in to search by meaning, not just keywords
           </div>
         )}
       </div>
 
       {/* Results */}
       <div style={{ padding: "16px 16px 40px" }}>
+        {!loading && semanticError && isSmart && (
+          <div style={{ fontFamily: ht.ui, fontSize: 12, color: "#E8625C", marginBottom: 12 }}>
+            {semanticError}
+          </div>
+        )}
+
         {loading && (
           <div style={{ display: "flex", justifyContent: "center", padding: 40 }}>
             <div style={{ width: 28, height: 28, border: `3px solid ${ht.divider}`, borderTop: `3px solid ${ht.accent}`, borderRadius: "50%", animation: "spin 0.8s linear infinite" }}/>
@@ -272,7 +289,7 @@ export default function BibleSearch({ nav, ht }) {
             <div style={{ fontSize: 36, marginBottom: 12 }}>{"\u2728"}</div>
             <div style={{ fontFamily: ht.heading, fontSize: 17, color: ht.dark, marginBottom: 6 }}>Search by Meaning</div>
             <div style={{ fontFamily: ht.ui, fontSize: 13, color: ht.muted, lineHeight: 1.8 }}>
-              Ask a question or describe a topic
+              Sign in, then ask a question or describe a topic
               <br/>
               <span style={{ color: ht.accent, fontStyle: "italic" }}>e.g. "forgiveness of sins" · "dealing with anxiety" · "God's promises"</span>
             </div>

@@ -50,6 +50,9 @@ audio-test/
 # Gemini TTS voice audition samples
 audition-samples/
 
+# Compressed audio for R2 upload
+audio-compressed/
+
 # Google Cloud service account key
 google-tts-key.json
 
