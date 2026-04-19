@@ -1,0 +1,583 @@
+-- ═══════════════════════════════════════════════════════
+-- LEVITICUS CHAPTER 26 — The Covenant of Blessings and Curses: Obedience, Disobedience, and Restoration
+-- 46 verses · Original text · Word studies · Cross-refs
+-- ═══════════════════════════════════════════════════════
+
+-- Step 1: Insert chapter metadata
+INSERT INTO chapters (book_id, chapter_number, overview, theme, key_word_original, key_word_meaning, outline)
+SELECT b.id, 26,
+  'Leviticus 26 is a pivotal chapter, serving as the ''blessings and curses'' section of the Mosaic covenant, outlining the consequences of Israel''s obedience or disobedience to God''s laws. It begins by reiterating fundamental commands against idolatry and for Sabbath observance, then details abundant blessings—rain, harvest, peace, security, and divine presence—for faithfulness to the covenant. Conversely, the chapter warns of escalating curses for rebellion, including famine, disease, war, wild beasts, exile, and national desolation, emphasizing the severity of breaking covenant with Yahweh. Despite the dire warnings, it concludes with a glimmer of hope, promising God''s remembrance of His covenant with the patriarchs and eventual restoration upon national repentance, underscoring His enduring mercy and faithfulness even in judgment. This chapter profoundly shaped Israel''s historical consciousness and prophetic understanding of their relationship with God.',
+  'The Covenant of Blessings and Curses: Obedience, Disobedience, and Restoration',
+  'בְּרִית (berit)',
+  'Derived from a root possibly meaning ''to cut'' (referencing ancient covenant ceremonies involving animal sacrifice, Gen 15). Theologically, ''berit'' signifies a solemn, binding agreement initiated by God, establishing a relationship with specific obligations and promises. In Leviticus 26, it underscores God''s faithfulness to His promises, whether of blessing or judgment, based on Israel''s adherence to their covenantal responsibilities, and His ultimate remembrance of His foundational covenant with the patriarchs.',
+  '["Section 1 (vv.1-2): Introduction: Call to Obedience and Worship","Section 2 (vv.3-13): Blessings for Obedience to the Covenant","Section 3 (vv.14-20): First Tier of Curses for Disobedience","Section 4 (vv.21-26): Second Tier of Curses: Intensified Plagues","Section 5 (vv.27-39): Third Tier of Curses: Severe Judgment and Exile","Section 6 (vv.40-45): Hope of Restoration and God''s Remembrance of the Covenant","Section 7 (v.46): Concluding Summary of the Laws"]'
+FROM books b WHERE b.name = 'Leviticus';
+
+-- Step 2: Insert all 46 verses
+INSERT INTO verses (chapter_id, verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
+SELECT c.id, v.verse_number, v.kjv_text, v.original_text, v.transliteration, v.study_note, v.doctrinal_note
+FROM chapters c
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1,
+   'Ye shall make you no idols nor graven image, neither rear you up a standing image, neither shall ye set up any image of stone in your land, to bow down unto it: for I am the LORD your God.',
+   'לֹא־תַעֲשׂוּ לָכֶם אֱלִילִם וּפֶסֶל וּמַצֵּבָה לֹא־תָקִימוּ לָכֶם וְאֶבֶן מַשְׂכִּית לֹא־תִתְּנוּ בְּאַרְצְכֶם לְהִשְׁתַּחֲוֹת עָלֶיהָ כִּי אֲנִי יְהוָה אֱלֹהֵיכֶם׃',
+   'Lo-ta''asu lakhem elilim u''fesel u''matzevah lo-takimu lakhem v''even maskit lo-titnu b''artzekhem l''hishtachavot aleiha ki ani YHWH Eloheikhem.',
+   'This verse opens the chapter by reiterating fundamental prohibitions against idolatry, a constant temptation for Israel. ''Idols'' (אֱלִילִם, elilim) refers to worthless, powerless deities, often contrasted with the living God. ''Graven image'' (פֶּסֶל, pesel) denotes a carved or sculpted image, while ''standing image'' (מַצֵּבָה, matzevah) could be a pillar or monument, often associated with pagan worship (Deut 16:22). ''Image of stone'' (אֶבֶן מַשְׂכִּית, even maskit) refers to a figured or sculptured stone, perhaps with carvings. The command to ''bow down unto it'' highlights the act of worship. The motivation is clear: ''for I am the LORD your God,'' emphasizing Yahweh''s exclusive claim to Israel''s worship and His unique identity as their deliverer.',
+   'This verse establishes the foundational principle of monotheism and the exclusive worship of Yahweh. Idolatry is not merely a ritualistic error but a profound betrayal of the covenant relationship, substituting the Creator with created things. It underscores God''s jealousy for His glory and His demand for undivided devotion, a theme echoed throughout Scripture (Exod 20:3-5; Isa 42:8; 1 Cor 10:14).'),
+  (2,
+   'Ye shall keep my sabbaths, and reverence my sanctuary: I am the LORD.',
+   'אֶת־שַׁבְּתֹתַי תִּשְׁמֹרוּ וּמִקְדָּשִׁי תִּירָאוּ אֲנִי יְהוָה׃',
+   'Et-shabbatotai tishmoru u''mikdashi tira''u ani YHWH.',
+   'Following the prohibition of idolatry, this verse commands the observance of Sabbaths and reverence for the sanctuary. The ''Sabbaths'' (שַׁבְּתֹתַי, shabbatotai) include not only the weekly Sabbath but also the sabbatical year and the year of Jubilee, all designed to remind Israel of God''s sovereignty and provision. ''Reverence my sanctuary'' (וּמִקְדָּשִׁי תִּירָאוּ, u''mikdashi tira''u) emphasizes the holiness of God''s dwelling place and the need for proper awe and respect in worship. These commands are not arbitrary but are integral to maintaining the covenant relationship, fostering a right understanding of God''s character and Israel''s identity as His people. The concluding ''I am the LORD'' reinforces divine authority.',
+   'Sabbath observance and reverence for God''s sanctuary are acts of worship that acknowledge God''s sovereignty over time and space. They are tangible expressions of faith and obedience, setting apart God''s people and their practices from the surrounding pagan cultures. These commands point to the need for sacred rest and a holy place for communion with God, foreshadowing the ultimate rest found in Christ (Heb 4:9-10) and the spiritual temple of believers (1 Cor 3:16).'),
+  (3,
+   'If ye walk in my statutes, and keep my commandments, and do them;',
+   'אִם־בְּחֻקֹּתַי תֵּלֵכוּ וְאֶת־מִצְוֹתַי תִּשְׁמְרוּ וַעֲשִׂיתֶם אֹתָם׃',
+   'Im-b''chukkotai telekhu v''et-mitzotai tishmeru va''asitem otam.',
+   'This verse introduces the conditional nature of the covenant blessings. ''If ye walk in my statutes'' (אִם־בְּחֻקֹּתַי תֵּלֵכוּ, im-b''chukkotai telekhu) implies a lifestyle of adherence to God''s decrees, not just a one-time act. ''Statutes'' (חֻקֹּתַי, chukkotai) refers to the fixed ordinances and laws, while ''commandments'' (מִצְוֹתַי, mitzvotai) are specific instructions. The phrase ''and do them'' (וַעֲשִׂיתֶם אֹתָם, va''asitem otam) emphasizes the practical outworking of faith through obedience. This sets the stage for the subsequent promises of blessing, highlighting that divine favor is contingent upon Israel''s active participation in the covenant relationship. This principle of obedience leading to blessing is a recurring theme throughout the Old Testament (Deut 28:1-14; Josh 1:7-8).',
+   'The covenant between God and Israel is conditional, requiring human response to divine initiative. Obedience is presented not as a means to earn salvation, but as the proper response of a redeemed people, demonstrating their love and loyalty to God. This principle underscores the importance of ''walking'' in God''s ways, signifying a holistic commitment to His revealed will, which brings about tangible blessings in the earthly realm.'),
+  (4,
+   'Then I will give you rain in due season, and the land shall yield her increase, and the trees of the field shall yield their fruit.',
+   'וְנָתַתִּי גִשְׁמֵיכֶם בְּעִתָּם וְנָתְנָה הָאָרֶץ יְבוּלָהּ וְעֵץ הַשָּׂדֶה יִתֵּן פִּרְיוֹ׃',
+   'V''natati gishmeikhem b''ittam v''natnah ha''aretz y''vulah v''etz hassadeh yitten piryo.',
+   'The first blessing promised for obedience is agricultural prosperity. ''Rain in due season'' (גִשְׁמֵיכֶם בְּעִתָּם, gishmeikhem b''ittam) was crucial for an agrarian society like ancient Israel, where rainfall was often scarce and unpredictable. The ''early rain'' (יוֹרֶה, yoreh) in autumn and the ''latter rain'' (מַלְקוֹשׁ, malkosh) in spring were essential for successful crops. This divine provision ensures that ''the land shall yield her increase'' (וְנָתְנָה הָאָרֶץ יְבוּלָהּ, v''natnah ha''aretz y''vulah) and ''the trees of the field shall yield their fruit.'' This promise directly counters the curses of drought and barrenness threatened for disobedience, emphasizing God''s control over the natural world and His ability to bless or withhold based on covenant fidelity (Deut 11:13-17).',
+   'God''s blessing extends to the physical provision and sustenance of His people. This demonstrates His benevolent character as the provider of all good things, linking material well-being directly to spiritual obedience. It teaches that true prosperity comes from God''s hand, not human effort alone, and serves as a tangible sign of His covenant faithfulness.'),
+  (5,
+   'And your threshing shall reach unto the vintage, and the vintage shall reach unto the sowing time: and ye shall eat your bread to the full, and dwell in your land safely.',
+   'וְהִשִּׂיג לָכֶם דַּיִשׁ אֶת־בָּצִיר וּבָצִיר יַשִּׂיג אֶת־זֶרַע וַאֲכַלְתֶּם לַחְמְכֶם לָשֹׂבַע וִישַׁבְתֶּם לָבֶטַח בְּאַרְצְכֶם׃',
+   'V''hissig lakhem dayish et-batzir u''batzir yassig et-zera va''akhaltem lachmekhem lassova vishavtem lavetach b''artzekhem.',
+   'This verse continues the theme of abundant harvest, indicating such a plentiful yield that agricultural seasons overlap. ''Threshing shall reach unto the vintage'' (דַּיִשׁ אֶת־בָּצִיר, dayish et-batzir) means the grain harvest will be so large it will still be ongoing when the grape harvest begins. Similarly, ''the vintage shall reach unto the sowing time'' (בָּצִיר יַשִּׂיג אֶת־זֶרַע, batzir yassig et-zera) implies the grape harvest will extend until the time for planting new seeds. This signifies an extraordinary, overflowing abundance, far beyond normal expectations. The result is ''ye shall eat your bread to the full'' (וַאֲכַלְתֶּם לַחְמְכֶם לָשֹׂבַע, va''akhaltem lachmekhem lassova) and ''dwell in your land safely'' (וִישַׁבְתֶּם לָבֶטַח בְּאַרְצְכֶם, vishavtem lavetach b''artzekhem), linking material security with peace.',
+   NULL),
+  (6,
+   'And I will give peace in the land, and ye shall lie down, and none shall make you afraid: and I will rid evil beasts out of the land, neither shall the sword go through your land.',
+   'וְנָתַתִּי שָׁלוֹם בָּאָרֶץ וּשְׁכַבְתֶּם וְאֵין מַחֲרִיד וְהִשְׁבַּתִּי חַיָּה רָעָה מִן־הָאָרֶץ וְחֶרֶב לֹא־תַעֲבֹר בְּאַרְצְכֶם׃',
+   'V''natati shalom ba''aretz u''shkhavtem v''ein macharid v''hishbatti chayyah ra''ah min-ha''aretz v''cherev lo-ta''avor b''artzekhem.',
+   'Beyond agricultural prosperity, God promises ''peace in the land'' (שָׁלוֹם בָּאָרֶץ, shalom ba''aretz). This peace encompasses both internal tranquility and external security. ''None shall make you afraid'' (וְאֵין מַחֲרִיד, v''ein macharid) speaks of freedom from fear, allowing people to rest securely. God also promises to ''rid evil beasts out of the land'' (וְהִשְׁבַּתִּי חַיָּה רָעָה מִן־הָאָרֶץ, v''hishbatti chayyah ra''ah min-ha''aretz), protecting them from natural dangers. Furthermore, ''neither shall the sword go through your land'' (וְחֶרֶב לֹא־תַעֲבֹר בְּאַרְצְכֶם, v''cherev lo-ta''avor b''artzekhem) guarantees protection from war and invasion. These blessings paint a picture of an ideal, secure existence under God''s benevolent rule, where both nature and human threats are subdued.',
+   'God is the ultimate source of peace and security, both from human adversaries and the dangers of the natural world. This promise highlights His sovereign control over all creation and His desire for the well-being of His covenant people. True peace (shalom) is holistic, encompassing physical, social, and spiritual flourishing, and is a direct result of living in harmony with God''s will.'),
+  (7,
+   'And ye shall chase your enemies, and they shall fall before you by the sword.',
+   'וּרְדַפְתֶּם אֶת־אֹיְבֵיכֶם וְנָפְלוּ לִפְנֵיכֶם לֶחָרֶב׃',
+   'U''r''daftem et-oyeveikhem v''naflu lifneikhem lecharev.',
+   'This verse promises military success and victory over enemies. ''Ye shall chase your enemies'' (וּרְדַפְתֶּם אֶת־אֹיְבֵיכֶם, u''r''daftem et-oyeveikhem) implies an offensive capability, not just defensive. The assurance that ''they shall fall before you by the sword'' (וְנָפְלוּ לִפְנֵיכֶם לֶחָרֶב, v''naflu lifneikhem lecharev) speaks of decisive victory. This is a common theme in the covenant promises, where God fights for His people when they are obedient (Deut 20:4). It demonstrates God''s power to protect and empower His chosen nation against all adversaries, ensuring their security and dominance in the promised land.',
+   NULL),
+  (8,
+   'And five of you shall chase an hundred, and an hundred of you shall put ten thousand to flight: and your enemies shall fall before you by the sword.',
+   'וְרָדְפוּ מִכֶּם חֲמִשָּׁה מֵאָה וּמֵאָה מִכֶּם רְבָבָה יִרְדֹּפוּ וְנָפְלוּ אֹיְבֵיכֶם לִפְנֵיכֶם לֶחָרֶב׃',
+   'V''radfu mikem chamishah me''ah u''me''ah mikem r''vavah yirdofu v''naflu oyeveikhem lifneikhem lecharev.',
+   'This verse amplifies the promise of military victory, emphasizing the supernatural disproportion of Israel''s strength against their enemies. ''Five of you shall chase an hundred'' (חֲמִשָּׁה מֵאָה, chamishah me''ah) and ''an hundred of you shall put ten thousand to flight'' (מֵאָה מִכֶּם רְבָבָה יִרְדֹּפוּ, me''ah mikem r''vavah yirdofu). This hyperbolic language highlights God''s miraculous intervention, where a small number of obedient Israelites can overcome vastly superior forces. It''s not about Israel''s inherent military might, but about God empowering them. This echoes similar promises in Deuteronomy (Deut 32:30) and historical accounts where God granted victory against overwhelming odds (Judg 7:7).',
+   'God''s power is not limited by human numbers or strength. He can achieve victory through a few as easily as through many, demonstrating that true might comes from divine enablement, not human capability. This principle encourages reliance on God''s sovereignty and power in all circumstances, knowing that He fights for His people when they walk in obedience.'),
+  (9,
+   'For I will have respect unto you, and make you fruitful, and multiply you, and establish my covenant with you.',
+   'וּפָנִיתִי אֲלֵיכֶם וְהִפְרֵיתִי אֶתְכֶם וְהִרְבֵּיתִי אֶתְכֶם וַהֲקִימֹתִי אֶת־בְּרִיתִי אִתְּכֶם׃',
+   'U''faniti aleikhem v''hifreiti etkhem v''hirbeiti etkhem va''hakimoti et-beriti ittekhem.',
+   'This verse brings the blessings back to the core covenant relationship. ''I will have respect unto you'' (וּפָנִיתִי אֲלֵיכֶם, u''faniti aleikhem) signifies God''s favorable attention and presence. The promises to ''make you fruitful, and multiply you'' (וְהִפְרֵיתִי אֶתְכֶם וְהִרְבֵּיתִי אֶתְכֶם, v''hifreiti etkhem v''hirbeiti etkhem) directly echo the Abrahamic covenant (Gen 1:28; 17:6), emphasizing the continuation of God''s foundational promises to Israel. Crucially, God states, ''and establish my covenant with you'' (וַהֲקִימֹתִי אֶת־בְּרִיתִי אִתְּכֶם, va''hakimoti et-beriti ittekhem), meaning He will fulfill and uphold His part of the agreement. This highlights the enduring nature of God''s commitment to His people when they are faithful.',
+   'God''s covenant faithfulness is central to His character. He remembers and establishes His promises, particularly those of fruitfulness and multiplication, which are foundational to His plan for humanity and Israel. This verse underscores that God''s presence and blessing are contingent on His people''s obedience, yet His ultimate commitment to His covenant remains steadfast.'),
+  (10,
+   'And ye shall eat old store, and bring forth the old because of the new.',
+   'וַאֲכַלְתֶּם יָשָׁן נוֹשָׁן וְיָשָׁן מִפְּנֵי חָדָשׁ תּוֹצִיאוּ׃',
+   'Va''akhaltem yashan noshan v''yashan mip''nei chadash totziu.',
+   'This verse further illustrates the extent of agricultural abundance. ''Ye shall eat old store'' (וַאֲכַלְתֶּם יָשָׁן נוֹשָׁן, va''akhaltem yashan noshan) implies that the harvests will be so plentiful that there will be an excess of food from previous years. The phrase ''and bring forth the old because of the new'' (וְיָשָׁן מִפְּנֵי חָדָשׁ תּוֹצִיאוּ, v''yashan mip''p''nei chadash totziu) means that the new, abundant harvest will necessitate clearing out the old, stored provisions to make room. This signifies not just enough, but an overflowing surplus, a testament to God''s lavish provision for an obedient Israel. It speaks of a time of unprecedented prosperity and security.',
+   NULL),
+  (11,
+   'And I will set my tabernacle among you: and my soul shall not abhor you.',
+   'וְנָתַתִּי מִשְׁכָּנִי בְּתוֹכְכֶם וְלֹא־תִגְעַל נַפְשִׁי אֶתְכֶם׃',
+   'V''natati mishkani b''tokhekhem v''lo-tig''al nafshi etkhem.',
+   'This verse culminates the blessings with the most profound promise: God''s dwelling presence among His people. ''I will set my tabernacle among you'' (וְנָתַתִּי מִשְׁכָּנִי בְּתוֹכְכֶם, v''natati mishkani b''tokhekhem) refers to the physical dwelling place of God, the Mishkan, but also signifies His active, favorable presence. The assurance ''and my soul shall not abhor you'' (וְלֹא־תִגְעַל נַפְשִׁי אֶתְכֶם, v''lo-tig''al nafshi etkhem) is significant, as ''abhor'' (געל, ga''al) is a strong word indicating disgust or rejection. This promise means God will not turn away from them in revulsion, but will delight in their presence, a stark contrast to the curses where His soul would indeed abhor them for their sin (v. 30).',
+   'God''s desire to dwell among His people is the ultimate blessing of the covenant. His presence signifies intimate relationship, protection, and guidance. The promise that His ''soul shall not abhor'' them highlights His love and acceptance of an obedient people, a foreshadowing of the New Covenant where God''s Spirit indwells believers, making them His temple (2 Cor 6:16).'),
+  (12,
+   'And I will walk among you, and will be your God, and ye shall be my people.',
+   'וְהִתְהַלַּכְתִּי בְּתוֹכְכֶם וְהָיִיתִי לָכֶם לֵאלֹהִים וְאַתֶּם תִּהְיוּ־לִי לְעָם׃',
+   'V''hithallakhti b''tokhekhem v''hayiti lakhem le''Elohim v''attem tihyu-li l''am.',
+   'Building on the previous verse, God further elaborates on His intimate presence: ''And I will walk among you'' (וְהִתְהַלַּכְתִּי בְּתוֹכְכֶם, v''hithallakhti b''tokhekhem). This imagery evokes God''s direct interaction with humanity in Eden (Gen 3:8) and signifies a close, personal relationship. The covenant formula is then explicitly stated: ''and will be your God, and ye shall be my people'' (וְהָיִיתִי לָכֶם לֵאלֹהִים וְאַתֶּם תִּהְיוּ־לִי לְעָם, v''hayiti lakhem le''Elohim v''attem tihyu-li l''am). This is the quintessential expression of the covenant relationship, defining Israel''s identity and their unique bond with Yahweh. It encapsulates the purpose of the entire covenant, establishing a special, reciprocal relationship.',
+   'The covenant formula ''I will be your God, and you will be my people'' is the theological heart of the Old Testament. It defines the essence of God''s relationship with Israel, rooted in His election and sustained by His faithfulness. This promise of intimate divine presence and relationship finds its ultimate fulfillment in Christ (John 1:14) and the New Covenant (Rev 21:3), where God truly dwells with His redeemed people.'),
+  (13,
+   'I am the LORD your God, which brought you forth out of the land of Egypt, that ye should not be their bondmen; and I have broken the bands of your yoke, and made you go upright.',
+   'אֲנִי יְהוָה אֱלֹהֵיכֶם אֲשֶׁר הוֹצֵאתִי אֶתְכֶם מֵאֶרֶץ מִצְרַיִם מִהְיֹת לָהֶם עֲבָדִים וָאֶשְׁבֹּר מֹטֹת עֻלְּכֶם וָאוֹלֵךְ אֶתְכֶם קוֹמְמִיּוּת׃',
+   'Ani YHWH Eloheikhem asher hotzeti etkhem me''eretz Mitzrayim mihyot lahem avadim va''eshbor motot ullekhem va''olekh etkhem kom''miyut.',
+   'This verse concludes the blessings by reminding Israel of God''s redemptive act, the foundation of their covenant. ''I am the LORD your God, which brought you forth out of the land of Egypt'' (אֲנִי יְהוָה אֱלֹהֵיכֶם אֲשֶׁר הוֹצֵאתִי אֶתְכֶם מֵאֶרֶץ מִצְרַיִם, ani YHWH Eloheikhem asher hotzeti etkhem me''eretz Mitzrayim) grounds the covenant in their historical deliverance from slavery. God ''broken the bands of your yoke'' (וָאֶשְׁבֹּר מֹטֹט עֻלְּכֶם, va''eshbor motot ullekhem), symbolizing their liberation from bondage. The phrase ''made you go upright'' (וָאוֹלֵךְ אֶתְכֶם קוֹמְמִיּוּת, va''olekh etkhem kom''miyut) signifies restoration to dignity, freedom, and honor, no longer bowed down by servitude. This powerful reminder serves as both a motivation for obedience and a testament to God''s faithfulness.',
+   'God''s redemptive acts are the basis for His covenant demands. He first delivers His people and then calls them to obedience. The Exodus from Egypt is the paradigmatic act of salvation in the Old Testament, demonstrating God''s power to free from bondage and restore dignity. This historical act serves as a constant reminder of His grace and the foundation for Israel''s identity as a liberated people called to serve Him alone.'),
+  (14,
+   'But if ye will not hearken unto me, and will not do all these commandments;',
+   'וְאִם־לֹא תִשְׁמְעוּ לִי וְלֹא תַעֲשׂוּ אֵת כָּל־הַמִּצְוֹת הָאֵלֶּה׃',
+   'V''im-lo tishm''u li v''lo ta''asu et kol-hamitzvot ha''elleh.',
+   'This verse marks a dramatic shift from blessings to curses, introducing the consequences of disobedience. ''But if ye will not hearken unto me'' (וְאִם־לֹא תִשְׁמְעוּ לִי, v''im-lo tishm''u li) indicates a refusal to listen and obey God''s voice. ''And will not do all these commandments'' (וְלֹא תַעֲשׂוּ אֵת כָּל־הַמִּצְוֹת הָאֵלֶּה, v''lo ta''asu et kol-hamitzvot ha''elleh) emphasizes that partial obedience is insufficient; God requires adherence to ''all'' His commands. This sets the stage for the severe judgments that follow, highlighting the gravity of covenant infidelity. The conditional ''if'' (אִם, im) underscores Israel''s moral agency and responsibility in their relationship with God.',
+   'God''s covenant is bilateral, requiring a response from His people. Disobedience is not merely a minor transgression but a rejection of God''s authority and a breach of the sacred agreement. This verse introduces the concept of divine judgment as a just consequence for rebellion, demonstrating God''s holiness and His commitment to upholding the integrity of His covenant.'),
+  (15,
+   'And if ye shall despise my statutes, or if your soul abhor my judgments, so that ye will not do all my commandments, but that ye break my covenant:',
+   'וְאִם־בְּחֻקֹּתַי תִּמְאָסוּ וְאִם אֶת־מִשְׁפָּטַי תִּגְעַל נַפְשְׁכֶם לְבִלְתִּי עֲשׂוֹת אֶת־כָּל־מִצְוֹתַי לְהַפְרְכֶם אֶת־בְּרִיתִי׃',
+   'V''im-b''chukkotai tim''asu v''im et-mishpatai tig''al nafsh''khem l''vilti asot et-kol-mitzotai l''haf''rekhem et-beriti.',
+   'This verse intensifies the description of disobedience, moving beyond mere failure to obey to active rejection. ''If ye shall despise my statutes'' (וְאִם־בְּחֻקֹּתַי תִּמְאָסוּ, v''im-b''chukkotai tim''asu) implies a contemptuous rejection. ''Or if your soul abhor my judgments'' (וְאִם אֶת־מִשְׁפָּטַי תִּגְעַל נַפְשְׁכֶם, v''im et-mishpatai tig''al nafsh''khem) uses the same strong word ''abhor'' (געל, ga''al) as in v. 11, but now applied to Israel''s attitude towards God''s laws, indicating deep disgust. The ultimate consequence is ''that ye break my covenant'' (לְהַפְרְכֶם אֶת־בְּרִיתִי, l''haf''rekhem et-beriti), signifying a complete rupture of the sacred bond. This highlights the spiritual dimension of disobedience, rooted in a heart that rejects God''s authority and wisdom.',
+   'Disobedience is not just a behavioral issue but a matter of the heart. Despising God''s statutes and abhorring His judgments reveal a deep-seated rebellion against His character and will. Such attitudes constitute a breaking of the covenant, severing the relationship and inviting divine wrath. This emphasizes the seriousness of sin as a direct affront to God''s holiness and His established order.'),
+  (16,
+   'I also will do this unto you; I will even appoint over you terror, consumption, and the burning ague, that shall consume the eyes, and cause sorrow of heart: and ye shall sow your seed in vain, for your enemies shall eat it.',
+   'אַף־אֲנִי אֶעֱשֶׂה־זֹּאת לָכֶם וְהִפְקַדְתִּי עֲלֵיכֶם בֶּהָלָה אֶת־הַשַּׁחֶפֶת וְאֶת־הַקַּדַּחַת מְכַלּוֹת עֵינַיִם וּמְדִיבֹת נָפֶשׁ וּזְרַעְתֶּם לָרִיק זַרְעֲכֶם וַאֲכָלֻהוּ אֹיְבֵיכֶם׃',
+   'Af-ani e''eseh-zot lakhem v''hifkadti aleikhem behalah et-hashachefet v''et-hakkaddachat m''khallot einayim u''m''divot nafesh u''zra''tem larik zar''akhem va''akhaluhu oyeveikhem.',
+   'This verse introduces the first tier of curses. God promises to ''appoint over you terror'' (וְהִפְקַדְתִּי עֲלֵיכֶם בֶּהָלָה, v''hifkadti aleikhem behalah), a state of panic and dread. This is followed by specific diseases: ''consumption'' (שַׁחֶפֶת, shachefet), likely a wasting disease like tuberculosis, and ''burning ague'' (קַדַּחַת, kaddachat), a fever. These ailments are described as ''that shall consume the eyes, and cause sorrow of heart'' (מְכַלּוֹת עֵינַיִם וּמְדִיבֹת נָפֶשׁ, m''khallot einayim u''m''divot nafesh), indicating severe physical and emotional distress. Economically, ''ye shall sow your seed in vain, for your enemies shall eat it'' (וּזְרַעְתֶּם לָרִיק זַרְעֲכֶם וַאֲכָלֻהוּ אֹיְבֵיכֶם, u''zra''tem larik zar''akhem va''akhaluhu oyeveikhem), reversing the blessing of abundant harvest and introducing enemy invasion.',
+   'Divine judgment is a direct consequence of covenant infidelity, manifesting in physical and psychological afflictions. God''s justice ensures that those who reject His life-giving commands will experience the opposite: terror, disease, and futility. This demonstrates that sin has tangible, destructive consequences, and God, in His holiness, will not tolerate unrepentant rebellion within His covenant people.'),
+  (17,
+   'And I will set my face against you, and ye shall be slain before your enemies: they that hate you shall reign over you; and ye shall flee when none pursueth you.',
+   'וְנָתַתִּי פָנַי בָּכֶם וְנִגַּפְתֶּם לִפְנֵי אֹיְבֵיכֶם וְרָדוּ בָכֶם שֹׂנְאֵיכֶם וְנַסְתֶּם וְאֵין־רֹדֵף אֶתְכֶם׃',
+   'V''natati fanai bakhem v''niggaftem lifnei oyeveikhem v''radu vakhem soneikhem v''nastem v''ein-rodef etkhem.',
+   'The curses escalate to military defeat and psychological torment. ''I will set my face against you'' (וְנָתַתִּי פָנַי בָּכֶם, v''natati fanai bakhem) is an idiom for divine opposition and wrath, directly contrasting God''s favorable ''respect'' in v. 9. As a result, ''ye shall be slain before your enemies'' (וְנִגַּפְתֶּם לִפְנֵי אֹיְבֵיכֶם, v''niggaftem lifnei oyeveikhem), reversing the promise of victory. Furthermore, ''they that hate you shall reign over you'' (וְרָדוּ בָכֶם שֹׂנְאֵיכֶם, v''radu vakhem soneikhem), signifying subjugation. The psychological impact is profound: ''and ye shall flee when none pursueth you'' (וְנַסְתֶּם וְאֵין־רֹדֵף אֶתְכֶם, v''nastem v''ein-rodef etkhem), indicating a deep-seated terror and loss of courage, a complete reversal of the confidence promised in v. 6.',
+   'God''s active opposition to sin brings about defeat and psychological torment. When God turns His face against His people, their strength and courage vanish, leading to self-inflicted fear and subjugation. This illustrates the spiritual reality that true security and victory come only from God''s favor; without it, even imagined threats can cause utter panic and collapse.'),
+  (18,
+   'And if ye will not yet for all this hearken unto me, then I will punish you seven times more for your sins.',
+   'וְאִם־עַד־אֵלֶּה לֹא תִשְׁמְעוּ לִי וְיָסַפְתִּי לְיַסְּרָה אֶתְכֶם שֶׁבַע עַל־חַטֹּאתֵיכֶם׃',
+   'V''im-ad-elleh lo tishm''u li v''yasafti l''yass''rah etkhem sheva al-chatoteikhem.',
+   'This verse introduces an escalating pattern of judgment: ''seven times more for your sins'' (שֶׁבַע עַל־חַטֹּאתֵיכֶם, sheva al-chatoteikhem). The number seven often signifies completeness or perfection in biblical numerology, suggesting that God''s punishment will be full, thorough, and perfectly just, corresponding to the severity of their unrepentant sin. This implies that if the initial judgments do not lead to repentance, God will intensify the consequences, demonstrating His persistent efforts to bring His people back to Himself, even through severe discipline. This pattern of escalating judgment is a key feature of the curses in Leviticus 26 and Deuteronomy 28.',
+   'God''s justice is not arbitrary but proportional to the persistence and severity of sin. The ''seven times more'' principle reveals God''s patience in judgment, offering opportunities for repentance, but also His unwavering commitment to discipline His people until they turn back to Him. This highlights the seriousness of unrepentant sin and the certainty of God''s righteous judgment.'),
+  (19,
+   'And I will break the pride of your power; and I will make your heaven as iron, and your earth as brass:',
+   'וְשָׁבַרְתִּי אֶת־גְּאוֹן עֻזְּכֶם וְנָתַתִּי אֶת־שְׁמֵיכֶם כַּבַּרְזֶל וְאֶת־אַרְצְכֶם כַּנְּחֻשָׁה׃',
+   'V''shavarti et-g''on uz''khem v''natati et-shmeikhem kabbazel v''et-artz''khem kann''chushah.',
+   'The intensified curses begin with breaking Israel''s ''pride of your power'' (גְּאוֹן עֻזְּכֶם, g''on uz''khem), which refers to their strength, glory, or self-reliance, often associated with their military might or perceived invincibility. This is a direct attack on their arrogance and trust in anything other than God. The natural world is then turned against them: ''I will make your heaven as iron, and your earth as brass'' (אֶת־שְׁמֵיכֶם כַּבַּרְזֶל וְאֶת־אַרְצְכֶם כַּנְּחֻשָׁה, et-shmeikhem kabbazel v''et-artz''khem kann''chushah). This vivid imagery describes a severe drought, where the sky yields no rain (like iron) and the ground becomes hard and unproductive (like brass), leading to widespread famine. This reverses the blessing of rain and fertile land (v. 4).',
+   'God opposes human pride and self-sufficiency, breaking down anything that takes His place as the source of strength and blessing. He controls the natural order, and can turn the very elements that sustain life into instruments of judgment. This illustrates God''s sovereignty over creation and His determination to humble His people to bring them to repentance and reliance on Him alone.'),
+  (20,
+   'And your strength shall be spent in vain: for your land shall not yield her increase, neither shall the trees of the land yield their fruits.',
+   'וְכָלָה לָרִיק כֹּחֲכֶם וְלֹא־תִתֵּן אַרְצְכֶם אֶת־יְבוּלָהּ וְעֵץ הָאָרֶץ לֹא יִתֵּן פִּרְיוֹ׃',
+   'V''khalah larik kochakhem v''lo-titten artz''khem et-y''vulah v''etz ha''aretz lo yitten piryo.',
+   'This verse describes the futility of human effort under divine judgment. ''Your strength shall be spent in vain'' (וְכָלָה לָרִיק כֹּחֲכֶם, v''khalah larik kochakhem) means that all their labor, agricultural or otherwise, will yield no results. Despite their toil, ''your land shall not yield her increase, neither shall the trees of the land yield their fruits'' (וְלֹא־תִתֵּן אַרְצְכֶם אֶת־יְבוּלָהּ וְעֵץ הָאָרֶץ לֹא יִתֵּן פִּרְיוֹ, v''lo-titten artz''khem et-y''vulah v''etz ha''aretz lo yitten piryo). This is a direct reversal of the blessings in verses 4-5, signifying widespread famine and economic collapse. It underscores that without God''s blessing, human endeavor is ultimately fruitless, highlighting their dependence on Him for sustenance.',
+   NULL),
+  (21,
+   'And if ye walk contrary unto me, and will not hearken unto me; I will bring seven times more plagues upon you according to your sins.',
+   'וְאִם־תֵּלְכוּ עִמִּי קֶרִי וְלֹא תֹאבוּ לִשְׁמֹעַ לִי וְיָסַפְתִּי עֲלֵיכֶם מַכָּה שֶׁבַע כְּחַטֹּאתֵיכֶם׃',
+   'V''im-tel''khu immi keri v''lo to''vu lishmo''a li v''yasafti aleikhem makkah sheva k''chatoteikhem.',
+   'This verse introduces the second escalation of curses, again with the ''seven times more'' motif. The key phrase here is ''if ye walk contrary unto me'' (וְאִם־תֵּלְכוּ עִמִּי קֶרִי, v''im-tel''khu immi keri). The Hebrew word ''keri'' (קֶרִי) is significant, meaning ''contrary,'' ''hostile,'' or ''with hostility.'' It implies a deliberate, stubborn opposition to God, a defiant attitude rather than mere negligence. If they persist in this hostile posture and ''will not hearken unto me'' (וְלֹא תֹאבוּ לִשְׁמֹעַ לִי, v''lo to''vu lishmo''a li), God promises to bring ''seven times more plagues upon you according to your sins'' (מַכָּה שֶׁבַע כְּחַטֹּאתֵיכֶם, makkah sheva k''chatoteikhem), indicating a further intensification of divine judgment.',
+   'God responds to human defiance with intensified discipline. ''Walking contrary'' to God signifies a hardened heart and deliberate rebellion, which provokes a more severe divine response. This highlights God''s justice and His refusal to allow His covenant people to persist in open hostility without consequence, aiming to break their stubbornness and bring them to repentance.'),
+  (22,
+   'I will also send wild beasts among you, which shall rob you of your children, and destroy your cattle, and make you few in number; and your high ways shall be desolate.',
+   'וְהִשְׁלַחְתִּי בָכֶם אֶת־חַיַּת הַשָּׂדֶה וְשִׁכְּלָה אֶתְכֶם וְהִכְרִיתָה אֶת־בְּהֶמְתְּכֶם וְהִמְעִיטָה אֶתְכֶם וְנָשַׁמּוּ דַּרְכֵיכֶם׃',
+   'V''hishlachti vakhem et-chayyat hassadeh v''shikkelah etkhem v''hikhritah et-b''hemt''khem v''him''itah etkhem v''nashammu darkheikhem.',
+   'As part of the intensified plagues, God promises to ''send wild beasts among you'' (וְהִשְׁלַחְתִּי בָכֶם אֶת־חַיַּת הַשָּׂדֶה, v''hishlachti vakhem et-chayyat hassadeh). This directly reverses the blessing of safety from evil beasts in v. 6. These animals will ''rob you of your children'' (וְשִׁכְּלָה אֶתְכֶם, v''shikkelah etkhem), causing bereavement, and ''destroy your cattle'' (וְהִכְרִיתָה אֶת־בְּהֶמְתְּכֶם, v''hikhritah et-b''hemt''khem), leading to economic ruin. The result is that Israel will be ''made few in number'' (וְהִמְעִיטָה אֶתְכֶם, v''him''itah etkhem), reversing the promise of multiplication (v. 9). Finally, ''your high ways shall be desolate'' (וְנָשַׁמּוּ דַּרְכֵיכֶם, v''nashammu darkheikhem), indicating a breakdown of society and fear of travel due to danger. This paints a picture of societal collapse and depopulation.',
+   'God''s judgment can manifest through the natural world, turning elements intended for blessing into instruments of destruction. The unleashing of wild beasts symbolizes a loss of divine protection and a return to a chaotic state, where human life and livelihood are vulnerable. This demonstrates God''s sovereignty over creation and His ability to use any means to bring about His purposes of discipline and judgment.'),
+  (23,
+   'And if ye will not be reformed by me by these things, but will walk contrary unto me;',
+   'וְאִם־בְּאֵלֶּה לֹא תִוָּסְרוּ לִי וַתֵּלְכוּ עִמִּי קֶרִי׃',
+   'V''im-be''elleh lo tivvass''ru li vatteil''khu immi keri.',
+   'This verse introduces yet another escalation of judgment, emphasizing Israel''s continued stubbornness. ''And if ye will not be reformed by me by these things'' (וְאִם־בְּאֵלֶּה לֹא תִוָּסְרוּ לִי, v''im-be''elleh lo tivvass''ru li) highlights God''s disciplinary intent. The previous curses were meant to ''reform'' or ''chastise'' them, to bring them to repentance. However, if they persist in their defiant attitude, continuing to ''walk contrary unto me'' (וַתֵּלְכוּ עִמִּי קֶרִי, vatteil''khu immi keri), then even more severe consequences will follow. This reiterates the progressive nature of God''s judgment, increasing in intensity with each refusal to repent.',
+   'God''s discipline is redemptive in purpose, aiming to bring His people to repentance and reformation. However, persistent rebellion and refusal to learn from divine chastisement will lead to an escalation of judgment. This reveals God''s unwavering commitment to holiness and His determination to purify His people, even if it requires increasingly severe measures.'),
+  (24,
+   'Then will I also walk contrary unto you, and will punish you yet seven times for your sins.',
+   'וְהָלַכְתִּי אַף־אֲנִי עִמָּכֶם בְּקֶרִי וְהִכֵּיתִי אֶתְכֶם גַּם־אָנִי שֶׁבַע עַל־חַטֹּאתֵיכֶם׃',
+   'V''halakhti af-ani immakhem b''keri v''hikketi etkhem gam-ani sheva al-chatoteikhem.',
+   'In response to Israel''s continued ''walking contrary'' (קֶרִי, keri), God declares, ''Then will I also walk contrary unto you'' (וְהָלַכְתִּי אַף־אֲנִי עִמָּכֶם בְּקֶרִי, v''halakhti af-ani immakhem b''keri). This is a powerful statement of divine reciprocity, where God mirrors Israel''s defiant attitude with His own determined opposition. It''s not an emotional outburst but a righteous, judicial response. He promises to ''punish you yet seven times for your sins'' (וְהִכֵּיתִי אֶתְכֶם גַּם־אָנִי שֶׁבַע עַל־חַטֹּאתֵיכֶם, v''hikketi etkhem gam-ani sheva al-chatoteikhem), indicating a further, more severe level of judgment. This emphasizes the escalating nature of God''s discipline when His people remain unrepentant.',
+   'God''s justice involves a principle of divine reciprocity: He responds to human defiance with His own determined opposition. When His people walk ''contrary'' to Him, He will walk ''contrary'' to them. This highlights God''s active involvement in judgment and His commitment to uphold His holiness, even if it means intensifying discipline until repentance occurs.'),
+  (25,
+   'And I will bring a sword upon you, that shall avenge the quarrel of my covenant: and when ye are gathered together within your cities, I will send the pestilence among you; and ye shall be delivered into the hand of the enemy.',
+   'וְהֵבֵאתִי עֲלֵיכֶם חֶרֶב נֹקֶמֶת נְקַם־בְּרִית וְנֶאֱסַפְתֶּם אֶל־עָרֵיכֶם וְשִׁלַּחְתִּי דֶבֶר בְּתוֹכְכֶם וְנִתַּתֶּם בְּיַד־אוֹיֵב׃',
+   'V''heveti aleikhem cherev nokemet n''kam-berit v''ne''esaftem el-areikhem v''shillachti dever b''tokhekhem v''nittattem b''yad-oyev.',
+   'This verse describes a devastating combination of war and pestilence. God will bring ''a sword upon you, that shall avenge the quarrel of my covenant'' (חֶרֶב נֹקֶמֶת נְקַם־בְּרִית, cherev nokemet n''kam-berit). This ''avenging sword'' emphasizes that the war is not random but a direct divine judgment for breaking the covenant. When they seek refuge ''within your cities'' (אֶל־עָרֵיכֶם, el-areikhem), God will send ''the pestilence among you'' (דֶבֶר בְּתוֹכְכֶם, dever b''tokhekhem), a deadly plague, trapping them. The ultimate outcome is that ''ye shall be delivered into the hand of the enemy'' (וְנִתַּתֶּם בְּיַד־אוֹיֵב, v''nittattem b''yad-oyev), signifying complete defeat and subjugation. This reverses the promise of peace and security (v. 6).',
+   'God''s judgment is often multifaceted, combining various forms of calamity to achieve His disciplinary purposes. The ''avenging sword of the covenant'' highlights that divine wrath is a righteous response to covenant infidelity, not arbitrary cruelty. Even places of refuge cannot protect from God''s judgment when His people are in rebellion, demonstrating His inescapable sovereignty.'),
+  (26,
+   'And when I have broken the staff of your bread, ten women shall bake your bread in one oven, and they shall deliver you your bread again by weight: and ye shall eat, and not be satisfied.',
+   'בְּשִׁבְרִי לָכֶם מַטֵּה־לֶחֶם וְאָפוּ עֶשֶׂר נָשִׁים לַחְמְכֶם בְּתַנּוּר אֶחָד וְהֵשִׁיבוּ לַחְמְכֶם בַּמִּשְׁקָל וַאֲכַלְתֶּם וְלֹא תִשְׂבָּעוּ׃',
+   'B''shivri lakhem matteh-lechem v''afu eser nashim lachmekhem b''tannur echad v''heshivu lachmekhem bammishkal va''akhaltem v''lo tisba''u.',
+   'This verse describes the severity of famine. ''When I have broken the staff of your bread'' (בְּשִׁבְרִי לָכֶם מַטֵּה־לֶחֶם, b''shivri lakhem matteh-lechem) is an idiom for destroying the very source of sustenance, making food scarce. The consequence is that ''ten women shall bake your bread in one oven'' (עֶשֶׂר נָשִׁים לַחְמְכֶם בְּתַנּוּר אֶחָד, eser nashim lachmekhem b''tannur echad). Normally, each household would have its own oven or share with one other; ten women sharing one oven indicates extreme scarcity, where there''s so little to bake that one oven suffices for many. The bread will be rationed ''by weight'' (בַּמִּשְׁקָל, bammishkal), signifying meticulous portioning due to extreme shortage. Even then, ''ye shall eat, and not be satisfied'' (וַאֲכַלְתֶּם וְלֹא תִשְׂבָּעוּ, va''akhaltem v''lo tisba''u), implying a spiritual and physical hunger that cannot be appeased, a reversal of the blessing in v. 5.',
+   'Famine, as a divine judgment, highlights humanity''s utter dependence on God for daily sustenance. When God ''breaks the staff of bread,'' He demonstrates His sovereign control over life itself. The inability to be satisfied, even when eating, points to a deeper spiritual hunger and dissatisfaction that results from being out of covenant with God, illustrating that true contentment comes from Him alone.'),
+  (27,
+   'And if ye will not for all this hearken unto me, but walk contrary unto me;',
+   'וְאִם־בְּזֹאת לֹא תִשְׁמְעוּ לִי וְהַלַכְתֶּם עִמִּי בְּקֶרִי׃',
+   'V''im-b''zot lo tishm''u li v''halakhtem immi b''keri.',
+   'This verse introduces the third and final escalation of curses, again emphasizing Israel''s persistent defiance. ''And if ye will not for all this hearken unto me'' (וְאִם־בְּזֹאת לֹא תִשְׁמְעוּ לִי, v''im-b''zot lo tishm''u li) indicates that even after experiencing the severe judgments described thus far, they still refuse to listen and repent. Their continued stubbornness is described as ''but walk contrary unto me'' (וְהַלַכְתֶּם עִמִּי בְּקֶרִי, v''halakhtem immi b''keri), using the same strong term ''keri'' (defiance, hostility) as in verses 21 and 23. This unyielding rebellion will provoke the most extreme forms of divine judgment, demonstrating the ultimate consequences of a hardened heart against God.',
+   'The escalating nature of God''s judgment reveals His patience and His desire for repentance, but also the terrifying consequences of persistent, unyielding rebellion. When all previous forms of discipline fail to soften a heart, God''s wrath reaches its most severe expression, demonstrating His absolute holiness and justice against unrepentant sin. This serves as a solemn warning against spiritual stubbornness.'),
+  (28,
+   'Then I will walk contrary unto you also in fury; and I, even I, will chastise you seven times for your sins.',
+   'וְהָלַכְתִּי עִמָּכֶם בַּחֲמַת־קֶרִי וְיִסַּרְתִּי אֶתְכֶם אַף־אָנִי שֶׁבַע עַל־חַטֹּאתֵיכֶם׃',
+   'V''halakhti immakhem bachamat-keri v''yissarti etkhem af-ani sheva al-chatoteikhem.',
+   'In response to Israel''s ultimate defiance, God declares, ''Then I will walk contrary unto you also in fury'' (וְהָלַכְתִּי עִמָּכֶם בַּחֲמַת־קֶרִי, v''halakhti immakhem bachamat-keri). The addition of ''fury'' (חֲמַת, chamat) intensifies the divine response, indicating a righteous, passionate wrath against their persistent rebellion. This is not just opposition, but opposition fueled by holy indignation. Once again, God promises to ''chastise you seven times for your sins'' (וְיִסַּרְתִּי אֶתְכֶם אַף־אָנִי שֶׁבַע עַל־חַטֹּאתֵיכֶם, v''yissarti etkhem af-ani sheva al-chatoteikhem), signifying the most complete and devastating level of judgment. This emphasizes the finality and severity of God''s wrath when His people refuse all opportunities for repentance.',
+   'God''s righteous anger (fury) is a just response to persistent, unrepentant sin. It is not an uncontrolled emotion but a holy indignation against rebellion that ultimately breaks the covenant. The ''seven times'' judgment here signifies the full and ultimate outpouring of God''s wrath, demonstrating the terrifying consequences of rejecting His grace and discipline.'),
+  (29,
+   'And ye shall eat the flesh of your sons, and the flesh of your daughters shall ye eat.',
+   'וַאֲכַלְתֶּם בְּשַׂר בְּנֵיכֶם וּבְשַׂר בְּנֹתֵיכֶם תֹּאכֵלוּ׃',
+   'Va''akhaltem b''sar b''neikhem u''v''sar b''noteikhem tokhelu.',
+   'This verse describes the most horrific and extreme consequence of the famine and siege: cannibalism. ''And ye shall eat the flesh of your sons, and the flesh of your daughters shall ye eat'' (וַאֲכַלְתֶּם בְּשַׂר בְּנֵיכֶם וּבְשַׂר בְּנֹתֵיכֶם תֹּאכֵלוּ, va''akhaltem b''sar b''neikhem u''v''sar b''noteikhem tokhelu). This is a shocking and deeply disturbing image, illustrating the absolute desperation and moral degradation that would result from God''s most severe judgments. This curse is also found in Deuteronomy 28:53-57 and was tragically fulfilled during sieges in Israel''s history, such as the siege of Samaria (2 Kgs 6:28-29) and Jerusalem (Lam 2:20; 4:10). It represents the ultimate breakdown of human society and natural affection.',
+   'The curse of cannibalism reveals the depths of human depravity and desperation that can result from God''s most severe judgments. It underscores the sanctity of human life and the natural bonds of family, showing how covenant rebellion can lead to the complete reversal of God''s created order. This serves as a stark warning about the ultimate consequences of rejecting God''s life-sustaining covenant.'),
+  (30,
+   'And I will destroy your high places, and cut down your images, and cast your carcases upon the carcases of your idols, and my soul shall abhor you.',
+   'וְהִשְׁמַדְתִּי אֶת־בָּמֹתֵיכֶם וְהִכְרַתִּי אֶת־חַמָּנֵיכֶם וְנָתַתִּי אֶת־פִּגְרֵיכֶם עַל־פִּגְרֵי גִּלּוּלֵיכֶם וְגָעֲלָה נַפְשִׁי אֶתְכֶם׃',
+   'V''hishmadti et-bamoteikhem v''hikhretti et-chammanekhem v''natati et-pigreikhem al-pigrei gilluleikhem v''ga''alah nafshi etkhem.',
+   'This verse describes the destruction of idolatry and the ultimate rejection by God. ''I will destroy your high places'' (וְהִשְׁמַדְתִּי אֶת־בָּמֹתֵיכֶם, v''hishmadti et-bamoteikhem), referring to pagan worship sites, and ''cut down your images'' (וְהִכְרַתִּי אֶת־חַמָּנֵיכֶם, v''hikhretti et-chammanekhem), likely sun-pillars or incense altars. The most graphic part is, ''and cast your carcases upon the carcases of your idols'' (וְנָתַתִּי אֶת־פִּגְרֵיכֶם עַל־פִּגְרֵי גִּלּוּלֵיכֶם, v''natati et-pigreikhem al-pigrei gilluleikhem). This signifies utter disgrace, as their dead bodies, denied proper burial, would lie desecrated alongside their despised, broken idols, emphasizing the futility and defilement of idolatry. Finally, ''and my soul shall abhor you'' (וְגָעֲלָה נַפְשִׁי אֶתְכֶם, v''ga''alah nafshi etkhem), a direct reversal of the blessing in v. 11, indicating God''s complete revulsion and rejection of His unfaithful people.',
+   'God''s judgment includes the destruction of idolatry and the ultimate rejection of those who persist in it. The desecration of bodies alongside idols symbolizes the utter worthlessness and defilement of false worship. God''s ''abhorrence'' reveals His holy wrath against sin and His refusal to tolerate anything that defiles His covenant relationship, demonstrating the severe consequences of spiritual adultery.'),
+  (31,
+   'And I will make your cities waste, and bring your sanctuaries unto desolation, and I will not smell the savour of your sweet odours.',
+   'וְנָתַתִּי אֶת־עָרֵיכֶם חָרְבָּה וַהֲשִׁמּוֹתִי אֶת־מִקְדְּשֵׁיכֶם וְלֹא אָרִיחַ בְּרֵיחַ נִיחֹחֲכֶם׃',
+   'V''natati et-areikhem charbah va''hashimmoti et-mikd''sheikhem v''lo ariach b''reiach nichochakhem.',
+   'The curses extend to the destruction of Israel''s infrastructure and religious life. ''I will make your cities waste'' (וְנָתַתִּי אֶת־עָרֵיכֶם חָרְבָּה, v''natati et-areikhem charbah) signifies widespread urban desolation. ''And bring your sanctuaries unto desolation'' (וַהֲשִׁמּוֹתִי אֶת־מִקְדְּשֵׁיכֶם, va''hashimmoti et-mikd''sheikhem) refers to the destruction of their places of worship, including the Tabernacle or later the Temple. The most poignant statement is, ''and I will not smell the savour of your sweet odours'' (וְלֹא אָרִיחַ בְּרֵיחַ נִיחֹחֲכֶם, v''lo ariach b''reiach nichochakhem). This means God will reject their sacrifices and offerings, which were meant to be a ''pleasing aroma'' to Him (Lev 1:9). This signifies the complete breakdown of their worship and their relationship with God, as their religious acts become an abomination to Him (Isa 1:13).',
+   'God''s judgment includes the desolation of sacred spaces and the rejection of religious rituals when they are offered by an unrepentant people. True worship requires a right heart and obedience; without it, even sacrifices become meaningless and offensive to God. This emphasizes that outward religious observance is futile without inward covenant fidelity, and God will not accept hypocritical worship.'),
+  (32,
+   'And I will bring the land into desolation: and your enemies which dwell therein shall be astonished at it.',
+   'וַהֲשִׁמֹּתִי אֲנִי אֶת־הָאָרֶץ וְשָׁמְמוּ עָלֶיהָ אֹיְבֵיכֶם הַיֹּשְׁבִים בָּהּ׃',
+   'Va''hashimmoti ani et-ha''aretz v''sham''mu aleiha oyeveikhem hayyoshvim bah.',
+   'This verse describes the desolation of the entire land. ''And I will bring the land into desolation'' (וַהֲשִׁמֹּתִי אֲנִי אֶת־הָאָרֶץ, va''hashimmoti ani et-ha''aretz) means the land itself will become barren and uninhabited, a direct reversal of the promised fruitfulness (v. 4). The impact is so profound that ''your enemies which dwell therein shall be astonished at it'' (וְשָׁמְמוּ עָלֶיהָ אֹיְבֵיכֶם הַיֹּשְׁבִים בָּהּ, v''sham''mu aleiha oyeveikhem hayyoshvim bah). Even those who conquer and settle the land will be struck with awe and horror at its utter ruin, recognizing the severity of God''s judgment. This emphasizes the comprehensive nature of the curse, affecting not just the people but their very environment.',
+   'God''s judgment extends to the land itself, demonstrating His sovereignty over all creation. The desolation of the land serves as a visible testament to the consequences of covenant breaking, even astonishing those who witness it. This highlights that sin has far-reaching effects, impacting not only individuals but also their environment, and that God''s justice is evident to all.'),
+  (33,
+   'And I will scatter you among the heathen, and will draw out a sword after you: and your land shall be desolate, and your cities waste.',
+   'וְאֶתְכֶם אֱזָרֶה בַגּוֹיִם וַהֲרִיקֹתִי אַחֲרֵיכֶם חֶרֶב וְהָיְתָה אַרְצְכֶם שְׁמָמָה וְעָרֵיכֶם יִהְיוּ חָרְבָּה׃',
+   'V''etkhem ezareh baggoyim va''harikoti achareikhem cherev v''hay''tah artz''khem sh''mamah v''areikhem yihyu charbah.',
+   'This verse describes the ultimate curse: exile and dispersion. ''And I will scatter you among the heathen'' (וְאֶתְכֶם אֱזָרֶה בַגּוֹיִם, v''etkhem ezareh baggoyim) refers to the forced dispersion of Israel among foreign nations, a direct reversal of the promise to multiply and dwell securely in their own land (v. 9). Even in exile, God promises to ''draw out a sword after you'' (וַהֲרִיקֹתִי אַחֲרֵיכֶם חֶרֶב, va''harikoti achareikhem cherev), meaning His judgment will pursue them wherever they go. The land they left behind will be ''desolate'' (שְׁמָמָה, sh''mamah) and their cities ''waste'' (חָרְבָּה, charbah), reinforcing the complete ruin of their former life. This prophecy was fulfilled in the Assyrian and Babylonian exiles.',
+   'Exile and dispersion are severe consequences of covenant breaking, demonstrating God''s judgment against a rebellious people. Even when scattered among other nations, God''s justice pursues them, ensuring that sin does not go unpunished. This highlights God''s sovereignty over all nations and His determination to discipline His people, even to the point of removing them from the Promised Land.'),
+  (34,
+   'Then shall the land enjoy her sabbaths, as long as it lieth desolate, and ye be in your enemies’ land; even then shall the land rest, and enjoy her sabbaths.',
+   'אָז תִּרְצֶה הָאָרֶץ אֶת־שַׁבְּתֹתֶיהָ כֹּל יְמֵי הָשַּׁמָּה וְאַתֶּם בְּאֶרֶץ אֹיְבֵיכֶם אָז תִּשְׁבַּת הָאָרֶץ וְהִרְצָת אֶת־שַׁבְּתֹתֶיהָ׃',
+   'Az tirtzeh ha''aretz et-shabbatoteiha kol y''mei hashammah v''attem b''eretz oyeveikhem az tishbat ha''aretz v''hirtzat et-shabbatoteiha.',
+   'This verse introduces a unique aspect of the land''s desolation: it will ''enjoy her sabbaths'' (תִּרְצֶה הָאָרֶץ אֶת־שַׁבְּתֹתֶיהָ, tirtzeh ha''aretz et-shabbatoteiha). This refers to the sabbatical years (Lev 25:1-7) and the Year of Jubilee, which Israel was commanded to observe but often neglected. During the exile, while Israel is ''in your enemies’ land'' (בְּאֶרֶץ אֹיְבֵיכֶם, b''eretz oyeveikhem), the land itself will finally receive its mandated rest. This is a powerful theological statement: God will ensure His laws are upheld, even if it means removing His people from the land to allow it to recover the rest they denied it. It highlights God''s justice and His commitment to the created order.',
+   'God''s justice extends to the land itself, ensuring that His commands regarding its rest are ultimately fulfilled. When His people fail to obey, God will enforce His will through judgment, even if it means removing them from the land. This demonstrates God''s sovereignty over creation and His unwavering commitment to His laws, revealing that disobedience has consequences not only for humanity but also for the natural world.'),
+  (35,
+   'As long as it lieth desolate it shall rest; because it did not rest in your sabbaths, when ye dwelt upon it.',
+   'כָּל־יְמֵי הָשַּׁמָּה תִּשְׁבֹּת אֵת אֲשֶׁר לֹא־שָׁבְתָה בְּשַׁבְּתֹתֵיכֶם בְּשִׁבְתְּכֶם עָלֶיהָ׃',
+   'Kol-y''mei hashammah tishbot et asher lo-shav''tah b''shabbatoteikhem b''shivt''khem aleiha.',
+   'This verse explicitly states the reason for the land''s enforced rest: ''because it did not rest in your sabbaths, when ye dwelt upon it'' (אֵת אֲשֶׁר לֹא־שָׁבְתָה בְּשַׁבְּתֹתֵיכֶם בְּשִׁבְתְּכֶם עָלֶיהָ, et asher lo-shav''tah b''shabbatoteikhem b''shivt''khem aleiha). The duration of the land''s desolation will correspond to the cumulative number of sabbatical years that Israel failed to observe. For example, the 70-year Babylonian exile is often linked to 70 neglected sabbatical years (2 Chr 36:21). This precise accounting underscores God''s meticulous justice and His faithfulness to His own word, even in judgment. It serves as a powerful reminder of the consequences of neglecting God''s commands.',
+   'God''s justice is precise and proportional, even accounting for specific acts of disobedience over time. The land''s forced rest for neglected Sabbaths demonstrates that God''s laws are not arbitrary but carry real consequences, and He will ensure their ultimate fulfillment. This highlights God''s unwavering commitment to His covenant and His righteous judgment against those who disregard His commands.'),
+  (36,
+   'And upon them that are left alive of you I will send a faintness into their hearts in the lands of their enemies; and the sound of a shaken leaf shall chase them; and they shall flee, as fleeing from a sword; and they shall fall when none pursueth.',
+   'וְהַנִּשְׁאָרִים בָּכֶם וְהֵבֵאתִי מֹרֶךְ בִּלְבָבָם בְּאַרְצֹת אֹיְבֵיהֶם וְרָדַף אֹתָם קוֹל עָלֶה נִדָּף וְנָסוּ מְנֻסַת־חֶרֶב וְנָפְלוּ וְאֵין רֹדֵף׃',
+   'V''hannish''arim bakhem v''heveti morekh bilvavam b''artzot oyeveihem v''radaf otam kol aleh niddaph v''nasu m''nusat-cherev v''naflu v''ein rodef.',
+   'Even for ''them that are left alive'' (וְהַנִּשְׁאָרִים בָּכֶם, v''hannish''arim bakhem) in exile, God promises psychological torment. He will send ''a faintness into their hearts'' (מֹרֶךְ בִּלְבָבָם, morekh bilvavam), a deep-seated cowardice and lack of resolve. This terror will be so profound that ''the sound of a shaken leaf shall chase them'' (קוֹל עָלֶה נִדָּף, kol aleh niddaph), meaning the slightest, most innocuous sound will trigger extreme fear. They will ''flee, as fleeing from a sword; and they shall fall when none pursueth'' (וְנָסוּ מְנֻסַת־חֶרֶב וְנָפְלוּ וְאֵין רֹדֵף, v''nasu m''nusat-cherev v''naflu v''ein rodef). This is a reversal of the military confidence promised in v. 8 and an intensification of the fear described in v. 17, demonstrating the complete psychological breakdown of the exiled people.',
+   'God''s judgment can extend to the psychological state of His people, instilling deep-seated fear and cowardice as a consequence of their rebellion. This demonstrates that true security and courage come from God''s presence and favor; without it, even the most minor threats can cause utter panic. It highlights the spiritual dimension of judgment, affecting the inner person as much as the outward circumstances.'),
+  (37,
+   'And they shall fall one upon another, as it were before a sword, when none pursueth: and ye shall have no power to stand before your enemies.',
+   'וְכָשְׁלוּ אִישׁ בְּאָחִיו כְּמִפְּנֵי־חֶרֶב וְאֵין רֹדֵף וְלֹא־תִהְיֶה לָכֶם תְּקוּמָה לִפְנֵי אֹיְבֵיכֶם׃',
+   'V''khashlu ish b''achiv k''mipp''nei-cherev v''ein rodef v''lo-tihyeh lakhem t''kumah lifnei oyeveikhem.',
+   'The psychological terror continues, leading to internal chaos and utter helplessness. ''And they shall fall one upon another, as it were before a sword, when none pursueth'' (וְכָשְׁלוּ אִישׁ בְּאָחִיו כְּמִפְּנֵי־חֶרֶב וְאֵין רֹדֵף, v''khashlu ish b''achiv k''mipp''nei-cherev v''ein rodef). This depicts a scene of utter panic and disarray, where people stumble over each other in their irrational fear, even without an actual enemy pursuing them. The result is a complete loss of national strength: ''and ye shall have no power to stand before your enemies'' (וְלֹא־תִהְיֶה לָכֶם תְּקוּמָה לִפְנֵי אֹיְבֵיכֶם, v''lo-tihyeh lakhem t''kumah lifnei oyeveikhem). This signifies a total inability to resist or recover, a complete reversal of the military dominance promised for obedience (v. 8).',
+   NULL),
+  (38,
+   'And ye shall perish among the heathen, and the land of your enemies shall eat you up.',
+   'וַאֲבַדְתֶּם בַּגּוֹיִם וְאָכְלָה אֶתְכֶם אֶרֶץ אֹיְבֵיכֶם׃',
+   'Va''avadtem baggoyim v''akh''lah etkhem eretz oyeveikhem.',
+   'This verse describes the ultimate fate of the unrepentant exiles: destruction and assimilation. ''And ye shall perish among the heathen'' (וַאֲבַדְתֶּם בַּגּוֹיִם, va''avadtem baggoyim) means they will be lost, either through death or through complete assimilation into foreign cultures, losing their distinct identity as God''s people. The phrase ''and the land of your enemies shall eat you up'' (וְאָכְלָה אֶתְכֶם אֶרֶץ אֹיְבֵיכֶם, v''akh''lah etkhem eretz oyeveikhem) is a vivid metaphor for their complete absorption and destruction within foreign lands, reversing the promise of dwelling safely in their own land (v. 5). This highlights the severity of God''s judgment and the consequences of losing their covenant identity.',
+   'The threat of perishing among the nations and being ''eaten up'' by foreign lands underscores the existential danger of covenant infidelity. It signifies not only physical destruction but also the loss of national and spiritual identity, a consequence of rejecting the God who set them apart. This illustrates the importance of maintaining distinctiveness as God''s people and the dangers of assimilation into ungodly cultures.'),
+  (39,
+   'And they that are left of you shall pine away in their iniquity in your enemies’ lands; and also in the iniquities of their fathers shall they pine away with them.',
+   'וְהַנִּשְׁאָרִים בָּכֶם יִמַּקּוּ בַּעֲוֹנָם בְּאַרְצֹת אֹיְבֵיכֶם וְאַף בַּעֲוֹנֹת אֲבֹתָם אִתָּם יִמָּקּוּ׃',
+   'V''hannish''arim bakhem yimmakku ba''avonam b''artzot oyeveikhem v''af ba''avonot avotam ittam yimmakku.',
+   'This verse describes the slow, agonizing decline of the remaining exiles. ''And they that are left of you shall pine away in their iniquity'' (וְהַנִּשְׁאָרִים בָּכֶם יִמַּקּוּ בַּעֲוֹנָם, v''hannish''arim bakhem yimmakku ba''avonam) means they will waste away, physically and spiritually, due to their own sin. This ''pining away'' (מָקַק, maqaq) implies a lingering, debilitating suffering. Crucially, it also states, ''and also in the iniquities of their fathers shall they pine away with them'' (וְאַף בַּעֲוֹנֹת אֲבֹתָם אִתָּם יִמָּקּוּ, v''af ba''avonot avotam ittam yimmakku). This refers to the cumulative effect of generational sin, where the consequences of their ancestors'' disobedience are visited upon them, not as unjust punishment, but as a result of their continued participation in those same patterns of sin (Exod 20:5).',
+   'Sin has cumulative and generational consequences. While individuals are responsible for their own iniquity, the patterns of sin established by previous generations can contribute to the suffering of their descendants who continue in those same sins. This highlights the pervasive and destructive nature of sin, and the need for a complete break from past rebellion to experience true restoration.'),
+  (40,
+   'If they shall confess their iniquity, and the iniquity of their fathers, with their trespass which they trespassed against me, and that also they have walked contrary unto me;',
+   'וְהִתְוַדּוּ אֶת־עֲוֹנָם וְאֶת־עֲוֹן אֲבֹתָם בְּמַעֲלָם אֲשֶׁר מָעֲלוּ־בִי וְאַף אֲשֶׁר־הָלְכוּ עִמִּי בְּקֶרִי׃',
+   'V''hitvaddoo et-avonam v''et-avon avotam b''ma''alam asher ma''alu-vi v''af asher-hal''khu immi b''keri.',
+   'This verse introduces the possibility of restoration, contingent upon repentance. ''If they shall confess their iniquity, and the iniquity of their fathers'' (וְהִתְוַדּוּ אֶת־עֲוֹנָם וְאֶת־עֲוֹן אֲבֹתָם, v''hitvaddoo et-avonam v''et-avon avotam) emphasizes a full and honest acknowledgment of both personal and generational sin. They must confess ''their trespass which they trespassed against me'' (בְּמַעֲלָם אֲשֶׁר מָעֲלוּ־בִי, b''ma''alam asher ma''alu-vi), referring to their unfaithfulness and betrayal. Crucially, they must also acknowledge ''that also they have walked contrary unto me'' (וְאַף אֲשֶׁר־הָלְכוּ עִמִּי בְּקֶרִי, v''af asher-hal''khu immi b''keri), explicitly naming the defiant attitude that provoked God''s escalating judgments. This comprehensive confession is the first step towards reconciliation.',
+   'Repentance is the pathway to restoration. True repentance involves a humble and comprehensive confession of sin, acknowledging both personal transgressions and the patterns of sin inherited from previous generations. It requires recognizing one''s defiant attitude towards God and taking responsibility for breaking the covenant. This highlights God''s grace in providing a way back to Him, even after severe judgment.'),
+  (41,
+   'And that I also have walked contrary unto them, and have brought them into the land of their enemies; if then their uncircumcised hearts be humbled, and they then accept of the punishment of their iniquity:',
+   'אַף־אֲנִי אֵלֵךְ עִמָּם בְּקֶרִי וְהֵבֵאתִי אֹתָם בְּאֶרֶץ אֹיְבֵיהֶם אוֹ־אָז יִכָּנַע לְבָבָם הֶעָרֵל וְאָז יִרְצוּ אֶת־עֲוֹנָם׃',
+   'Af-ani elekh immam b''keri v''heveti otam b''eretz oyeveihem o-az yikkan''a l''vavam he''arel v''az yirtzu et-avonam.',
+   'This verse clarifies the purpose of God''s ''walking contrary'' to them: it was to humble them. ''And that I also have walked contrary unto them, and have brought them into the land of their enemies'' (אַף־אֲנִי אֵלֵךְ עִמָּם בְּקֶרִי וְהֵבֵאתִי אֹתָם בְּאֶרֶץ אֹיְבֵיהֶם, af-ani elekh immam b''keri v''heveti otam b''eretz oyeveihem) is a retrospective acknowledgment of God''s disciplinary actions. The goal was that ''then their uncircumcised hearts be humbled'' (אוֹ־אָז יִכָּנַע לְבָבָם הֶעָרֵל, o-az yikkan''a l''vavam he''arel). An ''uncircumcised heart'' is a metaphor for a stubborn, rebellious, and unyielding spirit (Deut 10:16; Jer 4:4). Humbling this heart is essential for repentance. Only then will ''they then accept of the punishment of their iniquity'' (וְאָז יִרְצוּ אֶת־עֲוֹנָם, v''az yirtzu et-avonam), meaning they will acknowledge the justice of God''s judgment and accept its consequences.',
+   'God''s judgment, even in its severity, has a redemptive purpose: to humble the proud and rebellious heart. The ''uncircumcised heart'' represents spiritual insensitivity and resistance to God''s will. True repentance involves not only confessing sin but also accepting the just consequences of that sin, recognizing God''s righteousness even in discipline. This paves the way for divine mercy and restoration.'),
+  (42,
+   'Then will I remember my covenant with Jacob, and also my covenant with Isaac, and also my covenant with Abraham will I remember; and I will remember the land.',
+   'וְזָכַרְתִּי אֶת־בְּרִיתִי יַעֲקוֹב וְאַף אֶת־בְּרִיתִי יִצְחָק וְאַף אֶת־בְּרִיתִי אַבְרָהָם אֶזְכֹּר וְהָאָרֶץ אֶזְכֹּר׃',
+   'V''zakharti et-beriti Ya''akov v''af et-beriti Yitzchak v''af et-beriti Avraham ezkor v''ha''aretz ezkor.',
+   'Upon Israel''s repentance, God promises to ''remember my covenant with Jacob, and also my covenant with Isaac, and also my covenant with Abraham will I remember'' (וְזָכַרְתִּי אֶת־בְּרִיתִי יַעֲקוֹב וְאַף אֶת־בְּרִיתִי יִצְחָק וְאַף אֶת־בְּרִיתִי אַבְרָהָם אֶזְכֹּר, v''zakharti et-beriti Ya''akov v''af et-beriti Yitzchak v''af et-beriti Avraham ezkor). This is a crucial theological point: God''s remembrance is not a lapse of memory but an active commitment to fulfill His promises. The Abrahamic covenant (Gen 12:1-3; 15; 17) was unconditional and eternal, promising land, seed, and blessing. Even though the Mosaic covenant was conditional, God''s ultimate plan for Israel rests on the earlier, unconditional promises to the patriarchs. He also promises, ''and I will remember the land'' (וְהָאָרֶץ אֶזְכֹּר, v''ha''aretz ezkor), signifying its restoration and their return.',
+   'God''s faithfulness to His unconditional covenants, particularly the Abrahamic covenant, is the ultimate ground of hope for Israel''s restoration. Even when His people break their conditional covenant, God''s character ensures He will remember and fulfill His foundational promises. This highlights God''s enduring grace and His sovereign plan for His chosen people, which transcends their failures and guarantees their future restoration.'),
+  (43,
+   'The land also shall be left of them, and shall enjoy her sabbaths, while she lieth desolate without them: and they shall accept of the punishment of their iniquity: because, even because they despised my judgments, and because their soul abhorred my statutes.',
+   'וְהָאָרֶץ תֵּעָזֵב מֵהֶם וְתִרֶץ אֶת־שַׁבְּתֹתֶיהָ בְּהָשַׁמָּה אֹתָם וְהֵם יִרְצוּ אֶת־עֲוֹנָם יַעַן וּבְיַעַן בְּמִשְׁפָּטַי מָאָסוּ וְאֶת־חֻקֹּתַי גָּעֲלָה נַפְשָׁם׃',
+   'V''ha''aretz te''azev mehem v''tirtz et-shabbatoteiha b''hashammah otam v''hem yirtzu et-avonam ya''an u''v''ya''an b''mishpatai ma''asu v''et-chukkotai ga''alah nafsham.',
+   'This verse reiterates the land''s desolation and its purpose. ''The land also shall be left of them, and shall enjoy her sabbaths, while she lieth desolate without them'' (וְהָאָרֶץ תֵּעָזֵב מֵהֶם וְתִרֶץ אֶת־שַׁבְּתֹתֶיהָ בְּהָשַׁמָּה אֹתָם, v''ha''aretz te''azev mehem v''tirtz et-shabbatoteiha b''hashammah otam). This reinforces the idea that the land''s rest is a divine imperative, fulfilled even through judgment. ''And they shall accept of the punishment of their iniquity'' (וְהֵם יִרְצוּ אֶת־עֲוֹנָם, v''hem yirtzu et-avonam) repeats the condition for restoration from v. 41, emphasizing their acknowledgment of God''s justice. The reason for their punishment is explicitly stated: ''because, even because they despised my judgments, and because their soul abhorred my statutes'' (יַעַן וּבְיַעַן בְּמִשְׁפָּטַי מָאָסוּ וְאֶת־חֻקֹּתַי גָּעֲלָה נַפְשָׁם, ya''an u''v''ya''an b''mishpatai ma''asu v''et-chukkotai ga''alah nafsham), echoing the language of v. 15. This underscores that their suffering was a direct consequence of their profound spiritual rebellion.',
+   'God''s judgment is always just and directly proportional to the severity of sin. The repetition of Israel''s despising and abhorring God''s laws highlights the spiritual root of their disobedience. Even in the promise of future restoration, the justice of God''s past judgments is affirmed, emphasizing that sin must be acknowledged and its consequences accepted before true healing can occur.'),
+  (44,
+   'And yet for all that, when they be in the land of their enemies, I will not cast them away, neither will I abhor them, to destroy them utterly, and to break my covenant with them: for I am the LORD their God.',
+   'וְאַף־גַּם־בְּהְיוֹתָם בְּאֶרֶץ אֹיְבֵיהֶם לֹא־מְאַסְתִּים וְלֹא־גְעַלְתִּים לְכַלֹּתָם לְהָפֵר בְּרִיתִי אִתָּם כִּי אֲנִי יְהוָה אֱלֹהֵיהֶם׃',
+   'V''af-gam-b''heyotam b''eretz oyeveihem lo-m''astim v''lo-g''altim l''khallotam l''hafer beriti ittam ki ani YHWH Eloheihem.',
+   'Despite the severe judgments and their unfaithfulness, God promises His ultimate faithfulness. ''And yet for all that, when they be in the land of their enemies, I will not cast them away, neither will I abhor them, to destroy them utterly, and to break my covenant with them'' (וְאַף־גַּם־בְּהְיוֹתָם בְּאֶרֶץ אֹיְבֵיהֶם לֹא־מְאַסְתִּים וְלֹא־גְעַלְתִּים לְכַלֹּתָם לְהָפֵר בְּרִיתִי אִתָּם, v''af-gam-b''heyotam b''eretz oyeveihem lo-m''astim v''lo-g''altim l''khallotam l''hafer beriti ittam). This is a powerful declaration of God''s enduring mercy and commitment. Even though Israel despised and abhorred His laws (v. 15, 43), God will not utterly despise or abhor them (reversing the curse of v. 30). He will not completely destroy them or break His covenant. The reason is profound: ''for I am the LORD their God'' (כִּי אֲנִי יְהוָה אֱלֹהֵיהֶם, ki ani YHWH Eloheihem), emphasizing His unchanging character and covenant fidelity.',
+   'God''s faithfulness transcends human unfaithfulness. Even in the midst of severe judgment and Israel''s rebellion, God''s covenant with them remains unbroken. His character as ''the LORD their God'' guarantees that He will not utterly abandon or destroy His chosen people. This highlights God''s sovereign grace and His unwavering commitment to His redemptive plan, ensuring a future for Israel despite their failures (Rom 11:29).'),
+  (45,
+   'But I will for their sakes remember the covenant of their ancestors, whom I brought forth out of the land of Egypt in the sight of the heathen, that I might be their God: I am the LORD.',
+   'וְזָכַרְתִּי לָהֶם בְּרִית רִאשֹׁנִים אֲשֶׁר הוֹצֵאתִי אֹתָם מֵאֶרֶץ מִצְרַיִם לְעֵינֵי הַגּוֹיִם לִהְיֹת לָהֶם לֵאלֹהִים אֲנִי יְהוָה׃',
+   'V''zakharti lahem b''rit rishonim asher hotzeti otam me''eretz Mitzrayim l''einei haggoyim lihyot lahem le''Elohim ani YHWH.',
+   'This verse reiterates the basis for God''s enduring mercy: His remembrance of the ''covenant of their ancestors'' (בְּרִית רִאשֹׁנִים, b''rit rishonim), specifically the Abrahamic covenant, which predates the Mosaic covenant. This covenant was established when God ''brought them forth out of the land of Egypt in the sight of the heathen'' (אֲשֶׁר הוֹצֵאתִי אֹתָם מֵאֶרֶץ מִצְרַיִם לְעֵינֵי הַגּוֹיִם, asher hotzeti otam me''eretz Mitzrayim l''einei haggoyim), a public demonstration of His power and commitment. The ultimate purpose was ''that I might be their God'' (לִהְיֹת לָהֶם לֵאלֹהִים, lihyot lahem le''Elohim), reaffirming the core covenant relationship. The concluding ''I am the LORD'' (אֲנִי יְהוָה, ani YHWH) serves as a final, authoritative declaration of His unchanging identity and faithfulness. This verse provides the ultimate hope for Israel''s future restoration.',
+   'God''s ultimate faithfulness to His people is rooted in His unconditional, eternal covenants, particularly the Abrahamic covenant. The Exodus, witnessed by the nations, serves as a perpetual reminder of God''s power and His commitment to be Israel''s God. This foundational grace ensures that despite their failures, God''s redemptive plan for Israel will ultimately be fulfilled, demonstrating His sovereign grace and unshakeable promises.'),
+  (46,
+   'These are the statutes and judgments and laws, which the LORD made between him and the children of Israel in mount Sinai by the hand of Moses.',
+   'אֵלֶּה הַחֻקִּים וְהַמִּשְׁפָּטִים וְהַתּוֹרֹת אֲשֶׁר נָתַן יְהוָה בֵּינוֹ וּבֵין בְּנֵי יִשְׂרָאֵל בְּהַר סִינַי בְּיַד־מֹשֶׁה׃',
+   'Elleh hachukkim v''hammishpatim v''hattōrot asher natan YHWH beino u''vein b''nei Yisra''el b''har Sinai b''yad-Mosheh.',
+   'This verse serves as a concluding summary for the entire book of Leviticus, or at least this major section of laws. ''These are the statutes and judgments and laws'' (אֵלֶּה הַחֻקִּים וְהַמִּשְׁפָּטִים וְהַתּוֹרֹת, elleh hachukkim v''hammishpatim v''hattōrot) encompasses the full range of divine instructions given. It explicitly states that ''the LORD made between him and the children of Israel'' (אֲשֶׁר נָתַן יְהוָה בֵּינוֹ וּבֵין בְּנֵי יִשְׂרָאֵל, asher natan YHWH beino u''vein b''nei Yisra''el), emphasizing the divine origin and covenantal nature of these laws. The location ''in mount Sinai'' (בְּהַר סִינַי, b''har Sinai) and the mediator ''by the hand of Moses'' (בְּיַד־מֹשֶׁה, b''yad-Mosheh) firmly anchor these commands in the historical context of the Exodus and the establishment of the Mosaic covenant. This verse highlights the comprehensive nature of God''s revelation and its foundational importance for Israel.',
+   'The laws given at Sinai, mediated by Moses, form the core of the Mosaic covenant, establishing the framework for Israel''s relationship with God. These ''statutes, judgments, and laws'' are divine in origin and purpose, revealing God''s character and His will for His people. They underscore the importance of divine revelation as the foundation for faith and practice, guiding Israel in holiness and covenant fidelity.')
+) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
+WHERE b.name = 'Leviticus' AND c.chapter_number = 26;
+
+-- Step 3: Word Studies for key verses
+
+-- Verse 1
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.word_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  ('אֱלִילִם', 'elilim', 'H0457', 'Derived from a root meaning ''to be nothing'' or ''to be weak.'' It refers to idols, false gods, or deities that are utterly powerless and worthless. Theologically, it emphasizes the stark contrast between the omnipotent, living God and the lifeless, impotent objects of pagan worship. It highlights the folly and spiritual emptiness of idolatry, as these ''gods'' cannot deliver or sustain.', 1),
+  ('פֶּסֶל', 'pesel', 'H6459', 'Refers to a ''graven image,'' typically a carved or hewn image, often made of wood or stone, and then possibly overlaid with metal. It denotes a physical representation of a deity, made by human hands. Theologically, it underscores the human attempt to confine and control the divine, contrasting with God''s transcendence and His prohibition against making images of Himself. It represents a tangible form of idolatry.', 2),
+  ('יְהוָה', 'YHWH', 'H3068', 'The sacred personal name of God, often rendered ''LORD'' in English translations. It is derived from the verb ''to be'' (הָיָה), suggesting ''He is,'' ''He causes to be,'' or ''He will be.'' Theologically, it signifies God''s self-existence, eternal nature, and covenant faithfulness. It is the name by which God reveals Himself as the covenant-making and covenant-keeping God, the one who delivers His people and demands exclusive worship.', 3)
+) AS ws(original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Leviticus' AND c.chapter_number = 26 AND v.verse_number = 1;
+
+-- Verse 3
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.word_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  ('חֻקֹּתַי', 'chukkotai', 'H2708', 'Refers to God''s ''statutes'' or ''ordinances,'' derived from a root meaning ''to engrave'' or ''to decree.'' These are fixed, established laws or decrees, often ceremonial or social, that are binding upon Israel. Theologically, they represent God''s sovereign will and His moral order for His people, designed to set them apart and guide them in righteous living. They are non-negotiable divine pronouncements.', 1),
+  ('מִצְוֹתַי', 'mitzotai', 'H4687', 'Refers to God''s ''commandments,'' derived from a root meaning ''to command'' or ''to appoint.'' These are specific instructions or precepts given by God, often moral or ethical in nature. Theologically, they are expressions of God''s character and His expectations for human behavior, intended to foster a holy relationship with Him and with one another. They demand active obedience and adherence.', 2),
+  ('תַּעֲשׂוּ', 'ta''asu', 'H6213', 'From the verb עָשָׂה (asah), meaning ''to do,'' ''to make,'' ''to perform.'' In this context, it emphasizes the active and practical execution of God''s statutes and commandments. It highlights that obedience is not merely intellectual assent or passive hearing, but involves tangible actions and a lifestyle of adherence. Theologically, it underscores the necessity of works as evidence of true faith and covenant fidelity.', 3)
+) AS ws(original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Leviticus' AND c.chapter_number = 26 AND v.verse_number = 3;
+
+-- Verse 9
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.word_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  ('בְּרִיתִי', 'beriti', 'H1285', 'My ''covenant.'' Derived from a root possibly meaning ''to cut,'' referring to the ancient practice of cutting animals in covenant ceremonies. Theologically, it signifies a solemn, binding agreement initiated by God, establishing a relationship with specific obligations and promises. Here, it refers to God''s commitment to uphold His part of the covenant with Israel, particularly the promises of multiplication and blessing, contingent on their obedience.', 1),
+  ('וְהִפְרֵיתִי', 'v''hifreiti', 'H6509', 'From the verb פָּרָה (parah), meaning ''to be fruitful,'' ''to multiply.'' In the Hiphil stem, it means ''I will make fruitful.'' This echoes the foundational blessing given to humanity in Genesis 1:28 and to Abraham in Genesis 17:6. Theologically, it signifies God''s power to grant fertility, increase, and prosperity, ensuring the growth and flourishing of His people as part of His covenant promises. It is a sign of divine favor and life.', 2),
+  ('וְהִרְבֵּיתִי', 'v''hirbeiti', 'H7235', 'From the verb רָבָה (rabah), meaning ''to be many,'' ''to increase.'' In the Hiphil stem, it means ''I will multiply.'' This promise is closely linked with ''fruitfulness'' and is a key component of the Abrahamic covenant. Theologically, it signifies God''s ability to ensure the numerical growth and expansion of His people, fulfilling His promise to make them a great nation. It represents divine blessing and the continuation of God''s redemptive plan through a numerous seed.', 3)
+) AS ws(original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Leviticus' AND c.chapter_number = 26 AND v.verse_number = 9;
+
+-- Verse 15
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.word_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  ('תִּמְאָסוּ', 'tim''asu', 'H3988', 'From the verb מָאַס (ma''as), meaning ''to reject,'' ''to despise,'' ''to disdain.'' It implies a strong, contemptuous refusal or abhorrence. Theologically, it describes a profound act of rebellion where God''s people actively scorn and reject His divine statutes, viewing them as worthless or burdensome. This goes beyond mere negligence to a deliberate and defiant opposition to God''s revealed will, a serious breach of covenant.', 1),
+  ('תִּגְעַל', 'tig''al', 'H1602', 'From the verb גָּעַל (ga''al), meaning ''to abhor,'' ''to loathe,'' ''to feel disgust.'' It denotes a strong emotional reaction of revulsion. Theologically, it describes a deep-seated spiritual aversion to God''s judgments, indicating a heart that finds God''s righteous standards repugnant. This attitude is a severe form of spiritual rebellion, signifying a complete alienation from God''s holiness and a rejection of His authority over one''s life.', 2),
+  ('לְהַפְרְכֶם', 'l''haf''rekhem', 'H6509', 'From the verb פָּרַר (parar), meaning ''to break,'' ''to annul,'' ''to frustrate.'' In the Hiphil stem, it means ''to break'' or ''to violate.'' Here, it specifically refers to breaking God''s covenant. Theologically, it signifies a complete rupture of the sacred agreement between God and Israel, rendering it void from their side. This act of covenant-breaking has severe consequences, as it undermines the very foundation of their relationship with God and invites divine judgment.', 3)
+) AS ws(original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Leviticus' AND c.chapter_number = 26 AND v.verse_number = 15;
+
+-- Verse 29
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.word_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  ('בְּשַׂר', 'b''sar', 'H1320', 'Refers to ''flesh,'' the soft tissue of a living body. In this context, it specifically denotes human flesh. Theologically, the act of eating human flesh, particularly that of one''s own children, represents the ultimate breakdown of human society, natural affection, and moral order. It signifies extreme desperation, famine, and the complete reversal of God''s life-sustaining blessings, a horrifying consequence of profound covenant rebellion.', 1),
+  ('בְּנֵיכֶם', 'b''neikhem', 'H1121', 'Refers to ''your sons,'' the male offspring. Theologically, children represent the future, hope, and continuation of a family and a nation. The curse of consuming one''s own sons underscores the utter destruction of hope and the reversal of God''s promise of multiplication. It signifies a complete collapse of the social and moral fabric, where the most sacred bonds are violated under extreme duress, illustrating the severity of divine judgment.', 2),
+  ('בְּנֹתֵיכֶם', 'b''noteikhem', 'H1323', 'Refers to ''your daughters,'' the female offspring. Similar to sons, daughters represent the future and continuation of family lines. The inclusion of daughters in this horrific curse emphasizes the comprehensive nature of the judgment, affecting all members of the family and leaving no hope for future generations. It highlights the complete devastation and moral degradation that results from persistent rebellion against God''s covenant.', 3)
+) AS ws(original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Leviticus' AND c.chapter_number = 26 AND v.verse_number = 29;
+
+-- Verse 40
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.word_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  ('וְהִתְוַדּוּ', 'v''hitvaddoo', 'H3034', 'From the verb יָדָה (yadah), in the Hithpael stem, meaning ''to confess,'' ''to acknowledge.'' It implies a self-accusation, a humble and open admission of guilt. Theologically, confession is a crucial step in repentance, involving taking responsibility for one''s sins and acknowledging God''s righteousness. It is the necessary prerequisite for receiving God''s forgiveness and initiating the process of restoration in the covenant relationship.', 1),
+  ('עֲוֹנָם', 'avonam', 'H5771', 'Refers to ''their iniquity,'' derived from a root meaning ''to bend,'' ''to twist,'' implying a deviation from the right path. It denotes moral perversity, guilt, and the punishment due to sin. Theologically, ''avon'' highlights the inherent crookedness and distortion of sin, which offends God''s holy character. Confessing ''avon'' means acknowledging the moral wrongness of one''s actions and the guilt incurred before God.', 2),
+  ('מָעֲלוּ', 'ma''alu', 'H4603', 'From the verb מָעַל (ma''al), meaning ''to act unfaithfully,'' ''to trespass,'' ''to commit a breach of trust.'' It often refers to a violation of sacred trust or covenant obligations. Theologically, it describes a betrayal of God''s covenant, a deliberate act of unfaithfulness against Him. Confessing ''ma''al'' means acknowledging the specific acts of treachery and disloyalty that have damaged the relationship with God.', 3)
+) AS ws(original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Leviticus' AND c.chapter_number = 26 AND v.verse_number = 40;
+
+-- Verse 42
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, ws.original_word, ws.transliteration, ws.strongs_number, ws.meaning, ws.word_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  ('וְזָכַרְתִּי', 'v''zakharti', 'H2142', 'From the verb זָכַר (zakhar), meaning ''to remember,'' ''to recall.'' In a divine context, ''remembering'' is not merely an act of recollection but an active commitment to fulfill a promise or act on behalf of someone. Theologically, God''s remembrance signifies His unwavering faithfulness to His covenant promises, even when His people are unfaithful. It implies His active intervention and restoration based on His character and prior commitments.', 1),
+  ('בְּרִיתִי', 'beriti', 'H1285', 'My ''covenant.'' Here, it specifically refers to God''s unconditional covenants with the patriarchs: Abraham, Isaac, and Jacob. Theologically, these foundational covenants, unlike the conditional Mosaic covenant, are rooted in God''s sovereign grace and promise. God''s remembrance of these earlier covenants provides the ultimate guarantee of Israel''s future, ensuring their eventual restoration and the fulfillment of His redemptive plan despite their failures.', 2),
+  ('הָאָרֶץ', 'ha''aretz', 'H0776', 'Refers to ''the land,'' specifically the Promised Land of Canaan. Theologically, the land is an integral part of God''s covenant with Israel, a place of blessing, inheritance, and divine presence. God''s remembrance of the land signifies His commitment to restore His people to their rightful inheritance, reversing the curse of exile and fulfilling His promise to establish them securely in the land He gave them.', 3)
+) AS ws(original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Leviticus' AND c.chapter_number = 26 AND v.verse_number = 42;
+
+-- Step 4: Cross References
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, cr.reference, cr.ref_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Exodus 20:4-5', 1),
+  (1, 'Deuteronomy 4:15-19', 2),
+  (1, 'Isaiah 42:8', 3),
+  (1, '1 Corinthians 10:14', 4),
+  (2, 'Exodus 20:8-11', 1),
+  (2, 'Leviticus 19:30', 2),
+  (2, 'Isaiah 56:2', 3),
+  (2, 'Hebrews 4:9-10', 4),
+  (3, 'Deuteronomy 11:13-15', 1),
+  (3, 'Deuteronomy 28:1-2', 2),
+  (3, 'Joshua 1:7-8', 3),
+  (3, 'Psalm 1:1-3', 4),
+  (4, 'Deuteronomy 11:14', 1),
+  (4, 'Deuteronomy 28:12', 2),
+  (4, 'Joel 2:23-24', 3),
+  (4, 'Haggai 1:9-11', 4),
+  (5, 'Amos 9:13', 1),
+  (5, 'Deuteronomy 28:4', 2),
+  (5, 'Proverbs 10:22', 3),
+  (5, 'Psalm 4:8', 4),
+  (6, 'Isaiah 2:4', 1),
+  (6, 'Hosea 2:18', 2),
+  (6, 'Ezekiel 34:25', 3),
+  (6, 'Psalm 4:8', 4),
+  (7, 'Deuteronomy 28:7', 1),
+  (7, 'Joshua 23:10', 2),
+  (7, 'Psalm 18:37-40', 3),
+  (8, 'Deuteronomy 32:30', 1),
+  (8, 'Joshua 23:10', 2),
+  (8, 'Judges 7:19-22', 3),
+  (8, 'Psalm 18:29', 4),
+  (9, 'Genesis 17:6-7', 1),
+  (9, 'Genesis 26:3-4', 2),
+  (9, 'Genesis 35:11-12', 3),
+  (9, 'Exodus 2:24', 4),
+  (10, 'Joshua 5:11-12', 1),
+  (10, 'Nehemiah 9:25', 2),
+  (10, 'Malachi 3:10', 3),
+  (11, 'Exodus 29:45', 1),
+  (11, 'Ezekiel 37:26-27', 2),
+  (11, 'Revelation 21:3', 3),
+  (11, '2 Corinthians 6:16', 4),
+  (12, 'Genesis 17:7-8', 1),
+  (12, 'Exodus 6:7', 2),
+  (12, 'Jeremiah 30:22', 3),
+  (12, 'Revelation 21:3', 4),
+  (13, 'Exodus 20:2', 1),
+  (13, 'Deuteronomy 5:6', 2),
+  (13, 'Psalm 81:6', 3),
+  (13, 'Isaiah 52:2', 4),
+  (14, 'Deuteronomy 28:15', 1),
+  (14, 'Deuteronomy 30:17-18', 2),
+  (14, 'Jeremiah 7:23-24', 3),
+  (14, 'Zechariah 7:11-12', 4),
+  (15, 'Deuteronomy 31:16', 1),
+  (15, 'Psalm 78:56-58', 2),
+  (15, 'Jeremiah 11:10', 3),
+  (15, 'Hebrews 10:28-29', 4),
+  (16, 'Deuteronomy 28:22', 1),
+  (16, 'Isaiah 17:10-11', 2),
+  (16, 'Haggai 1:6', 3),
+  (16, 'Micah 6:15', 4),
+  (17, 'Deuteronomy 28:25', 1),
+  (17, 'Psalm 34:16', 2),
+  (17, 'Proverbs 28:1', 3),
+  (17, 'Jeremiah 19:7', 4),
+  (18, 'Deuteronomy 28:15', 1),
+  (18, 'Amos 4:6-12', 2),
+  (18, 'Revelation 2:22-23', 3),
+  (19, 'Deuteronomy 28:23', 1),
+  (19, 'Isaiah 9:19', 2),
+  (19, 'Ezekiel 7:24', 3),
+  (19, 'Haggai 1:11', 4),
+  (20, 'Deuteronomy 28:38-40', 1),
+  (20, 'Isaiah 5:10', 2),
+  (20, 'Micah 6:15', 3),
+  (20, 'Haggai 1:6', 4),
+  (21, 'Deuteronomy 28:21-22', 1),
+  (21, 'Jeremiah 2:19', 2),
+  (21, 'Amos 4:6-12', 3),
+  (22, 'Deuteronomy 28:26', 1),
+  (22, '2 Kings 17:25', 2),
+  (22, 'Ezekiel 14:15', 3),
+  (22, 'Lamentations 1:4', 4),
+  (23, 'Jeremiah 5:3', 1),
+  (23, 'Hosea 7:10', 2),
+  (23, 'Amos 4:6-12', 3),
+  (24, 'Psalm 18:26', 1),
+  (24, 'Proverbs 3:34', 2),
+  (24, 'Isaiah 63:10', 3),
+  (24, 'Lamentations 2:5', 4),
+  (25, 'Deuteronomy 28:25', 1),
+  (25, 'Ezekiel 5:12', 2),
+  (25, 'Jeremiah 14:12', 3),
+  (25, 'Lamentations 2:21-22', 4),
+  (26, 'Deuteronomy 28:53', 1),
+  (26, 'Ezekiel 4:16', 2),
+  (26, 'Haggai 1:6', 3),
+  (26, 'Lamentations 4:10', 4),
+  (27, 'Jeremiah 5:3', 1),
+  (27, 'Hosea 7:10', 2),
+  (27, 'Amos 4:6-12', 3),
+  (28, 'Psalm 18:26', 1),
+  (28, 'Proverbs 3:34', 2),
+  (28, 'Isaiah 63:10', 3),
+  (28, 'Lamentations 2:5', 4),
+  (29, 'Deuteronomy 28:53-57', 1),
+  (29, '2 Kings 6:28-29', 2),
+  (29, 'Jeremiah 19:9', 3),
+  (29, 'Lamentations 2:20; 4:10', 4),
+  (30, '2 Kings 23:14', 1),
+  (30, 'Ezekiel 6:4-6', 2),
+  (30, 'Jeremiah 8:1-2', 3),
+  (30, 'Deuteronomy 29:17', 4),
+  (31, 'Psalm 74:7', 1),
+  (31, 'Isaiah 1:13', 2),
+  (31, 'Jeremiah 7:14', 3),
+  (31, 'Ezekiel 6:6', 4),
+  (32, 'Isaiah 6:11', 1),
+  (32, 'Jeremiah 9:11', 2),
+  (32, 'Ezekiel 33:28-29', 3),
+  (32, 'Lamentations 1:10', 4),
+  (33, 'Deuteronomy 28:64', 1),
+  (33, 'Ezekiel 12:15', 2),
+  (33, 'Jeremiah 9:16', 3),
+  (33, 'Zechariah 7:14', 4),
+  (34, 'Leviticus 25:2-7', 1),
+  (34, '2 Chronicles 36:21', 2),
+  (34, 'Jeremiah 25:11-12', 3),
+  (34, 'Daniel 9:2', 4),
+  (35, '2 Chronicles 36:21', 1),
+  (35, 'Jeremiah 25:11-12', 2),
+  (36, 'Deuteronomy 28:65-67', 1),
+  (36, 'Proverbs 28:1', 2),
+  (36, 'Isaiah 7:2', 3),
+  (36, 'Psalm 53:5', 4),
+  (37, 'Deuteronomy 28:25', 1),
+  (37, 'Joshua 7:12', 2),
+  (37, 'Psalm 106:41-42', 3),
+  (38, 'Deuteronomy 4:26', 1),
+  (38, 'Deuteronomy 28:64', 2),
+  (38, 'Ezekiel 5:12', 3),
+  (38, 'Jeremiah 16:13', 4),
+  (39, 'Numbers 14:34', 1),
+  (39, 'Ezekiel 24:23', 2),
+  (39, 'Lamentations 5:16', 3),
+  (39, 'Exodus 20:5', 4),
+  (40, 'Numbers 5:7', 1),
+  (40, 'Nehemiah 9:2-3', 2),
+  (40, 'Psalm 32:5', 3),
+  (40, '1 John 1:9', 4),
+  (41, 'Deuteronomy 30:6', 1),
+  (41, 'Jeremiah 4:4', 2),
+  (41, 'Ezekiel 44:7', 3),
+  (41, 'Romans 2:29', 4),
+  (42, 'Genesis 12:1-3', 1),
+  (42, 'Genesis 15:18', 2),
+  (42, 'Genesis 26:3-4', 3),
+  (42, 'Genesis 28:13-15', 4),
+  (43, 'Leviticus 26:34-35', 1),
+  (43, '2 Chronicles 36:21', 2),
+  (43, 'Jeremiah 25:11-12', 3),
+  (43, 'Daniel 9:2', 4),
+  (44, 'Deuteronomy 4:31', 1),
+  (44, 'Romans 11:1-2', 2),
+  (44, 'Romans 11:29', 3),
+  (44, 'Jeremiah 30:11', 4),
+  (45, 'Exodus 2:24', 1),
+  (45, 'Exodus 6:5', 2),
+  (45, 'Ezekiel 16:60', 3),
+  (45, 'Deuteronomy 7:7-8', 4),
+  (46, 'Leviticus 27:34', 1),
+  (46, 'Exodus 24:3', 2),
+  (46, 'Deuteronomy 4:1', 3),
+  (46, 'John 1:17', 4)
+) AS cr(verse_number, reference, ref_order)
+WHERE b.name = 'Leviticus' AND c.chapter_number = 26 AND v.verse_number = cr.verse_number;
+
+-- ═══════════════════════════════════════════════════════
+-- ✅ Leviticus Chapter 26 Complete!
+-- 46 verses · 7 key verses with word studies (21 words)
+-- Cross-references for 46 verses (175 refs)
+-- ═══════════════════════════════════════════════════════
