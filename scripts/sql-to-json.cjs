@@ -237,9 +237,12 @@ function parseWordStudies(sql) {
     const cjIdx = block.indexOf('CROSS JOIN (VALUES');
     if (cjIdx === -1) { searchFrom = blockEnd; continue; }
 
-    // Find closing ) AS ws(
-    const asIdx = block.indexOf(') AS ws(', cjIdx);
-    if (asIdx === -1) { searchFrom = blockEnd; continue; }
+    // Find closing ) AS <alias>(<columns>)
+    const aliasMatch = block.substring(cjIdx).match(/\)\s*AS\s+(\w+)\s*\(([^)]+)\)/);
+    if (!aliasMatch) { searchFrom = blockEnd; continue; }
+    const alias = aliasMatch[1];
+    const columns = aliasMatch[2].split(',').map(c => c.trim());
+    const asIdx = cjIdx + aliasMatch.index;
 
     const valuesText = block.substring(cjIdx + 'CROSS JOIN (VALUES'.length, asIdx);
     const tuples = parseSQLValues(valuesText);
@@ -247,8 +250,27 @@ function parseWordStudies(sql) {
     // Determine verse mapping from WHERE clause
     const afterAs = block.substring(asIdx);
 
-    // Check for CASE pattern
-    const caseMatch = afterAs.match(/CASE\s+ws\.word_order\s*([\s\S]*?)END/);
+    // Pattern A: tuples include verse_number as first column (consolidated single INSERT)
+    if (columns[0] === 'verse_number') {
+      for (const t of tuples) {
+        if (t.length < 5) continue;
+        const verseNum = parseInt(t[0]);
+        if (isNaN(verseNum)) continue;
+        const key = String(verseNum);
+        if (!result[key]) result[key] = [];
+        result[key].push({
+          original_word: t[1],
+          transliteration: t[2],
+          strongs_number: t[3],
+          meaning: t[4]
+        });
+      }
+      searchFrom = blockEnd;
+      continue;
+    }
+
+    // Pattern B: CASE pattern (legacy)
+    const caseMatch = afterAs.match(new RegExp(`CASE\\s+${alias}\\.word_order\\s*([\\s\\S]*?)END`));
     if (caseMatch) {
       const mapping = {};
       const whenThens = [...caseMatch[1].matchAll(/WHEN\s+(\d+)\s+THEN\s+(\d+)/g)];
@@ -268,7 +290,7 @@ function parseWordStudies(sql) {
         result[key].push({ original_word: word, transliteration: trans, strongs_number: strongs, meaning });
       }
     } else {
-      // Direct verse_number pattern
+      // Pattern C: per-verse INSERT with literal v.verse_number = N
       const directMatch = afterAs.match(/v\.verse_number\s*=\s*(\d+)/);
       if (directMatch) {
         const verseNum = parseInt(directMatch[1]);
@@ -303,18 +325,24 @@ function parseCrossRefs(sql) {
   const cjIdx = sql.indexOf('CROSS JOIN (VALUES', insertIdx);
   if (cjIdx === -1) return result;
 
-  const asIdx = sql.indexOf(') AS cr(', cjIdx);
-  if (asIdx === -1) return result;
+  // Allow any alias (cr, x, etc.) — column list determines field order
+  const aliasMatch = sql.substring(cjIdx).match(/\)\s*AS\s+\w+\s*\(([^)]+)\)/);
+  if (!aliasMatch) return result;
+  const columns = aliasMatch[1].split(',').map(c => c.trim());
+  const asIdx = cjIdx + aliasMatch.index;
 
   const valuesText = sql.substring(cjIdx + 'CROSS JOIN (VALUES'.length, asIdx);
   const tuples = parseSQLValues(valuesText);
 
-  // Each tuple: (verse_number, reference, ref_order)
+  const verseIdx = columns.indexOf('verse_number');
+  const refIdx = columns.indexOf('reference');
+  if (verseIdx === -1 || refIdx === -1) return result;
+
   for (const t of tuples) {
-    if (t.length < 2) continue;
-    const key = String(t[0]);
+    if (t.length <= Math.max(verseIdx, refIdx)) continue;
+    const key = String(t[verseIdx]);
     if (!result[key]) result[key] = [];
-    result[key].push({ reference: t[1] });
+    result[key].push({ reference: t[refIdx] });
   }
 
   return result;
