@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "lint:critical": "eslint src/lib/server src/app/api/checkout/route.js src/app/api/donate/route.js src/app/api/semantic-search/route.js src/app/api/shop-checkout/route.js src/app/api/user/delete/route.js src/app/api/webhook/route.js src/app/views/TermsView.js src/app/layout.js",
+    "lint:ui-critical": "eslint src/app/context/AppContext.js src/app/context/AuthContext.js src/app/context/ShopContext.js src/app/context/hooks/useBibleDataState.js src/app/context/hooks/useLearningState.js src/app/context/hooks/useMediaState.js src/app/context/hooks/usePrayerState.js src/app/context/hooks/useQuizGamificationState.js src/app/views/BibleView.js src/app/views/ShopView.js src/app/views/components/BibleReaderShared.js src/app/views/components/BibleStudyShared.js src/app/views/components/ShopShared.js src/app/views/hooks/useBibleVerseListState.js src/app/views/hooks/useBibleVerseStudyState.js src/app/views/hooks/useShopCartState.js src/app/views/hooks/useShopCategoryState.js src/app/views/hooks/useShopHomeState.js src/app/views/hooks/useShopProductState.js src/app/views/hooks/useShopViewState.js",
     "test": "node --experimental-default-type=module tests/server/run-tests.mjs",
-    "check": "npm run lint:critical && npm run test",
+    "check": "npm run lint:critical && npm run lint:ui-critical && npm run test",
     "validate-env": "node scripts/validate-env.mjs"
   },
   "dependencies": {
