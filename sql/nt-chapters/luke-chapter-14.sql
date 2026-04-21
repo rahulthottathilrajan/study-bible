@@ -56,3 +56,88 @@ CROSS JOIN (VALUES
   (35, 'It is neither fit for the land, nor yet for the dunghill; but men cast it out. He that hath ears to hear, let him hear.', 'οὔτε εἰς γῆν οὔτε εἰς κοπρίαν εὔθετόν ἐστιν, ἔξω βάλλουσιν αὐτό. ὁ ἔχων ὦτα ἀκούειν ἀκουέτω.', 'oute eis gēn oute eis koprian euthetOn estin, exō ballousin auto. ho echōn ōta akouein akouetō.', 'Tasteless salt is useless — not even fit as fertilizer (eis gēn — for the soil) or as a compost activator (eis koprian — for the manure heap). "Men cast it out" (exō ballousin auto — they throw it away, outside) — the final fate of the tasteless disciple. "He that hath ears to hear, let him hear" (akouetō — present imperative: keep hearing, keep listening) — the solemn formula that marks a saying of supreme importance, calling for the kind of attentive, obedient hearing that the entire chapter demanded.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 14;
+
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 14 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'παρατηρούμενοι', 'paratēroumenoi', 'G3906', 'Watching closely — sinister surveillance. The meal is not hospitality but a trap; the Pharisees are gathering evidence, not breaking bread with a guest.', 1),
+  (2, 'ὑδρωπικὸς', 'hydrōpikos', 'G5203', 'Dropsical — a hapax legomenon. Dropsy (oedema) was considered in ancient thought a disease of insatiable thirst — a fitting visual parable for the greed of the watching Pharisees.', 2),
+  (3, 'ἔξεστιν θεραπεῦσαι', 'exestin therapeusai', 'G1832/G2323', 'Is it lawful to heal — Jesus preempts their accusation by turning it into a question. They cannot answer; their silence exposes the vacuity of their Sabbath casuistry.', 3),
+  (5, 'υἱὸς ἢ βοῦς εἰς φρέαρ', 'huios ē bous eis phrear', 'G5207/G1016/G5421', 'Son or ox into a pit — reductio ad absurdum. Even rabbinic tradition permitted Sabbath rescue of property. A son (or ox) takes priority over rigid rule-keeping.', 4),
+  (7, 'τὰς πρωτοκλισίας', 'tas prōtoklisias', 'G4411', 'The chief rooms / first couches — prōtoklisia = the place of honour at a formal banquet, near the host. The status-anxiety of the guests is the entry-point to a parable on kingdom reversal.', 5),
+  (10, 'ἀνάπεσε εἰς τὸν ἔσχατον τόπον', 'anapese eis ton eschaton topon', 'G377/G2078', 'Recline in the lowest place — aorist imperative. Deliberate self-placement at the bottom is not pretence but kingdom wisdom (cf. Prov 25:6-7).', 6),
+  (11, 'ταπεινωθήσεται... ὑψωθήσεται', 'tapeinōthēsetai... hypsōthēsetai', 'G5013/G5312', 'Humbled... exalted — future passives: shall be humbled, shall be exalted (by God, divine passive). The kingdom''s great reversal: self-exaltation invites humiliation; self-humbling invites divine elevation.', 7),
+  (12, 'ἀντικαλέσωσίν σε', 'antikalesōsin se', 'G479', 'Invite thee in return — the economic calculation of social reciprocity. Jesus forbids hospitality that functions as a social investment seeking return.', 8),
+  (13, 'πτωχοὺς ἀναπείρους χωλοὺς τυφλούς', 'ptōchous anapeirous chōlous typhlous', 'G4434/G376/G5560/G5185', 'Poor, maimed, lame, blind — those excluded from temple service (Lev 21:17-23) and unable to reciprocate. The four categories of covenant-outcasts Jesus would welcome to his table.', 9),
+  (14, 'τῇ ἀναστάσει τῶν δικαίων', 'tē anastasei tōn dikaiōn', 'G386/G1342', 'Resurrection of the just — eschatological reward at the first resurrection (Rev 20:5-6). Charity''s recompense is deferred but guaranteed.', 10),
+  (15, 'φάγεται ἄρτον ἐν τῇ βασιλείᾳ', 'phagetai arton en tē basileia', 'G5315/G740/G932', 'Eat bread in the kingdom — a pious eschatological beatitude. Jesus will answer with a parable showing that the assumed guests refuse the invitation.', 11),
+  (16, 'δεῖπνον μέγα', 'deipnon mega', 'G1173/G3173', 'A great supper — the evening banquet, the principal meal of the day. Image for the eschatological feast (Isa 25:6-9; Rev 19:9).', 12),
+  (18, 'παραιτεῖσθαι', 'paraiteisthai', 'G3868', 'To make excuse — present infinitive: to keep making excuses. The three excuses (field, oxen, wife) all mirror Deut 20:5-7 — exemptions from going to war. But this is the kingdom, not war; the pretexts are hollow.', 13),
+  (21, 'εἰς τὰς πλατείας καὶ ῥύμας', 'eis tas plateias kai rhymas', 'G4113/G4505', 'Into the streets and lanes — plateia = broad avenue; rhymē = narrow back-alley. The mission penetrates both public and hidden urban spaces to retrieve the socially marginalised.', 14),
+  (23, 'ἀνάγκασον εἰσελθεῖν', 'anagkason eiselthein', 'G315/G1525', 'Compel them to come in — anagkazō = to constrain, urge strongly. Not coercion but insistent persuasion overcoming the hesitation of those who cannot believe they are invited.', 15),
+  (26, 'οὐ μισεῖ', 'ou misei', 'G3404', 'Hateth not — Semitic idiom of comparative preference (cf. Gen 29:30-31; Mal 1:2-3). Christ must be loved with such priority that every other loyalty looks like hate by comparison.', 16),
+  (27, 'βαστάζει τὸν σταυρὸν', 'bastazei ton stauron', 'G941/G4716', 'Bears his cross — the condemned criminal carrying his own execution-beam. A shocking image for discipleship: coming to Christ means accepting one''s own death-sentence to self.', 17),
+  (28, 'ψηφίζει τὴν δαπάνην', 'psēphizei tēn dapanēn', 'G5585/G1160', 'Counts the cost — psēphizō = to compute with pebbles (psephos). Discipleship is not enthusiastic impulse; it requires clear-eyed calculation before commitment.', 18),
+  (28, 'πύργον οἰκοδομῆσαι', 'pyrgon oikodomēsai', 'G4444/G3618', 'To build a tower — probably a watchtower on an estate (Isa 5:2). Large building projects require resources; half-built towers mock their unwise builders.', 19),
+  (31, 'συμβαλεῖν εἰς πόλεμον', 'symbalein eis polemon', 'G4820/G4171', 'To engage in battle — second parable: a king weighing military odds. Prudent rulers assess before engaging; so must prospective disciples.', 20),
+  (33, 'ἀποτάσσεται πᾶσιν', 'apotassetai pasin', 'G657', 'Renounceth / bids farewell to all — formal parting-word (cf. Luke 9:61). Complete surrender of ownership-rights; all possessions held open-handed for the kingdom.', 21),
+  (34, 'καλὸν τὸ ἅλας', 'kalon to halas', 'G2570/G217', 'Salt is good — salt preserves, flavours, and purifies. Ancient Near Eastern covenants were sealed by salt (Num 18:19); salt connotes fidelity and permanence.', 22),
+  (34, 'μωρανθῇ', 'mōranthē', 'G3471', 'Lose its savour / become foolish — from mōros (fool). Insipid salt is literally "foolish salt." The pun: a flavourless disciple has become spiritually stupid, useless to kingdom purposes.', 23),
+  (35, 'εἰς γῆν οὔτε εἰς κοπρίαν', 'eis gēn oute eis koprian', 'G1093/G2874', 'Neither for land nor for dunghill — saltless salt is not even fit as soil amendment or as manure activator. Discipleship that has lost its distinctive savour is thrown out, useless.', 24),
+  (35, 'ὁ ἔχων ὦτα ἀκούειν', 'ho echōn ōta akouein', 'G191/G3775', 'He that hath ears to hear — solemn closing call (cf. Rev 2:7). Marks the preceding saying as kingdom-essential; demands deliberate, obedient attention.', 25)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 14 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Luke 7:36', 1),
+  (1, 'Luke 11:37', 2),
+  (3, 'Matthew 12:10', 1),
+  (5, 'Luke 13:15', 1),
+  (5, 'Matthew 12:11', 2),
+  (6, 'Luke 13:17', 1),
+  (6, 'Matthew 22:46', 2),
+  (7, 'Luke 11:43', 1),
+  (8, 'Proverbs 25:6-7', 1),
+  (11, 'Luke 18:14', 1),
+  (11, 'Matthew 23:12', 2),
+  (11, 'James 4:10', 3),
+  (11, '1 Peter 5:6', 4),
+  (13, 'Deuteronomy 14:29', 1),
+  (13, 'Leviticus 21:17-23', 2),
+  (14, 'John 5:29', 1),
+  (14, 'Acts 24:15', 2),
+  (14, 'Revelation 20:5-6', 3),
+  (15, 'Revelation 19:9', 1),
+  (16, 'Isaiah 25:6-9', 1),
+  (16, 'Matthew 22:1-14', 2),
+  (18, 'Deuteronomy 20:5-7', 1),
+  (20, 'Deuteronomy 24:5', 1),
+  (21, 'Luke 14:13', 1),
+  (23, 'Matthew 22:9', 1),
+  (24, 'Matthew 22:8', 1),
+  (26, 'Matthew 10:37', 1),
+  (26, 'Deuteronomy 13:6-9', 2),
+  (26, 'Genesis 29:30-31', 3),
+  (27, 'Matthew 10:38', 1),
+  (27, 'Matthew 16:24', 2),
+  (27, 'Luke 9:23', 3),
+  (28, 'Proverbs 24:27', 1),
+  (33, 'Philippians 3:7-8', 1),
+  (34, 'Matthew 5:13', 1),
+  (34, 'Mark 9:50', 2),
+  (34, 'Numbers 18:19', 3),
+  (35, 'Matthew 11:15', 1),
+  (35, 'Matthew 13:9', 2),
+  (35, 'Revelation 2:7', 3)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 14 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

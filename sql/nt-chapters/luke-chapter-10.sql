@@ -63,3 +63,119 @@ CROSS JOIN (VALUES
   (42, 'But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.', 'ἑνὸς δέ ἐστιν χρεία· Μαριὰμ γὰρ τὴν ἀγαθὴν μερίδα ἐξελέξατο, ἥτις οὐκ ἀφαιρεθήσεται αὐτῆς.', 'henos de estin chreia; Mariam gar tēn agathēn merida exelexato, hētis ouk aphairethēsetai autēs.', '"One thing is needful" (henos de estin chreia — but of one thing there is need). The "one thing" is not identified as Mary''s behavior in isolation but as the principle it represents: hearing the word of Jesus has priority over all other activity. "Mary hath chosen that good part" (tēn agathēn merida — the good portion/share). "Which shall not be taken away from her" (ouk aphairethēsetai — future passive: will absolutely not be taken away). The word received and held is permanent; hospitality arrangements are temporary. This is the chapter''s final word: the foundation of all mission and service is sitting at the feet of Jesus and hearing his word.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 10;
+
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 10 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'ἑβδομήκοντα', 'hebdomēkonta', 'G1440', 'Seventy — (many MSS read "seventy-two"). Echoes Moses''s 70 elders (Num 11:16-25) and the 70 nations of Gen 10. Luke signals a mission beyond Israel: the gospel to the whole known world.', 1),
+  (2, 'ἐργάτας', 'ergatas', 'G2040', 'Labourers — workers, not hirelings. The harvest metaphor demands kingdom workers willing to labour. Prayer precedes mission: ask the Lord of the harvest first.', 2),
+  (3, 'ἀρνία ἐν μέσῳ λύκων', 'arnia en mesō lykōn', 'G704/G3074', 'Lambs in the midst of wolves — the church''s vulnerability in a hostile world. No armour is promised — only the protection of the Sender himself.', 3),
+  (4, 'βαλάντιον', 'balantion', 'G905', 'Purse — money-bag. Radical travel-light instructions enforce dependence on God via the hospitality of hearers (cf. 22:35 review).', 4),
+  (5, 'εἰρήνη τῷ οἴκῳ τούτῳ', 'eirēnē tō oikō toutō', 'G1515', 'Peace to this house — the Semitic greeting shalom carries substantive blessing, not mere politeness. A "son of peace" = one receptive to the gospel''s peace.', 5),
+  (7, 'ἄξιος ὁ ἐργάτης τοῦ μισθοῦ', 'axios ho ergatēs tou misthou', 'G514/G3408', 'The labourer is worthy of his hire — quoted by Paul as "Scripture" (1 Tim 5:18), one of the earliest NT sayings to attain canonical status. Ministry support is a kingdom principle, not a concession.', 6),
+  (9, 'ἤγγικεν ἡ βασιλεία', 'ēngiken hē basileia', 'G1448/G932', 'The kingdom has come near — perfect tense: has drawn near and now stands near. Whether by reception or rejection, proximity brings crisis.', 7),
+  (11, 'τὸν κονιορτὸν ἀπομασσόμεθα', 'ton koniorton apomassometha', 'G2868/G631', 'We wipe off the dust — prophetic sign-act (cf. 9:5; Acts 13:51). The rejecting town is classed with pagan territory; even contact-defilement is removed.', 8),
+  (15, 'ἕως ᾅδου', 'heōs hadou', 'G2193/G86', 'Down to hades — echoing Isaiah''s taunt against Babylon''s king (Isa 14:13-15). Capernaum''s privileged exposure to Jesus incurs correspondingly severe judgment.', 9),
+  (16, 'ὁ ἀκούων ὑμῶν ἐμοῦ ἀκούει', 'ho akouōn hymōn emou akouei', 'G191', 'He that heareth you heareth me — apostolic shaliach principle: the sent-one represents the sender with full force. Rejecting the apostle = rejecting Christ = rejecting the Father.', 10),
+  (17, 'ὑπέστρεψαν οἱ ἑβδομήκοντα', 'hypestrepsan hoi hebdomēkonta', 'G5290', 'The seventy returned — with joy. Their testimony: "even the demons are subject to us in thy name." The name of Jesus is authoritative over the unseen world.', 11),
+  (18, 'Σατανᾶν ὡς ἀστραπὴν πεσόντα', 'Satanan hōs astrapēn pesonta', 'G4567/G796', 'Satan fall as lightning — the cosmic consequence of kingdom advance. Each local deliverance is a piece of Satan''s eschatological downfall (cf. Rev 12:9).', 12),
+  (19, 'ἐξουσίαν τοῦ πατεῖν ἐπάνω ὄφεων', 'exousian tou patein epanō opheōn', 'G1849/G3961/G3789', 'Authority to tread on serpents — echoing Ps 91:13 and Gen 3:15 (the seed crushing the serpent). Delegated power over all demonic hostility.', 13),
+  (20, 'τὰ ὀνόματα ὑμῶν ἐγγέγραπται', 'ta onomata hymōn engegraptai', 'G1449', 'Your names are written — perfect passive: have been inscribed and stand inscribed. Book-of-life image (Exod 32:32; Rev 21:27). Eternal acceptance outranks spiritual gifting as cause for joy.', 14),
+  (21, 'ἠγαλλιάσατο τῷ πνεύματι τῷ ἁγίῳ', 'ēgalliasato tō pneumati tō hagiō', 'G21', 'Rejoiced in the Holy Spirit — Luke alone connects Jesus''s rejoicing to the Spirit. A rare window into Jesus''s emotional/Trinitarian life.', 15),
+  (21, 'νηπίοις', 'nēpiois', 'G3516', 'Babes — infants, little ones. The Father''s sovereign pleasure in bypassing the "wise and prudent" to reveal himself to the simple and humble.', 16),
+  (22, 'οὐδεὶς γινώσκει τίς ἐστιν ὁ υἱός', 'oudeis ginōskei tis estin ho huios', 'G1097/G5207', 'No one knows who the Son is — the intra-Trinitarian mutual knowledge. Reciprocal, exclusive, exhaustive. One of the most Johannine sayings in the Synoptics.', 17),
+  (25, 'νομικός', 'nomikos', 'G3544', 'Lawyer — a scribe specialising in Torah interpretation. His question about eternal life is a test (ekpeirazōn), not genuine inquiry.', 18),
+  (25, 'ζωὴν αἰώνιον', 'zōēn aiōnion', 'G2222/G166', 'Eternal life — aiōnios = belonging to the age to come. Not merely unending duration but the quality of life in the messianic age.', 19),
+  (27, 'ἀγαπήσεις Κύριον ἐξ ὅλης τῆς καρδίας', 'agapēseis Kurion ex holēs tēs kardias', 'G25', 'Love the Lord with all thy heart — the Shema (Deut 6:5). Jesus affirms the lawyer''s summary: love of God and neighbour is the essence of the whole Law.', 20),
+  (29, 'δικαιῶσαι ἑαυτόν', 'dikaiōsai heauton', 'G1344', 'To justify himself — to vindicate his own righteousness. The lawyer''s follow-up ("who is my neighbour?") is an attempt to limit obligation.', 21),
+  (30, 'λῃσταῖς', 'lēstais', 'G3027', 'Thieves / bandits — not petty thieves but violent brigands (same word used for Barabbas, 23:19). The Jericho road was notoriously dangerous.', 22),
+  (33, 'Σαμαρείτης', 'Samaritēs', 'G4541', 'Samaritan — to the lawyer''s ear, an oxymoronic hero. Samaritans were hated half-breeds, religiously apostate (John 4:9). Jesus picks the most despised figure as moral exemplar.', 23),
+  (33, 'ἐσπλαγχνίσθη', 'esplanchnisthē', 'G4697', 'Had compassion — from splagchna (inner organs, gut). A visceral, Hebraic compassion — the same verb used for Jesus''s own compassion (7:13). True neighbour-love begins in the gut.', 24),
+  (34, 'ἔλαιον καὶ οἶνον', 'elaion kai oinon', 'G1637/G3631', 'Oil and wine — standard first-century wound-care: oil to soothe, wine (with alcohol) to disinfect. Not metaphorical but practical mercy at personal cost.', 25),
+  (35, 'δύο δηνάρια', 'dyo dēnaria', 'G1417/G1220', 'Two denarii — two days'' wages for a labourer. Enough for roughly two months'' lodging at an inn. Extravagant generosity to a stranger.', 26),
+  (37, 'ὁ ποιήσας τὸ ἔλεος', 'ho poiēsas to eleos', 'G4160/G1656', 'He that shewed mercy — the lawyer cannot even say the word "Samaritan." Jesus''s imperative: "go and do thou likewise" — mercy, not tribal boundary-drawing, defines neighbourliness.', 27),
+  (39, 'παρακαθίσασα πρὸς τοὺς πόδας', 'parakathisasa pros tous podas', 'G3869/G4228', 'Sat at his feet — the formal posture of a disciple under a rabbi (cf. Paul at Gamaliel''s feet, Acts 22:3). Revolutionary: Mary takes the posture of a male disciple.', 28),
+  (40, 'περιεσπᾶτο', 'periespato', 'G4049', 'Was cumbered — literally "pulled about in many directions." Imperfect: continually distracted. Martha''s service is good but fragmented and agitated.', 29),
+  (41, 'μεριμνᾷς καὶ τυρβάζῃ', 'merimnas kai turbazē', 'G3309/G5182', 'Careful and troubled — merimnaō = anxious worry (the same word for the "cares" of 8:14 that choked the seed); turbazō = agitated, in turmoil.', 30),
+  (42, 'ἑνὸς δέ ἐστιν χρεία', 'henos de estin chreia', 'G1520/G5532', 'One thing is needful — the priority of attentive hearing over busy serving. Service flows from sitting; sitting does not flow from service.', 31),
+  (42, 'τὴν ἀγαθὴν μερίδα', 'tēn agathēn merida', 'G18/G3310', 'The good portion — meris = a share or portion allotted. Mary has chosen her inheritance; it "shall not be taken away" (future passive with double negative = absolute promise).', 32)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 10 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Numbers 11:16-25', 1),
+  (1, 'Luke 9:52', 2),
+  (2, 'Matthew 9:37-38', 1),
+  (2, 'John 4:35', 2),
+  (3, 'Matthew 10:16', 1),
+  (4, 'Luke 9:3', 1),
+  (4, 'Luke 22:35', 2),
+  (5, 'Matthew 10:12-13', 1),
+  (7, '1 Corinthians 9:14', 1),
+  (7, '1 Timothy 5:18', 2),
+  (9, 'Luke 9:2', 1),
+  (9, 'Matthew 10:7', 2),
+  (11, 'Acts 13:51', 1),
+  (11, 'Acts 18:6', 2),
+  (12, 'Matthew 10:15', 1),
+  (12, 'Genesis 19:24-25', 2),
+  (13, 'Matthew 11:21-24', 1),
+  (13, 'Isaiah 23:1-18', 2),
+  (15, 'Isaiah 14:13-15', 1),
+  (16, 'Matthew 10:40', 1),
+  (16, 'John 13:20', 2),
+  (18, 'John 12:31', 1),
+  (18, 'Revelation 12:9', 2),
+  (18, 'Isaiah 14:12', 3),
+  (19, 'Psalm 91:13', 1),
+  (19, 'Mark 16:18', 2),
+  (19, 'Romans 16:20', 3),
+  (19, 'Genesis 3:15', 4),
+  (20, 'Exodus 32:32', 1),
+  (20, 'Philippians 4:3', 2),
+  (20, 'Revelation 20:12', 3),
+  (20, 'Revelation 21:27', 4),
+  (21, 'Matthew 11:25-26', 1),
+  (21, '1 Corinthians 1:26-29', 2),
+  (22, 'Matthew 11:27', 1),
+  (22, 'John 3:35', 2),
+  (22, 'John 10:15', 3),
+  (23, 'Matthew 13:16-17', 1),
+  (25, 'Matthew 22:35', 1),
+  (25, 'Luke 18:18', 2),
+  (27, 'Deuteronomy 6:5', 1),
+  (27, 'Leviticus 19:18', 2),
+  (27, 'Romans 13:9', 3),
+  (28, 'Leviticus 18:5', 1),
+  (28, 'Romans 10:5', 2),
+  (28, 'Galatians 3:12', 3),
+  (29, 'Luke 16:15', 1),
+  (31, 'Leviticus 21:1-3', 1),
+  (32, 'Leviticus 21:10-12', 1),
+  (33, 'John 4:9', 1),
+  (33, 'John 8:48', 2),
+  (34, 'Isaiah 1:6', 1),
+  (36, 'Romans 13:10', 1),
+  (37, 'John 13:15', 1),
+  (37, 'James 2:8', 2),
+  (38, 'John 11:1', 1),
+  (38, 'John 12:2', 2),
+  (39, 'Luke 8:35', 1),
+  (39, 'Acts 22:3', 2),
+  (40, '1 Corinthians 7:35', 1),
+  (41, 'Matthew 6:25-34', 1),
+  (41, 'Philippians 4:6', 2),
+  (42, 'Psalm 27:4', 1),
+  (42, 'Philippians 3:13-14', 2)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 10 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

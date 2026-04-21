@@ -75,3 +75,111 @@ CROSS JOIN (VALUES
   (54, 'Laying wait for him, and seeking to catch something out of his mouth, that they might accuse him.', 'ἐνεδρεύοντες αὐτόν, ζητοῦντες θηρεῦσαί τι ἐκ τοῦ στόματος αὐτοῦ, ἵνα κατηγορήσωσιν αὐτοῦ.', 'enedreUontes auton, zētountes thēreusai ti ek tou stomatos autou, hina katēgorēsōsin autou.', '"Laying wait" (enedreUontes — setting an ambush, military terminology for a trap) and "to catch" (thēreusai — to hunt, to trap as a wild animal) portray the religious leaders as predators. They seek any quotable utterance that could be used as a legal accusation (katēgorēsōsin — to bring formal charges). This verse bridges to chapter 12, where Jesus warns his disciples of Pharisaic hypocrisy under the pressure of this mounting danger.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 11;
+
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 11 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'δίδαξον ἡμᾶς προσεύχεσθαι', 'didaxon hēmas proseuchesthai', 'G1321/G4336', 'Teach us to pray — the disciples watched Jesus''s prayer-life and wanted what he had. Prayer is modelled, then taught — caught before it is taught.', 1),
+  (2, 'Πάτερ, ἁγιασθήτω', 'Pater, hagiasthētō', 'G3962/G37', 'Father, hallowed — Jesus grants his disciples the same intimate address (Pater / Abba) he himself uses with God. Hagiasthētō (aorist passive imperative) = let it be sanctified, set apart as holy.', 2),
+  (2, 'ἐλθέτω ἡ βασιλεία σου', 'elthetō hē basileia sou', 'G2064/G932', 'Thy kingdom come — petition for God''s reign to break into history in its fullness. Aorist imperative: a single decisive coming.', 3),
+  (3, 'ἐπιούσιον', 'epiousion', 'G1967', 'Daily — a notoriously rare word (effectively only here and Matt 6:11). Likely "necessary for the coming day" or "for our existence." Simple dependence on God''s daily provision.', 4),
+  (4, 'ἄφες ἡμῖν τὰς ἁμαρτίας', 'aphes hēmin tas hamartias', 'G863/G266', 'Forgive us our sins — where Matthew has "debts" (opheilēmata), Luke has hamartias (sins), the same root as opheilonti ("indebted") in the same verse. Forgiveness received conditions forgiveness given.', 5),
+  (4, 'πειρασμόν', 'peirasmon', 'G3986', 'Temptation / testing — dual-sense word: moral temptation and eschatological trial. "Lead us not into" = do not allow us to enter circumstances beyond our capacity.', 6),
+  (8, 'ἀναίδειαν', 'anaideian', 'G335', 'Importunity — shameless persistence, absence of bashful reluctance. The neighbour yields not out of friendship but because the asker refuses to give up. Prayer that persists prevails.', 7),
+  (9, 'αἰτεῖτε... ζητεῖτε... κρούετε', 'aiteite... zēteite... krouete', 'G154/G2212/G2925', 'Ask, seek, knock — three present imperatives: keep asking, keep seeking, keep knocking. Progressive intensification; persistent prayer is normative, not exceptional.', 8),
+  (11, 'ἰχθῦς... ὄφις', 'ichthys... ophis', 'G2486/G3789', 'Fish... serpent — a fish without scales could look snake-like in the Galilean hills. No earthly father swaps nourishment for something deadly; the heavenly Father is infinitely trustworthy.', 9),
+  (13, 'πνεῦμα ἅγιον', 'pneuma hagion', 'G4151/G40', 'Holy Spirit — where Matt 7:11 has "good things," Luke specifies the supreme good: the Spirit himself. Luke''s distinctive emphasis on the Spirit as the greatest gift.', 10),
+  (15, 'Βεελζεβοὺλ', 'Beelzeboul', 'G954', 'Beelzebub / Baal-Zebul — "lord of the dwelling" or mockingly "lord of flies" (Baal-Zebub, 2 Kgs 1:2). A title for Satan as prince of demons, deployed here to slander Jesus.', 11),
+  (17, 'βασιλεία ἐφ᾽ ἑαυτὴν διαμερισθεῖσα', 'basileia eph'' heautēn diameristheisa', 'G932/G1266', 'Kingdom divided against itself — political logic dismantles the slander. If Satan were behind the exorcisms, he would be destroying his own dominion.', 12),
+  (20, 'ἐν δακτύλῳ θεοῦ', 'en daktylō theou', 'G1147/G2316', 'By the finger of God — direct echo of Exod 8:19 (the magicians in Egypt). Jesus''s exorcisms are a new Exodus: liberation from the oppressor by direct divine action.', 13),
+  (21, 'ἰσχυρός', 'ischyros', 'G2478', 'Strong man — Satan guarding his dominion. The guarded house is the fallen world; the goods are the souls held in bondage.', 14),
+  (22, 'ἰσχυρότερος', 'ischyroteros', 'G2478', 'Stronger than he — comparative: a superior strongman has arrived. Christ binds Satan and plunders his house, distributing the spoils (cf. Isa 53:12; Col 2:15).', 15),
+  (23, 'ὁ μὴ ὢν μετ᾽ ἐμοῦ', 'ho mē ōn met'' emou', 'G3326', 'He that is not with me — no neutral ground. Kingdom-conflict demands alignment; passivity equals opposition. Contrast with 9:50 (the non-hostile outsider is counted ally).', 16),
+  (26, 'ἑπτὰ ἕτερα πνεύματα', 'hepta hetera pneumata', 'G2033', 'Seven other spirits — completeness of demonic re-occupation. An empty moral reform without positive filling by Christ leaves the house available for worse occupation.', 17),
+  (27, 'μακαρία ἡ κοιλία', 'makaria hē koilia', 'G2836', 'Blessed is the womb — a common first-century female beatitude on a hero''s mother. Jesus redirects blessedness from biological kinship to spiritual reception.', 18),
+  (28, 'οἱ ἀκούοντες τὸν λόγον καὶ φυλάσσοντες', 'hoi akouontes ton logon kai phylassontes', 'G191/G5442', 'They that hear the word and keep it — phylassō = to guard, preserve, observe. Same principle as 6:47-48 and 8:21: hearing + doing constitutes true blessedness.', 19),
+  (29, 'γενεὰ πονηρά', 'genea ponēra', 'G1074/G4190', 'Evil generation — genea = the contemporary generation, not a race. Luke echoes Moses''s indictment (Deut 32:5) and anticipates Acts 2:40.', 20),
+  (30, 'σημεῖον Ἰωνᾶ', 'sēmeion Iōna', 'G4592/G2495', 'Sign of Jonah — the preacher-from-death. Luke emphasises Jonah''s kerygmatic role (v.32) whereas Matt 12:40 emphasises three days in the fish. Luke''s accent: repentance at preaching.', 21),
+  (31, 'βασίλισσα νότου', 'basilissa notou', 'G938/G3558', 'Queen of the south — Sheba. A Gentile woman sought Solomon''s wisdom from great distance; this generation refuses greater wisdom at arm''s reach.', 22),
+  (34, 'ὁ ὀφθαλμός σου ἁπλοῦς', 'ho ophthalmos sou haplous', 'G3788/G573', 'Thine eye single — haplous = simple, single, uncomplicated, sincere. Hebraic idiom for integrity and generosity; the whole person illumined when the inner eye is rightly oriented.', 23),
+  (38, 'οὐ πρῶτον ἐβαπτίσθη', 'ou prōton ebaptisthē', 'G907', 'Not first washed — ceremonial hand-washing before the meal, a rabbinic tradition-of-the-elders not commanded by Torah. The Pharisee''s astonishment reveals how tradition had become law.', 24),
+  (39, 'τὸ ἔξωθεν... τὸ ἔσωθεν', 'to exōthen... to esōthen', 'G1855/G2081', 'The outside... the inside — vessel-metaphor applied to the person. External ritual cleanness is worthless if the interior is full of greed (harpagē) and wickedness (ponēria).', 25),
+  (41, 'δότε ἐλεημοσύνην', 'dote eleēmosynēn', 'G1325/G1654', 'Give alms — the true internal purifier. Generosity expresses the clean heart; hoarding reveals the rapacious one. Luke''s consistent theme: possessions reveal the heart.', 26),
+  (42, 'οὐαὶ ὑμῖν', 'ouai hymin', 'G3759', 'Woe to you — prophetic lament-curse. A sorrowful denunciation of judgment, not a vindictive curse. Six woes total in Luke 11, echoing Isa 5''s pattern.', 27),
+  (42, 'τὴν κρίσιν καὶ τὴν ἀγάπην τοῦ θεοῦ', 'tēn krisin kai tēn agapēn tou theou', 'G2920/G26/G2316', 'Judgment and the love of God — the weighty matters of Torah (echoing Mic 6:8). Scrupulous tithing while neglecting justice and love is the classic perversion.', 28),
+  (44, 'μνημεῖα τὰ ἄδηλα', 'mnēmeia ta adēla', 'G3419/G82', 'Graves which appear not — unmarked tombs that defile the unsuspecting who walk over them (Num 19:16). Hidden corruption in pious exterior — the most dangerous form.', 29),
+  (46, 'φορτία δυσβάστακτα', 'phortia dysbastakta', 'G5413/G1419', 'Burdens grievous to be borne — rabbinic casuistry multiplying Torah into unliveable detail, while the lawyers themselves do not assist with a finger.', 30),
+  (49, 'ἡ σοφία τοῦ θεοῦ', 'hē sophia tou theou', 'G4678/G2316', 'The wisdom of God — a periphrasis for God speaking. Jesus speaks as divine Wisdom personified (cf. Prov 8; Matt 11:19), warning of generational martyrdom.', 31),
+  (52, 'τὴν κλεῖδα τῆς γνώσεως', 'tēn kleida tēs gnōseōs', 'G2807/G1108', 'The key of knowledge — true interpretation of Scripture that opens the way to God. The lawyers took away the key through interpretive obfuscation and neither entered themselves nor permitted others.', 32)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 11 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Luke 3:21', 1),
+  (1, 'Luke 5:16', 2),
+  (1, 'Luke 6:12', 3),
+  (2, 'Matthew 6:9-13', 1),
+  (2, 'Isaiah 63:16', 2),
+  (3, 'Proverbs 30:8', 1),
+  (4, 'Matthew 6:12', 1),
+  (4, 'Matthew 18:35', 2),
+  (4, '1 Corinthians 10:13', 3),
+  (8, 'Luke 18:1-5', 1),
+  (9, 'Matthew 7:7-8', 1),
+  (9, 'Jeremiah 29:13', 2),
+  (10, 'Psalm 34:4', 1),
+  (11, 'Matthew 7:9-10', 1),
+  (13, 'Matthew 7:11', 1),
+  (13, 'James 1:17', 2),
+  (14, 'Matthew 9:32-34', 1),
+  (14, 'Matthew 12:22-24', 2),
+  (17, 'Mark 3:24-26', 1),
+  (20, 'Exodus 8:19', 1),
+  (21, 'Isaiah 49:24-25', 1),
+  (22, 'Isaiah 53:12', 1),
+  (22, 'Colossians 2:15', 2),
+  (23, 'Mark 9:40', 1),
+  (24, 'Matthew 12:43-45', 1),
+  (26, '2 Peter 2:20-22', 1),
+  (27, 'Luke 1:28', 1),
+  (27, 'Luke 1:48', 2),
+  (28, 'Luke 8:21', 1),
+  (28, 'James 1:22', 2),
+  (29, 'Matthew 12:38-42', 1),
+  (30, 'Jonah 1:17', 1),
+  (30, 'Jonah 2:10', 2),
+  (31, '1 Kings 10:1-10', 1),
+  (32, 'Jonah 3:5-10', 1),
+  (33, 'Matthew 5:15', 1),
+  (33, 'Mark 4:21', 2),
+  (34, 'Matthew 6:22-23', 1),
+  (37, 'Luke 7:36', 1),
+  (39, 'Matthew 23:25-26', 1),
+  (41, 'Luke 12:33', 1),
+  (42, 'Leviticus 27:30', 1),
+  (42, 'Deuteronomy 14:22', 2),
+  (42, 'Micah 6:8', 3),
+  (43, 'Matthew 23:6-7', 1),
+  (43, 'Luke 20:46', 2),
+  (44, 'Numbers 19:16', 1),
+  (44, 'Matthew 23:27', 2),
+  (46, 'Matthew 23:4', 1),
+  (46, 'Acts 15:10', 2),
+  (47, 'Matthew 23:29-31', 1),
+  (49, 'Matthew 23:34', 1),
+  (51, 'Genesis 4:8', 1),
+  (51, '2 Chronicles 24:20-22', 2),
+  (52, 'Matthew 23:13', 1),
+  (53, 'Matthew 22:15', 1)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 11 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

@@ -56,3 +56,95 @@ CROSS JOIN (VALUES
   (35, 'Behold, your house is left unto you desolate: and verily I say unto you, Ye shall not see me, until the time come when ye shall say, Blessed is he that cometh in the name of the Lord.', 'ἰδοὺ ἀφίεται ὑμῖν ὁ οἶκος ὑμῶν. λέγω δὲ ὑμῖν, οὐ μὴ ἴδητέ με ἕως ἥξει ὅτε εἴπητε, Εὐλογημένος ὁ ἐρχόμενος ἐν ὀνόματι Κυρίου.', 'idou aphietai humin ho oikos humōn. legō de humin, ou mē idēte me heōs hēxei hote eipēte, Eulogēmenos ho erchomenos en onomati Kuriou.', '"Your house is left unto you desolate" (aphietai — is abandoned, given up, forsaken) — "your house" not "my Father''s house." The divine presence is withdrawing from the temple and the city that has rejected its prophets. This prophecy anticipates the destruction of Jerusalem in AD 70 (21:5-24). "Ye shall not see me until" — not permanent absence but conditional future restoration: when they cry "Blessed is he that cometh" (Ps 118:26), quoting the Passover hallel, the reunion will occur — at the triumphal entry (19:38) and ultimately at the parousia.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 13;
+
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 13 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'αἷμα Πιλᾶτος ἔμιξεν', 'haima Pilatos emixen', 'G129/G3396', 'Whose blood Pilate mingled — a recent atrocity: Pilate''s soldiers killed Galilean worshippers at the temple, their blood splashing the sacrificial blood. A question of theodicy framed in blood.', 1),
+  (3, 'μετανοήσητε', 'metanoēsēte', 'G3340', 'Repent — literally "change the mind," reorient the whole person. Not mere regret but wholesale change of direction. Universal application: all need to repent, not just the notorious.', 2),
+  (4, 'τὸν πύργον ἐν τῷ Σιλωὰμ', 'ton pyrgon en tō Silōam', 'G4444/G4611', 'Tower in Siloam — a construction accident, possibly on the aqueduct project. Jesus pairs a political atrocity with a natural disaster: both prompt the same universal call to repentance.', 3),
+  (4, 'ὀφειλέται', 'opheiletai', 'G3781', 'Debtors / sinners — opheiletēs = one who owes. Jewish idiom linking sin to debt owed to God (cf. Matt 6:12). The accidents did not indicate greater debt than the unharmed bystanders.', 4),
+  (6, 'συκῆν', 'sykēn', 'G4808', 'Fig tree — Israel''s recurring OT symbol (Hos 9:10; Jer 8:13; Isa 5:1-7). A fruitless fig tree is a fruitless Israel facing divine scrutiny.', 5),
+  (8, 'σκάψω περὶ αὐτὴν', 'skapsō peri autēn', 'G4626', 'I will dig about it — intercessory pleading for another season of grace. The vinedresser''s patience previews Jesus''s ministry as Israel''s last opportunity to bear fruit.', 6),
+  (11, 'γυνὴ πνεῦμα ἔχουσα ἀσθενείας', 'gynē pneuma echousa astheneias', 'G769', 'Spirit of infirmity — demonic cause behind an organic-looking condition. Not all illness is demonic, but Jesus diagnoses this particular case as bound by Satan (v.16).', 7),
+  (14, 'ἀγανακτῶν', 'aganaktōn', 'G23', 'Indignant — the synagogue ruler''s outrage is misdirected: he is angry at healing on a Sabbath while ignoring the woman''s 18-year bondage. Religion without compassion.', 8),
+  (15, 'λύει τὸν βοῦν', 'lyei ton boun', 'G3089/G1016', 'Looseth his ox — permitted Sabbath activity (Mishnah Shabbat). Jesus exposes the inconsistency: an ox deserves untying; a daughter of Abraham deserves less?', 9),
+  (16, 'θυγατέρα Ἀβραὰμ', 'thugatera Abraam', 'G2364/G11', 'Daughter of Abraham — covenant-family status restored and publicly affirmed. A marginalised woman is named daughter of the patriarch, dignified in the synagogue.', 10),
+  (16, 'ἔδησεν ὁ Σατανᾶς', 'edēsen ho Satanas', 'G1210/G4567', 'Satan has bound — perfect tense: bound and still bound. Her physical condition is framed as long-term diabolic bondage, now broken by the Lord of the Sabbath.', 11),
+  (19, 'κόκκῳ σινάπεως', 'kokkō sinapeōs', 'G2848/G4615', 'Grain of mustard seed — proverbial smallness. The kingdom''s disproportionate growth from smallest beginning to tree sheltering birds (echoing Ezek 17:23; Dan 4:12 — nations).', 12),
+  (21, 'ζύμῃ', 'zymē', 'G2219', 'Leaven — here positive (contrast 12:1). The kingdom''s pervasive transforming influence: invisible yet thorough, spreading until the whole is affected.', 13),
+  (21, 'σάτα τρία', 'sata tria', 'G4568', 'Three measures — about 50 lbs of flour, enough to feed 100. The hiddenness is everyday; the scale is vast. The kingdom works through common means on a civilizational scale.', 14),
+  (24, 'ἀγωνίζεσθε', 'agōnizesthe', 'G75', 'Strive / agonize — athletic metaphor (agōn = contest). Entering the kingdom is not casual drift but deliberate exertion against resistance, like a wrestler.', 15),
+  (24, 'τῆς στενῆς θύρας', 'tēs stenēs thyras', 'G4728/G2374', 'The narrow door — a single specific entrance (Christ himself, John 10:9). The kingdom''s access point is not a broad tolerance but a specific door requiring repentance.', 16),
+  (25, 'οἰκοδεσπότης', 'oikodespotēs', 'G3617', 'Master of the house — owner-lord. Once he rises and shuts the door, the window of opportunity is closed. Judgment is sovereignly timed and irreversible.', 17),
+  (27, 'ἐργάται ἀδικίας', 'ergatai adikias', 'G2040/G93', 'Workers of iniquity — echo of Ps 6:8. Proximity to Jesus ("we ate and drank in thy presence") is insufficient if life is lived in injustice. Familiarity is not discipleship.', 18),
+  (28, 'κλαυθμὸς καὶ βρυγμὸς', 'klauthmos kai brygmos', 'G2805/G1030', 'Weeping and gnashing of teeth — Jesus''s stock image for final exclusion (Matt 8:12; 13:42). Grief mixed with fury; the damned rage not at God but at themselves.', 19),
+  (29, 'ἀπὸ ἀνατολῶν... δυσμῶν', 'apo anatolōn... dysmōn', 'G395/G1424', 'From east and west — Gentile ingathering prophesied (Isa 49:12; Mal 1:11). The great eschatological banquet is filled from the nations after Israel''s rejection.', 20),
+  (30, 'ἔσχατοι... πρῶτοι', 'eschatoi... prōtoi', 'G2078/G4413', 'Last... first — the kingdom''s reversal principle. Gentile latecomers precede covenant insiders who presumed priority. A recurring Lukan theme of divine reversal.', 21),
+  (32, 'ἀλώπεκι', 'alōpeki', 'G258', 'That fox — rare political insult from Jesus. "Fox" in Jewish usage = crafty lightweight, not a lion. Herod is a cunning but impotent schemer; Jesus is not afraid.', 22),
+  (32, 'τῇ τρίτῃ τελειοῦμαι', 'tē tritē teleioumai', 'G5048', 'On the third day I shall be perfected — teleioō = to complete, to bring to the goal. Jesus''s ministry has a divinely scheduled trajectory culminating in "the third day" — passion and resurrection language.', 23),
+  (33, 'οὐκ ἐνδέχεται', 'ouk endechetai', 'G1735', 'It cannot be — impossible that a prophet should die outside Jerusalem. Sharp irony: the city God chose for his Name is the city that kills his prophets.', 24),
+  (34, 'ὡς ὄρνις τὰ ἑαυτῆς νοσσία', 'hōs ornis ta heautēs nossia', 'G3733/G3556', 'As a hen her chickens — one of the tenderest Christological images. Echoes Deut 32:11; Ps 91:4; Ruth 2:12. Divine shelter is feminine-maternal in imagery here.', 25),
+  (34, 'οὐκ ἠθελήσατε', 'ouk ēthelēsate', 'G2309', 'Ye would not — aorist active: a deliberate, decisive refusal. Divine willingness meets human resistance; the tragedy of grace rejected.', 26),
+  (35, 'ἀφίεται ὁ οἶκος', 'aphietai ho oikos', 'G863/G3624', 'House is left / forsaken — echoes Jeremiah''s temple-abandonment oracles (Jer 12:7; 22:5). The Shekinah withdraws from "your house" — no longer "my Father''s."', 27),
+  (35, 'Εὐλογημένος ὁ ἐρχόμενος', 'Eulogēmenos ho erchomenos', 'G2127/G2064', 'Blessed is he that cometh — Ps 118:26, the Hallel sung at pilgrimage festivals. Partially fulfilled at 19:38 (triumphal entry); final fulfilment at the parousia.', 28)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 13 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Numbers 16:32-35', 1),
+  (3, 'Ezekiel 18:30', 1),
+  (3, 'Acts 3:19', 2),
+  (3, '2 Peter 3:9', 3),
+  (4, 'John 9:2-3', 1),
+  (5, 'Acts 17:30', 1),
+  (6, 'Isaiah 5:1-7', 1),
+  (6, 'Jeremiah 8:13', 2),
+  (6, 'Hosea 9:10', 3),
+  (7, 'Matthew 21:19', 1),
+  (9, 'John 15:2', 1),
+  (10, 'Luke 4:16', 1),
+  (11, 'Matthew 12:9-14', 1),
+  (14, 'Exodus 20:9', 1),
+  (14, 'Deuteronomy 5:13', 2),
+  (15, 'Luke 14:5', 1),
+  (16, 'Luke 19:9', 1),
+  (19, 'Matthew 13:31-32', 1),
+  (19, 'Mark 4:30-32', 2),
+  (19, 'Ezekiel 17:23', 3),
+  (19, 'Daniel 4:12', 4),
+  (21, 'Matthew 13:33', 1),
+  (21, '1 Corinthians 5:6-8', 2),
+  (24, 'Matthew 7:13-14', 1),
+  (25, 'Matthew 25:10-12', 1),
+  (27, 'Psalm 6:8', 1),
+  (27, 'Matthew 7:23', 2),
+  (28, 'Matthew 8:11-12', 1),
+  (28, 'Matthew 22:13', 2),
+  (29, 'Isaiah 49:12', 1),
+  (29, 'Malachi 1:11', 2),
+  (30, 'Matthew 19:30', 1),
+  (30, 'Matthew 20:16', 2),
+  (32, 'Matthew 14:1', 1),
+  (33, 'Luke 9:22', 1),
+  (33, 'Luke 18:31', 2),
+  (34, 'Matthew 23:37-39', 1),
+  (34, 'Deuteronomy 32:11', 2),
+  (34, 'Ruth 2:12', 3),
+  (34, 'Psalm 91:4', 4),
+  (35, 'Psalm 69:25', 1),
+  (35, 'Jeremiah 22:5', 2),
+  (35, 'Psalm 118:26', 3),
+  (35, 'Luke 19:38', 4)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 13 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

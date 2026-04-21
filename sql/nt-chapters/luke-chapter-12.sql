@@ -80,3 +80,119 @@ CROSS JOIN (VALUES
   (59, 'I tell thee, thou shalt not depart thence, till thou hast paid the very last mite.', 'λέγω σοι, οὐ μὴ ἐξέλθῃς ἐκεῖθεν ἕως καὶ τὸ ἔσχατον λεπτὸν ἀποδῷς.', 'legō soi, ou mē exelthēs ekeithen heōs kai to eschaton lepton apodōs.', '"The very last mite" (to eschaton lepton — the last lepton, the smallest coin in circulation, worth about 1/8 of a cent) — complete, exhaustive payment is required for release. In the judicial image, debts must be paid in full; in the spiritual application, the wages of sin (Rom 6:23) cannot be partially repaid. The urgency of the entire chapter converges here: reconcile now, respond to the kingdom now, before the judgment seat makes all reckoning irrevocable.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 12;
+
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 12 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'ζύμη τῶν Φαρισαίων', 'zymē tōn Pharisaiōn', 'G2219/G5330', 'Leaven of the Pharisees — a little yeast permeates the whole lump (1 Cor 5:6-8). Pharisaic hypocrisy spreads invisibly and corrupts entirely.', 1),
+  (1, 'ὑπόκρισις', 'hypokrisis', 'G5272', 'Hypocrisy — from the theatre: playing a role behind a mask. The gap between public image and private reality. Luke''s diagnosis of the Pharisees'' core spiritual disease.', 2),
+  (3, 'ἐν τοῖς ταμείοις', 'en tois tameiois', 'G5009', 'In the closets / inner rooms — tameion = store-chamber, innermost room. What is whispered in the most private space will become public broadcast at the eschaton.', 3),
+  (5, 'γέενναν', 'geennan', 'G1067', 'Gehenna / hell — the Valley of Hinnom outside Jerusalem, where children had been sacrificed to Molech; the city''s perpetual rubbish fire. Jesus''s stock image for final judgment.', 4),
+  (6, 'στρουθία', 'strouthia', 'G4765', 'Sparrows — the cheapest birds in the market (five for two assaria, about 20 minutes of a labourer''s wage). Yet none is forgotten before God.', 5),
+  (7, 'αἱ τρίχες τῆς κεφαλῆς', 'hai triches tēs kephalēs', 'G2359/G2776', 'The hairs of your head — numbered. Perfect passive: have been numbered and stand numbered. God''s knowledge is not merely general providence but minute personal care.', 6),
+  (8, 'ὁμολογήσει', 'homologēsei', 'G3670', 'Confess — homologeō = "say the same thing," agree publicly. Reciprocal principle: public confession of Christ meets public confession by Christ before the angels.', 7),
+  (10, 'εἰς τὸ ἅγιον πνεῦμα βλασφημήσαντι', 'eis to hagion pneuma blasphēmēsanti', 'G987/G4151/G40', 'Blaspheme against the Holy Spirit — attributing the Spirit''s obvious work to Satan (cf. 11:15). The unforgivable sin is not a slip of the tongue but settled, conscious rejection of the Spirit''s testimony.', 8),
+  (12, 'τὸ ἅγιον πνεῦμα διδάξει', 'to hagion pneuma didaxei', 'G1321/G4151', 'The Holy Spirit shall teach — future promise of Spirit-given speech under interrogation. Fulfilled repeatedly in Acts (4:8; 6:10; 7:55).', 9),
+  (13, 'μερίσασθαι τὴν κληρονομίαν', 'merisasthai tēn klēronomian', 'G3307/G2817', 'Divide the inheritance — the man wants Jesus as a probate arbitrator. His request reveals hearts more concerned with property than kingdom.', 10),
+  (15, 'πλεονεξίας', 'pleonexias', 'G4124', 'Covetousness — literally "the desire to have more" (pleon-echō). Colossians 3:5 names it idolatry: the craving for more that displaces God as life''s centre.', 11),
+  (15, 'ζωὴ... οὐκ ἐν τῷ περισσεύειν', 'zōē... ouk en tō perisseuein', 'G2222/G4052', 'Life... not in abundance — real life (zōē) is not constituted by surplus of possessions. The crowning principle of Jesus''s economic teaching.', 12),
+  (16, 'εὐφόρησεν', 'euphorēsen', 'G2164', 'Brought forth plentifully — the ground did it, not the man. The success was a divine gift, but the man speaks as though he had produced it ("my fruits, my barns, my goods").', 13),
+  (19, 'ψυχή... ἀναπαύου, φάγε, πίε', 'psychē... anapauou, phage, pie', 'G5590/G373/G5315/G4095', 'Soul... rest, eat, drink — the fool addresses his soul as though it could be fed with grain. The category mistake is the whole point: the soul needs God, not goods.', 14),
+  (20, 'ἄφρων', 'aphrōn', 'G878', 'Fool — Psalm 14:1 folly: practical atheism, living as though there is no God. God''s verdict, not human; God calls the prosperous farmer a fool.', 15),
+  (21, 'πλουτῶν εἰς θεόν', 'ploutōn eis theon', 'G4147/G2316', 'Rich toward God — the contrast: not hoarding toward self but investing toward God. The true portfolio is heavenly, not earthly.', 16),
+  (24, 'τοὺς κόρακας', 'tous korakas', 'G2876', 'The ravens — unclean birds under the Law (Lev 11:15). If God feeds even the ritually unclean, how much more his own children.', 17),
+  (27, 'τὰ κρίνα... Σολομών', 'ta krina... Solomōn', 'G2918/G4672', 'The lilies... Solomon — probably the wild anemones of Galilee. God''s effortless clothing of a short-lived flower exceeds the finest royal attire.', 18),
+  (28, 'ὀλιγόπιστοι', 'oligopistoi', 'G3640', 'O ye of little faith — a compound unique to the Synoptics (oligos + pistis). Gentle rebuke, not condemnation. Little faith still counts as faith; but the Father wants more.', 19),
+  (31, 'ζητεῖτε τὴν βασιλείαν', 'zēteite tēn basileian', 'G2212/G932', 'Seek ye the kingdom — present imperative: keep seeking. Kingdom-priority produces as a by-product the things the anxious were chasing directly.', 20),
+  (32, 'μικρὸν ποίμνιον', 'mikron poimnion', 'G3398/G4168', 'Little flock — diminutive of endearment. Not "small" but "dear little." The doubled diminutive emphasises tender pastoral love toward the vulnerable disciples.', 21),
+  (33, 'βαλλάντια μὴ παλαιούμενα', 'ballantia mē palaioumena', 'G905/G3822', 'Bags that wax not old — purses that do not wear out. Investment with the eternal banker has no depreciation, no moth, no thief.', 22),
+  (34, 'ὅπου ὁ θησαυρὸς... ἡ καρδία', 'hopou ho thēsauros... hē kardia', 'G2344/G2588', 'Where thy treasure is, there will thy heart be — treasure location magnetises affections. The heart follows the wallet; direct your wallet heavenward and the heart follows.', 23),
+  (35, 'ὀσφύες περιεζωσμέναι', 'osphyes periezōsmenai', 'G3751/G4024', 'Loins girded — Passover posture (Exod 12:11): tucking the long robe into the belt for rapid movement. Readiness for immediate departure or service.', 24),
+  (37, 'γρηγοροῦντας', 'grēgorountas', 'G1127', 'Watching — present participle: continuously alert. The blessed servants are those still actively watching when the Master arrives, regardless of the hour.', 25),
+  (40, 'ὥρᾳ οὐ δοκεῖτε', 'hōra ou dokeite', 'G5610/G1380', 'Hour you think not — the parousia''s deliberate unpredictability enforces continuous readiness. Speculative timelines undermine the very watchfulness Jesus commands.', 26),
+  (42, 'φρόνιμος οἰκονόμος', 'phronimos oikonomos', 'G5429/G3623', 'Faithful and wise steward — oikonomos = household-manager with full delegated authority. Leadership in the church is stewardship of another''s goods, held accountable.', 27),
+  (48, 'ᾧ πολὺ ἐδόθη', 'hō polu edothē', 'G4183/G1325', 'To whom much is given — proverbial principle of proportional responsibility. Greater revelation means greater accountability; this principle is foundational to biblical justice.', 28),
+  (49, 'πῦρ ἦλθον βαλεῖν', 'pur ēlthon balein', 'G4442/G906', 'Fire I came to send — the purging/refining fire of judgment and the Spirit''s fire of consuming holiness (Mal 3:2-3). Jesus''s mission has a fiery edge.', 29),
+  (50, 'βάπτισμα... βαπτισθῆναι', 'baptisma... baptisthēnai', 'G908/G907', 'A baptism... to be baptized with — the baptism of the cross, immersion in the waters of divine judgment on sin (cf. Ps 42:7). Jesus is "straitened" (sunechomai) until it is accomplished.', 30),
+  (51, 'οὐχὶ εἰρήνην... ἀλλ᾽ ἢ διαμερισμόν', 'ouchi eirēnēn... all'' ē diamerismon', 'G1515/G1267', 'Not peace but division — the shocking corrective to a sentimental reading of Simeon''s "peace" (2:14). The gospel divides houses before it heals them.', 31),
+  (56, 'ὑποκριταί', 'hypokritai', 'G5273', 'Hypocrites — they read clouds and winds with skill but refuse to read the messianic signs. Selective blindness exposed as wilful.', 32),
+  (58, 'εὐνόησον ἀπηλλάχθαι', 'eunoēson apēllachthai', 'G2132/G525', 'Give diligence to be quit / settle — legal term for out-of-court settlement. Urgent image for reconciling with God before judgment day.', 33)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 12 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 16:6', 1),
+  (1, 'Mark 8:15', 2),
+  (1, '1 Corinthians 5:6-8', 3),
+  (2, 'Matthew 10:26', 1),
+  (2, 'Ecclesiastes 12:14', 2),
+  (3, 'Matthew 10:27', 1),
+  (4, 'John 15:15', 1),
+  (4, 'Isaiah 51:7-8', 2),
+  (5, 'Hebrews 10:31', 1),
+  (5, 'Matthew 10:28', 2),
+  (6, 'Matthew 10:29-31', 1),
+  (8, 'Matthew 10:32', 1),
+  (8, 'Revelation 3:5', 2),
+  (9, 'Matthew 10:33', 1),
+  (9, '2 Timothy 2:12', 2),
+  (10, 'Matthew 12:31-32', 1),
+  (10, 'Mark 3:28-29', 2),
+  (11, 'Matthew 10:19', 1),
+  (11, 'Luke 21:14', 2),
+  (12, 'John 14:26', 1),
+  (12, 'Acts 4:8', 2),
+  (15, '1 Timothy 6:9-10', 1),
+  (15, 'Colossians 3:5', 2),
+  (19, 'Ecclesiastes 8:15', 1),
+  (19, 'Isaiah 22:13', 2),
+  (19, '1 Corinthians 15:32', 3),
+  (20, 'Psalm 39:6', 1),
+  (20, 'Job 27:8', 2),
+  (21, 'Matthew 6:19-21', 1),
+  (21, '1 Timothy 6:18-19', 2),
+  (22, 'Matthew 6:25-34', 1),
+  (24, 'Job 38:41', 1),
+  (24, 'Psalm 147:9', 2),
+  (27, '1 Kings 10:4-7', 1),
+  (27, '2 Chronicles 9:3-6', 2),
+  (28, 'Matthew 6:30', 1),
+  (31, 'Matthew 6:33', 1),
+  (32, 'Isaiah 41:14', 1),
+  (32, 'John 10:11', 2),
+  (32, '1 Peter 5:2-4', 3),
+  (33, 'Matthew 6:19-21', 1),
+  (33, 'Acts 2:45', 2),
+  (35, 'Exodus 12:11', 1),
+  (35, 'Ephesians 6:14', 2),
+  (35, '1 Peter 1:13', 3),
+  (37, 'Matthew 24:42-44', 1),
+  (40, 'Matthew 24:44', 1),
+  (40, 'Revelation 3:3', 2),
+  (42, '1 Corinthians 4:2', 1),
+  (42, 'Matthew 24:45-51', 2),
+  (46, 'Matthew 24:50-51', 1),
+  (48, 'James 3:1', 1),
+  (48, 'Numbers 15:27-30', 2),
+  (49, 'Malachi 3:2-3', 1),
+  (50, 'Mark 10:38-39', 1),
+  (50, 'Psalm 42:7', 2),
+  (51, 'Micah 7:6', 1),
+  (51, 'Matthew 10:34-36', 2),
+  (53, 'Micah 7:6', 1),
+  (54, 'Matthew 16:2-3', 1),
+  (57, 'Matthew 5:25-26', 1),
+  (58, 'Proverbs 25:8', 1),
+  (59, 'Mark 12:42', 1)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 12 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

@@ -53,3 +53,89 @@ CROSS JOIN (VALUES
   (32, 'It was meet that we should make merry, and be glad: for this thy brother was dead, and is alive again; and was lost, and is found.', 'εὐφρανθῆναι δὲ καὶ χαρῆναι ἔδει, ὅτι ὁ ἀδελφός σου οὗτος νεκρὸς ἦν καὶ ἀνέζησεν, καὶ ἀπολωλὼς καὶ εὑρέθη.', 'euphranthenai de kai charēnai edei, hoti ho adelphos sou houtos nekros ēn kai anEzēsen, kai apolōlos kai heurethē.', '"It was meet" (edei — it was necessary, it was fitting, it had to be) — the celebration is not arbitrary or excessive; it is morally and theologically necessary given the facts. The father now says "this thy brother" (ho adelphos sou houtos) — deliberately using the fraternal language the elder son refused. The parable ends with the same resurrection formula as v.24: "was dead, and is alive again; was lost, and is found." The open ending — we never learn if the elder son enters — is the literary genius of the parable: the Pharisee must decide how the story ends for himself.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 15;
+
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 15 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'τελῶναι', 'telōnai', 'G5057', 'Tax collectors — collaborators with Rome, ritually and socially despised. Their drawing near "to hear" is the provocation for the three-parable defence of Jesus''s table-fellowship.', 1),
+  (2, 'διεγόγγυζον', 'diegongyzon', 'G1234', 'Murmured — dia- intensifies: muttered among themselves, grumbled persistently. Same verb used of Israel murmuring against Moses (LXX Exod 16:2).', 2),
+  (2, 'προσδέχεται ἁμαρτωλούς... συνεσθίει', 'prosdechetai hamartōlous... synesthiei', 'G4327/G4906', 'Receiveth sinners and eateth with them — the Pharisees'' complaint functions as Luke''s gospel in miniature. Table-fellowship is Jesus''s signature.', 3),
+  (4, 'πρόβατα', 'probata', 'G4263', 'Sheep — echoes Ezek 34. God himself is the shepherd who seeks lost sheep when Israel''s shepherds have failed. Jesus enacts the divine search.', 4),
+  (4, 'ἕως εὕρῃ', 'heōs heurē', 'G2193/G2147', 'Until he find — aorist subjunctive with "until": the search does not end at convenience but persists until the goal is reached. Divine pursuit is unrelenting.', 5),
+  (5, 'ἐπὶ τοὺς ὤμους', 'epi tous ōmous', 'G5606', 'On his shoulders — tender shepherd imagery (Isa 40:11; 49:22). The found sheep does not walk home; it is carried. Grace bears the weight.', 6),
+  (7, 'μετανοοῦντι', 'metanoounti', 'G3340', 'Who repenteth — present participle: a repenting one. Heavenly joy is over the turning, not over a perfect record. The repentant sinner is the celebrated figure.', 7),
+  (8, 'δραχμὰς δέκα', 'drachmas deka', 'G1406/G1176', 'Ten drachmas — possibly part of a bridal head-dress of ten coins worn for identity and dowry. Losing one violated the whole set; the stakes are higher than the denomination suggests.', 8),
+  (8, 'ζητεῖ ἐπιμελῶς', 'zētei epimelōs', 'G2212/G1960', 'Seeks diligently — epimelōs = carefully, thoroughly. Lamp, broom, and painstaking search. A domestic image answering the pastoral one; both embody divine seeking-love.', 9),
+  (10, 'ἐνώπιον τῶν ἀγγέλων', 'enōpion tōn angelōn', 'G1799/G32', 'Before / in presence of the angels — a periphrasis for God''s own joy (the angels are the heavenly audience). Heaven celebrates each repentance; hell quiets no revel.', 10),
+  (12, 'τὸ ἐπιβάλλον μέρος τῆς οὐσίας', 'to epiballon meros tēs ousias', 'G1911/G3310/G3776', 'The portion of goods that falleth to me — in a two-son family, the younger typically received 1/3 (Deut 21:17). The request while the father lives is functionally saying "I wish you were dead."', 11),
+  (13, 'ἀσώτως', 'asōtōs', 'G811', 'Riotously / wastefully — adverb of a-sōzō (without salvation/safety): unsaveably, irrecoverably. Dissipated living that destroys both fortune and person.', 12),
+  (14, 'λιμὸς ἰσχυρά', 'limos ischyra', 'G3042/G2478', 'Mighty famine — providential judgment and grace together: the famine strips away every prop and drives him back to the father. Hard providence is sometimes mercy.', 13),
+  (15, 'βόσκειν χοίρους', 'boskein choirous', 'G1006/G5519', 'To feed swine — for a Jewish audience the ultimate degradation: tending unclean animals (Lev 11:7). The fall has reached its floor.', 14),
+  (16, 'κερατίων', 'keratiōn', 'G2769', 'Husks / carob pods — the carob "St John''s bread," fed to pigs and eaten by the destitute. The one designed for father''s table now envies the swine their fodder.', 15),
+  (17, 'εἰς ἑαυτὸν δὲ ἐλθὼν', 'eis heauton elthōn', 'G1519/G1438/G2064', 'When he came to himself — classic Lukan idiom for the moment of moral self-recognition. Repentance begins when the sinner sees himself truthfully.', 16),
+  (18, 'ἥμαρτον εἰς τὸν οὐρανὸν', 'hēmarton eis ton ouranon', 'G264/G3772', 'I have sinned against heaven — circumlocution for God (cf. "kingdom of heaven"). Sin against humans is always ultimately sin against God (Ps 51:4).', 17),
+  (20, 'ἔτι αὐτοῦ μακρὰν ἀπέχοντος', 'eti autou makran apechontos', 'G3112/G568', 'When he was yet a great way off — the father''s watching is implied: he saw him because he was looking. Grace anticipates repentance.', 18),
+  (20, 'ἐσπλαγχνίσθη', 'esplanchnisthē', 'G4697', 'Had compassion — gut-wrenched with love. The same word as 10:33 (Samaritan); characteristic of Jesus (7:13). The father''s entrails churn at the sight of the son.', 19),
+  (20, 'ἐπέπεσεν ἐπὶ τὸν τράχηλον', 'epepesen epi ton trachēlon', 'G1968/G5137', 'Fell on his neck — echoing Jacob and Esau (Gen 33:4), Joseph and his brothers (Gen 45:14-15). The embrace is a reconciliation-motif loaded with OT resonance.', 20),
+  (22, 'στολὴν τὴν πρώτην', 'stolēn tēn prōtēn', 'G4749/G4413', 'The best robe — literally "the first robe" = the finest ceremonial garment, likely the father''s own. Instantaneous public reinstatement of status (cf. Gen 41:42; Zech 3:4).', 21),
+  (22, 'δακτύλιον', 'daktylion', 'G1146', 'Ring — signet-ring conveying household authority (Gen 41:42; Esth 3:10). The son is restored not merely as tolerated houseguest but as full agent of the family.', 22),
+  (23, 'μόσχον σιτευτόν', 'moschon siteuton', 'G3448/G4618', 'Fatted calf — grain-fed calf reserved for greatest celebrations, enough to feed a whole village. The scale of the feast exceeds the household; the whole community must share the joy.', 23),
+  (24, 'νεκρὸς ἦν καὶ ἀνέζησεν', 'nekros ēn kai anezēsen', 'G3498/G326', 'Was dead and is alive again — anazaō = to live again. Regeneration language; repentance is nothing less than resurrection (Eph 2:1,5).', 24),
+  (24, 'ἀπολωλὼς καὶ εὑρέθη', 'apolōlōs kai heurethē', 'G622/G2147', 'Lost and is found — the chapter''s refrain (vv.6, 9, 24, 32). Perfect participle + aorist passive: was in a state of lostness, was found by another''s agency.', 25),
+  (28, 'ὠργίσθη', 'ōrgisthē', 'G3710', 'Was angry — aorist passive: was made angry. The elder son''s indignation mirrors the Pharisees'' murmuring (v.2). The parable''s frame returns; he is the target audience.', 26),
+  (29, 'τοσαῦτα ἔτη δουλεύω', 'tosauta etē douleuō', 'G1398', 'So many years do I serve — douleuō = slave-labour. The elder son sees his sonship as servitude. A tell-tale sign of graceless, performance-based religion.', 27),
+  (30, 'ὁ υἱός σου οὗτος', 'ho huios sou houtos', 'G5207', 'This thy son — emphatic disowning. The elder refuses "my brother." The father will pointedly reply "this thy brother" (v.32), restoring the refused relation.', 28),
+  (30, 'μετὰ πορνῶν', 'meta pornōn', 'G4204', 'With harlots — an assumption, not a fact. The elder son supplies the worst interpretation; he imagines the sins he would dare commit if free.', 29),
+  (32, 'εὐφρανθῆναι... ἔδει', 'euphranthēnai... edei', 'G2165/G1163', 'It was meet / necessary to make merry — dei = divine necessity (cf. 9:22). The feast is not optional exuberance but morally required when the dead return to life.', 30)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 15 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 9:10', 1),
+  (1, 'Luke 5:29-30', 2),
+  (2, 'Luke 5:30', 1),
+  (2, 'Luke 7:34', 2),
+  (2, 'Luke 19:7', 3),
+  (4, 'Matthew 18:12-14', 1),
+  (4, 'Ezekiel 34:11-16', 2),
+  (5, 'Isaiah 40:11', 1),
+  (5, 'John 10:11', 2),
+  (5, 'Isaiah 49:22', 3),
+  (7, 'Luke 15:10', 1),
+  (10, 'Luke 15:7', 1),
+  (12, 'Deuteronomy 21:17', 1),
+  (13, 'Proverbs 29:3', 1),
+  (15, 'Leviticus 11:7', 1),
+  (16, 'Luke 16:21', 1),
+  (17, 'Psalm 116:7', 1),
+  (18, 'Psalm 51:4', 1),
+  (18, 'Jeremiah 3:22', 2),
+  (20, 'Acts 3:19', 1),
+  (20, 'Psalm 103:13', 2),
+  (20, 'Genesis 33:4', 3),
+  (20, 'Genesis 45:14-15', 4),
+  (22, 'Genesis 41:42', 1),
+  (22, 'Zechariah 3:4', 2),
+  (22, 'Revelation 19:8', 3),
+  (22, 'Esther 3:10', 4),
+  (23, 'Genesis 18:7', 1),
+  (24, 'Ephesians 2:1', 1),
+  (24, 'Ephesians 2:5', 2),
+  (24, 'Ephesians 5:14', 3),
+  (25, 'Luke 15:1', 1),
+  (29, 'Isaiah 65:5', 1),
+  (29, 'Romans 10:3', 2),
+  (30, 'Luke 15:2', 1),
+  (32, 'Luke 15:24', 1)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 15 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

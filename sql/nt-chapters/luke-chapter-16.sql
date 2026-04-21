@@ -52,3 +52,86 @@ CROSS JOIN (VALUES
   (31, 'And he said unto him, If they hear not Moses and the prophets, neither will they be persuaded, though one rose from the dead.', 'εἶπεν δὲ αὐτῷ, Εἰ Μωϋσέως καὶ τῶν προφητῶν οὐκ ἀκούουσιν, οὐδὲ ἐάν τις ἐκ νεκρῶν ἀναστῇ πεισθήσονται.', 'eipen de autō, Ei Mōūseōs kai tōn prophētōn ouk akouousin, oude ean tis ek nekrōn anastē peisthēsontai.', '"If they hear not Moses and the prophets" (ouk akouousin — present tense: they are not hearing, they are currently not listening/obeying) — the issue is not lack of information but willful refusal of the revelation already given. "Neither will they be persuaded, though one rose from the dead" (oude...anastē peisthēsontai — not even if someone rises will they be persuaded). This verse prophesies the response to Jesus''s own resurrection: the Sanhedrin would bribe soldiers rather than believe (Matt 28:12-13). The heart that resists Scripture will rationalize away even resurrection.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 16;
+
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 16 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'οἰκονόμος', 'oikonomos', 'G3623', 'Steward — household manager with delegated financial authority. Model for the Christian''s stewardship of God''s goods.', 1),
+  (1, 'διεβλήθη αὐτῷ', 'dieblēthē autō', 'G1225', 'Was accused — diaballō = to slander, throw charges against (source of "devil" as accuser). The charges may be true or false; the steward does not deny them.', 2),
+  (2, 'τὸν λόγον τῆς οἰκονομίας', 'ton logon tēs oikonomias', 'G3056/G3622', 'Account of thy stewardship — the reckoning demanded of every steward. Anticipates the final audit each person will face (Rom 14:12).', 3),
+  (3, 'σκάπτειν οὐκ ἰσχύω, ἐπαιτεῖν αἰσχύνομαι', 'skaptein ouk ischyō, epaitein aischynomai', 'G4626/G1871/G153', 'Dig I cannot, beg I am ashamed — the two fallback options of an unemployed scribe-class steward. Manual labour requires strength he lacks; begging requires surrender of dignity he keeps.', 4),
+  (6, 'βάτους', 'batous', 'G943', 'Baths / measures — each bath ≈ 8-9 gallons. A hundred baths of oil = ~875 gallons, the yield of roughly 150 olive trees. A substantial debt.', 5),
+  (7, 'κόρους', 'korous', 'G2884', 'Cors — each kor ≈ 10-11 bushels. A hundred cors of wheat = ~1,000 bushels, the yield of roughly 100 acres. An enormous debt.', 6),
+  (8, 'ἐπῄνεσεν ὁ κύριος', 'epēnesen ho kurios', 'G1867/G2962', 'The lord commended — praise is for shrewdness (phronimōs), not for dishonesty. Jesus does not bless fraud; he points to the forward-looking cleverness of those who prepare for future reckoning.', 7),
+  (8, 'οἱ υἱοὶ τοῦ αἰῶνος... οἱ υἱοὶ τοῦ φωτός', 'hoi huioi tou aiōnos... hoi huioi tou phōtos', 'G5207/G165/G5457', 'Sons of this age... sons of light — Semitic idiom for category-membership. Worldly people plan for worldly goals more shrewdly than spiritual people plan for eternal goals.', 8),
+  (9, 'μαμωνᾶ τῆς ἀδικίας', 'mamōna tēs adikias', 'G3126/G93', 'Mammon of unrighteousness — Aramaic mamōnā = wealth, possessions. Money itself is called "of unrighteousness" because it belongs to the fallen order; use it wisely before it passes.', 9),
+  (9, 'εἰς τὰς αἰωνίους σκηνάς', 'eis tas aiōnious skēnas', 'G166/G4633', 'Into everlasting habitations — skēnē = tent, dwelling. Generous use of temporary wealth secures welcome into permanent dwellings. Eternal friendships, not earthly portfolios.', 10),
+  (10, 'πιστὸς ἐν ἐλαχίστῳ', 'pistos en elachistō', 'G4103/G1646', 'Faithful in the least — proportionality principle: small-scale faithfulness predicts large-scale faithfulness. Money (the "least") is a training ground for "true riches."', 11),
+  (11, 'τῷ ἀληθινῷ', 'tō alēthinō', 'G228', 'The true riches — alēthinos = genuine, real. Material wealth is not the real treasure; it is a training currency for the real thing (spiritual stewardship, souls, kingdom work).', 12),
+  (13, 'δυσὶν κυρίοις δουλεύειν', 'dysin kuriois douleuein', 'G1398/G2962', 'Serve two masters — douleuō = slave-serve. A slave has one owner by definition. Divided ultimate allegiance is structurally impossible.', 13),
+  (13, 'ἢ θεῷ ἢ μαμωνᾷ', 'ē theō ē mamōna', 'G2316/G3126', 'Either God or mammon — Jesus personifies wealth as a rival deity. The choice is exclusive; syncretism with money is a category error.', 14),
+  (14, 'φιλάργυροι', 'philargyroi', 'G5366', 'Lovers of money — phil-arguros (silver-lovers). Paul uses the same word in 2 Tim 3:2 as a mark of the last days. Luke exposes the Pharisees'' economic motive behind their piety.', 15),
+  (14, 'ἐξεμυκτήριζον', 'exemyktērizon', 'G1592', 'Scoffed / turned up the nose — literally "out-snorted." Imperfect: kept sneering. Contempt is the response of a heart in bondage to wealth when confronted with kingdom economics.', 16),
+  (15, 'ὑψηλὸν... βδέλυγμα', 'hypsēlon... bdelygma', 'G5308/G946', 'Highly esteemed... abomination — bdelygma is the LXX word for idolatrous abomination (Dan 9:27). What society idolises (wealth, status), God calls idolatry.', 17),
+  (16, 'ὁ νόμος καὶ οἱ προφῆται ἕως Ἰωάννου', 'ho nomos kai hoi prophētai heōs Iōannou', 'G3551/G4396', 'The Law and the prophets until John — salvation-historical marker. John closes the prophetic era; the kingdom''s inauguration is a new epoch.', 18),
+  (16, 'βιάζεται', 'biazetai', 'G971', 'Presseth into it — forceful entry. The kingdom''s arrival provokes urgent, even violent, response; half-hearted drifters miss it.', 19),
+  (17, 'κεραίαν μίαν', 'keraian mian', 'G2762', 'One tittle — a small hook or projection on a Hebrew letter (differentiating, e.g., ב from כ). Not the smallest Torah detail can fail. Law''s moral authority endures.', 20),
+  (18, 'ἀπολύων... γαμῶν', 'apolyōn... gamōn', 'G630/G1060', 'Putting away... marrying — Luke''s shortest form of Jesus''s divorce saying. Divorce for convenience followed by remarriage is classified as adultery; marriage is more binding than rabbinic practice allowed.', 21),
+  (19, 'πορφύραν καὶ βύσσον', 'porphyran kai byssos', 'G4209/G1040', 'Purple and fine linen — purple (expensive Tyrian dye) for the outer cloak, fine Egyptian linen for the undergarment. Royal/high-priestly attire; ostentatious luxury.', 22),
+  (19, 'εὐφραινόμενος λαμπρῶς', 'euphrainomenos lamprōs', 'G2165/G2988', 'Faring sumptuously — lamprōs = splendidly, brilliantly. Present participle: feasting continuously. Every day is a banquet; hedonism as lifestyle.', 23),
+  (20, 'Λάζαρος', 'Lazaros', 'G2976', 'Lazarus — Hebrew Eleazar = "God helps." The only named character in any of Jesus''s parables. God knows and names the beggar whom the rich man ignored.', 24),
+  (20, 'εἱλκωμένος', 'heilkōmenos', 'G1669', 'Full of sores — perfect passive: ulcerated, covered with open wounds. Dogs licking them was not kindness but further defilement.', 25),
+  (22, 'εἰς τὸν κόλπον Ἀβραὰμ', 'eis ton kolpon Abraam', 'G2859/G11', 'Into Abraham''s bosom — the place of honour at the eschatological banquet, reclining against Abraham as the favoured guest (cf. John 13:23). Lazarus goes from gate-scraps to patriarchal feast.', 26),
+  (23, 'ἐν τῷ ᾅδῃ ἐν βασάνοις', 'en tō hadē en basanois', 'G86/G931', 'In hades in torments — basanos = test-by-fire, excruciating torment. Hades here = the place of conscious post-mortem punishment for the unrighteous.', 27),
+  (26, 'χάσμα μέγα ἐστήρικται', 'chasma mega estēriktai', 'G5490/G4741', 'A great gulf fixed — perfect passive: has been fixed and stands fixed (by God). The post-mortem division is divinely established and irreversible; no second-chance crossing.', 28),
+  (29, 'Μωϋσέα καὶ τοὺς προφήτας', 'Mōysea kai tous prophētas', 'G3475/G4396', 'Moses and the prophets — shorthand for the whole OT. Abraham affirms the Scripture''s sufficiency: adequate warning is already given.', 29),
+  (31, 'πεισθήσονται', 'peisthēsontai', 'G3982', 'Will be persuaded — future passive: will be convinced. Jesus prophesies his own resurrection''s reception: the heart that resists Scripture will rationalise away even a resurrection (cf. Matt 28:11-15).', 30)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 16 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (2, '1 Corinthians 4:2', 1),
+  (2, 'Romans 14:12', 2),
+  (8, 'Ephesians 5:8', 1),
+  (8, '1 Thessalonians 5:5', 2),
+  (9, 'Matthew 6:19-20', 1),
+  (9, '1 Timothy 6:17-19', 2),
+  (10, 'Matthew 25:21', 1),
+  (10, 'Luke 19:17', 2),
+  (13, 'Matthew 6:24', 1),
+  (13, 'James 4:4', 2),
+  (14, '2 Timothy 3:2', 1),
+  (15, '1 Samuel 16:7', 1),
+  (15, 'Proverbs 16:5', 2),
+  (16, 'Matthew 11:12-13', 1),
+  (16, 'Acts 10:37', 2),
+  (17, 'Matthew 5:18', 1),
+  (17, 'Psalm 119:89', 2),
+  (18, 'Matthew 5:32', 1),
+  (18, 'Matthew 19:9', 2),
+  (18, 'Mark 10:11-12', 3),
+  (18, '1 Corinthians 7:10-11', 4),
+  (19, 'Revelation 18:16', 1),
+  (19, 'Amos 6:4-6', 2),
+  (22, 'John 13:23', 1),
+  (23, '2 Peter 2:9', 1),
+  (25, 'Luke 6:24-25', 1),
+  (25, 'James 5:1-5', 2),
+  (26, 'Malachi 3:18', 1),
+  (29, 'John 5:45-47', 1),
+  (29, 'Acts 17:11', 2),
+  (31, 'Matthew 28:11-15', 1),
+  (31, 'John 11:43-53', 2),
+  (31, 'John 12:37', 3)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 16 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;
