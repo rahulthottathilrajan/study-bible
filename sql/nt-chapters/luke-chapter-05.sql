@@ -216,3 +216,103 @@ CROSS JOIN (VALUES
    NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 5;
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 5 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'λίμνην Γεννησαρέτ', 'limnēn Gennēsaret', 'G3041/G1082', 'Lake of Gennesaret — the Sea of Galilee. Luke''s precise term limnē (lake) replaces Mark''s thalassa (sea), reflecting his Gentile readership and geographical accuracy.', 1),
+  (1, 'ἐπικεῖσθαι', 'epikeisthai', 'G1945', 'Pressed upon — vivid imagery of the crowd thronging Jesus. The Word draws the multitudes; he is the new locus of revelation.', 2),
+  (3, 'Σίμωνος', 'Simōnos', 'G4613', 'Simon — Peter''s original name. Luke withholds the new name "Peter" until the calling in v.8 (cf. v.10), letting the relationship build naturally.', 3),
+  (4, 'ἐπανάγαγε εἰς τὸ βάθος', 'epanagage eis to bathos', 'G1877/G899', 'Launch out into the deep — the deep water. A command requiring obedient faith from a tired, empty-handed fisherman.', 4),
+  (5, 'Ἐπιστάτα', 'Epistata', 'G1988', 'Master — Luke''s special term (used 6x in his gospel; never elsewhere in NT). A respectful address acknowledging authority, slightly less than Lord.', 5),
+  (5, 'ἐπὶ τῷ ῥήματί σου', 'epi tō rhēmati sou', 'G4487', 'At thy word — Peter''s instinct as a fisherman says "no fish here," but Jesus''s rhēma overrides experience. Faith grounded in the word.', 6),
+  (6, 'πλῆθος ἰχθύων πολύ', 'plēthos ichthyōn poly', 'G4128/G2486', 'Great multitude of fishes — a creator-Lord miracle. Jesus governs even the unseen movements of fish in the deep.', 7),
+  (8, 'γόνατα', 'gonata', 'G1119', 'Knees — Peter''s prostration. The miracle does not just astonish — it convicts. The presence of the Holy in the boat exposes Peter''s sin.', 8),
+  (8, 'ἀνὴρ ἁμαρτωλός', 'anēr hamartōlos', 'G268', 'Sinful man — the universal response to encountering God''s holiness (Isa 6:5; Job 42:5-6). Peter''s self-knowledge precedes his commissioning.', 9),
+  (10, 'ζωγρῶν', 'zōgrōn', 'G2221', 'Catching alive — present participle of zōgreō, to take alive. Unlike fish that die in nets, men are caught alive for the Kingdom.', 10),
+  (11, 'ἀφέντες πάντα', 'aphentes panta', 'G863', 'Forsaking all — total abandonment of trade, boats, and nets. Luke emphasises radical discipleship more than parallel synoptics.', 11),
+  (12, 'πλήρης λέπρας', 'plērēs lepras', 'G4134/G3014', 'Full of leprosy — Luke the physician notes the advanced stage. Lepra in the LXX/NT covers various skin diseases rendering one ritually unclean (Lev 13).', 12),
+  (13, 'ἥψατο αὐτοῦ', 'hēpsato autou', 'G680', 'Touched him — astonishing. Touching a leper made one unclean (Lev 5:3); but Christ''s holiness is contagious in the opposite direction. Cleanness flows out.', 13),
+  (14, 'εἰς μαρτύριον αὐτοῖς', 'eis martyrion autois', 'G3142', 'For a testimony unto them — the priestly inspection (Lev 14:2-32) would publicly attest the cure, fulfilling Mosaic law and putting the priesthood on notice.', 14),
+  (16, 'ὑποχωρῶν ἐν ταῖς ἐρήμοις', 'hypochōrōn en tais erēmois', 'G5298/G2048', 'Withdrew into the wilderness — periphrastic imperfect, "kept on withdrawing." Jesus''s rhythm: ministry to crowds, retreat for prayer. The Lukan portrait of Jesus at prayer is distinctive.', 15),
+  (17, 'δύναμις κυρίου ἦν εἰς τὸ ἰᾶσθαι', 'dynamis kyriou ēn eis to iasthai', 'G1411/G2962/G2390', 'Power of the Lord was present to heal — Luke alone of synoptists notes this. Spirit-empowered ministry with manifest results.', 16),
+  (19, 'κεράμων', 'keramōn', 'G2766', 'Tiles — Luke updates Mark''s description for Hellenistic readers familiar with tiled roofs (Mark says "broke up the roof"). The friends are persistently faithful.', 17),
+  (20, 'πίστιν αὐτῶν', 'pistin autōn', 'G4102', 'Their faith — plural; faith of the four friends as well as the paralytic. Christ honours intercessory faith.', 18),
+  (21, 'βλασφημίας', 'blasphēmias', 'G988', 'Blasphemies — the scribes correctly understand: only God can forgive sins (Ps 51:4; Isa 43:25). Their theological premise is right; their conclusion (that Jesus is not God) is wrong.', 19),
+  (24, 'Υἱὸς τοῦ ἀνθρώπου', 'Huios tou anthrōpou', 'G5207/G444', 'Son of man — Jesus''s preferred self-designation, drawn from Dan 7:13-14, the heavenly figure invested with universal dominion.', 20),
+  (24, 'ἐξουσίαν ἀφιέναι ἁμαρτίας', 'exousian aphienai hamartias', 'G1849/G863/G266', 'Authority to forgive sins — the visible miracle (the paralytic walking) authenticates the invisible miracle (the forgiveness Jesus pronounced).', 21),
+  (27, 'Λευίν', 'Leuin', 'G3018', 'Levi — Matthew''s pre-discipleship name. A Jewish tax collector for Antipas, working at the customs station on the Capernaum trade route.', 22),
+  (27, 'τελώνιον', 'telōnion', 'G5058', 'Receipt of custom — toll booth. Levi''s post made him both wealthy and despised by his own people.', 23),
+  (28, 'καταλιπὼν πάντα', 'katalipōn panta', 'G2641', 'Leaving all — like the fishermen in v.11, total renunciation. Levi can never go back; his post will be filled the next day.', 24),
+  (30, 'τελωνῶν καὶ ἁμαρτωλῶν', 'telōnōn kai hamartōlōn', 'G5057/G268', 'Tax collectors and sinners — a Pharisaic catchphrase for the religiously impure. Jesus deliberately associates with them.', 25),
+  (31, 'ὑγιαίνοντες', 'hygiainontes', 'G5198', 'They that are whole — Luke''s medical term for "in good health." Source of our word "hygiene."', 26),
+  (32, 'εἰς μετάνοιαν', 'eis metanoian', 'G3341', 'To repentance — Luke alone adds this to the saying. The call is not just to fellowship but to a transformed life.', 27),
+  (35, 'ἀπαρθῇ', 'aparthē', 'G522', 'Shall be taken away — aorist passive subjunctive of apairō. The first hint of the violent removal of the bridegroom — the cross.', 28),
+  (36, 'παραβολὴν', 'parabolēn', 'G3850', 'Parable — twin parables of the new patch and the new wine. The Gospel cannot be made to fit Pharisaic religion of works; new wineskins are required.', 29),
+  (39, 'ὁ παλαιὸς χρηστός ἐστιν', 'ho palaios chrēstos estin', 'G3820/G5543', 'The old is better — only in Luke. Wry observation about religious conservatism: those wedded to the old wine of legalism resist the new wine of grace.', 30)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 5 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 4:18', 1),
+  (1, 'Mark 1:16', 2),
+  (3, 'Matthew 13:1-2', 1),
+  (4, 'John 21:6', 1),
+  (5, 'John 21:3', 1),
+  (5, 'Psalm 127:1-2', 2),
+  (6, 'John 21:11', 1),
+  (8, 'Isaiah 6:5', 1),
+  (8, 'Job 42:5-6', 2),
+  (8, '2 Samuel 6:9', 3),
+  (10, 'Matthew 4:19', 1),
+  (10, 'Mark 1:17', 2),
+  (10, 'Jeremiah 16:16', 3),
+  (11, 'Matthew 19:27', 1),
+  (11, 'Philippians 3:7-8', 2),
+  (12, 'Matthew 8:1-4', 1),
+  (12, 'Mark 1:40-44', 2),
+  (13, 'Leviticus 5:3', 1),
+  (13, '2 Kings 5:11', 2),
+  (14, 'Leviticus 14:1-32', 1),
+  (15, 'Mark 1:45', 1),
+  (16, 'Mark 1:35', 1),
+  (16, 'Matthew 14:23', 2),
+  (17, 'Mark 2:1-12', 1),
+  (17, 'Matthew 9:1-8', 2),
+  (18, 'Acts 9:33', 1),
+  (20, 'Matthew 9:2', 1),
+  (20, 'James 5:15', 2),
+  (21, 'Psalm 51:4', 1),
+  (21, 'Isaiah 43:25', 2),
+  (21, 'Mark 2:7', 3),
+  (24, 'Daniel 7:13-14', 1),
+  (24, 'John 5:8-9', 2),
+  (26, 'Matthew 9:8', 1),
+  (27, 'Matthew 9:9', 1),
+  (27, 'Mark 2:14', 2),
+  (28, 'Philippians 3:7-9', 1),
+  (29, 'Mark 2:15', 1),
+  (29, 'Luke 19:6', 2),
+  (30, 'Luke 15:1-2', 1),
+  (31, 'Mark 2:17', 1),
+  (32, '1 Timothy 1:15', 1),
+  (32, 'Acts 26:18-20', 2),
+  (33, 'Matthew 9:14', 1),
+  (34, 'John 3:29', 1),
+  (35, 'John 16:20', 1),
+  (35, 'Matthew 9:15', 2),
+  (36, 'Matthew 9:16', 1),
+  (37, 'Matthew 9:17', 1),
+  (37, 'Job 32:19', 2),
+  (39, 'Jeremiah 6:16', 1)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 5 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

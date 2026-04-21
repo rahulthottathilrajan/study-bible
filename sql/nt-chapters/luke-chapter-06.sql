@@ -266,3 +266,119 @@ CROSS JOIN (VALUES
    NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 6;
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 6 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'σαββάτῳ δευτεροπρώτῳ', 'sabbatō deuteroprōtō', 'G4521/G1207', 'Second sabbath after the first — a notoriously obscure expression unique to Luke. Likely refers to the Sabbath after the second day of Passover (when sheaf was offered, Lev 23:11), reckoning the seven Sabbaths to Pentecost.', 1),
+  (1, 'τίλλοντες τοὺς στάχυας', 'tillontes tous stachyas', 'G5089/G4719', 'Plucking the ears of corn — heads of grain. The Mosaic law permitted this for hungry travellers (Deut 23:25); Pharisaic tradition counted it as Sabbath-day reaping.', 2),
+  (4, 'τοὺς ἄρτους τῆς προθέσεως', 'tous artous tēs protheseōs', 'G740/G4286', 'Bread of the showbread — the 12 loaves placed weekly before the Lord (Lev 24:5-9). David''s precedent (1 Sam 21) shows ceremonial law yields to human need.', 3),
+  (5, 'κύριος τοῦ σαββάτου', 'kyrios tou sabbatou', 'G2962/G4521', 'Lord of the sabbath — Jesus claims the divine prerogative to define and govern the Sabbath. The Sabbath''s author stands among them.', 4),
+  (8, 'διαλογισμοὺς αὐτῶν', 'dialogismous autōn', 'G1261', 'Their thoughts — internal reasonings. Jesus sees the heart''s inner debate, demonstrating supernatural knowledge.', 5),
+  (10, 'περιβλεψάμενος', 'periblepsamenos', 'G4017', 'Looking round about — searching gaze that confronts the watchers. The healing is a deliberate public challenge to their legalism.', 6),
+  (11, 'ἀνοίας', 'anoias', 'G454', 'Madness — irrational fury. Their hatred is so deep that a healing on the Sabbath drives them to plot murder.', 7),
+  (12, 'διανυκτερεύων', 'dianyktereuōn', 'G1273', 'Continued all night — NT hapax. Before choosing the Twelve, Jesus prays through the night. Major decisions birthed in prayer.', 8),
+  (13, 'ἀποστόλους ὠνόμασεν', 'apostolous ōnomasen', 'G652/G3687', 'Named apostles — apostolos = "sent one." A formal commission. The Twelve correspond to the twelve tribes — the new Israel.', 9),
+  (16, 'προδότης', 'prodotēs', 'G4273', 'Traitor — Luke names Judas''s eventual role at the moment of his selection. The choice was sovereign, the betrayal foreseen.', 10),
+  (17, 'τόπου πεδινοῦ', 'topou pedinou', 'G3977', 'A plain — a level place. Often called the "Sermon on the Plain," Luke''s parallel to Matthew''s Sermon on the Mount, possibly a flat plateau on the mountainside.', 11),
+  (20, 'μακάριοι οἱ πτωχοί', 'makarioi hoi ptōchoi', 'G3107/G4434', 'Blessed are ye poor — Luke''s 4 beatitudes are sharper than Matthew''s 9; he addresses real economic poverty (cf. v.24 woe to the rich), with spiritual depth implicit.', 12),
+  (21, 'πεινῶντες νῦν', 'peinōntes nyn', 'G3983/G3568', 'Hunger now — Luke''s temporal "now" sets up the eschatological reversal of vv.24-26. Present hunger is rewarded with future filling.', 13),
+  (22, 'ἕνεκα τοῦ υἱοῦ τοῦ ἀνθρώπου', 'heneka tou huiou tou anthrōpou', 'G1752/G5207/G444', 'For the Son of man''s sake — persecution is to be welcomed only when suffered for Christ''s name, not for one''s own faults.', 14),
+  (24, 'οὐαὶ ὑμῖν τοῖς πλουσίοις', 'ouai hymin tois plousiois', 'G3759/G4145', 'Woe unto you that are rich — only Luke records the four woes. They warn that comfort embraced as ultimate becomes its own reward.', 15),
+  (24, 'ἀπέχετε τὴν παράκλησιν', 'apechete tēn paraklēsin', 'G568/G3874', 'Ye have received your consolation — apechō, commercial term for receipt-in-full. The rich who refuse God have already collected their wages.', 16),
+  (27, 'ἀγαπᾶτε τοὺς ἐχθροὺς ὑμῶν', 'agapate tous echthrous hymōn', 'G25/G2190', 'Love your enemies — distinctively Christian ethic without close OT parallel. Agapē is willed benevolence, not emotion.', 17),
+  (28, 'εὐλογεῖτε', 'eulogeite', 'G2127', 'Bless — speak good of. The Christian counters cursing with blessing — active, not merely passive non-retaliation.', 18),
+  (29, 'σιαγόνα', 'siagona', 'G4600', 'Cheek — open-handed slap of insult. The other-cheek principle is willingness to absorb personal injury without retaliation.', 19),
+  (31, 'καθὼς θέλετε', 'kathōs thelete', 'G2531/G2309', 'As ye would — the Golden Rule in positive form. Active proactive love, not merely refraining from harm (negative form found in Hillel and elsewhere).', 20),
+  (35, 'οἰκτίρμων', 'oiktirmōn', 'G3629', 'Merciful — compassionate, full of pity. The Father''s defining attribute and the disciples'' calling.', 21),
+  (37, 'μὴ κρίνετε', 'mē krinete', 'G2919', 'Judge not — present imperative with mē, "stop judging" or "do not be in the habit of judging." Forbids censorious, condemning judgment, not all moral discernment.', 22),
+  (38, 'μέτρον καλὸν πεπιεσμένον', 'metron kalon pepiesmenon', 'G3358/G2570/G4085', 'Good measure pressed down — the imagery of a generous merchant filling a customer''s grain pouch to overflowing.', 23),
+  (39, 'ὁδηγεῖν', 'hodēgein', 'G3594', 'To lead, guide — the blind leading the blind. Discipleship requires sighted teachers; spiritual blindness disqualifies one from leadership.', 24),
+  (41, 'κάρφος... δοκὸν', 'karphos... dokon', 'G2595/G1385', 'Mote / beam — a speck and a load-bearing log. Comic exaggeration exposing the absurdity of fault-finding while ignoring one''s own great sins.', 25),
+  (42, 'ὑποκριτά', 'hypokrita', 'G5273', 'Hypocrite — Greek stage actor; one who plays a role. Religious pretence is the besetting Pharisaic sin.', 26),
+  (43, 'καρπὸν σαπρόν', 'karpon sapron', 'G2590/G4550', 'Corrupt fruit — rotten, putrid. The fruit-tree test: doctrine and life are inseparable; bad teachers produce bad fruit.', 27),
+  (45, 'περισσεύματος τῆς καρδίας τὸ στόμα λαλεῖ', 'perisseumatos tēs kardias to stoma lalei', 'G4051/G2588/G4750/G2980', 'Out of the abundance of the heart the mouth speaketh — speech as overflow of the heart''s reservoir. Words betray inner reality.', 28),
+  (46, 'Κύριε Κύριε', 'Kyrie Kyrie', 'G2962', 'Lord, Lord — repeated address of pious devotion devoid of obedience. Mere confession without conformity is empty.', 29),
+  (48, 'ἔσκαψεν καὶ ἐβάθυνεν', 'eskapsen kai ebathynen', 'G4626/G900', 'Digged and went deep — Luke''s addition to the parable. Foundation work on bedrock prevents collapse when the river rises (a vivid Galilean wadi image).', 30)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 6 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 12:1-8', 1),
+  (1, 'Mark 2:23-28', 2),
+  (1, 'Deuteronomy 23:25', 3),
+  (3, '1 Samuel 21:1-6', 1),
+  (4, 'Leviticus 24:5-9', 1),
+  (5, 'Genesis 2:3', 1),
+  (5, 'Mark 2:28', 2),
+  (6, 'Matthew 12:9-14', 1),
+  (6, 'Mark 3:1-6', 2),
+  (8, 'John 2:25', 1),
+  (9, 'Luke 14:3', 1),
+  (10, 'Mark 3:5', 1),
+  (11, 'John 11:53', 1),
+  (12, 'Matthew 14:23', 1),
+  (12, 'Luke 5:16', 2),
+  (13, 'Matthew 10:1-4', 1),
+  (13, 'Mark 3:13-19', 2),
+  (15, 'Acts 1:13', 1),
+  (16, 'John 13:2', 1),
+  (17, 'Matthew 4:25', 1),
+  (17, 'Mark 3:7-12', 2),
+  (19, 'Mark 5:30', 1),
+  (19, 'Luke 8:46', 2),
+  (20, 'Matthew 5:3', 1),
+  (20, 'James 2:5', 2),
+  (21, 'Matthew 5:6', 1),
+  (21, 'Isaiah 61:2-3', 2),
+  (22, 'Matthew 5:11', 1),
+  (22, '1 Peter 4:14', 2),
+  (23, 'Acts 5:41', 1),
+  (23, '2 Chronicles 36:16', 2),
+  (24, 'James 5:1', 1),
+  (24, 'Luke 16:25', 2),
+  (25, 'Isaiah 65:13', 1),
+  (25, 'James 4:9', 2),
+  (26, 'John 15:19', 1),
+  (26, 'Jeremiah 5:31', 2),
+  (27, 'Matthew 5:44', 1),
+  (27, 'Romans 12:20', 2),
+  (28, '1 Peter 3:9', 1),
+  (29, 'Matthew 5:39-40', 1),
+  (29, '1 Corinthians 6:7', 2),
+  (30, 'Matthew 5:42', 1),
+  (31, 'Matthew 7:12', 1),
+  (32, 'Matthew 5:46', 1),
+  (35, 'Matthew 5:45', 1),
+  (35, 'Romans 5:8', 2),
+  (36, 'Matthew 5:48', 1),
+  (36, 'Ephesians 4:32', 2),
+  (37, 'Matthew 7:1', 1),
+  (37, 'Romans 14:10', 2),
+  (38, 'Mark 4:24', 1),
+  (38, 'Proverbs 19:17', 2),
+  (39, 'Matthew 15:14', 1),
+  (40, 'Matthew 10:24-25', 1),
+  (40, 'John 13:16', 2),
+  (41, 'Matthew 7:3-5', 1),
+  (43, 'Matthew 7:16-18', 1),
+  (43, 'James 3:12', 2),
+  (45, 'Matthew 12:34-35', 1),
+  (46, 'Matthew 7:21', 1),
+  (46, 'James 1:22', 2),
+  (47, 'James 1:25', 1),
+  (48, 'Matthew 7:24-25', 1),
+  (48, '1 Corinthians 3:11', 2),
+  (49, 'Matthew 7:26-27', 1),
+  (49, 'Ezekiel 13:10-15', 2)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 6 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

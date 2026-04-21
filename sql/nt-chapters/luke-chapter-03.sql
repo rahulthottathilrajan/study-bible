@@ -211,3 +211,104 @@ CROSS JOIN (VALUES
    NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 3;
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 3 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'ἡγεμονίας Τιβερίου Καίσαρος', 'hēgemonias Tiberiou Kaisaros', 'G2231/G5086/G2541', 'Reign of Tiberius Caesar — the 15th year (c. AD 28-29). Luke''s sixfold dating with Roman, Herodian, and high-priestly figures gives Christianity an empirical historical anchor unmatched in ancient literature.', 1),
+  (2, 'ἀρχιερέως Ἄννα καὶ Καιάφα', 'archiereōs Anna kai Kaiapha', 'G749/G452/G2533', 'High priesthood of Annas and Caiaphas — Annas had been deposed by Rome but was still recognised by Jews; his son-in-law Caiaphas held the official title (cf. John 18:13).', 2),
+  (2, 'ῥῆμα θεοῦ', 'rhēma theou', 'G4487/G2316', 'Word of God — the OT prophetic call formula (Jer 1:1-4; Ezek 1:3). John takes his place in the line of canonical prophets after a 400-year silence.', 3),
+  (3, 'βάπτισμα μετανοίας', 'baptisma metanoias', 'G908/G3341', 'Baptism of repentance — distinct from later Christian baptism. Symbolic immersion accompanying a turn of mind, anticipating remission of sins.', 4),
+  (3, 'ἄφεσιν ἁμαρτιῶν', 'aphesin hamartiōn', 'G859/G266', 'Remission of sins — release, dismissal, sending away. The same word used for Jubilee release in Lev 25:10 LXX.', 5),
+  (4, 'βοῶντος ἐν τῇ ἐρήμῳ', 'boōntos en tē erēmō', 'G994/G2048', 'One crying in the wilderness — direct quotation of Isa 40:3 LXX. John is identified as the herald of the New Exodus prophesied by Isaiah.', 6),
+  (5, 'φάραγξ', 'pharanx', 'G5327', 'Ravine, valley — quoted from Isa 40:4 LXX. Imagery of road-construction levelling the terrain for the coming royal procession.', 7),
+  (6, 'σωτήριον τοῦ θεοῦ', 'sōtērion tou theou', 'G4992/G2316', 'Salvation of God — quoted from Isa 40:5; 52:10. Universal scope: "all flesh shall see" — Luke''s gospel-to-the-Gentiles theme already in the prologue.', 8),
+  (7, 'γεννήματα ἐχιδνῶν', 'gennēmata echidnōn', 'G1081/G2191', 'Brood of vipers — sharp prophetic invective. The viper was poisonous and devious; John exposes superficial religiosity.', 9),
+  (7, 'φυγεῖν ἀπὸ τῆς μελλούσης ὀργῆς', 'phygein apo tēs mellousēs orgēs', 'G5343/G3195/G3709', 'To flee from the coming wrath — eschatological judgment is imminent. John''s message is urgent.', 10),
+  (8, 'καρποὺς ἀξίους τῆς μετανοίας', 'karpous axious tēs metanoias', 'G2590/G514/G3341', 'Fruits worthy of repentance — visible evidence of inward change. True repentance produces ethical transformation.', 11),
+  (9, 'ἀξίνη', 'axinē', 'G513', 'Axe — already at the root, ready to cut. The judgment of God is not future-distant but imminent and decisive.', 12),
+  (11, 'χιτῶνας', 'chitōnas', 'G5509', 'Tunics — the inner garment. Sharing of basic possessions is John''s practical fruit of repentance.', 13),
+  (12, 'τελῶναι', 'telōnai', 'G5057', 'Tax collectors / publicans — Jewish agents of Roman taxation, deeply hated as collaborators and notorious for extortion. John does not require them to abandon their post but to act justly.', 14),
+  (13, 'πράσσετε', 'prassete', 'G4238', 'Exact, collect — practise. Tax collectors must take only what is appointed, not the customary surplus pocketed as profit.', 15),
+  (14, 'στρατευόμενοι', 'strateuomenoi', 'G4754', 'Soldiers — likely Jewish auxiliaries serving Herod Antipas. Their abuses included extortion and false accusation.', 16),
+  (14, 'διασείσητε', 'diaseisēte', 'G1286', 'Do violence to / extort by intimidation — literally "shake violently." Forbids strong-arm shakedowns by armed men.', 17),
+  (16, 'ἱμάντα τῶν ὑποδημάτων', 'himanta tōn hypodēmatōn', 'G2438/G5266', 'Latchet of his shoes — the rabbis taught a disciple should do anything for his teacher except untie his sandals (a slave''s task). John says he is unworthy even of slave-service to the Coming One.', 18),
+  (16, 'πνεύματι ἁγίῳ καὶ πυρί', 'pneumati hagiō kai pyri', 'G4151/G40/G4442', 'With the Holy Ghost and with fire — twofold baptism. Spirit-baptism for the gathered (Acts 2); fiery judgment for the chaff (v.17).', 19),
+  (17, 'πτύον', 'ptyon', 'G4425', 'Winnowing fork/fan — used at the threshing floor to toss grain into the wind, separating heavier wheat from lighter chaff. Image of judgment that separates believer from unbeliever.', 20),
+  (17, 'ἀσβέστῳ', 'asbestō', 'G762', 'Unquenchable — the fire that consumes the chaff cannot be extinguished. Strong eschatological warning of final judgment.', 21),
+  (19, 'Ἡρῴδης ὁ τετράρχης', 'Hērōdēs ho tetrarchēs', 'G2264/G5076', 'Herod the tetrarch — Antipas, son of Herod the Great, ruler of Galilee and Perea. His unlawful marriage to Herodias (his brother''s wife) was the basis of John''s rebuke and eventual martyrdom.', 22),
+  (22, 'Πνεῦμα τὸ Ἅγιον σωματικῷ εἴδει', 'Pneuma to Hagion sōmatikō eidei', 'G4151/G40/G4985/G1491', 'Holy Spirit in bodily form — only Luke specifies this physical manifestation. Visible inauguration of Jesus''s public ministry.', 23),
+  (22, 'περιστερὰν', 'peristeran', 'G4058', 'Dove — symbol of gentleness, also of new creation (Gen 1:2; 8:8-12). The Spirit hovers over the new humanity as he hovered over the original waters.', 24),
+  (22, 'υἱός μου ὁ ἀγαπητός', 'huios mou ho agapētos', 'G5207/G27', 'My beloved Son — the Father''s declaration combines Ps 2:7 (royal Messiah) and Isa 42:1 (Suffering Servant). The Trinity is manifested at the baptism: Son baptised, Spirit descending, Father speaking.', 25),
+  (23, 'ἀρχόμενος ὡσεὶ ἐτῶν τριάκοντα', 'archomenos hōsei etōn triakonta', 'G756/G5616/G2094/G5144', 'Beginning, about thirty years — the age of priestly ministry (Num 4:3) and Joseph in Egypt (Gen 41:46). Luke''s precision: "as was supposed" — guarding the virginal conception.', 26),
+  (38, 'τοῦ Ἀδὰμ τοῦ θεοῦ', 'tou Adam tou theou', 'G76/G2316', 'Of Adam, of God — Luke''s genealogy traces Jesus back not just to Abraham (as Matt) but to Adam, "of God." Christ is the second Adam, head of new humanity (Rom 5:12-21; 1 Cor 15:45).', 27)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 3 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 3:1', 1),
+  (1, 'Mark 1:1-4', 2),
+  (1, 'John 1:19-28', 3),
+  (2, 'John 18:13', 1),
+  (2, 'Jeremiah 1:1-4', 2),
+  (2, 'Ezekiel 1:3', 3),
+  (3, 'Acts 19:4', 1),
+  (3, 'Acts 13:24', 2),
+  (4, 'Isaiah 40:3', 1),
+  (4, 'Malachi 3:1', 2),
+  (5, 'Isaiah 40:4', 1),
+  (6, 'Isaiah 40:5', 1),
+  (6, 'Isaiah 52:10', 2),
+  (6, 'Acts 28:28', 3),
+  (7, 'Matthew 12:34', 1),
+  (7, 'Matthew 23:33', 2),
+  (7, '1 Thessalonians 1:10', 3),
+  (8, 'John 8:33-39', 1),
+  (8, 'Romans 4:12', 2),
+  (9, 'Matthew 7:19', 1),
+  (9, 'John 15:6', 2),
+  (11, 'James 2:15-16', 1),
+  (11, '1 John 3:17', 2),
+  (12, 'Matthew 9:9-11', 1),
+  (12, 'Luke 19:1-10', 2),
+  (13, 'Luke 19:8', 1),
+  (14, 'Exodus 23:1', 1),
+  (14, 'Hebrews 13:5', 2),
+  (15, 'John 1:19-25', 1),
+  (16, 'Acts 1:5', 1),
+  (16, 'Acts 2:3-4', 2),
+  (16, 'Joel 2:28-29', 3),
+  (17, 'Malachi 4:1', 1),
+  (17, 'Mark 9:43', 2),
+  (17, 'Matthew 13:30', 3),
+  (19, 'Matthew 14:3-4', 1),
+  (19, 'Mark 6:17-18', 2),
+  (20, 'Matthew 14:10', 1),
+  (21, 'Matthew 3:13-17', 1),
+  (21, 'Mark 1:9-11', 2),
+  (22, 'Psalm 2:7', 1),
+  (22, 'Isaiah 42:1', 2),
+  (22, 'Genesis 1:2', 3),
+  (23, 'Numbers 4:3', 1),
+  (23, 'Genesis 41:46', 2),
+  (31, '2 Samuel 7:12-16', 1),
+  (31, 'Matthew 1:6', 2),
+  (33, 'Genesis 21:2-3', 1),
+  (33, 'Matthew 1:2', 2),
+  (34, 'Genesis 11:10-26', 1),
+  (38, 'Genesis 1:26-27', 1),
+  (38, 'Genesis 5:1-3', 2),
+  (38, 'Romans 5:12-19', 3),
+  (38, '1 Corinthians 15:22', 4),
+  (38, '1 Corinthians 15:45', 5)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 3 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

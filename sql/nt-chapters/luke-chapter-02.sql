@@ -281,3 +281,126 @@ CROSS JOIN (VALUES
    NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 2;
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 2 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'δόγμα', 'dogma', 'G1378', 'Decree — an imperial edict carrying the force of law. The taxation enrolment of Caesar Augustus is the providential mechanism that brings Mary to Bethlehem.', 1),
+  (1, 'οἰκουμένην', 'oikoumenēn', 'G3625', 'The inhabited world — the Roman Empire as it perceived itself, the civilised world. Luke locates Christ''s birth on the world stage.', 2),
+  (2, 'ἀπογραφὴ', 'apographē', 'G582', 'Census, registration — for taxation. The first under Quirinius, governing/administering Syria under Augustus.', 3),
+  (4, 'πατριᾶς Δαυίδ', 'patrias Dauid', 'G3965/G1138', 'Lineage of David — Joseph''s Davidic descent fulfils Mic 5:2 and the Davidic covenant promises.', 4),
+  (7, 'πρωτότοκον', 'prōtotokon', 'G4416', 'Firstborn — a legal/cultic term. Not implying Mary later had other children automatically, but marking Jesus''s status under Mosaic firstborn redemption (Ex 13:2).', 5),
+  (7, 'ἐσπαργάνωσεν', 'esparganōsen', 'G4683', 'Wrapped in swaddling clothes — sparganon, strips of cloth. Standard ancient practice for newborns; an oddly tender detail amid the Saviour''s humble setting.', 6),
+  (7, 'φάτνῃ', 'phatnē', 'G5336', 'Manger, feeding-trough — likely stone-hewn, in a stable or cave. The sign given to the shepherds (v.12).', 7),
+  (7, 'καταλύματι', 'katalymati', 'G2646', 'Inn, lodging place — same word as the upper guest-room of the Last Supper (22:11). Likely a guest chamber rather than a commercial inn (which would be pandocheion, 10:34).', 8),
+  (8, 'ποιμένες', 'poimenes', 'G4166', 'Shepherds — socially marginal in 1st-century Judea, ritually unable to keep ceremonial purity. The first to hear gospel announcement: God exalts the lowly.', 9),
+  (8, 'ἀγραυλοῦντες', 'agraulountes', 'G63', 'Living in the field — outdoor pasturage. May suggest a season other than winter, though tradition has fixed December 25.', 10),
+  (10, 'εὐαγγελίζομαι', 'euangelizomai', 'G2097', 'I bring good news — the gospel''s first proclamation, announced by an angel before any human preacher.', 11),
+  (10, 'χαρὰν μεγάλην', 'charan megalēn', 'G5479/G3173', 'Great joy — the proper response to gospel news, contrasting the world''s typical "fear" before angelic appearance.', 12),
+  (11, 'σωτὴρ', 'sōtēr', 'G4990', 'Saviour — a title applied to Roman emperors and Hellenistic gods, deliberately reclaimed for Jesus. Caesar Augustus was hailed as sōtēr; Luke counters: the true Saviour is born tonight.', 13),
+  (11, 'Χριστὸς Κύριος', 'Christos Kyrios', 'G5547/G2962', 'Christ the Lord — astonishing dual title joining the Davidic Messiah (Christos = Anointed) with Kyrios, the LXX rendering of YHWH.', 14),
+  (14, 'εὐδοκίας', 'eudokias', 'G2107', 'Of good will/good pleasure — genitive case in the better Greek manuscripts. "Peace among men of his good pleasure," i.e., those upon whom God''s favour rests.', 15),
+  (19, 'συνετήρει', 'synetērei', 'G4933', 'Kept, treasured up — imperfect of syntēreō, continuous action. Mary preserved these things, pondering their meaning over years.', 16),
+  (19, 'συμβάλλουσα', 'symballousa', 'G4820', 'Pondering — comparing, putting together. Luke''s likely source for the infancy narratives is Mary herself.', 17),
+  (21, 'περιτεμεῖν', 'peritemein', 'G4059', 'To circumcise — on the eighth day per Lev 12:3. Jesus enters the Abrahamic covenant; the Saviour himself is "made under the law" (Gal 4:4).', 18),
+  (22, 'καθαρισμοῦ', 'katharismou', 'G2512', 'Of purification — the 40-day Levitical period for childbirth purification (Lev 12:2-8). Luke''s "their" is loose; technically Mary''s purification.', 19),
+  (24, 'ζεῦγος τρυγόνων', 'zeugos trygonōn', 'G2201/G5167', 'A pair of turtledoves — the offering permitted for the poor (Lev 12:8). Mary and Joseph cannot afford a lamb. The Lamb of God is born to poverty.', 20),
+  (25, 'παράκλησιν τοῦ Ἰσραήλ', 'paraklēsin tou Israēl', 'G3874/G2474', 'Consolation of Israel — messianic title drawn from Isa 40:1-2; 49:13. Simeon waits for the comfort God promised through the prophets.', 21),
+  (29, 'ἀπολύεις', 'apolyeis', 'G630', 'Lettest depart — present indicative, "thou art releasing." A slave-master image: Simeon asks his Lord to release him from duty now that he has seen the promise fulfilled.', 22),
+  (29, 'δεσπότα', 'despota', 'G1203', 'Lord, Master — the absolute master of slaves; stronger than Kyrios. Simeon addresses God with profound humility.', 23),
+  (30, 'σωτήριόν', 'sōtērion', 'G4992', 'Salvation — neuter form. "Mine eyes have seen thy salvation" — Simeon looks at the infant and beholds salvation incarnate.', 24),
+  (32, 'φῶς εἰς ἀποκάλυψιν ἐθνῶν', 'phōs eis apokalypsin ethnōn', 'G5457/G602/G1484', 'Light to lighten the Gentiles — direct allusion to Isa 42:6; 49:6. Universal scope of the gospel announced from infancy.', 25),
+  (34, 'ἀντιλεγόμενον', 'antilegomenon', 'G483', 'Spoken against — present passive. Christ will be the divisive sign over which mankind takes opposing sides; rejection is foretold from the cradle.', 26),
+  (35, 'ῥομφαία', 'rhomphaia', 'G4501', 'Sword — a large Thracian broadsword. Mary''s soul-piercing anguish at the cross is foretold in this prophecy.', 27),
+  (37, 'νηστείαις καὶ δεήσεσιν', 'nēsteiais kai deēsesin', 'G3521/G1162', 'With fastings and prayers — Anna''s decades of devout temple ministry. The widow''s prayer life is presented as exemplary piety.', 28),
+  (38, 'ἀνθωμολογεῖτο', 'anthōmologeito', 'G437', 'Gave thanks — imperfect; Anna kept on confessing/praising God in response to seeing the child.', 29),
+  (40, 'ηὔξανεν καὶ ἐκραταιοῦτο πνεύματι', 'ēuxanen kai ekrataiouto pneumati', 'G837/G2901/G4151', 'Grew and waxed strong in spirit — parallels John''s growth in 1:80. Jesus develops in genuine humanity.', 30),
+  (40, 'σοφίας', 'sophias', 'G4678', 'Wisdom — a key Lukan theme; wisdom characterises both John and Jesus from childhood.', 31),
+  (41, 'πάσχα', 'pascha', 'G3957', 'Passover — Joseph and Mary''s annual pilgrimage shows their devout Torah observance. Jesus grows up in a family of practising Jews.', 32),
+  (46, 'ἐν τῷ ἱερῷ', 'en tō hierō', 'G2411', 'In the temple — likely in one of the porticos where rabbis taught publicly. Boys aged 12-13 entered religious adulthood (bar mitzvah is later, but the principle is ancient).', 33),
+  (49, 'ἐν τοῖς τοῦ πατρός μου', 'en tois tou patros mou', 'G3962', 'About my Father''s business / in my Father''s house — the genitive plural is ambiguous and either rendering fits. Jesus''s first recorded words assert unique filial relationship to God.', 34),
+  (51, 'ὑποτασσόμενος', 'hypotassomenos', 'G5293', 'Subject — present middle participle. The eternal Son willingly submits to his earthly parents, modelling perfect filial obedience.', 35),
+  (52, 'προέκοπτεν σοφίᾳ καὶ ἡλικίᾳ καὶ χάριτι', 'proekopten sophia kai hēlikia kai chariti', 'G4298/G4678/G2244/G5485', 'Increased in wisdom and stature, and in favour — fourfold growth (intellectual, physical, divine relational, social). Echoes 1 Sam 2:26 of Samuel.', 36)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 2 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 2:1', 1),
+  (4, 'Micah 5:2', 1),
+  (4, '1 Samuel 16:1', 2),
+  (4, 'Ruth 1:19', 3),
+  (5, 'Matthew 1:18', 1),
+  (6, 'Galatians 4:4', 1),
+  (7, 'Matthew 1:25', 1),
+  (7, 'Exodus 13:2', 2),
+  (7, 'John 1:11', 3),
+  (8, 'Genesis 31:38-40', 1),
+  (9, 'Exodus 16:10', 1),
+  (9, 'Luke 1:12', 2),
+  (10, 'Isaiah 52:7', 1),
+  (10, 'Luke 1:19', 2),
+  (11, '2 Samuel 7:12', 1),
+  (11, 'Isaiah 9:6-7', 2),
+  (11, 'John 4:42', 3),
+  (12, '1 Samuel 2:34', 1),
+  (13, 'Daniel 7:10', 1),
+  (13, 'Hebrews 12:22', 2),
+  (14, 'Isaiah 9:6-7', 1),
+  (14, 'Ephesians 2:14', 2),
+  (15, 'John 1:14', 1),
+  (19, 'Luke 2:51', 1),
+  (19, 'Genesis 37:11', 2),
+  (21, 'Genesis 17:12', 1),
+  (21, 'Leviticus 12:3', 2),
+  (21, 'Matthew 1:21', 3),
+  (22, 'Leviticus 12:2-8', 1),
+  (23, 'Exodus 13:2', 1),
+  (23, 'Numbers 3:13', 2),
+  (24, 'Leviticus 12:8', 1),
+  (25, 'Isaiah 40:1-2', 1),
+  (25, 'Isaiah 49:13', 2),
+  (26, 'Psalm 89:48', 1),
+  (29, 'Genesis 15:15', 1),
+  (29, 'Acts 4:24', 2),
+  (30, 'Isaiah 52:10', 1),
+  (31, 'Psalm 98:2-3', 1),
+  (32, 'Isaiah 42:6', 1),
+  (32, 'Isaiah 49:6', 2),
+  (32, 'Acts 13:47', 3),
+  (34, 'Isaiah 8:14', 1),
+  (34, '1 Peter 2:7-8', 2),
+  (34, 'Romans 9:32-33', 3),
+  (35, 'John 19:25', 1),
+  (35, 'Hebrews 4:12', 2),
+  (37, 'Acts 26:7', 1),
+  (37, '1 Timothy 5:5', 2),
+  (38, 'Luke 24:21', 1),
+  (38, 'Isaiah 52:9', 2),
+  (40, 'Luke 1:80', 1),
+  (40, 'Luke 2:52', 2),
+  (41, 'Exodus 23:14-17', 1),
+  (41, 'Deuteronomy 16:1-8', 2),
+  (42, 'Numbers 28:16-25', 1),
+  (46, 'Matthew 26:55', 1),
+  (47, 'Matthew 7:28', 1),
+  (47, 'John 7:15', 2),
+  (49, 'John 2:16', 1),
+  (49, 'John 4:34', 2),
+  (50, 'Luke 9:45', 1),
+  (50, 'Luke 18:34', 2),
+  (51, 'Ephesians 6:1', 1),
+  (51, 'Hebrews 5:8', 2),
+  (52, '1 Samuel 2:26', 1),
+  (52, 'Proverbs 3:4', 2),
+  (52, 'Acts 2:47', 3)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 2 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

@@ -77,3 +77,112 @@ CROSS JOIN (VALUES
   (56, 'And her parents were astonished: but he charged them that they should tell no man what was done.', 'καὶ ἐξέστησαν οἱ γονεῖς αὐτῆς· ὁ δὲ παρήγγειλεν αὐτοῖς μηδενὶ εἰπεῖν τὸ γεγονός.', 'kai exestēsan hoi goneis autēs; ho de parēngeilen autois mēdeni eipein to gegonos.', '"Astonished" (exestēsan — beside themselves, ecstatic with wonder). The command to silence is paradoxical given the presence of mourners outside, but it reflects Jesus''s consistent pattern of limiting sensationalism around resurrection miracles (cf. 9:21). The focus of the chapter ends on the parents'' wonder — the appropriate response to a God who visits his people, calms their storms, delivers their captives, heals their sick, and raises their dead.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 8;
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 8 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'διώδευεν', 'diōdeuen', 'G1353', 'Went throughout — itinerant ministry through cities and villages. Imperfect tense: continuous travelling preaching tour.', 1),
+  (2, 'γυναῖκές τινες', 'gynaikes tines', 'G1135', 'Certain women — Luke alone notes the female disciples who travelled with Jesus and the Twelve, providing financial support. Unprecedented in rabbinic Judaism.', 2),
+  (2, 'ἀπ᾽ ἧς δαιμόνια ἑπτὰ ἐξεληλύθει', 'aph hēs daimonia hepta exelēlythei', 'G1140/G2033', 'From whom seven demons had gone — Mary Magdalene''s deliverance is the explanation for her devotion. "Seven" = total possession; her freedom was complete.', 3),
+  (3, 'Ἰωάννα γυνὴ Χουζᾶ', 'Iōanna gynē Chouza', 'G2489/G5529', 'Joanna wife of Chuza — Herod''s steward (epitropos = household financial manager). The gospel reaches into Herod''s palace through his wife. Luke''s likely Herodian-court source.', 4),
+  (3, 'διηκόνουν', 'diēkonoun', 'G1247', 'Ministered — imperfect of diakoneō, served. The Greek text says they ministered "from their own substance" — these wealthy women funded the apostolic mission.', 5),
+  (5, 'ὁ σπείρων', 'ho speirōn', 'G4687', 'The sower — present participle. Palestinian sowing scattered seed broadcast before plowing, hence the four soils. The Sower is Christ; the seed is the word of God (v.11).', 6),
+  (10, 'μυστήρια τῆς βασιλείας', 'mystēria tēs basileias', 'G3466/G932', 'Mysteries of the kingdom — divine truths once hidden, now revealed in Christ. "Mystery" = a secret formerly concealed, now disclosed (cf. Eph 3:3-6).', 7),
+  (11, 'σπόρος ἐστὶν ὁ λόγος τοῦ θεοῦ', 'sporos estin ho logos tou theou', 'G4703/G3056/G2316', 'The seed is the word of God — Luke''s explicit interpretation, sharper than parallel synoptists. The Bible itself is the germinative seed of new life.', 8),
+  (12, 'ὁ διάβολος', 'ho diabolos', 'G1228', 'The devil — Luke names the bird (Mark says "Satan"). The unbelieving heart is exposed to active satanic word-snatching.', 9),
+  (13, 'πρόσκαιροι', 'proskairoi', 'G4340', 'For a while — temporal, time-limited. Without root in soil-of-conviction, joy in the word evaporates under trial.', 10),
+  (14, 'συμπνίγονται', 'sympnigontai', 'G4846', 'Are choked — strangled, suffocated. Riches, cares, and pleasures act like thorns smothering the seedling. Slow, gradual death of fruitfulness.', 11),
+  (15, 'καρδίᾳ καλῇ καὶ ἀγαθῇ', 'kardia kalē kai agathē', 'G2588/G2570/G18', 'Honest and good heart — Luke''s addition. Greek-Hebrew composite ideal: morally noble heart that hears, holds fast, and bears fruit by patience.', 12),
+  (15, 'ὑπομονῇ', 'hypomonē', 'G5281', 'Patience — endurance under trial. Fruitfulness in Luke''s emphasis is not instantaneous but the product of sustained obedience.', 13),
+  (16, 'λύχνον... ὑπὸ μόδιον', 'lychnon... hypo modion', 'G3088/G3426', 'Lamp under a bushel — clay oil-lamp, modios = grain measure. Discipleship means visible witness, not concealment.', 14),
+  (17, 'οὐ γάρ ἐστιν κρυπτὸν', 'ou gar estin krypton', 'G2927', 'For nothing is secret — eschatological exposure. All hidden things shall be revealed at judgment.', 15),
+  (21, 'μήτηρ μου καὶ ἀδελφοί μου', 'mētēr mou kai adelphoi mou', 'G3384/G80', 'My mother and my brethren — Jesus redefines kinship in Kingdom terms. Hearing-and-doing is the new family bond.', 16),
+  (24, 'ἐπιτίμησεν', 'epetimēsen', 'G2008', 'Rebuked — same verb as for demons (4:35,41). Jesus addresses the storm as a hostile spiritual force; nature itself is part of the cosmic disorder he is reversing.', 17),
+  (25, 'τίς ἄρα οὗτός ἐστιν', 'tis ara houtos estin', 'G5101', 'What manner of man is this — only YHWH stills the sea (Ps 65:7; 89:9; 107:29). The disciples are confronted with Jesus''s deity in narrative form.', 18),
+  (26, 'Γαδαρηνῶν', 'Gadarēnōn', 'G1046', 'Gadarenes — region of Gadara, one of the Decapolis cities, predominantly Gentile. Luke shows Jesus''s first deliberate ministry beyond Jewish territory.', 19),
+  (28, 'τοῦ θεοῦ τοῦ ὑψίστου', 'tou theou tou hypsistou', 'G2316/G5310', 'God Most High — divine title used by Gentiles (cf. Acts 16:17). The demoniac''s confession comes from demonic forces.', 20),
+  (30, 'Λεγιών', 'Legiōn', 'G3003', 'Legion — Latin loanword. A Roman legion was nominally 6,000 soldiers. The man''s torment was multiplied beyond imagination.', 21),
+  (31, 'ἄβυσσον', 'abysson', 'G12', 'The deep / abyss — bottomless place of demonic confinement (Rev 9:1-2; 20:1-3). Demons recognise their eschatological prison awaits.', 22),
+  (32, 'χοίρων', 'choirōn', 'G5519', 'Swine — unclean by Mosaic law (Lev 11:7). Their presence confirms the Gentile setting. The drowning herd graphically demonstrates the demons'' destructive intent.', 23),
+  (35, 'ἱματισμένον καὶ σωφρονοῦντα', 'himatismenon kai sōphronounta', 'G2439/G4993', 'Clothed and in his right mind — restored humanity. The signs of healing are dignity (clothes) and rationality (sound mind).', 24),
+  (39, 'κήρυσσε ὅσα ἐποίησεν', 'kērysse hosa epoiēsen', 'G2784', 'Tell what God hath done — Jesus normally silenced the healed; in Gentile territory there is no messianic-secret danger and the man becomes Decapolis''s first missionary.', 25),
+  (43, 'ῥύσει αἵματος', 'rhysei haimatos', 'G4511/G129', 'Issue of blood — chronic uterine haemorrhage. Made her permanently unclean (Lev 15:25-27); 12 years of social and religious exclusion.', 26),
+  (44, 'κρασπέδου τοῦ ἱματίου', 'kraspedou tou himatiou', 'G2899/G2440', 'Border of his garment — the tassel/tzitzit prescribed in Num 15:38-39 as a reminder of God''s commandments. She touched the symbol of Torah-fidelity worn by the Torah''s author.', 27),
+  (46, 'δύναμιν ἐξεληλυθυῖαν', 'dynamin exelēlythuian', 'G1411/G1831', 'Power gone out — Jesus is consciously aware of healing virtue flowing from him. Shows that faith touched something objective in him, not merely psychosomatic effect.', 28),
+  (48, 'θύγατερ', 'thygater', 'G2364', 'Daughter — only here in Luke does Jesus address a woman this way. Tender, restoring her into Israel''s covenant family after years of being declared "unclean."', 29),
+  (50, 'μόνον πίστευσον', 'monon pisteuson', 'G3440/G4100', 'Only believe — present imperative. Jairus''s collapsed hope is reignited by Jesus''s simple command.', 30),
+  (54, 'ἡ παῖς ἐγείρου', 'hē pais egeirou', 'G3816/G1453', 'Maid, arise — talitha koum in Mark''s Aramaic. The Lord of life summons the dead with the casualness of waking a child.', 31),
+  (55, 'ἐπέστρεψεν τὸ πνεῦμα αὐτῆς', 'epestrepsen to pneuma autēs', 'G1994/G4151', 'Her spirit returned — Luke the physician notes the restoration of the immaterial spirit to the body, demonstrating that death is genuine separation, not unconsciousness.', 32)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 8 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 9:35', 1),
+  (2, 'Mark 16:9', 1),
+  (2, 'John 19:25', 2),
+  (3, 'Luke 23:55-56', 1),
+  (3, 'Luke 24:10', 2),
+  (4, 'Matthew 13:1-9', 1),
+  (4, 'Mark 4:1-9', 2),
+  (5, 'Isaiah 55:10-11', 1),
+  (8, 'John 15:5', 1),
+  (10, 'Isaiah 6:9-10', 1),
+  (10, 'Matthew 13:11-15', 2),
+  (11, '1 Peter 1:23', 1),
+  (11, 'James 1:21', 2),
+  (12, 'Matthew 13:19', 1),
+  (13, 'Hebrews 3:12', 1),
+  (14, '1 Timothy 6:9-10', 1),
+  (14, '2 Timothy 4:10', 2),
+  (15, 'James 1:22-25', 1),
+  (15, 'Hebrews 10:36', 2),
+  (16, 'Matthew 5:14-16', 1),
+  (16, 'Mark 4:21', 2),
+  (17, 'Ecclesiastes 12:14', 1),
+  (17, '1 Corinthians 4:5', 2),
+  (18, 'Matthew 13:12', 1),
+  (18, 'Matthew 25:29', 2),
+  (21, 'John 15:14', 1),
+  (21, 'James 1:22', 2),
+  (22, 'Matthew 8:23-27', 1),
+  (22, 'Mark 4:35-41', 2),
+  (24, 'Psalm 107:28-29', 1),
+  (25, 'Psalm 65:7', 1),
+  (25, 'Psalm 89:9', 2),
+  (26, 'Matthew 8:28-34', 1),
+  (26, 'Mark 5:1-20', 2),
+  (28, 'James 2:19', 1),
+  (28, 'Acts 16:17', 2),
+  (31, 'Revelation 9:1-2', 1),
+  (31, 'Revelation 20:1-3', 2),
+  (32, 'Leviticus 11:7', 1),
+  (35, 'Mark 5:15', 1),
+  (37, 'Acts 16:39', 1),
+  (39, 'Mark 5:19-20', 1),
+  (40, 'Mark 5:21', 1),
+  (41, 'Matthew 9:18', 1),
+  (41, 'Mark 5:22-23', 2),
+  (43, 'Leviticus 15:25-27', 1),
+  (44, 'Numbers 15:38-39', 1),
+  (44, 'Malachi 4:2', 2),
+  (46, 'Mark 5:30', 1),
+  (48, 'Luke 7:50', 1),
+  (48, 'Luke 17:19', 2),
+  (50, 'Mark 5:36', 1),
+  (50, 'Romans 4:20-21', 2),
+  (52, 'John 11:11-13', 1),
+  (54, 'Mark 5:41', 1),
+  (54, 'John 11:43', 2),
+  (55, '1 Kings 17:21-22', 1),
+  (55, 'James 2:26', 2)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 8 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

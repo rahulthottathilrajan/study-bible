@@ -241,3 +241,109 @@ CROSS JOIN (VALUES
    NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 4;
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 4 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'πλήρης πνεύματος ἁγίου', 'plērēs pneumatos hagiou', 'G4134/G4151/G40', 'Full of the Holy Ghost — Jesus enters the wilderness in fullness of the Spirit, contrasting Adam''s fall in plenty. The Spirit himself "led" him into testing.', 1),
+  (1, 'ἤγετο ἐν τῷ πνεύματι', 'ēgeto en tō pneumati', 'G71/G4151', 'Was led by the Spirit — imperfect passive, continuous Spirit-led movement. The temptation is divinely orchestrated, not Satanic ambush.', 2),
+  (2, 'ἡμέρας τεσσαράκοντα', 'hēmeras tessarakonta', 'G2250/G5062', 'Forty days — recapitulates Israel''s 40 years and Moses''s 40 days on Sinai (Ex 34:28). Jesus succeeds where Israel failed.', 3),
+  (2, 'πειραζόμενος ὑπὸ τοῦ διαβόλου', 'peirazomenos hypo tou diabolou', 'G3985/G1228', 'Tempted by the devil — diabolos = "slanderer, accuser." All three temptations target the Father-Son relationship just declared at the baptism.', 4),
+  (4, 'γέγραπται', 'gegraptai', 'G1125', 'It is written — perfect passive of graphō, "it stands written" with abiding force. Jesus answers each temptation by appeal to Deuteronomy.', 5),
+  (8, 'προσκυνήσεις', 'proskynēseis', 'G4352', 'Thou shalt worship — prostration in submission. Reserved for God alone (Deut 6:13); Satan''s offer would constitute idolatry.', 6),
+  (10, 'ἐντελεῖται', 'enteleitai', 'G1781', 'Shall give charge — Satan misquotes Ps 91:11-12 to tempt Jesus to presume on God''s protection. Scripture twisted is still Satanic in mouth.', 7),
+  (12, 'ἐκπειράσεις', 'ekpeiraseis', 'G1598', 'Shalt thou tempt — intensified peirazō, to put to the test. Quoted from Deut 6:16, referring to Israel at Massah.', 8),
+  (13, 'ἄχρι καιροῦ', 'achri kairou', 'G891/G2540', 'Until a season — the devil departs only temporarily. He returns through Judas and the Cross (22:3, 53). The conflict is unresolved until Calvary.', 9),
+  (14, 'ἐν τῇ δυνάμει τοῦ πνεύματος', 'en tē dynamei tou pneumatos', 'G1411/G4151', 'In the power of the Spirit — Jesus emerges from temptation not weakened but invested with proven Spirit-empowered authority.', 10),
+  (16, 'κατὰ τὸ εἰωθὸς αὐτῷ', 'kata to eiōthos autō', 'G1486', 'According to his custom — Jesus habitually attended synagogue worship on the Sabbath. The Lord of the Sabbath honoured the Sabbath.', 11),
+  (18, 'ἔχρισέν με', 'echrisen me', 'G5548', 'Hath anointed me — chriō, root of Christos. The reading of Isa 61:1-2 LXX is Jesus''s programmatic "inaugural address" identifying himself as the Messianic Servant.', 12),
+  (18, 'εὐαγγελίσασθαι πτωχοῖς', 'euangelisasthai ptōchois', 'G2097/G4434', 'To preach the gospel to the poor — the destitute, the economically and spiritually bankrupt. The Kingdom''s preferential outreach.', 13),
+  (18, 'αἰχμαλώτοις ἄφεσιν', 'aichmalōtois aphesin', 'G164/G859', 'Deliverance to the captives — the Jubilee word (Lev 25:10 LXX). Jesus inaugurates the eschatological Jubilee.', 14),
+  (19, 'ἐνιαυτὸν κυρίου δεκτόν', 'eniauton kyriou dekton', 'G1763/G2962/G1184', 'The acceptable year of the Lord — Jubilee. Note: Jesus stops mid-sentence in Isa 61:2, omitting "the day of vengeance" — first advent is grace, second advent is judgment.', 15),
+  (21, 'πεπλήρωται', 'peplērōtai', 'G4137', 'Is fulfilled — perfect passive of plēroō, "stands fulfilled." Today the Scripture is being fulfilled in your hearing — Jesus claims to be the prophesied Servant.', 16),
+  (22, 'λόγοις τῆς χάριτος', 'logois tēs charitos', 'G3056/G5485', 'Words of grace — gracious, winsome speech. The crowd is initially captivated — until Jesus exposes their unbelief in vv.23-27.', 17),
+  (23, 'παραβολὴν', 'parabolēn', 'G3850', 'Parable / proverb — "Physician, heal thyself" expresses Nazareth''s scepticism: prove yourself with miracles before we will believe.', 18),
+  (25, 'χήραι', 'chērai', 'G5503', 'Widows — Jesus''s deliberately provocative point: in Elijah''s day God bypassed Israel''s widows for a Phoenician widow at Zarephath (1 Kings 17). Sovereign grace transcends ethnic boundary.', 19),
+  (27, 'Ναιμὰν ὁ Σύρος', 'Naiman ho Syros', 'G3497/G4948', 'Naaman the Syrian — Elisha cleansed a Gentile leper, not Israel''s many lepers (2 Kings 5). Two OT precedents that infuriate the synagogue: God''s grace reaches Gentiles even when Jews reject it.', 20),
+  (29, 'ὀφρύος τοῦ ὄρους', 'ophryos tou orous', 'G3790/G3735', 'Brow of the hill — the cliff of Nazareth. Jesus''s townsfolk attempt to throw him off; the first of many attempts on his life.', 21),
+  (30, 'διελθὼν διὰ μέσου αὐτῶν ἐπορεύετο', 'dielthōn dia mesou autōn eporeueto', 'G1330/G3319', 'Passing through the midst of them, went his way — likely a supernatural escape. His hour was not yet come (cf. John 8:59).', 22),
+  (32, 'ἐξεπλήσσοντο', 'exeplēssonto', 'G1605', 'Were astonished — imperfect passive, "were being knocked out of their senses." His teaching had inherent authority, not derivative rabbinic citations.', 23),
+  (34, 'ὁ ἅγιος τοῦ θεοῦ', 'ho hagios tou theou', 'G40/G2316', 'The Holy One of God — the demon recognises Jesus''s true identity before any human confession (cf. Mark 1:24). Demonic Christology surpasses fleshly perception.', 24),
+  (36, 'ἐπιτάσσει', 'epitassei', 'G2004', 'Commandeth — military term for orders. Jesus speaks to demons as a general commanding troops; absolute authority.', 25),
+  (39, 'ἐπιτιμήσας', 'epitimēsas', 'G2008', 'Rebuked — same verb used of rebuking demons (4:35,41). Luke the physician describes the fever as if it were a hostile force — disease itself is part of the cosmic disorder Jesus is overturning.', 26),
+  (41, 'σὺ εἶ ὁ Χριστὸς', 'sy ei ho Christos', 'G5547', 'Thou art the Christ — demonic confession. Jesus silences them; the timing and content of messianic disclosure must be his.', 27),
+  (43, 'ἀπεστάλην', 'apestalēn', 'G649', 'I am sent — aorist passive of apostellō, root of "apostle." Jesus speaks of his divine commission from the Father.', 28),
+  (43, 'βασιλείαν τοῦ θεοῦ', 'basileian tou theou', 'G932/G2316', 'Kingdom of God — the central content of Jesus''s preaching. Not a place but God''s royal saving reign breaking in.', 29)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 4 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 4:1', 1),
+  (1, 'Mark 1:12-13', 2),
+  (2, 'Exodus 34:28', 1),
+  (2, 'Deuteronomy 9:9', 2),
+  (2, 'Hebrews 4:15', 3),
+  (3, 'Genesis 3:1-5', 1),
+  (4, 'Deuteronomy 8:3', 1),
+  (4, 'Matthew 4:4', 2),
+  (5, '1 John 2:16', 1),
+  (6, 'John 12:31', 1),
+  (6, 'Revelation 13:2', 2),
+  (7, 'James 4:7', 1),
+  (8, 'Deuteronomy 6:13', 1),
+  (8, 'Deuteronomy 10:20', 2),
+  (10, 'Psalm 91:11', 1),
+  (11, 'Psalm 91:12', 1),
+  (12, 'Deuteronomy 6:16', 1),
+  (13, 'Luke 22:3', 1),
+  (13, 'Luke 22:53', 2),
+  (13, 'John 14:30', 3),
+  (14, 'Acts 10:38', 1),
+  (16, 'Matthew 13:54', 1),
+  (16, 'Mark 6:1-2', 2),
+  (18, 'Isaiah 61:1', 1),
+  (18, 'Acts 10:38', 2),
+  (19, 'Isaiah 61:2', 1),
+  (19, 'Leviticus 25:10', 2),
+  (21, 'John 4:25-26', 1),
+  (22, 'John 7:46', 1),
+  (22, 'Matthew 13:55', 2),
+  (23, 'Luke 23:35', 1),
+  (24, 'Matthew 13:57', 1),
+  (24, 'John 4:44', 2),
+  (25, '1 Kings 17:1', 1),
+  (25, '1 Kings 18:1', 2),
+  (25, 'James 5:17', 3),
+  (26, '1 Kings 17:9-16', 1),
+  (27, '2 Kings 5:1-14', 1),
+  (28, 'Acts 22:21-22', 1),
+  (29, 'Numbers 15:35', 1),
+  (29, 'John 8:59', 2),
+  (30, 'John 8:59', 1),
+  (30, 'John 10:39', 2),
+  (32, 'Matthew 7:28-29', 1),
+  (32, 'Mark 1:22', 2),
+  (34, 'Mark 1:24', 1),
+  (34, 'Acts 3:14', 2),
+  (35, 'Luke 8:29', 1),
+  (36, 'Mark 1:27', 1),
+  (38, 'Matthew 8:14-15', 1),
+  (38, 'Mark 1:29-31', 2),
+  (40, 'Matthew 8:16', 1),
+  (40, 'Mark 1:32-34', 2),
+  (41, 'Mark 3:11-12', 1),
+  (41, 'Acts 16:17-18', 2),
+  (42, 'Mark 1:35-37', 1),
+  (43, 'Mark 1:38-39', 1),
+  (43, 'John 6:38', 2)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 4 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

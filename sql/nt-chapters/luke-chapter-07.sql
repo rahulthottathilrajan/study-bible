@@ -71,3 +71,100 @@ CROSS JOIN (VALUES
   (50, 'And he said to the woman, Thy faith hath saved thee; go in peace.', 'εἶπεν δὲ πρὸς τὴν γυναῖκα, Ἡ πίστις σου σέσωκέν σε· πορεύου εἰς εἰρήνην.', 'eipen de pros tēn gunaika, Hē pistis sou sesōken se; poreuou eis eirēnēn.', '"Thy faith hath saved thee" (sesōken — perfect tense: has saved and the salvation stands). The final word is to the woman, not to the critics. Faith (pistis) — not the tears, not the ointment, not the love per se — is identified as the saving instrument. "Go in peace" (poreuou eis eirēnēn) echoes the OT shalom-dismissal (1 Sam 1:17; 20:42) and anticipates the leper''s healing formula (17:19). Peace here is not mere emotional calm but wholeness, reconciliation with God, and the fullness of covenant blessing. This is the gospel in miniature.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 7;
+-- ═══════════════════════════════════════════════════
+-- LUKE CHAPTER 7 — BACKFILL: Word Studies + Cross References
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (2, 'ἑκατοντάρχου', 'hekatontarchou', 'G1543', 'Centurion — Roman officer commanding 100 men. Likely commanded an auxiliary unit serving Herod Antipas, perhaps Syrian or Italian-descended.', 1),
+  (2, 'ἔντιμος', 'entimos', 'G1784', 'Dear, valued — the slave was prized by the centurion. Striking that a Gentile officer cared so deeply for a slave; counters Roman class assumptions.', 2),
+  (5, 'συναγωγὴν αὐτὸς ᾠκοδόμησεν', 'synagōgēn autos ōkodomēsen', 'G4864/G3618', 'Himself built the synagogue — Luke alone records this generosity. The centurion is a "God-fearer" (sebomenos), like Cornelius (Acts 10).', 3),
+  (6, 'ἱκανός', 'hikanos', 'G2425', 'Worthy — the same word the Baptist used in 3:16 ("not worthy to unloose"). The centurion echoes the Forerunner''s humility.', 4),
+  (7, 'εἰπὲ λόγῳ', 'eipe logō', 'G2036/G3056', 'Say in a word — utter unspoken faith in Christ''s authority over disease at any distance. Faith grounded in the spoken word.', 5),
+  (9, 'ἐθαύμασεν αὐτὸν', 'ethaumasen auton', 'G2296', 'Marvelled at him — Jesus is recorded as marvelling only twice: at Gentile faith here, and at Jewish unbelief in Mark 6:6. Telling contrast.', 6),
+  (12, 'μονογενὴς υἱὸς', 'monogenēs huios', 'G3439/G5207', 'Only son — a particularly poignant detail Luke notes (cf. 8:42; 9:38). The Nain widow had lost both husband and only child; her social and economic security was gone.', 7),
+  (13, 'ἐσπλαγχνίσθη', 'esplanchnisthē', 'G4697', 'Had compassion — felt the bowels move with pity. Distinctively used of Jesus throughout the gospels.', 8),
+  (14, 'σοροῦ', 'sorou', 'G4673', 'Bier — open coffin or stretcher. Touching it would normally have rendered Jesus ceremonially unclean (Num 19:11), but his life-giving power overrides death''s defilement.', 9),
+  (16, 'προφήτης μέγας', 'prophētēs megas', 'G4396/G3173', 'Great prophet — the people recognise the Elijah/Elisha-type miracle of raising a widow''s son (1 Kings 17; 2 Kings 4) without yet grasping who Jesus actually is.', 10),
+  (19, 'ὁ ἐρχόμενος', 'ho erchomenos', 'G2064', 'He that should come — messianic title (Ps 118:26; Mal 3:1). John''s prison-doubt: "Are we to look for someone else?"', 11),
+  (22, 'τυφλοὶ ἀναβλέπουσιν', 'typhloi anablepousin', 'G5185/G308', 'Blind receive sight — Jesus answers John by listing fulfilled signs from Isa 35:5-6; 61:1. Notably omits Isa 61:2b "day of vengeance" — first advent is mercy.', 12),
+  (23, 'σκανδαλισθῇ', 'skandalisthē', 'G4624', 'Be offended — to stumble, to take offense. Even the Forerunner is tempted to stumble over the messianic profile (humble, suffering, not the warrior-judge expected).', 13),
+  (24, 'κάλαμον ὑπὸ ἀνέμου σαλευόμενον', 'kalamon hypo anemou saleuomenon', 'G2563/G417/G4531', 'Reed shaken by the wind — wavering opportunist. John was not the timid Herodian collaborator — Herod''s coins bore reeds.', 14),
+  (25, 'μαλακοῖς ἱματίοις', 'malakois himatiois', 'G3120/G2440', 'Soft raiment — luxurious clothing of court flatterers. John''s rough camel-hair garment marked him as the prophet from the wilderness, not the palace.', 15),
+  (28, 'μείζων... οὐδεὶς ἔστιν', 'meizōn... oudeis estin', 'G3187', 'None greater — John stands at the climax of OT prophets. Yet "least in the Kingdom" — Kingdom citizens have privileges of the new covenant that John could only foretell.', 16),
+  (30, 'βουλὴν τοῦ θεοῦ', 'boulēn tou theou', 'G1012/G2316', 'Counsel of God — God''s saving plan/purpose. Pharisees and lawyers "set aside" God''s purpose for themselves by refusing John''s baptism.', 17),
+  (31, 'ὁμοιώσω', 'homoiōsō', 'G3666', 'Shall I liken — Jesus ridicules the perversity of his generation: they reject both ascetic John and joyful Jesus. Nothing pleases the determined critic.', 18),
+  (35, 'ἐδικαιώθη ἡ σοφία', 'edikaiōthē hē sophia', 'G1344/G4678', 'Wisdom is justified — divine wisdom is vindicated by all who embrace her, regardless of how she is rejected by religious establishment.', 19),
+  (37, 'ἁμαρτωλός', 'hamartōlos', 'G268', 'A sinner — the city''s euphemism for a prostitute. Luke uniquely emphasises Jesus''s ministry to "sinners" throughout his gospel.', 20),
+  (37, 'ἀλάβαστρον μύρου', 'alabastron myrou', 'G211/G3464', 'Alabaster box of ointment — costly perfume in a flask with a sealed neck broken to release fragrance. Likely her fortune as a prostitute.', 21),
+  (38, 'ἤρξατο βρέχειν', 'ērxato brechein', 'G756/G1026', 'Began to wash — with her tears. The unloosed hair in public was scandalous in Jewish culture — only loose women appeared so. Pure self-abandonment in worship.', 22),
+  (41, 'δηνάρια πεντακόσια', 'dēnaria pentakosia', 'G1220/G4001', 'Five hundred denarii — about 20 months'' wages for a labourer. The other debt (50 denarii) is one-tenth — both are real debts neither can pay.', 23),
+  (47, 'ἀφέωνται', 'apheōntai', 'G863', 'Are forgiven — perfect passive of aphiēmi. Her many sins stand forgiven. Note the order: she loves much because she has been forgiven much; her tears are evidence of pardon already received.', 24),
+  (48, 'ἀφέωνται σου αἱ ἁμαρτίαι', 'apheōntai sou hai hamartiai', 'G266', 'Thy sins are forgiven — Jesus pronounces what God alone can do. The dinner guests question (v.49) as in the paralytic episode (5:21).', 25),
+  (50, 'πίστις σου σέσωκέν σε', 'pistis sou sesōken se', 'G4102/G4982', 'Thy faith hath saved thee — same formula as in healing miracles (8:48; 17:19; 18:42). Faith, not loving works, is the channel of saving grace; her tears flow from saving faith.', 26)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 7 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 8:5-13', 1),
+  (2, 'Acts 10:1-2', 1),
+  (3, 'John 4:47', 1),
+  (5, 'Acts 10:22', 1),
+  (6, 'Luke 5:8', 1),
+  (7, 'Psalm 107:20', 1),
+  (8, 'Matthew 8:9', 1),
+  (9, 'Matthew 8:10', 1),
+  (9, 'Romans 4:18-22', 2),
+  (11, 'Matthew 9:23-26', 1),
+  (12, 'Luke 8:42', 1),
+  (12, 'Luke 9:38', 2),
+  (13, 'Mark 6:34', 1),
+  (13, 'Hebrews 4:15', 2),
+  (14, 'Numbers 19:11', 1),
+  (14, '1 Kings 17:21-22', 2),
+  (15, '2 Kings 4:32-37', 1),
+  (15, 'John 11:43-44', 2),
+  (16, 'Luke 1:68', 1),
+  (16, 'Luke 24:19', 2),
+  (18, 'Matthew 11:2-6', 1),
+  (19, 'Psalm 118:26', 1),
+  (19, 'Malachi 3:1', 2),
+  (22, 'Isaiah 35:5-6', 1),
+  (22, 'Isaiah 61:1', 2),
+  (23, '1 Corinthians 1:23', 1),
+  (24, 'Matthew 11:7-15', 1),
+  (27, 'Malachi 3:1', 1),
+  (27, 'Isaiah 40:3', 2),
+  (28, 'Luke 1:15', 1),
+  (28, 'Matthew 11:11', 2),
+  (29, 'Matthew 21:31-32', 1),
+  (30, 'Acts 13:46', 1),
+  (31, 'Matthew 11:16-19', 1),
+  (33, 'Luke 1:15', 1),
+  (34, 'Luke 15:1-2', 1),
+  (35, '1 Corinthians 1:24-30', 1),
+  (35, 'Proverbs 8:1-9', 2),
+  (37, 'Matthew 26:6-7', 1),
+  (37, 'Mark 14:3', 2),
+  (38, 'John 12:3', 1),
+  (39, 'Luke 15:2', 1),
+  (40, 'Matthew 26:25', 1),
+  (41, 'Matthew 18:23-35', 1),
+  (44, '1 Timothy 5:10', 1),
+  (45, 'Romans 16:16', 1),
+  (47, '1 Timothy 1:14-15', 1),
+  (47, '1 John 4:19', 2),
+  (48, 'Matthew 9:2', 1),
+  (49, 'Mark 2:7', 1),
+  (50, 'Mark 5:34', 1),
+  (50, 'Ephesians 2:8-9', 2)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 7 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;
