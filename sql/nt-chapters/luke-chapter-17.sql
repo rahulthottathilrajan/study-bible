@@ -58,3 +58,142 @@ CROSS JOIN (VALUES
   (37, 'And they answered and said unto him, Where, Lord? And he said unto them, Wheresoever the body is, thither will the eagles be gathered together.', 'καὶ ἀποκριθέντες λέγουσιν αὐτῷ, Ποῦ, Κύριε; ὁ δὲ εἶπεν αὐτοῖς, Ὅπου τὸ σῶμα, ἐκεῖ καὶ οἱ ἀετοὶ ἐπισυναχθήσονται.', 'kai apokrithentes legousin autō, Pou, Kurie; ho de eipen autois, Hopou to sōma, ekei kai hoi aetoi episunachthēsontai.', '"Where, Lord?" (Pou, Kurie) — the disciples ask about the location of the taking. Jesus refuses to give a map and instead gives a proverb: "where the body is, there the eagles will be gathered." Eagles (or vultures — aetoi can mean either) gather instinctively where the carcass is. Applied: when the Son of Man appears, his people will be drawn to him as naturally and inevitably as carrion birds to a carcass. The "where" of the parousia cannot be predetermined; it will be as self-evident as vultures over a carcass — unmistakable to all.', NULL)
 ) AS v(verse_number, kjv_text, original_text, transliteration, study_note, doctrinal_note)
 WHERE b.name = 'Luke' AND c.chapter_number = 17;
+
+-- LUKE CHAPTER 17 — BACKFILL (word_studies + cross_references)
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'σκάνδαλα', 'skandala', 'G4625', 'Trap-sticks, snares; traps that trigger stumbling. Pictures the bait-stick of an animal trap — hence causes of spiritual ruin.', 1),
+  (1, 'ἀνένδεκτόν', 'anendekton', 'G418', 'Impossible, inadmissible; a strong negative — stumbling-blocks are, in a fallen world, inevitable.', 2),
+  (2, 'μυλικὸς', 'mulikos', 'G3458', 'Millstone (pertaining to a mill); the upper donkey-driven stone — massive weight ensuring certain drowning.', 1),
+  (2, 'μικρῶν', 'mikrōn', 'G3398', 'Little ones, the least; vulnerable disciples whose faith is easily wounded.', 2),
+  (3, 'ἐπιτίμησον', 'epitimēson', 'G2008', 'Rebuke, censure seriously; the verb used for Jesus rebuking demons and storms — authoritative correction aimed at restoration.', 1),
+  (3, 'μετανοήσῃ', 'metanoēsē', 'G3340', 'Have a change of mind, repent; reorientation of heart and direction, not merely regret.', 2),
+  (3, 'ἄφες', 'aphes', 'G863', 'Release, let go, forgive; to dismiss the debt and release the debtor.', 3),
+  (4, 'ἑπτάκις', 'heptakis', 'G2034', 'Seven times; the fullness of offense, matched by the fullness of forgiveness.', 1),
+  (5, 'πρόσθες', 'prosthes', 'G4369', 'Add to, increase; the apostles ask for an increment of faith — implying they possess some but sense insufficiency.', 1),
+  (5, 'πίστιν', 'pistin', 'G4102', 'Faith, trust, fidelity; confident reliance on God''s word and character.', 2),
+  (6, 'σινάπεως', 'sinapeōs', 'G4615', 'Mustard seed; the proverbial smallest seed, image of minimal-but-living faith with disproportionate effect.', 1),
+  (6, 'συκαμίνῳ', 'sukaminō', 'G4807', 'Mulberry/sycamine tree; deep-rooted tree, chosen precisely because it was thought impossible to uproot.', 2),
+  (10, 'ἀχρεῖοί', 'achreioi', 'G888', 'Unprofitable, useless; slaves who deserve no special credit merely for doing their duty.', 1),
+  (12, 'λεπροὶ', 'leproi', 'G3015', 'Lepers; those afflicted with defiling skin diseases — religiously and socially excluded (Lev 13).', 1),
+  (13, 'ἐλέησον', 'eleēson', 'G1653', 'Have mercy, show compassion; a plea grounded in the giver''s kindness, not the petitioner''s merit.', 1),
+  (14, 'ἱερεῦσιν', 'hiereusin', 'G2409', 'Priests; only priests could certify ritual cleansing and readmit a leper to covenant community (Lev 14).', 1),
+  (14, 'ἐκαθαρίσθησαν', 'ekatharisthēsan', 'G2511', 'Were cleansed, made clean; a cultic term beyond mere healing — restoration to fellowship.', 2),
+  (15, 'εὐχαριστῶν', 'eucharistōn', 'G2168', 'Giving thanks; source of our word "Eucharist" — gratitude rising to God as worship.', 1),
+  (16, 'Σαμαρίτης', 'Samaritēs', 'G4541', 'Samaritan; ethno-religiously despised by Jews, yet here the model of right response to grace.', 1),
+  (18, 'ἀλλογενὴς', 'allogenēs', 'G241', 'Foreigner, of another race; used on the Temple warning stone forbidding Gentile entry into the inner courts.', 1),
+  (19, 'σέσωκέν', 'sesōken', 'G4982', 'Has saved; perfect tense — action completed with abiding result. Salvation deeper than bodily cure.', 1),
+  (20, 'παρατηρήσεως', 'paratērēseōs', 'G3907', 'Observation, close watching; the kingdom does not arrive as a calendar event to be astronomically tracked.', 1),
+  (21, 'ἐντὸς', 'entos', 'G1787', 'Within, among, in the midst of; the kingdom is present in Jesus'' person rather than at a locatable coordinate.', 1),
+  (24, 'ἀστραπὴ', 'astrapē', 'G796', 'Lightning, flash; the sudden, universally visible advent — not a hidden or local event.', 1),
+  (25, 'παθεῖν', 'pathein', 'G3958', 'To suffer; the passion-specific verb anchoring Luke''s suffering-servant Christology (cf. 9:22; 24:26).', 1),
+  (26, 'Νῶε', 'Nōe', 'G3575', 'Noah; archetype of the remnant preserved through judgment while the unheeding world perishes.', 1),
+  (28, 'Λὼτ', 'Lōt', 'G3091', 'Lot; Abraham''s nephew, representative of righteous souls pressed by a society ripe for judgment (2 Pet 2:7-8).', 1),
+  (29, 'θεῖον', 'theion', 'G2303', 'Brimstone, sulfur; sign of divine judgment, echoing Sodom (Gen 19:24) and apocalyptic fire.', 1),
+  (32, 'μνημονεύετε', 'mnēmoneuete', 'G3421', 'Remember, keep in mind; present imperative — a standing order. Lot''s wife as permanent moral memorial.', 1),
+  (33, 'ζωογονήσει', 'zōogonēsei', 'G2225', 'Will preserve alive, beget life; paradox — grasping life loses it, releasing it preserves it.', 1),
+  (34, 'παραλημφθήσεται', 'paralēmphthēsetai', 'G3880', 'Will be taken along, received alongside; cf. John 14:3 — taken to be with the Lord.', 1),
+  (34, 'ἀφεθήσεται', 'aphethēsetai', 'G863', 'Will be left, forsaken; same root as "forgive" but here the tragic sense of abandonment to judgment.', 2),
+  (37, 'ἀετοὶ', 'aetoi', 'G105', 'Eagles or vultures; scavengers gathering to carrion — proverbial for judgment unerringly finding its object.', 1)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 17 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v
+JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 18:7', 1),
+  (1, 'Mark 9:42', 2),
+  (1, 'Romans 14:13', 3),
+  (1, '1 Corinthians 8:13', 4),
+  (2, 'Matthew 18:6', 1),
+  (2, 'Mark 9:42', 2),
+  (3, 'Leviticus 19:17', 1),
+  (3, 'Matthew 18:15', 2),
+  (3, 'Galatians 6:1', 3),
+  (3, 'James 5:19-20', 4),
+  (4, 'Matthew 18:21-22', 1),
+  (4, 'Colossians 3:13', 2),
+  (4, 'Proverbs 24:16', 3),
+  (5, 'Mark 9:24', 1),
+  (5, 'Acts 6:5', 2),
+  (5, 'Hebrews 12:2', 3),
+  (6, 'Matthew 17:20', 1),
+  (6, 'Matthew 21:21', 2),
+  (6, 'Mark 11:23', 3),
+  (6, '1 Corinthians 13:2', 4),
+  (10, 'Romans 3:12', 1),
+  (10, '1 Corinthians 9:16', 2),
+  (10, 'Job 22:2-3', 3),
+  (11, 'Luke 9:51', 1),
+  (11, 'John 4:4', 2),
+  (12, 'Leviticus 13:45-46', 1),
+  (12, 'Numbers 5:2-3', 2),
+  (12, '2 Kings 7:3', 3),
+  (13, 'Psalm 51:1', 1),
+  (13, 'Matthew 9:27', 2),
+  (14, 'Leviticus 14:2-4', 1),
+  (14, 'Matthew 8:4', 2),
+  (14, 'Luke 5:14', 3),
+  (15, 'Psalm 103:2-4', 1),
+  (15, 'Psalm 30:12', 2),
+  (16, '2 Kings 5:15', 1),
+  (16, 'John 4:9', 2),
+  (16, 'Acts 8:5-8', 3),
+  (18, 'Psalm 50:23', 1),
+  (18, 'Matthew 8:10', 2),
+  (19, 'Luke 7:50', 1),
+  (19, 'Luke 8:48', 2),
+  (19, 'Luke 18:42', 3),
+  (20, 'John 18:36', 1),
+  (20, 'Romans 14:17', 2),
+  (20, 'Luke 19:11', 3),
+  (21, 'John 1:26', 1),
+  (21, 'Colossians 1:27', 2),
+  (21, 'Matthew 12:28', 3),
+  (22, 'Matthew 9:15', 1),
+  (22, 'John 8:56', 2),
+  (23, 'Matthew 24:23-26', 1),
+  (23, 'Mark 13:21', 2),
+  (24, 'Matthew 24:27', 1),
+  (24, 'Zechariah 9:14', 2),
+  (25, 'Luke 9:22', 1),
+  (25, 'Luke 18:31-33', 2),
+  (25, 'Isaiah 53:3', 3),
+  (26, 'Genesis 6:5-7', 1),
+  (26, 'Matthew 24:37-39', 2),
+  (27, 'Genesis 7:7', 1),
+  (27, 'Genesis 7:21-23', 2),
+  (27, '1 Peter 3:20', 3),
+  (27, '2 Peter 2:5', 4),
+  (28, 'Genesis 13:13', 1),
+  (28, 'Genesis 18:20-21', 2),
+  (29, 'Genesis 19:15-17', 1),
+  (29, 'Genesis 19:24-25', 2),
+  (29, '2 Peter 2:6-7', 3),
+  (29, 'Jude 1:7', 4),
+  (30, '2 Peter 3:10', 1),
+  (31, 'Matthew 24:17-18', 1),
+  (31, 'Mark 13:15-16', 2),
+  (32, 'Genesis 19:26', 1),
+  (33, 'Matthew 10:39', 1),
+  (33, 'Matthew 16:25', 2),
+  (33, 'Luke 9:24', 3),
+  (33, 'John 12:25', 4),
+  (34, 'Matthew 24:40', 1),
+  (34, '1 Thessalonians 4:17', 2),
+  (35, 'Matthew 24:41', 1),
+  (37, 'Job 39:30', 1),
+  (37, 'Matthew 24:28', 2),
+  (37, 'Habakkuk 1:8', 3)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Luke' AND c.chapter_number = 17 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;
