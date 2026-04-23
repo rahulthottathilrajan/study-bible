@@ -401,3 +401,131 @@ CROSS JOIN LATERAL (
   JOIN books b2 ON c2.book_id = b2.id
   WHERE b2.name = 'John' AND c2.chapter_number = 7 AND v2.verse_number = cr.verse_number
 ) v;
+
+-- JOHN CHAPTER 7 — BACKFILL (additional word_studies + cross_references)
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'περιεπάτει ἐν τῇ Γαλιλαίᾳ', 'periepatei en tē Galilaia', 'G4043/G1056', 'Was walking in Galilee — strategic retreat from Judea where leaders sought to kill him; periepatei imperfect: ongoing.', 100),
+  (3, 'ἀδελφοὶ', 'adelphoi', 'G80', 'Brothers — Jesus''s half-brothers (cf. Matt 13:55; Mark 6:3); James later writes the epistle; here unbelieving (v.5).', 101),
+  (4, 'ἐν παρρησίᾳ', 'en parrēsia', 'G3954', 'In openness/boldness — public manifestation; brothers misjudge mission as needing self-promotion.', 102),
+  (5, 'οὐδὲ γὰρ οἱ ἀδελφοὶ αὐτοῦ ἐπίστευον εἰς αὐτόν', 'oude gar hoi adelphoi autou episteuon eis auton', 'G3761/G4100', 'Even his brothers did not believe in him — pre-resurrection unbelief; James later transformed (1 Cor 15:7).', 103),
+  (7, 'οὐ δύναται ὁ κόσμος μισεῖν ὑμᾶς', 'ou dynatai ho kosmos misein hymas', 'G2889/G3404', 'The world cannot hate you — kosmos here as ethical realm; sons of the world are not its enemies.', 104),
+  (8, 'οὐκ ἀναβαίνω', 'ouk anabainō', 'G3756/G305', 'I am not going up — present tense; Jesus refuses to go up "with them" publicly (some MSS add oupō "yet"); not deception but timing.', 105),
+  (10, 'οὐ φανερῶς ἀλλὰ ἐν κρυπτῷ', 'ou phanerōs alla en kryptō', 'G5320/G2927', 'Not openly but in secret — Jesus controls the manner of his self-revelation; sets up the dramatic disclosure later.', 106),
+  (12, 'γογγυσμὸς', 'gongysmos', 'G1112', 'Murmuring — onomatopoetic; secret grumbling; same word for Israel''s wilderness murmuring (Exod 16:7-9 LXX).', 107),
+  (13, 'διὰ τὸν φόβον τῶν Ἰουδαίων', 'dia ton phobon tōn Ioudaiōn', 'G5401/G2453', 'Because of fear of the Jews — Johannine refrain (cf. 9:22; 19:38; 20:19); religious intimidation.', 108),
+  (15, 'πῶς οὗτος γράμματα οἶδεν μὴ μεμαθηκώς', 'pōs houtos grammata oiden mē memathēkōs', 'G1121/G3129', 'How does this man know letters never having studied? — astonished at non-rabbinic teaching authority.', 109),
+  (16, 'ἡ ἐμὴ διδαχὴ οὐκ ἔστιν ἐμὴ', 'hē emē didachē ouk estin emē', 'G1322', 'My teaching is not mine — paradox; Jesus''s words have divine origin, not autonomous human invention.', 110),
+  (17, 'ἐάν τις θέλῃ τὸ θέλημα αὐτοῦ ποιεῖν', 'ean tis thelē to thelēma autou poiein', 'G2309/G2307', 'If anyone wills to do his will — moral epistemology; obedience precedes understanding (cf. Ps 25:14).', 111),
+  (18, 'τὴν δόξαν τοῦ πέμψαντος αὐτὸν', 'tēn doxan tou pempsantos auton', 'G1391/G3992', 'Glory of the one who sent him — true prophets seek God''s glory; self-glorifiers are false.', 112),
+  (19, 'οὐδεὶς ἐξ ὑμῶν ποιεῖ τὸν νόμον', 'oudeis ex hymōn poiei ton nomon', 'G3762/G3551', 'None of you keeps the Law — bold accusation: their plot to kill Jesus is itself law-breaking (Exod 20:13).', 113),
+  (22, 'περιτομήν', 'peritomēn', 'G4061', 'Circumcision — Mosaic ordinance preceded by Abrahamic; performed even on Sabbath; argument from greater to lesser.', 114),
+  (24, 'τὴν δικαίαν κρίσιν κρίνετε', 'tēn dikaian krisin krinete', 'G1342/G2920/G2919', 'Judge the righteous judgment — kalein not by appearance (opsin) but by reality; Lev 19:15 applied.', 115),
+  (27, 'πόθεν ἐστίν', 'pothen estin', 'G4159/G1510', 'From where he is — popular belief: Messiah''s origin would be hidden until manifestation; Jesus''s known Galilean origin disqualifies in their eyes.', 116),
+  (28, 'οὐκ ἐλήλυθα ἀπ'' ἐμαυτοῦ', 'ouk elēlytha ap emautou', 'G2064/G1683', 'I have not come of myself — divine commissioning; Jesus does not act on autonomous initiative.', 117),
+  (29, 'παρ'' αὐτοῦ εἰμι', 'par autou eimi', 'G3844/G1510', 'I am from him — para + genitive: from beside; intimate origin language; pre-existence implied.', 118),
+  (33, 'ἔτι χρόνον μικρὸν', 'eti chronon mikron', 'G2089/G5550/G3398', 'A little time longer — recurring Johannine "little while" (mikron) of imminent departure (cf. 12:35; 13:33; 14:19; 16:16-19).', 119),
+  (34, 'ζητήσετέ με καὶ οὐχ εὑρήσετε', 'zētēsete me kai ouch heurēsete', 'G2212/G2147', 'You will seek me and not find — judicial: opportunity for repentance has a deadline (cf. Prov 1:28; Amos 8:11-12).', 120),
+  (35, 'τὴν διασπορὰν τῶν Ἑλλήνων', 'tēn diasporan tōn Hellēnōn', 'G1290/G1672', 'The diaspora of the Greeks — Jewish diaspora living among Gentiles; ironically anticipates Gentile inclusion.', 121),
+  (37, 'τῇ ἐσχάτῃ ἡμέρᾳ τῇ μεγάλῃ', 'tē eschatē hēmera tē megalē', 'G2078/G2250/G3173', 'On the last great day — climactic 8th day of Tabernacles; water-pouring ritual; Jesus offers what the ceremony pictured.', 122),
+  (37, 'ἐάν τις διψᾷ ἐρχέσθω πρός με', 'ean tis dipsa erchesthō pros me', 'G1372/G2064', 'If anyone thirsts let him come — universal invitation; echoes Isa 55:1; Rev 22:17.', 123),
+  (38, 'ποταμοὶ... ζῶντος', 'potamoi... zōntos', 'G4215/G2198', 'Rivers of living water — plural rivers; flooding superabundance from inner being; OT echoes Ezek 47, Zech 14:8.', 124),
+  (38, 'ἐκ τῆς κοιλίας αὐτοῦ', 'ek tēs koilias autou', 'G1537/G2836', 'Out of his belly/inmost being — koilia: hollow space, inner self; Hebrew idiom for innermost being.', 125),
+  (39, 'οὔπω γὰρ ἦν πνεῦμα', 'oupō gar ēn pneuma', 'G3768/G4151', 'For the Spirit was not yet — narrator note; Pentecost outpouring depends on Christ''s glorification (16:7).', 126),
+  (40, 'ὁ προφήτης', 'ho prophētēs', 'G4396', 'The Prophet — Mosaic prophet expectation (Deut 18:15-18); some saw Jesus as the Prophet, distinct from Messiah, in popular thought.', 127),
+  (41, 'μὴ γὰρ ἐκ τῆς Γαλιλαίας ὁ Χριστὸς ἔρχεται', 'mē gar ek tēs Galilaias ho Christos erchetai', 'G1056/G5547', 'Does Christ come from Galilee? — ironic ignorance; Jesus born in Bethlehem (Mic 5:2) but raised in Galilee.', 128),
+  (42, 'ἐκ τοῦ σπέρματος Δαυὶδ καὶ ἀπὸ Βηθλεὲμ', 'ek tou spermatos Dauid kai apo Bēthleem', 'G4690/G1138/G965', 'From David''s seed and Bethlehem — popular Davidic-messianic expectation; Jesus fulfills both, but crowd doesn''t know.', 129),
+  (46, 'οὐδέποτε ἐλάλησεν οὕτως ἄνθρωπος', 'oudepote elalēsen houtōs anthrōpos', 'G3763/G2980', '"Never has man spoken like this" — temple guards'' apologetic; the words themselves bear authority.', 130),
+  (49, 'ὁ ὄχλος οὗτος ὁ μὴ γινώσκων τὸν νόμον', 'ho ochlos houtos ho mē ginōskōn ton nomon', 'G3793/G3551', 'This crowd that does not know the Law — am-haaretz contempt; rabbinic disdain for the unschooled.', 131),
+  (50, 'Νικόδημος', 'Nikodēmos', 'G3530', 'Nicodemus — second appearance; growing courage; he questions due process (cf. 3:1-2; 19:39).', 132),
+  (51, 'μὴ ὁ νόμος ἡμῶν κρίνει τὸν ἄνθρωπον', 'mē ho nomos hēmōn krinei ton anthrōpon', 'G3551/G2919', 'Does our Law judge a man? — appeal to Deut 1:16; 17:6 due process; condemnation without hearing is illegal.', 133),
+  (52, 'ἐκ τῆς Γαλιλαίας προφήτης οὐκ ἐγείρεται', 'ek tēs Galilaias prophētēs ouk egeiretai', 'G1056/G4396/G1453', 'No prophet arises out of Galilee — historically false (Jonah from Gath-hepher, 2 Kgs 14:25); their bias blinds.', 134)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'John' AND c.chapter_number = 7 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (2, 'Leviticus 23:33-43', 100),
+  (2, 'Deuteronomy 16:13-15', 101),
+  (2, 'Zechariah 14:16-19', 102),
+  (3, 'Matthew 13:55', 100),
+  (3, 'Mark 6:3', 101),
+  (3, 'Acts 1:14', 102),
+  (5, 'Mark 3:21', 100),
+  (5, '1 Corinthians 15:7', 101),
+  (5, 'Galatians 1:19', 102),
+  (5, 'James 1:1', 103),
+  (7, 'John 15:18-19', 100),
+  (7, '1 John 3:13', 101),
+  (12, 'Exodus 16:7-9', 100),
+  (12, 'Numbers 14:27', 101),
+  (13, 'John 9:22', 100),
+  (13, 'John 19:38', 101),
+  (15, 'Matthew 13:54', 100),
+  (15, 'Acts 4:13', 101),
+  (16, 'John 8:28', 100),
+  (16, 'John 12:49', 101),
+  (16, 'John 14:10', 102),
+  (17, 'Psalm 25:14', 100),
+  (17, 'John 8:43-47', 101),
+  (17, '1 Corinthians 2:14-15', 102),
+  (18, 'John 5:41', 100),
+  (18, 'John 8:50', 101),
+  (18, 'Philippians 2:6-8', 102),
+  (19, 'Acts 7:53', 100),
+  (19, 'Romans 2:21-23', 101),
+  (22, 'Genesis 17:9-14', 100),
+  (22, 'Leviticus 12:3', 101),
+  (24, 'Leviticus 19:15', 100),
+  (24, 'Isaiah 11:3-4', 101),
+  (24, '1 Samuel 16:7', 102),
+  (28, 'John 8:42', 100),
+  (28, 'Romans 1:18-25', 101),
+  (29, 'Matthew 11:27', 100),
+  (29, 'John 1:18', 101),
+  (33, 'John 12:35', 100),
+  (33, 'John 13:33', 101),
+  (33, 'John 14:19', 102),
+  (33, 'John 16:16', 103),
+  (34, 'Proverbs 1:28', 100),
+  (34, 'Amos 8:11-12', 101),
+  (34, 'Hosea 5:6', 102),
+  (35, 'James 1:1', 100),
+  (35, '1 Peter 1:1', 101),
+  (37, 'Isaiah 55:1', 100),
+  (37, 'Revelation 22:17', 101),
+  (37, 'John 4:14', 102),
+  (38, 'Ezekiel 47:1-12', 100),
+  (38, 'Zechariah 14:8', 101),
+  (38, 'Joel 3:18', 102),
+  (38, 'Isaiah 12:3', 103),
+  (38, 'Isaiah 44:3', 104),
+  (39, 'John 14:16-17', 100),
+  (39, 'John 16:7', 101),
+  (39, 'Acts 2:33', 102),
+  (40, 'Deuteronomy 18:15-18', 100),
+  (40, 'Acts 3:22-23', 101),
+  (42, 'Micah 5:2', 100),
+  (42, '2 Samuel 7:12', 101),
+  (42, 'Matthew 2:1-6', 102),
+  (42, 'Luke 2:4', 103),
+  (42, 'Romans 1:3', 104),
+  (46, 'Matthew 7:28-29', 100),
+  (46, 'Luke 4:22', 101),
+  (49, 'Acts 4:13', 100),
+  (51, 'Deuteronomy 1:16', 100),
+  (51, 'Deuteronomy 17:6', 101),
+  (51, 'Deuteronomy 19:15', 102),
+  (51, 'Proverbs 18:13', 103),
+  (52, '2 Kings 14:25', 100)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'John' AND c.chapter_number = 7 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

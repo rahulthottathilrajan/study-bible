@@ -342,3 +342,127 @@ CROSS JOIN LATERAL (
   JOIN books b2 ON c2.book_id = b2.id
   WHERE b2.name = 'John' AND c2.chapter_number = 10 AND v2.verse_number = cr.verse_number
 ) v;
+
+-- JOHN CHAPTER 10 — BACKFILL (additional word_studies + cross_references)
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'τὴν αὐλὴν τῶν προβάτων', 'tēn aulēn tōn probatōn', 'G833/G4263', 'The sheepfold — aulē: enclosed courtyard; communal Palestinian fold housing several flocks; one entrance.', 100),
+  (1, 'κλέπτης καὶ λῃστής', 'kleptēs kai lēstēs', 'G2812/G3027', 'Thief and robber — kleptēs: stealthy thief; lēstēs: violent bandit/insurrectionist; OT false-shepherds (Ezek 34).', 101),
+  (3, 'ὁ θυρωρὸς', 'ho thyrōros', 'G2377', 'The doorkeeper — gatekeeper of the communal fold; possibly OT prophets/forerunners (esp. John the Baptist).', 102),
+  (3, 'τὰ ἴδια πρόβατα φωνεῖ κατ'' ὄνομα', 'ta idia probata phōnei kat onoma', 'G2398/G4263/G5455/G3686', 'Calls his own sheep by name — Eastern shepherd practice; intimate knowledge of each animal; cf. Isa 43:1.', 103),
+  (4, 'τὰ ἴδια πάντα ἐκβάλῃ', 'ta idia panta ekbalē', 'G2398/G1544', 'Brings out all his own — ekballō here as gentle leading-out (not the violent "cast out"); Exodus echoes.', 104),
+  (4, 'ἔμπροσθεν αὐτῶν πορεύεται', 'emprosthen autōn poreuetai', 'G1715/G4198', 'Goes before them — Eastern shepherds led, didn''t drive; sheep follow voice not whip.', 105),
+  (5, 'οὐ μὴ ἀκολουθήσουσιν', 'ou mē akolouthēsousin', 'G3756/G3361/G190', 'They will never follow — emphatic; sheep''s instinctive discernment of voice; protection from spiritual seducers.', 106),
+  (6, 'παροιμίαν', 'paroimian', 'G3942', 'Figure of speech/parable — Johannine equivalent of synoptic parabolē; obscure to outsiders, illuminating to the receptive.', 107),
+  (8, 'πάντες ὅσοι ἦλθον πρὸ ἐμοῦ', 'pantes hosoi ēlthon pro emou', 'G3956/G2064/G4253', 'All who came before me — false messianic claimants and corrupt religious leaders, not OT prophets.', 108),
+  (9, 'ἐγώ εἰμι ἡ θύρα', 'egō eimi hē thyra', 'G1473/G1510/G2374', 'I am the door — fourth I AM; exclusive access; salvation through Christ alone (Acts 4:12).', 109),
+  (9, 'σωθήσεται καὶ εἰσελεύσεται καὶ ἐξελεύσεται καὶ νομὴν εὑρήσει', 'sōthēsetai kai eiseleusetai kai exeleusetai kai nomēn heurēsei', 'G4982/G3542', 'Shall be saved and go in/out and find pasture — three-part promise: salvation, freedom of access, sustenance.', 110),
+  (10, 'ζωὴν ἔχωσιν καὶ περισσὸν', 'zōēn echōsin kai perisson', 'G2222/G4053', 'Have life and abundance — perissos: superabundance, overflow; not just survival but flourishing.', 111),
+  (11, 'τίθησιν ὑπὲρ τῶν προβάτων', 'tithēsin hyper tōn probatōn', 'G5087/G5228', 'Lays down for the sheep — substitutionary preposition hyper; vicarious atonement language.', 112),
+  (12, 'μισθωτὸς', 'misthōtos', 'G3411', 'Hireling — wage-earner without ownership; lacks pastoral commitment; Ezek 34 false shepherds.', 113),
+  (12, 'σκορπίζει', 'skorpizei', 'G4650', 'Scatters — opposite of true shepherd''s gathering; characteristic effect of false leadership.', 114),
+  (14, 'γινώσκω τὰ ἐμὰ καὶ γινώσκουσί με τὰ ἐμά', 'ginōskō ta ema kai ginōskousi me ta ema', 'G1097', 'I know my own and my own know me — mutual recognition; epistemology of personal relationship.', 115),
+  (16, 'ἄλλα πρόβατα... οὐκ ἔστιν ἐκ τῆς αὐλῆς ταύτης', 'alla probata... ouk estin ek tēs aulēs tautēs', 'G243/G4263/G833', 'Other sheep not of this fold — Gentile mission; future single flock under one shepherd.', 116),
+  (16, 'μία ποίμνη εἷς ποιμήν', 'mia poimnē heis poimēn', 'G1520/G4167/G4166', 'One flock, one shepherd — eschatological church unity (Eph 2:14-16); cf. Ezek 37:24.', 117),
+  (17, 'τίθημι τὴν ψυχήν μου ἵνα πάλιν λάβω αὐτήν', 'tithēmi tēn psychēn mou hina palin labō autēn', 'G5087/G2983', 'Lay down my life that I may take it again — Father loves Son for voluntary cross + resurrection.', 118),
+  (18, 'οὐδεὶς αἴρει αὐτὴν ἀπ'' ἐμοῦ', 'oudeis airei autēn ap emou', 'G3762/G142', 'No one takes it from me — sovereign self-determination of the cross; passion is voluntary self-offering.', 119),
+  (19, 'σχίσμα πάλιν ἐγένετο', 'schisma palin egeneto', 'G4978/G3825', 'A division arose again — recurrent schisma (cf. 7:43; 9:16); Christ as polarizer.', 120),
+  (22, 'τὰ ἐγκαίνια', 'ta enkainia', 'G1456', 'Hanukkah/Dedication — December feast commemorating Maccabean cleansing of temple (164 BC); the only NT mention.', 121),
+  (22, 'χειμὼν ἦν', 'cheimōn ēn', 'G5494', 'It was winter — narrative detail explaining shelter under Solomon''s portico.', 122),
+  (23, 'στοᾷ τοῦ Σολομῶνος', 'stoa tou Solomōnos', 'G4745/G4672', 'Portico of Solomon — eastern colonnade of Temple Mount; sheltered location; later early-church gathering place (Acts 3:11; 5:12).', 123),
+  (24, 'εἰπὲ ἡμῖν παρρησίᾳ', 'eipe hēmin parrēsia', 'G2036/G3954', '"Tell us plainly" — demand for unambiguous messianic claim; Jesus has spoken plainly all along.', 124),
+  (27, 'τὰ πρόβατα τὰ ἐμὰ τῆς φωνῆς μου ἀκούουσιν', 'ta probata ta ema tēs phōnēs mou akouousin', 'G4263/G5456/G191', 'My sheep hear my voice — definitive marker of true sheep; spiritual ears given by God.', 125),
+  (28, 'οὐ μὴ ἀπόλωνται εἰς τὸν αἰῶνα', 'ou mē apolōntai eis ton aiōna', 'G3756/G3361/G622/G165', 'Will never perish for the age — emphatic eternal security; doubly negated impossibility.', 126),
+  (29, 'ὁ πατήρ μου ὃ δέδωκέν μοι πάντων μεῖζόν ἐστιν', 'ho patēr mou ho dedōken moi pantōn meizon estin', 'G3962/G3956/G3187', 'My Father who gave is greater than all — security grounded in Father''s sovereign possession.', 127),
+  (30, 'ἐγὼ καὶ ὁ πατὴρ ἕν ἐσμεν', 'egō kai ho patēr hen esmen', 'G1473/G3962/G1520/G1510', 'I and the Father are one — neuter hen (one thing/essence), not heis (one person); ontological unity.', 128),
+  (33, 'σὺ ἄνθρωπος ὢν ποιεῖς σεαυτὸν θεόν', 'sy anthrōpos ōn poieis seauton theon', 'G444/G4160/G2316', 'You being a man make yourself God — the Jews understood Jesus correctly as claiming deity.', 129),
+  (34, 'ἐν τῷ νόμῳ ὑμῶν', 'en tō nomō hymōn', 'G3551', 'In your Law — Psalm 82:6 quoted; "Law" used broadly for whole OT; ad-hominem argument.', 130),
+  (35, 'οὐ δύναται λυθῆναι ἡ γραφή', 'ou dynatai lythēnai hē graphē', 'G1124/G3089', 'Scripture cannot be broken — Jesus''s view of Scripture: every word binding, indissoluble; supports inerrancy.', 131),
+  (36, 'ὃν ὁ πατὴρ ἡγίασεν καὶ ἀπέστειλεν', 'hon ho patēr hēgiasen kai apesteilen', 'G37/G649', 'Whom the Father consecrated and sent — set apart from eternity for messianic mission; pre-existence implied.', 132),
+  (38, 'ἐν τῷ πατρί κἀγὼ ἐν τῷ πατρί', 'en tō patri kagō en tō patri', 'G3962', 'In the Father, and the Father in me — mutual indwelling formula (perichoresis); Trinitarian truth.', 133),
+  (40, 'πέραν τοῦ Ἰορδάνου', 'peran tou Iordanou', 'G4008/G2446', 'Beyond the Jordan — Perea; Bethany-beyond-Jordan; refuge from Jerusalem hostility (cf. 1:28).', 134),
+  (41, 'σημεῖον μὲν ἐποίησεν οὐδέν', 'sēmeion men epoiēsen ouden', 'G4592/G4160', 'John performed no sign — non-miraculous Baptist''s witness still bore fruit; word can be more potent than miracle.', 135)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'John' AND c.chapter_number = 10 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Ezekiel 34:1-10', 100),
+  (1, 'Jeremiah 23:1-2', 101),
+  (3, 'Isaiah 43:1', 100),
+  (3, 'Exodus 33:17', 101),
+  (4, 'Psalm 23:1-3', 100),
+  (4, 'Psalm 80:1', 101),
+  (8, 'Jeremiah 23:21', 100),
+  (8, 'Acts 5:36-37', 101),
+  (9, 'Acts 4:12', 100),
+  (9, 'John 14:6', 101),
+  (9, 'Hebrews 10:19-22', 102),
+  (9, 'Ephesians 2:18', 103),
+  (10, 'Ephesians 3:19-20', 100),
+  (10, '2 Peter 1:3', 101),
+  (11, 'Psalm 23:1', 100),
+  (11, 'Isaiah 40:11', 101),
+  (11, 'Ezekiel 34:11-16', 102),
+  (11, 'Hebrews 13:20', 103),
+  (11, '1 Peter 2:25', 104),
+  (11, '1 Peter 5:4', 105),
+  (12, 'Zechariah 11:15-17', 100),
+  (12, 'Acts 20:29', 101),
+  (14, '2 Timothy 2:19', 100),
+  (14, 'Galatians 4:9', 101),
+  (15, 'Matthew 11:27', 100),
+  (15, 'John 17:25-26', 101),
+  (16, 'Isaiah 56:8', 100),
+  (16, 'Ezekiel 37:22-24', 101),
+  (16, 'Ephesians 2:14-16', 102),
+  (16, 'Romans 11:25', 103),
+  (17, 'Isaiah 53:7-12', 100),
+  (17, 'Philippians 2:8-9', 101),
+  (18, 'John 2:19', 100),
+  (18, 'Acts 2:24', 101),
+  (18, 'Hebrews 9:14', 102),
+  (19, 'John 7:43', 100),
+  (19, 'John 9:16', 101),
+  (22, '1 Maccabees 4:36-59', 100),
+  (23, 'Acts 3:11', 100),
+  (23, 'Acts 5:12', 101),
+  (24, 'Luke 22:67', 100),
+  (27, 'Romans 8:14', 100),
+  (27, '1 John 4:6', 101),
+  (28, 'John 6:39', 100),
+  (28, 'John 17:11-12', 101),
+  (28, 'Romans 8:35-39', 102),
+  (28, '2 Timothy 1:12', 103),
+  (29, 'John 14:28', 100),
+  (29, 'Deuteronomy 32:39', 101),
+  (30, 'John 1:1', 100),
+  (30, 'John 14:9-11', 101),
+  (30, 'John 17:21-22', 102),
+  (30, 'Colossians 2:9', 103),
+  (33, 'John 5:18', 100),
+  (33, 'John 8:58-59', 101),
+  (33, 'Philippians 2:6', 102),
+  (34, 'Psalm 82:6', 100),
+  (35, 'Matthew 5:18', 100),
+  (35, '2 Timothy 3:16', 101),
+  (35, '2 Peter 1:20-21', 102),
+  (36, 'Jeremiah 1:5', 100),
+  (36, 'Luke 1:35', 101),
+  (38, 'John 14:10-11', 100),
+  (38, 'John 17:21', 101),
+  (40, 'John 1:28', 100),
+  (40, 'Matthew 3:1-6', 101),
+  (41, 'John 1:29-34', 100),
+  (41, 'John 3:27-30', 101)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'John' AND c.chapter_number = 10 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

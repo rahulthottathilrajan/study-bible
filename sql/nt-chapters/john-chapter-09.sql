@@ -336,3 +336,113 @@ CROSS JOIN LATERAL (
   JOIN books b2 ON c2.book_id = b2.id
   WHERE b2.name = 'John' AND c2.chapter_number = 9 AND v2.verse_number = cr.verse_number
 ) v;
+
+-- JOHN CHAPTER 9 — BACKFILL (additional word_studies + cross_references)
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'ἐκ γενετῆς', 'ek genetēs', 'G1537/G1079', 'From birth — congenital blindness; only NT use; rules out subsequent injury or illness; emphasizes pure innate condition.', 100),
+  (2, 'τίς ἥμαρτεν οὗτος ἢ οἱ γονεῖς αὐτοῦ', 'tis hēmarten houtos ē hoi goneis autou', 'G264/G1118', 'Who sinned, this man or his parents? — popular retributive theology; conditions assumed direct moral causation.', 101),
+  (3, 'τὰ ἔργα τοῦ θεοῦ', 'ta erga tou theou', 'G2041/G2316', 'The works of God — purpose-clause: erga of God to be manifested; suffering can have revelatory function.', 102),
+  (4, 'ἕως ἡμέρα ἐστίν', 'heōs hēmera estin', 'G2193/G2250', 'While it is day — limited window of opportunity; nyx (night) coming when no one can work; eschatological urgency.', 103),
+  (5, 'φῶς εἰμι τοῦ κόσμου', 'phōs eimi tou kosmou', 'G5457/G2889', 'I am the light of the world — repeats 8:12; about to give physical sight as sign of spiritual illumination.', 104),
+  (6, 'ἔπτυσεν χαμαὶ', 'eptysen chamai', 'G4429/G5476', 'Spat on the ground — saliva believed to have therapeutic properties in antiquity; deliberate bodily contact.', 105),
+  (6, 'ἐπέχρισεν αὐτοῦ τὸν πηλὸν ἐπὶ τοὺς ὀφθαλμοὺς', 'epechrisen autou ton pēlon epi tous ophthalmous', 'G2025/G3788', 'Anointed his eyes with the clay — chriō root: anointing language; messianic act on the eyes.', 106),
+  (7, 'ὃ ἑρμηνεύεται Ἀπεσταλμένος', 'ho hermēneuetai Apestalmenos', 'G2059/G649', 'Which means "Sent" — Siloam from Hebrew shalach (to send); pool fed by sent water = Jesus the Sent One.', 107),
+  (7, 'ἐνίψατο καὶ ἦλθεν βλέπων', 'enipsato kai ēlthen blepōn', 'G3538/G2064/G991', 'Washed and came seeing — obedience-precedes-sight; faith expressed in action brings revelation.', 108),
+  (8, 'γείτονες', 'geitones', 'G1069', 'Neighbors — unique to this passage in NT; community recognition required to authenticate identity.', 109),
+  (8, 'προσαίτης', 'prosaitēs', 'G4319', 'Beggar — only here and Mark 10:46; lifestyle of public dependence; well-known figure.', 110),
+  (11, 'ἐκείνῳ τῷ ἀνθρώπῳ τῷ λεγομένῳ Ἰησοῦ', 'ekeinō tō anthrōpō tō legomenō Iēsou', 'G444/G3004', 'That man called Jesus — initial identification; minimal Christology grows through the chapter.', 111),
+  (14, 'σάββατον', 'sabbaton', 'G4521', 'Sabbath — kneading clay was rabbinically forbidden Sabbath labor (Mishnah Shabbat 7:2); deliberate boundary-violation.', 112),
+  (16, 'σχίσμα ἦν ἐν αὐτοῖς', 'schisma ēn en autois', 'G4978', 'Division was among them — Jesus polarizes; recurring Johannine schisma (cf. 7:43; 10:19).', 113),
+  (17, 'προφήτης ἐστίν', 'prophētēs estin', 'G4396', '"He is a prophet" — formerly-blind man''s growing confession (cf. v.11 "the man Jesus" → v.17 "prophet" → v.33 "from God" → v.38 "Lord").', 114),
+  (22, 'συνετέθειντο οἱ Ἰουδαῖοι', 'synetetheinto hoi Ioudaioi', 'G4934', 'The Jews had agreed — official Sanhedrin policy; messianic confession = excommunication (likely anachronistic for Birkat-ha-minim era).', 115),
+  (24, 'δὸς δόξαν τῷ θεῷ', 'dos doxan tō theō', 'G1325/G1391/G2316', '"Give glory to God" — judicial formula urging confession (Josh 7:19); demanding admission of perjury.', 116),
+  (25, 'τυφλὸς ὢν ἄρτι βλέπω', 'typhlos ōn arti blepō', 'G5185/G991', '"Being blind, now I see" — testimony of personal experience trumps theological argument; rhetorical bedrock.', 117),
+  (27, 'μὴ καὶ ὑμεῖς θέλετε αὐτοῦ μαθηταὶ γενέσθαι', 'mē kai hymeis thelete autou mathētai genesthai', 'G3101/G1096', '"Do you also want to become his disciples?" — sarcastic; the question posed to the man''s opponents now turned on them.', 118),
+  (28, 'ἡμεῖς δὲ τοῦ Μωϋσέως ἐσμὲν μαθηταί', 'hēmeis de tou Mōuseōs esmen mathētai', 'G1473/G3475/G3101', 'We are disciples of Moses — false dichotomy; Jesus had said Moses wrote of him (5:46-47).', 119),
+  (32, 'ἐκ τοῦ αἰῶνος οὐκ ἠκούσθη', 'ek tou aiōnos ouk ēkousthē', 'G165/G191', 'Since the age began it has not been heard — congenital blindness healing was unprecedented; strongest argument of the chapter.', 120),
+  (33, 'εἰ μὴ ἦν οὗτος παρὰ θεοῦ', 'ei mē ēn houtos para theou', 'G3844/G2316', 'If this man were not from God — para tou theou: from God''s side; logical force unmistakable.', 121),
+  (34, 'ἐν ἁμαρτίαις σὺ ἐγεννήθης ὅλος', 'en hamartiais sy egennēthēs holos', 'G266/G1080/G3650', '"You were entirely born in sins" — they affirm what Jesus rejected in v.3; condemnation by religious certainty.', 122),
+  (34, 'ἐξέβαλον αὐτὸν ἔξω', 'exebalon auton exō', 'G1544', 'They cast him out — formal excommunication; the predicted consequence of confessing Christ.', 123),
+  (35, 'σὺ πιστεύεις εἰς τὸν υἱὸν τοῦ ἀνθρώπου', 'sy pisteueis eis ton huion tou anthrōpou', 'G4100/G5207/G444', '"Do you believe in the Son of Man?" — Daniel 7 figure; Jesus seeks the cast-out man to grant fuller revelation.', 124),
+  (36, 'τίς ἐστιν κύριε ἵνα πιστεύσω εἰς αὐτόν', 'tis estin kyrie hina pisteusō eis auton', 'G2962/G4100', '"Who is he, sir, that I may believe?" — open seeker; ready faith awaiting object.', 125),
+  (37, 'ἑώρακας αὐτὸν καὶ ὁ λαλῶν μετὰ σοῦ ἐκεῖνός ἐστιν', 'heōrakas auton kai ho lalōn meta sou ekeinos estin', 'G3708/G2980', 'You have seen him and the one speaking with you — striking: the once-blind man is now privileged with personal disclosure.', 126),
+  (38, 'πιστεύω κύριε', 'pisteuō kyrie', 'G4100/G2962', '"I believe, Lord" — climactic confession; kyrios as confessional title; full faith and worship follow.', 127),
+  (39, 'εἰς κρίμα ἐγὼ εἰς τὸν κόσμον τοῦτον ἦλθον', 'eis krima egō eis ton kosmon touton ēlthon', 'G2917/G2889/G2064', 'For judgment I came into this world — krima as discerning effect: the same light reveals seeing or blinding.', 128),
+  (40, 'μὴ καὶ ἡμεῖς τυφλοί ἐσμεν', 'mē kai hēmeis typhloi esmen', 'G3361/G5185', '"Are we blind too?" — defensive question; expects negative answer; reveals tragic self-confidence.', 129),
+  (41, 'εἰ τυφλοὶ ἦτε οὐκ ἂν εἴχετε ἁμαρτίαν', 'ei typhloi ēte ouk an eichete hamartian', 'G5185/G2192/G266', 'If you were blind you would have no sin — culpability proportional to claimed light; the willfully-blind cannot be excused.', 130)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'John' AND c.chapter_number = 9 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Acts 3:2', 100),
+  (1, 'Acts 14:8', 101),
+  (2, 'Exodus 20:5', 100),
+  (2, 'Job 4:7-8', 101),
+  (2, 'Luke 13:1-5', 102),
+  (3, 'John 11:4', 100),
+  (3, 'Romans 8:28', 101),
+  (3, '2 Corinthians 12:9', 102),
+  (4, 'John 12:35', 100),
+  (4, 'Ephesians 5:16', 101),
+  (4, 'Galatians 6:10', 102),
+  (5, 'John 1:9', 100),
+  (5, 'John 8:12', 101),
+  (5, 'John 12:46', 102),
+  (6, 'Mark 7:33', 100),
+  (6, 'Mark 8:23', 101),
+  (7, 'Isaiah 8:6', 100),
+  (7, 'Nehemiah 3:15', 101),
+  (7, '2 Kings 5:10-14', 102),
+  (16, 'John 7:43', 100),
+  (16, 'John 10:19', 101),
+  (17, 'John 4:19', 100),
+  (17, 'Luke 7:16', 101),
+  (22, 'John 7:13', 100),
+  (22, 'John 12:42', 101),
+  (22, 'John 16:2', 102),
+  (22, 'Luke 6:22', 103),
+  (24, 'Joshua 7:19', 100),
+  (24, '1 Samuel 6:5', 101),
+  (25, 'Psalm 119:18', 100),
+  (25, '1 John 1:5-7', 101),
+  (28, 'John 5:45-47', 100),
+  (28, 'Acts 6:11-14', 101),
+  (29, 'John 1:17', 100),
+  (29, 'Exodus 33:11', 101),
+  (31, 'Psalm 66:18', 100),
+  (31, 'Proverbs 28:9', 101),
+  (31, '1 Peter 3:12', 102),
+  (32, 'Isaiah 35:5', 100),
+  (32, 'Isaiah 42:7', 101),
+  (33, 'John 3:2', 100),
+  (33, 'Acts 10:38', 101),
+  (34, 'Job 8:6-9', 100),
+  (34, 'Proverbs 26:12', 101),
+  (35, 'Daniel 7:13-14', 100),
+  (35, 'John 5:27', 101),
+  (38, 'Matthew 14:33', 100),
+  (38, 'Matthew 28:9', 101),
+  (38, 'Romans 10:9', 102),
+  (39, 'John 3:17-19', 100),
+  (39, 'John 5:22', 101),
+  (39, 'Luke 4:18', 102),
+  (39, 'Matthew 13:13-15', 103),
+  (39, '2 Corinthians 4:3-6', 104),
+  (40, 'Matthew 23:16-17', 100),
+  (40, 'Romans 2:19', 101),
+  (41, 'John 15:22-24', 100),
+  (41, '1 John 1:8-10', 101),
+  (41, 'Romans 1:20', 102)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'John' AND c.chapter_number = 9 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;
