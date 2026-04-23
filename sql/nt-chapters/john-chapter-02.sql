@@ -274,3 +274,108 @@ CROSS JOIN LATERAL (
   JOIN books b2 ON c2.book_id = b2.id
   WHERE b2.name = 'John' AND c2.chapter_number = 2 AND v2.verse_number = cr.verse_number
 ) v;
+
+-- JOHN CHAPTER 2 — BACKFILL (additional word_studies + cross_references)
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'γάμος', 'gamos', 'G1062', 'Wedding/marriage feast — multi-day Galilean celebration; running out of wine would be public shame for the host family.', 100),
+  (1, 'τῇ ἡμέρᾳ τῇ τρίτῃ', 'tē hēmera tē tritē', 'G2250/G5154', 'On the third day — Johannine "week" of inaugural events (1:29,35,43; 2:1); also typological resurrection echo.', 101),
+  (3, 'ὑστερήσαντος οἴνου', 'hysterēsantos oinou', 'G5302/G3631', 'Wine having run short — public crisis; absence of wine = absence of joy in OT (Joel 1:10; Isa 24:11).', 102),
+  (4, 'τί ἐμοὶ καὶ σοί', 'ti emoi kai soi', 'G5101/G1473/G4671', 'What to me and to you (Hebraism mah-li velakh) — distancing formula, not rude; signals he acts on Father''s timing, not family pressure.', 103),
+  (4, 'γύναι', 'gynai', 'G1135', 'Woman — formal but not cold address; Jesus uses it again at the cross (19:26); emphasizes new role beyond mere mother.', 104),
+  (4, 'ὥρα μου', 'hōra mou', 'G5610', 'My hour — Johannine technical term for the hour of cross/glorification (7:30; 8:20; 12:23,27; 13:1; 17:1).', 105),
+  (6, 'ὑδρίαι λίθιναι', 'hydriai lithinai', 'G5201/G3035', 'Stone water jars — for ceremonial purification (Mark 7:3-4); stone (vs clay) was less susceptible to ritual defilement.', 106),
+  (6, 'καθαρισμὸν', 'katharismon', 'G2512', 'Cleansing/purification — Jewish ritual washing; Jesus replaces ceremonial water with the wine of new covenant joy.', 107),
+  (6, 'μετρητάς', 'metrētas', 'G3355', 'Measures — each ~9 gallons; total 120-180 gallons of wine; lavish abundance of messianic banquet (Amos 9:13-14).', 108),
+  (8, 'ἀρχιτρικλίνῳ', 'architriklinō', 'G755', 'Master of the feast — chief steward who tasted and apportioned wine; like a modern wedding planner.', 109),
+  (10, 'καλὸν οἶνον', 'kalon oinon', 'G2570/G3631', 'Good wine — kalos: aesthetically excellent, fine; the "best wine last" reverses worldly logic.', 110),
+  (11, 'ἀρχὴν τῶν σημείων', 'archēn tōn sēmeiōn', 'G746/G4592', 'Beginning of signs — first of the seven Johannine signs; archē signals programmatic significance.', 111),
+  (11, 'ἐπίστευσαν εἰς αὐτὸν', 'episteusan eis auton', 'G4100/G1519', 'Believed into him — pisteuō + eis: Johannine formula for committed personal trust; preposition implies movement-into.', 112),
+  (13, 'πάσχα', 'pascha', 'G3957', 'Passover — first of three Passovers in John (also 6:4; 11:55); chronological framework of Jesus''s ministry.', 113),
+  (15, 'φραγέλλιον', 'phragellion', 'G5416', 'Whip — from Latin flagellum; small cords; act of authoritative judgment, not random violence.', 114),
+  (15, 'κολλυβιστῶν', 'kollybistōn', 'G2855', 'Money-changers — exchanged Greek/Roman coins for Tyrian shekels (the only currency accepted for temple tax/offerings).', 115),
+  (16, 'οἶκον ἐμπορίου', 'oikon emporiou', 'G3624/G1712', 'House of merchandise — emporion: marketplace; commercial trafficking has displaced worship; cf. Mark 11:17 quoting Isa 56:7 / Jer 7:11.', 116),
+  (16, 'οἶκον τοῦ πατρός μου', 'oikon tou patros mou', 'G3624/G3962', 'My Father''s house — Jesus''s claim to filial relation to God; striking authority over the Temple.', 117),
+  (17, 'καταφάγεται', 'kataphagetai', 'G2719', 'Will consume/devour — quotation of Ps 69:9 LXX; Jesus''s zeal for God''s house will literally lead to his death.', 118),
+  (18, 'σημεῖον δεικνύεις', 'sēmeion deiknyeis', 'G4592/G1166', 'What sign do you show? — request for legitimating miracle; Jewish leaders demand credentials before accepting prophetic action.', 119),
+  (19, 'λύσατε τὸν ναὸν', 'lysate ton naon', 'G3089/G3485', '"Destroy this temple" — provocative command; misunderstood as referring to Herodian temple, but means his body (v.21).', 120),
+  (20, 'τεσσεράκοντα καὶ ἓξ ἔτεσιν', 'tesserakonta kai hex etesin', 'G5062/G1803/G2094', '46 years — Herod began rebuilding ~20/19 BC; not finished until AD 63/64; this places the conversation ~AD 27/28.', 121),
+  (21, 'περὶ τοῦ ναοῦ τοῦ σώματος αὐτοῦ', 'peri tou naou tou sōmatos autou', 'G3485/G4983', 'Concerning the temple of his body — Christ''s body is the new temple; the place where God is met is now incarnate.', 122),
+  (22, 'ἐμνήσθησαν οἱ μαθηταὶ', 'emnēsthēsan hoi mathētai', 'G3415', 'The disciples remembered (aorist passive) — post-resurrection illumination; recurring Johannine theme of delayed comprehension.', 123),
+  (23, 'ἐπίστευσαν εἰς τὸ ὄνομα', 'episteusan eis to onoma', 'G4100/G3686', 'Believed in his name — superficial faith based on signs; sets up Jesus''s reserve in v.24-25.', 124),
+  (24, 'ἐπίστευεν αὑτὸν αὐτοῖς', 'episteuen hauton autois', 'G4100', 'Did not entrust himself to them — ironic wordplay: they trusted him, but he did not trust them; sign-faith is not saving faith.', 125),
+  (25, 'ἐν τῷ ἀνθρώπῳ', 'en tō anthrōpō', 'G444', 'In the human — Jesus''s omniscient knowledge of the human heart; sets up Nicodemus encounter in chapter 3.', 126)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'John' AND c.chapter_number = 2 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'John 1:43', 100),
+  (1, 'Matthew 22:1-14', 101),
+  (1, 'Revelation 19:7-9', 102),
+  (3, 'Joel 1:10', 100),
+  (3, 'Isaiah 24:11', 101),
+  (4, 'Judges 11:12', 100),
+  (4, '2 Samuel 16:10', 101),
+  (4, 'John 7:6', 102),
+  (4, 'John 7:30', 103),
+  (4, 'John 8:20', 104),
+  (4, 'John 12:23', 105),
+  (4, 'John 13:1', 106),
+  (4, 'John 17:1', 107),
+  (5, 'Philippians 2:5-8', 100),
+  (5, 'Hebrews 5:8', 101),
+  (6, 'Mark 7:3-4', 100),
+  (6, 'Numbers 19:11-13', 101),
+  (8, 'Amos 9:13-14', 100),
+  (10, 'Ecclesiastes 9:7', 100),
+  (10, 'Psalm 104:15', 101),
+  (11, 'Exodus 4:30-31', 100),
+  (11, 'John 1:14', 101),
+  (11, 'John 12:37-38', 102),
+  (13, 'Exodus 12:14-20', 100),
+  (13, 'Deuteronomy 16:1-8', 101),
+  (13, 'John 6:4', 102),
+  (13, 'John 11:55', 103),
+  (14, 'Mark 11:15-17', 100),
+  (14, 'Matthew 21:12-13', 101),
+  (14, 'Luke 19:45-46', 102),
+  (14, 'Deuteronomy 14:24-26', 103),
+  (15, 'Malachi 3:1-3', 100),
+  (15, 'Zechariah 14:21', 101),
+  (16, 'Isaiah 56:7', 100),
+  (16, 'Jeremiah 7:11', 101),
+  (16, 'Hosea 9:15', 102),
+  (17, 'Psalm 69:9', 100),
+  (17, 'Romans 15:3', 101),
+  (18, 'Matthew 12:38-39', 100),
+  (18, '1 Corinthians 1:22', 101),
+  (19, 'Matthew 26:60-61', 100),
+  (19, 'Matthew 27:40', 101),
+  (19, 'Mark 14:58', 102),
+  (19, 'Acts 6:14', 103),
+  (21, '1 Corinthians 6:19', 100),
+  (21, 'Ephesians 2:19-22', 101),
+  (21, 'Revelation 21:22', 102),
+  (22, 'Luke 24:7-8', 100),
+  (22, 'John 12:16', 101),
+  (22, 'John 14:26', 102),
+  (23, 'John 6:26', 100),
+  (23, 'John 12:42-43', 101),
+  (24, 'Jeremiah 17:9-10', 100),
+  (24, '1 Samuel 16:7', 101),
+  (24, 'John 6:64', 102),
+  (25, 'Psalm 139:1-4', 100),
+  (25, 'Hebrews 4:13', 101),
+  (25, 'Revelation 2:23', 102)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'John' AND c.chapter_number = 2 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

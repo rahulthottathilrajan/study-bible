@@ -340,3 +340,118 @@ CROSS JOIN LATERAL (
   JOIN books b2 ON c2.book_id = b2.id
   WHERE b2.name = 'John' AND c2.chapter_number = 3 AND v2.verse_number = cr.verse_number
 ) v;
+
+-- JOHN CHAPTER 3 — BACKFILL (additional word_studies + cross_references)
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Φαρισαίων', 'Pharisaiōn', 'G5330', 'Pharisees — strict separatist sect; ~6,000 in 1st cent. Judaism; emphasized oral tradition and scrupulous Torah observance.', 100),
+  (1, 'ἄρχων τῶν Ἰουδαίων', 'archōn tōn Ioudaiōn', 'G758/G2453', 'Ruler of the Jews — likely member of the Sanhedrin (cf. 7:50; 19:39); high social and religious standing.', 101),
+  (1, 'Νικόδημος', 'Nikodēmos', 'G3530', 'Nicodemus — "victory of the people"; appears 3x in John, each with growing courage (3:1; 7:50; 19:39).', 102),
+  (2, 'νυκτὸς', 'nyktos', 'G3571', 'By night — ambiguous: caution? privacy? symbolic darkness contrasted with the light of v.19-21? Likely all three.', 103),
+  (2, 'ῥαββί', 'rhabbi', 'G4461', 'Rabbi — respectful address; Nicodemus comes acknowledging Jesus as legitimate teacher.', 104),
+  (2, 'ἀπὸ θεοῦ ἐλήλυθας', 'apo theou elēlythas', 'G2316/G2064', 'Have come from God (perfect) — divine commission acknowledged, but stops short of Sonship; partial faith.', 105),
+  (3, 'ἀμὴν ἀμὴν', 'amēn amēn', 'G281', 'Truly, truly — Johannine doubled amēn (25x); Jesus''s solemn introduction to authoritative teaching.', 106),
+  (3, 'γεννηθῇ', 'gennēthē', 'G1080', 'Be born (aorist passive subjunctive) — passive: the new birth is something done TO us, not BY us.', 107),
+  (3, 'βασιλείαν τοῦ θεοῦ', 'basileian tou theou', 'G932/G2316', 'Kingdom of God — only here and v.5 in John (vs ~50x in Synoptics); the realm/reign of God''s saving rule.', 108),
+  (5, 'ἐξ ὕδατος καὶ πνεύματος', 'ex hydatos kai pneumatos', 'G5204/G4151', 'Of water and spirit — likely allusion to Ezek 36:25-27 (sprinkling water and giving new spirit); single covenantal birth, not two events.', 109),
+  (6, 'σὰρξ ἐκ σαρκὸς', 'sarx ek sarkos', 'G4561', 'Flesh of flesh — the natural cannot produce the supernatural; ontological category-difference between physical and spiritual birth.', 110),
+  (7, 'δεῖ ὑμᾶς γεννηθῆναι', 'dei hymas gennēthēnai', 'G1163/G1080', 'You must be born — divine necessity (dei); not optional spiritual experience for elite, but required of all.', 111),
+  (8, 'τὸ πνεῦμα ὅπου θέλει πνεῖ', 'to pneuma hopou thelei pnei', 'G4151/G2309/G4154', 'The wind/Spirit blows where it wills — wordplay on pneuma (wind/spirit); divine sovereignty in regeneration.', 112),
+  (10, 'διδάσκαλος τοῦ Ἰσραὴλ', 'didaskalos tou Israēl', 'G1320/G2474', 'The teacher of Israel — definite article (ho); Nicodemus had recognized scholastic position; rebuke of his ignorance.', 113),
+  (11, 'ὃ οἴδαμεν λαλοῦμεν', 'ho oidamen laloumen', 'G1492/G2980', '"What we know we speak" — plural; Jesus speaks with the Father and Spirit''s authority.', 114),
+  (12, 'ἐπίγεια... ἐπουράνια', 'epigeia... epourania', 'G1919/G2032', 'Earthly... heavenly — gradation of revelation; if natural analogies (wind, birth) are rejected, divine mysteries cannot land.', 115),
+  (13, 'ὁ καταβὰς... ὁ ὢν ἐν τῷ οὐρανῷ', 'ho katabas... ho ōn en tō ouranō', 'G2597/G3772', 'The one who descended... who is in heaven — descent + omnipresence; deity statement embedded in middle of conversation.', 116),
+  (14, 'ὄφιν ἐν τῇ ἐρήμῳ', 'ophin en tē erēmō', 'G3789/G2048', 'Serpent in the wilderness — Numbers 21:8-9; bronze serpent typology; looking-faith brings life from death.', 117),
+  (16, 'ἠγάπησεν', 'ēgapēsen', 'G25', 'Loved (aorist) — historic punctiliar act of love; the cross is the demonstration of God''s eternal love (Rom 5:8).', 118),
+  (16, 'ἔδωκεν', 'edōken', 'G1325', 'Gave (aorist) — costly gift; same verb of self-giving in 6:51; cf. Romans 8:32.', 119),
+  (16, 'πᾶς ὁ πιστεύων', 'pas ho pisteuōn', 'G3956/G4100', 'Every one believing — universal scope (pas) + condition (believing); wide door, narrow key.', 120),
+  (16, 'μὴ ἀπόληται', 'mē apolētai', 'G622', 'Should not perish — apollymi: ruin, destruction; the alternative to eternal life is real, not imaginary.', 121),
+  (17, 'οὐκ ἀπέστειλεν... ἵνα κρίνῃ', 'ouk apesteilen... hina krinē', 'G649/G2919', 'Did not send to judge — purpose of incarnation is salvation; judgment is the by-product of unbelief, not the mission.', 122),
+  (17, 'σωθῇ', 'sōthē', 'G4982', 'Be saved (aorist passive) — sōzō: rescue, deliver, heal, preserve; comprehensive salvation.', 123),
+  (18, 'κέκριται', 'kekritai', 'G2919', 'Has already been judged (perfect) — present unbelief = present condemnation; eschatological verdict already in.', 124),
+  (19, 'ἡ κρίσις', 'hē krisis', 'G2920', 'The judgment — defined by the verse: presence of light + preference for darkness = self-judgment.', 125),
+  (19, 'ἠγάπησαν... σκότος', 'ēgapēsan... skotos', 'G25/G4655', 'Loved darkness — agapaō here used negatively; the same verb God uses in v.16 humans use for what destroys them.', 126),
+  (20, 'φαῦλα', 'phaula', 'G5337', 'Worthless/evil — phaulos: morally rotten, of no value; not just immoral but base.', 127),
+  (20, 'ἐλεγχθῇ', 'elenchthē', 'G1651', 'Be exposed/convicted — elenchō: reveal hidden faults; the role light plays toward darkness.', 128),
+  (21, 'ποιῶν τὴν ἀλήθειαν', 'poiōn tēn alētheian', 'G4160/G225', 'Doing the truth — Hebrew idiom (asah emet); truth as something practiced, not just believed.', 129),
+  (23, 'πολλὰ ὕδατα', 'polla hydata', 'G4183/G5204', 'Many waters — Aenon ("springs") near Salim; abundant water for immersion baptism.', 130),
+  (29, 'φωνήν', 'phōnēn', 'G5456', 'Voice — best man''s joy is in hearing the bridegroom''s voice; John content to fade as Jesus rises.', 131),
+  (30, 'αὐξάνειν... ἐλαττοῦσθαι', 'auxanein... elattousthai', 'G837/G1642', 'To increase... to decrease — divine necessity (dei); the Baptist''s ministry was preparatory and self-effacing.', 132),
+  (31, 'ἄνωθεν ἐρχόμενος', 'anōthen erchomenos', 'G509/G2064', 'Coming from above — anōthen now applied to Jesus himself; he is the one born from above (cf. v.3).', 133),
+  (33, 'ἐσφράγισεν', 'esphragisen', 'G4972', 'Has set his seal — sphragizō: legal authentication; receiving the testimony certifies God''s truthfulness.', 134),
+  (34, 'οὐ γὰρ ἐκ μέτρου δίδωσιν τὸ πνεῦμα', 'ou gar ek metrou didōsin to pneuma', 'G3358/G1325/G4151', 'Gives the Spirit without measure — Jesus has the Spirit unlimited (vs OT prophets'' partial inspiration).', 135),
+  (35, 'πάντα δέδωκεν ἐν τῇ χειρὶ αὐτοῦ', 'panta dedōken en tē cheiri autou', 'G3956/G1325/G5495', 'Has given all things into his hand — total delegation of Father to Son (cf. Matt 11:27; 28:18).', 136)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'John' AND c.chapter_number = 3 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'John 7:50-52', 100),
+  (1, 'John 19:39', 101),
+  (2, 'John 9:33', 100),
+  (2, 'Acts 2:22', 101),
+  (3, '2 Corinthians 5:17', 100),
+  (3, 'Galatians 6:15', 101),
+  (3, '1 Peter 1:23', 102),
+  (3, 'Titus 3:5', 103),
+  (5, 'Ezekiel 36:25-27', 100),
+  (5, 'Titus 3:5', 101),
+  (5, 'Ephesians 5:26', 102),
+  (6, 'Romans 8:5-9', 100),
+  (6, '1 Corinthians 15:50', 101),
+  (8, 'Ecclesiastes 11:5', 100),
+  (8, 'Acts 2:2', 101),
+  (10, 'Isaiah 56:10-11', 100),
+  (11, 'John 3:32', 100),
+  (12, '1 Corinthians 2:14', 100),
+  (13, 'Proverbs 30:4', 100),
+  (13, 'Ephesians 4:9-10', 101),
+  (14, 'Numbers 21:8-9', 100),
+  (14, 'John 8:28', 101),
+  (14, 'John 12:32-34', 102),
+  (15, '1 John 5:11-13', 100),
+  (16, 'Romans 5:8', 100),
+  (16, '1 John 4:9-10', 101),
+  (16, 'Romans 8:32', 102),
+  (16, 'Genesis 22:2', 103),
+  (16, '2 Corinthians 9:15', 104),
+  (17, 'John 12:47', 100),
+  (17, 'Luke 19:10', 101),
+  (17, '1 John 4:14', 102),
+  (18, 'John 5:24', 100),
+  (18, 'Mark 16:16', 101),
+  (19, 'John 1:9-11', 100),
+  (19, 'John 8:12', 101),
+  (20, 'Job 24:13-17', 100),
+  (20, 'Ephesians 5:11-13', 101),
+  (21, 'Ephesians 5:8-9', 100),
+  (21, 'Matthew 5:16', 101),
+  (23, '1 Samuel 9:4', 100),
+  (28, 'John 1:20-23', 100),
+  (29, 'Matthew 9:15', 100),
+  (29, 'Revelation 19:7-9', 101),
+  (30, 'Isaiah 9:7', 100),
+  (30, 'Colossians 1:18', 101),
+  (31, 'John 8:23', 100),
+  (31, 'Ephesians 1:21', 101),
+  (33, '1 John 5:10', 100),
+  (33, 'Romans 4:11', 101),
+  (34, 'Isaiah 11:2', 100),
+  (34, 'John 1:32-33', 101),
+  (34, 'Colossians 1:19', 102),
+  (35, 'Matthew 11:27', 100),
+  (35, 'Matthew 28:18', 101),
+  (35, 'John 5:20', 102),
+  (35, 'John 13:3', 103),
+  (35, 'Hebrews 1:2', 104)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'John' AND c.chapter_number = 3 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

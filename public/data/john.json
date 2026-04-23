@@ -433,6 +433,32 @@
             "transliteration": "logos",
             "strongs_number": "G3056",
             "meaning": "Word, reason, expression, divine self-communication — from legō (to speak). In Greek philosophy, logos was the rational principle ordering the cosmos. In Hebrew thought, the 'word of the LORD' was God's creative power (Genesis 1:3; Psalm 33:6) and revelatory agent (Jeremiah 1:4). John fuses both traditions: the Logos is personal ('was with God'), divine ('was God'), eternal ('in the beginning'), creative ('all things were made by him'), and incarnate ('was made flesh,' v.14). The Logos is not an abstract concept but a person — Jesus Christ. He is God's final, definitive Word to humanity."
+          },
+          {
+            "original_word": "ἐν ἀρχῇ",
+            "transliteration": "en archē",
+            "strongs_number": "G1722/G746",
+            "meaning": "In the beginning — deliberate echo of Genesis 1:1 LXX (en archē epoiēsen ho theos); the new creation begins where the first creation began. Archē denotes the absolute beginning, before time and creation."
+          },
+          {
+            "original_word": "πρὸς τὸν θεόν",
+            "transliteration": "pros ton theon",
+            "strongs_number": "G4314/G2316",
+            "meaning": "With/toward God — pros + accusative implies face-to-face relation, not mere proximity; eternal communion of distinct persons. Not en (in) but pros: relational orientation."
+          },
+          {
+            "original_word": "θεὸς ἦν ὁ λόγος",
+            "transliteration": "theos ēn ho logos",
+            "strongs_number": "G2316/G2258/G3056",
+            "meaning": "The Word was God — anarthrous theos (no article) emphasizes qualitative deity, not numerical identity; \"what God was, the Word was\" (Colwell's rule). Refutes Arianism."
+          }
+        ],
+        "3": [
+          {
+            "original_word": "ἐγένετο",
+            "transliteration": "egeneto",
+            "strongs_number": "G1096",
+            "meaning": "Came into being (aorist) — used 3 times in v.3 to underline that all created things owe their existence to the Word. Contrasts with ēn (\"was\") in vv.1-2 of the eternal Word."
           }
         ],
         "4": [
@@ -443,12 +469,78 @@
             "meaning": "Life — not mere biological existence (bios) but spiritual, eternal, abundant life. Zōē is one of John's most important words, appearing 36 times in his Gospel. 'In him was life' (en autō zōē ēn) — the Logos is not merely alive but is the source and reservoir of all life. Every living thing derives its life from him. John will develop this theme throughout the Gospel: Jesus is 'the bread of life' (6:35), 'the resurrection and the life' (11:25), 'the way, the truth, and the life' (14:6). Zōē in John always means life as God intended it — full, abundant, eternal, and relational."
           }
         ],
+        "5": [
+          {
+            "original_word": "φαίνει",
+            "transliteration": "phainei",
+            "strongs_number": "G5316",
+            "meaning": "Shines (present) — continuous, undefeated illumination; the light has been and continues to be shining in the darkness."
+          },
+          {
+            "original_word": "κατέλαβεν",
+            "transliteration": "katelaben",
+            "strongs_number": "G2638",
+            "meaning": "Overcame/comprehended — double meaning: the darkness neither understood nor mastered the light. John's irony often exploits this ambiguity."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "ἀπεσταλμένος",
+            "transliteration": "apestalmenos",
+            "strongs_number": "G649",
+            "meaning": "Having been sent (perfect passive of apostellō) — abiding apostleship of John the Baptist; he stands as ongoing witness."
+          }
+        ],
+        "7": [
+          {
+            "original_word": "εἰς μαρτυρίαν",
+            "transliteration": "eis martyrian",
+            "strongs_number": "G1519/G3141",
+            "meaning": "For witness — purpose of John's mission; martyrian: legal-evidentiary testimony, key Johannine theme."
+          }
+        ],
+        "9": [
+          {
+            "original_word": "τὸ φῶς τὸ ἀληθινὸν",
+            "transliteration": "to phōs to alēthinon",
+            "strongs_number": "G5457/G228",
+            "meaning": "The true light — alēthinos: real, genuine, archetypal (vs counterfeit); Christ is the original of which all earthly light is shadow."
+          }
+        ],
+        "11": [
+          {
+            "original_word": "τὰ ἴδια... οἱ ἴδιοι",
+            "transliteration": "ta idia... hoi idioi",
+            "strongs_number": "G2398",
+            "meaning": "His own things... his own people — heart-breaking double idia: he came to his own creation/possession and his own covenant people did not receive him."
+          },
+          {
+            "original_word": "παρέλαβον",
+            "transliteration": "parelabon",
+            "strongs_number": "G3880",
+            "meaning": "Received/welcomed — formal reception; not active rejection but failure to welcome the one who had come home."
+          }
+        ],
         "12": [
           {
             "original_word": "τέκνον",
             "transliteration": "teknon",
             "strongs_number": "G5043",
             "meaning": "Child, offspring — from tiktō (to give birth). Teknon emphasises the relationship of birth and family intimacy, as opposed to huios (son), which emphasises status and inheritance. Believers become tekna theou — God's born children, members of God's family by a new birth (v.13). This is not a metaphor for moral improvement but an ontological change — a new nature, a new family, a new identity. The right (exousia) to become God's children is received, not earned. It comes through believing in Jesus' name."
+          },
+          {
+            "original_word": "ἐξουσίαν",
+            "transliteration": "exousian",
+            "strongs_number": "G1849",
+            "meaning": "Right/authority — not \"power\" but legal right; adoption confers a right, not merely capacity. Contrast with biological begetting in v.13."
+          }
+        ],
+        "13": [
+          {
+            "original_word": "ἐγεννήθησαν",
+            "transliteration": "egennēthēsan",
+            "strongs_number": "G1080",
+            "meaning": "Were born (aorist passive) — divine begetting; threefold negation (\"not of blood, not of will of flesh, not of will of man\") emphasizes pure divine initiative."
           }
         ],
         "14": [
@@ -463,6 +555,68 @@
             "transliteration": "charis",
             "strongs_number": "G5485",
             "meaning": "Grace — from chairo (to rejoice). In classical Greek, charis meant beauty, charm, or a favour bestowed. In the NT, it becomes the central word for God's unmerited, unearned, undeserved favour toward sinful humanity. The Word was 'full of grace and truth' (plērēs charitos kai alētheias) — echoing Exodus 34:6 where God reveals himself to Moses as 'abundant in steadfast love (chesed) and faithfulness (emet).' Grace in John means the generous, overflowing gift of God's presence and favour through Jesus Christ. 'Grace for grace' (v.16) means wave upon wave of grace — the supply never runs out."
+          },
+          {
+            "original_word": "ἐσκήνωσεν",
+            "transliteration": "eskēnōsen",
+            "strongs_number": "G4637",
+            "meaning": "Tabernacled/pitched his tent — skēnoō: deliberate echo of OT Tabernacle (mishkan/skēnē); divine glory dwells among us in human flesh."
+          },
+          {
+            "original_word": "μονογενοῦς",
+            "transliteration": "monogenous",
+            "strongs_number": "G3439",
+            "meaning": "Only-begotten/unique — monos + genos: of the only kind; emphasizes unique sonship, not biological generation."
+          },
+          {
+            "original_word": "πλήρης",
+            "transliteration": "plērēs",
+            "strongs_number": "G4134",
+            "meaning": "Full — full of grace and truth; Hebrew echo of Exod 34:6 (\"abundant in chesed and emet\") describing Yahweh on Sinai."
+          }
+        ],
+        "16": [
+          {
+            "original_word": "πληρώματος",
+            "transliteration": "plērōmatos",
+            "strongs_number": "G4138",
+            "meaning": "Fullness — Pauline-cosmic word (Col 1:19; 2:9); the inexhaustible reservoir of Christ."
+          },
+          {
+            "original_word": "χάριν ἀντὶ χάριτος",
+            "transliteration": "charin anti charitos",
+            "strongs_number": "G5485/G473",
+            "meaning": "Grace upon/in place of grace — anti: succession or replacement; either \"grace heaped on grace\" or \"new covenant grace replacing old\"."
+          }
+        ],
+        "17": [
+          {
+            "original_word": "ἀλήθεια",
+            "transliteration": "alētheia",
+            "strongs_number": "G225",
+            "meaning": "Truth — paired with grace; Hebrew emet (faithfulness, reliability); Christ embodies covenant fidelity."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "ἐξηγήσατο",
+            "transliteration": "exēgēsato",
+            "strongs_number": "G1834",
+            "meaning": "Explained/exegeted — from which English \"exegesis\"; the Son draws out and makes known the unseen Father."
+          },
+          {
+            "original_word": "κόλπον",
+            "transliteration": "kolpon",
+            "strongs_number": "G2859",
+            "meaning": "Bosom — intimate position of love and confidence (cf. 13:23); the Son knows the Father from inside the Father's embrace."
+          }
+        ],
+        "23": [
+          {
+            "original_word": "εὐθύνατε",
+            "transliteration": "euthynate",
+            "strongs_number": "G2116",
+            "meaning": "Make straight — quotation of Isaiah 40:3 LXX; preparing the way of Yahweh implies Yahweh's coming = Jesus's coming."
           }
         ],
         "29": [
@@ -471,6 +625,62 @@
             "transliteration": "amnos",
             "strongs_number": "G286",
             "meaning": "Lamb — a young sheep. 'The Lamb of God' (ho amnos tou theou) combines multiple OT sacrificial images: (1) The Passover lamb whose blood saved Israel from death (Exodus 12). (2) The daily temple sacrifice — morning and evening lambs (Exodus 29:38-42). (3) Isaiah 53:7 — the Suffering Servant 'brought as a lamb to the slaughter.' (4) The scapegoat bearing Israel's sins into the wilderness (Leviticus 16). 'Of God' (tou theou) means both 'provided by God' and 'belonging to God.' God himself supplies the sacrifice that removes the world's sin. This title contains the entire atonement theology of the NT in two words."
+          },
+          {
+            "original_word": "αἴρων",
+            "transliteration": "airōn",
+            "strongs_number": "G142",
+            "meaning": "Taking away (present participle) — continuous removal; the Lamb both bears and removes sin permanently."
+          },
+          {
+            "original_word": "ἁμαρτίαν τοῦ κόσμου",
+            "transliteration": "hamartian tou kosmou",
+            "strongs_number": "G266/G2889",
+            "meaning": "Sin of the world — singular hamartia (sin as principle, not sins plural); cosmic scope of atonement."
+          }
+        ],
+        "32": [
+          {
+            "original_word": "περιστερὰν",
+            "transliteration": "peristeran",
+            "strongs_number": "G4058",
+            "meaning": "Dove — Spirit's descent in dove form; possible echoes of Gen 1:2 (Spirit hovering) and Gen 8 (Noah's dove)."
+          },
+          {
+            "original_word": "ἔμεινεν",
+            "transliteration": "emeinen",
+            "strongs_number": "G3306",
+            "meaning": "Remained/abode — menō: key Johannine verb; Spirit's permanent abiding marks Jesus as the Spirit-Anointed Messiah (vs OT temporary anointings)."
+          }
+        ],
+        "33": [
+          {
+            "original_word": "βαπτίζων ἐν πνεύματι ἁγίῳ",
+            "transliteration": "baptizōn en pneumati hagiō",
+            "strongs_number": "G907/G4151/G40",
+            "meaning": "Baptizing in the Holy Spirit — the messianic gift (Joel 2:28; Acts 2); contrast with John's preparatory water baptism."
+          }
+        ],
+        "34": [
+          {
+            "original_word": "υἱὸς τοῦ θεοῦ",
+            "transliteration": "huios tou theou",
+            "strongs_number": "G5207/G2316",
+            "meaning": "Son of God — John the Baptist's climactic confession; some manuscripts read eklektos (chosen) — Servant Songs allusion."
+          }
+        ],
+        "38": [
+          {
+            "original_word": "ῥαββί",
+            "transliteration": "rhabbi",
+            "strongs_number": "G4461",
+            "meaning": "Rabbi — \"my great one\"; honorific for teachers; first disciples' address shows respect short of full faith."
+          },
+          {
+            "original_word": "μένεις",
+            "transliteration": "meneis",
+            "strongs_number": "G3306",
+            "meaning": "Where do you abide? — menō again; the disciples instinctively ask the right Johannine question."
           }
         ],
         "41": [
@@ -479,6 +689,48 @@
             "transliteration": "Messias",
             "strongs_number": "G3323",
             "meaning": "Messiah — from Hebrew/Aramaic mashiach, meaning 'anointed one.' Used only twice in the NT (here and 4:25). The Greek translation is Christos (Christ). In the OT, kings (1 Samuel 16:13), priests (Exodus 29:7), and sometimes prophets (1 Kings 19:16) were anointed with oil as a sign of divine commissioning. 'The Messiah' became the title for the ultimate anointed figure — the promised king from David's line who would restore Israel and establish God's kingdom. Andrew's declaration 'We have found the Messiah' is the joyful announcement that centuries of expectation have been fulfilled."
+          },
+          {
+            "original_word": "εὑρίσκει",
+            "transliteration": "heuriskei",
+            "strongs_number": "G2147",
+            "meaning": "Finds — Andrew's evangelism in three steps: finds, brings, and they meet Jesus (vv.41-42)."
+          },
+          {
+            "original_word": "Χριστός",
+            "transliteration": "Christos",
+            "strongs_number": "G5547",
+            "meaning": "Christ — Greek translation of Messiah (Anointed One); royal-priestly figure of OT prophecy."
+          }
+        ],
+        "42": [
+          {
+            "original_word": "Κηφᾶς",
+            "transliteration": "Kēphas",
+            "strongs_number": "G2786",
+            "meaning": "Cephas — Aramaic for \"rock\" (kēpha); Greek Petros; renaming signals Jesus's sovereign reshaping of identity (cf. Abram→Abraham)."
+          }
+        ],
+        "45": [
+          {
+            "original_word": "Ναζαρέτ",
+            "transliteration": "Nazaret",
+            "strongs_number": "G3478",
+            "meaning": "Nazareth — obscure Galilean village (~200 inhabitants in Jesus's day); raises Nathanael's skepticism (v.46)."
+          }
+        ],
+        "47": [
+          {
+            "original_word": "ἀληθῶς Ἰσραηλίτης",
+            "transliteration": "alēthōs Israēlitēs",
+            "strongs_number": "G230/G2475",
+            "meaning": "Truly an Israelite — Jesus reverses the name \"Jacob/Yaakov\" (heel-grabber, deceiver) by negating dolos (guile)."
+          },
+          {
+            "original_word": "δόλος",
+            "transliteration": "dolos",
+            "strongs_number": "G1388",
+            "meaning": "Guile/deceit — the very thing Jacob had until his transformation (Gen 32:28); Nathanael is a \"transformed Jacob\"."
           }
         ],
         "51": [
@@ -487,6 +739,12 @@
             "transliteration": "huios tou anthrōpou",
             "strongs_number": "G5207/G444",
             "meaning": "Son of Man — Jesus' most frequent self-designation. From Daniel 7:13-14, where a human-like figure receives universal, eternal dominion from the Ancient of Days. The title combines human identity ('son of man' = human being) with divine authority (riding the clouds, receiving worship). In John 1:51, Jesus applies the title to himself as Jacob's ladder — the bridge between heaven and earth, the point where God's realm intersects with human reality. The Son of Man is the permanent, living connection between heaven and earth that Jacob's ladder only symbolised."
+          },
+          {
+            "original_word": "ἀναβαίνοντας καὶ καταβαίνοντας",
+            "transliteration": "anabainontas kai katabainontas",
+            "strongs_number": "G305/G2597",
+            "meaning": "Ascending and descending — Jesus is the Jacob's Ladder (Gen 28:12); the meeting-point of heaven and earth."
           }
         ]
       },
@@ -503,6 +761,21 @@
           },
           {
             "reference": "Revelation 19:13"
+          },
+          {
+            "reference": "Genesis 1:1"
+          },
+          {
+            "reference": "1 John 1:1-2"
+          },
+          {
+            "reference": "Revelation 19:13"
+          },
+          {
+            "reference": "Proverbs 8:22-31"
+          },
+          {
+            "reference": "Hebrews 1:1-3"
           }
         ],
         "3": [
@@ -514,6 +787,15 @@
           },
           {
             "reference": "Psalm 33:6"
+          },
+          {
+            "reference": "Colossians 1:16-17"
+          },
+          {
+            "reference": "1 Corinthians 8:6"
+          },
+          {
+            "reference": "Hebrews 1:2"
           }
         ],
         "4": [
@@ -522,6 +804,15 @@
           },
           {
             "reference": "John 14:6"
+          },
+          {
+            "reference": "John 8:12"
+          },
+          {
+            "reference": "John 11:25"
+          },
+          {
+            "reference": "1 John 5:11-12"
           }
         ],
         "5": [
@@ -530,6 +821,15 @@
           },
           {
             "reference": "Isaiah 9:2"
+          },
+          {
+            "reference": "Isaiah 9:2"
+          },
+          {
+            "reference": "2 Corinthians 4:6"
+          },
+          {
+            "reference": "1 John 2:8"
           }
         ],
         "9": [
@@ -538,9 +838,29 @@
           },
           {
             "reference": "John 9:5"
+          },
+          {
+            "reference": "1 John 2:8"
+          },
+          {
+            "reference": "Isaiah 49:6"
+          }
+        ],
+        "10": [
+          {
+            "reference": "Hebrews 11:3"
+          },
+          {
+            "reference": "Romans 1:19-20"
           }
         ],
         "11": [
+          {
+            "reference": "Isaiah 53:3"
+          },
+          {
+            "reference": "Matthew 23:37"
+          },
           {
             "reference": "Isaiah 53:3"
           },
@@ -557,6 +877,15 @@
           },
           {
             "reference": "1 John 3:1-2"
+          },
+          {
+            "reference": "Galatians 3:26"
+          },
+          {
+            "reference": "Romans 8:14-17"
+          },
+          {
+            "reference": "Ephesians 1:5"
           }
         ],
         "13": [
@@ -568,6 +897,15 @@
           },
           {
             "reference": "James 1:18"
+          },
+          {
+            "reference": "James 1:18"
+          },
+          {
+            "reference": "1 Peter 1:23"
+          },
+          {
+            "reference": "John 3:5-6"
           }
         ],
         "14": [
@@ -585,6 +923,35 @@
           },
           {
             "reference": "Exodus 40:34-35"
+          },
+          {
+            "reference": "Exodus 25:8-9"
+          },
+          {
+            "reference": "Exodus 40:34-35"
+          },
+          {
+            "reference": "Colossians 2:9"
+          },
+          {
+            "reference": "Philippians 2:6-8"
+          },
+          {
+            "reference": "2 Corinthians 4:6"
+          },
+          {
+            "reference": "Hebrews 1:3"
+          }
+        ],
+        "16": [
+          {
+            "reference": "Colossians 1:19"
+          },
+          {
+            "reference": "Colossians 2:9-10"
+          },
+          {
+            "reference": "Ephesians 3:19"
           }
         ],
         "17": [
@@ -593,6 +960,15 @@
           },
           {
             "reference": "John 14:6"
+          },
+          {
+            "reference": "Exodus 34:6"
+          },
+          {
+            "reference": "Romans 5:21"
+          },
+          {
+            "reference": "Galatians 3:24"
           }
         ],
         "18": [
@@ -607,11 +983,35 @@
           },
           {
             "reference": "Colossians 1:15"
+          },
+          {
+            "reference": "Exodus 33:20"
+          },
+          {
+            "reference": "1 Timothy 6:16"
+          },
+          {
+            "reference": "Matthew 11:27"
+          },
+          {
+            "reference": "John 14:9"
+          },
+          {
+            "reference": "1 John 4:12"
           }
         ],
         "23": [
           {
             "reference": "Isaiah 40:3"
+          },
+          {
+            "reference": "Matthew 3:3"
+          },
+          {
+            "reference": "Isaiah 40:3"
+          },
+          {
+            "reference": "Malachi 3:1"
           },
           {
             "reference": "Matthew 3:3"
@@ -629,6 +1029,21 @@
           },
           {
             "reference": "Revelation 5:6-12"
+          },
+          {
+            "reference": "Isaiah 53:7"
+          },
+          {
+            "reference": "Exodus 12:3-13"
+          },
+          {
+            "reference": "1 Peter 1:18-19"
+          },
+          {
+            "reference": "Revelation 5:6"
+          },
+          {
+            "reference": "Revelation 5:12"
           }
         ],
         "32": [
@@ -640,11 +1055,70 @@
           },
           {
             "reference": "Isaiah 42:1"
+          },
+          {
+            "reference": "Matthew 3:16"
+          },
+          {
+            "reference": "Mark 1:10"
+          },
+          {
+            "reference": "Luke 3:22"
+          },
+          {
+            "reference": "Genesis 1:2"
+          }
+        ],
+        "33": [
+          {
+            "reference": "Joel 2:28-29"
+          },
+          {
+            "reference": "Acts 1:5"
+          },
+          {
+            "reference": "Acts 2:33"
+          },
+          {
+            "reference": "Acts 11:16"
+          }
+        ],
+        "34": [
+          {
+            "reference": "Psalm 2:7"
+          },
+          {
+            "reference": "Isaiah 42:1"
+          }
+        ],
+        "38": [
+          {
+            "reference": "Mark 10:51"
+          },
+          {
+            "reference": "John 20:16"
+          }
+        ],
+        "41": [
+          {
+            "reference": "Daniel 9:25-26"
+          },
+          {
+            "reference": "Psalm 2:2"
+          },
+          {
+            "reference": "John 4:25"
           }
         ],
         "42": [
           {
             "reference": "Matthew 16:18"
+          },
+          {
+            "reference": "Matthew 16:18"
+          },
+          {
+            "reference": "Genesis 17:5"
           }
         ],
         "45": [
@@ -653,6 +1127,29 @@
           },
           {
             "reference": "Luke 24:27"
+          },
+          {
+            "reference": "Deuteronomy 18:15"
+          },
+          {
+            "reference": "Genesis 49:10"
+          },
+          {
+            "reference": "Isaiah 7:14"
+          },
+          {
+            "reference": "Luke 24:27"
+          }
+        ],
+        "47": [
+          {
+            "reference": "Genesis 32:28"
+          },
+          {
+            "reference": "Romans 9:6"
+          },
+          {
+            "reference": "Psalm 32:2"
           }
         ],
         "49": [
@@ -661,6 +1158,12 @@
           },
           {
             "reference": "Zephaniah 3:15"
+          },
+          {
+            "reference": "Psalm 2:6-7"
+          },
+          {
+            "reference": "2 Samuel 7:14"
           }
         ],
         "51": [
@@ -669,6 +1172,18 @@
           },
           {
             "reference": "Daniel 7:13-14"
+          },
+          {
+            "reference": "Genesis 28:12"
+          },
+          {
+            "reference": "Daniel 7:13"
+          },
+          {
+            "reference": "Matthew 26:64"
+          },
+          {
+            "reference": "Acts 7:56"
           }
         ]
       }
@@ -889,7 +1404,619 @@
           "study_note": "'He knew what was in man' (eginōsken ti ēn en tō anthrōpō — he was knowing what was in the human being). The imperfect tense (eginōsken) indicates continuous, habitual knowledge — Jesus always knows the human heart. This divine attribute (cf. 1 Samuel 16:7; 1 Kings 8:39; Jeremiah 17:10; Psalm 139:1-4) is ascribed to Jesus, affirming his deity. 'Needed not that any should testify' (ou chreian eichen hina tis martyrēsē — he had no need for anyone to bear witness about man). This verse sets up Nicodemus in ch.3: Jesus will show he knows exactly what is in this particular man — and what he needs.",
           "doctrinal_note": "Jesus' omniscient knowledge of the human heart is a divine attribute. The OT consistently attributes knowledge of the heart to God alone: 'The LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart' (1 Samuel 16:7). 'I the LORD search the heart, I try the reins' (Jeremiah 17:10). By ascribing this capacity to Jesus, John affirms his deity — Jesus possesses the divine prerogative of knowing all that is in every person. This knowledge will be demonstrated throughout the Gospel: with Nicodemus (3:3), the Samaritan woman (4:17-18), Judas (6:64, 70-71), and Peter (21:17)."
         }
-      ]
+      ],
+      "wordStudies": {
+        "1": [
+          {
+            "original_word": "γάμος",
+            "transliteration": "gamos",
+            "strongs_number": "G1062",
+            "meaning": "Wedding/marriage feast — multi-day Galilean celebration; running out of wine would be public shame for the host family."
+          },
+          {
+            "original_word": "τῇ ἡμέρᾳ τῇ τρίτῃ",
+            "transliteration": "tē hēmera tē tritē",
+            "strongs_number": "G2250/G5154",
+            "meaning": "On the third day — Johannine \"week\" of inaugural events (1:29,35,43; 2:1); also typological resurrection echo."
+          }
+        ],
+        "3": [
+          {
+            "original_word": "ὑστερήσαντος οἴνου",
+            "transliteration": "hysterēsantos oinou",
+            "strongs_number": "G5302/G3631",
+            "meaning": "Wine having run short — public crisis; absence of wine = absence of joy in OT (Joel 1:10; Isa 24:11)."
+          }
+        ],
+        "4": [
+          {
+            "original_word": "τί ἐμοὶ καὶ σοί",
+            "transliteration": "ti emoi kai soi",
+            "strongs_number": "G5101/G1473/G4671",
+            "meaning": "What to me and to you (Hebraism mah-li velakh) — distancing formula, not rude; signals he acts on Father's timing, not family pressure."
+          },
+          {
+            "original_word": "γύναι",
+            "transliteration": "gynai",
+            "strongs_number": "G1135",
+            "meaning": "Woman — formal but not cold address; Jesus uses it again at the cross (19:26); emphasizes new role beyond mere mother."
+          },
+          {
+            "original_word": "ὥρα μου",
+            "transliteration": "hōra mou",
+            "strongs_number": "G5610",
+            "meaning": "My hour — Johannine technical term for the hour of cross/glorification (7:30; 8:20; 12:23,27; 13:1; 17:1)."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "ὑδρίαι λίθιναι",
+            "transliteration": "hydriai lithinai",
+            "strongs_number": "G5201/G3035",
+            "meaning": "Stone water jars — for ceremonial purification (Mark 7:3-4); stone (vs clay) was less susceptible to ritual defilement."
+          },
+          {
+            "original_word": "καθαρισμὸν",
+            "transliteration": "katharismon",
+            "strongs_number": "G2512",
+            "meaning": "Cleansing/purification — Jewish ritual washing; Jesus replaces ceremonial water with the wine of new covenant joy."
+          },
+          {
+            "original_word": "μετρητάς",
+            "transliteration": "metrētas",
+            "strongs_number": "G3355",
+            "meaning": "Measures — each ~9 gallons; total 120-180 gallons of wine; lavish abundance of messianic banquet (Amos 9:13-14)."
+          }
+        ],
+        "8": [
+          {
+            "original_word": "ἀρχιτρικλίνῳ",
+            "transliteration": "architriklinō",
+            "strongs_number": "G755",
+            "meaning": "Master of the feast — chief steward who tasted and apportioned wine; like a modern wedding planner."
+          }
+        ],
+        "10": [
+          {
+            "original_word": "οἶνος",
+            "transliteration": "oinos",
+            "strongs_number": "G3631",
+            "meaning": "Wine; fermented grape juice used in meals, feasts, and sacrificial offerings. — Wine in Scripture symbolizes joy (Psalm 104:15), blessing (Genesis 27:28), and the messianic age (Isaiah 25:6; Joel 3:18; Amos 9:13). Jesus' transformation of water to wine signals the arrival of messianic abundance. The 'good wine' kept until now (v.10) represents the superiority of the new covenant over the old. At the Last Supper, wine becomes the symbol of Jesus' blood of the new covenant (Matthew 26:28-29)."
+          },
+          {
+            "original_word": "καλὸν οἶνον",
+            "transliteration": "kalon oinon",
+            "strongs_number": "G2570/G3631",
+            "meaning": "Good wine — kalos: aesthetically excellent, fine; the \"best wine last\" reverses worldly logic."
+          }
+        ],
+        "11": [
+          {
+            "original_word": "σημεῖον",
+            "transliteration": "sēmeion",
+            "strongs_number": "G4592",
+            "meaning": "Sign, miracle, attesting wonder; a mark or token that points beyond itself to a deeper reality. — John uses sēmeion exclusively for Jesus' miracles (never dynamis or teras alone). The seven signs of John: water to wine (2:1-11), healing the official's son (4:46-54), healing at Bethesda (5:1-9), feeding 5,000 (6:1-14), walking on water (6:16-21), healing the blind man (9:1-7), raising Lazarus (11:1-44). Each sign reveals Jesus' glory (2:11) and is designed to produce faith (20:30-31). The word occurs 17 times in John."
+          },
+          {
+            "original_word": "δόξα",
+            "transliteration": "doxa",
+            "strongs_number": "G1391",
+            "meaning": "Glory, splendour, radiance, honour; the visible manifestation of God's character and presence. — In John, doxa is the divine radiance that Jesus possesses eternally (17:5, 24) and reveals through his signs (2:11; 11:4, 40). The Prologue declares: 'we beheld his glory' (1:14). Jesus' ultimate glorification occurs through the cross and resurrection — 'the hour' when he is 'glorified' (12:23; 13:31; 17:1). Doxa connects the earthly signs to the heavenly reality: in every miracle, the eternal glory of the Word breaks through into the visible world."
+          },
+          {
+            "original_word": "ἀρχὴν τῶν σημείων",
+            "transliteration": "archēn tōn sēmeiōn",
+            "strongs_number": "G746/G4592",
+            "meaning": "Beginning of signs — first of the seven Johannine signs; archē signals programmatic significance."
+          },
+          {
+            "original_word": "ἐπίστευσαν εἰς αὐτὸν",
+            "transliteration": "episteusan eis auton",
+            "strongs_number": "G4100/G1519",
+            "meaning": "Believed into him — pisteuō + eis: Johannine formula for committed personal trust; preposition implies movement-into."
+          }
+        ],
+        "13": [
+          {
+            "original_word": "πάσχα",
+            "transliteration": "pascha",
+            "strongs_number": "G3957",
+            "meaning": "Passover — first of three Passovers in John (also 6:4; 11:55); chronological framework of Jesus's ministry."
+          }
+        ],
+        "14": [
+          {
+            "original_word": "ἱερόν",
+            "transliteration": "hieron",
+            "strongs_number": "G2411",
+            "meaning": "Temple, sacred precinct; the entire temple complex including courts, porticoes, and buildings. — Distinguished from naos (G3485), which refers to the inner sanctuary. Hieron is used for the temple complex Jesus enters to cleanse (vv.14-15). Naos is used when Jesus speaks of 'this temple' meaning his body (vv.19-21). The distinction is theologically significant: the physical temple complex (hieron) will be superseded by the true sanctuary (naos) — Jesus' body. Hieron occurs 11 times in John; naos only in 2:19-21."
+          }
+        ],
+        "15": [
+          {
+            "original_word": "φραγέλλιον",
+            "transliteration": "phragellion",
+            "strongs_number": "G5416",
+            "meaning": "Whip — from Latin flagellum; small cords; act of authoritative judgment, not random violence."
+          },
+          {
+            "original_word": "κολλυβιστῶν",
+            "transliteration": "kollybistōn",
+            "strongs_number": "G2855",
+            "meaning": "Money-changers — exchanged Greek/Roman coins for Tyrian shekels (the only currency accepted for temple tax/offerings)."
+          }
+        ],
+        "16": [
+          {
+            "original_word": "οἶκον ἐμπορίου",
+            "transliteration": "oikon emporiou",
+            "strongs_number": "G3624/G1712",
+            "meaning": "House of merchandise — emporion: marketplace; commercial trafficking has displaced worship; cf. Mark 11:17 quoting Isa 56:7 / Jer 7:11."
+          },
+          {
+            "original_word": "οἶκον τοῦ πατρός μου",
+            "transliteration": "oikon tou patros mou",
+            "strongs_number": "G3624/G3962",
+            "meaning": "My Father's house — Jesus's claim to filial relation to God; striking authority over the Temple."
+          }
+        ],
+        "17": [
+          {
+            "original_word": "ζῆλος",
+            "transliteration": "zēlos",
+            "strongs_number": "G2205",
+            "meaning": "Zeal, ardour, jealous concern, fervent devotion; intense passion for something sacred. — From zeō (to boil, be hot). Psalm 69:9 is quoted in v.17: 'The zeal of thine house hath eaten me up.' Jesus' zeal is not human temper but holy jealousy for God's honour — the same jealousy God himself has for his name (Ezekiel 39:25). The future tense (kataphagetai — 'will consume me') hints that this zeal will cost Jesus his life. Paul quotes the same psalm regarding Christ's suffering (Romans 15:3; cf. Psalm 69:21 at the cross, John 19:28-29)."
+          },
+          {
+            "original_word": "καταφάγεται",
+            "transliteration": "kataphagetai",
+            "strongs_number": "G2719",
+            "meaning": "Will consume/devour — quotation of Ps 69:9 LXX; Jesus's zeal for God's house will literally lead to his death."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "σημεῖον δεικνύεις",
+            "transliteration": "sēmeion deiknyeis",
+            "strongs_number": "G4592/G1166",
+            "meaning": "What sign do you show? — request for legitimating miracle; Jewish leaders demand credentials before accepting prophetic action."
+          }
+        ],
+        "19": [
+          {
+            "original_word": "ναός",
+            "transliteration": "naos",
+            "strongs_number": "G3485",
+            "meaning": "Sanctuary, inner temple, shrine; the dwelling place of God — the holy place and holy of holies. — In v.19, Jesus uses naos (not hieron) when he says 'Destroy this temple' — he speaks of the inner sanctuary, the place of God's presence. John's editorial note (v.21) explains: 'he spake of the temple (naos) of his body.' Jesus' body is the true holy of holies — the place where God's glory dwells fully (Colossians 2:9). After the resurrection, believers become the naos of God through the indwelling Spirit (1 Corinthians 3:16; 6:19)."
+          },
+          {
+            "original_word": "ἐγείρω",
+            "transliteration": "egeirō",
+            "strongs_number": "G1453",
+            "meaning": "To raise up, to awaken, to resurrect; to cause to stand from a lying or fallen position. — In v.19, Jesus says 'I will raise it up' (egerō auton) — claiming active agency in his own resurrection. This is extraordinary: the Father raises the Son (Romans 6:4; 8:11), yet Jesus says he himself will raise his body. Both are true because Father and Son act in perfect unity (John 10:17-18: 'I have power to lay it down, and I have power to take it again'). Egeirō is the standard NT resurrection verb (used 36 times of resurrection). Jesus' self-resurrection claim is a powerful assertion of deity."
+          },
+          {
+            "original_word": "λύσατε τὸν ναὸν",
+            "transliteration": "lysate ton naon",
+            "strongs_number": "G3089/G3485",
+            "meaning": "\"Destroy this temple\" — provocative command; misunderstood as referring to Herodian temple, but means his body (v.21)."
+          }
+        ],
+        "20": [
+          {
+            "original_word": "τεσσεράκοντα καὶ ἓξ ἔτεσιν",
+            "transliteration": "tesserakonta kai hex etesin",
+            "strongs_number": "G5062/G1803/G2094",
+            "meaning": "46 years — Herod began rebuilding ~20/19 BC; not finished until AD 63/64; this places the conversation ~AD 27/28."
+          }
+        ],
+        "21": [
+          {
+            "original_word": "περὶ τοῦ ναοῦ τοῦ σώματος αὐτοῦ",
+            "transliteration": "peri tou naou tou sōmatos autou",
+            "strongs_number": "G3485/G4983",
+            "meaning": "Concerning the temple of his body — Christ's body is the new temple; the place where God is met is now incarnate."
+          }
+        ],
+        "22": [
+          {
+            "original_word": "ἐμνήσθησαν οἱ μαθηταὶ",
+            "transliteration": "emnēsthēsan hoi mathētai",
+            "strongs_number": "G3415",
+            "meaning": "The disciples remembered (aorist passive) — post-resurrection illumination; recurring Johannine theme of delayed comprehension."
+          }
+        ],
+        "23": [
+          {
+            "original_word": "ἐπίστευσαν εἰς τὸ ὄνομα",
+            "transliteration": "episteusan eis to onoma",
+            "strongs_number": "G4100/G3686",
+            "meaning": "Believed in his name — superficial faith based on signs; sets up Jesus's reserve in v.24-25."
+          }
+        ],
+        "24": [
+          {
+            "original_word": "γινώσκω",
+            "transliteration": "ginōskō",
+            "strongs_number": "G1097",
+            "meaning": "To know, to perceive, to understand, to recognise; experiential, relational knowledge (not merely intellectual). — In vv.24-25, ginōskō describes Jesus' supernatural knowledge of the human heart: 'he knew all men' and 'he knew what was in man.' This is divine omniscience — knowledge that Scripture attributes to God alone (1 Samuel 16:7; Jeremiah 17:10; Psalm 139:1-4). Throughout John, Jesus demonstrates this knowledge: he knows Nathanael before meeting him (1:47-48), knows the Samaritan woman's past (4:17-18), knows who will betray him (6:64, 70-71), and knows Peter's love and future (21:17)."
+          },
+          {
+            "original_word": "ἐπίστευεν αὑτὸν αὐτοῖς",
+            "transliteration": "episteuen hauton autois",
+            "strongs_number": "G4100",
+            "meaning": "Did not entrust himself to them — ironic wordplay: they trusted him, but he did not trust them; sign-faith is not saving faith."
+          }
+        ],
+        "25": [
+          {
+            "original_word": "ἐν τῷ ἀνθρώπῳ",
+            "transliteration": "en tō anthrōpō",
+            "strongs_number": "G444",
+            "meaning": "In the human — Jesus's omniscient knowledge of the human heart; sets up Nicodemus encounter in chapter 3."
+          }
+        ]
+      },
+      "crossRefs": {
+        "1": [
+          {
+            "reference": "John 1:43"
+          },
+          {
+            "reference": "John 4:46"
+          },
+          {
+            "reference": "John 1:43"
+          },
+          {
+            "reference": "Matthew 22:1-14"
+          },
+          {
+            "reference": "Revelation 19:7-9"
+          }
+        ],
+        "3": [
+          {
+            "reference": "Joel 1:10"
+          },
+          {
+            "reference": "Isaiah 24:11"
+          }
+        ],
+        "4": [
+          {
+            "reference": "John 7:30"
+          },
+          {
+            "reference": "John 12:23"
+          },
+          {
+            "reference": "John 13:1"
+          },
+          {
+            "reference": "John 17:1"
+          },
+          {
+            "reference": "Judges 11:12"
+          },
+          {
+            "reference": "2 Samuel 16:10"
+          },
+          {
+            "reference": "John 7:6"
+          },
+          {
+            "reference": "John 7:30"
+          },
+          {
+            "reference": "John 8:20"
+          },
+          {
+            "reference": "John 12:23"
+          },
+          {
+            "reference": "John 13:1"
+          },
+          {
+            "reference": "John 17:1"
+          }
+        ],
+        "5": [
+          {
+            "reference": "Genesis 41:55"
+          },
+          {
+            "reference": "Philippians 2:5-8"
+          },
+          {
+            "reference": "Hebrews 5:8"
+          }
+        ],
+        "6": [
+          {
+            "reference": "Mark 7:3-4"
+          },
+          {
+            "reference": "John 3:25"
+          },
+          {
+            "reference": "Mark 7:3-4"
+          },
+          {
+            "reference": "Numbers 19:11-13"
+          }
+        ],
+        "8": [
+          {
+            "reference": "Amos 9:13-14"
+          }
+        ],
+        "10": [
+          {
+            "reference": "Isaiah 25:6"
+          },
+          {
+            "reference": "Joel 3:18"
+          },
+          {
+            "reference": "Amos 9:13"
+          },
+          {
+            "reference": "John 1:16"
+          },
+          {
+            "reference": "Ecclesiastes 9:7"
+          },
+          {
+            "reference": "Psalm 104:15"
+          }
+        ],
+        "11": [
+          {
+            "reference": "John 1:14"
+          },
+          {
+            "reference": "John 11:4"
+          },
+          {
+            "reference": "John 11:40"
+          },
+          {
+            "reference": "John 20:30-31"
+          },
+          {
+            "reference": "Exodus 4:30-31"
+          },
+          {
+            "reference": "John 1:14"
+          },
+          {
+            "reference": "John 12:37-38"
+          }
+        ],
+        "13": [
+          {
+            "reference": "John 6:4"
+          },
+          {
+            "reference": "John 11:55"
+          },
+          {
+            "reference": "Exodus 12:1-14"
+          },
+          {
+            "reference": "Exodus 12:14-20"
+          },
+          {
+            "reference": "Deuteronomy 16:1-8"
+          },
+          {
+            "reference": "John 6:4"
+          },
+          {
+            "reference": "John 11:55"
+          }
+        ],
+        "14": [
+          {
+            "reference": "Mark 11:15-17"
+          },
+          {
+            "reference": "Matthew 21:12-13"
+          },
+          {
+            "reference": "Luke 19:45-46"
+          },
+          {
+            "reference": "Deuteronomy 14:24-26"
+          }
+        ],
+        "15": [
+          {
+            "reference": "Malachi 3:1-3"
+          },
+          {
+            "reference": "Matthew 21:12-13"
+          },
+          {
+            "reference": "Mark 11:15-17"
+          },
+          {
+            "reference": "Malachi 3:1-3"
+          },
+          {
+            "reference": "Zechariah 14:21"
+          }
+        ],
+        "16": [
+          {
+            "reference": "Luke 2:49"
+          },
+          {
+            "reference": "John 5:17-18"
+          },
+          {
+            "reference": "John 14:2"
+          },
+          {
+            "reference": "Isaiah 56:7"
+          },
+          {
+            "reference": "Jeremiah 7:11"
+          },
+          {
+            "reference": "Hosea 9:15"
+          }
+        ],
+        "17": [
+          {
+            "reference": "Psalm 69:9"
+          },
+          {
+            "reference": "Romans 15:3"
+          },
+          {
+            "reference": "John 19:28-29"
+          },
+          {
+            "reference": "Psalm 69:9"
+          },
+          {
+            "reference": "Romans 15:3"
+          }
+        ],
+        "18": [
+          {
+            "reference": "Matthew 12:38-39"
+          },
+          {
+            "reference": "1 Corinthians 1:22"
+          }
+        ],
+        "19": [
+          {
+            "reference": "Matthew 26:61"
+          },
+          {
+            "reference": "Matthew 27:40"
+          },
+          {
+            "reference": "Mark 14:58"
+          },
+          {
+            "reference": "John 10:17-18"
+          },
+          {
+            "reference": "Matthew 26:60-61"
+          },
+          {
+            "reference": "Matthew 27:40"
+          },
+          {
+            "reference": "Mark 14:58"
+          },
+          {
+            "reference": "Acts 6:14"
+          }
+        ],
+        "21": [
+          {
+            "reference": "John 1:14"
+          },
+          {
+            "reference": "Colossians 2:9"
+          },
+          {
+            "reference": "1 Corinthians 3:16"
+          },
+          {
+            "reference": "1 Corinthians 6:19"
+          },
+          {
+            "reference": "Ephesians 2:21-22"
+          },
+          {
+            "reference": "Revelation 21:22"
+          },
+          {
+            "reference": "1 Corinthians 6:19"
+          },
+          {
+            "reference": "Ephesians 2:19-22"
+          },
+          {
+            "reference": "Revelation 21:22"
+          }
+        ],
+        "22": [
+          {
+            "reference": "John 12:16"
+          },
+          {
+            "reference": "John 14:26"
+          },
+          {
+            "reference": "Luke 24:6-8"
+          },
+          {
+            "reference": "Luke 24:7-8"
+          },
+          {
+            "reference": "John 12:16"
+          },
+          {
+            "reference": "John 14:26"
+          }
+        ],
+        "23": [
+          {
+            "reference": "John 6:26"
+          },
+          {
+            "reference": "John 12:42-43"
+          }
+        ],
+        "24": [
+          {
+            "reference": "1 Samuel 16:7"
+          },
+          {
+            "reference": "Jeremiah 17:10"
+          },
+          {
+            "reference": "Psalm 139:1-4"
+          },
+          {
+            "reference": "Jeremiah 17:9-10"
+          },
+          {
+            "reference": "1 Samuel 16:7"
+          },
+          {
+            "reference": "John 6:64"
+          }
+        ],
+        "25": [
+          {
+            "reference": "John 1:47-48"
+          },
+          {
+            "reference": "John 6:64"
+          },
+          {
+            "reference": "John 21:17"
+          },
+          {
+            "reference": "Psalm 139:1-4"
+          },
+          {
+            "reference": "Hebrews 4:13"
+          },
+          {
+            "reference": "Revelation 2:23"
+          }
+        ]
+      }
     },
     "3": {
       "meta": {
@@ -1196,7 +2323,733 @@
           "study_note": "'Believeth on the Son' (pisteuōn eis ton huion — present participle: the one continually believing into the Son). 'Hath everlasting life' (echei zōēn aiōnion — possesses, present tense: eternal life is a present possession, not merely a future hope). 'Believeth not' (apeithōn — literally 'disobeying'; the word is not apistōn [not believing] but apeithōn [not obeying, being rebellious]. Unbelief is disobedience). 'Shall not see life' (ouk opsetai zōēn — will not see, experience, know life). 'The wrath of God abideth on him' (hē orgē tou theou menei ep auton — remains, continues to rest upon him; present tense: God's wrath is not a future threat but a present reality for the unbeliever).",
           "doctrinal_note": "John 3:36 is the climactic conclusion of the chapter, establishing two absolute categories: (1) The believer 'has' (present tense) everlasting life — it is a current possession, not a future uncertainty. (2) The unbeliever/disobedient one does not merely lack life but lives under the abiding wrath of God. Note: 'believeth not' translates apeithōn (disobeying), not apistōn (not believing) — unbelief is ultimately an act of rebellion against God's authority. 'The wrath of God' (hē orgē tou theou) — John rarely uses this phrase (only here in the Gospel), but when he does, it is emphatic. God's wrath is not arbitrary anger but his settled, holy opposition to sin. It 'abideth' (menei — remains) — it is not removed by time or good works but only by faith in the Son."
         }
-      ]
+      ],
+      "wordStudies": {
+        "1": [
+          {
+            "original_word": "Φαρισαίων",
+            "transliteration": "Pharisaiōn",
+            "strongs_number": "G5330",
+            "meaning": "Pharisees — strict separatist sect; ~6,000 in 1st cent. Judaism; emphasized oral tradition and scrupulous Torah observance."
+          },
+          {
+            "original_word": "ἄρχων τῶν Ἰουδαίων",
+            "transliteration": "archōn tōn Ioudaiōn",
+            "strongs_number": "G758/G2453",
+            "meaning": "Ruler of the Jews — likely member of the Sanhedrin (cf. 7:50; 19:39); high social and religious standing."
+          },
+          {
+            "original_word": "Νικόδημος",
+            "transliteration": "Nikodēmos",
+            "strongs_number": "G3530",
+            "meaning": "Nicodemus — \"victory of the people\"; appears 3x in John, each with growing courage (3:1; 7:50; 19:39)."
+          }
+        ],
+        "2": [
+          {
+            "original_word": "νυκτὸς",
+            "transliteration": "nyktos",
+            "strongs_number": "G3571",
+            "meaning": "By night — ambiguous: caution? privacy? symbolic darkness contrasted with the light of v.19-21? Likely all three."
+          },
+          {
+            "original_word": "ῥαββί",
+            "transliteration": "rhabbi",
+            "strongs_number": "G4461",
+            "meaning": "Rabbi — respectful address; Nicodemus comes acknowledging Jesus as legitimate teacher."
+          },
+          {
+            "original_word": "ἀπὸ θεοῦ ἐλήλυθας",
+            "transliteration": "apo theou elēlythas",
+            "strongs_number": "G2316/G2064",
+            "meaning": "Have come from God (perfect) — divine commission acknowledged, but stops short of Sonship; partial faith."
+          }
+        ],
+        "3": [
+          {
+            "original_word": "ἄνωθεν",
+            "transliteration": "anōthen",
+            "strongs_number": "G509",
+            "meaning": "From above, from a higher place; anew, again; from the beginning. — Anōthen is the key to the Nicodemus dialogue. Its dual meaning ('from above' and 'again') creates a deliberate ambiguity. Nicodemus hears 'again' (v.4); Jesus means 'from above' (the primary Johannine usage: 3:31; 19:11, 23). Both are true: the new birth is a second birth (not a continuation) that comes from above (not from human effort). In 19:23, the seamless robe woven 'from the top' (anōthen) symbolises the heavenly origin of Christ's work. In 19:11, Pilate's authority comes 'from above.' The new birth is a heavenly invasion of earthly existence."
+          },
+          {
+            "original_word": "ἀμὴν ἀμὴν",
+            "transliteration": "amēn amēn",
+            "strongs_number": "G281",
+            "meaning": "Truly, truly — Johannine doubled amēn (25x); Jesus's solemn introduction to authoritative teaching."
+          },
+          {
+            "original_word": "γεννηθῇ",
+            "transliteration": "gennēthē",
+            "strongs_number": "G1080",
+            "meaning": "Be born (aorist passive subjunctive) — passive: the new birth is something done TO us, not BY us."
+          },
+          {
+            "original_word": "βασιλείαν τοῦ θεοῦ",
+            "transliteration": "basileian tou theou",
+            "strongs_number": "G932/G2316",
+            "meaning": "Kingdom of God — only here and v.5 in John (vs ~50x in Synoptics); the realm/reign of God's saving rule."
+          }
+        ],
+        "5": [
+          {
+            "original_word": "ἐξ ὕδατος καὶ πνεύματος",
+            "transliteration": "ex hydatos kai pneumatos",
+            "strongs_number": "G5204/G4151",
+            "meaning": "Of water and spirit — likely allusion to Ezek 36:25-27 (sprinkling water and giving new spirit); single covenantal birth, not two events."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "σὰρξ ἐκ σαρκὸς",
+            "transliteration": "sarx ek sarkos",
+            "strongs_number": "G4561",
+            "meaning": "Flesh of flesh — the natural cannot produce the supernatural; ontological category-difference between physical and spiritual birth."
+          }
+        ],
+        "7": [
+          {
+            "original_word": "δεῖ ὑμᾶς γεννηθῆναι",
+            "transliteration": "dei hymas gennēthēnai",
+            "strongs_number": "G1163/G1080",
+            "meaning": "You must be born — divine necessity (dei); not optional spiritual experience for elite, but required of all."
+          }
+        ],
+        "8": [
+          {
+            "original_word": "πνεῦμα",
+            "transliteration": "pneuma",
+            "strongs_number": "G4151",
+            "meaning": "Spirit, wind, breath; the immaterial part of a person; the Holy Spirit of God. — Pneuma occurs 24 times in John's Gospel. In 3:5-8, the wordplay between 'wind' and 'Spirit' is central: the same word means both, illustrating the sovereign, invisible, powerful nature of the Spirit's work. The Spirit is the agent of new birth (v.5), blowing where he wills (v.8), given without measure to Jesus (v.34). John links pneuma to water (3:5; 7:38-39), to truth (4:23-24; 14:17; 15:26; 16:13), and to life (6:63). The Spirit is personal (14:26; 16:13 — 'he'), sent by the Father (14:26) and the Son (15:26; 16:7)."
+          },
+          {
+            "original_word": "τὸ πνεῦμα ὅπου θέλει πνεῖ",
+            "transliteration": "to pneuma hopou thelei pnei",
+            "strongs_number": "G4151/G2309/G4154",
+            "meaning": "The wind/Spirit blows where it wills — wordplay on pneuma (wind/spirit); divine sovereignty in regeneration."
+          }
+        ],
+        "10": [
+          {
+            "original_word": "διδάσκαλος τοῦ Ἰσραὴλ",
+            "transliteration": "didaskalos tou Israēl",
+            "strongs_number": "G1320/G2474",
+            "meaning": "The teacher of Israel — definite article (ho); Nicodemus had recognized scholastic position; rebuke of his ignorance."
+          }
+        ],
+        "11": [
+          {
+            "original_word": "ὃ οἴδαμεν λαλοῦμεν",
+            "transliteration": "ho oidamen laloumen",
+            "strongs_number": "G1492/G2980",
+            "meaning": "\"What we know we speak\" — plural; Jesus speaks with the Father and Spirit's authority."
+          }
+        ],
+        "12": [
+          {
+            "original_word": "ἐπίγεια... ἐπουράνια",
+            "transliteration": "epigeia... epourania",
+            "strongs_number": "G1919/G2032",
+            "meaning": "Earthly... heavenly — gradation of revelation; if natural analogies (wind, birth) are rejected, divine mysteries cannot land."
+          }
+        ],
+        "13": [
+          {
+            "original_word": "ὁ καταβὰς... ὁ ὢν ἐν τῷ οὐρανῷ",
+            "transliteration": "ho katabas... ho ōn en tō ouranō",
+            "strongs_number": "G2597/G3772",
+            "meaning": "The one who descended... who is in heaven — descent + omnipresence; deity statement embedded in middle of conversation."
+          }
+        ],
+        "14": [
+          {
+            "original_word": "ὑψόω",
+            "transliteration": "hypsoō",
+            "strongs_number": "G5312",
+            "meaning": "To lift up, to raise high, to exalt; used of both physical elevation and glorification. — In John, hypsoō has a distinctive double meaning: (1) the physical lifting up on the cross — crucifixion (3:14; 8:28; 12:32-34), and (2) exaltation to glory. The cross is simultaneously the place of deepest humiliation and highest glorification. 'As Moses lifted up the serpent... so must the Son of man be lifted up' (3:14) — the bronze serpent was lifted on a pole for all to see. 'When ye have lifted up the Son of man, then shall ye know' (8:28) — the cross reveals Jesus' identity. 'I, if I be lifted up from the earth, will draw all men unto me' (12:32) — the cross is the means of universal attraction."
+          },
+          {
+            "original_word": "ὄφιν ἐν τῇ ἐρήμῳ",
+            "transliteration": "ophin en tē erēmō",
+            "strongs_number": "G3789/G2048",
+            "meaning": "Serpent in the wilderness — Numbers 21:8-9; bronze serpent typology; looking-faith brings life from death."
+          }
+        ],
+        "15": [
+          {
+            "original_word": "ζωὴ αἰώνιος",
+            "transliteration": "zōē aiōnios",
+            "strongs_number": "G2222/G166",
+            "meaning": "Eternal life, everlasting life; the life of the age to come, the life proper to God himself. — Zōē aiōnios appears 17 times in John's Gospel — more than in any other NT book. It is not merely endless duration but a quality of life: 'This is life eternal, that they might know thee the only true God, and Jesus Christ, whom thou hast sent' (17:3). Eternal life is knowing God through Christ — a present reality (3:36: 'hath everlasting life'; 5:24: 'is passed from death unto life'), not merely a future hope. It begins at the moment of faith and continues forever. Zōē in John is always God's own life shared with believers, as distinct from bios (biological existence) or psychē (natural soul-life)."
+          }
+        ],
+        "16": [
+          {
+            "original_word": "μονογενής",
+            "transliteration": "monogenēs",
+            "strongs_number": "G3439",
+            "meaning": "Only begotten, one and only, unique, one of a kind; the sole representative of a class. — From monos (only) + genos (kind, type). Monogenēs does not primarily mean 'only begotten' (as if derived from gennaō, to beget) but 'one of a kind, unique' (from genos, kind). It is used of Isaac (Hebrews 11:17) — who was not Abraham's only son, but his unique, covenant son. Applied to Jesus in John (1:14, 18; 3:16, 18), it affirms his unique, one-of-a-kind relationship with the Father — he is the Son in a way no other being is or can be. The LXX uses it for an 'only child' (Judges 11:34). In John 3:16, the giving of the monogenēs Son underscores the supreme cost of God's love."
+          },
+          {
+            "original_word": "κόσμος",
+            "transliteration": "kosmos",
+            "strongs_number": "G2889",
+            "meaning": "World, ordered universe, humanity, the realm of human existence; often the world in its fallenness and opposition to God. — Kosmos occurs 78 times in John — more than any other NT book. It has multiple nuances: (1) the created world (1:10: 'the world was made by him'), (2) humanity (3:16: 'God so loved the world'), (3) the world-system opposed to God (15:18-19: 'the world hateth you'). In 3:16-17, kosmos is the object of God's love and the target of salvation — fallen humanity in its totality. God's love is not limited to Israel but extends to the whole created order. Yet the kosmos can also be hostile: it rejects the light (1:10-11; 3:19) and hates Christ and his followers (7:7; 15:18)."
+          },
+          {
+            "original_word": "ἠγάπησεν",
+            "transliteration": "ēgapēsen",
+            "strongs_number": "G25",
+            "meaning": "Loved (aorist) — historic punctiliar act of love; the cross is the demonstration of God's eternal love (Rom 5:8)."
+          },
+          {
+            "original_word": "ἔδωκεν",
+            "transliteration": "edōken",
+            "strongs_number": "G1325",
+            "meaning": "Gave (aorist) — costly gift; same verb of self-giving in 6:51; cf. Romans 8:32."
+          },
+          {
+            "original_word": "πᾶς ὁ πιστεύων",
+            "transliteration": "pas ho pisteuōn",
+            "strongs_number": "G3956/G4100",
+            "meaning": "Every one believing — universal scope (pas) + condition (believing); wide door, narrow key."
+          },
+          {
+            "original_word": "μὴ ἀπόληται",
+            "transliteration": "mē apolētai",
+            "strongs_number": "G622",
+            "meaning": "Should not perish — apollymi: ruin, destruction; the alternative to eternal life is real, not imaginary."
+          }
+        ],
+        "17": [
+          {
+            "original_word": "οὐκ ἀπέστειλεν... ἵνα κρίνῃ",
+            "transliteration": "ouk apesteilen... hina krinē",
+            "strongs_number": "G649/G2919",
+            "meaning": "Did not send to judge — purpose of incarnation is salvation; judgment is the by-product of unbelief, not the mission."
+          },
+          {
+            "original_word": "σωθῇ",
+            "transliteration": "sōthē",
+            "strongs_number": "G4982",
+            "meaning": "Be saved (aorist passive) — sōzō: rescue, deliver, heal, preserve; comprehensive salvation."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "κέκριται",
+            "transliteration": "kekritai",
+            "strongs_number": "G2919",
+            "meaning": "Has already been judged (perfect) — present unbelief = present condemnation; eschatological verdict already in."
+          }
+        ],
+        "19": [
+          {
+            "original_word": "ἡ κρίσις",
+            "transliteration": "hē krisis",
+            "strongs_number": "G2920",
+            "meaning": "The judgment — defined by the verse: presence of light + preference for darkness = self-judgment."
+          },
+          {
+            "original_word": "ἠγάπησαν... σκότος",
+            "transliteration": "ēgapēsan... skotos",
+            "strongs_number": "G25/G4655",
+            "meaning": "Loved darkness — agapaō here used negatively; the same verb God uses in v.16 humans use for what destroys them."
+          }
+        ],
+        "20": [
+          {
+            "original_word": "φαῦλα",
+            "transliteration": "phaula",
+            "strongs_number": "G5337",
+            "meaning": "Worthless/evil — phaulos: morally rotten, of no value; not just immoral but base."
+          },
+          {
+            "original_word": "ἐλεγχθῇ",
+            "transliteration": "elenchthē",
+            "strongs_number": "G1651",
+            "meaning": "Be exposed/convicted — elenchō: reveal hidden faults; the role light plays toward darkness."
+          }
+        ],
+        "21": [
+          {
+            "original_word": "ποιῶν τὴν ἀλήθειαν",
+            "transliteration": "poiōn tēn alētheian",
+            "strongs_number": "G4160/G225",
+            "meaning": "Doing the truth — Hebrew idiom (asah emet); truth as something practiced, not just believed."
+          }
+        ],
+        "23": [
+          {
+            "original_word": "πολλὰ ὕδατα",
+            "transliteration": "polla hydata",
+            "strongs_number": "G4183/G5204",
+            "meaning": "Many waters — Aenon (\"springs\") near Salim; abundant water for immersion baptism."
+          }
+        ],
+        "29": [
+          {
+            "original_word": "νυμφίος",
+            "transliteration": "nymphios",
+            "strongs_number": "G3566",
+            "meaning": "Bridegroom; the male partner in a wedding; used metaphorically of Christ in relation to his people. — The bridegroom imagery has deep OT roots: God is the husband of Israel (Isaiah 54:5; 62:4-5; Hosea 2:16, 19-20; Jeremiah 2:2). John the Baptist identifies Jesus as the nymphios and himself as the 'friend of the bridegroom' (philos tou nymphiou, v.29) — the shoshbin who arranges the wedding and rejoices when the bridegroom arrives. Jesus also uses the image (Matthew 9:15; 25:1-13). The church is the bride of Christ (Ephesians 5:25-32; Revelation 19:7; 21:2, 9). The Baptist's joy is complete because the Bridegroom has come for his bride."
+          },
+          {
+            "original_word": "φωνήν",
+            "transliteration": "phōnēn",
+            "strongs_number": "G5456",
+            "meaning": "Voice — best man's joy is in hearing the bridegroom's voice; John content to fade as Jesus rises."
+          }
+        ],
+        "30": [
+          {
+            "original_word": "αὐξάνειν... ἐλαττοῦσθαι",
+            "transliteration": "auxanein... elattousthai",
+            "strongs_number": "G837/G1642",
+            "meaning": "To increase... to decrease — divine necessity (dei); the Baptist's ministry was preparatory and self-effacing."
+          }
+        ],
+        "31": [
+          {
+            "original_word": "ἄνωθεν ἐρχόμενος",
+            "transliteration": "anōthen erchomenos",
+            "strongs_number": "G509/G2064",
+            "meaning": "Coming from above — anōthen now applied to Jesus himself; he is the one born from above (cf. v.3)."
+          }
+        ],
+        "33": [
+          {
+            "original_word": "ἐσφράγισεν",
+            "transliteration": "esphragisen",
+            "strongs_number": "G4972",
+            "meaning": "Has set his seal — sphragizō: legal authentication; receiving the testimony certifies God's truthfulness."
+          }
+        ],
+        "34": [
+          {
+            "original_word": "οὐ γὰρ ἐκ μέτρου δίδωσιν τὸ πνεῦμα",
+            "transliteration": "ou gar ek metrou didōsin to pneuma",
+            "strongs_number": "G3358/G1325/G4151",
+            "meaning": "Gives the Spirit without measure — Jesus has the Spirit unlimited (vs OT prophets' partial inspiration)."
+          }
+        ],
+        "35": [
+          {
+            "original_word": "πάντα δέδωκεν ἐν τῇ χειρὶ αὐτοῦ",
+            "transliteration": "panta dedōken en tē cheiri autou",
+            "strongs_number": "G3956/G1325/G5495",
+            "meaning": "Has given all things into his hand — total delegation of Father to Son (cf. Matt 11:27; 28:18)."
+          }
+        ],
+        "36": [
+          {
+            "original_word": "ὀργή",
+            "transliteration": "orgē",
+            "strongs_number": "G3709",
+            "meaning": "Wrath, anger, indignation; God's settled, holy, righteous opposition to sin. — Orgē appears only once in John's Gospel (3:36) but is emphatic: 'the wrath of God abideth on him.' God's wrath is not arbitrary rage but his consistent, holy response to sin and rebellion. It 'abideth' (menei — remains, stays) on the one who disobeys the Son — it is not a future threat but a present reality. Only faith in the Son removes God's wrath (Romans 3:25; 5:9; 1 Thessalonians 1:10; 5:9). The concept of divine wrath is essential to understanding the cross: Christ bore God's wrath in the place of sinners (Isaiah 53:4-6, 10; Romans 3:25; Galatians 3:13; 1 John 2:2)."
+          }
+        ]
+      },
+      "crossRefs": {
+        "1": [
+          {
+            "reference": "John 7:50-51"
+          },
+          {
+            "reference": "John 19:39"
+          },
+          {
+            "reference": "John 2:23-25"
+          },
+          {
+            "reference": "John 7:50-52"
+          },
+          {
+            "reference": "John 19:39"
+          }
+        ],
+        "2": [
+          {
+            "reference": "John 9:33"
+          },
+          {
+            "reference": "Acts 2:22"
+          }
+        ],
+        "3": [
+          {
+            "reference": "1 Peter 1:3"
+          },
+          {
+            "reference": "1 Peter 1:23"
+          },
+          {
+            "reference": "Titus 3:5"
+          },
+          {
+            "reference": "James 1:18"
+          },
+          {
+            "reference": "2 Corinthians 5:17"
+          },
+          {
+            "reference": "Galatians 6:15"
+          },
+          {
+            "reference": "1 Peter 1:23"
+          },
+          {
+            "reference": "Titus 3:5"
+          }
+        ],
+        "5": [
+          {
+            "reference": "Ezekiel 36:25-27"
+          },
+          {
+            "reference": "Ezekiel 37:1-14"
+          },
+          {
+            "reference": "Titus 3:5"
+          },
+          {
+            "reference": "Ezekiel 36:25-27"
+          },
+          {
+            "reference": "Titus 3:5"
+          },
+          {
+            "reference": "Ephesians 5:26"
+          }
+        ],
+        "6": [
+          {
+            "reference": "Romans 8:5-9"
+          },
+          {
+            "reference": "Galatians 5:16-17"
+          },
+          {
+            "reference": "Romans 8:5-9"
+          },
+          {
+            "reference": "1 Corinthians 15:50"
+          }
+        ],
+        "8": [
+          {
+            "reference": "Ecclesiastes 11:5"
+          },
+          {
+            "reference": "John 6:44"
+          },
+          {
+            "reference": "John 6:65"
+          },
+          {
+            "reference": "Ecclesiastes 11:5"
+          },
+          {
+            "reference": "Acts 2:2"
+          }
+        ],
+        "10": [
+          {
+            "reference": "Isaiah 56:10-11"
+          }
+        ],
+        "11": [
+          {
+            "reference": "John 3:32"
+          }
+        ],
+        "12": [
+          {
+            "reference": "1 Corinthians 2:14"
+          }
+        ],
+        "13": [
+          {
+            "reference": "Daniel 7:13-14"
+          },
+          {
+            "reference": "John 1:18"
+          },
+          {
+            "reference": "John 6:38"
+          },
+          {
+            "reference": "John 6:62"
+          },
+          {
+            "reference": "Proverbs 30:4"
+          },
+          {
+            "reference": "Ephesians 4:9-10"
+          }
+        ],
+        "14": [
+          {
+            "reference": "Numbers 21:4-9"
+          },
+          {
+            "reference": "John 8:28"
+          },
+          {
+            "reference": "John 12:32-34"
+          },
+          {
+            "reference": "Isaiah 52:13"
+          },
+          {
+            "reference": "Numbers 21:8-9"
+          },
+          {
+            "reference": "John 8:28"
+          },
+          {
+            "reference": "John 12:32-34"
+          }
+        ],
+        "15": [
+          {
+            "reference": "1 John 5:11-13"
+          }
+        ],
+        "16": [
+          {
+            "reference": "Romans 5:8"
+          },
+          {
+            "reference": "Romans 8:32"
+          },
+          {
+            "reference": "1 John 4:9-10"
+          },
+          {
+            "reference": "John 1:14"
+          },
+          {
+            "reference": "Genesis 22:2"
+          },
+          {
+            "reference": "Romans 5:8"
+          },
+          {
+            "reference": "1 John 4:9-10"
+          },
+          {
+            "reference": "Romans 8:32"
+          },
+          {
+            "reference": "Genesis 22:2"
+          },
+          {
+            "reference": "2 Corinthians 9:15"
+          }
+        ],
+        "17": [
+          {
+            "reference": "John 12:47"
+          },
+          {
+            "reference": "Luke 19:10"
+          },
+          {
+            "reference": "1 Timothy 1:15"
+          },
+          {
+            "reference": "John 12:47"
+          },
+          {
+            "reference": "Luke 19:10"
+          },
+          {
+            "reference": "1 John 4:14"
+          }
+        ],
+        "18": [
+          {
+            "reference": "Romans 8:1"
+          },
+          {
+            "reference": "John 5:24"
+          },
+          {
+            "reference": "1 John 5:10-12"
+          },
+          {
+            "reference": "John 5:24"
+          },
+          {
+            "reference": "Mark 16:16"
+          }
+        ],
+        "19": [
+          {
+            "reference": "John 1:4-5"
+          },
+          {
+            "reference": "John 1:9-11"
+          },
+          {
+            "reference": "John 8:12"
+          },
+          {
+            "reference": "John 1:9-11"
+          },
+          {
+            "reference": "John 8:12"
+          }
+        ],
+        "20": [
+          {
+            "reference": "Job 24:13-17"
+          },
+          {
+            "reference": "Ephesians 5:11-13"
+          }
+        ],
+        "21": [
+          {
+            "reference": "Ephesians 5:8-9"
+          },
+          {
+            "reference": "Matthew 5:16"
+          }
+        ],
+        "23": [
+          {
+            "reference": "1 Samuel 9:4"
+          }
+        ],
+        "27": [
+          {
+            "reference": "James 1:17"
+          },
+          {
+            "reference": "1 Corinthians 4:7"
+          }
+        ],
+        "28": [
+          {
+            "reference": "John 1:20-23"
+          }
+        ],
+        "29": [
+          {
+            "reference": "Isaiah 62:4-5"
+          },
+          {
+            "reference": "Matthew 25:1-13"
+          },
+          {
+            "reference": "Ephesians 5:25-27"
+          },
+          {
+            "reference": "Revelation 19:7"
+          },
+          {
+            "reference": "Matthew 9:15"
+          },
+          {
+            "reference": "Revelation 19:7-9"
+          }
+        ],
+        "30": [
+          {
+            "reference": "John 1:27"
+          },
+          {
+            "reference": "John 1:30"
+          },
+          {
+            "reference": "Isaiah 9:7"
+          },
+          {
+            "reference": "Colossians 1:18"
+          }
+        ],
+        "31": [
+          {
+            "reference": "John 8:23"
+          },
+          {
+            "reference": "Ephesians 1:21"
+          }
+        ],
+        "33": [
+          {
+            "reference": "1 John 5:10"
+          },
+          {
+            "reference": "Romans 4:11"
+          }
+        ],
+        "34": [
+          {
+            "reference": "Isaiah 11:2"
+          },
+          {
+            "reference": "Isaiah 42:1"
+          },
+          {
+            "reference": "Isaiah 61:1"
+          },
+          {
+            "reference": "John 1:32-33"
+          },
+          {
+            "reference": "Isaiah 11:2"
+          },
+          {
+            "reference": "John 1:32-33"
+          },
+          {
+            "reference": "Colossians 1:19"
+          }
+        ],
+        "35": [
+          {
+            "reference": "Matthew 11:27"
+          },
+          {
+            "reference": "Matthew 28:18"
+          },
+          {
+            "reference": "John 17:24"
+          },
+          {
+            "reference": "Matthew 11:27"
+          },
+          {
+            "reference": "Matthew 28:18"
+          },
+          {
+            "reference": "John 5:20"
+          },
+          {
+            "reference": "John 13:3"
+          },
+          {
+            "reference": "Hebrews 1:2"
+          }
+        ],
+        "36": [
+          {
+            "reference": "Romans 1:18"
+          },
+          {
+            "reference": "1 Thessalonians 1:10"
+          },
+          {
+            "reference": "John 5:24"
+          },
+          {
+            "reference": "Ephesians 2:3"
+          }
+        ]
+      }
     },
     "4": {
       "meta": {
@@ -1647,7 +3500,792 @@
           "study_note": "'The second miracle' (deuteron sēmeion — the second sign). John counts Galilean signs: the first was water to wine at Cana (2:11); this is the second, also connected to Cana. Between these two Galilean signs, Jesus performed signs in Jerusalem (2:23; 3:2) which John does not number. The numbering may indicate a 'signs source' that John used, or simply John's literary structure connecting Cana-to-Cana. Both Cana signs involve transformation at a distance: water to wine, death to life.",
           "doctrinal_note": null
         }
-      ]
+      ],
+      "wordStudies": {
+        "4": [
+          {
+            "original_word": "ἔδει διέρχεσθαι διὰ τῆς Σαμαρείας",
+            "transliteration": "edei dierchesthai dia tēs Samareias",
+            "strongs_number": "G1163/G1330/G4540",
+            "meaning": "It was necessary to pass through Samaria — geographic shortcut yes, but dei (divine necessity) suggests theological purpose: salvation must come to the Samaritans."
+          }
+        ],
+        "5": [
+          {
+            "original_word": "Σιχάρ",
+            "transliteration": "Sichar",
+            "strongs_number": "G4965",
+            "meaning": "Sychar — likely modern Askar at the foot of Mt. Ebal; near ancient Shechem; rich patriarchal associations (Gen 12:6-7; 33:18-20)."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "πηγὴ τοῦ Ἰακὼβ",
+            "transliteration": "pēgē tou Iakōb",
+            "strongs_number": "G4077/G2384",
+            "meaning": "Jacob's well — fed by spring; one of the few archaeologically certain sites in Israel; still produces water today (~135 ft deep)."
+          },
+          {
+            "original_word": "κεκοπιακὼς",
+            "transliteration": "kekopiakōs",
+            "strongs_number": "G2872",
+            "meaning": "Wearied (perfect) — kopiaō: exhausting toil; full incarnational humanity — the Creator tires from his journey."
+          },
+          {
+            "original_word": "ὥρα ἕκτη",
+            "transliteration": "hōra hektē",
+            "strongs_number": "G5610/G1623",
+            "meaning": "Sixth hour — noon; unusual time for water-drawing (women came early/late); hints at her social ostracism."
+          }
+        ],
+        "7": [
+          {
+            "original_word": "γυνὴ ἐκ τῆς Σαμαρείας",
+            "transliteration": "gynē ek tēs Samareias",
+            "strongs_number": "G1135/G4540",
+            "meaning": "Samaritan woman — triple barrier: Samaritan, woman, immoral; Jesus crosses all three to evangelize."
+          }
+        ],
+        "9": [
+          {
+            "original_word": "οὐ συγχρῶνται",
+            "transliteration": "ou synchrōntai",
+            "strongs_number": "G3756/G4798",
+            "meaning": "Have no dealings with — synchraomai: share use of (vessels); centuries of mutual ritual avoidance."
+          },
+          {
+            "original_word": "Ἰουδαῖος",
+            "transliteration": "Ioudaios",
+            "strongs_number": "G2453",
+            "meaning": "Jew — woman identifies Jesus by accent/dress/manner; ironic since she will soon believe him to be Messiah."
+          }
+        ],
+        "10": [
+          {
+            "original_word": "ὕδωρ ζῶν",
+            "transliteration": "hydōr zōn",
+            "strongs_number": "G5204/G2198",
+            "meaning": "Living water — fresh, flowing spring water; metaphorically, the water of eternal life, the Holy Spirit. — In the OT, 'living water' (mayim chayyim) refers to fresh, flowing spring water as opposed to stagnant cistern water (Genesis 26:19; Leviticus 14:5; Jeremiah 2:13). God is 'the fountain of living waters' (Jeremiah 2:13; 17:13). Jesus claims to give what only God can give. In 7:38-39, John identifies the living water as the Holy Spirit: 'He that believeth on me... out of his belly shall flow rivers of living water. But this spake he of the Spirit.' The living water is internal ('in him a well,' v.14), inexhaustible ('shall never thirst'), and eternal ('springing up into everlasting life')."
+          },
+          {
+            "original_word": "τὴν δωρεὰν τοῦ θεοῦ",
+            "transliteration": "tēn dōrean tou theou",
+            "strongs_number": "G1431/G2316",
+            "meaning": "The gift of God — dōrea: free gift; Jesus offers what cannot be earned, only received."
+          }
+        ],
+        "11": [
+          {
+            "original_word": "τὸ φρέαρ βαθύ",
+            "transliteration": "to phrear bathy",
+            "strongs_number": "G5421/G901",
+            "meaning": "The well is deep — phrear: dug well/cistern; Jacob's well is ~100+ ft deep; her literal-mindedness contrasts with Jesus's spiritual meaning."
+          }
+        ],
+        "13": [
+          {
+            "original_word": "πᾶς ὁ πίνων",
+            "transliteration": "pas ho pinōn",
+            "strongs_number": "G3956/G4095",
+            "meaning": "Everyone drinking (present participle) — natural water leaves repeated thirst; living water permanently satisfies."
+          }
+        ],
+        "14": [
+          {
+            "original_word": "πηγή",
+            "transliteration": "pēgē",
+            "strongs_number": "G4077",
+            "meaning": "Spring, fountain, well; a source of flowing water; metaphorically, an inner source of spiritual life. — Pēgē refers to a spring or natural water source (as opposed to a cistern, which collects rainwater). In v.6, it refers to Jacob's well. In v.14, Jesus promises that the living water 'shall be in him a pēgē of water springing up into everlasting life.' The believer becomes a spring — not just a container but a source. The image appears in Revelation 7:17 ('the Lamb... shall lead them unto living fountains of waters') and 21:6 ('I will give unto him that is athirst of the fountain of the water of life freely')."
+          },
+          {
+            "original_word": "οὐ μὴ διψήσει εἰς τὸν αἰῶνα",
+            "transliteration": "ou mē dipsēsei eis ton aiōna",
+            "strongs_number": "G3756/G3361/G1372/G165",
+            "meaning": "Will never thirst into the age — emphatic double negative; eternal satisfaction."
+          },
+          {
+            "original_word": "πηγὴ ὕδατος ἁλλομένου",
+            "transliteration": "pēgē hydatos hallomenou",
+            "strongs_number": "G4077/G5204/G242",
+            "meaning": "Spring of water leaping up — hallomai: leap, gush; vivid image of internal spiritual artesian source."
+          }
+        ],
+        "16": [
+          {
+            "original_word": "ὕπαγε φώνησον τὸν ἄνδρα σου",
+            "transliteration": "hypage phōnēson ton andra sou",
+            "strongs_number": "G5217/G5455/G435",
+            "meaning": "\"Go call your husband\" — Jesus pivots from intellectual discussion to her moral situation; the path to true worship goes through honest confrontation."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "πέντε ἄνδρας ἔσχες",
+            "transliteration": "pente andras esches",
+            "strongs_number": "G4002/G435/G2192",
+            "meaning": "Five husbands you have had — likely combination of deaths and divorces; v.18 implies current cohabitation outside marriage."
+          }
+        ],
+        "19": [
+          {
+            "original_word": "προφήτης εἶ σύ",
+            "transliteration": "prophētēs ei sy",
+            "strongs_number": "G4396/G4771",
+            "meaning": "\"You are a prophet\" — woman's recognition; Samaritans expected the Taheb (Restorer-Prophet of Deut 18:15-18)."
+          }
+        ],
+        "20": [
+          {
+            "original_word": "τὸ ὄρος τοῦτο",
+            "transliteration": "to oros touto",
+            "strongs_number": "G3735",
+            "meaning": "This mountain — Mt. Gerizim; Samaritan temple destroyed by John Hyrcanus 128 BC, but worship continued."
+          }
+        ],
+        "21": [
+          {
+            "original_word": "ἔρχεται ὥρα",
+            "transliteration": "erchetai hōra",
+            "strongs_number": "G2064/G5610",
+            "meaning": "An hour is coming — eschatological transition; new covenant worship transcends geography."
+          }
+        ],
+        "22": [
+          {
+            "original_word": "ἡ σωτηρία ἐκ τῶν Ἰουδαίων ἐστίν",
+            "transliteration": "hē sōtēria ek tōn Ioudaiōn estin",
+            "strongs_number": "G4991/G2453",
+            "meaning": "\"Salvation is from the Jews\" — covenantal priority of Israel (Rom 9:4-5; 11:18); not exclusivist but historic-theological."
+          }
+        ],
+        "23": [
+          {
+            "original_word": "οἱ ἀληθινοὶ προσκυνηταὶ",
+            "transliteration": "hoi alēthinoi proskynētai",
+            "strongs_number": "G228/G4353",
+            "meaning": "True worshipers — alēthinos: real, genuine; defined by manner (spirit/truth), not location."
+          },
+          {
+            "original_word": "ἐν πνεύματι καὶ ἀληθείᾳ",
+            "transliteration": "en pneumati kai alētheia",
+            "strongs_number": "G4151/G225",
+            "meaning": "In spirit and truth — single sphere governed by both the Spirit and the truth (Christ); inward authentic worship."
+          }
+        ],
+        "24": [
+          {
+            "original_word": "προσκυνέω",
+            "transliteration": "proskyneō",
+            "strongs_number": "G4352",
+            "meaning": "To worship, to bow down before, to do obeisance, to prostrate oneself in reverence. — From pros (toward) + kyneō (to kiss). Originally meant to kiss the ground before a deity or king. In John 4, proskyneō occurs 10 times (vv.20-24), making it the most concentrated discussion of worship in the Gospels. True worship is 'in spirit and in truth' (v.23-24) — not defined by location (Gerizim or Jerusalem) but by the nature of God himself ('God is Spirit'). The Father 'seeketh' (zētei) true worshippers — the only place in Scripture where God is said to seek worshippers."
+          },
+          {
+            "original_word": "πνεῦμα ὁ θεός",
+            "transliteration": "pneuma ho theos",
+            "strongs_number": "G4151/G2316",
+            "meaning": "\"God is spirit\" — anarthrous predicate (qualitative); not \"a spirit\" but spirit by nature; ontological statement."
+          }
+        ],
+        "25": [
+          {
+            "original_word": "Μεσσίας... Χριστός",
+            "transliteration": "Messias... Christos",
+            "strongs_number": "G3323/G5547",
+            "meaning": "Messiah... Christ — Aramaic/Greek equivalents; even Samaritans (with truncated canon) expected the coming Anointed."
+          }
+        ],
+        "26": [
+          {
+            "original_word": "ἐγώ εἰμι",
+            "transliteration": "egō eimi",
+            "strongs_number": "G1473/G1510",
+            "meaning": "I am — the divine self-identification formula, echoing the name God revealed to Moses at the burning bush. — In v.26, Jesus says 'egō eimi, ho lalōn soi' ('I am, the one speaking to you'). This is the first of many egō eimi declarations in John. Some are predicated ('I am the bread of life,' 6:35; 'I am the light,' 8:12; etc.), while others are absolute (8:24, 28, 58; 13:19; 18:5-6). The absolute 'I am' echoes Exodus 3:14 ('I AM THAT I AM') and Isaiah 43:10-11 ('I am he... I, even I, am the LORD'). Jesus' messianic self-revelation to the Samaritan woman uses this divine formula."
+          },
+          {
+            "original_word": "ἐγώ εἰμι",
+            "transliteration": "egō eimi",
+            "strongs_number": "G1473/G1510",
+            "meaning": "I AM — first explicit \"I am\" self-disclosure to a woman, a Samaritan, with morally compromised history; gospel order reversed."
+          }
+        ],
+        "27": [
+          {
+            "original_word": "ἐθαύμαζον ὅτι μετὰ γυναικὸς ἐλάλει",
+            "transliteration": "ethaumazon hoti meta gynaikos elalei",
+            "strongs_number": "G2296/G1135/G2980",
+            "meaning": "Marveled that he was speaking with a woman — rabbinic prohibition: \"let no man talk with a woman in the street, no, not with his own wife\"."
+          }
+        ],
+        "28": [
+          {
+            "original_word": "ἀφῆκεν τὴν ὑδρίαν",
+            "transliteration": "aphēken tēn hydrian",
+            "strongs_number": "G863/G5201",
+            "meaning": "Left her water jar — symbolic detail: she abandons the lesser thirst for the greater task of witness."
+          }
+        ],
+        "29": [
+          {
+            "original_word": "μήτι οὗτός ἐστιν ὁ Χριστός",
+            "transliteration": "mēti houtos estin ho Christos",
+            "strongs_number": "G3385/G5547",
+            "meaning": "\"Could this be the Christ?\" — tentative form (mēti expects \"no\" answer) shows her humility but also conviction."
+          }
+        ],
+        "32": [
+          {
+            "original_word": "βρῶσιν φαγεῖν",
+            "transliteration": "brōsin phagein",
+            "strongs_number": "G1035/G5315",
+            "meaning": "Food to eat — Jesus's sustenance: doing the Father's will (v.34) feeds him more than physical bread."
+          }
+        ],
+        "34": [
+          {
+            "original_word": "τελειώσω",
+            "transliteration": "teleiōsō",
+            "strongs_number": "G5048",
+            "meaning": "To complete (aorist subjunctive) — telos: bring to fullness; same root as tetelestai (19:30)."
+          }
+        ],
+        "35": [
+          {
+            "original_word": "θερισμός",
+            "transliteration": "therismos",
+            "strongs_number": "G2326",
+            "meaning": "Harvest, reaping; the gathering of crops; metaphorically, the gathering of souls into the kingdom. — From therizō (to reap, to harvest). Jesus uses the harvest metaphor (vv.35-38) to describe the spiritual readiness of the Samaritans. 'The fields are white already to harvest' — the spiritual harvest is ripe now, not in four months. The harvest imagery appears throughout Scripture: Joel 3:13 (judgment), Matthew 9:37-38 ('the harvest truly is plenteous, but the labourers are few'), Matthew 13:39 ('the harvest is the end of the world'), Revelation 14:15 (the final reaping). Here the emphasis is on present opportunity, not future judgment."
+          },
+          {
+            "original_word": "λευκαί",
+            "transliteration": "leukai",
+            "strongs_number": "G3022",
+            "meaning": "White — ripe grain heads turn pale yellow-white; mission readiness imagery."
+          }
+        ],
+        "36": [
+          {
+            "original_word": "μισθὸν λαμβάνει",
+            "transliteration": "misthon lambanei",
+            "strongs_number": "G3408/G2983",
+            "meaning": "Receives wages — kingdom labor has reward (Matt 5:12; 1 Cor 3:14); sower and reaper rejoice together."
+          }
+        ],
+        "38": [
+          {
+            "original_word": "ἄλλοι κεκοπιάκασιν",
+            "transliteration": "alloi kekopiakasin",
+            "strongs_number": "G243/G2872",
+            "meaning": "Others have labored — apostolic harvest depends on prior generations of OT prophets and pre-evangelistic groundwork."
+          }
+        ],
+        "42": [
+          {
+            "original_word": "σωτήρ",
+            "transliteration": "sōtēr",
+            "strongs_number": "G4990",
+            "meaning": "Saviour, deliverer, preserver; one who rescues from danger or destruction. — The Samaritans confess Jesus as 'the Saviour of the world' (ho sōtēr tou kosmou, v.42) — a title occurring only here and 1 John 4:14 in Scripture. In the OT, God alone is Saviour: 'I, even I, am the LORD; and beside me there is no saviour' (Isaiah 43:11; cf. Hosea 13:4). To call Jesus 'Saviour of the world' is to attribute to him a divine function. The title also contrasts with the Roman imperial cult, where emperors claimed the title sōtēr tou kosmou. The true Saviour is not Caesar but Christ."
+          },
+          {
+            "original_word": "τοῦ κόσμου",
+            "transliteration": "tou kosmou",
+            "strongs_number": "G2889",
+            "meaning": "Of the world — Samaritan villagers move beyond ethnic boundary: Jesus is Savior not just of Jews but of the kosmos."
+          }
+        ],
+        "44": [
+          {
+            "original_word": "ἐν τῇ ἰδίᾳ πατρίδι",
+            "transliteration": "en tē idia patridi",
+            "strongs_number": "G2398/G3968",
+            "meaning": "In his own homeland — generic dishonor of prophets; Jesus paradoxically welcomed in Galilee precisely because they had seen Jerusalem signs (v.45)."
+          }
+        ],
+        "46": [
+          {
+            "original_word": "βασιλικός",
+            "transliteration": "basilikos",
+            "strongs_number": "G937",
+            "meaning": "Royal official, nobleman, one connected to the king's court; from basileus (king). — The basilikos was an officer in the service of Herod Antipas (tetrarch of Galilee). Some identify him with Chuza, Herod's steward, whose wife Joanna later followed Jesus (Luke 8:3). The term indicates social standing and political connection — this is not a peasant but a man of rank and resources. Yet his son's illness has brought him to the point of desperate faith. Social position provides no immunity from suffering, and suffering can be the doorway to faith."
+          }
+        ],
+        "48": [
+          {
+            "original_word": "σημεῖα καὶ τέρατα",
+            "transliteration": "sēmeia kai terata",
+            "strongs_number": "G4592/G5059",
+            "meaning": "Signs and wonders — formulaic OT/NT pairing (Exod 7:3; Acts 2:22); Jesus laments faith dependent on miraculous validation."
+          }
+        ],
+        "50": [
+          {
+            "original_word": "λόγος",
+            "transliteration": "logos",
+            "strongs_number": "G3056",
+            "meaning": "Word, saying, message, statement; the expressed thought or utterance; in John, the divine self-expression. — In v.50, 'the man believed the word (tō logō) that Jesus had spoken.' The logos Jesus speaks has creative power — it heals at a distance, just as God's word created the universe (Genesis 1:3; Psalm 33:6; Hebrews 11:3). The connection to John 1:1 ('In the beginning was the Logos') is deliberate: the Word who made all things (1:3) speaks a word that restores life. To believe 'the word' is to trust in the person who speaks it — the Logos incarnate."
+          },
+          {
+            "original_word": "ἐπίστευσεν ὁ ἄνθρωπος τῷ λόγῳ",
+            "transliteration": "episteusen ho anthrōpos tō logō",
+            "strongs_number": "G4100/G3056",
+            "meaning": "Believed the word — pure word-faith without sign; matures from sign-faith (v.48) to word-faith to full faith (v.53)."
+          }
+        ],
+        "52": [
+          {
+            "original_word": "ὥραν ἑβδόμην",
+            "transliteration": "hōran hebdomēn",
+            "strongs_number": "G5610/G1442",
+            "meaning": "Seventh hour — 1 PM; precise time-stamp confirms supernatural healing was simultaneous with Jesus's word."
+          }
+        ],
+        "53": [
+          {
+            "original_word": "ἐπίστευσεν αὐτὸς καὶ ἡ οἰκία αὐτοῦ ὅλη",
+            "transliteration": "episteusen autos kai hē oikia autou holē",
+            "strongs_number": "G4100/G3614",
+            "meaning": "Himself and his whole household believed — household conversion pattern (cf. Acts 16:31-34)."
+          }
+        ],
+        "54": [
+          {
+            "original_word": "δεύτερον σημεῖον",
+            "transliteration": "deuteron sēmeion",
+            "strongs_number": "G1208/G4592",
+            "meaning": "Second sign — both Cana signs (water-to-wine, healing at distance) frame chapters 2-4; signs-source numbering."
+          }
+        ]
+      },
+      "crossRefs": {
+        "4": [
+          {
+            "reference": "Luke 9:51-56"
+          },
+          {
+            "reference": "Acts 1:8"
+          },
+          {
+            "reference": "Acts 8:4-8"
+          },
+          {
+            "reference": "Luke 9:51-53"
+          },
+          {
+            "reference": "2 Kings 17:24-41"
+          }
+        ],
+        "5": [
+          {
+            "reference": "Genesis 33:18-20"
+          },
+          {
+            "reference": "Genesis 48:22"
+          },
+          {
+            "reference": "Joshua 24:32"
+          }
+        ],
+        "6": [
+          {
+            "reference": "John 1:14"
+          },
+          {
+            "reference": "Hebrews 4:15"
+          },
+          {
+            "reference": "Hebrews 4:15"
+          },
+          {
+            "reference": "Matthew 8:24"
+          }
+        ],
+        "9": [
+          {
+            "reference": "Ezra 4:1-5"
+          },
+          {
+            "reference": "Nehemiah 4:1-2"
+          },
+          {
+            "reference": "Acts 10:28"
+          }
+        ],
+        "10": [
+          {
+            "reference": "Jeremiah 2:13"
+          },
+          {
+            "reference": "Jeremiah 17:13"
+          },
+          {
+            "reference": "Isaiah 12:3"
+          },
+          {
+            "reference": "Isaiah 55:1"
+          },
+          {
+            "reference": "John 7:37-39"
+          },
+          {
+            "reference": "Isaiah 12:3"
+          },
+          {
+            "reference": "Jeremiah 2:13"
+          },
+          {
+            "reference": "Romans 6:23"
+          },
+          {
+            "reference": "Ephesians 2:8"
+          }
+        ],
+        "13": [
+          {
+            "reference": "Isaiah 55:1-3"
+          }
+        ],
+        "14": [
+          {
+            "reference": "John 7:38-39"
+          },
+          {
+            "reference": "Isaiah 44:3"
+          },
+          {
+            "reference": "Revelation 21:6"
+          },
+          {
+            "reference": "Revelation 7:17"
+          },
+          {
+            "reference": "John 6:35"
+          },
+          {
+            "reference": "John 7:37-39"
+          },
+          {
+            "reference": "Revelation 7:17"
+          },
+          {
+            "reference": "Revelation 21:6"
+          },
+          {
+            "reference": "Revelation 22:17"
+          }
+        ],
+        "16": [
+          {
+            "reference": "Hebrews 4:13"
+          }
+        ],
+        "18": [
+          {
+            "reference": "John 2:24-25"
+          },
+          {
+            "reference": "2 Kings 17:24-41"
+          },
+          {
+            "reference": "Hosea 2:7"
+          }
+        ],
+        "19": [
+          {
+            "reference": "Luke 7:39"
+          },
+          {
+            "reference": "Deuteronomy 18:15-18"
+          }
+        ],
+        "20": [
+          {
+            "reference": "Deuteronomy 12:5-7"
+          },
+          {
+            "reference": "2 Kings 17:32-33"
+          },
+          {
+            "reference": "Psalm 122:1-4"
+          }
+        ],
+        "21": [
+          {
+            "reference": "Malachi 1:11"
+          },
+          {
+            "reference": "1 Timothy 2:8"
+          }
+        ],
+        "22": [
+          {
+            "reference": "Romans 9:4-5"
+          },
+          {
+            "reference": "Genesis 12:3"
+          },
+          {
+            "reference": "Isaiah 2:3"
+          },
+          {
+            "reference": "Romans 9:4-5"
+          },
+          {
+            "reference": "Romans 11:18"
+          },
+          {
+            "reference": "Genesis 12:3"
+          },
+          {
+            "reference": "Isaiah 2:3"
+          }
+        ],
+        "23": [
+          {
+            "reference": "Philippians 3:3"
+          },
+          {
+            "reference": "Romans 12:1"
+          },
+          {
+            "reference": "Psalm 145:18"
+          },
+          {
+            "reference": "Philippians 3:3"
+          },
+          {
+            "reference": "Romans 12:1"
+          }
+        ],
+        "24": [
+          {
+            "reference": "1 John 1:5"
+          },
+          {
+            "reference": "1 John 4:8"
+          },
+          {
+            "reference": "Deuteronomy 4:15-19"
+          },
+          {
+            "reference": "2 Corinthians 3:17"
+          },
+          {
+            "reference": "1 Timothy 1:17"
+          },
+          {
+            "reference": "Hebrews 12:28-29"
+          }
+        ],
+        "25": [
+          {
+            "reference": "Deuteronomy 18:18"
+          }
+        ],
+        "26": [
+          {
+            "reference": "Exodus 3:14"
+          },
+          {
+            "reference": "John 8:58"
+          },
+          {
+            "reference": "John 18:5-6"
+          },
+          {
+            "reference": "Isaiah 43:10-11"
+          },
+          {
+            "reference": "John 8:24"
+          },
+          {
+            "reference": "John 8:58"
+          },
+          {
+            "reference": "John 13:19"
+          }
+        ],
+        "28": [
+          {
+            "reference": "Mark 16:10"
+          }
+        ],
+        "29": [
+          {
+            "reference": "John 4:39"
+          }
+        ],
+        "32": [
+          {
+            "reference": "Job 23:12"
+          },
+          {
+            "reference": "Matthew 4:4"
+          }
+        ],
+        "34": [
+          {
+            "reference": "John 5:30"
+          },
+          {
+            "reference": "John 6:38"
+          },
+          {
+            "reference": "John 17:4"
+          },
+          {
+            "reference": "John 19:30"
+          },
+          {
+            "reference": "John 5:30"
+          },
+          {
+            "reference": "John 6:38"
+          },
+          {
+            "reference": "John 17:4"
+          },
+          {
+            "reference": "John 19:30"
+          },
+          {
+            "reference": "Hebrews 10:7-9"
+          }
+        ],
+        "35": [
+          {
+            "reference": "Matthew 9:37-38"
+          },
+          {
+            "reference": "Luke 10:2"
+          },
+          {
+            "reference": "Matthew 9:37-38"
+          },
+          {
+            "reference": "Luke 10:2"
+          }
+        ],
+        "36": [
+          {
+            "reference": "1 Corinthians 3:6-9"
+          },
+          {
+            "reference": "1 Corinthians 9:25"
+          }
+        ],
+        "38": [
+          {
+            "reference": "Acts 8:5-8"
+          },
+          {
+            "reference": "Acts 8:14-17"
+          }
+        ],
+        "39": [
+          {
+            "reference": "1 Thessalonians 1:8"
+          }
+        ],
+        "42": [
+          {
+            "reference": "1 John 4:14"
+          },
+          {
+            "reference": "John 1:29"
+          },
+          {
+            "reference": "John 3:16-17"
+          },
+          {
+            "reference": "Isaiah 43:11"
+          },
+          {
+            "reference": "1 John 4:14"
+          },
+          {
+            "reference": "Acts 4:12"
+          },
+          {
+            "reference": "1 Timothy 4:10"
+          }
+        ],
+        "44": [
+          {
+            "reference": "Mark 6:4"
+          },
+          {
+            "reference": "Luke 4:24"
+          },
+          {
+            "reference": "Matthew 13:57"
+          },
+          {
+            "reference": "Mark 6:4"
+          },
+          {
+            "reference": "Luke 4:24"
+          }
+        ],
+        "45": [
+          {
+            "reference": "John 2:23"
+          }
+        ],
+        "48": [
+          {
+            "reference": "John 20:29"
+          },
+          {
+            "reference": "1 Corinthians 1:22"
+          },
+          {
+            "reference": "Exodus 7:3"
+          },
+          {
+            "reference": "Acts 2:22"
+          },
+          {
+            "reference": "1 Corinthians 1:22"
+          }
+        ],
+        "50": [
+          {
+            "reference": "Matthew 8:8-10"
+          },
+          {
+            "reference": "Psalm 107:20"
+          },
+          {
+            "reference": "Matthew 8:13"
+          },
+          {
+            "reference": "Romans 4:20-21"
+          }
+        ],
+        "52": [
+          {
+            "reference": "Mark 5:35"
+          }
+        ],
+        "53": [
+          {
+            "reference": "Acts 16:31-34"
+          },
+          {
+            "reference": "Acts 10:2"
+          },
+          {
+            "reference": "Acts 16:31-34"
+          },
+          {
+            "reference": "Acts 18:8"
+          }
+        ],
+        "54": [
+          {
+            "reference": "John 2:11"
+          }
+        ]
+      }
     },
     "5": {
       "meta": {
@@ -2041,7 +4679,787 @@
           "study_note": "'His writings' (tois ekeinou grammasin — that one's writings; grammata: written documents, the Pentateuch). 'My words' (tois emois rhēmasin — my spoken words). The argument is a fortiori (from the lesser to the greater): if you do not believe the written words of Moses (which you claim to revere), how will you believe the spoken words of Jesus (whom you are rejecting)? The written word and the living Word testify in harmony; to reject one is to reject both. This closing question leaves the Jewish leaders with no defense — their own Scriptures accuse them.",
           "doctrinal_note": null
         }
-      ]
+      ],
+      "wordStudies": {
+        "1": [
+          {
+            "original_word": "ἑορτὴ τῶν Ἰουδαίων",
+            "transliteration": "heortē tōn Ioudaiōn",
+            "strongs_number": "G1859/G2453",
+            "meaning": "Feast of the Jews — unspecified; possibly Passover, Pentecost, or Tabernacles; vagueness suggests it was not central to John's purpose."
+          }
+        ],
+        "2": [
+          {
+            "original_word": "προβατικῇ",
+            "transliteration": "probatikē",
+            "strongs_number": "G4262",
+            "meaning": "Sheep gate — northeast wall of Jerusalem temple complex; near where sacrificial animals entered."
+          },
+          {
+            "original_word": "Βηθεσδά",
+            "transliteration": "Bēthesda",
+            "strongs_number": "G964",
+            "meaning": "Bethesda — Aramaic \"house of mercy\"; archaeologically confirmed twin pools NE of Temple Mount."
+          },
+          {
+            "original_word": "στοὰς πέντε",
+            "transliteration": "stoas pente",
+            "strongs_number": "G4745/G4002",
+            "meaning": "Five porticoes — covered colonnades; matches archaeological excavation (4 sides + center divider = 5)."
+          }
+        ],
+        "3": [
+          {
+            "original_word": "ἀσθενούντων",
+            "transliteration": "asthenountōn",
+            "strongs_number": "G770",
+            "meaning": "Sick/weak — asthenēs: lacking strength; broad term for the chronically afflicted."
+          }
+        ],
+        "5": [
+          {
+            "original_word": "τριάκοντα ὀκτὼ ἔτη",
+            "transliteration": "triakonta oktō etē",
+            "strongs_number": "G5144/G3638/G2094",
+            "meaning": "Thirty-eight years — extreme chronicity; perhaps echo of Israel's 38 years of wilderness wandering (Deut 2:14)."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "ὑγιής",
+            "transliteration": "hygiēs",
+            "strongs_number": "G5199",
+            "meaning": "Whole, sound, healthy, well; complete restoration to full function. — Jesus asks 'Wilt thou be made whole?' (hygiēs genesthai, v.6) — the same word is used in v.9 ('was made whole'), v.11 ('he that made me whole'), v.14 ('thou art made whole'), and v.15 ('made him whole'). The emphasis is not merely on the removal of sickness but on the restoration of complete wholeness. This is the character of Jesus' healing: not partial improvement but total restoration. The English word 'hygiene' derives from this root."
+          },
+          {
+            "original_word": "θέλεις ὑγιὴς γενέσθαι",
+            "transliteration": "theleis hygiēs genesthai",
+            "strongs_number": "G2309/G5199/G1096",
+            "meaning": "\"Do you want to be made well?\" — confronts the man's will; sometimes the chronically suffering find security in their condition."
+          }
+        ],
+        "7": [
+          {
+            "original_word": "ἄνθρωπον οὐκ ἔχω",
+            "transliteration": "anthrōpon ouk echō",
+            "strongs_number": "G444/G2192",
+            "meaning": "\"I have no man\" — pathetic isolation; sets up Jesus as the Man he needed all along."
+          }
+        ],
+        "8": [
+          {
+            "original_word": "ἆρον τὸν κράββατόν σου καὶ περιπάτει",
+            "transliteration": "aron ton krabbaton sou kai peripatei",
+            "strongs_number": "G142/G2895/G4043",
+            "meaning": "\"Take up your mat and walk\" — krabbatos: pallet/poor man's bedroll; comprehensive command demonstrating instant healing."
+          }
+        ],
+        "9": [
+          {
+            "original_word": "σάββατον",
+            "transliteration": "sabbaton",
+            "strongs_number": "G4521",
+            "meaning": "Sabbath — narrator delays this detail to v.9b for dramatic effect; explains the ensuing controversy."
+          }
+        ],
+        "10": [
+          {
+            "original_word": "οὐκ ἔξεστίν σοι ἆραι",
+            "transliteration": "ouk exestin soi arai",
+            "strongs_number": "G3756/G1832/G142",
+            "meaning": "\"It is not lawful for you to carry\" — rabbinic interpretation forbade carrying objects from one domain to another on Sabbath."
+          }
+        ],
+        "14": [
+          {
+            "original_word": "μηκέτι ἁμάρτανε",
+            "transliteration": "mēketi hamartane",
+            "strongs_number": "G3371/G264",
+            "meaning": "\"Sin no more\" — present imperative; not absolute sinlessness but cessation of a particular pattern; suggests his condition had moral cause."
+          },
+          {
+            "original_word": "χεῖρόν σοί τι γένηται",
+            "transliteration": "cheiron soi ti genētai",
+            "strongs_number": "G5501",
+            "meaning": "Lest something worse happen — eschatological warning about persistent sin (cf. Matt 12:45)."
+          }
+        ],
+        "16": [
+          {
+            "original_word": "ἐδίωκον",
+            "transliteration": "ediōkon",
+            "strongs_number": "G1377",
+            "meaning": "Began to persecute (imperfect) — diōkō: pursue with hostility; the conflict that culminates in the cross begins here."
+          }
+        ],
+        "17": [
+          {
+            "original_word": "ἐργάζομαι",
+            "transliteration": "ergazomai",
+            "strongs_number": "G2038",
+            "meaning": "To work, to labour, to be active, to produce; to carry on a trade or business. — In v.17, Jesus says 'My Father worketh hitherto, and I work' (ho patēr mou heōs arti ergazetai kagō ergazomai). The rabbis acknowledged that God works on the Sabbath: he sustains creation, gives life at birth, and judges souls at death. Jesus claims the same divine prerogative: his Sabbath healing is the continuation of the Father's unceasing work. Father and Son work together — the same work, at the same time, in the same manner. The verb connects to ergon (work, v.20, 36) and to the 'works' the Father gives Jesus to finish."
+          },
+          {
+            "original_word": "ὁ πατήρ μου ἕως ἄρτι ἐργάζεται",
+            "transliteration": "ho patēr mou heōs arti ergazetai",
+            "strongs_number": "G3962/G2193/G2038",
+            "meaning": "\"My Father is working until now\" — appeals to rabbinic recognition that God sustains creation even on Sabbath; claims same prerogative."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "ἴσος",
+            "transliteration": "isos",
+            "strongs_number": "G2470",
+            "meaning": "Equal, equivalent, identical in quality, quantity, or nature; the same as. — In v.18, the Jews accuse Jesus of 'making himself equal with God' (ison heauton poiōn tō theō). Isos means equal in the fullest sense — the same in essence, not merely similar or comparable. This is the central christological issue in John 5: is Jesus truly equal with God? Jesus' discourse (vv.19-47) confirms rather than denies the equality — but defines it as functional unity, not independent rivalry. The Son does everything the Father does (v.19), gives life as the Father does (v.21), judges as the Father does (v.22), and receives equal honour (v.23)."
+          },
+          {
+            "original_word": "ἀποκτεῖναι",
+            "transliteration": "apokteinai",
+            "strongs_number": "G615",
+            "meaning": "To kill — Sabbath-breaking + claim to equality with God = capital blasphemy under Lev 24:16."
+          },
+          {
+            "original_word": "πατέρα ἴδιον",
+            "transliteration": "patera idion",
+            "strongs_number": "G3962/G2398",
+            "meaning": "His own Father — idios: peculiar, personal; not \"our Father\" generic but unique filial claim, hence theos isos charge."
+          }
+        ],
+        "19": [
+          {
+            "original_word": "οὐ δύναται ὁ υἱὸς ποιεῖν ἀφ' ἑαυτοῦ",
+            "transliteration": "ou dynatai ho huios poiein aph heautou",
+            "strongs_number": "G1410/G5207/G4160",
+            "meaning": "The Son can do nothing of himself — not weakness but perfect filial dependence; the Son's autonomy would be the Son's defection."
+          }
+        ],
+        "20": [
+          {
+            "original_word": "φιλεῖ ὁ πατὴρ τὸν υἱὸν",
+            "transliteration": "philei ho patēr ton huion",
+            "strongs_number": "G5368/G3962/G5207",
+            "meaning": "The Father loves the Son — phileō here (cf. agapaō in 3:35); intimate Trinitarian affection."
+          }
+        ],
+        "21": [
+          {
+            "original_word": "ζωοποιέω",
+            "transliteration": "zōopoieō",
+            "strongs_number": "G2227",
+            "meaning": "To make alive, to give life, to quicken; to cause to live, to vivify dead things. — From zōē (life) + poieō (to make). In v.21, 'the Son quickeneth whom he will' (ho huios hous thelei zōopoiei). Zōopoieō is used of both spiritual vivification (the present giving of spiritual life, v.25: 'the dead shall hear... and live') and bodily resurrection (the future raising of all in the graves, vv.28-29). The power to give life is God's exclusive prerogative (Deuteronomy 32:39; 1 Samuel 2:6; 2 Kings 5:7); Jesus claims it as his own. Paul uses the same verb of the Spirit's work: 'the Spirit giveth life' (2 Corinthians 3:6; Romans 8:11)."
+          },
+          {
+            "original_word": "ἐγείρει... καὶ ζῳοποιεῖ",
+            "transliteration": "egeirei... kai zōopoiei",
+            "strongs_number": "G1453/G2227",
+            "meaning": "Raises and gives life — paired verbs of resurrection; the Son shares Yahweh's sole prerogative (Deut 32:39; 1 Sam 2:6)."
+          }
+        ],
+        "22": [
+          {
+            "original_word": "κρίσις",
+            "transliteration": "krisis",
+            "strongs_number": "G2920",
+            "meaning": "Judgment, verdict, decision, the act of judging; the process and result of judicial evaluation. — Krisis occurs 11 times in John. In ch.5: the Father has committed all krisis to the Son (v.22), the believer does not come into krisis (v.24), the resurrection leads to krisis of damnation or life (v.29), Jesus' krisis is just (v.30). Krisis in John has both present (3:19: 'this is the condemnation, that light is come') and future (5:28-29: the final resurrection judgment) dimensions. The Son is both Saviour (3:17) and Judge (5:22) — two aspects of the same authority."
+          },
+          {
+            "original_word": "τὴν κρίσιν πᾶσαν δέδωκεν τῷ υἱῷ",
+            "transliteration": "tēn krisin pasan dedōken tō huiō",
+            "strongs_number": "G2920/G3956/G1325/G5207",
+            "meaning": "All judgment given to the Son — judgment is messianic prerogative (Acts 17:31; 2 Cor 5:10)."
+          }
+        ],
+        "23": [
+          {
+            "original_word": "τιμῶσι τὸν υἱὸν καθὼς τιμῶσι τὸν πατέρα",
+            "transliteration": "timōsi ton huion kathōs timōsi ton patera",
+            "strongs_number": "G5091/G5207/G3962",
+            "meaning": "\"Honor the Son as they honor the Father\" — strict equality of honor; refusal to honor Son = refusal to honor Father."
+          }
+        ],
+        "24": [
+          {
+            "original_word": "μεταβέβηκεν ἐκ τοῦ θανάτου εἰς τὴν ζωήν",
+            "transliteration": "metabebēken ek tou thanatou eis tēn zōēn",
+            "strongs_number": "G3327/G2288/G2222",
+            "meaning": "Has crossed from death to life (perfect) — eschatological reality already accomplished; not future hope but present possession."
+          }
+        ],
+        "25": [
+          {
+            "original_word": "ἔρχεται ὥρα καὶ νῦν ἐστιν",
+            "transliteration": "erchetai hōra kai nyn estin",
+            "strongs_number": "G2064/G5610/G3568",
+            "meaning": "An hour comes and now is — realized eschatology; spiritual resurrection happening in Jesus's ministry."
+          }
+        ],
+        "26": [
+          {
+            "original_word": "ἔδωκεν καὶ τῷ υἱῷ ζωὴν ἔχειν ἐν ἑαυτῷ",
+            "transliteration": "edōken kai tō huiō zōēn echein en heautō",
+            "strongs_number": "G1325/G5207/G2222",
+            "meaning": "Gave to the Son to have life in himself — eternal generation; the Son shares the aseity (self-existent life) of the Father."
+          }
+        ],
+        "28": [
+          {
+            "original_word": "πάντες οἱ ἐν τοῖς μνημείοις",
+            "transliteration": "pantes hoi en tois mnēmeiois",
+            "strongs_number": "G3956/G3419",
+            "meaning": "All who are in the tombs — universal physical resurrection (Dan 12:2); both saved and lost."
+          }
+        ],
+        "29": [
+          {
+            "original_word": "ἀνάστασις",
+            "transliteration": "anastasis",
+            "strongs_number": "G386",
+            "meaning": "Resurrection, rising up, standing up again; the raising of the dead to life. — From ana (up, again) + histēmi (to stand). In vv.28-29, Jesus announces a universal resurrection: 'all that are in the graves shall hear his voice, and shall come forth' — some to the 'resurrection of life' (anastasin zōēs), others to the 'resurrection of damnation' (anastasin kriseōs). John 5 presents two phases of resurrection: (1) present spiritual resurrection — the dead hearing the Son's voice and living now (v.25), and (2) future bodily resurrection — all in the graves coming forth at the last day (vv.28-29). Martha confesses the latter in 11:24; Jesus declares himself to be the former in 11:25."
+          },
+          {
+            "original_word": "ἀνάστασιν ζωῆς... κρίσεως",
+            "transliteration": "anastasin zōēs... kriseōs",
+            "strongs_number": "G386/G2222/G2920",
+            "meaning": "Resurrection of life... of judgment — twofold resurrection; cf. Acts 24:15; Rev 20:5-6."
+          }
+        ],
+        "30": [
+          {
+            "original_word": "οὐ ζητῶ τὸ θέλημα τὸ ἐμὸν",
+            "transliteration": "ou zētō to thelēma to emon",
+            "strongs_number": "G2212/G2307",
+            "meaning": "I do not seek my own will — perfect submission of incarnate Son to Father; ground of his just judgment."
+          }
+        ],
+        "32": [
+          {
+            "original_word": "ἄλλος ἐστὶν ὁ μαρτυρῶν",
+            "transliteration": "allos estin ho martyrōn",
+            "strongs_number": "G243/G3140",
+            "meaning": "Another bears witness — ultimately the Father; the testimony chain begins with God himself."
+          }
+        ],
+        "35": [
+          {
+            "original_word": "ὁ λύχνος ὁ καιόμενος καὶ φαίνων",
+            "transliteration": "ho lychnos ho kaiomenos kai phainōn",
+            "strongs_number": "G3088/G2545/G5316",
+            "meaning": "Burning and shining lamp — John the Baptist; lychnos (lamp), not phōs (light); derivative not source."
+          }
+        ],
+        "36": [
+          {
+            "original_word": "μαρτυρία",
+            "transliteration": "martyria",
+            "strongs_number": "G3141",
+            "meaning": "Testimony, witness, evidence; the act or content of bearing witness. — From martys (witness). Martyria is a central Johannine concept: the entire Gospel is structured around testimonies to Jesus' identity. In ch.5, Jesus presents four witnesses: (1) John the Baptist (v.33), (2) Jesus' works (v.36), (3) the Father (v.37), (4) the Scriptures (v.39). The cumulative testimony is overwhelming — multiple witnesses confirming a single truth (cf. Deuteronomy 19:15: 'at the mouth of two or three witnesses'). Martyria eventually gave rise to the English word 'martyr' — one whose testimony costs their life."
+          },
+          {
+            "original_word": "τὰ ἔργα",
+            "transliteration": "ta erga",
+            "strongs_number": "G2041",
+            "meaning": "The works — Jesus's miracles function as Father's authentication; greater testimony than John's."
+          }
+        ],
+        "37": [
+          {
+            "original_word": "οὔτε φωνὴν αὐτοῦ ἀκηκόατε",
+            "transliteration": "oute phōnēn autou akēkoate",
+            "strongs_number": "G5456/G191",
+            "meaning": "Neither his voice have you heard — they have not truly experienced God despite their religious heritage."
+          }
+        ],
+        "39": [
+          {
+            "original_word": "γραφή",
+            "transliteration": "graphē",
+            "strongs_number": "G1124",
+            "meaning": "Scripture, writing, the written word; the sacred writings of the Old Testament. — In v.39, Jesus says 'Search the scriptures' (ereunate tas graphas). Graphē refers to the OT Scriptures — the Law, Prophets, and Writings. Jesus affirms that the entire OT testifies about him (v.39: 'they are they which testify of me'). He also affirms Moses' authorship of the Pentateuch (v.46: 'he wrote of me'). The Scriptures are not an end in themselves but a witness to Christ. To study them without coming to Christ is to miss their purpose. Jesus places his own words on the same level as Scripture (v.47: 'his writings... my words')."
+          },
+          {
+            "original_word": "ἐραυνᾶτε τὰς γραφάς",
+            "transliteration": "eraunate tas graphas",
+            "strongs_number": "G2045/G1124",
+            "meaning": "You search the Scriptures — eraunaō: investigate diligently; rabbinic Torah study; tragic that they search but miss the One they testify of."
+          }
+        ],
+        "40": [
+          {
+            "original_word": "οὐ θέλετε ἐλθεῖν πρός με",
+            "transliteration": "ou thelete elthein pros me",
+            "strongs_number": "G3756/G2309/G2064",
+            "meaning": "\"You will not come to me\" — not inability but unwillingness; root of unbelief is volitional, not intellectual."
+          }
+        ],
+        "43": [
+          {
+            "original_word": "ἄλλος ἔλθῃ ἐν τῷ ὀνόματι τῷ ἰδίῳ",
+            "transliteration": "allos elthē en tō onomati tō idiō",
+            "strongs_number": "G243/G3686",
+            "meaning": "If another comes in his own name — anti-christ; possibly fulfilled in 132 AD by Bar Kokhba, more fully in eschaton."
+          }
+        ],
+        "44": [
+          {
+            "original_word": "τὴν δόξαν τὴν παρὰ ἀλλήλων",
+            "transliteration": "tēn doxan tēn para allēlōn",
+            "strongs_number": "G1391/G240",
+            "meaning": "Glory from one another — humans applaud humans rather than seeking God's approval; root of unbelief."
+          }
+        ],
+        "46": [
+          {
+            "original_word": "περὶ ἐμοῦ ἔγραψεν",
+            "transliteration": "peri emou egrapsen",
+            "strongs_number": "G1125",
+            "meaning": "Concerning me he wrote — Moses wrote of Christ throughout the Pentateuch (Gen 3:15; 22; 49:10; Deut 18:15-18); typology and prophecy."
+          }
+        ],
+        "47": [
+          {
+            "original_word": "γράμμασιν... ῥήμασιν",
+            "transliteration": "grammasin... rhēmasin",
+            "strongs_number": "G1121/G4487",
+            "meaning": "Writings... words — Moses's grammata vs Jesus's rhēmata; parallel Word incarnate and Word inscripturated."
+          }
+        ]
+      },
+      "crossRefs": {
+        "1": [
+          {
+            "reference": "Leviticus 23:1-44"
+          }
+        ],
+        "2": [
+          {
+            "reference": "Nehemiah 3:1"
+          },
+          {
+            "reference": "Nehemiah 3:1"
+          },
+          {
+            "reference": "Nehemiah 12:39"
+          }
+        ],
+        "5": [
+          {
+            "reference": "Deuteronomy 2:14"
+          },
+          {
+            "reference": "Deuteronomy 2:14"
+          }
+        ],
+        "8": [
+          {
+            "reference": "Mark 2:9-12"
+          },
+          {
+            "reference": "Acts 3:6-8"
+          },
+          {
+            "reference": "Mark 2:9-11"
+          },
+          {
+            "reference": "Acts 9:34"
+          }
+        ],
+        "9": [
+          {
+            "reference": "Mark 3:1-6"
+          },
+          {
+            "reference": "Luke 13:10-17"
+          },
+          {
+            "reference": "Luke 14:1-6"
+          },
+          {
+            "reference": "Exodus 20:8-11"
+          },
+          {
+            "reference": "Nehemiah 13:15-19"
+          }
+        ],
+        "10": [
+          {
+            "reference": "Jeremiah 17:21-22"
+          },
+          {
+            "reference": "Matthew 12:1-8"
+          }
+        ],
+        "14": [
+          {
+            "reference": "John 8:11"
+          },
+          {
+            "reference": "John 9:3"
+          },
+          {
+            "reference": "John 8:11"
+          },
+          {
+            "reference": "Matthew 12:43-45"
+          },
+          {
+            "reference": "Hebrews 10:26-31"
+          }
+        ],
+        "16": [
+          {
+            "reference": "John 7:19"
+          },
+          {
+            "reference": "John 11:53"
+          }
+        ],
+        "17": [
+          {
+            "reference": "John 10:30"
+          },
+          {
+            "reference": "John 14:10"
+          },
+          {
+            "reference": "Genesis 2:1-3"
+          },
+          {
+            "reference": "Hebrews 4:9-10"
+          }
+        ],
+        "18": [
+          {
+            "reference": "Philippians 2:6"
+          },
+          {
+            "reference": "John 10:33"
+          },
+          {
+            "reference": "Leviticus 24:16"
+          },
+          {
+            "reference": "John 10:30-33"
+          },
+          {
+            "reference": "Philippians 2:6"
+          }
+        ],
+        "19": [
+          {
+            "reference": "John 8:28-29"
+          },
+          {
+            "reference": "John 14:10"
+          },
+          {
+            "reference": "John 3:11"
+          },
+          {
+            "reference": "John 8:28"
+          },
+          {
+            "reference": "John 14:10"
+          }
+        ],
+        "20": [
+          {
+            "reference": "John 3:35"
+          },
+          {
+            "reference": "John 14:31"
+          }
+        ],
+        "21": [
+          {
+            "reference": "Deuteronomy 32:39"
+          },
+          {
+            "reference": "1 Samuel 2:6"
+          },
+          {
+            "reference": "2 Kings 5:7"
+          },
+          {
+            "reference": "John 11:25-26"
+          },
+          {
+            "reference": "John 11:43-44"
+          },
+          {
+            "reference": "Deuteronomy 32:39"
+          },
+          {
+            "reference": "1 Samuel 2:6"
+          },
+          {
+            "reference": "Romans 4:17"
+          },
+          {
+            "reference": "Ephesians 2:5"
+          }
+        ],
+        "22": [
+          {
+            "reference": "Daniel 7:13-14"
+          },
+          {
+            "reference": "Acts 17:31"
+          },
+          {
+            "reference": "Matthew 25:31-32"
+          },
+          {
+            "reference": "Acts 10:42"
+          },
+          {
+            "reference": "Acts 17:31"
+          },
+          {
+            "reference": "2 Timothy 4:1"
+          },
+          {
+            "reference": "2 Corinthians 5:10"
+          }
+        ],
+        "23": [
+          {
+            "reference": "Hebrews 1:6"
+          },
+          {
+            "reference": "Revelation 5:13"
+          },
+          {
+            "reference": "1 John 2:23"
+          },
+          {
+            "reference": "Philippians 2:9-11"
+          },
+          {
+            "reference": "Luke 10:16"
+          }
+        ],
+        "24": [
+          {
+            "reference": "John 3:18"
+          },
+          {
+            "reference": "Romans 8:1"
+          },
+          {
+            "reference": "1 John 3:14"
+          },
+          {
+            "reference": "1 John 3:14"
+          },
+          {
+            "reference": "Ephesians 2:1-5"
+          },
+          {
+            "reference": "Colossians 1:13"
+          },
+          {
+            "reference": "Romans 8:1"
+          }
+        ],
+        "25": [
+          {
+            "reference": "Ephesians 2:1, 5"
+          },
+          {
+            "reference": "Colossians 2:13"
+          },
+          {
+            "reference": "Ephesians 5:14"
+          },
+          {
+            "reference": "Ephesians 2:5-6"
+          }
+        ],
+        "26": [
+          {
+            "reference": "John 1:4"
+          },
+          {
+            "reference": "John 11:25"
+          },
+          {
+            "reference": "John 14:6"
+          },
+          {
+            "reference": "John 1:4"
+          },
+          {
+            "reference": "John 14:6"
+          }
+        ],
+        "28": [
+          {
+            "reference": "Daniel 12:2"
+          },
+          {
+            "reference": "Acts 24:15"
+          }
+        ],
+        "29": [
+          {
+            "reference": "Daniel 12:2"
+          },
+          {
+            "reference": "Acts 24:15"
+          },
+          {
+            "reference": "Revelation 20:12-15"
+          },
+          {
+            "reference": "Matthew 25:31-46"
+          },
+          {
+            "reference": "Revelation 20:11-15"
+          }
+        ],
+        "30": [
+          {
+            "reference": "John 4:34"
+          },
+          {
+            "reference": "John 6:38"
+          },
+          {
+            "reference": "Hebrews 10:7"
+          }
+        ],
+        "32": [
+          {
+            "reference": "1 John 5:6-9"
+          }
+        ],
+        "33": [
+          {
+            "reference": "John 1:19-27"
+          }
+        ],
+        "35": [
+          {
+            "reference": "John 1:6-8"
+          },
+          {
+            "reference": "2 Peter 1:19"
+          },
+          {
+            "reference": "Matthew 11:11"
+          }
+        ],
+        "36": [
+          {
+            "reference": "John 10:25"
+          },
+          {
+            "reference": "John 10:37-38"
+          },
+          {
+            "reference": "John 14:11"
+          },
+          {
+            "reference": "John 10:25"
+          },
+          {
+            "reference": "John 10:38"
+          },
+          {
+            "reference": "John 14:11"
+          }
+        ],
+        "37": [
+          {
+            "reference": "Deuteronomy 4:12"
+          },
+          {
+            "reference": "1 John 4:12"
+          }
+        ],
+        "39": [
+          {
+            "reference": "Luke 24:27"
+          },
+          {
+            "reference": "Luke 24:44"
+          },
+          {
+            "reference": "2 Timothy 3:15"
+          },
+          {
+            "reference": "Acts 17:11"
+          },
+          {
+            "reference": "Luke 24:27"
+          },
+          {
+            "reference": "2 Timothy 3:15"
+          }
+        ],
+        "40": [
+          {
+            "reference": "Matthew 23:37"
+          },
+          {
+            "reference": "Revelation 22:17"
+          }
+        ],
+        "43": [
+          {
+            "reference": "2 Thessalonians 2:3-12"
+          }
+        ],
+        "44": [
+          {
+            "reference": "John 12:42-43"
+          },
+          {
+            "reference": "Romans 2:29"
+          }
+        ],
+        "45": [
+          {
+            "reference": "Romans 2:12"
+          }
+        ],
+        "46": [
+          {
+            "reference": "Genesis 3:15"
+          },
+          {
+            "reference": "Genesis 49:10"
+          },
+          {
+            "reference": "Deuteronomy 18:15"
+          },
+          {
+            "reference": "Numbers 21:8-9"
+          },
+          {
+            "reference": "Genesis 3:15"
+          },
+          {
+            "reference": "Genesis 22:18"
+          },
+          {
+            "reference": "Deuteronomy 18:15-18"
+          },
+          {
+            "reference": "Genesis 49:10"
+          },
+          {
+            "reference": "Numbers 21:8-9"
+          }
+        ],
+        "47": [
+          {
+            "reference": "Luke 16:31"
+          }
+        ]
+      }
     },
     "6": {
       "meta": {
@@ -2627,7 +6045,245 @@
           "study_note": "John identifies the 'devil' as Judas Iscariot, son of Simon. 'Should betray him' (emellen auton paradidonai — was about to hand him over; mellō indicates inevitability). 'Being one of the twelve' (heis ōn ek tōn dōdeka — though he was one of the Twelve). The pathos is in the phrase: the betrayer was not an outsider but an insider, not an enemy but a chosen companion. This closing note casts a shadow over the entire chapter: even proximity to Jesus does not guarantee faith. External discipleship without internal transformation leads to betrayal.",
           "doctrinal_note": null
         }
-      ]
+      ],
+      "wordStudies": {
+        "26": [
+          {
+            "original_word": "σημεῖον",
+            "transliteration": "sēmeion",
+            "strongs_number": "G4592",
+            "meaning": "Sign, miracle, wonder, distinguishing mark; a significant event that points beyond itself. — John prefers sēmeion over dynamis (mighty work) because signs carry meaning — they reveal identity. In v.26, Jesus rebukes the crowd: 'Ye seek me, not because ye saw the signs' (sēmeia). They experienced the miracle but missed the sign — they saw the bread but not the Bread-Giver. The feeding of the 5,000 is the fourth sign in John and the only miracle recorded in all four Gospels. Signs demand interpretation: those who see the sign and perceive its meaning come to faith; those who see only the miracle remain in unbelief (cf. 12:37)."
+          }
+        ],
+        "29": [
+          {
+            "original_word": "πιστεύω",
+            "transliteration": "pisteuō",
+            "strongs_number": "G4100",
+            "meaning": "To believe, trust, have faith in, rely upon; to be persuaded of the truth and commit to it. — Pisteuō occurs 9 times in John 6 (vv.29, 30, 35, 36, 40, 47, 64, 69), making it one of the chapter's dominant verbs. In v.29, belief is called 'the work of God' — the one response God requires. In v.35, believing is equated with coming: 'he that cometh... he that believeth.' In v.47, believing results in present possession of eternal life. In v.64, Jesus notes some do not believe. In v.69, Peter confesses 'we have believed' (pepisteukamen, perfect tense: settled faith). Throughout John 6, pisteuō is the human counterpart to divine drawing (v.44) — faith is both God's gift and man's responsibility."
+          }
+        ],
+        "35": [
+          {
+            "original_word": "ἄρτος",
+            "transliteration": "artos",
+            "strongs_number": "G740",
+            "meaning": "Bread, loaf, food — the basic staple of life in the ancient world. — Artos occurs 21 times in John 6 alone, more than in any other NT chapter. It moves from literal bread (vv.5, 7, 9, 11, 13) to metaphorical bread (vv.32-35, 48, 50-51, 58). In v.35, Jesus declares 'I am the bread of life' (egō eimi ho artos tēs zōēs) — identifying himself as the ultimate sustenance. The manna (Exodus 16) was artos ek tou ouranou (bread from heaven), but temporary; Jesus is 'the true bread from heaven' (v.32) that gives eternal life. The word connects feeding, sacrifice, and faith into a single theological reality."
+          }
+        ],
+        "44": [
+          {
+            "original_word": "ἕλκω",
+            "transliteration": "helkō",
+            "strongs_number": "G1670",
+            "meaning": "To draw, drag, pull with force; to attract with compelling power. — In v.44, 'No man can come to me, except the Father... draw him' (helkysē auton). Helkō denotes powerful attraction, not mere invitation. In 12:32, Jesus says 'I, if I be lifted up... will draw (helkysō) all men unto me.' In 21:11, Peter 'drew' (heilkysen) the net full of fish — physical dragging. In Acts 16:19, Paul and Silas are 'drawn' (heilkysan) before rulers — forceful pulling. The Father's drawing is effectual: all who are drawn actually come (v.37). It overcomes the inability of v.44 ('No man can come') by divine power working on the heart, not by coercion but by irresistible grace."
+          }
+        ],
+        "47": [
+          {
+            "original_word": "ζωή",
+            "transliteration": "zōē",
+            "strongs_number": "G2222",
+            "meaning": "Life, the living principle; eternal life, the life of God communicated to believers. — Zōē appears 11 times in John 6 (vv.27, 33, 35, 40, 47, 48, 51, 53, 54, 63, 68). It is the goal of the entire discourse: Jesus offers zōē aiōnion (eternal life, vv.27, 40, 47, 54) and zōē in himself (v.53). This zōē is: (1) eternal — not temporary like the life manna sustained (vv.49, 58); (2) present — 'hath eternal life' (echei, present tense, vv.47, 54); (3) sourced in Christ — 'I am the bread of life' (v.35); (4) communicated through the Spirit and the Word — 'my words are spirit and life' (v.63). Zōē in John is not merely endless existence but qualitative divine life — knowing God (17:3)."
+          }
+        ],
+        "51": [
+          {
+            "original_word": "σάρξ",
+            "transliteration": "sarx",
+            "strongs_number": "G4561",
+            "meaning": "Flesh, physical body, human nature; the material aspect of human existence. — Sarx has multiple uses in John 6: (1) The incarnation — the Word became sarx (1:14). (2) The sacrificial body — 'the bread that I will give is my flesh' (v.51) — pointing to the cross. (3) Flesh-eating language — 'except ye eat the flesh of the Son of man' (v.53) — metaphor for appropriating Christ's sacrifice by faith. (4) 'The flesh profiteth nothing' (v.63) — fleshly understanding cannot grasp spiritual truth. The interplay of meanings creates a rich theological tapestry: God took flesh (incarnation), offered flesh (atonement), invites us to feed on flesh (faith), and warns that flesh-thinking cannot access these realities (Spirit required)."
+          }
+        ],
+        "54": [
+          {
+            "original_word": "τρώγω",
+            "transliteration": "trōgō",
+            "strongs_number": "G5176",
+            "meaning": "To gnaw, munch, chew; to eat audibly, to feed on with deliberateness. — Trōgō replaces the milder phagō (to eat) starting in v.54 and is used through vv.56-58. It is a vivid, graphic word — denoting not a casual taste but deliberate, thorough consumption. The shift from phagō to trōgō intensifies the metaphor: feeding on Christ is not superficial but deep, not occasional but habitual, not partial but thorough. The present participle (ho trōgōn — the one who keeps feeding) suggests ongoing, continuous appropriation of Christ — not a one-time act but a daily dependence."
+          }
+        ],
+        "63": [
+          {
+            "original_word": "ῥῆμα",
+            "transliteration": "rhēma",
+            "strongs_number": "G4487",
+            "meaning": "Word, saying, utterance, spoken word; a specific statement or declaration. — In v.63, Jesus says 'the words (rhēmata) that I speak unto you, they are spirit, and they are life.' In v.68, Peter says 'thou hast the words (rhēmata) of eternal life.' Rhēma differs from logos (word as concept/message) in emphasising the spoken utterance — the specific things Jesus said. Jesus' rhēmata are the means by which the Spirit gives life. To 'eat his flesh' is ultimately to receive his words by faith. The Spirit works through the Word: no word, no life; no faith in the word, no appropriation of Christ."
+          }
+        ]
+      },
+      "crossRefs": {
+        "4": [
+          {
+            "reference": "Exodus 12:1-14"
+          },
+          {
+            "reference": "John 2:13"
+          }
+        ],
+        "9": [
+          {
+            "reference": "2 Kings 4:42-44"
+          }
+        ],
+        "11": [
+          {
+            "reference": "Matthew 14:19"
+          },
+          {
+            "reference": "Luke 22:19"
+          }
+        ],
+        "14": [
+          {
+            "reference": "Deuteronomy 18:15-18"
+          },
+          {
+            "reference": "Acts 3:22-23"
+          }
+        ],
+        "19": [
+          {
+            "reference": "Job 9:8"
+          },
+          {
+            "reference": "Psalm 77:19"
+          }
+        ],
+        "20": [
+          {
+            "reference": "Exodus 3:14"
+          },
+          {
+            "reference": "Isaiah 43:2"
+          }
+        ],
+        "27": [
+          {
+            "reference": "Isaiah 55:2"
+          },
+          {
+            "reference": "Matthew 6:19-20"
+          }
+        ],
+        "29": [
+          {
+            "reference": "Ephesians 2:8-9"
+          },
+          {
+            "reference": "1 John 3:23"
+          }
+        ],
+        "31": [
+          {
+            "reference": "Exodus 16:4, 15"
+          },
+          {
+            "reference": "Psalm 78:24-25"
+          }
+        ],
+        "35": [
+          {
+            "reference": "John 4:14"
+          },
+          {
+            "reference": "Isaiah 55:1"
+          }
+        ],
+        "37": [
+          {
+            "reference": "John 10:28-29"
+          },
+          {
+            "reference": "John 17:6"
+          }
+        ],
+        "39": [
+          {
+            "reference": "John 10:28"
+          },
+          {
+            "reference": "John 17:12"
+          }
+        ],
+        "40": [
+          {
+            "reference": "John 11:25-26"
+          },
+          {
+            "reference": "1 Thessalonians 4:16-17"
+          }
+        ],
+        "44": [
+          {
+            "reference": "John 6:65"
+          },
+          {
+            "reference": "Jeremiah 31:3"
+          }
+        ],
+        "45": [
+          {
+            "reference": "Isaiah 54:13"
+          },
+          {
+            "reference": "1 Thessalonians 4:9"
+          }
+        ],
+        "51": [
+          {
+            "reference": "Hebrews 10:5, 10"
+          },
+          {
+            "reference": "1 John 2:2"
+          }
+        ],
+        "53": [
+          {
+            "reference": "Matthew 26:26-28"
+          },
+          {
+            "reference": "Leviticus 17:10-14"
+          }
+        ],
+        "62": [
+          {
+            "reference": "John 3:13"
+          },
+          {
+            "reference": "John 17:5"
+          },
+          {
+            "reference": "Acts 1:9-11"
+          }
+        ],
+        "63": [
+          {
+            "reference": "2 Corinthians 3:6"
+          },
+          {
+            "reference": "Romans 8:2"
+          }
+        ],
+        "68": [
+          {
+            "reference": "Acts 4:12"
+          }
+        ],
+        "69": [
+          {
+            "reference": "Matthew 16:16"
+          }
+        ],
+        "70": [
+          {
+            "reference": "John 13:27"
+          },
+          {
+            "reference": "John 17:12"
+          }
+        ]
+      }
     },
     "7": {
       "meta": {
@@ -3068,7 +6724,214 @@
           "study_note": "'Every man went unto his own house' — the meeting breaks up inconclusively. No arrest, no resolution, no consensus. The chapter ends as it began: with division. Everyone goes home, but the question of Jesus' identity remains unanswered — for them. John's readers know the answer. Note: 7:53-8:11 (the woman caught in adultery) is absent from the earliest manuscripts and is likely a later insertion, though the story itself may be historically authentic.",
           "doctrinal_note": null
         }
-      ]
+      ],
+      "wordStudies": {
+        "2": [
+          {
+            "original_word": "σκηνοπηγία",
+            "transliteration": "skēnopēgia",
+            "strongs_number": "G4634",
+            "meaning": "The Feast of Tabernacles, the feast of tent-pitching, the feast of booths. — From skēnē (tent, tabernacle) + pēgnymi (to pitch, fix firmly). The feast (Leviticus 23:33-43) commemorated Israel's wilderness wandering when they lived in tents. For seven days, Jews built and lived in temporary booths (sukkot) as a reminder of their dependence on God. The feast also celebrated the autumn harvest ('the feast of ingathering,' Exodus 23:16). Key ceremonies included water-pouring and light-illumination — both of which Jesus claims to fulfil (7:37-38; 8:12). Zechariah 14:16-19 prophesied that in the messianic age, all nations would celebrate Tabernacles."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "καιρός",
+            "transliteration": "kairos",
+            "strongs_number": "G2540",
+            "meaning": "Time, season, appointed time, opportune moment; the right or favourable time for action. — In v.6, Jesus says 'My kairos is not yet come' (ho kairos ho emos oupō parestin). Kairos differs from chronos (time in general) in denoting a specific, significant moment — the divinely appointed season. Jesus' kairos is his hour of glorification through the cross (cf. hōra in v.30). The brothers' kairos 'is alway ready' because they have no divine appointment. Every moment of Jesus' ministry is calibrated to the Father's timetable. Kairos in the NT often refers to the decisive moment of God's action (Mark 1:15: 'the kairos is fulfilled')."
+          }
+        ],
+        "16": [
+          {
+            "original_word": "διδαχή",
+            "transliteration": "didachē",
+            "strongs_number": "G1322",
+            "meaning": "Teaching, doctrine, instruction; the content of what is taught. — In v.16, 'My doctrine is not mine, but his that sent me' (hē emē didachē ouk estin emē). In v.17, obedience to God's will enables discernment of the doctrine's origin. Jesus' didachē is God's didachē — not learned from rabbinical schools but received directly from the Father. The crowd marvels at his learning without formal education (v.15). This validates the principle that divine revelation supersedes human credentials. The test of true doctrine is not the teacher's pedigree but the teaching's origin."
+          }
+        ],
+        "26": [
+          {
+            "original_word": "παρρησία",
+            "transliteration": "parrēsia",
+            "strongs_number": "G3954",
+            "meaning": "Boldness, openness, freedom of speech, confidence; speaking without reserve or fear. — From pas (all) + rhēsis (speech) — saying everything, holding nothing back. In v.4, the brothers want Jesus to act 'openly' (en parrēsia). In v.13, no one speaks openly about Jesus 'for fear of the Jews.' In v.26, the crowd notes that Jesus speaks boldly (parrēsia lalei). Parrēsia is a mark of the Spirit-filled church (Acts 4:13, 29, 31). The world demands boldness but punishes it; Jesus models boldness that serves truth rather than self-promotion."
+          }
+        ],
+        "30": [
+          {
+            "original_word": "ὥρα",
+            "transliteration": "hōra",
+            "strongs_number": "G5610",
+            "meaning": "Hour, time, appointed moment; the decisive moment of Jesus' death and glorification. — In v.30, 'no man laid hands on him, because his hour was not yet come' (oupō elēlythei hē hōra autou). Hōra in John refers specifically to the appointed time of Jesus' passion and glorification: 2:4 ('mine hour is not yet come'), 7:30 and 8:20 ('his hour was not yet come'), 12:23 ('the hour is come, that the Son of man should be glorified'), 12:27 ('Father, save me from this hour'), 13:1 ('Jesus knew that his hour was come'), 17:1 ('Father, the hour is come'). No human power can hasten or delay this divinely ordained moment."
+          }
+        ],
+        "38": [
+          {
+            "original_word": "ὕδωρ ζῶν",
+            "transliteration": "hydōr zōn",
+            "strongs_number": "G5204/G2198",
+            "meaning": "Living water, flowing water; water that is alive, fresh, moving — as opposed to stagnant cistern water. — In v.38, Jesus promises 'rivers of living water' (potamoi hydatos zōntos). In 4:10-14, Jesus offered 'living water' to the Samaritan woman — water springing up to eternal life. Here the promise expands: not merely a spring but rivers (potamoi — plural, abundant, overflowing). The believer becomes not just a recipient but a channel. John interprets the living water as the Holy Spirit (v.39). The imagery draws from OT promises: Ezekiel 47:1-12 (river from the temple), Zechariah 14:8 (living waters from Jerusalem), Isaiah 44:3 (water on the thirsty land)."
+          }
+        ],
+        "39": [
+          {
+            "original_word": "πνεῦμα",
+            "transliteration": "pneuma",
+            "strongs_number": "G4151",
+            "meaning": "Spirit, breath, wind; the Holy Spirit, the third person of the Trinity. — In v.39, John explains that the 'living water' of v.38 refers to the Spirit (pneuma) which believers would receive after Jesus' glorification. The Spirit is not yet 'given' (oupō ēn) in the fullness of Pentecostal outpouring — not because the Spirit did not exist but because the new covenant ministry of the Spirit (permanent indwelling, John 14:16-17) awaited Christ's completed work. The Spirit's coming depends on Christ's going (16:7). The Spirit glorifies Christ (16:14), applies Christ's work, and produces Christ-like character (Galatians 5:22-23)."
+          }
+        ],
+        "43": [
+          {
+            "original_word": "σχίσμα",
+            "transliteration": "schisma",
+            "strongs_number": "G4978",
+            "meaning": "Division, split, tear, schism; a separation of opinion or loyalty. — From schizō (to split, tear, rend — the same verb used for the temple veil tearing, Mark 15:38). In v.43, 'there was a division among the people because of him' (schisma egeneto di auton). The same word recurs in 9:16 and 10:19. Jesus does not bring comfortable unity but truthful division: those who receive him are separated from those who reject him. Schisma is the inevitable result of light entering darkness — not a defect of Jesus' ministry but its necessary effect."
+          }
+        ]
+      },
+      "crossRefs": {
+        "2": [
+          {
+            "reference": "Leviticus 23:33-43"
+          },
+          {
+            "reference": "Zechariah 14:16-19"
+          }
+        ],
+        "5": [
+          {
+            "reference": "Mark 3:21"
+          },
+          {
+            "reference": "Acts 1:14"
+          },
+          {
+            "reference": "1 Corinthians 15:7"
+          }
+        ],
+        "7": [
+          {
+            "reference": "John 15:18-19"
+          },
+          {
+            "reference": "John 3:19-20"
+          }
+        ],
+        "17": [
+          {
+            "reference": "Psalm 25:14"
+          },
+          {
+            "reference": "James 1:22"
+          }
+        ],
+        "23": [
+          {
+            "reference": "John 5:8-9, 16"
+          },
+          {
+            "reference": "Genesis 17:10-12"
+          },
+          {
+            "reference": "Leviticus 12:3"
+          }
+        ],
+        "24": [
+          {
+            "reference": "Isaiah 11:3-4"
+          },
+          {
+            "reference": "James 2:1-4"
+          }
+        ],
+        "29": [
+          {
+            "reference": "John 8:42"
+          },
+          {
+            "reference": "John 16:28"
+          }
+        ],
+        "30": [
+          {
+            "reference": "John 2:4"
+          },
+          {
+            "reference": "John 13:1"
+          }
+        ],
+        "37": [
+          {
+            "reference": "Isaiah 55:1"
+          },
+          {
+            "reference": "Revelation 22:17"
+          }
+        ],
+        "38": [
+          {
+            "reference": "Isaiah 44:3"
+          },
+          {
+            "reference": "Ezekiel 47:1-12"
+          },
+          {
+            "reference": "Zechariah 14:8"
+          },
+          {
+            "reference": "John 4:14"
+          }
+        ],
+        "39": [
+          {
+            "reference": "Acts 2:1-4"
+          },
+          {
+            "reference": "John 16:7"
+          },
+          {
+            "reference": "Joel 2:28-29"
+          }
+        ],
+        "40": [
+          {
+            "reference": "Deuteronomy 18:15"
+          }
+        ],
+        "42": [
+          {
+            "reference": "Micah 5:2"
+          },
+          {
+            "reference": "2 Samuel 7:12"
+          }
+        ],
+        "46": [
+          {
+            "reference": "Matthew 7:28-29"
+          }
+        ],
+        "50": [
+          {
+            "reference": "John 3:1-2"
+          },
+          {
+            "reference": "John 19:39"
+          }
+        ],
+        "51": [
+          {
+            "reference": "Deuteronomy 1:16-17"
+          }
+        ],
+        "52": [
+          {
+            "reference": "2 Kings 14:25"
+          }
+        ]
+      }
     },
     "8": {
       "meta": {
@@ -3558,7 +7421,220 @@
           "study_note": "'Took they up stones' (ēran lithous — they picked up stones). In the temple courts, construction materials for ongoing renovation of Herod's temple were available. Stoning was the penalty for blasphemy (Leviticus 24:16). 'Jesus hid himself' (Iēsous ekrybē — Jesus was hidden; the passive may suggest divine concealment). 'Going through the midst of them' — a miraculous departure, as in Luke 4:30. His hour had not yet come (cf. 7:30; 8:20). He cannot be killed until the appointed time.",
           "doctrinal_note": null
         }
-      ]
+      ],
+      "wordStudies": {
+        "12": [
+          {
+            "original_word": "φῶς",
+            "transliteration": "phōs",
+            "strongs_number": "G5457",
+            "meaning": "Light, radiance, luminance; the opposite of darkness; the revelation of God. — In v.12, 'I am the light of the world' (egō eimi to phōs tou kosmou). Phōs is foundational in John: 'In him was life; and the life was the light of men' (1:4). 'The light shineth in darkness' (1:5). 'That was the true Light, which lighteth every man' (1:9). 'Men loved darkness rather than light' (3:19). 'I am the light of the world' (8:12; 9:5; 12:46). In the OT, God is light: 'The LORD is my light' (Psalm 27:1); 'the LORD shall be unto thee an everlasting light' (Isaiah 60:19). Jesus claims this divine attribute, fulfilling the Tabernacles lamplight ceremony."
+          }
+        ],
+        "28": [
+          {
+            "original_word": "ὑψόω",
+            "transliteration": "hypsoō",
+            "strongs_number": "G5312",
+            "meaning": "To lift up, to elevate, to exalt; in John, the double meaning of crucifixion and glorification. — In v.28, 'when ye have lifted up the Son of man' (hotan hypsōsēte ton huion tou anthrōpou). Hypsoō in John carries a profound double meaning: physically, Jesus is 'lifted up' on the cross; spiritually, he is 'exalted' in glory. The two are inseparable: the cross is the throne. Cf. 3:14 ('as Moses lifted up the serpent... so must the Son of man be lifted up') and 12:32 ('I, if I be lifted up from the earth, will draw all men unto me'). The crucifixion is not defeat but revelation — 'then shall ye know that I AM.'"
+          }
+        ],
+        "32": [
+          {
+            "original_word": "ἀλήθεια",
+            "transliteration": "alētheia",
+            "strongs_number": "G225",
+            "meaning": "Truth, reality, genuineness; that which corresponds to fact and reveals reality. — Alētheia appears 8 times in John 8 (vv.32, 40, 44, 45, 46), more than any other chapter. In v.32, 'the truth shall make you free' — truth is liberating. In v.40, Jesus speaks 'the truth which I have heard of God.' In v.44, the devil 'abode not in the truth' — truth and Satan are incompatible. In v.45, 'because I tell you the truth, ye believe me not' — truth provokes hostility in those committed to lies. Jesus himself is the Truth (14:6). Truth in John is not abstract philosophy but the self-revelation of God in Christ."
+          }
+        ],
+        "34": [
+          {
+            "original_word": "δοῦλος",
+            "transliteration": "doulos",
+            "strongs_number": "G1401",
+            "meaning": "Slave, bondservant, one in bondage; one who belongs to and serves a master. — In v.34, 'Whosoever committeth sin is the slave of sin' (doulos estin tēs hamartias). Sin is not just an action but a master. The sinner is not free but enslaved — unable to stop sinning by willpower alone. This is the universal human condition: 'all have sinned' (Romans 3:23) and all are enslaved. The slave has no permanent standing (v.35); only the Son can manumit (set free). Paul develops this: believers are freed from slavery to sin and become slaves of righteousness (Romans 6:17-18)."
+          },
+          {
+            "original_word": "ἁμαρτία",
+            "transliteration": "hamartia",
+            "strongs_number": "G266",
+            "meaning": "Sin, missing the mark, moral failure; the fundamental human condition of alienation from God. — Hamartia appears 4 times in John 8: v.21 ('ye shall die in your sin'), v.24 ('ye shall die in your sins'), v.34 ('whosoever committeth sin is the servant of sin'), v.46 ('which of you convinceth me of sin?'). Sin in John 8 is presented as: (1) a condition that leads to death (v.21, 24), (2) a master that enslaves (v.34), (3) something Jesus is uniquely free from (v.46). The singular 'sin' (hamartia) in v.21 may refer to the root sin of unbelief — the sin that underlies all other sins."
+          }
+        ],
+        "36": [
+          {
+            "original_word": "ἐλεύθερος",
+            "transliteration": "eleutheros",
+            "strongs_number": "G1658",
+            "meaning": "Free, at liberty, not a slave; one who possesses genuine freedom. — In v.32, 'the truth shall make you free' (eleutherōsei). In v.33, the Jews deny bondage. In v.36, 'if the Son shall make you free, ye shall be free indeed' (ontōs eleutheroi). The freedom Jesus offers is from sin's slavery (v.34), the devil's family (v.44), and death's power (v.51). It is not political or economic freedom but ontological — a fundamental change in one's condition. Only the Son can grant this freedom because only the Son has authority over sin. Roman, Greek, and Enlightenment concepts of freedom are shadows of the reality Christ provides."
+          }
+        ],
+        "44": [
+          {
+            "original_word": "ψεύστης",
+            "transliteration": "pseustēs",
+            "strongs_number": "G5583",
+            "meaning": "Liar, one who speaks falsehood; one whose character is defined by deception. — In v.44, the devil 'is a liar and the father of it' (pseustēs estin kai ho patēr autou). In v.55, Jesus says if he denied knowing the Father 'I shall be a liar like unto you' (esomai homoios hymōn pseustēs). Truth and lies are not merely intellectual categories but moral and spiritual allegiances. Those who reject truth align with the Father of Lies; those who receive truth align with the God of Truth. 1 John 2:22: 'Who is a liar but he that denieth that Jesus is the Christ?'"
+          }
+        ],
+        "58": [
+          {
+            "original_word": "ἐγώ εἰμι",
+            "transliteration": "egō eimi",
+            "strongs_number": "G1473/G1510",
+            "meaning": "I AM — the absolute self-designation echoing the divine name of Exodus 3:14. — The absolute egō eimi (without predicate) appears three times in John 8: v.24 ('if ye believe not that I am'), v.28 ('then shall ye know that I am'), and v.58 ('Before Abraham was, I am'). In v.12, it appears with a predicate ('I am the light of the world'). The absolute use is the most confrontational: it claims not merely a role (bread, light, shepherd) but identity — the divine 'I AM' of Exodus 3:14. The progression builds: v.24 demands faith in the I AM; v.28 predicts knowledge after the cross; v.58 makes the ultimate claim of eternal pre-existence using the divine name."
+          }
+        ]
+      },
+      "crossRefs": {
+        "7": [
+          {
+            "reference": "Deuteronomy 17:7"
+          },
+          {
+            "reference": "Romans 3:23"
+          }
+        ],
+        "11": [
+          {
+            "reference": "John 5:14"
+          },
+          {
+            "reference": "Romans 8:1"
+          }
+        ],
+        "12": [
+          {
+            "reference": "Psalm 27:1"
+          },
+          {
+            "reference": "Isaiah 9:2"
+          },
+          {
+            "reference": "Isaiah 60:19-20"
+          },
+          {
+            "reference": "John 1:4-5"
+          },
+          {
+            "reference": "John 9:5"
+          }
+        ],
+        "24": [
+          {
+            "reference": "Exodus 3:14"
+          },
+          {
+            "reference": "Mark 16:16"
+          }
+        ],
+        "28": [
+          {
+            "reference": "John 3:14"
+          },
+          {
+            "reference": "John 12:32-33"
+          },
+          {
+            "reference": "Isaiah 52:13"
+          }
+        ],
+        "32": [
+          {
+            "reference": "John 14:6"
+          },
+          {
+            "reference": "John 17:17"
+          },
+          {
+            "reference": "Romans 6:18"
+          }
+        ],
+        "34": [
+          {
+            "reference": "Romans 6:16-20"
+          },
+          {
+            "reference": "2 Peter 2:19"
+          }
+        ],
+        "36": [
+          {
+            "reference": "Galatians 5:1"
+          }
+        ],
+        "39": [
+          {
+            "reference": "Romans 4:12"
+          },
+          {
+            "reference": "Galatians 3:7"
+          }
+        ],
+        "44": [
+          {
+            "reference": "Genesis 3:4-5"
+          },
+          {
+            "reference": "1 John 3:8"
+          },
+          {
+            "reference": "1 John 3:12"
+          }
+        ],
+        "46": [
+          {
+            "reference": "2 Corinthians 5:21"
+          },
+          {
+            "reference": "Hebrews 4:15"
+          },
+          {
+            "reference": "1 Peter 2:22"
+          }
+        ],
+        "51": [
+          {
+            "reference": "John 11:25-26"
+          },
+          {
+            "reference": "John 5:24"
+          }
+        ],
+        "56": [
+          {
+            "reference": "Genesis 12:1-3"
+          },
+          {
+            "reference": "Hebrews 11:13"
+          }
+        ],
+        "58": [
+          {
+            "reference": "Exodus 3:14"
+          },
+          {
+            "reference": "John 1:1"
+          },
+          {
+            "reference": "John 17:5"
+          },
+          {
+            "reference": "Colossians 1:17"
+          },
+          {
+            "reference": "Revelation 1:8"
+          }
+        ],
+        "59": [
+          {
+            "reference": "Leviticus 24:16"
+          },
+          {
+            "reference": "John 10:31-33"
+          }
+        ]
+      }
     },
     "9": {
       "meta": {
@@ -3905,7 +7981,192 @@
           "study_note": "'If ye were blind, ye should have no sin' — if they genuinely did not know, ignorance would mitigate guilt. 'But now ye say, We see' — their claim to knowledge removes the excuse of ignorance. 'Therefore your sin remaineth' (hē hamartia hymōn menei — your sin abides, stays, endures). The worst blindness is the blindness that claims to see. Those who admit blindness can be healed; those who insist they see remain blind. The Pharisees' sin is not ignorance but wilful refusal to acknowledge what they can see. This is the unforgivable posture: not inability but unwillingness.",
           "doctrinal_note": "This closing statement is one of the most penetrating diagnoses of spiritual blindness in Scripture. Three categories emerge: (1) Those who know they are blind and seek sight — the healed man: they receive grace. (2) Those who are genuinely ignorant — they have diminished responsibility. (3) Those who claim to see but refuse the light — the Pharisees: their sin remains because they reject the cure while claiming they have no disease. The medical analogy is exact: the patient who denies being sick cannot be treated. Acknowledging spiritual blindness is the first step toward spiritual sight."
         }
-      ]
+      ],
+      "wordStudies": {
+        "1": [
+          {
+            "original_word": "τυφλός",
+            "transliteration": "typhlos",
+            "strongs_number": "G5185",
+            "meaning": "Blind, sightless, unable to see; metaphorically: spiritually imperceptive. — Typhlos occurs 17 times in John 9, more than any other NT chapter. It operates on two levels: physical blindness (the man, vv.1-7) and spiritual blindness (the Pharisees, vv.39-41). The irony is that the physically blind man gains both physical and spiritual sight, while the spiritually 'seeing' Pharisees become progressively blinder. Jesus came 'that they which see not might see; and that they which see might be made blind' (v.39). The chapter is a dramatisation of Isaiah 42:7: 'To open the blind eyes.'"
+          }
+        ],
+        "3": [
+          {
+            "original_word": "φανερόω",
+            "transliteration": "phaneroō",
+            "strongs_number": "G5319",
+            "meaning": "To make visible, to reveal, to manifest, to bring to light what was hidden. — In v.3, the man's blindness exists 'that the works of God should be made manifest' (hina phanerōthē ta erga tou theou). Phaneroō is John's characteristic word for revelation — making the invisible visible. Jesus' signs phaneroō the Father's glory (2:11; 17:6). The miracle of sight is itself a phanerōsis — a manifestation of God's creative power and compassionate purpose. Suffering, in God's hands, becomes a platform for divine self-revelation."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "πηλός",
+            "transliteration": "pēlos",
+            "strongs_number": "G4081",
+            "meaning": "Clay, mud, earth mixed with liquid; potter's clay. — In v.6, Jesus makes clay (pēlon) from saliva and earth and anoints the man's eyes. The use of pēlos evokes Genesis 2:7 — God formed Adam from the dust ('adamah'). Jesus, the Creator (John 1:3), uses the same creative medium to form new eyes. The clay also deliberately triggers the Sabbath controversy: making clay was classified as 'kneading' (Shabbat 7:2), one of the 39 prohibited Sabbath labours. Jesus transforms this prohibited act into a creative act of God — the Lord of the Sabbath creates on the Sabbath."
+          }
+        ],
+        "7": [
+          {
+            "original_word": "Σιλωάμ",
+            "transliteration": "Silōam",
+            "strongs_number": "G4611",
+            "meaning": "Siloam, meaning 'Sent' — the pool in Jerusalem fed by Hezekiah's tunnel from the Gihon spring. — John translates the name: 'which is by interpretation, Sent' (ho hermēneuetai Apestalmenos, v.7). The theological significance: the man washes in the pool of 'Sent' and receives sight from the One who was 'Sent' by the Father. Jesus is the 'Sent One' (apostello/pempō appear over 40 times in John describing Jesus' mission). The Pool of Siloam was archaeologically confirmed in 2004 — a large stepped pool at the southern end of the City of David, used for ritual purification, especially during the Feast of Tabernacles water ceremony."
+          }
+        ],
+        "22": [
+          {
+            "original_word": "ἀποσυνάγωγος",
+            "transliteration": "aposynagōgos",
+            "strongs_number": "G656",
+            "meaning": "Expelled from the synagogue, excommunicated, banned from the assembly. — This word appears only in John (9:22; 12:42; 16:2) — a uniquely Johannine term. In v.22, the Jews had agreed that anyone confessing Jesus as Christ would be aposynagōgos. Synagogue expulsion meant loss of religious worship, social standing, and economic relationships. In v.34, the healed man is cast out for his testimony. In 12:42, many rulers believed but would not confess 'lest they should be put out of the synagogue.' In 16:2, Jesus warns his disciples: 'They shall put you out of the synagogues.' The cost of following Christ has always included social exclusion."
+          }
+        ],
+        "24": [
+          {
+            "original_word": "ἁμαρτωλός",
+            "transliteration": "hamartōlos",
+            "strongs_number": "G268",
+            "meaning": "Sinner, one who misses the mark; one who transgresses God's law. — Hamartōlos is the Pharisees' label for Jesus: 'we know that this man is a sinner' (v.24). The healed man responds: 'Whether he be a sinner or no, I know not' (v.25) — agnostic on theology but certain about experience. The irony: the Pharisees call the sinless Son of God a 'sinner' while being blind to their own sin. In v.31, the man uses their own theology against them: 'God heareth not sinners' — if Jesus were truly a sinner, God would not have performed this miracle through him. The charge of 'sinner' collapses under the weight of the evidence."
+          }
+        ],
+        "38": [
+          {
+            "original_word": "προσκυνέω",
+            "transliteration": "proskyneō",
+            "strongs_number": "G4352",
+            "meaning": "To worship, bow down before, do obeisance to; to express reverent adoration. — In v.38, the healed man 'worshipped him' (prosekynēsen autō). Proskyneō is the highest form of honour — religious worship reserved for God. In Matthew 4:10, Jesus says 'Thou shalt worship (proskyneō) the Lord thy God, and him only shalt thou serve.' Yet Jesus accepts the man's worship without correction. Angels refuse worship (Revelation 22:8-9); Peter refuses it (Acts 10:25-26). Only God receives proskyneō. Jesus' acceptance of worship is an implicit claim to deity — confirmed by his 'I AM' statements."
+          }
+        ],
+        "39": [
+          {
+            "original_word": "κρίμα",
+            "transliteration": "krima",
+            "strongs_number": "G2917",
+            "meaning": "Judgment, verdict, decision; the result of judging, a judicial sentence. — In v.39, 'For judgment I am come into this world' (eis krima ēlthon). Krima differs from krisis (the act of judging, 5:22) in emphasising the result or sentence. Jesus' coming produces a krima — a separation, a verdict on humanity. The blind receive sight (salvation); the 'seeing' are confirmed in blindness (condemnation). This paradox runs through John: the same light that illuminates also exposes (3:19-21). The coming of Christ forces a verdict — neutrality is impossible."
+          }
+        ]
+      },
+      "crossRefs": {
+        "2": [
+          {
+            "reference": "Luke 13:1-5"
+          },
+          {
+            "reference": "Job 4:7-8"
+          }
+        ],
+        "3": [
+          {
+            "reference": "Romans 8:28"
+          },
+          {
+            "reference": "2 Corinthians 12:9"
+          }
+        ],
+        "5": [
+          {
+            "reference": "John 8:12"
+          },
+          {
+            "reference": "John 1:4-5, 9"
+          }
+        ],
+        "6": [
+          {
+            "reference": "Genesis 2:7"
+          }
+        ],
+        "7": [
+          {
+            "reference": "Isaiah 8:6"
+          },
+          {
+            "reference": "2 Kings 5:10-14"
+          }
+        ],
+        "14": [
+          {
+            "reference": "John 5:9-16"
+          },
+          {
+            "reference": "John 7:21-24"
+          }
+        ],
+        "16": [
+          {
+            "reference": "John 7:43"
+          },
+          {
+            "reference": "John 10:19-21"
+          }
+        ],
+        "22": [
+          {
+            "reference": "John 12:42"
+          },
+          {
+            "reference": "John 16:2"
+          }
+        ],
+        "25": [
+          {
+            "reference": "2 Corinthians 4:6"
+          },
+          {
+            "reference": "Ephesians 5:8"
+          }
+        ],
+        "31": [
+          {
+            "reference": "Psalm 66:18"
+          },
+          {
+            "reference": "Proverbs 15:29"
+          }
+        ],
+        "32": [
+          {
+            "reference": "Isaiah 35:5"
+          },
+          {
+            "reference": "Isaiah 42:7"
+          }
+        ],
+        "35": [
+          {
+            "reference": "John 6:37"
+          },
+          {
+            "reference": "Luke 15:4-7"
+          }
+        ],
+        "38": [
+          {
+            "reference": "John 20:28"
+          },
+          {
+            "reference": "Matthew 4:10"
+          }
+        ],
+        "39": [
+          {
+            "reference": "John 3:17-19"
+          },
+          {
+            "reference": "Luke 2:34"
+          }
+        ],
+        "41": [
+          {
+            "reference": "John 15:22"
+          },
+          {
+            "reference": "James 4:17"
+          }
+        ]
+      }
     },
     "10": {
       "meta": {
@@ -4258,7 +8519,195 @@
           "study_note": "'Many believed on him there' (polloi episteusan eis auton ekei). The chapter that began with hostility in Jerusalem ends with faith beyond Jordan. Where John's preparatory ministry laid the groundwork, Jesus' presence brings the harvest. The simple statement is a quiet triumph: in the place of beginnings, many come to faith.",
           "doctrinal_note": null
         }
-      ]
+      ],
+      "wordStudies": {
+        "7": [
+          {
+            "original_word": "θύρα",
+            "transliteration": "thyra",
+            "strongs_number": "G2374",
+            "meaning": "Door, gate, entrance; the point of access and the means of protection. — In vv.7, 9, Jesus declares 'I am the door' (egō eimi hē thyra). The door serves dual functions: (1) Access — 'by me if any man enter in, he shall be saved' (v.9). Jesus is the only way to salvation (14:6; Acts 4:12). (2) Security — the shepherd-door protects the sheep inside. In Palestine, the shepherd literally became the door by lying across the entrance at night. Jesus is both the way in (salvation) and the wall of protection (security). 'No man cometh unto the Father, but by me' (14:6) — Jesus is the exclusive access point."
+          }
+        ],
+        "11": [
+          {
+            "original_word": "ποιμήν",
+            "transliteration": "poimēn",
+            "strongs_number": "G4166",
+            "meaning": "Shepherd, one who tends and protects a flock; a pastor, spiritual leader. — Poimēn is used 4 times in John 10 (vv.2, 11, 14, 16) and defines the chapter. In the OT, God is Israel's shepherd (Psalm 23:1; 80:1; Isaiah 40:11). Israel's leaders are called shepherds (Jeremiah 23:1-4; Ezekiel 34). Jesus claims to be THE shepherd — the good (kalos) shepherd foretold in Ezekiel 34:23 ('one shepherd... my servant David'). The shepherd imagery combines authority, intimacy, provision, protection, and sacrifice. The word gives us 'pastor' (Latin pastor = shepherd) — every Christian leader is called to shepherd Christ's flock (1 Peter 5:2-4)."
+          },
+          {
+            "original_word": "καλός",
+            "transliteration": "kalos",
+            "strongs_number": "G2570",
+            "meaning": "Good, beautiful, noble, excellent; the ideal, the model of what something should be. — In vv.11, 14, 'I am the good shepherd' (ho poimēn ho kalos). Kalos differs from agathos (morally good) in adding beauty, nobility, and ideal excellence. A kalos shepherd is not merely competent but exemplary — the model, the ideal, the perfect shepherd. Kalos implies aesthetic beauty in moral excellence: Jesus' shepherding is not just effective but beautiful. The word is used of the 'goodly pearls' (Matthew 13:45), the 'good ground' (Matthew 13:23), and the 'good works' (Matthew 5:16). Christ's sacrifice is not just necessary but kalos — noble, worthy, beautiful."
+          }
+        ],
+        "15": [
+          {
+            "original_word": "ψυχή",
+            "transliteration": "psychē",
+            "strongs_number": "G5590",
+            "meaning": "Life, soul, the animating principle; the self, the person, one's very being. — In vv.11, 15, 17, Jesus says he 'lays down his life' (tēn psychēn tithēmi) for the sheep. Psychē is more than biological life (bios) — it is the self, the entire person. Jesus does not merely risk his body but gives his psychē — his whole self. In v.18, he has authority (exousia) to lay it down and take it again. The word connects to the Hebrew nephesh — the living being. 'Greater love hath no man than this, that a man lay down his psychē for his friends' (15:13). The cross is the ultimate self-giving."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "ἐξουσία",
+            "transliteration": "exousia",
+            "strongs_number": "G1849",
+            "meaning": "Authority, power, right, jurisdiction; the legitimate right to act. — In v.18, 'I have power to lay it down, and I have power to take it again' (exousian echō theinai autēn kai exousian echō palin labein autēn). Exousia is not dynamis (raw power) but legitimate authority — the right to act. Jesus has the right to die and the right to rise. No creature possesses authority over their own death and resurrection. This exousia comes from the Father ('this commandment have I received') yet belongs inherently to the Son. The cross is an exercise of divine authority, not a submission to human power."
+          }
+        ],
+        "28": [
+          {
+            "original_word": "ἁρπάζω",
+            "transliteration": "harpazō",
+            "strongs_number": "G726",
+            "meaning": "To snatch, seize by force, carry off by violence; to pluck out, to take by power. — In v.28, 'neither shall any man pluck them out of my hand' (ouch harpasei tis auta ek tēs cheiros mou). In v.29, 'no man is able to pluck them out of my Father's hand' (oudeis dynatai harpazein ek tēs cheiros tou patros mou). Harpazō is a violent word — forceful seizure (cf. Matthew 11:12; Acts 8:39; 1 Thessalonians 4:17: 'caught up'). The promise is that no force — however violent — can tear a believer from the divine grip. The sheep are held, not by their own strength, but by the omnipotent hands of the Son and the Father."
+          }
+        ],
+        "30": [
+          {
+            "original_word": "ἕν",
+            "transliteration": "hen",
+            "strongs_number": "G1520",
+            "meaning": "One (neuter) — one thing, one essence, one nature; unity of being. — In v.30, 'I and my Father are one' (hen esmen — we are one thing). The neuter hen (not masculine heis) indicates unity of essence/nature, not identity of person. 'We are' (esmen — plural verb) confirms two distinct persons who share one essence. This is the grammatical foundation of Trinitarian theology: distinction of persons (I and the Father) with unity of nature (one). The Council of Nicaea (325 AD) formulated this as homoousios (of one substance). If Jesus meant only 'one in purpose,' stoning would be an absurd overreaction — the Jews understood he claimed ontological unity with God."
+          }
+        ],
+        "33": [
+          {
+            "original_word": "βλασφημία",
+            "transliteration": "blasphēmia",
+            "strongs_number": "G988",
+            "meaning": "Blasphemy, slander against God, irreverent speech about the divine; claiming divine prerogatives. — In v.33, 'for blasphemy; and because that thou, being a man, makest thyself God' (peri blasphēmias kai hoti sy anthrōpos ōn poieis seauton theon). The Jews correctly identify the issue: Jesus claims to be God. If false, this is the ultimate blasphemy — a creature claiming to be the Creator. If true, it is the ultimate revelation — God has become man. There is no middle ground. The blasphemy charge recurs at Jesus' trial (Matthew 26:65; Mark 14:64). The question is always the same: is Jesus who he claims to be?"
+          }
+        ]
+      },
+      "crossRefs": {
+        "3": [
+          {
+            "reference": "Isaiah 43:1"
+          },
+          {
+            "reference": "John 20:16"
+          }
+        ],
+        "9": [
+          {
+            "reference": "John 14:6"
+          },
+          {
+            "reference": "Acts 4:12"
+          },
+          {
+            "reference": "Ephesians 2:18"
+          }
+        ],
+        "10": [
+          {
+            "reference": "John 10:28"
+          },
+          {
+            "reference": "Romans 8:32"
+          }
+        ],
+        "11": [
+          {
+            "reference": "Psalm 23:1"
+          },
+          {
+            "reference": "Isaiah 40:11"
+          },
+          {
+            "reference": "Ezekiel 34:23"
+          },
+          {
+            "reference": "1 Peter 5:4"
+          },
+          {
+            "reference": "Hebrews 13:20"
+          }
+        ],
+        "15": [
+          {
+            "reference": "Matthew 11:27"
+          },
+          {
+            "reference": "2 Timothy 2:19"
+          }
+        ],
+        "16": [
+          {
+            "reference": "Isaiah 56:8"
+          },
+          {
+            "reference": "Ephesians 2:14-16"
+          },
+          {
+            "reference": "Acts 10:34-35"
+          }
+        ],
+        "18": [
+          {
+            "reference": "Philippians 2:8"
+          },
+          {
+            "reference": "John 19:30"
+          },
+          {
+            "reference": "Isaiah 53:12"
+          }
+        ],
+        "28": [
+          {
+            "reference": "John 6:37-39"
+          },
+          {
+            "reference": "Romans 8:35-39"
+          },
+          {
+            "reference": "Philippians 1:6"
+          }
+        ],
+        "30": [
+          {
+            "reference": "John 1:1"
+          },
+          {
+            "reference": "John 17:21-22"
+          },
+          {
+            "reference": "Colossians 2:9"
+          }
+        ],
+        "33": [
+          {
+            "reference": "John 5:18"
+          },
+          {
+            "reference": "John 8:58-59"
+          }
+        ],
+        "34": [
+          {
+            "reference": "Psalm 82:6"
+          }
+        ],
+        "38": [
+          {
+            "reference": "John 14:10-11"
+          }
+        ],
+        "41": [
+          {
+            "reference": "John 1:29-34"
+          },
+          {
+            "reference": "John 3:30"
+          }
+        ]
+      }
     },
     "11": {
       "meta": {
@@ -4732,7 +9181,285 @@
           "study_note": "'Had given a commandment' (dedōkeisan... entolas — had given orders; pluperfect: the orders were already in effect). 'If any man knew where he were, he should shew it' — an informant directive, effectively making Jesus a wanted man. 'That they might take him' (hopōs piasōsin auton — so that they might arrest him). The chapter ends with Jesus as a fugitive — the giver of life is hunted by those who deal in death. The net is closing. The next chapter opens with Jesus returning to Bethany (12:1), setting the final sequence in motion.",
           "doctrinal_note": null
         }
-      ]
+      ],
+      "wordStudies": {
+        "11": [
+          {
+            "original_word": "κοιμάομαι",
+            "transliteration": "koimaomai",
+            "strongs_number": "G2837",
+            "meaning": "To sleep, to fall asleep; euphemistically: to die, to be in the state of death. — In v.11, 'Our friend Lazarus sleepeth' (Lazaros ho philos hēmōn kekoimētai — Lazarus our friend has fallen asleep). Koimaomai is the standard NT euphemism for death (1 Corinthians 15:6, 18, 20, 51; 1 Thessalonians 4:13-15; Acts 7:60; 2 Peter 3:4). The metaphor of sleep for death is profoundly theological: sleep implies waking. The one who sleeps will rise. For Jesus, death is 'sleep' because he has absolute power to 'awaken' the dead (v.11: exypnisō — rouse from sleep). The English word 'cemetery' derives from koimētērion (sleeping place), reflecting the Christian hope of resurrection."
+          }
+        ],
+        "25": [
+          {
+            "original_word": "ἀνάστασις",
+            "transliteration": "anastasis",
+            "strongs_number": "G386",
+            "meaning": "Resurrection, rising up, standing up again; the raising of the dead to life. — From ana (up, again) + histēmi (to stand). In v.25, Jesus declares 'I am the resurrection' (Egō eimi hē anastasis). Martha uses the word in v.24: 'I know that he shall rise again in the resurrection at the last day.' Martha's understanding is correct but incomplete — she knows anastasis as a future event. Jesus transforms the concept: resurrection is not merely an event but a person. 'I AM the resurrection' means that wherever Jesus is, resurrection is present. The raising of Lazarus (v.44) is the visible proof of this claim. Anastasis occurs 42 times in the NT, with its theological weight concentrated in John 11, 1 Corinthians 15, and Romans 6."
+          },
+          {
+            "original_word": "ζωή",
+            "transliteration": "zōē",
+            "strongs_number": "G2222",
+            "meaning": "Life, the vital principle of animate existence; in John, the divine, eternal life that comes from God. — In v.25, 'I am the resurrection, and the life' (kai hē zōē). Zōē in John is not merely biological existence (bios) but the quality of divine life that belongs to God and is communicated through the Son (1:4: 'In him was life'). This life is eternal in nature (3:16; 5:24; 6:47), present in possession ('hath everlasting life,' 5:24), and indestructible by death ('shall never die,' v.26). Jesus does not merely give life — he IS life. Zōē occurs 36 times in John, more than any other NT book."
+          }
+        ],
+        "33": [
+          {
+            "original_word": "κλαίω",
+            "transliteration": "klaiō",
+            "strongs_number": "G2799",
+            "meaning": "To weep loudly, to wail, to cry with audible lamentation; to mourn with tears. — Used of Mary (v.33: klaiousan — weeping), the Jews (v.33: klaiontas — weeping), and in the mourners' assumption about Mary (v.31: klausē — to weep). Klaiō denotes loud, demonstrative grief — the wailing that was characteristic of Jewish mourning. In contrast, Jesus' weeping in v.35 uses dakryō (to shed tears silently). The distinction is important: the mourners wail; Jesus weeps with quiet, deep emotion. Klaiō appears in Luke 19:41 of Jesus weeping over Jerusalem, but John reserves the stronger verb for the crowds and the quieter one for Jesus."
+          },
+          {
+            "original_word": "ἐμβριμάομαι",
+            "transliteration": "embrimaomai",
+            "strongs_number": "G1690",
+            "meaning": "To be deeply moved, to groan with indignation, to be sternly moved; originally: to snort (of horses). — Used twice in this chapter: v.33 (enebrimēsato tō pneumati — he groaned in the spirit) and v.38 (embrimōmenos en heautō — groaning in himself). The word carries overtones of anger and indignation, not merely sadness. In Mark 1:43 and 14:5, it denotes stern warning; in Matthew 9:30, strong emotion. Jesus' embrimaomai at the tomb suggests righteous anger at death itself — the invasion of God's good creation by the enemy that sin has introduced. He is not merely sad; he is indignant at the destruction death causes."
+          }
+        ],
+        "35": [
+          {
+            "original_word": "δακρύω",
+            "transliteration": "dakryō",
+            "strongs_number": "G1145",
+            "meaning": "To shed tears, to weep silently; to cry without loud lamentation. — Used only once in the NT, in v.35: 'Jesus wept' (edakrysen ho Iēsous). Dakryō describes the quiet shedding of tears, distinct from klaiō (loud wailing). The word appears in classical Greek for tears of deep but controlled emotion. That John chooses this unique verb for Jesus' weeping reveals the character of divine compassion: not theatrical display but genuine, restrained grief. The related noun dakryon (tear) appears in Hebrews 5:7 (Jesus offered prayers 'with strong crying and tears') and Revelation 21:4 ('God shall wipe away all tears')."
+          }
+        ],
+        "47": [
+          {
+            "original_word": "σημεῖον",
+            "transliteration": "sēmeion",
+            "strongs_number": "G4592",
+            "meaning": "Sign, miracle, wonder; an attesting act that points beyond itself to a deeper reality. — In v.47, the Sanhedrin acknowledges 'this man doeth many signs' (polla poiei sēmeia). In John, sēmeion is the preferred term for Jesus' miracles (2:11, 23; 4:54; 6:2, 14, 26; 9:16; 12:18, 37; 20:30). A sēmeion is not merely a display of power but a revelatory act: it signifies something about Jesus' identity and mission. The raising of Lazarus is the supreme sēmeion — it signifies Jesus as the resurrection and the life. Yet signs can be seen without being understood: the Sanhedrin acknowledges the signs and rejects their meaning."
+          }
+        ],
+        "50": [
+          {
+            "original_word": "συμφέρω",
+            "transliteration": "sympherō",
+            "strongs_number": "G4851",
+            "meaning": "To be advantageous, profitable, expedient; to bring together for benefit. — In v.50, Caiaphas says 'it is expedient for us' (sympherei hymin — it is profitable for you). Sympherō means to bring together what is beneficial, to calculate advantage. Caiaphas uses it as cold political calculus: one death is cheaper than national catastrophe. But John sees deeper meaning: the 'expedience' is divine, not political. It truly is 'expedient' — not for the nation's political survival but for the world's salvation — that one man should die for the people. God's expedience is redemption; Caiaphas' expedience is expediency. The same word carries opposite meanings at human and divine levels."
+          }
+        ]
+      },
+      "crossRefs": {
+        "1": [
+          {
+            "reference": "Luke 10:38-42"
+          },
+          {
+            "reference": "John 12:1-3"
+          }
+        ],
+        "3": [
+          {
+            "reference": "John 11:36"
+          }
+        ],
+        "4": [
+          {
+            "reference": "John 9:3"
+          },
+          {
+            "reference": "John 2:11"
+          }
+        ],
+        "5": [
+          {
+            "reference": "John 13:1"
+          }
+        ],
+        "6": [
+          {
+            "reference": "John 2:4"
+          }
+        ],
+        "7": [
+          {
+            "reference": "John 10:39-40"
+          }
+        ],
+        "8": [
+          {
+            "reference": "John 10:31"
+          }
+        ],
+        "9": [
+          {
+            "reference": "John 8:12"
+          },
+          {
+            "reference": "John 12:35-36"
+          }
+        ],
+        "11": [
+          {
+            "reference": "Daniel 12:2"
+          },
+          {
+            "reference": "1 Thessalonians 4:13-14"
+          }
+        ],
+        "14": [
+          {
+            "reference": "John 4:48"
+          }
+        ],
+        "15": [
+          {
+            "reference": "John 20:31"
+          }
+        ],
+        "16": [
+          {
+            "reference": "John 20:24-28"
+          }
+        ],
+        "17": [
+          {
+            "reference": "John 11:39"
+          }
+        ],
+        "21": [
+          {
+            "reference": "John 11:32"
+          }
+        ],
+        "23": [
+          {
+            "reference": "Daniel 12:2"
+          }
+        ],
+        "24": [
+          {
+            "reference": "Acts 23:6-8"
+          }
+        ],
+        "25": [
+          {
+            "reference": "John 5:25-29"
+          },
+          {
+            "reference": "John 14:6"
+          },
+          {
+            "reference": "John 6:35"
+          },
+          {
+            "reference": "Exodus 3:14"
+          }
+        ],
+        "26": [
+          {
+            "reference": "John 5:24"
+          },
+          {
+            "reference": "John 10:28"
+          }
+        ],
+        "27": [
+          {
+            "reference": "Matthew 16:16"
+          },
+          {
+            "reference": "John 20:31"
+          }
+        ],
+        "33": [
+          {
+            "reference": "Hebrews 4:15"
+          },
+          {
+            "reference": "Isaiah 63:9"
+          }
+        ],
+        "35": [
+          {
+            "reference": "Luke 19:41"
+          },
+          {
+            "reference": "Hebrews 5:7"
+          }
+        ],
+        "39": [
+          {
+            "reference": "John 2:7"
+          }
+        ],
+        "40": [
+          {
+            "reference": "John 2:11"
+          }
+        ],
+        "43": [
+          {
+            "reference": "John 5:25"
+          },
+          {
+            "reference": "John 10:3"
+          }
+        ],
+        "44": [
+          {
+            "reference": "John 20:6-7"
+          },
+          {
+            "reference": "Revelation 1:18"
+          }
+        ],
+        "48": [
+          {
+            "reference": "John 12:19"
+          }
+        ],
+        "50": [
+          {
+            "reference": "Mark 10:45"
+          },
+          {
+            "reference": "2 Corinthians 5:21"
+          },
+          {
+            "reference": "1 Peter 3:18"
+          }
+        ],
+        "51": [
+          {
+            "reference": "Numbers 24:17"
+          }
+        ],
+        "52": [
+          {
+            "reference": "John 10:16"
+          },
+          {
+            "reference": "Ephesians 2:14-16"
+          }
+        ],
+        "53": [
+          {
+            "reference": "John 5:18"
+          }
+        ],
+        "55": [
+          {
+            "reference": "John 2:13"
+          },
+          {
+            "reference": "John 6:4"
+          },
+          {
+            "reference": "1 Corinthians 5:7"
+          }
+        ],
+        "57": [
+          {
+            "reference": "John 7:30"
+          }
+        ]
+      }
     },
     "12": {
       "meta": {

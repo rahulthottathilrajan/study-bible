@@ -233,6 +233,54 @@ function parseWordStudies(sql) {
     const blockEnd = nextInsertIdx === -1 ? sql.length : nextInsertIdx;
     const block = sql.substring(insertIdx, blockEnd);
 
+    // Pattern D: FROM (VALUES ...) AS alias(cols) CROSS JOIN LATERAL (... CASE alias.word_order ...)
+    // Used by some legacy NT chapter seeds (e.g. john-chapter-02..05). The VALUES tuples lack
+    // verse_number; mapping comes from a CASE inside the LATERAL subquery.
+    const fromValuesIdx = block.indexOf('FROM (VALUES');
+    const lateralIdx = block.indexOf('CROSS JOIN LATERAL');
+    if (fromValuesIdx !== -1 && lateralIdx !== -1 && lateralIdx > fromValuesIdx) {
+      const aliasMatch = block.substring(fromValuesIdx).match(/\)\s*AS\s+(\w+)\s*\(([^)]+)\)/);
+      if (aliasMatch) {
+        const alias = aliasMatch[1];
+        const cols = aliasMatch[2].split(',').map(c => c.trim());
+        const valuesEnd = fromValuesIdx + aliasMatch.index;
+        const valuesText = block.substring(fromValuesIdx + 'FROM (VALUES'.length, valuesEnd);
+        const tuples = parseSQLValues(valuesText);
+        const caseMatch = block.substring(lateralIdx).match(new RegExp(`CASE\\s+${alias}\\.word_order\\s*([\\s\\S]*?)END`));
+        if (caseMatch) {
+          const mapping = {};
+          for (const m of caseMatch[1].matchAll(/WHEN\s+(\d+)\s+THEN\s+(\d+)/g)) {
+            mapping[parseInt(m[1])] = parseInt(m[2]);
+          }
+          const wordIdx = cols.indexOf('original_word');
+          const transIdx = cols.indexOf('transliteration');
+          const strongsIdx = cols.indexOf('strongs_number');
+          const meaningIdx = cols.indexOf('meaning');
+          const usageIdx = cols.indexOf('usage_notes');
+          const orderIdx = cols.indexOf('word_order');
+          for (const t of tuples) {
+            if (orderIdx === -1 || t.length <= orderIdx) continue;
+            const wo = parseInt(t[orderIdx]);
+            const verseNum = mapping[wo];
+            if (verseNum === undefined) continue;
+            const meaning = (usageIdx !== -1 && t[usageIdx])
+              ? `${t[meaningIdx]} — ${t[usageIdx]}`
+              : t[meaningIdx];
+            const key = String(verseNum);
+            if (!result[key]) result[key] = [];
+            result[key].push({
+              original_word: t[wordIdx],
+              transliteration: t[transIdx],
+              strongs_number: t[strongsIdx],
+              meaning
+            });
+          }
+          searchFrom = blockEnd;
+          continue;
+        }
+      }
+    }
+
     // Find CROSS JOIN (VALUES
     const cjIdx = block.indexOf('CROSS JOIN (VALUES');
     if (cjIdx === -1) { searchFrom = blockEnd; continue; }
@@ -319,30 +367,67 @@ function parseWordStudies(sql) {
 function parseCrossRefs(sql) {
   const result = {}; // { "verse_number": [{ reference }] }
 
-  const insertIdx = sql.indexOf('INSERT INTO cross_references');
-  if (insertIdx === -1) return result;
+  let searchFrom = 0;
+  while (true) {
+    const insertIdx = sql.indexOf('INSERT INTO cross_references', searchFrom);
+    if (insertIdx === -1) break;
 
-  const cjIdx = sql.indexOf('CROSS JOIN (VALUES', insertIdx);
-  if (cjIdx === -1) return result;
+    const nextInsertIdx = sql.indexOf('INSERT INTO', insertIdx + 28);
+    const blockEnd = nextInsertIdx === -1 ? sql.length : nextInsertIdx;
+    const block = sql.substring(insertIdx, blockEnd);
 
-  // Allow any alias (cr, x, etc.) — column list determines field order
-  const aliasMatch = sql.substring(cjIdx).match(/\)\s*AS\s+\w+\s*\(([^)]+)\)/);
-  if (!aliasMatch) return result;
-  const columns = aliasMatch[1].split(',').map(c => c.trim());
-  const asIdx = cjIdx + aliasMatch.index;
+    // Pattern D: FROM (VALUES ...) AS alias(cols) CROSS JOIN LATERAL (...)
+    // Used by some legacy NT chapter seeds. The VALUES tuples include verse_number directly.
+    // Column names vary: 'reference' (newer) or 'referenced_verse' (older); same with 'context'/'note'.
+    const fromValuesIdx = block.indexOf('FROM (VALUES');
+    const lateralIdx = block.indexOf('CROSS JOIN LATERAL');
+    if (fromValuesIdx !== -1 && lateralIdx !== -1 && lateralIdx > fromValuesIdx) {
+      const aliasMatch = block.substring(fromValuesIdx).match(/\)\s*AS\s+(\w+)\s*\(([^)]+)\)/);
+      if (aliasMatch) {
+        const cols = aliasMatch[2].split(',').map(c => c.trim());
+        const valuesEnd = fromValuesIdx + aliasMatch.index;
+        const valuesText = block.substring(fromValuesIdx + 'FROM (VALUES'.length, valuesEnd);
+        const tuples = parseSQLValues(valuesText);
+        const verseIdx = cols.indexOf('verse_number');
+        let refIdx = cols.indexOf('reference');
+        if (refIdx === -1) refIdx = cols.indexOf('referenced_verse');
+        if (verseIdx !== -1 && refIdx !== -1) {
+          for (const t of tuples) {
+            if (t.length <= Math.max(verseIdx, refIdx)) continue;
+            const key = String(t[verseIdx]);
+            if (!result[key]) result[key] = [];
+            result[key].push({ reference: t[refIdx] });
+          }
+        }
+        searchFrom = blockEnd;
+        continue;
+      }
+    }
 
-  const valuesText = sql.substring(cjIdx + 'CROSS JOIN (VALUES'.length, asIdx);
-  const tuples = parseSQLValues(valuesText);
+    // Standard pattern: CROSS JOIN (VALUES ...) AS alias(verse_number, reference, ref_order)
+    const cjIdx = block.indexOf('CROSS JOIN (VALUES');
+    if (cjIdx === -1) { searchFrom = blockEnd; continue; }
 
-  const verseIdx = columns.indexOf('verse_number');
-  const refIdx = columns.indexOf('reference');
-  if (verseIdx === -1 || refIdx === -1) return result;
+    const aliasMatch = block.substring(cjIdx).match(/\)\s*AS\s+\w+\s*\(([^)]+)\)/);
+    if (!aliasMatch) { searchFrom = blockEnd; continue; }
+    const columns = aliasMatch[1].split(',').map(c => c.trim());
+    const asIdx = cjIdx + aliasMatch.index;
 
-  for (const t of tuples) {
-    if (t.length <= Math.max(verseIdx, refIdx)) continue;
-    const key = String(t[verseIdx]);
-    if (!result[key]) result[key] = [];
-    result[key].push({ reference: t[refIdx] });
+    const valuesText = block.substring(cjIdx + 'CROSS JOIN (VALUES'.length, asIdx);
+    const tuples = parseSQLValues(valuesText);
+
+    const verseIdx = columns.indexOf('verse_number');
+    const refIdx = columns.indexOf('reference');
+    if (verseIdx === -1 || refIdx === -1) { searchFrom = blockEnd; continue; }
+
+    for (const t of tuples) {
+      if (t.length <= Math.max(verseIdx, refIdx)) continue;
+      const key = String(t[verseIdx]);
+      if (!result[key]) result[key] = [];
+      result[key].push({ reference: t[refIdx] });
+    }
+
+    searchFrom = blockEnd;
   }
 
   return result;
