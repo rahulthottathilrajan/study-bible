@@ -6113,12 +6113,66 @@
         }
       ],
       "wordStudies": {
+        "1": [
+          {
+            "original_word": "πατρίδα",
+            "transliteration": "patrida",
+            "strongs_number": "G3968",
+            "meaning": "Own country/hometown — Nazareth; Mark frames the Nazareth rejection as a programmatic foil to the Gentile response that follows (5:20 Decapolis; 7:24-30 Syrophoenicia)."
+          },
+          {
+            "original_word": "ἀκολουθοῦσιν αὐτῷ",
+            "transliteration": "akolouthousin autō",
+            "strongs_number": "G190",
+            "meaning": "Follow him — present tense; the Twelve now accompany him as a visible rabbinic band entering his hometown, intensifying the public stakes of his reception."
+          }
+        ],
+        "2": [
+          {
+            "original_word": "σοφία",
+            "transliteration": "sophia",
+            "strongs_number": "G4678",
+            "meaning": "Wisdom — the synagogue's begrudging admission that his teaching displays more than local rabbinic training; wisdom tradition (Prov 8; Sir 24) signals supra-human source."
+          },
+          {
+            "original_word": "δυνάμεις τοιαῦται",
+            "transliteration": "dynameis toiautai",
+            "strongs_number": "G1411",
+            "meaning": "Such mighty works — plural: crowds already know of miracles elsewhere (ch.5 especially); question is how, not whether."
+          }
+        ],
         "3": [
           {
             "original_word": "τέκτων",
             "transliteration": "tektōn",
             "strongs_number": "G5045",
             "meaning": "Carpenter, woodworker, craftsman, builder — from tiktō (to produce, create). A tektōn in first-century Galilee was a general construction worker who worked with wood, stone, and building materials. The term covers everything from furniture making to house construction. Jesus was known in Nazareth as a manual labourer — the village craftsman. This detail reveals that God incarnate spent most of his earthly life in humble, physical work. The Creator of the universe was known as 'the carpenter.' Mark alone calls Jesus himself a tektōn; Matthew 13:55 says 'carpenter's son.'"
+          },
+          {
+            "original_word": "ὁ τέκτων ὁ υἱὸς τῆς Μαρίας",
+            "transliteration": "ho tektōn ho huios tēs Marias",
+            "strongs_number": "G5045/G5207",
+            "meaning": "The carpenter, son of Mary — naming Jesus only by mother (not Joseph) is unusual; may hint at early memory of virgin birth or at Joseph's death."
+          },
+          {
+            "original_word": "ἐσκανδαλίζοντο",
+            "transliteration": "eskandalizonto",
+            "strongs_number": "G4624",
+            "meaning": "Were scandalised/tripped up — imperfect: ongoing stumbling; the familiar face blocks recognition of the Messiah; Isa 8:14 stone-of-stumbling theme."
+          }
+        ],
+        "4": [
+          {
+            "original_word": "ἄτιμος",
+            "transliteration": "atimos",
+            "strongs_number": "G820",
+            "meaning": "Without honour — alpha-privative of timē; in honour-shame culture the prophet's own kin owe him most honour and withhold it most fiercely."
+          },
+          {
+            "original_word": "ἐν τῇ συγγενείᾳ",
+            "transliteration": "en tē syngeneia",
+            "strongs_number": "G4772",
+            "meaning": "Among his kindred — Mark sharpens Matthew's form by naming relatives specifically; echoes 3:21 where his family had tried to seize him."
           }
         ],
         "5": [
@@ -6127,6 +6181,26 @@
             "transliteration": "dynamis",
             "strongs_number": "G1411",
             "meaning": "Power, mighty work, miracle — from dynamai (to be able). In v.5, the startling phrase 'he could do no mighty work' (oudemian dynamin poiēsai) does not mean Jesus lacked power but that his power operates within the context of faith. Miracles in Mark are not magical tricks performed for amazement but kingdom signs that require receptive hearts. The limitation is volitional, not ontological: Jesus chose not to force his power on the unwilling. God's dynamis is not diminished by unbelief, but its expression is self-limited by divine respect for human freedom."
+          },
+          {
+            "original_word": "ἀρρώστοις",
+            "transliteration": "arrōstois",
+            "strongs_number": "G732",
+            "meaning": "Feeble/sickly — alpha-privative of rhōnnymi (to be strong); Mark's delicate concession: some minor healings still happened."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "ἐθαύμαζεν",
+            "transliteration": "ethaumazen",
+            "strongs_number": "G2296",
+            "meaning": "He marvelled — imperfect; only place in Mark where Jesus marvels at unbelief (contrast Luke 7:9 where he marvels at faith)."
+          },
+          {
+            "original_word": "ἀπιστίαν",
+            "transliteration": "apistian",
+            "strongs_number": "G570",
+            "meaning": "Unbelief — not mere doubt but active refusal; Mark links it causally (dia tēn apistian) to the restricted works of v.5."
           }
         ],
         "7": [
@@ -6135,6 +6209,234 @@
             "transliteration": "apostellō",
             "strongs_number": "G649",
             "meaning": "To send forth, commission, dispatch on a mission — from apo (from) + stellō (to send). The noun form is apostolos (apostle, sent one). In v.7, Jesus 'began to send them forth' (apostellein) — the verbal root of their title. An apostle is not a volunteer but one commissioned by authority greater than himself. The sending implies both the authority of the sender and the obedience of the sent. The apostles go not in their own name or power but in Jesus', carrying his authority over unclean spirits and his message of repentance."
+          },
+          {
+            "original_word": "δύο δύο",
+            "transliteration": "dyo dyo",
+            "strongs_number": "G1417",
+            "meaning": "Two by two — Semitic distributive; pairs provide mutual support and meet the Deut 19:15 two-witness rule for authoritative testimony."
+          },
+          {
+            "original_word": "ἐξουσίαν τῶν πνευμάτων",
+            "transliteration": "exousian tōn pneumatōn",
+            "strongs_number": "G1849/G4151",
+            "meaning": "Authority over the spirits — first delegated exousia in Mark; apostolic ministry extends Jesus's own exorcistic prerogative."
+          }
+        ],
+        "8": [
+          {
+            "original_word": "ῥάβδον μόνον",
+            "transliteration": "rhabdon monon",
+            "strongs_number": "G4464",
+            "meaning": "Staff only — Mark's concession differs slightly from Matt 10:10 / Luke 9:3; the staff is pilgrim equipment (Exod 12:11), not a weapon."
+          },
+          {
+            "original_word": "μὴ πήραν",
+            "transliteration": "mē pēran",
+            "strongs_number": "G4082",
+            "meaning": "No travel-bag — pēra: leather knapsack; disciples travel lighter than philosophic itinerants (e.g. Cynics carried a pēra as trademark)."
+          },
+          {
+            "original_word": "χαλκὸν εἰς τὴν ζώνην",
+            "transliteration": "chalkon eis tēn zōnēn",
+            "strongs_number": "G5475/G2223",
+            "meaning": "No copper in the belt-purse — small change stored in folded girdle; they are to depend on host hospitality, not carried currency."
+          }
+        ],
+        "9": [
+          {
+            "original_word": "ὑποδεδεμένους σανδάλια",
+            "transliteration": "hypodedemenous sandalia",
+            "strongs_number": "G4682/G4547",
+            "meaning": "Shod with sandals — plain sole; Mark alone permits them (Matt 10:10 forbids them); likely rural travel necessity on Galilean paths."
+          },
+          {
+            "original_word": "μὴ δύο χιτῶνας",
+            "transliteration": "mē dyo chitōnas",
+            "strongs_number": "G1417/G5509",
+            "meaning": "Not two tunics — one change of clothes forbidden; itinerant simplicity like John Baptist's austerity."
+          }
+        ],
+        "10": [
+          {
+            "original_word": "ἐκεῖ μένετε",
+            "transliteration": "ekei menete",
+            "strongs_number": "G3306",
+            "meaning": "There remain — imperative; do not shuttle between hosts seeking better lodging; stability of residence signals respect for hospitality."
+          }
+        ],
+        "11": [
+          {
+            "original_word": "ἐκτινάξατε τὸν χοῦν",
+            "transliteration": "ektinaxate ton choun",
+            "strongs_number": "G1621/G5522",
+            "meaning": "Shake off the dust — rabbinic gesture for disowning pagan uncleanness; Jewish towns thus reduced to Gentile status if they reject the message."
+          },
+          {
+            "original_word": "εἰς μαρτύριον αὐτοῖς",
+            "transliteration": "eis martyrion autois",
+            "strongs_number": "G3142",
+            "meaning": "For a testimony against them — the gesture itself becomes evidentiary at final judgment; cf. 1:44 priestly testimony."
+          }
+        ],
+        "12": [
+          {
+            "original_word": "ἐκήρυσσον ἵνα μετανοῶσιν",
+            "transliteration": "ekēryssan hina metanoōsin",
+            "strongs_number": "G2784/G3340",
+            "meaning": "Preached that they should repent — imperfect + subjunctive; the apostles replicate John (1:4) and Jesus's (1:15) kerygmatic core."
+          }
+        ],
+        "13": [
+          {
+            "original_word": "ἤλειφον ἐλαίῳ",
+            "transliteration": "ēleiphon elaiō",
+            "strongs_number": "G218/G1637",
+            "meaning": "Anointed with oil — imperfect; olive oil as medicinal + sacramental sign; NT foundation for Jas 5:14 elder-anointing practice."
+          }
+        ],
+        "14": [
+          {
+            "original_word": "ἀκουστὸν",
+            "transliteration": "akouston",
+            "strongs_number": "G191",
+            "meaning": "Heard of/known — verbal adjective; Jesus's fame has now penetrated the Herodian court, forcing Antipas's guilty conscience to the surface."
+          },
+          {
+            "original_word": "δυνάμεις ἐνεργοῦσιν",
+            "transliteration": "dynameis energousin",
+            "strongs_number": "G1754",
+            "meaning": "Miracles are at work — Herod theorises John has gained supernatural powers posthumously; eerie popular theology."
+          }
+        ],
+        "15": [
+          {
+            "original_word": "Ἠλίας",
+            "transliteration": "Ēlias",
+            "strongs_number": "G2243",
+            "meaning": "Elijah — Mal 4:5 expected forerunner; speculation reveals active messianic/prophetic awareness among Galileans."
+          }
+        ],
+        "16": [
+          {
+            "original_word": "ἀπεκεφάλισα",
+            "transliteration": "apekephalisa",
+            "strongs_number": "G607",
+            "meaning": "I beheaded — aorist; Herod's reluctant admission in first person carries the weight of guilt: \"whom I — I — beheaded\"."
+          }
+        ],
+        "17": [
+          {
+            "original_word": "Ἡρῳδιάδα",
+            "transliteration": "Hērōdiada",
+            "strongs_number": "G2266",
+            "meaning": "Herodias — Herod the Great's granddaughter; married first to Herod II (Philip here = her husband, Josephus calls him Herod); later to Antipas."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "οὐκ ἔξεστιν",
+            "transliteration": "ouk exestin",
+            "strongs_number": "G1832",
+            "meaning": "It is not lawful — John's blunt halakhic pronouncement on Antipas's marriage; Lev 18:16/20:21 prohibits union with brother's living wife."
+          }
+        ],
+        "19": [
+          {
+            "original_word": "ἐνεῖχεν αὐτῷ",
+            "transliteration": "eneichen autō",
+            "strongs_number": "G1758",
+            "meaning": "Had a grudge against him — literally \"held it in against him\"; imperfect: nursed hatred; same verb Luke 11:53 for Pharisaic rage."
+          }
+        ],
+        "20": [
+          {
+            "original_word": "ἐφοβεῖτο τὸν Ἰωάννην",
+            "transliteration": "ephobeito ton Iōannēn",
+            "strongs_number": "G5399",
+            "meaning": "Feared John — imperfect; Herod's fear is reverential dread of holy man, not political menace."
+          },
+          {
+            "original_word": "ἠπόρει ... ἡδέως ἤκουεν",
+            "transliteration": "ēporei ... hēdeōs ēkouen",
+            "strongs_number": "G639/G2234/G191",
+            "meaning": "Perplexed yet gladly heard — Herod's divided mind: convicted by John's preaching yet unable to obey; classic hardened-conscience portrait."
+          }
+        ],
+        "21": [
+          {
+            "original_word": "εὐκαίρου ἡμέρας",
+            "transliteration": "eukairou hēmeras",
+            "strongs_number": "G2121",
+            "meaning": "Convenient/opportune day — genitive absolute; Mark's ironic note: the \"right moment\" for Herodias, not for John."
+          }
+        ],
+        "22": [
+          {
+            "original_word": "ὠρχήσατο",
+            "transliteration": "ōrchēsato",
+            "strongs_number": "G3738",
+            "meaning": "Danced — Salome's solo performance before male banqueters was disgraceful by Jewish mores; Mark underscores court decadence."
+          }
+        ],
+        "23": [
+          {
+            "original_word": "ἕως ἡμίσους τῆς βασιλείας",
+            "transliteration": "heōs hēmisous tēs basileias",
+            "strongs_number": "G2255/G932",
+            "meaning": "Unto the half of my kingdom — Esther 5:3, 7:2 formula from Ahasuerus; Mark casts Herod as pagan-style despot, not Davidic king."
+          }
+        ],
+        "25": [
+          {
+            "original_word": "ἐπὶ πίνακι",
+            "transliteration": "epi pinaki",
+            "strongs_number": "G4094",
+            "meaning": "On a platter/dish — pinax: large flat serving-tray; macabre request staged as banquet course mocks prophetic martyrdom."
+          }
+        ],
+        "26": [
+          {
+            "original_word": "περίλυπος γενόμενος",
+            "transliteration": "perilypos genomenos",
+            "strongs_number": "G4036",
+            "meaning": "Exceeding sorry — same adjective used of Jesus in Gethsemane (14:34); Mark draws an ironic parallel."
+          },
+          {
+            "original_word": "οὐκ ἠθέλησεν ἀθετῆσαι",
+            "transliteration": "ouk ēthelēsen athetēsai",
+            "strongs_number": "G2309/G114",
+            "meaning": "Did not wish to reject her — Herod chose social honour of the oath over moral obligation to spare innocent life; cowardice dressed as integrity."
+          }
+        ],
+        "27": [
+          {
+            "original_word": "σπεκουλάτωρα",
+            "transliteration": "spekoulatora",
+            "strongs_number": "G4688",
+            "meaning": "Executioner — Latin loan speculator; originally a scout, then palace guard/headsman; Mark retains the Roman military idiom."
+          }
+        ],
+        "29": [
+          {
+            "original_word": "πτῶμα",
+            "transliteration": "ptōma",
+            "strongs_number": "G4430",
+            "meaning": "Corpse — literally \"that which has fallen\"; John's disciples claim and bury the body, mirroring what Joseph of Arimathea will do for Jesus (15:45)."
+          }
+        ],
+        "31": [
+          {
+            "original_word": "ἀνάπαυσαι ὀλίγον",
+            "transliteration": "anapausai oligon",
+            "strongs_number": "G373",
+            "meaning": "Rest a little — aorist middle imperative; Jesus teaches Sabbath rhythm to exhausted ministers; Jer 31:25 echo."
+          },
+          {
+            "original_word": "οὐδὲ φαγεῖν εὐκαίρουν",
+            "transliteration": "oude phagein eukairoun",
+            "strongs_number": "G2119",
+            "meaning": "Nor had they leisure to eat — imperfect of eukaireō; demands of crowds have eclipsed basic self-care."
           }
         ],
         "34": [
@@ -6143,6 +6445,44 @@
             "transliteration": "splanchnizomai",
             "strongs_number": "G4697",
             "meaning": "To be moved with compassion — from splanchna (viscera, inner organs). This visceral compassion drives Jesus to action: he sees shepherdless sheep and responds by teaching (v.34), then feeding (vv.41-42). In Mark, splanchnizomai always precedes a mighty act: healing a leper (1:41), teaching the crowds (6:34), feeding the 4,000 (8:2). Jesus' miracles are not demonstrations of power but responses of compassion. The divine heart feels before the divine hand acts. This word reveals the emotional interior of God incarnate."
+          },
+          {
+            "original_word": "ὡς πρόβατα μὴ ἔχοντα ποιμένα",
+            "transliteration": "hōs probata mē echonta poimena",
+            "strongs_number": "G4263/G4166",
+            "meaning": "As sheep not having a shepherd — exact LXX of Num 27:17 / 1 Kgs 22:17; Jesus fulfils Ezek 34 promise of Davidic shepherd."
+          }
+        ],
+        "37": [
+          {
+            "original_word": "δηναρίων διακοσίων",
+            "transliteration": "dēnariōn diakosiōn",
+            "strongs_number": "G1220/G1250",
+            "meaning": "Two hundred denarii — roughly eight months wages for a labourer; disciples assume feeding is economically impossible."
+          }
+        ],
+        "38": [
+          {
+            "original_word": "ὑπάγετε ἴδετε",
+            "transliteration": "hypagete idete",
+            "strongs_number": "G5217/G1492",
+            "meaning": "Go and see — double imperative; Jesus refuses to solve the problem in the abstract, forcing disciples to audit resources."
+          }
+        ],
+        "39": [
+          {
+            "original_word": "χλωρῷ χόρτῳ",
+            "transliteration": "chlōrō chortō",
+            "strongs_number": "G5515/G5528",
+            "meaning": "Green grass — Mark's spring detail (Passover season, cf. John 6:4); evokes Ps 23:2 shepherd-prepared table."
+          }
+        ],
+        "40": [
+          {
+            "original_word": "πρασιαὶ πρασιαὶ",
+            "transliteration": "prasiai prasiai",
+            "strongs_number": "G4237",
+            "meaning": "In ranks like garden-plots — prasia: vegetable bed; the crowd's orderly arrangement in coloured-robe groupings suggests Sinai-camp imagery (Exod 18:21)."
           }
         ],
         "41": [
@@ -6151,6 +6491,42 @@
             "transliteration": "eulogeō",
             "strongs_number": "G2127",
             "meaning": "To bless, speak well of, give thanks — from eu (well, good) + logos (word). Jesus 'blessed' the five loaves and two fishes — speaking God's goodness over the meagre provision. The blessing acknowledges God as the source of all provision and transforms the ordinary into the extraordinary. The same sequence (took, blessed, broke, gave) appears at the Last Supper (14:22), connecting the feeding miracle to the Eucharist. In both, Jesus takes what is insufficient, blesses it, and distributes abundance."
+          },
+          {
+            "original_word": "ἀναβλέψας εἰς τὸν οὐρανόν",
+            "transliteration": "anablepsas eis ton ouranon",
+            "strongs_number": "G308/G3772",
+            "meaning": "Looking up to heaven — standard Jewish prayer posture; the Father is the true host and Jesus the mediating Son."
+          },
+          {
+            "original_word": "ἐκλάσεν",
+            "transliteration": "eklasen",
+            "strongs_number": "G2806",
+            "meaning": "Broke — aorist of klaō; the same verb Jesus will use at the Last Supper (14:22); feeding miracle prefigures Eucharistic breaking."
+          }
+        ],
+        "43": [
+          {
+            "original_word": "κοφίνων πληρώματα δώδεκα",
+            "transliteration": "kophinōn plērōmata dōdeka",
+            "strongs_number": "G2894/G4138/G1427",
+            "meaning": "Twelve basket-fuls — kophinos: small wicker basket associated with Jews (Juvenal Sat. 3.14); twelve basketfuls = one per tribe."
+          }
+        ],
+        "45": [
+          {
+            "original_word": "ἠνάγκασεν",
+            "transliteration": "ēnankasen",
+            "strongs_number": "G315",
+            "meaning": "Compelled — aorist; strong verb; John 6:15 explains: the crowd wanted to crown him king, so he forced disciples off to prevent political messianism."
+          }
+        ],
+        "46": [
+          {
+            "original_word": "ἀποταξάμενος αὐτοῖς",
+            "transliteration": "apotaxamenos autois",
+            "strongs_number": "G657",
+            "meaning": "Having taken leave — formal farewell; Jesus retreats to a mountain (Moses / Elijah pattern) for solitary intercession."
           }
         ],
         "48": [
@@ -6159,6 +6535,26 @@
             "transliteration": "peripateō",
             "strongs_number": "G4043",
             "meaning": "To walk, walk about, conduct one's life — from peri (around) + pateō (to tread, walk). The phrase 'walking on the sea' (peripatōn epi tēs thalassēs) echoes Job 9:8 LXX, where God alone 'walks on the waves of the sea.' What is God's exclusive prerogative in the OT becomes Jesus' action in the NT. The Sea of Galilee, which symbolises chaos and threat in Mark (4:37-39), is now beneath Jesus' feet. He does not merely calm the chaos; he treads upon it as sovereign Lord."
+          },
+          {
+            "original_word": "τετάρτῃ φυλακῇ τῆς νυκτὸς",
+            "transliteration": "tetartē phylakē tēs nyktos",
+            "strongs_number": "G5067/G5438",
+            "meaning": "Fourth watch — Roman reckoning: 3-6 am; disciples had rowed against headwinds roughly nine hours."
+          },
+          {
+            "original_word": "ἤθελεν παρελθεῖν αὐτούς",
+            "transliteration": "ēthelen parelthein autous",
+            "strongs_number": "G2309/G3928",
+            "meaning": "Would have passed them by — LXX parerchomai used of God's theophanic \"passing by\" (Exod 33:19-22; 1 Kgs 19:11); divine-self-disclosure idiom."
+          }
+        ],
+        "49": [
+          {
+            "original_word": "φάντασμα",
+            "transliteration": "phantasma",
+            "strongs_number": "G5326",
+            "meaning": "Phantom/apparition — occurs only here and Matt 14:26 in NT; popular belief held that nocturnal ghosts walked near water."
           }
         ],
         "50": [
@@ -6167,6 +6563,20 @@
             "transliteration": "egō eimi",
             "strongs_number": "G1473/G1510",
             "meaning": "I am — the divine self-identification formula. In ordinary Greek, egō eimi means simply 'it is I' or 'I am he.' But in the context of a theophany (walking on water, passing by, calming storms), the phrase echoes Exodus 3:14 ('I AM THAT I AM') and the repeated 'I am he' of Isaiah (41:4, 43:10, 46:4). Jesus uses egō eimi at key moments in Mark: walking on water (6:50), before the Sanhedrin (14:62). Combined with the OT sea-walking imagery, this is a divine self-revelation: the one speaking is the God of Israel in human form."
+          },
+          {
+            "original_word": "θαρσεῖτε ... μὴ φοβεῖσθε",
+            "transliteration": "tharseite ... mē phobeisthe",
+            "strongs_number": "G2293/G5399",
+            "meaning": "Take courage ... stop being afraid — double imperative sandwiching egō eimi; same formula as Isa 41:10 prophetic consolation."
+          }
+        ],
+        "51": [
+          {
+            "original_word": "ἐξίσταντο ἐν ἑαυτοῖς",
+            "transliteration": "existanto en heautois",
+            "strongs_number": "G1839",
+            "meaning": "Were utterly amazed in themselves — imperfect; ekstasis language: pushed out of rational bearings; Mark intensifies to underscore non-comprehension."
           }
         ],
         "52": [
@@ -6176,9 +6586,55 @@
             "strongs_number": "G4456",
             "meaning": "To harden, petrify, make callous — from pōros (calcium deposit, stone). Applied to the disciples' hearts (pepōrōmenē, perfect passive: their hearts had been hardened and remained in that state). This is the same word used for the Pharisees (3:5) and for Israel (Romans 11:7). The disciples are not hostile but obtuse — they have seen extraordinary things but have not connected them to Jesus' identity. Hardness of heart in Mark is not intellectual inability but spiritual imperception: seeing without understanding, hearing without comprehending. It is the condition parables both diagnose and address (4:11-12)."
           }
+        ],
+        "53": [
+          {
+            "original_word": "Γεννησαρέτ",
+            "transliteration": "Gennēsaret",
+            "strongs_number": "G1082",
+            "meaning": "Gennesaret — fertile crescent plain NW of the lake (Josephus War 3.10.8); a densely populated agricultural district; intense miraculous ministry follows."
+          }
+        ],
+        "55": [
+          {
+            "original_word": "περιέδραμον ὅλην τὴν χώραν",
+            "transliteration": "periedramon holēn tēn chōran",
+            "strongs_number": "G4063",
+            "meaning": "Ran round the whole country — aorist; Mark's hyperbolic pulse: Jesus's reputation now sweeps Galilee's plain at sprinting pace."
+          }
+        ],
+        "56": [
+          {
+            "original_word": "κράσπεδον τοῦ ἱματίου",
+            "transliteration": "kraspedon tou himatiou",
+            "strongs_number": "G2899/G2440",
+            "meaning": "Fringe/tassel of the garment — tzitzit mandated by Num 15:38-39; a rabbi's tassels marked covenant identity; continuous with 5:28 haemorrhaging woman."
+          },
+          {
+            "original_word": "διεσῴζοντο",
+            "transliteration": "diesōzonto",
+            "strongs_number": "G1295",
+            "meaning": "Were thoroughly saved/healed — imperfect passive of diasōzō; sōzō semantic field: rescue, heal, save; Mark blurs physical and soteriological salvation."
+          }
         ]
       },
       "crossRefs": {
+        "1": [
+          {
+            "reference": "Luke 4:16"
+          },
+          {
+            "reference": "Matthew 13:54"
+          }
+        ],
+        "2": [
+          {
+            "reference": "Mark 1:22"
+          },
+          {
+            "reference": "John 7:15"
+          }
+        ],
         "3": [
           {
             "reference": "Matthew 13:55-57"
@@ -6188,16 +6644,51 @@
           },
           {
             "reference": "John 6:42"
+          },
+          {
+            "reference": "Isaiah 53:3"
+          },
+          {
+            "reference": "Matthew 11:6"
+          },
+          {
+            "reference": "John 7:5"
           }
         ],
         "4": [
           {
             "reference": "John 4:44"
+          },
+          {
+            "reference": "Luke 4:24"
+          },
+          {
+            "reference": "Jeremiah 11:21"
+          },
+          {
+            "reference": "John 1:11"
           }
         ],
         "5": [
           {
             "reference": "Matthew 13:58"
+          },
+          {
+            "reference": "Hebrews 3:19"
+          },
+          {
+            "reference": "Mark 9:23"
+          },
+          {
+            "reference": "James 1:6-7"
+          }
+        ],
+        "6": [
+          {
+            "reference": "Isaiah 59:16"
+          },
+          {
+            "reference": "Luke 7:9"
           }
         ],
         "7": [
@@ -6206,6 +6697,39 @@
           },
           {
             "reference": "Luke 9:1-2"
+          },
+          {
+            "reference": "Mark 3:14-15"
+          },
+          {
+            "reference": "Luke 10:1"
+          },
+          {
+            "reference": "Ecclesiastes 4:9-10"
+          },
+          {
+            "reference": "Deuteronomy 19:15"
+          }
+        ],
+        "8": [
+          {
+            "reference": "Matthew 10:9-10"
+          },
+          {
+            "reference": "Luke 10:4"
+          },
+          {
+            "reference": "Exodus 12:11"
+          }
+        ],
+        "9": [
+          {
+            "reference": "1 Timothy 6:8"
+          }
+        ],
+        "10": [
+          {
+            "reference": "Luke 10:7"
           }
         ],
         "11": [
@@ -6214,11 +6738,34 @@
           },
           {
             "reference": "Acts 18:6"
+          },
+          {
+            "reference": "Luke 10:10-12"
+          },
+          {
+            "reference": "Nehemiah 5:13"
+          }
+        ],
+        "12": [
+          {
+            "reference": "Matthew 4:17"
+          },
+          {
+            "reference": "Acts 2:38"
           }
         ],
         "13": [
           {
             "reference": "James 5:14"
+          },
+          {
+            "reference": "James 5:14-15"
+          },
+          {
+            "reference": "Luke 10:17"
+          },
+          {
+            "reference": "Luke 9:6"
           }
         ],
         "14": [
@@ -6227,6 +6774,33 @@
           },
           {
             "reference": "Luke 9:7-9"
+          },
+          {
+            "reference": "Luke 9:7"
+          }
+        ],
+        "15": [
+          {
+            "reference": "Malachi 4:5"
+          },
+          {
+            "reference": "Deuteronomy 18:15"
+          },
+          {
+            "reference": "Mark 8:28"
+          }
+        ],
+        "16": [
+          {
+            "reference": "Matthew 14:2"
+          }
+        ],
+        "17": [
+          {
+            "reference": "Matthew 14:3"
+          },
+          {
+            "reference": "Luke 3:19-20"
           }
         ],
         "18": [
@@ -6237,9 +6811,92 @@
             "reference": "Leviticus 20:21"
           }
         ],
+        "19": [
+          {
+            "reference": "1 Kings 19:2"
+          },
+          {
+            "reference": "Proverbs 27:4"
+          }
+        ],
+        "20": [
+          {
+            "reference": "Matthew 14:5"
+          },
+          {
+            "reference": "Matthew 21:26"
+          }
+        ],
+        "22": [
+          {
+            "reference": "Esther 2:9"
+          }
+        ],
+        "23": [
+          {
+            "reference": "Esther 5:3"
+          },
+          {
+            "reference": "Esther 5:6"
+          },
+          {
+            "reference": "Esther 7:2"
+          }
+        ],
+        "24": [
+          {
+            "reference": "Proverbs 29:10"
+          }
+        ],
+        "25": [
+          {
+            "reference": "Psalm 37:14"
+          }
+        ],
+        "26": [
+          {
+            "reference": "Matthew 14:9"
+          }
+        ],
+        "27": [
+          {
+            "reference": "Matthew 14:10"
+          }
+        ],
+        "28": [
+          {
+            "reference": "Matthew 14:11"
+          }
+        ],
         "29": [
           {
             "reference": "Matthew 14:12"
+          },
+          {
+            "reference": "Mark 15:45-46"
+          }
+        ],
+        "30": [
+          {
+            "reference": "Luke 9:10"
+          }
+        ],
+        "31": [
+          {
+            "reference": "Mark 3:20"
+          },
+          {
+            "reference": "Jeremiah 31:25"
+          }
+        ],
+        "32": [
+          {
+            "reference": "Matthew 14:13"
+          }
+        ],
+        "33": [
+          {
+            "reference": "John 6:2"
           }
         ],
         "34": [
@@ -6251,11 +6908,51 @@
           },
           {
             "reference": "Ezekiel 34:23"
+          },
+          {
+            "reference": "1 Kings 22:17"
+          },
+          {
+            "reference": "Zechariah 10:2"
+          },
+          {
+            "reference": "Matthew 9:36"
+          }
+        ],
+        "35": [
+          {
+            "reference": "Matthew 14:15"
+          }
+        ],
+        "36": [
+          {
+            "reference": "Luke 9:12"
           }
         ],
         "37": [
           {
             "reference": "2 Kings 4:42-44"
+          },
+          {
+            "reference": "John 6:7"
+          }
+        ],
+        "38": [
+          {
+            "reference": "John 6:9"
+          },
+          {
+            "reference": "Matthew 14:17"
+          }
+        ],
+        "39": [
+          {
+            "reference": "Psalm 23:2"
+          }
+        ],
+        "40": [
+          {
+            "reference": "Exodus 18:21"
           }
         ],
         "41": [
@@ -6264,6 +6961,28 @@
           },
           {
             "reference": "1 Corinthians 11:23-24"
+          },
+          {
+            "reference": "John 11:41"
+          },
+          {
+            "reference": "1 Timothy 4:4-5"
+          }
+        ],
+        "42": [
+          {
+            "reference": "Psalm 78:29"
+          },
+          {
+            "reference": "Deuteronomy 8:10"
+          }
+        ],
+        "43": [
+          {
+            "reference": "Matthew 14:20"
+          },
+          {
+            "reference": "John 6:13"
           }
         ],
         "44": [
@@ -6277,6 +6996,22 @@
             "reference": "John 6:10"
           }
         ],
+        "45": [
+          {
+            "reference": "John 6:17"
+          },
+          {
+            "reference": "John 6:15"
+          }
+        ],
+        "46": [
+          {
+            "reference": "Mark 1:35"
+          },
+          {
+            "reference": "Luke 6:12"
+          }
+        ],
         "48": [
           {
             "reference": "Job 9:8"
@@ -6286,6 +7021,17 @@
           },
           {
             "reference": "Matthew 14:25-26"
+          },
+          {
+            "reference": "Exodus 33:22"
+          },
+          {
+            "reference": "1 Kings 19:11"
+          }
+        ],
+        "49": [
+          {
+            "reference": "Luke 24:37"
           }
         ],
         "50": [
@@ -6297,6 +7043,20 @@
           },
           {
             "reference": "John 6:20"
+          },
+          {
+            "reference": "Isaiah 41:10"
+          },
+          {
+            "reference": "John 14:27"
+          }
+        ],
+        "51": [
+          {
+            "reference": "Mark 4:41"
+          },
+          {
+            "reference": "Matthew 14:33"
           }
         ],
         "52": [
@@ -6305,6 +7065,19 @@
           },
           {
             "reference": "Mark 3:5"
+          }
+        ],
+        "53": [
+          {
+            "reference": "Matthew 14:34"
+          },
+          {
+            "reference": "John 6:24-25"
+          }
+        ],
+        "55": [
+          {
+            "reference": "Mark 1:32-34"
           }
         ],
         "56": [
@@ -6316,6 +7089,9 @@
           },
           {
             "reference": "Matthew 14:36"
+          },
+          {
+            "reference": "Matthew 9:20-22"
           }
         ]
       }
@@ -6632,12 +7408,62 @@
         }
       ],
       "wordStudies": {
+        "1": [
+          {
+            "original_word": "ἀπὸ Ἱεροσολύμων",
+            "transliteration": "apo Hierosolymōn",
+            "strongs_number": "G2414",
+            "meaning": "From Jerusalem — official inquisitorial delegation travelling ~90 miles north; escalates the conflict from local Galilean Pharisees to Jerusalem establishment."
+          }
+        ],
         "2": [
           {
             "original_word": "κοινός",
             "transliteration": "koinos",
             "strongs_number": "G2839",
             "meaning": "Common, defiled, ritually unclean — from koinoō (to make common). In secular Greek, koinos simply means 'shared' or 'communal' (cf. Acts 2:44, 'had all things common'). In Jewish religious usage, it acquired the specialised meaning of 'profane' or 'ritually impure' — something that has not been properly consecrated or has been contaminated by contact with the unclean. Jesus redefines the concept: true defilement is moral, not ceremonial."
+          },
+          {
+            "original_word": "ἀνίπτοις",
+            "transliteration": "aniptois",
+            "strongs_number": "G449",
+            "meaning": "Unwashed — alpha-privative of niptō; technical term for ritually (not hygienically) unpurified; Mark immediately glosses the word for Gentile readers."
+          }
+        ],
+        "3": [
+          {
+            "original_word": "πυγμῇ",
+            "transliteration": "pygmē",
+            "strongs_number": "G4435",
+            "meaning": "With the fist — obscure adverb; possibly \"up to the wrist\" or \"carefully\"; describes the prescribed scrubbing motion in pharisaic halakha."
+          },
+          {
+            "original_word": "κρατοῦντες τὴν παράδοσιν",
+            "transliteration": "kratountes tēn paradosin",
+            "strongs_number": "G2902/G3862",
+            "meaning": "Holding fast the tradition — kratountes: clutching tightly; paradosis: what is \"handed over\" from teacher to disciple; technical rabbinic vocabulary."
+          }
+        ],
+        "4": [
+          {
+            "original_word": "ἀπὸ ἀγορᾶς",
+            "transliteration": "apo agoras",
+            "strongs_number": "G58",
+            "meaning": "From the marketplace — coming from public space risked Gentile contact; prompts whole-body immersion before eating."
+          },
+          {
+            "original_word": "βαπτισμοὺς ποτηρίων καὶ ξεστῶν",
+            "transliteration": "baptismous potēriōn kai xestōn",
+            "strongs_number": "G909/G4221/G3582",
+            "meaning": "Washings of cups and pitchers — xestēs: Latin sextarius (~half litre); Mark preserves Roman/Jewish domestic vocabulary."
+          }
+        ],
+        "5": [
+          {
+            "original_word": "κοιναῖς χερσίν",
+            "transliteration": "koinais chersin",
+            "strongs_number": "G2839",
+            "meaning": "With common/defiled hands — Mark signposts the whole dietary controversy: \"common\" here denotes ritual impurity, not simply ordinary."
           }
         ],
         "6": [
@@ -6646,6 +7472,56 @@
             "transliteration": "hypokritēs",
             "strongs_number": "G5273",
             "meaning": "Hypocrite, pretender, actor — from hypokrinomai (to answer from under, to play a part on stage). In classical Greek, the word referred to stage actors who wore masks to portray characters. Jesus applies it to religious leaders whose outward piety masks inward emptiness. The lips honour God while the heart is far away. Hypocrisy is the most dangerous form of unbelief because it mimics faith."
+          },
+          {
+            "original_word": "καλῶς ἐπροφήτευσεν",
+            "transliteration": "kalōs eprophēteusen",
+            "strongs_number": "G2573/G4395",
+            "meaning": "Well did [Isaiah] prophesy — ironic use of kalōs (bullseye accuracy); Jesus weaponises the LXX against his interrogators."
+          },
+          {
+            "original_word": "τοῖς χείλεσίν ... ἡ δὲ καρδία",
+            "transliteration": "tois cheilesin ... hē de kardia",
+            "strongs_number": "G5491/G2588",
+            "meaning": "With the lips ... but the heart — Isa 29:13 LXX; Mark highlights external-internal antithesis that controls the whole pericope."
+          },
+          {
+            "original_word": "πόρρω ἀπέχει",
+            "transliteration": "porrō apechei",
+            "strongs_number": "G4206/G568",
+            "meaning": "Is far distant — spatial metaphor for relational estrangement from God despite ritual proximity."
+          }
+        ],
+        "7": [
+          {
+            "original_word": "ἐντάλματα ἀνθρώπων",
+            "transliteration": "entalmata anthrōpōn",
+            "strongs_number": "G1778/G444",
+            "meaning": "Commandments of men — entalma: human injunction; contrasted with entolai tou theou (v.8); all man-made halakha weighed against divine command."
+          }
+        ],
+        "8": [
+          {
+            "original_word": "ἀφέντες ... κρατεῖτε",
+            "transliteration": "aphentes ... krateite",
+            "strongs_number": "G863/G2902",
+            "meaning": "Having let go ... you hold fast — chiastic verbs: release God's command, grip man's tradition; inversion of covenant priorities."
+          }
+        ],
+        "9": [
+          {
+            "original_word": "καλῶς ἀθετεῖτε",
+            "transliteration": "kalōs atheteite",
+            "strongs_number": "G2573/G114",
+            "meaning": "Beautifully you reject — biting irony; kalōs now sarcastic; Pharisees are \"expert\" at voiding divine commands."
+          }
+        ],
+        "10": [
+          {
+            "original_word": "ὁ κακολογῶν",
+            "transliteration": "ho kakologōn",
+            "strongs_number": "G2551",
+            "meaning": "He who reviles — compound of kakos + logos; not mild disrespect but cursing one's parent, a capital offence in Exod 21:17."
           }
         ],
         "11": [
@@ -6654,6 +7530,48 @@
             "transliteration": "korban",
             "strongs_number": "G2878",
             "meaning": "Corban, an offering, a gift dedicated to God — a Hebrew/Aramaic loanword (from qorban, 'that which is brought near' to the altar). In rabbinic practice, a person could declare property 'Corban' (devoted to God), thereby making it unavailable for any other use — including supporting elderly parents. The property might never actually reach the temple; the declaration simply shielded it. Jesus exposes this as using religious vocabulary to evade moral duty."
+          },
+          {
+            "original_word": "ὃ ἐὰν ἐξ ἐμοῦ ὠφεληθῇς",
+            "transliteration": "ho ean ex emou ōphelēthēs",
+            "strongs_number": "G5623",
+            "meaning": "Whatever thou mightest benefit from me — formulaic vow clause releasing property from parental claim via token dedication to Temple."
+          },
+          {
+            "original_word": "κορβᾶν, ὅ ἐστιν δῶρον",
+            "transliteration": "korban, ho estin dōron",
+            "strongs_number": "G2878/G1435",
+            "meaning": "Korban, that is, gift — Mark glosses the Hebrew/Aramaic term (qorbān, \"offering\" Lev 1-7); the pharisaic loophole is technical but exploited."
+          }
+        ],
+        "12": [
+          {
+            "original_word": "οὐκέτι ἀφίετε",
+            "transliteration": "ouketi aphiete",
+            "strongs_number": "G863",
+            "meaning": "You no longer permit — the halakhic ruling positively forbids what the Fifth Commandment positively commands; Torah contradiction made manifest."
+          }
+        ],
+        "13": [
+          {
+            "original_word": "ἀκυροῦντες τὸν λόγον",
+            "transliteration": "akyrountes ton logon",
+            "strongs_number": "G208",
+            "meaning": "Invalidating the word — akyroō: legal term for annulling a contract; tradition operates as counter-legislation against Scripture."
+          },
+          {
+            "original_word": "παρόμοια τοιαῦτα πολλά",
+            "transliteration": "paromoia toiauta polla",
+            "strongs_number": "G3946",
+            "meaning": "Many such-like things — paromoios: parallel/analogous; korban is one example of a systemic pattern."
+          }
+        ],
+        "14": [
+          {
+            "original_word": "προσκαλεσάμενος τὸν ὄχλον",
+            "transliteration": "proskalesamenos ton ochlon",
+            "strongs_number": "G4341/G3793",
+            "meaning": "Having summoned the crowd — Jesus moves from private rebuke of Pharisees to public instruction of the masses; halakhic debate becomes gospel proclamation."
           }
         ],
         "15": [
@@ -6662,6 +7580,28 @@
             "transliteration": "koinoō",
             "strongs_number": "G2840",
             "meaning": "To make common, defile, render unclean — the verb form of koinos. Jesus uses this word to overturn the entire purity system: nothing entering from outside can koinōsai (defile) a person. Defilement is relocated from the external (food, unwashed hands) to the internal (the heart's moral condition). This single verb, in Jesus' usage, dismantles centuries of ceremonial legislation and anticipates the Gentile mission."
+          },
+          {
+            "original_word": "εἰσπορευόμενον ... ἐκπορευόμενα",
+            "transliteration": "eisporeuomenon ... ekporeuomena",
+            "strongs_number": "G1531/G1607",
+            "meaning": "Going in ... coming out — spatial verbs form the chiasm; Mark contrasts stomach route with heart route."
+          }
+        ],
+        "17": [
+          {
+            "original_word": "ἐπηρώτων αὐτὸν τὴν παραβολήν",
+            "transliteration": "epērōtōn auton tēn parabolēn",
+            "strongs_number": "G1905/G3850",
+            "meaning": "Asked him the parable — disciples treat the saying as a mashal requiring private exposition; 4:10 pattern repeats."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "οὕτως καὶ ὑμεῖς ἀσύνετοί ἐστε",
+            "transliteration": "houtōs kai hymeis asynetoi este",
+            "strongs_number": "G801",
+            "meaning": "Are you also so without understanding? — asynetoi: dull, uncomprehending; same adjective Paul uses of fallen humanity in Rom 1:31."
           }
         ],
         "19": [
@@ -6670,6 +7610,40 @@
             "transliteration": "katharizō",
             "strongs_number": "G2511",
             "meaning": "To cleanse, purify, make clean — from katharos (clean, pure). The participle katharizon ('purging/cleansing') in this verse is either Mark's editorial comment or Jesus' own declaration. Either way, it pronounces all foods clean (katharizon panta ta brōmata). This word becomes central to the Acts 10 vision ('What God hath cleansed, call not thou common') and Paul's food ethics in Romans 14."
+          },
+          {
+            "original_word": "εἰς τὸν ἀφεδρῶνα",
+            "transliteration": "eis ton aphedrōna",
+            "strongs_number": "G856",
+            "meaning": "Into the latrine — euphemistic for the privy; Mark's frank physiology underscores the absurdity of dietary-impurity theology."
+          },
+          {
+            "original_word": "καθαρίζων πάντα τὰ βρώματα",
+            "transliteration": "katharizōn panta ta brōmata",
+            "strongs_number": "G2511/G1033",
+            "meaning": "Cleansing all foods — parenthetical masculine participle agreeing with Jesus, not the latrine; anchors NT abrogation of Levitical dietary code."
+          }
+        ],
+        "20": [
+          {
+            "original_word": "ἐκεῖνο κοινοῖ τὸν ἄνθρωπον",
+            "transliteration": "ekeino koinoi ton anthrōpon",
+            "strongs_number": "G2840",
+            "meaning": "That defiles the person — koinoō: to make common/unclean; verbal cousin of koinos, bridging v.2 and v.5 vocabulary."
+          }
+        ],
+        "21": [
+          {
+            "original_word": "ἔσωθεν ἐκ τῆς καρδίας",
+            "transliteration": "esōthen ek tēs kardias",
+            "strongs_number": "G2081/G2588",
+            "meaning": "From within, out of the heart — Mark's spatial logic: defilement moves outward from heart, not inward from food."
+          },
+          {
+            "original_word": "διαλογισμοὶ οἱ κακοί",
+            "transliteration": "dialogismoi hoi kakoi",
+            "strongs_number": "G1261",
+            "meaning": "Evil reasonings — headline of a 12-item vice catalogue; six in plural (evil kinds), six in singular (abstract qualities)."
           }
         ],
         "22": [
@@ -6678,6 +7652,54 @@
             "transliteration": "aselgeia",
             "strongs_number": "G766",
             "meaning": "Lasciviousness, sensuality, wanton excess — denoting open, shameless indulgence without restraint or regard for decency. Unlike hidden sins, aselgeia flaunts itself. It appears in Paul's vice lists (Galatians 5:19; Ephesians 4:19; 2 Peter 2:2, 7). In Jesus' catalogue of heart-sins, it represents the most brazen form of moral corruption — sin that has lost all sense of shame."
+          },
+          {
+            "original_word": "πλεονεξίαι",
+            "transliteration": "pleonexiai",
+            "strongs_number": "G4124",
+            "meaning": "Covetousness — plural of the cardinal vice Paul equates with idolatry (Col 3:5); relentless grasping for more."
+          },
+          {
+            "original_word": "ὀφθαλμὸς πονηρός",
+            "transliteration": "ophthalmos ponēros",
+            "strongs_number": "G3788/G4190",
+            "meaning": "Evil eye — Semitic idiom for envy, stinginess, grudging spirit (Deut 15:9); not merely a superstitious gaze."
+          },
+          {
+            "original_word": "βλασφημία, ὑπερηφανία",
+            "transliteration": "blasphēmia, hyperēphania",
+            "strongs_number": "G988/G5243",
+            "meaning": "Slander, arrogance — the Godward and humanward sins of proud speech paired; hyperēphania: showing oneself above others."
+          }
+        ],
+        "24": [
+          {
+            "original_word": "εἰς τὰ ὅρια Τύρου",
+            "transliteration": "eis ta horia Tyrou",
+            "strongs_number": "G3725/G5184",
+            "meaning": "Into the region of Tyre — Phoenician coastal territory; Jesus deliberately enters Gentile land (cf. Joel 3:4 Tyre oracle)."
+          },
+          {
+            "original_word": "ἤθελεν λαθεῖν",
+            "transliteration": "ēthelen lathein",
+            "strongs_number": "G2990",
+            "meaning": "Wanted to escape notice — Mark's recurrent theme of Jesus seeking anonymity; impossible because fame precedes him."
+          }
+        ],
+        "25": [
+          {
+            "original_word": "πνεῦμα ἀκάθαρτον",
+            "transliteration": "pneuma akatharton",
+            "strongs_number": "G4151/G169",
+            "meaning": "Unclean spirit — Markan preferred idiom; doubly \"common\" — Gentile territory, unclean spirit, Gentile child — ritually maximal impurity."
+          }
+        ],
+        "26": [
+          {
+            "original_word": "Ἑλληνίς, Συροφοινίκισσα τῷ γένει",
+            "transliteration": "Hellēnis, Syrophoinikissa tō genei",
+            "strongs_number": "G1674/G4949",
+            "meaning": "Greek, Syrophoenician by race — doubly Gentile: Hellenised culture + Phoenician ethnicity within Roman Syria; Mark stresses her outsider status."
           }
         ],
         "27": [
@@ -6686,6 +7708,64 @@
             "transliteration": "kynarion",
             "strongs_number": "G2952",
             "meaning": "Little dog, household pet, puppy — diminutive of kyōn (dog). In Jewish usage, 'dog' (kyōn) was a term of contempt for Gentiles (cf. Philippians 3:2; Revelation 22:15). But Jesus uses the diminutive kynarion — not wild scavengers but small dogs kept as household pets, allowed under the family table. The diminutive softens the image significantly and opens the door: pets belong in the household, even if they eat after the children."
+          },
+          {
+            "original_word": "ἄφες πρῶτον χορτασθῆναι τὰ τέκνα",
+            "transliteration": "aphes prōton chortasthēnai ta tekna",
+            "strongs_number": "G863/G4412/G5526",
+            "meaning": "Let the children first be filled — prōton: salvation-historical order (Rom 1:16); Jesus tests, does not deny, Gentile inclusion."
+          }
+        ],
+        "28": [
+          {
+            "original_word": "ναί, κύριε",
+            "transliteration": "nai, kyrie",
+            "strongs_number": "G3483/G2962",
+            "meaning": "Yes, Lord — unique in Mark: the only petitioner to address Jesus as kyrios; her faith sharpens his metaphor against himself."
+          },
+          {
+            "original_word": "ἀπὸ τῶν ψιχίων τῶν παιδίων",
+            "transliteration": "apo tōn psichiōn tōn paidiōn",
+            "strongs_number": "G5589/G3813",
+            "meaning": "Of the children's crumbs — psichia: diminutive of psix, tiny breadcrumbs; paidiōn: \"little children,\" matching kynariois \"little dogs\"."
+          }
+        ],
+        "29": [
+          {
+            "original_word": "διὰ τοῦτον τὸν λόγον",
+            "transliteration": "dia touton ton logon",
+            "strongs_number": "G1223/G3056",
+            "meaning": "Because of this word — her utterance of faith, not her ethnic pedigree, unlocks the exorcism; word-faith dynamic foregrounded."
+          }
+        ],
+        "31": [
+          {
+            "original_word": "ἀνὰ μέσον τῶν ὁρίων Δεκαπόλεως",
+            "transliteration": "ana meson tōn horiōn Dekapoleōs",
+            "strongs_number": "G1179",
+            "meaning": "Through the midst of the Decapolis region — Gentile ten-city federation east/SE of Galilee; Jesus arcs through pagan lands."
+          }
+        ],
+        "32": [
+          {
+            "original_word": "κωφὸν μογιλάλον",
+            "transliteration": "kōphon mogilalon",
+            "strongs_number": "G2974/G3424",
+            "meaning": "Deaf, having speech impediment — mogilalos NT hapax, occurring in LXX Isa 35:6; Mark quietly signals messianic-era fulfilment."
+          }
+        ],
+        "33": [
+          {
+            "original_word": "βάλων τοὺς δακτύλους αὐτοῦ εἰς τὰ ὦτα",
+            "transliteration": "balōn tous daktylous autou eis ta ōta",
+            "strongs_number": "G906/G1147/G3775",
+            "meaning": "Having put his fingers into the ears — tactile sign-language communication with deaf man; Jesus \"speaks\" in the only language the man can receive."
+          },
+          {
+            "original_word": "πτύσας ἥψατο τῆς γλώσσης",
+            "transliteration": "ptysas hēpsato tēs glōssēs",
+            "strongs_number": "G4429/G681/G1100",
+            "meaning": "Having spat, touched the tongue — saliva had perceived therapeutic value in ancient medicine; incarnational, earthy healing theology."
           }
         ],
         "34": [
@@ -6694,13 +7774,84 @@
             "transliteration": "ephphatha",
             "strongs_number": "G2188",
             "meaning": "Be opened — an Aramaic imperative (from the root pathach, to open). One of the few Aramaic words preserved in Mark's Greek text (cf. 5:41, Talitha koum; 14:36, Abba; 15:34, Eloi). Mark preserves the original language for its vividness and power, then translates for his Gentile audience. The word becomes a command not just to deaf ears but to all that is closed — hearts, minds, borders, traditions."
+          },
+          {
+            "original_word": "ἀναβλέψας ... ἐστέναξεν",
+            "transliteration": "anablepsas ... estenaxen",
+            "strongs_number": "G308/G4727",
+            "meaning": "Looking up ... he groaned — stenazō: deep sigh expressing grief at creation's brokenness (Rom 8:22-23 echo)."
+          },
+          {
+            "original_word": "Ἐφφαθά ... διανοίχθητι",
+            "transliteration": "Ephphatha ... dianoichthēti",
+            "strongs_number": "G2188/G1272",
+            "meaning": "Ephphatha ... be opened — Aramaic 'ithpattach preserved then translated; Mark alone retains Jesus's ipsissima verba (cf. 5:41; 14:36; 15:34)."
+          }
+        ],
+        "35": [
+          {
+            "original_word": "ἐλύθη ὁ δεσμὸς τῆς γλώσσης",
+            "transliteration": "elythē ho desmos tēs glōssēs",
+            "strongs_number": "G3089/G1199/G1100",
+            "meaning": "The bond of his tongue was loosed — desmos: Satanic bondage language (cf. Luke 13:16); healing portrayed as liberation from spiritual captivity."
+          }
+        ],
+        "36": [
+          {
+            "original_word": "διεστέλλετο ... μᾶλλον περισσότερον",
+            "transliteration": "diestelleto ... mallon perissoteron",
+            "strongs_number": "G1291/G3123",
+            "meaning": "Charged them ... all the more abundantly — Mark's sharpest statement of the messianic-secret/publicity paradox."
+          }
+        ],
+        "37": [
+          {
+            "original_word": "ὑπερπερισσῶς",
+            "transliteration": "hyperperissōs",
+            "strongs_number": "G5249",
+            "meaning": "Beyond all measure — hapax NT; compound hyper-intensive; Mark's taste for amplification to convey crowd astonishment."
+          },
+          {
+            "original_word": "καλῶς πάντα πεποίηκεν",
+            "transliteration": "kalōs panta pepoiēken",
+            "strongs_number": "G2573/G4160",
+            "meaning": "All things he has done well — perfect tense; echoes LXX Gen 1:31 kala lian; creation-renewal framing of Jesus's ministry."
           }
         ]
       },
       "crossRefs": {
+        "1": [
+          {
+            "reference": "Mark 3:22"
+          },
+          {
+            "reference": "Matthew 23:2"
+          }
+        ],
         "2": [
           {
             "reference": "Matthew 15:1-2"
+          },
+          {
+            "reference": "Luke 11:38"
+          }
+        ],
+        "3": [
+          {
+            "reference": "Galatians 1:14"
+          }
+        ],
+        "4": [
+          {
+            "reference": "Leviticus 11:32-35"
+          },
+          {
+            "reference": "Hebrews 9:10"
+          }
+        ],
+        "5": [
+          {
+            "reference": "1 Peter 1:18"
           }
         ],
         "6": [
@@ -6709,6 +7860,12 @@
           },
           {
             "reference": "Matthew 15:7-9"
+          },
+          {
+            "reference": "Ezekiel 33:31"
+          },
+          {
+            "reference": "2 Timothy 3:5"
           }
         ],
         "7": [
@@ -6717,6 +7874,17 @@
           },
           {
             "reference": "Titus 1:14"
+          },
+          {
+            "reference": "Isaiah 29:13"
+          }
+        ],
+        "8": [
+          {
+            "reference": "Nehemiah 9:16"
+          },
+          {
+            "reference": "Jeremiah 7:23-24"
           }
         ],
         "9": [
@@ -6733,16 +7901,47 @@
           },
           {
             "reference": "Deuteronomy 5:16"
+          },
+          {
+            "reference": "Ephesians 6:2-3"
+          },
+          {
+            "reference": "Proverbs 20:20"
           }
         ],
         "11": [
           {
             "reference": "Matthew 15:5-6"
+          },
+          {
+            "reference": "Proverbs 28:24"
+          },
+          {
+            "reference": "Leviticus 1:2"
+          }
+        ],
+        "12": [
+          {
+            "reference": "1 Timothy 5:4"
           }
         ],
         "13": [
           {
             "reference": "Matthew 15:6"
+          },
+          {
+            "reference": "Galatians 3:17"
+          },
+          {
+            "reference": "Isaiah 8:20"
+          }
+        ],
+        "14": [
+          {
+            "reference": "Mark 4:9"
+          },
+          {
+            "reference": "Mark 4:23"
           }
         ],
         "15": [
@@ -6754,6 +7953,22 @@
           },
           {
             "reference": "Romans 14:20"
+          },
+          {
+            "reference": "Titus 1:15"
+          }
+        ],
+        "16": [
+          {
+            "reference": "Matthew 11:15"
+          }
+        ],
+        "18": [
+          {
+            "reference": "Mark 4:13"
+          },
+          {
+            "reference": "Mark 8:17-21"
           }
         ],
         "19": [
@@ -6765,6 +7980,17 @@
           },
           {
             "reference": "Colossians 2:16"
+          },
+          {
+            "reference": "Acts 11:9"
+          },
+          {
+            "reference": "Hebrews 13:9"
+          }
+        ],
+        "20": [
+          {
+            "reference": "Matthew 12:34-35"
           }
         ],
         "21": [
@@ -6779,11 +8005,58 @@
           },
           {
             "reference": "Galatians 5:19-21"
+          },
+          {
+            "reference": "Proverbs 4:23"
+          },
+          {
+            "reference": "Matthew 15:19"
+          },
+          {
+            "reference": "James 1:14-15"
+          }
+        ],
+        "22": [
+          {
+            "reference": "Matthew 20:15"
+          },
+          {
+            "reference": "Deuteronomy 15:9"
+          },
+          {
+            "reference": "Proverbs 22:15"
+          },
+          {
+            "reference": "Romans 1:29-30"
+          }
+        ],
+        "23": [
+          {
+            "reference": "1 Peter 2:1"
           }
         ],
         "24": [
           {
             "reference": "Matthew 15:21"
+          },
+          {
+            "reference": "Matthew 15:22"
+          },
+          {
+            "reference": "Joshua 19:28-29"
+          }
+        ],
+        "25": [
+          {
+            "reference": "Mark 5:2"
+          },
+          {
+            "reference": "Mark 5:22-23"
+          }
+        ],
+        "26": [
+          {
+            "reference": "Acts 21:3"
           }
         ],
         "27": [
@@ -6795,21 +8068,60 @@
           },
           {
             "reference": "Acts 3:26"
+          },
+          {
+            "reference": "Romans 9:4"
+          },
+          {
+            "reference": "Romans 15:8"
           }
         ],
         "28": [
           {
             "reference": "Matthew 15:27"
+          },
+          {
+            "reference": "Philippians 3:2"
+          },
+          {
+            "reference": "Ephesians 2:12-13"
           }
         ],
         "29": [
           {
             "reference": "Matthew 15:28"
+          },
+          {
+            "reference": "Mark 5:8"
+          }
+        ],
+        "30": [
+          {
+            "reference": "Matthew 15:28"
+          }
+        ],
+        "31": [
+          {
+            "reference": "Mark 5:20"
+          },
+          {
+            "reference": "Matthew 15:29-31"
           }
         ],
         "32": [
           {
             "reference": "Isaiah 35:5-6"
+          },
+          {
+            "reference": "Isaiah 35:6"
+          }
+        ],
+        "33": [
+          {
+            "reference": "Mark 8:23"
+          },
+          {
+            "reference": "John 9:6"
           }
         ],
         "34": [
@@ -6818,6 +8130,37 @@
           },
           {
             "reference": "Isaiah 35:5"
+          },
+          {
+            "reference": "Mark 8:12"
+          },
+          {
+            "reference": "John 11:33"
+          },
+          {
+            "reference": "Romans 8:22-23"
+          }
+        ],
+        "35": [
+          {
+            "reference": "Acts 2:4"
+          },
+          {
+            "reference": "Isaiah 32:4"
+          }
+        ],
+        "36": [
+          {
+            "reference": "Mark 1:44"
+          },
+          {
+            "reference": "Mark 5:43"
+          },
+          {
+            "reference": "Mark 8:26"
+          },
+          {
+            "reference": "Mark 1:45"
           }
         ],
         "37": [
@@ -6826,6 +8169,12 @@
           },
           {
             "reference": "Isaiah 35:5-6"
+          },
+          {
+            "reference": "Psalm 139:14"
+          },
+          {
+            "reference": "Acts 2:11"
           }
         ]
       }
@@ -7151,12 +8500,114 @@
         }
       ],
       "wordStudies": {
+        "1": [
+          {
+            "original_word": "πάλιν πολλοῦ ὄχλου",
+            "transliteration": "palin pollou ochlou",
+            "strongs_number": "G3825/G3793",
+            "meaning": "Again a great crowd — palin (\"again\") alerts the reader this is a second feeding; Decapolis Gentile setting following 7:31."
+          }
+        ],
         "2": [
           {
             "original_word": "σπλαγχνίζομαι",
             "transliteration": "splanchnizomai",
             "strongs_number": "G4697",
             "meaning": "To be moved with compassion, to feel deep pity — from splanchna (the inner organs, bowels; metaphorically the seat of deep emotion). The strongest Greek word for compassion, used exclusively of Jesus and characters representing God in parables. It denotes not mere sympathy but visceral, gut-level anguish at another's suffering. Jesus' compassion is not sentimental but active — it always issues in concrete help: feeding, healing, teaching."
+          },
+          {
+            "original_word": "προσμένουσίν μοι ἡμέρας τρεῖς",
+            "transliteration": "prosmenousin moi hēmeras treis",
+            "strongs_number": "G4357/G5140",
+            "meaning": "Continue with me three days — prosmenō: remain in attendance; crowd has out-stayed its food supply pursuing Jesus."
+          }
+        ],
+        "3": [
+          {
+            "original_word": "ἐκλυθήσονται ἐν τῇ ὁδῷ",
+            "transliteration": "eklythēsontai en tē hodō",
+            "strongs_number": "G1590/G3598",
+            "meaning": "Will faint on the way — ekluō: unloose, collapse; Mark's pastoral realism about crowd welfare."
+          },
+          {
+            "original_word": "τινὲς αὐτῶν μακρόθεν ἥκασιν",
+            "transliteration": "tines autōn makrothen hēkasin",
+            "strongs_number": "G3113/G2240",
+            "meaning": "Some of them are come from afar — makrothen: from a distance; Gentile clientele drawn from Decapolis hinterland."
+          }
+        ],
+        "4": [
+          {
+            "original_word": "ἐπ᾽ ἐρημίας",
+            "transliteration": "ep erēmias",
+            "strongs_number": "G2047",
+            "meaning": "In the wilderness — erēmia: uninhabited tract; disciples still stuck in same logic of scarcity despite 6:30-44."
+          }
+        ],
+        "5": [
+          {
+            "original_word": "ἑπτά",
+            "transliteration": "hepta",
+            "strongs_number": "G2033",
+            "meaning": "Seven [loaves] — Mark sets up a 7/4000 symbol pair distinct from ch.6's 5/5000 + 12; \"seven\" has Gentile/creation resonance."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "παραγγείλας τῷ ὄχλῳ ἀναπεσεῖν",
+            "transliteration": "parangeilas tō ochlō anapesein",
+            "strongs_number": "G3853/G377",
+            "meaning": "Having instructed the crowd to recline — parangellō: military-style order; Mark pictures Jesus as commanding host."
+          },
+          {
+            "original_word": "εὐχαριστήσας ἔκλασεν",
+            "transliteration": "eucharistēsas eklasen",
+            "strongs_number": "G2168/G2806",
+            "meaning": "Having given thanks, he broke — eucharistēsas: the verb behind \"Eucharist\"; slightly different term from eulogēsas in 6:41, suggesting varied early eucharistic vocabulary."
+          }
+        ],
+        "8": [
+          {
+            "original_word": "ἐχορτάσθησαν",
+            "transliteration": "echortasthēsan",
+            "strongs_number": "G5526",
+            "meaning": "They were filled — aorist passive of chortazō; LXX Ps 21:27 [22:26 MT] messianic banquet verb."
+          },
+          {
+            "original_word": "σπυρίδας ἑπτά",
+            "transliteration": "spyridas hepta",
+            "strongs_number": "G4711/G2033",
+            "meaning": "Seven large baskets — spyris: flexible woven basket (Acts 9:25 lowered Paul in one); larger than kophinos (6:43); Gentile-household style."
+          }
+        ],
+        "9": [
+          {
+            "original_word": "ὡς τετρακισχίλιοι",
+            "transliteration": "hōs tetrakischilioi",
+            "strongs_number": "G5070",
+            "meaning": "About four thousand — no women-and-children qualifier as in Matthew; whole crowd ~4000 souls; Gentile counterpart to the 5000 Jews."
+          }
+        ],
+        "10": [
+          {
+            "original_word": "Δαλμανουθά",
+            "transliteration": "Dalmanoutha",
+            "strongs_number": "G1148",
+            "meaning": "Dalmanutha — NT hapax; precise location unknown; possibly near Magdala on NW shore; scribes later \"corrected\" it to Magadan."
+          }
+        ],
+        "11": [
+          {
+            "original_word": "ζητοῦντες παρ᾽ αὐτοῦ σημεῖον ἀπὸ τοῦ οὐρανοῦ",
+            "transliteration": "zētountes par autou sēmeion apo tou ouranou",
+            "strongs_number": "G2212/G4592/G3772",
+            "meaning": "Seeking a sign from heaven — apocalyptic validation (e.g. fire, cloud); miracles already performed are deemed insufficient."
+          },
+          {
+            "original_word": "πειράζοντες αὐτόν",
+            "transliteration": "peirazontes auton",
+            "strongs_number": "G3985",
+            "meaning": "Testing him — peirazō: same verb used for Satan's temptation (1:13); Mark frames the demand as satanic in tenor."
           }
         ],
         "12": [
@@ -7165,6 +8616,32 @@
             "transliteration": "sēmeion",
             "strongs_number": "G4592",
             "meaning": "Sign, mark, token, miracle viewed as evidence — from sēmainō (to signify, indicate). In the Synoptics, Jesus performs dynameis (mighty works, acts of power) but refuses to give sēmeia (signs) on demand. A sēmeion is a miracle designed to authenticate; the Pharisees want proof that compels belief. But Jesus refuses to reduce divine power to a vending machine that dispenses proof on request. Faith that requires compulsory evidence is not faith."
+          },
+          {
+            "original_word": "ἀναστενάξας τῷ πνεύματι αὐτοῦ",
+            "transliteration": "anastenaxas tō pneumati autou",
+            "strongs_number": "G389/G4151",
+            "meaning": "Having sighed deeply in his spirit — compound intensive of stenazō; Markan portrait of Jesus as emotionally invested in unbelief."
+          },
+          {
+            "original_word": "ἡ γενεὰ αὕτη",
+            "transliteration": "hē genea hautē",
+            "strongs_number": "G1074",
+            "meaning": "This generation — echoes Deut 32:5 / Ps 95:10 indictment of the wilderness cohort; corporate designation of rebellious Israel."
+          },
+          {
+            "original_word": "εἰ δοθήσεται",
+            "transliteration": "ei dothēsetai",
+            "strongs_number": "G1487/G1325",
+            "meaning": "If a sign shall be given — Hebraism for emphatic negation (literally \"if it shall be given\" = \"certainly it shall not\"); oath formula."
+          }
+        ],
+        "14": [
+          {
+            "original_word": "ἐπελάθοντο λαβεῖν ἄρτους",
+            "transliteration": "epelathonto labein artous",
+            "strongs_number": "G1950/G740",
+            "meaning": "Forgot to bring loaves — only Mark includes this domestic slip; sets up the misunderstanding that follows."
           }
         ],
         "15": [
@@ -7173,6 +8650,68 @@
             "transliteration": "zymē",
             "strongs_number": "G2219",
             "meaning": "Leaven, yeast, ferment — a small amount of fermenting dough that permeates and transforms the entire batch. In most biblical usage, leaven symbolises corruption that spreads invisibly (cf. 1 Corinthians 5:6-8; Galatians 5:9). The 'leaven of the Pharisees' is religious hypocrisy; the 'leaven of Herod' is worldly compromise. Both are insidious: they start small and corrupt everything they touch."
+          },
+          {
+            "original_word": "ὁρᾶτε, βλέπετε ἀπὸ τῆς ζύμης",
+            "transliteration": "horate, blepete apo tēs zymēs",
+            "strongs_number": "G3708/G991/G2219",
+            "meaning": "See, beware of the leaven — double imperative of visual perception; leaven = corrupting influence of pharisaic/Herodian political compromise."
+          },
+          {
+            "original_word": "τῶν Ἡρῳδιανῶν",
+            "transliteration": "tōn Hērōdianōn",
+            "strongs_number": "G2265",
+            "meaning": "Of the Herodians — party of Antipas supporters; Mark alone pairs them with Pharisees here (Matt 16:6 says \"Sadducees\")."
+          }
+        ],
+        "17": [
+          {
+            "original_word": "οὔπω νοεῖτε οὐδὲ συνίετε",
+            "transliteration": "oupō noeite oude syniete",
+            "strongs_number": "G3768/G3539/G4920",
+            "meaning": "Neither perceive nor understand — noeō = intellectual grasp; syniēmi = connective insight; Jesus diagnoses a double cognitive failure."
+          },
+          {
+            "original_word": "πεπωρωμένην ἔχετε τὴν καρδίαν",
+            "transliteration": "pepōrōmenēn echete tēn kardian",
+            "strongs_number": "G4456/G2588",
+            "meaning": "Have you your heart hardened — perfect passive of pōroō; same hardening verb as 6:52; Mark diagnoses disciples with Pharaoh-style obduracy."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "ὀφθαλμοὺς ἔχοντες οὐ βλέπετε",
+            "transliteration": "ophthalmous echontes ou blepete",
+            "strongs_number": "G3788/G991",
+            "meaning": "Having eyes do you not see — direct quotation of Jer 5:21; Mark applies prophetic indictment of apostate Israel to the Twelve."
+          }
+        ],
+        "22": [
+          {
+            "original_word": "Βηθσαϊδάν",
+            "transliteration": "Bēthsaidan",
+            "strongs_number": "G966",
+            "meaning": "Bethsaida — \"house of fishing\" on NE shore; Philip's/Andrew's/Peter's hometown (John 1:44); site of two-stage healing."
+          }
+        ],
+        "23": [
+          {
+            "original_word": "ἐπιλαβόμενος τῆς χειρὸς τοῦ τυφλοῦ",
+            "transliteration": "epilabomenos tēs cheiros tou typhlou",
+            "strongs_number": "G1949/G5185",
+            "meaning": "Taking hold of the hand of the blind man — tactile gentleness; Mark alone preserves this detail."
+          },
+          {
+            "original_word": "ἐξήνεγκεν αὐτὸν ἔξω τῆς κώμης",
+            "transliteration": "exēnenken auton exō tēs kōmēs",
+            "strongs_number": "G1627/G2968",
+            "meaning": "Led him out of the village — private setting away from spectacle; Jesus curates the miracle away from publicity."
+          },
+          {
+            "original_word": "πτύσας εἰς τὰ ὄμματα",
+            "transliteration": "ptysas eis ta ommata",
+            "strongs_number": "G4429/G3659",
+            "meaning": "Having spat on his eyes — saliva-application recalls 7:33; pagan folk-medicine cognate rituals made this recognisable."
           }
         ],
         "24": [
@@ -7181,6 +8720,50 @@
             "transliteration": "dendron",
             "strongs_number": "G1186",
             "meaning": "Tree — used here in the blind man's description of his partial sight: 'I see men as trees, walking.' He perceives vertical shapes and movement but lacks clarity and detail. The image becomes a powerful metaphor for the disciples' spiritual condition throughout Mark 8-10: they can perceive that Jesus is significant (a large, upright figure) but cannot discern his true identity and mission with clarity. Full sight requires a second touch — the revelation of the cross."
+          },
+          {
+            "original_word": "ὡς δένδρα περιπατοῦντας",
+            "transliteration": "hōs dendra peripatountas",
+            "strongs_number": "G1186/G4043",
+            "meaning": "As trees walking — only progressive cure in the gospels; models disciples' partial sight re: Jesus's identity in following pericope."
+          }
+        ],
+        "25": [
+          {
+            "original_word": "ἐνέβλεπεν τηλαυγῶς",
+            "transliteration": "eneblepen tēlaugōs",
+            "strongs_number": "G1689/G5081",
+            "meaning": "Saw everything clearly — tēlaugōs (NT hapax): from tēle + augē, \"far-shining\"; total visual restoration metaphor for spiritual illumination."
+          }
+        ],
+        "26": [
+          {
+            "original_word": "εἰς τὸν οἶκον",
+            "transliteration": "eis ton oikon",
+            "strongs_number": "G3624",
+            "meaning": "To his home — Jesus directs him away from the public in order not to spark the kind of publicity that derails his mission (cf. 1:44-45)."
+          }
+        ],
+        "27": [
+          {
+            "original_word": "Καισαρείας τῆς Φιλίππου",
+            "transliteration": "Kaisareias tēs Philippou",
+            "strongs_number": "G2542/G5376",
+            "meaning": "Caesarea Philippi — Gentile city near Mt Hermon at the Paneas grotto sacred to Pan; pagan stage for Peter's Christ-confession."
+          },
+          {
+            "original_word": "τίνα με λέγουσιν οἱ ἄνθρωποι εἶναι",
+            "transliteration": "tina me legousin hoi anthrōpoi einai",
+            "strongs_number": "G5101/G3004",
+            "meaning": "Who do men say that I am — Jesus first audits popular opinion before pressing the disciples' own verdict."
+          }
+        ],
+        "28": [
+          {
+            "original_word": "Ἠλίαν ... ἕνα τῶν προφητῶν",
+            "transliteration": "Ēlian ... hena tōn prophētōn",
+            "strongs_number": "G2243/G4396",
+            "meaning": "Elijah ... one of the prophets — Mal 4:5 forerunner hope + generic eschatological prophet (Deut 18:15); all answers locate Jesus within existing categories."
           }
         ],
         "29": [
@@ -7189,6 +8772,20 @@
             "transliteration": "Christos",
             "strongs_number": "G5547",
             "meaning": "Christ, Anointed One, Messiah — from chriō (to anoint with oil). The Greek equivalent of Hebrew Mashiach. In the OT, kings, priests, and prophets were anointed for service. 'The Christ' is the ultimate anointed figure: the promised king from David's line who would deliver Israel and establish God's kingdom. Peter's confession identifies Jesus as this figure. But Jesus immediately redefines the title through suffering — a Messiah who must be rejected and killed before rising."
+          },
+          {
+            "original_word": "σὺ εἶ ὁ Χριστός",
+            "transliteration": "sy ei ho Christos",
+            "strongs_number": "G4771/G5547",
+            "meaning": "Thou art the Christ — emphatic sy, definite article before Christos: the promised Messiah of Israel, no mere prophet."
+          }
+        ],
+        "30": [
+          {
+            "original_word": "ἐπετίμησεν αὐτοῖς",
+            "transliteration": "epetimēsen autois",
+            "strongs_number": "G2008",
+            "meaning": "Strictly charged them — epitimaō: stern rebuke-level command; Markan messianic secret at its sharpest."
           }
         ],
         "31": [
@@ -7197,6 +8794,58 @@
             "transliteration": "dei",
             "strongs_number": "G1163",
             "meaning": "It is necessary, one must, it is divinely ordained — from deō (to bind). The word expresses divine necessity: not fate or circumstance but God's predetermined plan. The Son of man 'must' (dei) suffer — this is not an unfortunate accident but the fulfilment of God's redemptive purpose. The dei of the cross means suffering is not Plan B; it is the plan. The necessity is grounded in Scripture (Isaiah 53; Psalm 22; Daniel 7) and in God's sovereign will."
+          },
+          {
+            "original_word": "ἤρξατο διδάσκειν αὐτοὺς",
+            "transliteration": "ērxato didaskein autous",
+            "strongs_number": "G756/G1321",
+            "meaning": "Began to teach them — new pedagogical phase: from \"who\" to \"what he must undergo\"; passion predictions now dominate."
+          },
+          {
+            "original_word": "παθεῖν ... ἀποδοκιμασθῆναι",
+            "transliteration": "pathein ... apodokimasthēnai",
+            "strongs_number": "G3958/G593",
+            "meaning": "To suffer ... to be rejected — apodokimazō: official rejection after examination; Ps 118:22 rejected-stone language."
+          },
+          {
+            "original_word": "ἀναστῆναι",
+            "transliteration": "anastēnai",
+            "strongs_number": "G450",
+            "meaning": "To rise again — anistēmi infinitive; the triumphant apodosis of every passion formula; neither suffering alone nor rising alone is the gospel."
+          }
+        ],
+        "32": [
+          {
+            "original_word": "παρρησίᾳ τὸν λόγον ἐλάλει",
+            "transliteration": "parrēsia ton logon elalei",
+            "strongs_number": "G3954/G3056",
+            "meaning": "Spoke the word openly — parrēsia: frank, unconcealed speech; Mark signals that the passion teaching is the secret now disclosed."
+          },
+          {
+            "original_word": "προσλαβόμενος αὐτὸν ὁ Πέτρος",
+            "transliteration": "proslabomenos auton ho Petros",
+            "strongs_number": "G4355",
+            "meaning": "Peter, having taken him aside — proslambanō: drew him into private consultation as if to correct; Peter's presumption intensifies the rebuke."
+          }
+        ],
+        "33": [
+          {
+            "original_word": "ἐπιστραφεὶς καὶ ἰδὼν τοὺς μαθητὰς",
+            "transliteration": "epistrapheis kai idōn tous mathētas",
+            "strongs_number": "G1994/G1492",
+            "meaning": "Turning and seeing the disciples — Jesus rebukes Peter publicly; Peter's private counsel exposed as collective temptation."
+          },
+          {
+            "original_word": "ὕπαγε ὀπίσω μου, Σατανᾶ",
+            "transliteration": "hypage opisō mou, Satana",
+            "strongs_number": "G5217/G3694/G4567",
+            "meaning": "Get behind me, Satan — same imperative as Matt 4:10; Peter unwittingly functions as satanic voice against the cross."
+          },
+          {
+            "original_word": "οὐ φρονεῖς τὰ τοῦ θεοῦ",
+            "transliteration": "ou phroneis ta tou theou",
+            "strongs_number": "G5426",
+            "meaning": "You are not minding the things of God — phroneō: settled pattern of thought; diagnostic verb Paul picks up in Rom 8:5-7."
           }
         ],
         "34": [
@@ -7205,6 +8854,26 @@
             "transliteration": "stauros",
             "strongs_number": "G4716",
             "meaning": "Cross, stake, the instrument of Roman crucifixion — an upright wooden beam to which the condemned person was nailed or bound. In first-century usage, 'take up your cross' meant one thing: walk to your execution. Condemned criminals carried the crossbeam (patibulum) through the streets to the execution site. Jesus uses this image before his own crucifixion — a radical demand for followers to embrace a path of suffering, shame, and death to self."
+          },
+          {
+            "original_word": "ἀπαρνησάσθω ἑαυτόν",
+            "transliteration": "aparnēsasthō heauton",
+            "strongs_number": "G533/G1438",
+            "meaning": "Let him deny himself — aparneomai: categorical repudiation; the same verb used of Peter's triple denial (14:30)."
+          },
+          {
+            "original_word": "ἀράτω τὸν σταυρὸν αὐτοῦ",
+            "transliteration": "aratō ton stauron autou",
+            "strongs_number": "G142/G4716",
+            "meaning": "Let him take up his cross — possessive \"his own cross\": condemned men carried their own patibulum to execution; discipleship analogised to death-march."
+          }
+        ],
+        "35": [
+          {
+            "original_word": "ἕνεκεν ἐμοῦ καὶ τοῦ εὐαγγελίου",
+            "transliteration": "heneken emou kai tou euangeliou",
+            "strongs_number": "G1752/G2098",
+            "meaning": "For my sake and the gospel's — Mark alone adds \"and the gospel\"; gospel-proclamation costs equated with allegiance to Christ himself."
           }
         ],
         "36": [
@@ -7213,6 +8882,34 @@
             "transliteration": "psychē",
             "strongs_number": "G5590",
             "meaning": "Soul, life, self, the whole person — from psychō (to breathe). Psychē encompasses physical life, inner personality, and eternal identity. In v.35, it means 'life' (the whole self one might try to save); in v.36, it means 'soul' (the eternal self that can be forfeited). The double meaning is deliberate: one's temporal life and eternal soul are both at stake. To 'gain the whole world' and 'lose one's soul' is the worst possible exchange — infinite loss for finite gain."
+          },
+          {
+            "original_word": "ζημιωθῆναι τὴν ψυχὴν",
+            "transliteration": "zēmiōthēnai tēn psychēn",
+            "strongs_number": "G2210/G5590",
+            "meaning": "Forfeit the soul — zēmioō: suffer loss in commercial transaction; the \"profit\" of the world cannot offset this debit."
+          }
+        ],
+        "37": [
+          {
+            "original_word": "ἀντάλλαγμα τῆς ψυχῆς",
+            "transliteration": "antallagma tēs psychēs",
+            "strongs_number": "G465/G5590",
+            "meaning": "Exchange for the soul — antallagma NT hapax (cf. Matt 16:26); LXX Jer 15:13; Ps 49:7-8: no ransom price available in created order."
+          }
+        ],
+        "38": [
+          {
+            "original_word": "ἐπαισχυνθῇ ... ἐπαισχυνθήσεται",
+            "transliteration": "epaischynthē ... epaischynthēsetai",
+            "strongs_number": "G1870",
+            "meaning": "Is ashamed ... will be ashamed — talionic reciprocity; present-age shame matched by eschatological reckoning at the Parousia."
+          },
+          {
+            "original_word": "ἐν τῇ δόξῃ τοῦ πατρὸς",
+            "transliteration": "en tē doxē tou patros",
+            "strongs_number": "G1391/G3962",
+            "meaning": "In the glory of the Father — theophanic glory-cloud imagery (Exod 16:10; Dan 7:13-14); Son of Man shares Father's own radiance."
           }
         ]
       },
@@ -7220,6 +8917,9 @@
         "1": [
           {
             "reference": "Matthew 15:32-39"
+          },
+          {
+            "reference": "Matthew 15:32"
           }
         ],
         "2": [
@@ -7228,6 +8928,27 @@
           },
           {
             "reference": "Matthew 9:36"
+          },
+          {
+            "reference": "Matthew 12:40"
+          }
+        ],
+        "3": [
+          {
+            "reference": "1 Samuel 14:28"
+          }
+        ],
+        "4": [
+          {
+            "reference": "Psalm 78:19-20"
+          },
+          {
+            "reference": "Numbers 11:22"
+          }
+        ],
+        "5": [
+          {
+            "reference": "Matthew 15:34"
           }
         ],
         "6": [
@@ -7236,6 +8957,38 @@
           },
           {
             "reference": "Mark 14:22"
+          },
+          {
+            "reference": "Mark 6:39"
+          },
+          {
+            "reference": "Matthew 15:36"
+          },
+          {
+            "reference": "1 Corinthians 11:24"
+          }
+        ],
+        "7": [
+          {
+            "reference": "Matthew 15:34"
+          }
+        ],
+        "8": [
+          {
+            "reference": "Psalm 22:26"
+          },
+          {
+            "reference": "Matthew 15:37"
+          }
+        ],
+        "9": [
+          {
+            "reference": "Matthew 15:38"
+          }
+        ],
+        "10": [
+          {
+            "reference": "Matthew 15:39"
           }
         ],
         "11": [
@@ -7247,11 +9000,31 @@
           },
           {
             "reference": "1 Corinthians 1:22"
+          },
+          {
+            "reference": "Matthew 16:1"
+          },
+          {
+            "reference": "John 6:30"
           }
         ],
         "12": [
           {
             "reference": "Matthew 16:4"
+          },
+          {
+            "reference": "Matthew 12:39"
+          },
+          {
+            "reference": "Jonah 1:17"
+          },
+          {
+            "reference": "Deuteronomy 32:5"
+          }
+        ],
+        "14": [
+          {
+            "reference": "Matthew 16:5"
           }
         ],
         "15": [
@@ -7263,6 +9036,12 @@
           },
           {
             "reference": "1 Corinthians 5:6-8"
+          },
+          {
+            "reference": "Matthew 16:11"
+          },
+          {
+            "reference": "Mark 3:6"
           }
         ],
         "17": [
@@ -7271,6 +9050,12 @@
           },
           {
             "reference": "Mark 3:5"
+          },
+          {
+            "reference": "Isaiah 6:10"
+          },
+          {
+            "reference": "Mark 16:14"
           }
         ],
         "18": [
@@ -7282,16 +9067,68 @@
           },
           {
             "reference": "Mark 4:12"
+          },
+          {
+            "reference": "Jeremiah 5:21"
+          },
+          {
+            "reference": "Romans 11:8"
           }
         ],
         "19": [
           {
             "reference": "Mark 6:43"
+          },
+          {
+            "reference": "John 6:13"
+          },
+          {
+            "reference": "Matthew 14:20"
+          }
+        ],
+        "20": [
+          {
+            "reference": "Matthew 15:37"
+          }
+        ],
+        "21": [
+          {
+            "reference": "Mark 8:17-18"
           }
         ],
         "22": [
           {
             "reference": "Mark 7:32-35"
+          },
+          {
+            "reference": "Mark 6:45"
+          },
+          {
+            "reference": "Matthew 11:21"
+          }
+        ],
+        "23": [
+          {
+            "reference": "Mark 7:33"
+          },
+          {
+            "reference": "John 9:6"
+          }
+        ],
+        "25": [
+          {
+            "reference": "Acts 9:18"
+          },
+          {
+            "reference": "2 Kings 6:17"
+          }
+        ],
+        "26": [
+          {
+            "reference": "Mark 7:36"
+          },
+          {
+            "reference": "Matthew 8:4"
           }
         ],
         "27": [
@@ -7300,6 +9137,17 @@
           },
           {
             "reference": "Luke 9:18-20"
+          },
+          {
+            "reference": "Matthew 16:13"
+          }
+        ],
+        "28": [
+          {
+            "reference": "Mark 6:14-15"
+          },
+          {
+            "reference": "Matthew 16:14"
           }
         ],
         "29": [
@@ -7311,6 +9159,20 @@
           },
           {
             "reference": "John 11:27"
+          },
+          {
+            "reference": "Acts 9:22"
+          },
+          {
+            "reference": "1 John 4:15"
+          }
+        ],
+        "30": [
+          {
+            "reference": "Mark 9:9"
+          },
+          {
+            "reference": "Matthew 16:20"
           }
         ],
         "31": [
@@ -7325,6 +9187,23 @@
           },
           {
             "reference": "Luke 24:26"
+          },
+          {
+            "reference": "Psalm 118:22"
+          },
+          {
+            "reference": "Acts 4:11"
+          },
+          {
+            "reference": "1 Corinthians 15:4"
+          },
+          {
+            "reference": "Hosea 6:2"
+          }
+        ],
+        "32": [
+          {
+            "reference": "Matthew 16:22"
           }
         ],
         "33": [
@@ -7333,6 +9212,12 @@
           },
           {
             "reference": "Matthew 16:23"
+          },
+          {
+            "reference": "Mark 9:33-35"
+          },
+          {
+            "reference": "Romans 8:5-7"
           }
         ],
         "34": [
@@ -7344,6 +9229,18 @@
           },
           {
             "reference": "Galatians 2:20"
+          },
+          {
+            "reference": "Luke 9:23"
+          },
+          {
+            "reference": "Matthew 16:24"
+          },
+          {
+            "reference": "Romans 8:13"
+          },
+          {
+            "reference": "Titus 2:12"
           }
         ],
         "35": [
@@ -7355,6 +9252,12 @@
           },
           {
             "reference": "John 12:25"
+          },
+          {
+            "reference": "Matthew 16:25"
+          },
+          {
+            "reference": "Revelation 12:11"
           }
         ],
         "36": [
@@ -7363,6 +9266,20 @@
           },
           {
             "reference": "Luke 12:20"
+          },
+          {
+            "reference": "Matthew 16:26"
+          },
+          {
+            "reference": "1 Timothy 6:7"
+          }
+        ],
+        "37": [
+          {
+            "reference": "Psalm 49:8"
+          },
+          {
+            "reference": "Job 2:4"
           }
         ],
         "38": [
@@ -7377,6 +9294,15 @@
           },
           {
             "reference": "Daniel 7:13-14"
+          },
+          {
+            "reference": "Matthew 16:27"
+          },
+          {
+            "reference": "Jude 1:14-15"
+          },
+          {
+            "reference": "Hebrews 11:26"
           }
         ]
       }
@@ -7798,12 +9724,82 @@
         }
       ],
       "wordStudies": {
+        "1": [
+          {
+            "original_word": "οὐ μὴ γεύσωνται θανάτου",
+            "transliteration": "ou mē geusōntai thanatou",
+            "strongs_number": "G1089/G2288",
+            "meaning": "Shall not taste death — ou mē: emphatic double negative + subjunctive; Semitic idiom for personal experiencing; some in audience will witness kingdom-power."
+          },
+          {
+            "original_word": "ἐληλυθυῖαν ἐν δυνάμει",
+            "transliteration": "elēlythuian en dynamei",
+            "strongs_number": "G2064/G1411",
+            "meaning": "Having come with power — perfect participle: already-arrived state; Mark places the Transfiguration next as anticipatory proof."
+          }
+        ],
         "2": [
           {
             "original_word": "μεταμορφόω",
             "transliteration": "metamorphoō",
             "strongs_number": "G3339",
             "meaning": "To transfigure, transform, change in form — from meta (change, after) + morphē (form, essential shape). The English 'metamorphosis' derives directly from this word. In Mark 9:2, the transformation reveals Jesus' hidden divine glory — not a change in nature but an unveiling of what was always there. The same word appears in Romans 12:2 ('be ye transformed by the renewing of your mind') and 2 Corinthians 3:18 ('changed into the same image from glory to glory'). What happened to Jesus in a moment on the mountain happens to believers progressively through the Spirit."
+          },
+          {
+            "original_word": "μεθ᾽ ἡμέρας ἕξ",
+            "transliteration": "meth hēmeras hex",
+            "strongs_number": "G2250/G1803",
+            "meaning": "After six days — precise chronological marker; mirrors Moses' six-day cloud cover on Sinai (Exod 24:16); seventh-day theophany pattern."
+          },
+          {
+            "original_word": "εἰς ὄρος ὑψηλὸν κατ᾽ ἰδίαν",
+            "transliteration": "eis oros hypsēlon kat idian",
+            "strongs_number": "G3735/G5308/G2596",
+            "meaning": "Onto a high mountain apart — classic theophanic geography (Sinai, Horeb, Zion); Mt Hermon (9288 ft) likely, near Caesarea Philippi."
+          }
+        ],
+        "3": [
+          {
+            "original_word": "στίλβοντα λευκὰ λίαν",
+            "transliteration": "stilbonta leuka lian",
+            "strongs_number": "G4744/G3029",
+            "meaning": "Shining exceeding white — stilbō (NT hapax): flash like polished metal; Mark emphasises glory-radiance beyond natural whiteness."
+          },
+          {
+            "original_word": "οἷα γναφεὺς ἐπὶ τῆς γῆς οὐ δύναται",
+            "transliteration": "hoia gnapheus epi tēs gēs ou dynatai",
+            "strongs_number": "G1102",
+            "meaning": "Such as no fuller on earth can whiten — gnapheus: cloth-cleaner by fulling-earth; Mark's earthy domestic comparison amplifies heavenly origin."
+          }
+        ],
+        "4": [
+          {
+            "original_word": "συλλαλοῦντες τῷ Ἰησοῦ",
+            "transliteration": "syllalountes tō Iēsou",
+            "strongs_number": "G4814",
+            "meaning": "Talking with Jesus — imperfect; Luke 9:31 adds topic: his exodos in Jerusalem; law + prophets authenticate passion-mission."
+          }
+        ],
+        "5": [
+          {
+            "original_word": "ῥαββί",
+            "transliteration": "rhabbi",
+            "strongs_number": "G4461",
+            "meaning": "Rabbi — Peter's Aramaic honorific (used elsewhere only in 11:21, 14:45); first use signals inadequate understanding at peak revelation."
+          },
+          {
+            "original_word": "ποιήσωμεν τρεῖς σκηνάς",
+            "transliteration": "poiēsōmen treis skēnas",
+            "strongs_number": "G4633",
+            "meaning": "Let us make three tabernacles — skēnē: Feast of Booths/Sukkot shelter; Peter wants to institutionalise the moment, eschatological Sukkot consummation."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "ἔκφοβοι ἐγένοντο",
+            "transliteration": "ekphoboi egenonto",
+            "strongs_number": "G1630",
+            "meaning": "They became terrified — ek-phobos: fully gripped by fear; NT appearances only here and Heb 12:21 (Sinai)."
           }
         ],
         "7": [
@@ -7812,6 +9808,102 @@
             "transliteration": "agapētos",
             "strongs_number": "G27",
             "meaning": "Beloved, dearly loved, only dear one — from agapaō (to love with deliberate, chosen love). Used of Jesus at his baptism (1:11) and here at the Transfiguration. The word echoes Genesis 22:2 LXX where God tells Abraham to sacrifice his 'beloved' (agapēton) son Isaac. The Father's declaration identifies Jesus as both the unique divine Son and the sacrifice prefigured by Isaac — the beloved who will be offered up."
+          },
+          {
+            "original_word": "νεφέλη ἐπισκιάζουσα αὐτοῖς",
+            "transliteration": "nephelē episkiazousa autois",
+            "strongs_number": "G3507/G1982",
+            "meaning": "A cloud overshadowing them — episkiazō: LXX term for shekhinah (Exod 40:35; Num 9:18); same verb in Luke 1:35 for Mary."
+          },
+          {
+            "original_word": "ἀκούετε αὐτοῦ",
+            "transliteration": "akouete autou",
+            "strongs_number": "G191",
+            "meaning": "Hear him — Deut 18:15 prophet-like-Moses formula; Jesus receives the obedience owed exclusively to Yahweh's spokesman."
+          }
+        ],
+        "8": [
+          {
+            "original_word": "οὐκέτι οὐδένα ... εἰ μὴ τὸν Ἰησοῦν",
+            "transliteration": "ouketi oudena ... ei mē ton Iēsoun",
+            "strongs_number": "G3765/G3762",
+            "meaning": "No longer anyone ... except Jesus — triple negative + exception; law-and-prophets recede, leaving the Son as sole focus of revelation."
+          }
+        ],
+        "9": [
+          {
+            "original_word": "διεστείλατο αὐτοῖς ἵνα μηδενὶ διηγήσωνται",
+            "transliteration": "diesteilato autois hina mēdeni diēgēsōntai",
+            "strongs_number": "G1291/G1334",
+            "meaning": "Charged them that they should tell no one — diastellō: strict injunction; temporal clause \"until the Son of Man be risen\" sets explicit expiry."
+          }
+        ],
+        "10": [
+          {
+            "original_word": "τὸν λόγον ἐκράτησαν πρὸς ἑαυτούς",
+            "transliteration": "ton logon ekratēsan pros heautous",
+            "strongs_number": "G2902/G3056",
+            "meaning": "Kept the word to themselves — kratēsan: held fast; disciples practise the secrecy command but are puzzled by resurrection talk."
+          }
+        ],
+        "11": [
+          {
+            "original_word": "δεῖ ἐλθεῖν πρῶτον",
+            "transliteration": "dei elthein prōton",
+            "strongs_number": "G1163/G2064/G4412",
+            "meaning": "Must come first — dei: divine necessity; same word as 8:31 passion-must; scribal eschatology tied Elijah to Messiah's advent."
+          }
+        ],
+        "12": [
+          {
+            "original_word": "ἀποκαθιστάνει πάντα",
+            "transliteration": "apokathistanei panta",
+            "strongs_number": "G600",
+            "meaning": "Restores all things — apocatastasis: full restoration (Mal 4:6); same verbal family as Acts 3:21 eschatological renewal."
+          },
+          {
+            "original_word": "ἐξουδενηθῇ",
+            "transliteration": "exoudenēthē",
+            "strongs_number": "G1847",
+            "meaning": "Set at nought — compound of ouden (nothing); reduce to nothing; direct Isa 53:3 LXX echo."
+          }
+        ],
+        "14": [
+          {
+            "original_word": "γραμματεῖς συζητοῦντας",
+            "transliteration": "grammateis syzētountas",
+            "strongs_number": "G1122/G4802",
+            "meaning": "Scribes disputing — syzēteō: contentious debate; disciples' failure has become fodder for scholarly criticism."
+          }
+        ],
+        "15": [
+          {
+            "original_word": "ἐξεθαμβήθη",
+            "transliteration": "exethambēthē",
+            "strongs_number": "G1568",
+            "meaning": "Were greatly amazed — aorist passive of ekthambeō; stronger than thambeō; Mark's favourite awe-verb (used also 14:33; 16:5, 6)."
+          }
+        ],
+        "17": [
+          {
+            "original_word": "πνεῦμα ἄλαλον",
+            "transliteration": "pneuma alalon",
+            "strongs_number": "G4151/G216",
+            "meaning": "A mute spirit — alpha-privative of laleō; possession categorised by symptom rather than name; Jesus will later identify it as deaf as well (v.25)."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "ξηραίνεται",
+            "transliteration": "xērainetai",
+            "strongs_number": "G3583",
+            "meaning": "Pines away / becomes rigid — xēraino: to dry up; post-seizure catatonia; medically precise description of epilepsy-like episodes."
+          },
+          {
+            "original_word": "ἀφρίζει καὶ τρίζει τοὺς ὀδόντας",
+            "transliteration": "aphrizei kai trizei tous odontas",
+            "strongs_number": "G875/G5149",
+            "meaning": "Foams and grinds the teeth — aphrizō (NT hapax) + trizō (NT hapax): Mark uses three hapaxes for this scene's clinical detail."
           }
         ],
         "19": [
@@ -7820,6 +9912,48 @@
             "transliteration": "apistos",
             "strongs_number": "G571",
             "meaning": "Faithless, unbelieving, without faith — from a (not) + pistis (faith). Jesus' exclamation 'O faithless generation' (genea apistos) addresses not just the father or the disciples but the entire generation characterised by insufficient faith. The word connotes not atheism but an inability to trust God's power in concrete situations. The contrast between the transfigured glory above and the faithless failure below is Mark's central irony."
+          },
+          {
+            "original_word": "ὦ γενεὰ ἄπιστος",
+            "transliteration": "ō genea apistos",
+            "strongs_number": "G5599/G1074/G571",
+            "meaning": "O faithless generation — prophetic lament formula (cf. Isa 6:5); \"generation\" targets wider Israel, not just disciples."
+          },
+          {
+            "original_word": "ἕως πότε πρὸς ὑμᾶς ἔσομαι",
+            "transliteration": "heōs pote pros hymas esomai",
+            "strongs_number": "G2193/G4219",
+            "meaning": "How long shall I be with you — double temporal question; Jesus expresses divine weariness (echoes Num 14:27; Deut 32:20)."
+          }
+        ],
+        "20": [
+          {
+            "original_word": "συνεσπάραξεν αὐτόν",
+            "transliteration": "synesparaxen auton",
+            "strongs_number": "G4952",
+            "meaning": "Convulsed him — syn-intensive of sparassō (cf. 1:26); the demon violently manifests at Christ's presence, public testimony."
+          }
+        ],
+        "22": [
+          {
+            "original_word": "σπλαγχνισθεὶς βοήθησον ἡμῖν",
+            "transliteration": "splanchnistheis boēthēson hēmin",
+            "strongs_number": "G4697/G997",
+            "meaning": "Have compassion on us and help us — father identifies himself with the son's plight: \"help us,\" not just the boy."
+          }
+        ],
+        "23": [
+          {
+            "original_word": "τὸ εἰ δύνῃ",
+            "transliteration": "to ei dynē",
+            "strongs_number": "G1410",
+            "meaning": "As to your \"If thou canst\" — Jesus repeats the father's conditional back at him; definite article transforms it into a cited phrase."
+          },
+          {
+            "original_word": "πάντα δυνατὰ τῷ πιστεύοντι",
+            "transliteration": "panta dynata tō pisteuonti",
+            "strongs_number": "G1415/G4100",
+            "meaning": "All things [are] possible for the one who believes — dative of agency; faith in Christ's power is the enabling conduit."
           }
         ],
         "24": [
@@ -7828,6 +9962,48 @@
             "transliteration": "apistia",
             "strongs_number": "G570",
             "meaning": "Unbelief, lack of faith, distrust — the noun form of apistos. The father's cry 'help thou mine unbelief' (boēthei mou tē apistia) treats unbelief not as a permanent condition but as a weakness that can be remedied by divine help. Faith and unbelief coexist in the same person. The father does not try to manufacture faith by willpower; he asks Jesus to overcome his doubt. This is one of the most theologically profound prayers in Scripture: it acknowledges human weakness while appealing to divine strength."
+          },
+          {
+            "original_word": "κράξας ... μετὰ δακρύων",
+            "transliteration": "kraxas ... meta dakryōn",
+            "strongs_number": "G2896/G1144",
+            "meaning": "Crying out with tears — some mss omit \"with tears\"; Mark's emotional realism captures limits-of-faith honesty."
+          }
+        ],
+        "25": [
+          {
+            "original_word": "ἐπισυντρέχει ὄχλος",
+            "transliteration": "episyntrechei ochlos",
+            "strongs_number": "G1998/G3793",
+            "meaning": "A crowd ran together — double compound (epi + syn + trechō); crowd convergence forces Jesus to act before spectacle spins out."
+          },
+          {
+            "original_word": "ἐγὼ ἐπιτάσσω σοι",
+            "transliteration": "egō epitassō soi",
+            "strongs_number": "G1473/G2004",
+            "meaning": "I command you — emphatic \"I\"; epitassō: authoritative military-style command; sharper than the 5:8 exchange."
+          },
+          {
+            "original_word": "μηκέτι εἰσέλθῃς εἰς αὐτόν",
+            "transliteration": "mēketi eiselthēs eis auton",
+            "strongs_number": "G3371/G1525",
+            "meaning": "No longer enter into him — unique permanence clause; Jesus seals future from re-entry (cf. Matt 12:43-45)."
+          }
+        ],
+        "26": [
+          {
+            "original_word": "ἐγένετο ὡσεὶ νεκρός",
+            "transliteration": "egeneto hōsei nekros",
+            "strongs_number": "G5616/G3498",
+            "meaning": "Became like a corpse — deliverance mimics resurrection pattern: death-appearance precedes Jesus's raising touch (v.27)."
+          }
+        ],
+        "28": [
+          {
+            "original_word": "κατ᾽ ἰδίαν",
+            "transliteration": "kat idian",
+            "strongs_number": "G2398",
+            "meaning": "Privately — Mark's recurrent private-instruction motif (4:34; 7:33; 13:3); disciples' failures teaching moments behind closed doors."
           }
         ],
         "29": [
@@ -7836,6 +10012,42 @@
             "transliteration": "proseuchē",
             "strongs_number": "G4335",
             "meaning": "Prayer, entreaty directed to God — from pros (toward) + euchomai (to wish, pray). Jesus diagnoses the disciples' failure as a prayer deficit. Their authority over demons (6:7) had not changed, but their dependence on God through prayer had apparently waned. Prayer is not a technique but a relationship — continuous communion with God that sustains spiritual power. Without prayer, delegated authority becomes empty formalism."
+          },
+          {
+            "original_word": "ἐν οὐδενὶ δύναται ἐξελθεῖν",
+            "transliteration": "en oudeni dynatai exelthein",
+            "strongs_number": "G1410/G1831",
+            "meaning": "Can come out by nothing — negative force + exception clause; Mark classifies demons by hierarchy of resistance and required spiritual discipline."
+          }
+        ],
+        "31": [
+          {
+            "original_word": "παραδίδοται εἰς χεῖρας ἀνθρώπων",
+            "transliteration": "paradidotai eis cheiras anthrōpōn",
+            "strongs_number": "G3860/G5495",
+            "meaning": "Is delivered into hands of men — present \"divine passive\": action in progress now; paradidōmi echoes LXX Isa 53:6, 12."
+          }
+        ],
+        "32": [
+          {
+            "original_word": "ἠγνόουν τὸ ῥῆμα",
+            "transliteration": "ēgnooun to rhēma",
+            "strongs_number": "G50/G4487",
+            "meaning": "Were ignorant of the saying — imperfect of agnoeō; disciples' ongoing blindness despite repeated, clearer predictions."
+          },
+          {
+            "original_word": "ἐφοβοῦντο ἐπερωτῆσαι",
+            "transliteration": "ephobounto eperōtēsai",
+            "strongs_number": "G5399/G1905",
+            "meaning": "Feared to ask him — shame-avoidance after 8:33 rebuke; Mark's unflattering portrait of the Twelve persists."
+          }
+        ],
+        "33": [
+          {
+            "original_word": "τί ἐν τῇ ὁδῷ διελογίζεσθε",
+            "transliteration": "ti en tē hodē dielogizesthe",
+            "strongs_number": "G1260/G3598",
+            "meaning": "What were you discussing on the way — dialogizomai: deliberate reasoning; hodos (\"way\"): discipleship-journey motif running through 8:27-10:52."
           }
         ],
         "35": [
@@ -7844,6 +10056,44 @@
             "transliteration": "diakonos",
             "strongs_number": "G1249",
             "meaning": "Servant, minister, attendant — originally one who serves tables; from dia (through) + konis (dust), suggesting one who raises dust by hurrying to serve. Jesus redefines greatness as diakonos — voluntary service to others. This is not forced servitude (doulos, slave) but chosen ministry. The word later became a church office (deacon, Romans 16:1; 1 Timothy 3:8-13). Jesus' definition: the greatest person in God's kingdom is the one who serves the most people, especially the least important."
+          },
+          {
+            "original_word": "ἔσχατος πάντων καὶ πάντων διάκονος",
+            "transliteration": "eschatos pantōn kai pantōn diakonos",
+            "strongs_number": "G2078/G1249",
+            "meaning": "Last of all and servant of all — parallel genitives; universal servitude as the path to primacy in kingdom order."
+          }
+        ],
+        "36": [
+          {
+            "original_word": "ἐναγκαλισάμενος αὐτὸ",
+            "transliteration": "enagkalisamenos auto",
+            "strongs_number": "G1723",
+            "meaning": "Having taken it into his arms — NT hapax (also 10:16); Markan tender physical gesture absent from the parallels."
+          }
+        ],
+        "37": [
+          {
+            "original_word": "ἐν τῷ ὀνόματί μου",
+            "transliteration": "en tō onomati mou",
+            "strongs_number": "G3686",
+            "meaning": "In my name — onoma functions as locus of authority and identity; receiving a child on Christ's authority = receiving Christ."
+          }
+        ],
+        "38": [
+          {
+            "original_word": "ἐκωλύομεν αὐτόν",
+            "transliteration": "ekōlyomen auton",
+            "strongs_number": "G2967",
+            "meaning": "We were hindering him — imperfect of kōlyō; John's report of the disciples' partisan gatekeeping; the charge leverages name-loyalty."
+          }
+        ],
+        "41": [
+          {
+            "original_word": "ποτίσῃ ὑμᾶς ποτήριον ὕδατος",
+            "transliteration": "potisē hymas potērion hydatos",
+            "strongs_number": "G4222/G4221",
+            "meaning": "Gives you a cup of water — smallest possible act of aid weighed as worthy of reward; Mark's rabbinic qal-wachomer logic."
           }
         ],
         "42": [
@@ -7852,6 +10102,12 @@
             "transliteration": "skandalizō",
             "strongs_number": "G4624",
             "meaning": "To cause to stumble, to trip up, to entrap — from skandalon (the trigger-stick of a trap). Originally a hunting term: the skandalon was the bait-stick that, when touched, sprung the trap. In moral usage, it means to cause someone to sin or to fall away from faith. Jesus warns that causing a 'little one' to stumble carries a penalty worse than drowning. The word reveals sin's social dimension: faith can be destroyed by the actions of others, and God holds the destroyer accountable."
+          },
+          {
+            "original_word": "μύλος ὀνικὸς",
+            "transliteration": "mylos onikos",
+            "strongs_number": "G3458/G3684",
+            "meaning": "Donkey-millstone — large upper millstone turned by ass, not small hand-mill; drowning imagery amplifies gravity of stumbling little ones."
           }
         ],
         "43": [
@@ -7860,6 +10116,36 @@
             "transliteration": "geenna",
             "strongs_number": "G1067",
             "meaning": "Gehenna, hell, the place of final punishment — from Hebrew ge-hinnom (Valley of Hinnom), a ravine south of Jerusalem where children were sacrificed to Molech (2 Kings 23:10; Jeremiah 7:31). Josiah defiled the valley, and it became the city garbage dump — perpetually burning. By Jesus' time, Gehenna was the standard Jewish term for the place of final judgment. Jesus uses the term eleven times in the Synoptics, making him the primary biblical teacher on hell. The unquenchable fire and undying worm (Isaiah 66:24) indicate judgment that is both severe and permanent."
+          },
+          {
+            "original_word": "εἰς τὸ πῦρ τὸ ἄσβεστον",
+            "transliteration": "eis to pyr to asbeston",
+            "strongs_number": "G4442/G762",
+            "meaning": "Into the unquenchable fire — asbestos (root of English asbestos): not-extinguishable; adjective emphasising ceaseless duration."
+          }
+        ],
+        "47": [
+          {
+            "original_word": "μονόφθαλμον",
+            "transliteration": "monophthalmon",
+            "strongs_number": "G3442",
+            "meaning": "One-eyed — mono + ophthalmos; better to enter kingdom maimed than whole Gehenna-bound; hyperbolic severity."
+          }
+        ],
+        "49": [
+          {
+            "original_word": "πυρὶ ἁλισθήσεται",
+            "transliteration": "pyri halisthēsetai",
+            "strongs_number": "G4442/G233",
+            "meaning": "Shall be salted with fire — cryptic saying; combines purifying fire with preserving salt; disciple-testing fused with covenant-seasoning imagery (Lev 2:13)."
+          }
+        ],
+        "50": [
+          {
+            "original_word": "ἔχετε ἐν ἑαυτοῖς ἅλα",
+            "transliteration": "echete en heautois hala",
+            "strongs_number": "G2192/G217",
+            "meaning": "Have salt in yourselves — imperative; peace-preserving virtue internalised; second half \"be at peace with one another\" glosses the metaphor."
           }
         ]
       },
@@ -7870,6 +10156,12 @@
           },
           {
             "reference": "Matthew 16:28"
+          },
+          {
+            "reference": "John 8:52"
+          },
+          {
+            "reference": "Hebrews 2:9"
           }
         ],
         "2": [
@@ -7881,6 +10173,12 @@
           },
           {
             "reference": "Exodus 24:15-16"
+          },
+          {
+            "reference": "Exodus 24:16"
+          },
+          {
+            "reference": "2 Peter 1:17-18"
           }
         ],
         "3": [
@@ -7889,6 +10187,12 @@
           },
           {
             "reference": "Revelation 1:14"
+          },
+          {
+            "reference": "Matthew 17:2"
+          },
+          {
+            "reference": "Psalm 104:2"
           }
         ],
         "4": [
@@ -7897,6 +10201,25 @@
           },
           {
             "reference": "Malachi 4:5-6"
+          },
+          {
+            "reference": "2 Kings 2:11"
+          },
+          {
+            "reference": "Deuteronomy 34:5-6"
+          }
+        ],
+        "5": [
+          {
+            "reference": "2 Peter 1:17"
+          },
+          {
+            "reference": "Leviticus 23:42-43"
+          }
+        ],
+        "6": [
+          {
+            "reference": "Luke 9:33"
           }
         ],
         "7": [
@@ -7911,6 +10234,33 @@
           },
           {
             "reference": "Isaiah 42:1"
+          },
+          {
+            "reference": "Exodus 40:34-35"
+          },
+          {
+            "reference": "Luke 9:34-35"
+          },
+          {
+            "reference": "Acts 3:22-23"
+          },
+          {
+            "reference": "Deuteronomy 18:18-19"
+          }
+        ],
+        "8": [
+          {
+            "reference": "John 1:17"
+          }
+        ],
+        "9": [
+          {
+            "reference": "Matthew 17:9"
+          }
+        ],
+        "10": [
+          {
+            "reference": "Mark 8:31"
           }
         ],
         "11": [
@@ -7919,6 +10269,17 @@
           },
           {
             "reference": "Matthew 17:10-13"
+          },
+          {
+            "reference": "Matthew 17:10"
+          }
+        ],
+        "12": [
+          {
+            "reference": "Malachi 4:6"
+          },
+          {
+            "reference": "Isaiah 53:3"
           }
         ],
         "13": [
@@ -7927,6 +10288,37 @@
           },
           {
             "reference": "Luke 1:17"
+          },
+          {
+            "reference": "Matthew 11:14"
+          },
+          {
+            "reference": "Matthew 17:12"
+          }
+        ],
+        "14": [
+          {
+            "reference": "Mark 2:16"
+          }
+        ],
+        "15": [
+          {
+            "reference": "Exodus 34:29-30"
+          }
+        ],
+        "16": [
+          {
+            "reference": "Luke 9:41"
+          }
+        ],
+        "17": [
+          {
+            "reference": "Matthew 17:14-15"
+          }
+        ],
+        "18": [
+          {
+            "reference": "Luke 9:39"
           }
         ],
         "19": [
@@ -7935,6 +10327,19 @@
           },
           {
             "reference": "Deuteronomy 32:20"
+          },
+          {
+            "reference": "Luke 9:41"
+          }
+        ],
+        "20": [
+          {
+            "reference": "Mark 1:26"
+          }
+        ],
+        "22": [
+          {
+            "reference": "Matthew 17:16-17"
           }
         ],
         "23": [
@@ -7943,16 +10348,40 @@
           },
           {
             "reference": "Mark 11:23-24"
+          },
+          {
+            "reference": "Philippians 4:13"
+          },
+          {
+            "reference": "Matthew 19:26"
           }
         ],
         "24": [
           {
             "reference": "Luke 17:5"
+          },
+          {
+            "reference": "Mark 10:52"
+          }
+        ],
+        "25": [
+          {
+            "reference": "Mark 5:8"
+          }
+        ],
+        "26": [
+          {
+            "reference": "Mark 5:35-42"
           }
         ],
         "27": [
           {
             "reference": "Mark 5:41-42"
+          }
+        ],
+        "28": [
+          {
+            "reference": "Mark 4:34"
           }
         ],
         "29": [
@@ -7961,6 +10390,17 @@
           },
           {
             "reference": "Ephesians 6:18"
+          },
+          {
+            "reference": "Daniel 10:12-13"
+          },
+          {
+            "reference": "Acts 14:23"
+          }
+        ],
+        "30": [
+          {
+            "reference": "Matthew 17:22"
           }
         ],
         "31": [
@@ -7969,6 +10409,30 @@
           },
           {
             "reference": "Mark 10:33-34"
+          },
+          {
+            "reference": "Matthew 17:22-23"
+          },
+          {
+            "reference": "Isaiah 53:6"
+          }
+        ],
+        "32": [
+          {
+            "reference": "Luke 9:45"
+          },
+          {
+            "reference": "Luke 18:34"
+          }
+        ],
+        "33": [
+          {
+            "reference": "Matthew 17:24"
+          }
+        ],
+        "34": [
+          {
+            "reference": "Luke 22:24"
           }
         ],
         "35": [
@@ -7980,6 +10444,14 @@
           },
           {
             "reference": "Matthew 23:11"
+          },
+          {
+            "reference": "John 13:14-16"
+          }
+        ],
+        "36": [
+          {
+            "reference": "Matthew 18:2"
           }
         ],
         "37": [
@@ -7988,6 +10460,22 @@
           },
           {
             "reference": "Matthew 25:40"
+          },
+          {
+            "reference": "Luke 9:48"
+          },
+          {
+            "reference": "John 13:20"
+          }
+        ],
+        "38": [
+          {
+            "reference": "Numbers 11:27-28"
+          }
+        ],
+        "39": [
+          {
+            "reference": "1 Corinthians 12:3"
           }
         ],
         "40": [
@@ -7996,6 +10484,17 @@
           },
           {
             "reference": "Luke 9:50"
+          },
+          {
+            "reference": "Philippians 1:18"
+          }
+        ],
+        "41": [
+          {
+            "reference": "Matthew 10:42"
+          },
+          {
+            "reference": "Hebrews 6:10"
           }
         ],
         "42": [
@@ -8004,6 +10503,12 @@
           },
           {
             "reference": "Luke 17:1-2"
+          },
+          {
+            "reference": "Romans 14:13"
+          },
+          {
+            "reference": "1 Corinthians 8:12"
           }
         ],
         "43": [
@@ -8015,11 +10520,24 @@
           },
           {
             "reference": "Colossians 3:5"
+          },
+          {
+            "reference": "Galatians 5:24"
           }
         ],
         "44": [
           {
             "reference": "Isaiah 66:24"
+          }
+        ],
+        "45": [
+          {
+            "reference": "Psalm 119:101"
+          }
+        ],
+        "47": [
+          {
+            "reference": "Matthew 5:28-29"
           }
         ],
         "49": [
@@ -8028,6 +10546,9 @@
           },
           {
             "reference": "1 Peter 1:6-7"
+          },
+          {
+            "reference": "Ezekiel 43:24"
           }
         ],
         "50": [
@@ -8039,6 +10560,12 @@
           },
           {
             "reference": "Colossians 4:6"
+          },
+          {
+            "reference": "Romans 12:18"
+          },
+          {
+            "reference": "Hebrews 12:14"
           }
         ]
       }
@@ -8476,12 +11003,84 @@
         }
       ],
       "wordStudies": {
+        "1": [
+          {
+            "original_word": "πέραν τοῦ Ἰορδάνου",
+            "transliteration": "peran tou Iordanou",
+            "strongs_number": "G4008/G2446",
+            "meaning": "Beyond the Jordan — Perea, Herod Antipas's territory (same ruler who executed John); Jesus deliberately enters the region where John was martyred."
+          },
+          {
+            "original_word": "ὡς εἰώθει ἐδίδασκεν αὐτούς",
+            "transliteration": "hōs eiōthei edidasken autous",
+            "strongs_number": "G1486/G1321",
+            "meaning": "As his custom was, he taught them — pluperfect of ethō + imperfect of didaskō; Mark summarises Perean ministry as sustained teaching despite growing danger."
+          }
+        ],
+        "2": [
+          {
+            "original_word": "προσελθόντες Φαρισαῖοι ... πειράζοντες",
+            "transliteration": "proselthontes Pharisaioi ... peirazontes",
+            "strongs_number": "G4334/G3985",
+            "meaning": "Pharisees came testing — peirazō: the satanic-temptation verb (1:13); question is trap: Antipas's own divorce exposed John's critic; a wrong answer could be fatal."
+          },
+          {
+            "original_word": "εἰ ἔξεστιν ἀνδρὶ γυναῖκα ἀπολῦσαι",
+            "transliteration": "ei exestin andri gynaika apolysai",
+            "strongs_number": "G1832/G630",
+            "meaning": "If it is lawful for a man to put away wife — apolyō: legal manumission of spouse; contested halakha between Shammai (only for unchastity) and Hillel (any cause)."
+          }
+        ],
+        "4": [
+          {
+            "original_word": "βιβλίον ἀποστασίου",
+            "transliteration": "biblion apostasiou",
+            "strongs_number": "G975/G647",
+            "meaning": "Writing of divorcement — Deut 24:1 LXX technical term (Hebrew sefer kritut, \"get\"); Pharisees cite Moses as their warrant."
+          }
+        ],
         "5": [
           {
             "original_word": "σκληροκαρδία",
             "transliteration": "sklērokardia",
             "strongs_number": "G4641",
             "meaning": "Hardness of heart, stubbornness, obstinacy — from sklēros (hard, rough) + kardia (heart). The condition that made the Mosaic divorce concession necessary. Hard-heartedness is the fundamental barrier to God's will in human relationships. It is not simply an intellectual failure but a moral calcification — the heart becoming stone-like, unable to respond to love's demands. Jesus implies that in the kingdom, where hearts are renewed (Ezekiel 36:26), God's original design for marriage can be restored."
+          },
+          {
+            "original_word": "ἔγραψεν τὴν ἐντολὴν ταύτην",
+            "transliteration": "egrapsen tēn entolēn tautēn",
+            "strongs_number": "G1125/G1785",
+            "meaning": "He wrote this commandment — Jesus concedes Mosaic authorship but reframes the divorce concession as pastoral accommodation, not divine ideal."
+          }
+        ],
+        "6": [
+          {
+            "original_word": "ἀπὸ δὲ ἀρχῆς κτίσεως",
+            "transliteration": "apo de archēs ktiseōs",
+            "strongs_number": "G746/G2937",
+            "meaning": "But from the beginning of creation — Jesus trumps Torah precedent with creation order; Gen 1-2 outranks Deut 24 in hermeneutic hierarchy."
+          },
+          {
+            "original_word": "ἄρσεν καὶ θῆλυ ἐποίησεν αὐτούς",
+            "transliteration": "arsen kai thēlu epoiēsen autous",
+            "strongs_number": "G730/G2338/G4160",
+            "meaning": "Male and female he made them — direct Gen 1:27 LXX; binary creation pair forms anthropological basis for monogamy."
+          }
+        ],
+        "7": [
+          {
+            "original_word": "ἕνεκεν τούτου",
+            "transliteration": "heneken toutou",
+            "strongs_number": "G1752",
+            "meaning": "For this cause — Mark resumes Gen 2:24; prepositional link ties creation-pairing causally to man's leaving family of origin."
+          }
+        ],
+        "8": [
+          {
+            "original_word": "σὰρξ μία",
+            "transliteration": "sarx mia",
+            "strongs_number": "G4561/G1520",
+            "meaning": "One flesh — ontological unity, not mere contract; marriage as new creation-unit; Paul applies same formula to Christ-church (Eph 5:31)."
           }
         ],
         "9": [
@@ -8492,6 +11091,56 @@
             "meaning": "To yoke together, join together, unite — from syn (together) + zeugnymi (to yoke). A term from agriculture: two animals yoked together for work. God is the one who 'yokes' husband and wife together in marriage. The divine yoking creates a bond that human action should not (and in God's sight, cannot truly) dissolve. The passive voice (synezeuxen) places God as the active agent in every marriage, not merely as a witness to a human contract."
           }
         ],
+        "11": [
+          {
+            "original_word": "γαμήσῃ ἄλλην",
+            "transliteration": "gamēsē allēn",
+            "strongs_number": "G1060/G243",
+            "meaning": "Marries another — aorist subjunctive; Jesus interprets remarriage-after-divorce as continuing the prior union from God's angle."
+          },
+          {
+            "original_word": "μοιχᾶται ἐπ᾽ αὐτήν",
+            "transliteration": "moichatai ep autēn",
+            "strongs_number": "G3429",
+            "meaning": "Commits adultery against her — Markan phrase \"against her\" unique in Synoptics; first wife is the victim, reversing patriarchal assumption."
+          }
+        ],
+        "12": [
+          {
+            "original_word": "ἀπολύσασα ... γαμήσῃ ἄλλον",
+            "transliteration": "apolysasa ... gamēsē allon",
+            "strongs_number": "G630/G1060",
+            "meaning": "Having divorced ... marries another — Mark's Roman legal lens: envisions wife-initiated divorce (legal in Roman law, not Jewish); likely a Roman-reader adaptation."
+          }
+        ],
+        "13": [
+          {
+            "original_word": "προσέφερον αὐτῷ παιδία",
+            "transliteration": "prosepheron autō paidia",
+            "strongs_number": "G4374/G3813",
+            "meaning": "They were bringing to him little children — paidion: child aged 2-12; prospherō in cultic contexts = offering; Mark frames as presentation to Rabbi for blessing."
+          }
+        ],
+        "14": [
+          {
+            "original_word": "ἠγανάκτησεν",
+            "transliteration": "ēganaktēsen",
+            "strongs_number": "G23",
+            "meaning": "Became indignant — strong emotional verb; Mark alone records Jesus's open displeasure at the disciples' interference; maternal/paternal protective outrage."
+          },
+          {
+            "original_word": "ἄφετε τὰ παιδία ἔρχεσθαι",
+            "transliteration": "aphete ta paidia erchesthai",
+            "strongs_number": "G863/G3813",
+            "meaning": "Permit the children to come — present imperative; aphiēmi: let go, let be; disciples' gatekeeping reversed by Christ's open-access posture."
+          },
+          {
+            "original_word": "τῶν τοιούτων",
+            "transliteration": "tōn toioutōn",
+            "strongs_number": "G5108",
+            "meaning": "Of such [kind] — not only these specific children but those sharing their quality (humility, dependence); inherits the kingdom."
+          }
+        ],
         "15": [
           {
             "original_word": "δέχομαι",
@@ -8500,12 +11149,94 @@
             "meaning": "To receive, accept, welcome — denoting active, willing reception rather than passive acquiescence. A child receives a gift with open hands, without negotiation or payment. To 'receive' (dexētai) the kingdom of God means to accept it as pure gift with nothing to offer in return. This is the posture of grace: empty hands, humble dependence, joyful reception. The rich young ruler could not receive because his hands were full of possessions."
           }
         ],
+        "16": [
+          {
+            "original_word": "ἐναγκαλισάμενος ... κατηυλόγει",
+            "transliteration": "enagkalisamenos ... katēulogei",
+            "strongs_number": "G1723/G2127",
+            "meaning": "Taking into his arms ... blessed fervently — kateulogeō: intensive compound (NT hapax), imperfect iterative; Mark's tender physicality."
+          }
+        ],
+        "17": [
+          {
+            "original_word": "ἐκπορευομένου ... γονυπετήσας",
+            "transliteration": "ekporeuomenou ... gonypetēsas",
+            "strongs_number": "G1607/G1120",
+            "meaning": "As he was going forth ... kneeling — ran up + knelt before Jesus in the street; Mark paints vivid urgency absent from parallels."
+          },
+          {
+            "original_word": "ἀγαθὲ διδάσκαλε",
+            "transliteration": "agathe didaskale",
+            "strongs_number": "G18/G1320",
+            "meaning": "Good Teacher — unusual honorific: rabbis rarely called simply \"good\"; flattery that Jesus will redirect to theological substance."
+          },
+          {
+            "original_word": "κληρονομήσω ζωὴν αἰώνιον",
+            "transliteration": "klēronomēsō zōēn aiōnion",
+            "strongs_number": "G2816/G2222/G166",
+            "meaning": "Inherit eternal life — klēronomeō: receive as patrimonial inheritance; aionios zōē: Dan 12:2 resurrection life, age-to-come existence."
+          }
+        ],
+        "18": [
+          {
+            "original_word": "οὐδεὶς ἀγαθὸς εἰ μὴ εἷς ὁ θεός",
+            "transliteration": "oudeis agathos ei mē heis ho theos",
+            "strongs_number": "G3762/G18/G1520",
+            "meaning": "None good except one — God — Jesus does not deny his own goodness but invites the man to trace goodness back to its divine source (cf. Deut 6:4 Shema)."
+          }
+        ],
         "21": [
           {
             "original_word": "ὑστερέω",
             "transliteration": "hystereō",
             "strongs_number": "G5302",
             "meaning": "To lack, fall short, come behind — from hysteros (later, behind). The rich man, who has observed all the commandments, still falls short of one thing. The word implies he is running a race but has not yet reached the finish line. What he lacks is not another good work but total surrender — the willingness to release everything and follow. The 'one thing' is not poverty per se but the undivided allegiance that poverty would demonstrate in his specific case."
+          },
+          {
+            "original_word": "ἐμβλέψας αὐτῷ ἠγάπησεν αὐτόν",
+            "transliteration": "emblepsas autō ēgapēsen auton",
+            "strongs_number": "G1689/G25",
+            "meaning": "Looking intently at him, he loved him — only place Mark records Jesus loving a specific individual; aorist signals a flash of personal affection mid-dialogue."
+          }
+        ],
+        "22": [
+          {
+            "original_word": "στυγνάσας ... λυπούμενος",
+            "transliteration": "stygnasas ... lypoumenos",
+            "strongs_number": "G4768/G3076",
+            "meaning": "Having become gloomy ... grieving — stygnazō (NT only here + Matt 16:3): face clouds over, like stormy sky; lypeomai: deep sorrow."
+          }
+        ],
+        "23": [
+          {
+            "original_word": "δυσκόλως",
+            "transliteration": "dyskolōs",
+            "strongs_number": "G1423",
+            "meaning": "With difficulty — compound of dys + kolon (digestion); \"hard to digest\"; idiom for practically impossible."
+          }
+        ],
+        "24": [
+          {
+            "original_word": "τέκνα",
+            "transliteration": "tekna",
+            "strongs_number": "G5043",
+            "meaning": "Children — warm address to disciples; Mark alone preserves this unusual form here; echoes John 13:33 fatherly tone."
+          }
+        ],
+        "25": [
+          {
+            "original_word": "κάμηλον διὰ τῆς τρυμαλιᾶς τῆς ῥαφίδος",
+            "transliteration": "kamēlon dia tēs trymalias tēs rhaphidos",
+            "strongs_number": "G2574/G5168/G4476",
+            "meaning": "Camel through the eye of the needle — trymalia: boring/hole; rhaphis: sewing needle; hyperbolic contrast: largest Palestinian animal vs smallest aperture."
+          }
+        ],
+        "26": [
+          {
+            "original_word": "περισσῶς ἐξεπλήσσοντο",
+            "transliteration": "perissōs exeplēssonto",
+            "strongs_number": "G4057/G1605",
+            "meaning": "Exceedingly astonished — disciples react to the most counter-intuitive claim yet: wealth, traditionally covenant blessing, becomes a hindrance."
           }
         ],
         "27": [
@@ -8514,6 +11245,80 @@
             "transliteration": "dynatos",
             "strongs_number": "G1415",
             "meaning": "Possible, powerful, able — from dynamis (power). Jesus declares that what is adynaton (impossible) for humans is dynatos (possible) for God. The word encompasses both God's ability and his willingness. Salvation — liberating a person from the grip of wealth, sin, and self — is beyond human capacity but well within divine power. This is not a general statement about optimism but a specific declaration about God's saving power in the face of human impossibility."
+          },
+          {
+            "original_word": "παρὰ ἀνθρώποις ἀδύνατον ... παρὰ θεῷ",
+            "transliteration": "para anthrōpois adynaton ... para theō",
+            "strongs_number": "G3844/G102/G2316",
+            "meaning": "With men impossible ... with God — para + dative = \"in the estimation/province of\"; contrastive parallelism anchors divine agency in salvation."
+          }
+        ],
+        "28": [
+          {
+            "original_word": "ἀφήκαμεν πάντα καὶ ἠκολουθήκαμέν σοι",
+            "transliteration": "aphēkamen panta kai ēkolouthēkamen soi",
+            "strongs_number": "G863/G190",
+            "meaning": "We have left all and followed you — double perfect (aphēkamen aorist + ēkolouthēkamen perfect in v.28 text): decisive action + continuing state."
+          }
+        ],
+        "29": [
+          {
+            "original_word": "ἕνεκεν ἐμοῦ καὶ τοῦ εὐαγγελίου",
+            "transliteration": "heneken emou kai tou euangeliou",
+            "strongs_number": "G1752/G2098",
+            "meaning": "For my sake and the gospel's — Mark's signature pairing (cf. 8:35); gospel-proclamation is itself worth forfeiting family for."
+          }
+        ],
+        "30": [
+          {
+            "original_word": "ἑκατονταπλασίονα",
+            "transliteration": "hekatontaplasiona",
+            "strongs_number": "G1542",
+            "meaning": "A hundredfold — numerical intensifier; same term LXX uses for Isaac's harvest (Gen 26:12); quantified recompense in new community."
+          },
+          {
+            "original_word": "μετὰ διωγμῶν",
+            "transliteration": "meta diōgmōn",
+            "strongs_number": "G1375",
+            "meaning": "With persecutions — Mark alone adds this dampening caveat; discipleship rewards are always tinged by opposition this side of the eschaton."
+          }
+        ],
+        "32": [
+          {
+            "original_word": "προάγων αὐτοὺς ὁ Ἰησοῦς",
+            "transliteration": "proagōn autous ho Iēsous",
+            "strongs_number": "G4254",
+            "meaning": "Jesus going before them — imperfect; shepherd-leading motif (Ps 23; Isa 52:12); Jesus leads the flock into Jerusalem's danger."
+          },
+          {
+            "original_word": "ἐθαμβοῦντο ... ἐφοβοῦντο",
+            "transliteration": "ethambounto ... ephobounto",
+            "strongs_number": "G2284/G5399",
+            "meaning": "Were astonished ... were afraid — double imperfect; two concentric rings: the Twelve amazed, the trailing followers afraid."
+          }
+        ],
+        "33": [
+          {
+            "original_word": "παραδοθήσεται τοῖς ἔθνεσιν",
+            "transliteration": "paradothēsetai tois ethnesin",
+            "strongs_number": "G3860/G1484",
+            "meaning": "Shall be delivered to the Gentiles — Mark's third and most detailed passion prediction: first mention of Gentile (Roman) involvement."
+          }
+        ],
+        "34": [
+          {
+            "original_word": "ἐμπαίξουσιν ... ἐμπτύσουσιν ... μαστιγώσουσιν",
+            "transliteration": "empaixousin ... emptysousin ... mastigōsousin",
+            "strongs_number": "G1702/G1716/G3146",
+            "meaning": "Mock ... spit on ... scourge — triple future active; empaizō: child's-play mockery; emptyō: ritually shameful expectoration (Num 12:14); mastigoō: Roman flagellation."
+          }
+        ],
+        "37": [
+          {
+            "original_word": "ἐν τῇ δόξῃ σου",
+            "transliteration": "en tē doxē sou",
+            "strongs_number": "G1391",
+            "meaning": "In your glory — James/John misread the kingdom as imminent triumphal enthronement; ignore the just-uttered cross prediction."
           }
         ],
         "38": [
@@ -8522,6 +11327,58 @@
             "transliteration": "potērion",
             "strongs_number": "G4221",
             "meaning": "Cup, drinking vessel — metaphorically, one's appointed lot or destiny. In OT prophetic imagery, the 'cup' frequently refers to God's wrath (Psalm 75:8; Isaiah 51:17, 22; Jeremiah 25:15-28). Jesus' cup is the full measure of divine judgment against sin that he will drink on the cross. In Gethsemane he will pray 'take away this cup from me' (14:36). The cup includes not just physical suffering but spiritual anguish — bearing the wrath of God as substitute for sinners."
+          },
+          {
+            "original_word": "τὸ βάπτισμα ὃ ἐγὼ βαπτίζομαι",
+            "transliteration": "to baptisma ho egō baptizomai",
+            "strongs_number": "G908/G907",
+            "meaning": "The baptism with which I am baptised — metaphorical: immersion in suffering (cf. Ps 42:7 waves); not liturgical rite but death-submersion."
+          }
+        ],
+        "39": [
+          {
+            "original_word": "δυνάμεθα",
+            "transliteration": "dynametha",
+            "strongs_number": "G1410",
+            "meaning": "We are able — James/John's presumptuous confidence; Jesus accepts their self-offering but redefines its content as martyrdom, not glory."
+          }
+        ],
+        "40": [
+          {
+            "original_word": "οὐκ ἔστιν ἐμὸν δοῦναι",
+            "transliteration": "ouk estin emon dounai",
+            "strongs_number": "G1325",
+            "meaning": "Is not mine to give — Jesus qualifies his own kingdom-prerogatives; Father's sovereignty allocates eschatological places (cf. John 14:2)."
+          }
+        ],
+        "42": [
+          {
+            "original_word": "οἱ δοκοῦντες ἄρχειν",
+            "transliteration": "hoi dokountes archein",
+            "strongs_number": "G1380/G757",
+            "meaning": "Those who are reputed to rule — dokeō: \"suppose/seem\"; Mark's subtle scepticism about Gentile rulers' legitimate authority."
+          },
+          {
+            "original_word": "κατακυριεύουσιν, κατεξουσιάζουσιν",
+            "transliteration": "katakyrieuousin, katexousiazousin",
+            "strongs_number": "G2634/G2715",
+            "meaning": "Lord it over, wield authority over — kata-intensive compounds; oppressive, domineering rule; both verbs used of negative power."
+          }
+        ],
+        "43": [
+          {
+            "original_word": "οὐχ οὕτως δέ ἐστιν ἐν ὑμῖν",
+            "transliteration": "ouch houtōs de estin en hymin",
+            "strongs_number": "G3756/G3779",
+            "meaning": "Not so shall it be among you — emphatic antithesis; kingdom community inverts Gentile power logic."
+          }
+        ],
+        "44": [
+          {
+            "original_word": "δοῦλος πάντων",
+            "transliteration": "doulos pantōn",
+            "strongs_number": "G1401/G3956",
+            "meaning": "Slave of all — doulos: property-bondservant; intensifies diakonos (v.43); servitude escalates to ownership-level self-gift."
           }
         ],
         "45": [
@@ -8530,6 +11387,66 @@
             "transliteration": "lytron",
             "strongs_number": "G3083",
             "meaning": "Ransom, redemption price, payment for release — from lyō (to loose, set free). In the ancient world, a lytron was the price paid to free a prisoner of war or a slave. Used only here and Matthew 20:28 in the NT, it declares that Jesus' death is a substitutionary payment. The preposition anti ('for/instead of') establishes the exchange: his life in place of many lives. This is the doctrine of substitutionary atonement in seed form: Christ dies as ransom, sinners go free."
+          },
+          {
+            "original_word": "οὐκ ἦλθεν διακονηθῆναι ἀλλὰ διακονῆσαι",
+            "transliteration": "ouk ēlthen diakonēthēnai alla diakonēsai",
+            "strongs_number": "G1247",
+            "meaning": "Came not to be served but to serve — passive vs active infinitive; Christological kenosis summarised in one antithesis."
+          },
+          {
+            "original_word": "δοῦναι τὴν ψυχὴν αὐτοῦ λύτρον ἀντὶ πολλῶν",
+            "transliteration": "dounai tēn psychēn autou lytron anti pollōn",
+            "strongs_number": "G1325/G5590/G3083/G473/G4183",
+            "meaning": "Give his life [as] ransom for many — lytron: redemption-price paid to release a captive/slave (Lev 25:51-52); anti: in place of (substitution); Isa 53:10-12 Servant-offering."
+          }
+        ],
+        "46": [
+          {
+            "original_word": "Βαρτιμαῖος",
+            "transliteration": "Bartimaios",
+            "strongs_number": "G924",
+            "meaning": "Bartimaeus — Aramaic \"son of Timaios\"; Mark uniquely preserves both the Aramaic patronymic and the Greek gloss, suggesting direct Markan memory."
+          }
+        ],
+        "47": [
+          {
+            "original_word": "υἱὲ Δαυὶδ Ἰησοῦ",
+            "transliteration": "huie David Iēsou",
+            "strongs_number": "G5207/G1138",
+            "meaning": "Son of David, Jesus — first human voice in Mark to confess messianic title publicly; a blind beggar outside Jericho precedes the Passion Week crowd."
+          }
+        ],
+        "48": [
+          {
+            "original_word": "ἐπετίμων αὐτῷ πολλοὶ ἵνα σιωπήσῃ",
+            "transliteration": "epetimōn autō polloi hina siōpēsē",
+            "strongs_number": "G2008/G4623",
+            "meaning": "Many rebuked him that he should keep silent — crowd tries to silence the Davidic confession; political danger of messianic acclamation on eve of Passover."
+          }
+        ],
+        "49": [
+          {
+            "original_word": "θάρσει, ἔγειρε, φωνεῖ σε",
+            "transliteration": "tharsei, egeire, phōnei se",
+            "strongs_number": "G2293/G1453/G5455",
+            "meaning": "Take heart, rise, he calls you — three staccato imperatives; mini-gospel in a phrase: courage, resurrection, personal summons."
+          }
+        ],
+        "50": [
+          {
+            "original_word": "ἀποβαλὼν τὸ ἱμάτιον αὐτοῦ",
+            "transliteration": "apobalōn to himation autou",
+            "strongs_number": "G577/G2440",
+            "meaning": "Having thrown off his cloak — apoballō: decisive discard; the beggar's outer garment was his chief possession (cf. Exod 22:26-27); symbolic abandonment for Christ."
+          }
+        ],
+        "51": [
+          {
+            "original_word": "ῥαββουνί",
+            "transliteration": "rabbouni",
+            "strongs_number": "G4462",
+            "meaning": "Rabboni — Aramaic \"my Master\"; intensive form of rabbi; only here and John 20:16 (Mary Magdalene); deepest respect."
           }
         ],
         "52": [
@@ -8538,18 +11455,52 @@
             "transliteration": "sōzō",
             "strongs_number": "G4982",
             "meaning": "To save, heal, deliver, make whole, preserve — the broadest salvation word in the NT, encompassing physical healing, spiritual salvation, and eschatological deliverance. When Jesus tells Bartimaeus 'thy faith hath saved thee' (hē pistis sou sesōken se), the word simultaneously means 'healed' (he received physical sight) and 'saved' (he followed Jesus in the way). Bartimaeus' faith achieves both: physical restoration and discipleship. The double meaning is intentional — Jesus' salvation touches the whole person."
+          },
+          {
+            "original_word": "ἠκολούθει αὐτῷ ἐν τῇ ὁδῷ",
+            "transliteration": "ēkolouthei autō en tē hodō",
+            "strongs_number": "G190/G3598",
+            "meaning": "Followed him on the way — imperfect; hodos = Markan discipleship motif; the once-blind Bartimaeus closes the 8:27-10:52 inclusio begun at Caesarea Philippi."
           }
         ]
       },
       "crossRefs": {
+        "1": [
+          {
+            "reference": "Matthew 19:1-2"
+          },
+          {
+            "reference": "John 10:40"
+          }
+        ],
         "2": [
           {
             "reference": "Matthew 19:3"
+          },
+          {
+            "reference": "Mark 8:11"
+          },
+          {
+            "reference": "Mark 12:15"
           }
         ],
         "4": [
           {
             "reference": "Deuteronomy 24:1-4"
+          },
+          {
+            "reference": "Jeremiah 3:8"
+          },
+          {
+            "reference": "Isaiah 50:1"
+          }
+        ],
+        "5": [
+          {
+            "reference": "Mark 3:5"
+          },
+          {
+            "reference": "Hebrews 3:13"
           }
         ],
         "6": [
@@ -8558,6 +11509,9 @@
           },
           {
             "reference": "Genesis 5:2"
+          },
+          {
+            "reference": "Mark 13:19"
           }
         ],
         "7": [
@@ -8568,6 +11522,12 @@
         "8": [
           {
             "reference": "Ephesians 5:31"
+          },
+          {
+            "reference": "1 Corinthians 6:16"
+          },
+          {
+            "reference": "1 Corinthians 7:4"
           }
         ],
         "9": [
@@ -8576,6 +11536,14 @@
           },
           {
             "reference": "Malachi 2:16"
+          },
+          {
+            "reference": "Romans 7:2-3"
+          }
+        ],
+        "10": [
+          {
+            "reference": "Mark 4:10"
           }
         ],
         "11": [
@@ -8584,6 +11552,22 @@
           },
           {
             "reference": "Luke 16:18"
+          },
+          {
+            "reference": "Romans 7:3"
+          }
+        ],
+        "12": [
+          {
+            "reference": "1 Corinthians 7:10-11"
+          },
+          {
+            "reference": "1 Corinthians 7:13"
+          }
+        ],
+        "13": [
+          {
+            "reference": "Mark 9:36-37"
           }
         ],
         "14": [
@@ -8592,11 +11576,25 @@
           },
           {
             "reference": "Luke 18:16"
+          },
+          {
+            "reference": "Psalm 8:2"
+          },
+          {
+            "reference": "Matthew 21:15-16"
           }
         ],
         "15": [
           {
             "reference": "Matthew 18:3"
+          },
+          {
+            "reference": "1 Peter 2:2"
+          }
+        ],
+        "16": [
+          {
+            "reference": "Genesis 48:14-16"
           }
         ],
         "17": [
@@ -8605,6 +11603,12 @@
           },
           {
             "reference": "Luke 18:18-23"
+          },
+          {
+            "reference": "John 3:15-16"
+          },
+          {
+            "reference": "Titus 3:7"
           }
         ],
         "18": [
@@ -8613,6 +11617,9 @@
           },
           {
             "reference": "Romans 3:10-12"
+          },
+          {
+            "reference": "Luke 18:19"
           }
         ],
         "19": [
@@ -8621,6 +11628,17 @@
           },
           {
             "reference": "Deuteronomy 5:16-21"
+          },
+          {
+            "reference": "Romans 13:9"
+          },
+          {
+            "reference": "James 2:10-11"
+          }
+        ],
+        "20": [
+          {
+            "reference": "Philippians 3:6"
           }
         ],
         "21": [
@@ -8629,11 +11647,43 @@
           },
           {
             "reference": "Luke 12:33"
+          },
+          {
+            "reference": "John 13:34"
+          },
+          {
+            "reference": "1 Timothy 6:17-19"
+          }
+        ],
+        "22": [
+          {
+            "reference": "Luke 12:15"
+          }
+        ],
+        "23": [
+          {
+            "reference": "Proverbs 11:28"
+          },
+          {
+            "reference": "1 Timothy 6:9-10"
+          }
+        ],
+        "24": [
+          {
+            "reference": "Psalm 62:10"
           }
         ],
         "25": [
           {
             "reference": "Matthew 19:24"
+          },
+          {
+            "reference": "Luke 18:25"
+          }
+        ],
+        "26": [
+          {
+            "reference": "Luke 18:26"
           }
         ],
         "27": [
@@ -8645,6 +11695,22 @@
           },
           {
             "reference": "Luke 1:37"
+          },
+          {
+            "reference": "Job 42:2"
+          }
+        ],
+        "28": [
+          {
+            "reference": "Matthew 19:27"
+          },
+          {
+            "reference": "Luke 18:28"
+          }
+        ],
+        "29": [
+          {
+            "reference": "Deuteronomy 33:9"
           }
         ],
         "30": [
@@ -8653,6 +11719,9 @@
           },
           {
             "reference": "Luke 18:29-30"
+          },
+          {
+            "reference": "Matthew 19:29"
           }
         ],
         "31": [
@@ -8663,12 +11732,23 @@
             "reference": "Luke 13:30"
           }
         ],
+        "32": [
+          {
+            "reference": "John 11:7-8"
+          },
+          {
+            "reference": "Matthew 20:17-18"
+          }
+        ],
         "33": [
           {
             "reference": "Mark 8:31"
           },
           {
             "reference": "Mark 9:31"
+          },
+          {
+            "reference": "Acts 2:23"
           }
         ],
         "34": [
@@ -8677,6 +11757,22 @@
           },
           {
             "reference": "Isaiah 53:3-5"
+          },
+          {
+            "reference": "Matthew 27:27-31"
+          }
+        ],
+        "35": [
+          {
+            "reference": "Matthew 20:20-21"
+          }
+        ],
+        "37": [
+          {
+            "reference": "Revelation 3:21"
+          },
+          {
+            "reference": "Mark 16:19"
           }
         ],
         "38": [
@@ -8688,6 +11784,35 @@
           },
           {
             "reference": "Isaiah 51:22"
+          },
+          {
+            "reference": "Jeremiah 25:15-17"
+          },
+          {
+            "reference": "Luke 12:50"
+          }
+        ],
+        "39": [
+          {
+            "reference": "Acts 12:2"
+          },
+          {
+            "reference": "Revelation 1:9"
+          }
+        ],
+        "40": [
+          {
+            "reference": "Matthew 25:34"
+          }
+        ],
+        "41": [
+          {
+            "reference": "Matthew 20:24"
+          }
+        ],
+        "42": [
+          {
+            "reference": "Luke 22:25"
           }
         ],
         "43": [
@@ -8696,6 +11821,14 @@
           },
           {
             "reference": "Mark 9:35"
+          },
+          {
+            "reference": "1 Peter 5:3"
+          }
+        ],
+        "44": [
+          {
+            "reference": "Philippians 2:7"
           }
         ],
         "45": [
@@ -8710,6 +11843,20 @@
           },
           {
             "reference": "1 Peter 1:18-19"
+          },
+          {
+            "reference": "Luke 22:27"
+          },
+          {
+            "reference": "John 13:4-5"
+          }
+        ],
+        "46": [
+          {
+            "reference": "Joshua 6:26"
+          },
+          {
+            "reference": "Matthew 20:29"
           }
         ],
         "47": [
@@ -8718,6 +11865,35 @@
           },
           {
             "reference": "Matthew 20:30-31"
+          },
+          {
+            "reference": "Matthew 9:27"
+          },
+          {
+            "reference": "Matthew 12:23"
+          }
+        ],
+        "48": [
+          {
+            "reference": "Psalm 42:1-2"
+          }
+        ],
+        "49": [
+          {
+            "reference": "John 11:28"
+          }
+        ],
+        "50": [
+          {
+            "reference": "Hebrews 12:1"
+          }
+        ],
+        "51": [
+          {
+            "reference": "John 20:16"
+          },
+          {
+            "reference": "Luke 18:41"
           }
         ],
         "52": [
@@ -8726,6 +11902,9 @@
           },
           {
             "reference": "Luke 18:42-43"
+          },
+          {
+            "reference": "Luke 18:43"
           }
         ]
       }
