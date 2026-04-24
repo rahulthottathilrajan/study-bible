@@ -242,3 +242,118 @@ CROSS JOIN (VALUES
 ) AS cr(verse_number, reference, ref_order)
 WHERE b.name = 'Mark' AND c.chapter_number = 2
   AND v.verse_number = cr.verse_number;
+
+-- MARK CHAPTER 2 — BACKFILL (additional word_studies + cross_references)
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'εἰσελθὼν πάλιν εἰς Καφαρναοὺμ', 'eiselthōn palin eis Kapharnaoum', 'G1525/G2584', 'Entering Capernaum again — base-of-operations imagery; return after missionary circuit (1:38-39).', 100),
+  (1, 'ἐν οἴκῳ', 'en oikō', 'G3624', 'At home — likely Peter''s house (cf. 1:29); serves as effective ministry center.', 101),
+  (2, 'ὥστε μηκέτι χωρεῖν', 'hōste mēketi chōrein', 'G5620/G5562', 'So that no longer there was room — result clause; crowd density obstructs ordinary access, forcing creative approach.', 102),
+  (2, 'τὸν λόγον', 'ton logon', 'G3056', 'The word — Mark''s shorthand for gospel proclamation (4:14-20); "speaking the word" summarizes Jesus''s teaching content.', 103),
+  (3, 'παραλυτικόν', 'paralytikon', 'G3885', 'A paralytic — limb paralysis, possibly spinal injury or stroke; total physical helplessness requires full community support.', 104),
+  (3, 'αἰρόμενον ὑπὸ τεσσάρων', 'airomenon hypo tessarōn', 'G142/G5064', 'Carried by four — specific detail; stretcher with one bearer at each corner.', 105),
+  (4, 'ἀπεστέγασαν τὴν στέγην', 'apestegasan tēn stegēn', 'G648/G4721', 'Removed the roof — Galilean houses had flat roofs of beams, branches, and packed earth, accessible by outside stairs; literally "unroofed the roof."', 106),
+  (4, 'ἐξορύξαντες', 'exoryxantes', 'G1846', 'Having dug through — graphic verb; soil and thatch broken apart; dramatic invasion of private space.', 107),
+  (4, 'κράβαττον', 'krabatton', 'G2895', 'Pallet, mat — colloquial, vulgar Latin loanword (grabatus); Mark keeps the common man''s term where Luke polishes it.', 108),
+  (5, 'ἰδὼν τὴν πίστιν αὐτῶν', 'idōn tēn pistin autōn', 'G3708/G4102', 'Seeing their faith — plural: collective faith of the four movers credited; enacted, visible faith.', 109),
+  (5, 'τέκνον', 'teknon', 'G5043', 'Child (son) — warm term of endearment; superior filial tenderness to "my son"; healing begins with belonging.', 110),
+  (6, 'διαλογιζόμενοι ἐν ταῖς καρδίαις', 'dialogizomenoi en tais kardiais', 'G1260/G2588', 'Reasoning in their hearts — internal silent objection; heart as seat of thought in Hebrew anthropology.', 111),
+  (7, 'βλασφημεῖ', 'blasphēmei', 'G987', 'Blasphemes — speech that slanders God; forgiving sins is assuming a divine prerogative; charge is later used at trial (14:64).', 112),
+  (7, 'τίς δύναται ἀφιέναι ἁμαρτίας εἰ μὴ εἷς ὁ θεός', 'tis dynatai aphienai hamartias ei mē heis ho theos', 'G5101/G1410/G863/G2316', '"Who can forgive sins but God alone?" — scribes unwittingly confess truth; Jesus''s act asserts deity.', 113),
+  (8, 'ἐπιγνοὺς τῷ πνεύματι αὐτοῦ', 'epignous tō pneumati autou', 'G1921/G4151', 'Perceived in his spirit — supernatural insight into unexpressed thoughts; messianic knowledge (cf. John 2:24-25).', 114),
+  (9, 'εὐκοπώτερον', 'eukopōteron', 'G2123', 'Easier — comparative; rhetorical challenge: declaration of forgiveness is unverifiable, so Jesus offers the verifiable miracle as proof.', 115),
+  (10, 'ἐπὶ τῆς γῆς', 'epi tēs gēs', 'G1909/G1093', 'On the earth — the Son of Man, enthroned in Daniel 7 in heaven, now exercises that judicial authority incarnate on earth.', 116),
+  (12, 'ἠγέρθη', 'ēgerthē', 'G1453', 'Arose — same verb later used of resurrection (16:6); small resurrections punctuate the gospel.', 117),
+  (12, 'ἐξίστασθαι πάντας καὶ δοξάζειν τὸν θεόν', 'existasthai pantas kai doxazein ton theon', 'G1839/G1392', 'All were amazed and glorified God — correct response: amazement turned to doxology; not fear alone but worship.', 118),
+  (13, 'ἐδίδασκεν', 'edidasken', 'G1321', 'Was teaching — imperfect; lakeside teaching a recurring Markan setting (3:7; 4:1).', 119),
+  (14, 'Λευὶν τὸν τοῦ Ἁλφαίου', 'Leuin ton tou Alphaiou', 'G3018/G256', 'Levi son of Alphaeus — probably Matthew (Matt 9:9); Jewish double-name; not the same Alphaeus as James''s father.', 120),
+  (14, 'τελώνιον', 'telōnion', 'G5058', 'Tax booth — customs post on trade road from Damascus to coast; toll collected on goods crossing Herod Antipas''s jurisdiction.', 121),
+  (14, 'ἀκολούθει μοι', 'akolouthei moi', 'G190', 'Follow me — present imperative; continuous, lifelong discipleship command; identical form as to Peter/Andrew (1:17).', 122),
+  (15, 'τελῶναι καὶ ἁμαρτωλοί', 'telōnai kai hamartōloi', 'G5057/G268', 'Tax collectors and sinners — stereotypical outcast pairing; tax collectors collaborated with Rome, handled Gentile coin.', 123),
+  (16, 'γραμματεῖς τῶν Φαρισαίων', 'grammateis tōn Pharisaiōn', 'G1122/G5330', 'Scribes of the Pharisees — scribal class within the Pharisaic party; scholarly interpreters of Torah.', 124),
+  (17, 'χρείαν ἔχουσιν οἱ ἰσχύοντες ἰατροῦ', 'chreian echousin hoi ischyontes iatrou', 'G5532/G2480/G2395', '"Those who are strong have no need of a physician" — proverbial saying turned missional principle; need qualifies one for grace.', 125),
+  (17, 'καλέσαι... ἁμαρτωλούς', 'kalesai... hamartōlous', 'G2564/G268', 'To call sinners — kaleō: vocational summons; Jesus''s self-declared mission target.', 126),
+  (18, 'νηστεύειν', 'nēsteuein', 'G3522', 'To fast — Pharisees fasted Mondays and Thursdays; John''s disciples emulated his austerity; Jesus''s lack of fasting provokes query.', 127),
+  (19, 'υἱοὶ τοῦ νυμφῶνος', 'huioi tou numphōnos', 'G5207/G3567', 'Sons of the bridal chamber — Semitic idiom for wedding guests; joyful, not mournful, season.', 128),
+  (20, 'ἀπαρθῇ', 'aparthē', 'G522', 'Be taken away — aorist subjunctive; violent removal; first veiled passion prediction in Mark.', 129),
+  (21, 'ῥάκος ἀγνάφου', 'rhakos agnaphou', 'G4470/G46', 'Unshrunk patch — new cloth not yet fulled/shrunk; will contract and tear when wet.', 130),
+  (21, 'σχίσμα', 'schisma', 'G4978', 'Tear, split — same root as schizō (1:10); old and new covenant dispensations cannot be mended together.', 131),
+  (22, 'ἀσκοὺς παλαιούς', 'askous palaious', 'G779/G3820', 'Old wineskins — dried, brittle goatskin containers; cannot withstand fermentation of new wine.', 132),
+  (22, 'ῥήξει', 'rhēxei', 'G4486', 'Will burst — fermentation pressure imagery; gospel as expansive, explosive power incompatible with exhausted forms.', 133),
+  (23, 'διὰ τῶν σπορίμων', 'dia tōn sporimōn', 'G4702', 'Through the grainfields — "grainfields on the sabbath"; probably barley harvest (April-May).', 134),
+  (23, 'τίλλοντες τοὺς στάχυας', 'tillontes tous stachyas', 'G5089/G4719', 'Plucking heads of grain — permitted per Deut 23:25 for the hungry; Pharisaic Oral Torah classed it as reaping.', 135),
+  (24, 'ὃ οὐκ ἔξεστιν', 'ho ouk exestin', 'G1832', 'What is not lawful — exestin: "it is permitted"; halakhic legal judgment; Pharisees as Sabbath-law enforcers.', 136),
+  (25, 'οὐδέποτε ἀνέγνωτε', 'oudepote anegnōte', 'G3763/G314', '"Have you never read?" — rabbinic reproach; Jesus out-reads the scribes of their own scripture.', 137),
+  (26, 'Ἀβιαθὰρ ἀρχιερέως', 'Abiathar archiereōs', 'G8/G749', '"In the days of Abiathar the high priest" — known crux; Ahimelech officiated (1 Sam 21), Abiathar his son later succeeded; "in the section about Abiathar" (epi) is possible reading.', 138),
+  (26, 'ἄρτους τῆς προθέσεως', 'artous tēs protheseōs', 'G740/G4286', 'The bread of Presence — 12 loaves set weekly before YHWH (Lev 24:5-9), normally eaten only by priests; David''s precedent legitimates mercy over ritual.', 139),
+  (27, 'διὰ τὸν ἄνθρωπον', 'dia ton anthrōpon', 'G1223/G444', '"For the sake of man" — Sabbath created as gift of rest; human well-being was its telos, not ritual burden.', 140),
+  (28, 'καὶ τοῦ σαββάτου', 'kai tou sabbatou', 'G2532/G4521', 'Even of the Sabbath — kai intensive; the Son of Man''s lordship extends even over the most sacred of institutions.', 141)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 2 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Matthew 9:1', 100),
+  (1, 'Mark 1:21', 101),
+  (2, 'Mark 1:45', 100),
+  (2, 'Acts 6:4', 101),
+  (3, 'Matthew 9:2', 100),
+  (3, 'Luke 5:18', 101),
+  (4, 'Luke 5:19', 100),
+  (4, 'Deuteronomy 22:8', 101),
+  (5, 'James 2:18', 100),
+  (5, 'Luke 7:48', 101),
+  (5, 'Psalm 32:1-2', 102),
+  (6, 'Luke 5:21', 100),
+  (7, 'Isaiah 43:25', 100),
+  (7, 'Psalm 32:5', 101),
+  (7, 'Mark 14:64', 102),
+  (8, 'John 2:24-25', 100),
+  (8, 'Hebrews 4:12-13', 101),
+  (9, 'Matthew 9:5', 100),
+  (10, 'Daniel 7:13-14', 100),
+  (10, 'John 5:27', 101),
+  (11, 'John 5:8', 100),
+  (12, 'Matthew 9:8', 100),
+  (12, 'Luke 5:26', 101),
+  (13, 'Mark 4:1', 100),
+  (14, 'Matthew 9:9', 100),
+  (14, 'Luke 5:27-28', 101),
+  (15, 'Matthew 9:10-11', 100),
+  (15, 'Luke 15:1-2', 101),
+  (16, 'Luke 5:30', 100),
+  (16, 'Luke 19:7', 101),
+  (17, 'Matthew 9:12-13', 100),
+  (17, '1 Timothy 1:15', 101),
+  (17, 'Luke 19:10', 102),
+  (18, 'Matthew 9:14', 100),
+  (18, 'Luke 18:12', 101),
+  (19, 'John 3:29', 100),
+  (19, 'Revelation 19:7-9', 101),
+  (20, 'Luke 17:22', 100),
+  (20, 'John 16:20', 101),
+  (21, 'Matthew 9:16', 100),
+  (22, 'Luke 5:37-38', 100),
+  (22, 'Job 32:19', 101),
+  (23, 'Matthew 12:1', 100),
+  (23, 'Deuteronomy 23:25', 101),
+  (24, 'Exodus 20:10', 100),
+  (24, 'Luke 6:2', 101),
+  (25, '1 Samuel 21:1-6', 100),
+  (26, 'Leviticus 24:5-9', 100),
+  (26, 'Matthew 12:4', 101),
+  (27, 'Exodus 23:12', 100),
+  (27, 'Deuteronomy 5:14', 101),
+  (28, 'Luke 6:5', 100),
+  (28, 'Matthew 12:8', 101)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 2 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;
