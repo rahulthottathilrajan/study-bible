@@ -490,3 +490,273 @@ CROSS JOIN (VALUES
 ) AS cr(verse_number, reference, ref_order)
 WHERE b.name = 'Mark' AND c.chapter_number = 14
   AND v.verse_number = cr.verse_number;
+
+-- ═══════════════════════════════════════════════════
+-- MARK CHAPTER 14 — BACKFILL (additional word_studies + cross_references)
+-- Anointing · Last Supper · Gethsemane · Arrest · Sanhedrin Trial · Peter''s Denial
+-- (Mark''s longest chapter, 72v — richest backfill of session)
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'τὸ πάσχα καὶ τὰ ἄζυμα', 'to pascha kai ta azyma', 'G3957/G106', 'The Passover and the Unleavened Bread — two festivals merged in 1st-c usage. Passover proper was Nisan 14 (the lamb slain at twilight); the seven-day Feast of Unleavened Bread followed (Nisan 15-21). Mark''s ''after two days'' places the plot at Nisan 12, with crucifixion approaching on Nisan 14.', 100),
+  (1, 'ἐν δόλῳ', 'en dolō', 'G1388', 'By craft, deceit, treachery — the leaders eschew open arrest because of the festival crowd''s sympathy with Jesus. Their stealth requires an inside accomplice; Judas''s offer (vv.10-11) becomes the providential answer to their tactical problem.', 101),
+  (2, 'μήποτε ἔσται θόρυβος τοῦ λαοῦ', 'mēpote estai thorubos tou laou', 'G3379/G2351/G2992', 'Lest there be an uproar of the people — thorubos: tumult, riot. The leaders fear messianic-pilgrim violence at Passover (200,000+ pilgrims thronged Jerusalem). They want a quiet arrest, but God''s timing aligns the death with the lamb-slaughter — they will get neither timing nor secrecy.', 102),
+  (3, 'ἀλάβαστρον', 'alabastron', 'G211', 'Alabaster flask — translucent stone vessel with a long sealed neck (the seal was broken to use the contents and could not be resealed; the flask was effectively single-use). The flask was an heirloom; breaking it (suntripsasa) means total commitment of the contents.', 103),
+  (3, 'συντρίψασα τὴν ἀλάβαστρον κατέχεεν αὐτοῦ τῆς κεφαλῆς', 'syntripsasa tēn alabastron katecheen autou tēs kephalēs', 'G4937/G2708/G2776', 'Having broken the flask, she poured it on his head — anointing the head was royal (1 Samuel 10:1; 16:13; 1 Kings 1:39). The unnamed woman performs an act of messianic anointing — perhaps unconsciously, but Mark frames her as enacting Jesus''s kingly identity.', 104),
+  (4, 'ἀγανακτοῦντες', 'aganaktountes', 'G23', 'Indignant, displeased — the same verb as the disciples'' indignation at the children (10:14) and at James and John''s ambition (10:41). Mark uses it to expose disciples'' moral misjudgment: they are angry at the wrong things, blind to the real moment.', 105),
+  (4, 'ἀπώλεια', 'apōleia', 'G684', 'Waste, destruction — eis ti hē apōleia hautē tou myrou gegonen (Why this waste of the ointment?) The complainers calculate cost-benefit; Jesus calculates love-honor. The ''waste'' of love is precisely its essence.', 106),
+  (5, 'ἐνεβριμῶντο αὐτῇ', 'enebrimōnto autē', 'G1690', 'They scolded her sternly — embrimaomai (originally to snort like a horse, used of strong displeasure). The disciples publicly rebuke the woman; Jesus immediately defends her. The contrast exposes the disciples'' continuing failure to read the moment.', 107),
+  (6, 'ἔργον καλόν', 'ergon kalon', 'G2041/G2570', 'A beautiful work — kalos: aesthetically and morally good, fine. Jesus reframes the act: not waste but beauty; not extravagance but proportion to its object. Acts of devotion to Christ have their own canon of evaluation.', 108),
+  (8, 'ὃ ἔσχεν ἐποίησεν προέλαβεν μυρίσαι', 'ho eschen epoiēsen proelaben myrisai', 'G2192/G4160/G4301/G3462', 'What she had she did; she has anointed beforehand for burial — proelaben (anticipated, took beforehand). The woman alone perceives the cross; she alone honors Jesus while there is still time. Disciples preoccupied with kingdom-glory miss what she sees.', 109),
+  (8, 'εἰς τὸν ἐνταφιασμόν', 'eis ton entaphiasmon', 'G1780', 'For the burial preparation — entaphiazō: to lay out for burial, including anointing the body. Jesus interprets her act prophetically: it is anticipatory burial-anointing, since after the crucifixion Joseph and the women will not have time to anoint (15:42-46; 16:1).', 110),
+  (9, 'μνημόσυνον αὐτῆς', 'mnēmosynon autēs', 'G3422', 'A memorial of her — mnēmosynon: a remembrance, that which keeps memory alive. Jesus binds her gesture to the worldwide proclamation of the gospel (eis holon ton kosmon). Wherever the gospel is preached, this woman will be remembered — extraordinary canonical promise.', 111),
+  (10, 'ἵνα παραδῷ αὐτὸν αὐτοῖς', 'hina paradō auton autois', 'G3860', 'That he might betray him to them — paradidōmi (deliver up). The same verb of God''s delivering Jesus up (Romans 4:25; 8:32) and of Jesus''s self-giving (Galatians 2:20). Judas''s human paradosis is enfolded in God''s redemptive paradosis: the same act, two levels.', 112),
+  (11, 'ἐχάρησαν', 'echarēsan', 'G5463', 'They rejoiced — aorist passive of chairō. Mark''s grim irony: the chief priests have just learned Jesus must be killed by craft, then Judas appears and they ''rejoice.'' Joy at evil''s opportunity exposes the moral inversion of the religious leadership.', 113),
+  (12, 'ἔθυον τὸ πάσχα', 'ethyon to pascha', 'G2380', 'They were sacrificing the Passover — thuō: to slay sacrificially. Lambs were brought to the temple between 3-5pm on Nisan 14 and slaughtered by their owners with priestly assistance. Mark notes the day with cultic precision.', 114),
+  (13, 'κεράμιον ὕδατος', 'keramion hydatos', 'G2765', 'A jar of water — water-jars were normally carried by women; a man with a water-jar would stand out in the crowd. The unusual sight is the agreed signal. Jesus''s arrangement is again precise (cf. 11:2-6) — sovereign control of the practical details.', 115),
+  (14, 'κατάλυμά μου', 'katalyma mou', 'G2646', 'My guest-room — katalyma: lodging place; the same noun used in Luke 2:7 (no room in the inn). The Lord claims a room as ''mine'' (mou) without prior negotiation; the householder''s readiness suggests prior arrangement or instant submission to the Master''s claim.', 116),
+  (15, 'ἀνάγαιον μέγα ἐστρωμένον ἕτοιμον', 'anagaion mega estrōmenon hetoimon', 'G508/G3173/G4766/G2092', 'A large upper room, furnished and ready — estrōmenon: spread (with cushioned dining couches for reclining). Mark''s detail: the room is already prepared. The Last Supper takes place in a setting both grand (mega) and ready (hetoimon).', 117),
+  (17, 'ὀψίας γενομένης', 'opsias genomenēs', 'G3798', 'When evening had come — Passover meal was eaten at night (Exodus 12:8) after sundown began Nisan 15. The chronology accelerates: by midnight Jesus will be in Gethsemane; by 3am Peter will have denied him; by sunrise he will face Pilate.', 118),
+  (18, 'εἷς ἐξ ὑμῶν παραδώσει με ὁ ἐσθίων μετ᾽ ἐμοῦ', 'heis ex hymōn paradōsei me ho esthiōn met emou', 'G1520/G3860/G2068', 'One of you shall betray me, even he who eats with me — explicit echo of Psalm 41:9 (the trusted friend who eats my bread has lifted his heel). Table-fellowship in the ancient world implied loyalty unto death; Judas''s breach is doubly heinous because it occurs at the meal.', 119),
+  (19, 'εἷς κατὰ εἷς', 'heis kata heis', 'G1520', 'One by one — Mark''s vivid serial questioning. Each disciple in turn asks ''Surely not I?'' (mēti egō). The construction captures the painful round-the-table soul-searching as each disciple wonders about his own loyalty.', 120),
+  (20, 'τρύβλιον', 'tryblion', 'G5165', 'Dish, bowl — communal serving bowl. ''He that dippeth with me in the dish'' (ho embaptomenos met emou eis to tryblion) does not single Judas out (all the disciples were dipping); rather, it intensifies the betrayer''s closeness — one of those most intimately sharing the meal will hand Jesus over.', 121),
+  (21, 'οὐαὶ ... καλὸν αὐτῷ εἰ οὐκ ἐγεννήθη', 'ouai ... kalon autō ei ouk egennēthē', 'G3759/G2570/G1080', 'Woe ... it had been good for that man if he had not been born — ouai: prophetic lament. The double truth: the Son of Man''s death is according to scripture (necessitated by God''s plan), yet the agent of betrayal bears full personal guilt. Both sides of the providence-and-responsibility paradox stand.', 122),
+  (22, 'εὐλογήσας ἔκλασεν', 'eulogēsas eklasen', 'G2127/G2806', 'Having blessed, broke — eulogeō: to bless (the standard berakah said over bread before meals). Mark''s eklasen (broke) becomes the signature word of eucharistic memory; the breaking of bread will become a synonym for the Lord''s Supper itself.', 123),
+  (23, 'εὐχαριστήσας ἔδωκεν αὐτοῖς', 'eucharistēsas edōken autois', 'G2168/G1325', 'Having given thanks, he gave to them — eucharisteō becomes the word for the rite (''Eucharist''). Jesus blesses bread but gives thanks for the cup, perhaps reflecting the third Passover cup (the Cup of Blessing). All drink: Mark notes ''they all drank'' (epion ex autou pantes), grammatically including Judas (cf. Luke 22:21).', 124),
+  (24, 'ἐκχυννόμενον ὑπὲρ πολλῶν', 'ekchynnomenon hyper pollōn', 'G1632/G4183', 'Poured out for many — ekchynnomai (passive): to be poured out, shed. ''For many'' echoes Isaiah 53:11-12 (the Servant''s blood for the many). Jesus interprets his death as Suffering-Servant atonement: not for a few but for ''the many,'' i.e. the multitude of those redeemed.', 125),
+  (25, 'οὐκέτι οὐ μὴ πίω ... ἕως ... καινόν', 'ouketi ou mē piō ... heōs ... kainon', 'G3756/G2089/G3361/G4095/G2193/G2537', 'I will no more drink ... until ... new — emphatic abstinence vow until the messianic banquet. ''New'' (kainon) signals eschatological newness (Isaiah 25:6-8). Jesus pledges to fast from wine until he drinks it with disciples in the kingdom — the wedding-feast of the Lamb.', 126),
+  (26, 'ὑμνήσαντες ἐξῆλθον', 'hymnēsantes exēlthon', 'G5214', 'Having sung a hymn, they went out — Passover meal closed with the Hallel (Psalms 113-118 or 115-118). Jesus likely sang Psalm 118 (the rejected stone, ''this is the day the LORD has made'') hours before his crucifixion — the same psalm the crowd had quoted at the Triumphal Entry.', 127),
+  (27, 'σκανδαλισθήσεσθε ... πατάξω τὸν ποιμένα', 'skandalisthēsesthe ... pataxō ton poimena', 'G4624/G3960/G4166', 'You will all stumble ... I will smite the shepherd — citation of Zechariah 13:7. Jesus identifies himself as the smitten shepherd; the disciples'' coming desertion is not surprise but prophecy. Their failure is foreseen; their restoration also (v.28).', 128),
+  (28, 'προάξω ὑμᾶς εἰς τὴν Γαλιλαίαν', 'proaxō hymas eis tēn Galilaian', 'G4254/G1056', 'I will go before you into Galilee — first NT reference to the post-resurrection regathering at Galilee, fulfilled in Mark 16:7. Jesus speaks of resurrection-and-meeting in the same breath as predicting their desertion: failure is anticipated, restoration is promised.', 129),
+  (29, 'εἰ καὶ πάντες ... οὐκ ἐγώ', 'ei kai pantes ... ouk egō', 'G1487/G2532/G3956/G3756/G1473', 'Even if all ... yet not I — Peter''s self-distinguishing protest. The pronoun egō is emphatic. He places himself above his brothers in supposed loyalty; the very claim is the seed of his collapse. Mark exposes pride before the fall.', 130),
+  (30, 'ἀλέκτορα ... δίς ... τρίς', 'alektora ... dis ... tris', 'G220/G1364/G5151', 'Cock ... twice ... three times — Mark''s unique double-cock-crow (Matthew, Luke, John have a single crow). The triple denial is bracketed by two cock-crows: the first (v.68) goes unheeded; the second (v.72) breaks Peter into bitter weeping.', 131),
+  (31, 'ἐκπερισσῶς', 'ekperissōs', 'G1537/G4053', 'Vehemently, exceedingly — Mark''s rare strengthening of perissōs. Peter does not merely protest, he protests excessively. Mark linguistically marks the disproportion between Peter''s confidence and his actual capacity.', 132),
+  (32, 'Γεθσημανί', 'Gethsēmani', 'G1068', 'Gethsemane — from Hebrew gat-shmanim (oil press). A walled olive-grove on the Mount of Olives. The name is symbolic: Jesus is pressed in the olive-press of agony before he is crushed in the cross.', 133),
+  (33, 'ἐκθαμβεῖσθαι καὶ ἀδημονεῖν', 'ekthambeisthai kai adēmonein', 'G1568/G85', 'To be greatly amazed/distressed and to be deeply troubled — ekthambeomai: shocked, alarmed (intensified thambeō); adēmoneō: anguished, depressed almost to the point of being undone. Mark''s rare paired verbs convey emotional crisis approaching the limits of human endurance.', 134),
+  (34, 'περίλυπος ἕως θανάτου', 'perilypos heōs thanatou', 'G4036/G2288', 'Exceedingly sorrowful, even unto death — peri-lypos: surrounded by grief. Echoes Psalm 42:5, 11; 43:5 (LXX hina ti perilypos ei psychē mou). Jesus quotes the lament psalms: his soul is in the same crushing grief David''s soul knew, only without sin.', 135),
+  (35, 'παρέλθῃ ἀπ᾽ αὐτοῦ ἡ ὥρα', 'parelthē ap autou hē hōra', 'G3928/G5610', 'The hour might pass from him — hōra: the appointed hour (cf. John 12:27; 17:1). Jesus prays that the eschatological hour of judgment might pass; yet he submits. The Son in his humanity recoils from the cup but does not refuse it.', 136),
+  (36, 'πάντα δυνατά σοι ... παρένεγκε', 'panta dynata soi ... parenenke', 'G3956/G1415/G3911', 'All things are possible for you ... take away — parapherō: bear away, remove. Jesus appeals to the Father''s omnipotence (panta dynata) — the Father could redeem without the cross. The submission ''yet not what I will'' shows the Son chooses obedience over even-the-possible alternative.', 137),
+  (37, 'Σίμων καθεύδεις', 'Simōn katheudeis', 'G4613/G2518', 'Simon, are you sleeping — pointed return to the pre-discipleship name (Simōn, not Petros). The reversion underlines the failure: at the moment requiring rocklike steadfastness, Peter is sleeping. The watchman warning of 13:35-37 is being violated within hours.', 138),
+  (38, 'τὸ μὲν πνεῦμα πρόθυμον ἡ δὲ σὰρξ ἀσθενής', 'to men pneuma prothymon hē de sarx asthenēs', 'G4151/G4289/G4561/G772', 'The spirit is willing but the flesh is weak — anthropological diagnosis: pneuma here is not the Holy Spirit but the human inner-life faculty (will, intention). The disciple''s sincere intent (prothymon) collides with the body''s exhaustion (asthenēs). Watching-and-praying is the discipline to bridge the gap.', 139),
+  (40, 'καταβαρυνόμενοι', 'katabarunomenoi', 'G2599', 'Heavy weighed-down — katabarunō: weighed down with sleep. Peter''s memoir-source (Mark draws Petrine recollections) preserves the disciples'' embarrassment: they could not even keep their heads up. Compare 1 Peter 5:8 (Peter himself later urges sober watchfulness — perhaps recalling this moment).', 140),
+  (41, 'ἀπέχει ... ἦλθεν ἡ ὥρα', 'apechei ... ēlthen hē hōra', 'G568/G5610', 'It is enough ... the hour has come — apechei: a notoriously difficult verb (it is far away, it is over, it is paid in full). Possibly: ''enough of this!'' or ''the matter is settled.'' Jesus moves from prayer to action: the eschatological hour has now arrived.', 141),
+  (43, 'μετὰ μαχαιρῶν καὶ ξύλων', 'meta machairōn kai xylōn', 'G3162/G3586', 'With swords and clubs — temple police armed for arrest. Jesus protests the disproportion (v.48): one would think they came against an insurrectionist (lēstēs). The arsenal exposes the leaders'' fear and their casting of Jesus as a violent revolutionary.', 142),
+  (44, 'σύσσημον', 'syssēmon', 'G4953', 'Pre-arranged signal — syn + sēma. NT hapax. The kiss serves a tactical purpose: in the dim torchlight, Judas needs to identify Jesus precisely so the police seize the right man. The intimacy-gesture is weaponized into target-marking.', 143),
+  (45, 'κατεφίλησεν αὐτόν', 'katephilēsen auton', 'G2705', 'He kissed him fervently — kata-phileō: intensified kiss (repeated, lingering, ostentatious; same verb of the prodigal''s welcome, Luke 15:20; the sinful woman''s feet-kissing, Luke 7:38, 45). Judas does not merely kiss; he kisses warmly, as if in deepest love. Mark''s vocabulary maximizes the betrayal-irony.', 144),
+  (47, 'ὠτάριον', 'ōtarion', 'G5621', 'Little ear, earlobe — diminutive of ous. Mark''s vivid wound-detail. John 18:10 names Peter as the swordsman and Malchus as the victim; Mark suppresses the names (pre-publication anonymity for Peter, still alive). Jesus immediately heals (Luke 22:51), undoing the disciple''s violent gesture.', 145),
+  (48, 'ὡς ἐπὶ λῃστήν', 'hōs epi lēstēn', 'G3027', 'As against an insurrectionist/bandit — lēstēs: not petty thief but armed revolutionary (used by Josephus for Zealots). Jesus exposes the leaders'' calumny: he has taught daily in the temple unarmed, but they treat him as a violent rebel. The label foreshadows his death between two lēstai (15:27).', 146),
+  (49, 'ἵνα πληρωθῶσιν αἱ γραφαί', 'hina plērōthōsin hai graphai', 'G2443/G4137/G1124', 'That the scriptures might be fulfilled — Mark''s only explicit fulfillment-formula in his Passion narrative. The arrest is not chaos but scripture-driven: Isaiah 53, Psalm 22, Zechariah 13 all converge on this moment. The events are read through the prophetic lens.', 147),
+  (50, 'ἀφέντες αὐτὸν ἔφυγον πάντες', 'aphentes auton ephugon pantes', 'G863/G5343/G3956', 'Forsaking him, they all fled — fulfilling Zechariah 13:7 (smite the shepherd, the sheep scatter). The brutal honesty of Mark''s record: the inner circle Jesus had named, trained, and trusted abandons him in three minutes flat. Discipleship has cratered.', 148),
+  (51, 'νεανίσκος ... σινδόνα ἐπὶ γυμνοῦ', 'neaniskos ... sindona epi gymnou', 'G3495/G4616/G1131', 'A young man ... a linen cloth on his bare body — Mark''s most enigmatic detail, found nowhere in the other Gospels. Many readers (since the early church) have suspected this is John Mark''s self-portrait: the evangelist''s anonymous insertion of himself, the only one besides Jesus to flee Gethsemane in flight. The sindōn (linen) anticipates Jesus''s burial cloth (15:46) and the neaniskos in linen at the empty tomb (16:5) — bookended literary motifs.', 149),
+  (53, 'συνέρχονται ... ἀρχιερεῖς ... πρεσβύτεροι ... γραμματεῖς', 'synerchontai ... archiereis ... presbyteroi ... grammateis', 'G4905/G749/G4245/G1122', 'They come together ... chief priests, elders, scribes — full Sanhedrin convened (or at least quorum). Night-time capital trials were forbidden by later Mishnaic law (m. Sanhedrin 4:1); whether 1st-c practice was equally restrictive is debated. Either way, Mark portrays a procedurally suspect rush to verdict.', 150),
+  (54, 'θερμαινόμενος πρὸς τὸ φῶς', 'thermainomenos pros to phōs', 'G2328/G5457', 'Warming himself at the fire/light — pre-dawn April nights at 700m elevation (Jerusalem''s) are cold. Mark''s phōs (light) makes Peter visible in the firelight — the practical reason the maid recognizes him (v.66). The light meant for warmth becomes the light of exposure.', 151),
+  (55, 'ἐζήτουν κατὰ τοῦ Ἰησοῦ μαρτυρίαν', 'ezētoun kata tou Iēsou martyrian', 'G2212/G3142', 'They sought testimony against Jesus — predetermined verdict in search of evidence. Mark writes ''to put him to death'' (eis to thanatōsai auton): the trial''s outcome is fixed before the proceedings; only the legal pretext is being assembled.', 152),
+  (56, 'οὐκ ἦσαν ἴσαι αἱ μαρτυρίαι', 'ouk ēsan isai hai martyriai', 'G3756/G2470/G3142', 'The testimonies did not agree — Deuteronomy 17:6 and 19:15 require multiple agreeing witnesses for capital conviction. The procedural collapse (witnesses contradicting each other) ought to have ended the trial; it does not, exposing the proceedings as predetermined.', 153),
+  (58, 'χειροποίητον ... ἀχειροποίητον', 'cheiropoiēton ... acheiropoiēton', 'G5499/G886', 'Made with hands ... not made with hands — pejorative cheiropoiētos was used in OT polemic against idols (Leviticus 26:1 LXX; Isaiah 46:6). To call the Jerusalem temple cheiropoiētos was inflammatory. Acheiropoiētos (the not-made-with-hands temple) anticipates the resurrection-body / new community (cf. Hebrews 9:11; Acts 7:48; 17:24).', 154),
+  (60, 'ἀναστὰς εἰς μέσον', 'anastas eis meson', 'G450/G3319', 'Standing up in the midst — the high priest rises from his judicial seat into the center of the chamber, dramatizing his frustration with Jesus''s silence and the breakdown of the witness procedure. The action signals an interrogator forced to abandon procedure and resort to direct demand.', 155),
+  (61, 'ὁ Χριστὸς ὁ υἱὸς τοῦ Εὐλογητοῦ', 'ho Christos ho huios tou Eulogētou', 'G5547/G5207/G2128', 'The Christ, the Son of the Blessed — eulogētos (the Blessed One) is a Jewish circumlocution for God, avoiding the divine Name. The high priest demands a binary self-identification: are you the messianic Son of God? Jesus''s answer (v.62) breaks his own silence and becomes the formal grounds for execution.', 156),
+  (63, 'διαρρήξας τοὺς χιτῶνας αὐτοῦ', 'diarrēxas tous chitōnas autou', 'G1284/G5509', 'Tearing his garments — high-priestly response to perceived blasphemy (cf. 2 Kings 18:37; Acts 14:14). Ironically, Leviticus 21:10 forbids the high priest from tearing his clothes — Caiaphas violates Torah even as he condemns the supposed Torah-violator. Symbolic of the obsolete priesthood that here judges its true successor.', 157),
+  (64, 'ἔνοχον εἶναι θανάτου', 'enochon einai thanatou', 'G1777/G2288', 'Worthy of death — formal verdict. Blasphemy carried the death penalty under Leviticus 24:16. The Sanhedrin lacks Roman authority to execute (cf. John 18:31), so the verdict will be re-presented before Pilate as a different charge (treason, claim to be king).', 158),
+  (65, 'ἐνέπτυον ... κολαφίζειν ... ῥαπίσμασιν', 'eneptyon ... kolaphizein ... rhapismasin', 'G1716/G2852/G4475', 'Spit upon ... buffet ... blows — three vivid abuse-verbs. Spitting was the gravest social insult (Numbers 12:14; Deuteronomy 25:9); kolaphizō (blow with the fist); rhapizō (slap, strike with rod). All fulfill Isaiah 50:6 (the Servant gives his cheeks to those who pluck out the hair).', 159),
+  (66, 'παιδίσκη', 'paidiskē', 'G3814', 'Servant girl — diminutive; a young female slave or maid of the high priest''s household. The bottom of the social ladder confronts the rock-apostle with a mere question, and he crumbles. Mark deliberately maximizes the disproportion: a girl, a question, and Peter folds.', 160),
+  (68, 'οὔτε οἶδα οὔτε ἐπίσταμαι', 'oute oida oute epistamai', 'G3756/G1492/G1987', 'I neither know nor understand — double denial. Peter not only disclaims relationship (oida: knowing-by-acquaintance) but also disclaims comprehension (epistamai: knowing-by-understanding). He flees into pretended bewilderment.', 161),
+  (70, 'καὶ γὰρ Γαλιλαῖος εἶ', 'kai gar Galilaios ei', 'G1056', 'For you are also a Galilean — Galilean Aramaic dialect was distinguishable from Judean (cf. Matthew 26:73 spelling out ''thy speech bewrays thee''). Peter''s accent gives him away. He cannot disguise his origin; provincialism unmasks him.', 162),
+  (71, 'ἀναθεματίζειν καὶ ὀμνύειν', 'anathematizein kai omnyein', 'G332/G3660', 'To curse and to swear — anathematizō: to invoke a curse upon oneself if speaking falsely; omnuō: to take an oath. Peter compounds his denial with self-curse and divine-witness oath. The escalation parallels his earlier ekperissōs (v.31) — the bigger the boast, the bigger the betrayal.', 163),
+  (72, 'ἀλέκτωρ ἐφώνησεν ἐκ δευτέρου', 'alektōr ephōnēsen ek deuterou', 'G220/G5455/G1208', 'A cock crew the second time — Mark''s unique double-crow notation. Alektorophōnia (cockcrow) was the third Roman watch (12-3am); two crows together pin the hour as roughly 3am. Peter''s denial trilogy unfolds in the dead of night — the spiritual midnight of the church.', 164),
+  (72, 'ἐπιβαλὼν ἔκλαιεν', 'epibalōn eklaien', 'G1911/G2799', 'Casting himself / having begun, he wept — epiballō here is famously obscure: ''having thought of it,'' ''bursting in upon'' (the realization), ''covering his face,'' or ''flinging himself out.'' The imperfect eklaien indicates sustained weeping; whatever the gesture, Peter''s collapse into tears is total.', 165),
+  (3, 'πιστικῆς πολυτελοῦς', 'pistikēs polyteloūs', 'G4101/G4185', 'Pure, very costly — pistikos: pure, genuine (or possibly ''of pistachio'' or place-name); polytelēs: very expensive. The complete phrase ''myrou nardou pistikēs polyteloūs'' marks one of the costliest substances available; 300 denarii (v.5) = nearly a year''s wages.', 166),
+  (5, 'πραθῆναι ... δοθῆναι τοῖς πτωχοῖς', 'prathēnai ... dothēnai tois ptōchois', 'G4097/G1325/G4434', 'To be sold ... given to the poor — the financial calculation made by the disciples (John 12:6 identifies Judas as the speaker). The triangle of money-poor-betrayal anticipates Judas''s next move; alms-rhetoric masks an embezzling treasurer.', 167),
+  (24, 'τὸ αἷμά μου τῆς διαθήκης', 'to haima mou tēs diathēkēs', 'G129/G1242', 'My blood of the covenant — direct quotation of Exodus 24:8 LXX (''behold, the blood of the covenant''). At Sinai, Moses sprinkled covenant blood; at Calvary, Jesus pours out covenant blood. Mark''s wording lacks Luke/Paul''s ''new'' (kainē), keeping the Exodus echo as primary.', 168),
+  (44, 'κρατήσατε αὐτὸν καὶ ἀπάγετε ἀσφαλῶς', 'kratēsate auton kai apagete asphalōs', 'G2902/G520/G806', 'Seize him and lead him away securely — asphalōs: securely, surely (a-sphallō: not stumbling). Judas''s instruction reflects awareness of Jesus''s prior escapes (Luke 4:30; John 8:59). The arrest must not allow another miraculous deliverance — but ironically God Himself permits this seizure.', 169)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 14 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  -- v.1 plot in stealth
+  (1, 'Mark 11:18', 100),
+  (1, 'Mark 12:12', 101),
+  -- v.2 not on the feast
+  (2, 'John 11:55-57', 102),
+  -- v.3 anointing at Bethany
+  (3, 'John 12:3', 103),
+  (3, 'Song of Solomon 1:12', 104),
+  -- v.5 sold to poor
+  (5, 'Matthew 26:9', 105),
+  (5, 'John 12:5-6', 106),
+  -- v.6 a beautiful work
+  (6, '1 Samuel 16:7', 107),
+  -- v.7 the poor with you always
+  (7, 'Deuteronomy 15:11', 108),
+  (7, 'John 12:8', 109),
+  -- v.8 anointed for burial
+  (8, 'John 19:40', 110),
+  -- v.9 wherever the gospel is preached
+  (9, 'Matthew 24:14', 111),
+  (9, 'Mark 13:10', 112),
+  -- v.10 Judas''s offer
+  (10, 'John 13:2', 113),
+  (10, 'Luke 22:3-4', 114),
+  -- v.11 promised money
+  (11, 'Zechariah 11:12', 115),
+  (11, 'Matthew 26:15', 116),
+  -- v.12 first day of unleavened
+  (12, 'Numbers 28:16-17', 117),
+  (12, 'Exodus 12:14-20', 118),
+  -- v.13 follow him
+  (13, 'Luke 22:10-12', 119),
+  -- v.14 my time
+  (14, 'John 13:1', 120),
+  -- v.17 the twelve
+  (17, 'Mark 3:14', 121),
+  -- v.18 one of you shall betray
+  (18, 'John 13:18', 122),
+  -- v.20 dipping in the dish
+  (20, 'John 13:26', 123),
+  -- v.21 woe to that man
+  (21, 'Acts 1:25', 124),
+  (21, 'Mark 9:42', 125),
+  -- v.22 broke and gave
+  (22, 'Matthew 14:19', 126),
+  (22, 'John 6:51', 127),
+  -- v.23 the cup of blessing
+  (23, '1 Corinthians 10:16', 128),
+  -- v.24 covenant blood
+  (24, 'Hebrews 13:20', 129),
+  (24, 'Hebrews 10:29', 130),
+  (24, 'Zechariah 9:11', 131),
+  -- v.25 new in the kingdom
+  (25, 'Matthew 26:29', 132),
+  (25, 'Luke 22:18', 133),
+  (25, 'Revelation 19:9', 134),
+  -- v.26 Mount of Olives
+  (26, 'Matthew 26:30', 135),
+  (26, 'Luke 22:39', 136),
+  (26, 'Psalm 118:1-29', 137),
+  -- v.27 stumble — sheep scatter
+  (27, 'Mark 14:50', 138),
+  (27, 'John 16:32', 139),
+  -- v.28 risen — going before
+  (28, 'Mark 16:7', 140),
+  (28, 'Matthew 28:7', 141),
+  (28, 'Matthew 28:10', 142),
+  -- v.29 not I — Peter
+  (29, 'Matthew 26:33', 143),
+  (29, 'Proverbs 16:18', 144),
+  -- v.30 cock crow
+  (30, 'Mark 14:72', 145),
+  -- v.31 die with you
+  (31, 'John 11:16', 146),
+  (31, 'John 13:37', 147),
+  -- v.32 Gethsemane
+  (32, 'John 18:1', 148),
+  (32, 'Luke 22:39-40', 149),
+  -- v.33 inner three
+  (33, 'Mark 5:37', 150),
+  (33, 'Mark 9:2', 151),
+  -- v.34 sorrowful
+  (34, 'Psalm 42:5', 152),
+  (34, 'Psalm 42:11', 153),
+  (34, 'John 12:27', 154),
+  -- v.35 hour pass
+  (35, 'John 17:1', 155),
+  (35, 'John 12:23', 156),
+  -- v.36 Father, all things
+  (36, 'Romans 8:32', 157),
+  (36, 'Galatians 4:6', 158),
+  -- v.37 Simon, sleeping
+  (37, 'Mark 13:36', 159),
+  -- v.38 watch and pray
+  (38, 'Mark 13:33', 160),
+  (38, 'Matthew 26:41', 161),
+  (38, '1 Peter 5:8', 162),
+  -- v.39 same words
+  (39, '2 Corinthians 12:8', 163),
+  -- v.41 hour come
+  (41, 'John 17:1', 164),
+  -- v.42 betrayer at hand
+  (42, 'Matthew 26:46', 165),
+  -- v.43 Judas with sword
+  (43, 'John 18:3', 166),
+  -- v.44 token / sign
+  (44, '2 Samuel 20:9-10', 167),
+  -- v.45 master / kissed
+  (45, 'Proverbs 27:6', 168),
+  (45, '2 Samuel 15:5', 169),
+  -- v.47 ear cut
+  (47, 'Matthew 26:51', 170),
+  (47, 'Luke 22:50-51', 171),
+  (47, 'John 18:10', 172),
+  -- v.48 against thief
+  (48, 'Matthew 26:55', 173),
+  -- v.49 scriptures fulfilled
+  (49, 'Acts 1:16', 174),
+  (49, 'Matthew 26:54', 175),
+  -- v.50 forsook and fled
+  (50, 'Zechariah 13:7', 176),
+  (50, 'Mark 14:27', 177),
+  -- v.51-52 young man fled naked
+  (51, 'Mark 14:52', 178),
+  (51, 'Genesis 39:12', 179),
+  -- v.53 high priest gathered
+  (53, 'Matthew 26:57', 180),
+  (53, 'John 18:13-14', 181),
+  -- v.54 followed at distance
+  (54, 'Matthew 26:58', 182),
+  (54, 'Luke 22:54-55', 183),
+  -- v.55 sought witness
+  (55, 'Psalm 27:12', 184),
+  (55, 'Daniel 6:4', 185),
+  -- v.56 false witness disagreed
+  (56, 'Psalm 35:11', 186),
+  (56, 'Deuteronomy 19:15', 187),
+  -- v.57 false witnesses rose
+  (57, 'Acts 6:13-14', 188),
+  -- v.58 destroy this temple
+  (58, 'Mark 15:29', 189),
+  (58, 'Acts 6:14', 190),
+  -- v.60 high priest stood
+  (60, 'Matthew 26:62', 191),
+  -- v.61 silent before accusers
+  (61, 'Isaiah 53:7', 192),
+  (61, '1 Peter 2:23', 193),
+  (61, 'Mark 15:5', 194),
+  -- v.62 right hand
+  (62, 'Acts 7:55-56', 195),
+  -- v.63 tearing clothes
+  (63, 'Numbers 14:6', 196),
+  (63, 'Acts 14:14', 197),
+  (63, 'Leviticus 21:10', 198),
+  -- v.64 worthy of death
+  (64, 'Leviticus 24:16', 199),
+  (64, 'John 19:7', 200),
+  -- v.65 mocked and beat
+  (65, 'Matthew 26:67-68', 201),
+  (65, 'Luke 22:63-65', 202),
+  -- v.66 maid
+  (66, 'Matthew 26:69', 203),
+  (66, 'John 18:17', 204),
+  -- v.68 denied
+  (68, '2 Timothy 2:12', 205),
+  (68, 'Proverbs 29:25', 206),
+  -- v.70 a Galilean
+  (70, 'Acts 2:7', 207),
+  (70, 'Matthew 26:73', 208),
+  -- v.71 cursed and swore
+  (71, 'Matthew 26:74', 209),
+  (71, 'James 5:12', 210),
+  -- v.72 wept
+  (72, 'Mark 14:30', 211),
+  (72, 'Psalm 51:1-3', 212),
+  (72, 'Lamentations 3:48-50', 213)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 14 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

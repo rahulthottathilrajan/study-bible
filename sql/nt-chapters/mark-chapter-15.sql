@@ -361,3 +361,214 @@ CROSS JOIN (VALUES
 ) AS cr(verse_number, reference, ref_order)
 WHERE b.name = 'Mark' AND c.chapter_number = 15
   AND v.verse_number = cr.verse_number;
+
+-- ═══════════════════════════════════════════════════
+-- MARK CHAPTER 15 — BACKFILL (additional word_studies + cross_references)
+-- Pilate Trial · Barabbas · Mocking · Simon of Cyrene · Crucifixion · Darkness · Cry · Veil · Centurion · Burial
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'πρωΐ συμβούλιον ποιήσαντες', 'prōi symboulion poiēsantes', 'G4404/G4824', 'Early in the morning, having held council — formal post-dawn confirmation of the night verdict (likely intended to gain procedural legitimacy after the irregular night trial). The Sanhedrin reconvenes at first light to ratify what was already decided.', 100),
+  (1, 'παρέδωκαν Πιλάτῳ', 'paredōkan Pilatō', 'G3860/G4091', 'They handed him over to Pilate — paradidōmi yet again, Mark''s thread-word for the Passion (already used of Judas, the Sanhedrin, and now the prefect-handover). Pontius Pilate (prefect of Judea AD 26-36) holds capital authority the Sanhedrin lacks.', 101),
+  (2, 'σὺ εἶ ὁ βασιλεὺς τῶν Ἰουδαίων', 'sy ei ho basileus tōn Ioudaiōn', 'G935/G2453', 'Are you the King of the Jews — Pilate''s opening question reframes the Sanhedrin''s religious charge (blasphemy) into political terms (treason / rival kingship), the only category Roman law would prosecute. Throughout Mark 15, the title ''King of the Jews'' is the leitmotif — placard, mockery, and ironic truth.', 102),
+  (2, 'σὺ λέγεις', 'sy legeis', 'G4771/G3004', 'You say (it) — Jesus''s ambiguous reply: technically affirmative but reframing the answer back to the questioner. Not a denial, not a triumphal claim; a yes that lets Pilate own his own words. The same restraint that produced silence to false witnesses now produces minimal speech to the prefect.', 103),
+  (3, 'κατηγόρουν αὐτοῦ ... πολλά', 'katēgoroun autou ... polla', 'G2723/G4183', 'They accused him of many things — imperfect tense; sustained, repeated accusation. Luke 23:2 lists the three charges: subverting the nation, opposing Caesar''s tribute, claiming to be Christ-king. The volley of charges is calculated to exceed the threshold for execution.', 104),
+  (4, 'οὐκ ἀποκρίνῃ οὐδέν', 'ouk apokrinē ouden', 'G3756/G611/G3762', 'Do you answer nothing — Pilate''s incredulous question. Roman defendants normally fought charges energetically; Jesus''s silence is procedurally bizarre. Pilate is unsettled: this prisoner is not behaving like a guilty rebel.', 105),
+  (5, 'θαυμάζειν τὸν Πιλάτον', 'thaumazein ton Pilaton', 'G2296', 'Pilate marveled — thaumazō: to wonder, be astonished. The Roman prefect is reduced to wonder at Jesus''s composure. Mark uses thaumazō elsewhere of crowds astonished at Jesus''s teaching (1:27); now even the executioner-magistrate is amazed.', 106),
+  (6, 'ἕνα δέσμιον', 'hena desmion', 'G1520/G1198', 'One prisoner — Pilate''s Passover-amnesty practice, attested only in the Gospels but plausible as a goodwill gesture by a Roman governor to a notoriously volatile province. The custom (paraitountas, ''one whom they petitioned'') functions in Mark as the providential mechanism by which the crowd is forced to choose between Jesus and Barabbas.', 107),
+  (7, 'στασιαστῶν ... φόνον πεποιήκεισαν', 'stasiastōn ... phonon pepoiēkeisan', 'G4955/G5408', 'Of the insurrectionists ... had committed murder — Barabbas is a stasiastēs (rebel insurrectionist), exactly the political crime Jesus is falsely accused of. The crowd will choose the actual revolutionary over the supposed one. The substitution is Markan irony at its sharpest.', 108),
+  (10, 'φθόνον', 'phthonon', 'G5355', 'Envy — Pilate diagnoses the leaders'' motive correctly (cf. Matthew 27:18). Pilate''s political acumen (he sees the case is malicious) ought to acquit; instead, fear of crowd-uproar and Caesar''s displeasure overrides his judgment. The Roman knows Jesus is innocent, but politics decide otherwise.', 109),
+  (11, 'ἀνέσεισαν τὸν ὄχλον', 'aneseisan ton ochlon', 'G383', 'They incited the crowd — anaseiō: to shake up, stir up (used of agitators in Luke 23:5). The chief priests work the Passover crowd against Jesus. The same crowd that cried Hosanna five days earlier is being orchestrated to cry Crucify.', 110),
+  (13, 'σταύρωσον αὐτόν', 'staurōson auton', 'G4717', 'Crucify him — aorist imperative, twice repeated (vv.13, 14). The crowd''s cry is for Rome''s most degrading death penalty, reserved for slaves, rebels, and the dregs of the empire. They are demanding not merely execution but maximum dishonor.', 111),
+  (15, 'βουλόμενος ... τῷ ὄχλῳ τὸ ἱκανὸν ποιῆσαι', 'boulomenos ... tō ochlō to hikanon poiēsai', 'G1014/G2425', 'Wishing to satisfy the crowd — to hikanon poiēsai: idiomatic ''to give satisfaction.'' Pilate''s decision-driver is not justice but populism. Mark exposes the moral failure of authority: the prefect knows truth but yields to the crowd''s pressure.', 112),
+  (16, 'πραιτώριον ... σπεῖραν', 'praitōrion ... speiran', 'G4232/G4686', 'Praetorium ... cohort — praitōrion: the governor''s residence (likely the Antonia fortress or Herod''s palace); speira: a Roman cohort (nominally 600 men, actually 500-1000). The mockery is conducted before the entire on-duty cohort — a public regimental humiliation.', 113),
+  (17, 'πορφύραν', 'porphyran', 'G4209', 'Purple — the imperial color, dyed from Murex shellfish (extraordinarily expensive); reserved for emperors, senators, and high officials. Likely a soldier''s scarlet sagum (cloak) re-described as ''purple'' for the mocking-king tableau. The robe parodies royal investiture.', 114),
+  (17, 'ἀκάνθινον στέφανον', 'akanthinon stephanon', 'G174/G4735', 'Crown of thorns — stephanos was the wreath-crown of victors and rulers (in distinction from diadēma, the royal headband). The thorny wreath is anti-victory: a king crowned with the curse of fallen creation (Genesis 3:18). Mark frames the cross as paradoxical coronation.', 115),
+  (18, 'χαῖρε βασιλεῦ τῶν Ἰουδαίων', 'chaire basileu tōn Ioudaiōn', 'G5463/G935', 'Hail, King of the Jews — chaire (rejoice/hail) was the formal greeting Ave used for the emperor (Ave Caesar). The soldiers parody imperial acclamation. Mark''s readers, knowing Jesus''s real kingship, hear the mockery as unintended truth.', 116),
+  (19, 'καλάμῳ', 'kalamō', 'G2563', 'With a reed — kalamos: a reed or stalk used both as a mock-scepter (placed in the hand, v.17 of Matthew''s parallel) and as a club to beat his head. The sceptre that should symbolize royal authority becomes the tool of degradation.', 117),
+  (19, 'τιθέντες τὰ γόνατα', 'tithentes ta gonata', 'G5087/G1119', 'Bending the knees — proskynesis, the obeisance owed to a king or emperor. The soldiers parody royal submission while assaulting Jesus. The whole tableau is dramatic-ironic: every gesture mocks a kingship that is in fact real.', 118),
+  (21, 'ἀγγαρεύουσιν', 'angareuousin', 'G29', 'They compelled / pressed into service — angareuō: a Persian loan-word (root: state postal courier service). Roman soldiers had legal right to compel a civilian to bear burdens for one mile. The same verb in 5:41 (Sermon on the Mount, ''whoever compels you to go one mile''). Simon is conscripted under the empire''s right of impressment.', 119),
+  (21, 'Σίμωνα Κυρηναῖον ... πατέρα Ἀλεξάνδρου καὶ Ῥούφου', 'Simōna Kyrēnaion ... patera Alexandrou kai Rouphou', 'G4613/G2956/G223/G4504', 'Simon of Cyrene ... father of Alexander and Rufus — Cyrene (Libya) had a large Jewish population. Mark''s identification of Simon by his sons suggests Alexander and Rufus were known to Mark''s Roman audience (cf. Romans 16:13 ''Rufus, chosen in the Lord, and his mother and mine''). A family touched by the cross became known believers in Rome.', 120),
+  (22, 'Κρανίου Τόπος', 'Kraniou Topos', 'G2898/G5117', 'Place of a Skull — translation of Aramaic Golgotha. The Latin equivalent is Calvaria (whence ''Calvary''). The site''s shape (or perhaps its association with executions / unburied skulls) gave it the macabre name. Mark glosses the Aramaic for his Roman audience, as throughout the Gospel.', 121),
+  (23, 'ἐσμυρνισμένον οἶνον', 'esmyrnismenon oinon', 'G4669/G3631', 'Wine drugged with myrrh — possibly a narcotic mercy offered by Jerusalem women (cf. Talmud b. Sanhedrin 43a: women provided wine with frankincense to numb the condemned). Jesus refuses (ouk elaben), choosing to face the cross fully conscious. Compare his vow (14:25) to abstain from wine until the kingdom.', 122),
+  (24, 'σταυροῦσιν αὐτόν', 'staurousin auton', 'G4717', 'They crucify him — historical present. Mark''s shocking restraint: the most central fact of the narrative is reported in three words. No graphic detail; the reader knows what crucifixion means. Mark trusts the bare verb to do the work.', 123),
+  (24, 'διαμερίζονται τὰ ἱμάτια ... βάλλοντες κλῆρον', 'diamerizontai ta himatia ... ballontes klēron', 'G1266/G2440/G906/G2819', 'They divide his garments ... casting lots — direct fulfillment of Psalm 22:18 LXX. Mark embeds the Passion in the matrix of Psalm 22 (the lament of the Righteous Sufferer): garment-casting (v.24), mocking by passersby (v.29 ~ Ps 22:7), reproach (v.32), the cry of forsakenness (v.34 ~ Ps 22:1). The whole crucifixion is a Psalm 22 enactment.', 124),
+  (25, 'ἦν δὲ ὥρα τρίτη', 'ēn de hōra tritē', 'G5610/G5154', 'It was the third hour — 9am Jewish reckoning (counted from sunrise). The Synoptics place the crucifixion at the third hour; John 19:14 places Pilate''s sentence at the sixth hour (using Roman reckoning from midnight = 6am). The data are not contradictory but use different hour systems.', 125),
+  (26, 'ἐπιγραφὴ τῆς αἰτίας αὐτοῦ', 'epigraphē tēs aitias autou', 'G1923/G156', 'Inscription of his charge — titulus crucis: the placard recording the offense, displayed above the crucified to deter passersby. Pilate''s wording (''King of the Jews,'' not ''claimed to be King'') is a calculated jab at the Sanhedrin (cf. John 19:21-22).', 126),
+  (27, 'δύο λῃστάς ... ἕνα ἐκ δεξιῶν καὶ ἕνα ἐξ εὐωνύμων', 'dyo lēstas ... hena ek dexiōn kai hena ex euōnymōn', 'G3027/G1188/G2176', 'Two robbers/insurrectionists ... one on the right, one on the left — lēstēs again (the very label Jesus rejected at his arrest, 14:48). The flanking positions had been requested by James and John (10:37 ''one on your right, one on your left'' in the kingdom); here the right-and-left places are filled by criminals. Mark''s structural irony.', 127),
+  (29, 'παραπορευόμενοι ἐβλασφήμουν αὐτὸν κινοῦντες τὰς κεφαλάς', 'paraporeuomenoi eblasphēmoun auton kinountes tas kephalas', 'G3899/G987/G2795/G2776', 'Those passing by blasphemed, wagging their heads — head-wagging is the gesture of contemptuous mockery in Psalm 22:7 and Lamentations 2:15. Mark''s vocabulary is saturated with Psalm 22 imagery; the mockers unknowingly enact the prophesied scene.', 128),
+  (29, 'οὐά', 'oua', 'G3758', 'Aha! — interjection of taunting derision. Combined with the temple-destruction taunt (''you who would destroy the temple''), the mockers throw Jesus''s own (mis-)quoted words back at him at the moment when he is being ''destroyed.'' Mark''s sustained irony: the temple-of-his-body is being destroyed precisely as predicted (cf. John 2:19-21).', 129),
+  (30, 'σῶσον σεαυτὸν καταβὰς ἀπὸ τοῦ σταυροῦ', 'sōson seauton katabas apo tou staurou', 'G4982/G2597/G4716', 'Save yourself, coming down from the cross — the satanic temptation in another form (cf. 1:13; 8:33). The same logic that tempted Jesus to skip the cross now mocks him for not skipping. Mark frames the staying as the saving: he will not save himself precisely because he is saving others.', 130),
+  (31, 'ἄλλους ἔσωσεν, ἑαυτὸν οὐ δύναται σῶσαι', 'allous esōsen, heauton ou dynatai sōsai', 'G243/G4982/G1438', 'He saved others; he cannot save himself — the chief priests'' unintentional gospel. The mockery articulates a profound truth: the soteriology of substitution requires that he not save himself in order to save others. Mark places the gospel in the mouths of the mockers.', 131),
+  (32, 'ἵνα ἴδωμεν καὶ πιστεύσωμεν', 'hina idōmen kai pisteusōmen', 'G2443/G3708/G4100', 'That we may see and believe — the demand for sign-confirmed faith (cf. 8:11-12, the Pharisees seeking a sign). Mark''s narrative theology: faith arises not from spectacle but from accepting the cross. The mockers ironically inverse the path of true belief.', 132),
+  (33, 'ὥρας ἕκτης ... ἕως ὥρας ἐνάτης', 'hōras hektēs ... heōs hōras enatēs', 'G1623/G1766', 'From the sixth hour ... until the ninth hour — noon to 3pm. Three hours of supernatural darkness over the whole land (epi pasan tēn gēn). Echoes the Egypt-darkness (Exodus 10:22) and the prophesied Day-of-the-LORD darkness (Amos 8:9-10; Joel 2:31). Cosmos protests the death of its Maker.', 133),
+  (34, 'Ἐλωΐ Ἐλωΐ λεμὰ σαβαχθανί', 'Elōi Elōi lema sabachthani', 'G1682/G2982/G4518', 'Eloi Eloi lema sabachthani — Aramaic of Psalm 22:1 preserved by Mark untranslated (he then provides the Greek). Mark''s preservation of the Aramaic intensifies the rawness; the words are recorded as Jesus spoke them, in the language of his Galilean upbringing. The cry quotes the lament psalm whose later verses prophesy resurrection-vindication.', 134),
+  (35, 'Ἠλίαν φωνεῖ', 'Ēlian phōnei', 'G2243/G5455', 'He calls Elijah — the bystanders mishear ''Eloi'' as ''Eliyya/Elijah.'' Popular eschatology held that Elijah would come to rescue the righteous (cf. Malachi 4:5; Mark 9:11). The misunderstanding triggers the vinegar-sponge: ''let''s see if Elijah comes.'' Mockery up to the very end.', 135),
+  (36, 'ὄξους ... σπόγγον', 'oxous ... spongon', 'G3690/G4699', 'Sour wine ... sponge — oxos: the cheap diluted wine vinegar (posca) drunk by Roman soldiers; offered now perhaps as a final mockery, perhaps as small mercy. Fulfills Psalm 69:21. The hyssop reed (John 19:29) lifts the sponge to Jesus''s lips at cross-height (~7-8 feet).', 136),
+  (37, 'φωνὴν μεγάλην', 'phōnēn megalēn', 'G3173/G5456', 'A loud cry — uncharacteristic for crucifixion victims, who usually died silent and exhausted from suffocation. The loud cry signals reserve of strength; Jesus does not slowly fade but actively releases his life. John 19:30 records the content (tetelestai, ''it is finished''); Mark records only the volume.', 137),
+  (37, 'ἐξέπνευσεν', 'exepneusen', 'G1606', 'He breathed out / expired — ek-pneō: literally to breathe out the spirit. Active rather than passive: Jesus releases his life rather than merely losing it. The verb anticipates the post-resurrection breathing-out of the Spirit on the disciples (John 20:22).', 138),
+  (38, 'ἐσχίσθη ... ἀπ᾽ ἄνωθεν ἕως κάτω', 'eschisthē ... ap anōthen heōs katō', 'G4977/G509/G2736', 'Was torn ... from top to bottom — passive divine action (eschisthē): God himself tears the veil. The Holy of Holies, accessible only to the high priest once a year (Leviticus 16), is now open. The same verb (schizō) Mark uses of the heavens torn at Jesus''s baptism (1:10) — inclusio framing the entire ministry: heavens torn open, veil torn down.', 139),
+  (39, 'κεντυρίων', 'kentyriōn', 'G2760', 'Centurion — Latin loan-word centurio (commander of 100). Mark uses the Latinism for his Roman audience (compare Matthew''s Greek hekatontarchēs). The centurion was the field-officer in charge of the execution detail: the most authoritative pagan witness possible.', 140),
+  (39, 'ἀληθῶς οὗτος ὁ ἄνθρωπος υἱὸς θεοῦ ἦν', 'alēthōs houtos ho anthrōpos huios theou ēn', 'G230/G3778/G444/G5207/G2316', 'Truly this man was the Son of God — alēthōs (truly): conviction-language. Mark''s Christological climax: a Roman pagan, not a disciple, makes the first clear human confession of Jesus as Son of God at the cross. The Gospel''s opening title (1:1 ''gospel of Jesus Christ, Son of God'') is finally voiced by a human at 15:39 — and it is a Gentile.', 141),
+  (40, 'γυναῖκες ἀπὸ μακρόθεν θεωροῦσαι', 'gynaikes apo makrothen theōrousai', 'G1135/G3113/G2334', 'Women looking on from afar — present participle theōrousai (sustained observation). The women remain when the Twelve have fled. Mark names three (Mary Magdalene, Mary mother of James/Joses, Salome) — eyewitnesses whose testimony will validate the resurrection narrative (16:1).', 142),
+  (41, 'διηκόνουν αὐτῷ', 'diēkonoun autō', 'G1247', 'They ministered to him — imperfect of diakoneō (the same verb of the angels'' ministry to Jesus after the temptation, 1:13, and of Jesus''s own self-description as servant, 10:45). The women are revealed as Jesus''s sustained Galilean disciples; their service-discipleship outlasts the men''s.', 143),
+  (42, 'παρασκευή ... προσάββατον', 'paraskeuē ... prosabbaton', 'G3904/G4315', 'Preparation ... day before the Sabbath — paraskeuē: Friday (the day food is prepared for sabbath). Mark glosses paraskeuē with the Hebraistic prosabbaton for clarity. Time pressure: burial must be completed before sundown (sabbath begins) — explaining the haste of vv.43-46.', 144),
+  (43, 'εὐσχήμων βουλευτὴς ... προσδεχόμενος τὴν βασιλείαν', 'euschēmōn bouleutēs ... prosdechomenos tēn basileian', 'G2158/G1010/G4327', 'A respected councillor ... waiting for the kingdom — bouleutēs: member of a council, specifically the Sanhedrin. Joseph''s status (euschēmōn, prominent) makes his courageous request to Pilate possible; his kingdom-expectation (prosdechomenos) places him among the godly remnant of Israel. A Sanhedrist who dissented (cf. Luke 23:51) becomes the burial-agent.', 145),
+  (44, 'ἐθαύμαζεν εἰ ἤδη τέθνηκεν', 'ethaumazen ei ēdē tethnēken', 'G2296/G2348', 'Marveled if already dead — Pilate''s surprise: crucifixion victims often took 2-3 days to die; Jesus expired in 6 hours. The brief duration evidences the depth of his prior scourging-shock. Pilate''s confirmation via the centurion is also Mark''s answer to later docetic claims that Jesus did not really die.', 146),
+  (45, 'ἐδωρήσατο τὸ πτῶμα τῷ Ἰωσήφ', 'edōrēsato to ptōma tō Iōsēph', 'G1433/G4430', 'He granted the corpse to Joseph — dōreomai: to give as a gift. Roman law normally denied burial to crucifixion victims (the body was left to the elements); Pilate''s release of the corpse is unusual concession. Joseph''s respectability (and likely a bribe) made the request viable.', 147),
+  (46, 'σινδών', 'sindōn', 'G4616', 'Linen cloth — fine linen wrapping. The same word as the young man''s linen at Gethsemane (14:51-52, the only other NT occurrences in Mark). The textual link: the cloth that fled Gethsemane reappears as the burial wrapping. Mark''s vocabulary creates a literary inclusio.', 148),
+  (46, 'καθελὼν ... προσεκύλισεν λίθον', 'kathelōn ... prosekylisen lithon', 'G2507/G4351/G3037', 'Having taken him down ... rolled a stone — proskyliō: to roll up against. The disc-shaped sealing-stone (golel) ran in a slot in front of the tomb opening. Joseph closes the tomb just before sunset; the women note the location for their post-sabbath return (16:1-3).', 149),
+  (47, 'ἐθεώρουν ποῦ τέθειται', 'etheōroun pou tetheitai', 'G2334/G5087', 'They observed where he was laid — imperfect theōroun: sustained witness. Mary Magdalene and Mary the mother of Joses serve as the chain-of-custody witnesses for the empty-tomb narrative: they saw where the corpse was placed, so that when they find the tomb empty (16:1-7), there is no possibility of mistake.', 150),
+  (15, 'ἀπέλυσεν αὐτοῖς τὸν Βαραββᾶν', 'apelysen autois ton Barabban', 'G630/G912', 'Released to them Barabbas — apolyō: to release, set free. The substitution-pattern is unmistakable: a son-of-the-father (bar-abba) is released; the true Son of the Father is condemned. Mark''s Roman audience would catch the irony of names.', 151),
+  (32, 'ὠνείδιζον αὐτόν', 'ōneidizon auton', 'G3679', 'They reproached him — even the criminals crucified with him (synestaurōmenoi) join the mockery. Luke 23:39-43 records one penitent''s later turning; Mark preserves only the initial joint-reviling, intensifying the universal isolation of Jesus on the cross.', 152),
+  (38, 'καταπέτασμα ... εἰς δύο', 'katapetasma ... eis dyo', 'G2665/G1417', 'The veil ... in two — Josephus describes the temple veil as 60 feet tall and finger''s breadth thick. The tearing ''from top to bottom'' rules out human action; the divine origin is unmistakable. The way to God''s presence opens at the moment the Son dies.', 153),
+  (16, 'ὅλην τὴν σπεῖραν', 'holēn tēn speiran', 'G3650/G4686', 'The whole cohort — the entire 500-1000-soldier unit, summoned for the mock-coronation. Public spectacle of degradation: the more witnesses, the deeper the king''s humiliation. Yet Mark''s reader perceives the inverse: this is the cosmic enthronement before the universe.', 154)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 15 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  -- v.1 sent to Pilate
+  (1, 'Mark 10:33', 100),
+  (1, 'Acts 3:13', 101),
+  -- v.2 are you the king
+  (2, '1 Timothy 6:13', 102),
+  (2, 'Matthew 27:11', 103),
+  -- v.3 accused of many things
+  (3, 'Luke 23:2', 104),
+  -- v.4 do you not answer
+  (4, 'Matthew 27:13', 105),
+  -- v.5 silent before accusers
+  (5, 'Acts 8:32', 106),
+  (5, 'Mark 14:61', 107),
+  -- v.6 release prisoner
+  (6, 'Matthew 27:15', 108),
+  (6, 'Luke 23:17', 109),
+  -- v.7 Barabbas insurrection
+  (7, 'Acts 3:14', 110),
+  (7, 'Luke 23:19', 111),
+  -- v.8 crowd cried
+  (8, 'Matthew 27:20', 112),
+  -- v.9 will ye that I release
+  (9, 'John 18:39', 113),
+  -- v.10 envy
+  (10, 'Genesis 37:11', 114),
+  (10, 'Acts 7:9', 115),
+  (10, 'Proverbs 27:4', 116),
+  -- v.11 chief priests stirred crowd
+  (11, 'Matthew 27:20', 117),
+  -- v.13 crucify him
+  (13, 'Luke 23:21', 118),
+  (13, 'John 19:6', 119),
+  (13, 'John 19:15', 120),
+  -- v.14 what evil
+  (14, 'Luke 23:22', 121),
+  -- v.15 willing to content
+  (15, 'John 19:1', 122),
+  (15, 'Matthew 27:26', 123),
+  -- v.16 praetorium
+  (16, 'Matthew 27:27', 124),
+  (16, 'John 19:9', 125),
+  -- v.17 purple robe
+  (17, 'John 19:5', 126),
+  (17, 'Matthew 27:28', 127),
+  -- v.18 hail king
+  (18, 'John 19:3', 128),
+  (18, 'Matthew 27:29', 129),
+  -- v.19 reed and spit
+  (19, 'Isaiah 50:6', 130),
+  (19, 'Micah 5:1', 131),
+  -- v.20 led out to crucify
+  (20, 'Hebrews 13:12', 132),
+  (20, 'Matthew 27:31', 133),
+  -- v.21 Simon of Cyrene
+  (21, 'Luke 23:26', 134),
+  (21, 'Acts 13:1', 135),
+  -- v.22 Golgotha
+  (22, 'John 19:17', 136),
+  (22, 'Hebrews 13:11-13', 137),
+  -- v.23 wine with myrrh
+  (23, 'Proverbs 31:6', 138),
+  (23, 'Matthew 27:34', 139),
+  -- v.24 dividing garments
+  (24, 'Matthew 27:35', 140),
+  (24, 'John 19:23', 141),
+  -- v.25 third hour
+  (25, 'Matthew 27:45', 142),
+  -- v.26 inscription
+  (26, 'Matthew 27:37', 143),
+  (26, 'John 19:19-22', 144),
+  (26, 'Luke 23:38', 145),
+  -- v.27 thieves
+  (27, 'Matthew 27:38', 146),
+  (27, 'Mark 10:37', 147),
+  -- v.29 those passing by
+  (29, 'Matthew 27:39', 148),
+  (29, 'Lamentations 2:15', 149),
+  -- v.30 save thyself
+  (30, 'Matthew 27:40', 150),
+  -- v.31 saved others
+  (31, 'Luke 23:35', 151),
+  (31, 'John 12:32', 152),
+  -- v.32 see and believe
+  (32, 'John 12:38', 153),
+  (32, 'Luke 23:39-43', 154),
+  -- v.33 sixth to ninth hour
+  (33, 'Matthew 27:45', 155),
+  (33, 'Luke 23:44', 156),
+  (33, 'Joel 2:31', 157),
+  -- v.34 forsaken
+  (34, 'Hebrews 13:5', 158),
+  (34, 'Lamentations 1:12', 159),
+  -- v.35 calling for Elijah
+  (35, 'Matthew 27:47', 160),
+  (35, 'Malachi 4:5', 161),
+  -- v.36 vinegar sponge
+  (36, 'John 19:28-29', 162),
+  (36, 'Matthew 27:48', 163),
+  -- v.37 great cry — gave up the ghost
+  (37, 'Hebrews 5:7', 164),
+  (37, 'Matthew 27:50', 165),
+  -- v.38 veil rent
+  (38, 'Matthew 27:51', 166),
+  (38, 'Luke 23:45', 167),
+  (38, 'Hebrews 9:8', 168),
+  (38, 'Mark 1:10', 169),
+  -- v.39 truly Son of God
+  (39, 'Matthew 27:54', 170),
+  (39, 'Luke 23:47', 171),
+  -- v.40 women watching
+  (40, 'Matthew 27:55-56', 172),
+  (40, 'John 19:25', 173),
+  (40, 'Luke 23:49', 174),
+  -- v.41 ministered to him
+  (41, 'Luke 8:1-3', 175),
+  (41, 'Mark 1:13', 176),
+  -- v.42 preparation day
+  (42, 'John 19:31', 177),
+  (42, 'John 19:42', 178),
+  (42, 'Luke 23:54', 179),
+  -- v.43 Joseph the councillor
+  (43, 'Luke 23:50-51', 180),
+  (43, 'Isaiah 53:9', 181),
+  -- v.44 marveled if already dead
+  (44, 'John 19:32-34', 182),
+  -- v.45 corpse to Joseph
+  (45, 'Mark 16:1', 183),
+  -- v.46 linen and stone tomb
+  (46, 'Luke 23:53', 184),
+  (46, 'John 19:39-42', 185),
+  -- v.47 watched where laid
+  (47, 'Matthew 27:61', 186),
+  (47, 'Luke 23:55-56', 187)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 15 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

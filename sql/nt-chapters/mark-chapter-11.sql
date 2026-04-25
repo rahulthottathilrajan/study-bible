@@ -287,3 +287,180 @@ CROSS JOIN (VALUES
 ) AS cr(verse_number, reference, ref_order)
 WHERE b.name = 'Mark' AND c.chapter_number = 11
   AND v.verse_number = cr.verse_number;
+
+-- ═══════════════════════════════════════════════════
+-- MARK CHAPTER 11 — BACKFILL (additional word_studies + cross_references)
+-- Triumphal Entry · Fig Tree (intercalation) · Cleansing the Temple · Authority Question
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'Βηθφαγή', 'Bēthphagē', 'G967', 'House of unripe figs — village on the eastern slope of the Mount of Olives. The name (from Aramaic beth-pagei) ironically anticipates the barren fig tree of vv.12-14: Jesus enters from the place of unripe figs and finds Israel''s religious tree fruitless.', 100),
+  (1, 'ὄρος τῶν ἐλαιῶν', 'oros tōn elaiōn', 'G3735/G1636', 'Mount of Olives — the hill east of Jerusalem from which Zechariah 14:4 prophesies the LORD will appear at the end of days. Jesus deliberately approaches Jerusalem from this prophetic mount, framing the Triumphal Entry as a fulfilment of eschatological hope.', 101),
+  (2, 'πῶλος', 'pōlos', 'G4454', 'A young donkey/colt — the very animal of Zechariah 9:9 (LXX pōlon onou). Mark and Luke (unlike Matthew) emphasize the unridden status, satisfying the requirement that animals dedicated to sacred service must never have borne yoke or rider (Numbers 19:2; 1 Samuel 6:7).', 102),
+  (2, 'δεδεμένον', 'dedemenon', 'G1210', 'Bound, tied — perfect passive participle of deō. The colt is bound until the Lord''s command frees it (lysate, ''loose him''). The pattern echoes the binding/loosing language of authority (Matthew 16:19): the King releases what was bound by the King''s claim.', 103),
+  (3, 'κύριος', 'kyrios', 'G2962', 'Lord, master, owner — used in the LXX to translate YHWH. The title here (ho kyrios) carries deliberate ambiguity: the disciples speak of Jesus as Master, but Mark''s readers hear the Lord of all. The colt''s owner releases the animal at his Lord''s claim — sovereignty acknowledged.', 104),
+  (7, 'ἐπιβάλλουσιν', 'epiballousin', 'G1911', 'They threw upon, cast over — historical present, vivid eyewitness narration. The disciples'' instinctive royal gesture (cf. 2 Kings 9:13, where Jehu''s officers spread garments at his coronation) treats the colt as a throne and Jesus as Israel''s rightful king.', 105),
+  (7, 'ἱμάτια', 'himatia', 'G2440', 'Outer cloaks, garments — the costliest item of common dress. Throwing one''s himation on the road or under a king was a public homage (2 Kings 9:13). The crowd''s improvised carpet of cloaks transforms the country road into a coronation procession.', 106),
+  (8, 'στιβάδας', 'stibadas', 'G4746', 'Leafy branches, cut foliage — Mark''s rare word (NT hapax). John 12:13 specifies palm branches, symbol of Maccabean victory celebrations and nationalistic messianic hope (1 Maccabees 13:51). The crowd''s palm-branches turn the moment into a freedom-fighter''s welcome — they expect a political deliverer.', 107),
+  (9, 'εὐλογημένος', 'eulogēmenos', 'G2127', 'Blessed, praised — perfect passive participle of eulogeō (literally well-spoken-of). Quoting Psalm 118:26, the crowd applies a Hallel acclamation traditionally used for pilgrims arriving at the temple, but here transferred personally to Jesus: he himself is the Blessed One, the climactic Pilgrim.', 108),
+  (9, 'ὁ ἐρχόμενος', 'ho erchomenos', 'G2064', 'The Coming One — recognized messianic title (Matthew 11:3; Luke 7:19; John 11:27; Hebrews 10:37). The crowd applies a fixed eschatological designation to Jesus, hailing him as the long-promised Davidic deliverer ''who comes in the name of the LORD.''', 109),
+  (10, 'βασιλεία τοῦ πατρὸς ἡμῶν Δαυίδ', 'basileia tou patros hēmōn Dauid', 'G932/G3962/G1138', 'Kingdom of our father David — the central hope of post-exilic Judaism (2 Samuel 7:12-16; Isaiah 9:6-7; Amos 9:11; Jeremiah 23:5). The crowd expects political restoration; Mark''s reader sees a King who reigns through the cross before returning in glory.', 110),
+  (10, 'ἐν τοῖς ὑψίστοις', 'en tois hypsistois', 'G5310', 'In the highest places — superlative of hypsos (height). ''Hosanna in the highest'' invokes praise to be heard in the highest heavens, where God dwells. The crowd''s shout echoes the angels'' nativity gloria (Luke 2:14) — heaven-and-earth acclamation of the King.', 111),
+  (11, 'περιβλεψάμενος', 'periblepsamenos', 'G4017', 'Looked around, surveyed — aorist middle participle of periblepō. Mark''s signature verb for the searching, evaluative gaze of Jesus (3:5, 3:34, 5:32, 10:23). Jesus inspects the temple before acting — Mark uniquely places the reconnaissance on Sunday evening, the cleansing on Monday. Judgment is deliberate, not impulsive.', 112),
+  (11, 'ἱερόν', 'hieron', 'G2411', 'Temple precincts — the entire complex (in distinction from naos, the inner sanctuary). The Court of the Gentiles, where money-changers and dove-sellers operated, was the outermost area; this is where Jesus confronts them tomorrow morning. He inspects the whole hieron tonight before acting.', 113),
+  (12, 'ἐπαύριον', 'epaurion', 'G1887', 'On the next day, on the morrow — Monday of Passion Week. Mark gives the only synoptic chronology with day-by-day precision in this week, dividing Sunday (entry), Monday (cursing + cleansing), Tuesday (withered tree + controversies), and so on.', 114),
+  (13, 'φύλλα', 'phylla', 'G5444', 'Leaves — the fig tree''s deceptive promise. Fig trees normally bear early fruit (paggim) at the same time as leaves; a leafy fig should have at least the first crop. The presence of leaves but absence of fruit makes the tree a sign of Israel''s religious establishment: outward show, inward barrenness.', 115),
+  (13, 'ὁ καιρὸς σύκων', 'ho kairos sykōn', 'G2540/G4810', 'The season of figs — kairos here is appointed time, set season. Mark''s explicit note ''for the time of figs was not yet'' has puzzled readers; the point is theological, not horticultural. Jesus enacts judgment on a tree (and, allegorically, a nation) that displays the leaves of religion but lacks the early fruit that should accompany them.', 116),
+  (14, 'μηκέτι', 'mēketi', 'G3371', 'No longer, no more — strong negation with prohibitive force. Combined with ''eis ton aiōna'' (forever), Jesus pronounces an irrevocable curse: never again shall fruit be eaten from this tree. The verdict is final.', 117),
+  (14, 'εἰς τὸν αἰῶνα', 'eis ton aiōna', 'G1519/G165', 'Forever, into the age — Hebraistic idiom (le-olam). The fig tree''s curse is permanent. Read against vv.20-21, the withered roots show the totality of the judgment: not merely barren but dead at the root — a portent for the temple system Jesus is about to confront.', 118),
+  (15, 'ἐκβάλλειν', 'ekballein', 'G1544', 'To cast out, drive out — the same verb used of casting out demons (1:34, 39). Jesus drives merchants from the temple as he expels unclean spirits: the temple has become a domain of unclean trade, requiring an exorcism of commerce.', 119),
+  (15, 'τραπέζας', 'trapezas', 'G5132', 'Tables — the bankers'' counters where money-changers exchanged Greek and Roman coins (with their pagan images) for Tyrian shekels acceptable for the half-shekel temple tax. The system was riddled with surcharges. Jesus overturns the tables (katestrepsen), upending the entire temple economy.', 120),
+  (15, 'καθέδρας τῶν περιστερῶν', 'kathedras tōn peristerōn', 'G2515/G4058', 'Seats of the dove-sellers — peristerai were the offering of the poor (Leviticus 5:7; 12:8). Inflated prices in the temple court exploited the poorest worshippers; Jesus targets specifically the abuse of the disadvantaged. The kathedra (judgment-seat/stall) is dethroned.', 121),
+  (16, 'σκεῦος', 'skeuos', 'G4632', 'Vessel, utensil, merchandise — Mark uniquely records that Jesus stopped people carrying any vessel through the temple, treating the temple courts as a public shortcut for merchant traffic. He restores the boundary between sacred space and the marketplace (cf. Zechariah 14:21).', 122),
+  (17, 'οἶκος προσευχῆς πᾶσιν τοῖς ἔθνεσιν', 'oikos proseuchēs pasin tois ethnesin', 'G3624/G4335/G1484', 'House of prayer for all the nations — citing Isaiah 56:7. Mark uniquely preserves the full phrase ''for all the nations,'' restoring the eschatological vision of the temple as Gentile-inclusive worship space. The Court of the Gentiles, currently a livestock market, was meant to be where the nations met YHWH.', 123),
+  (17, 'σπήλαιον λῃστῶν', 'spēlaion lēstōn', 'G4693/G3027', 'Den of robbers — citing Jeremiah 7:11. Jeremiah''s context is judgment on a temple whose worshippers commit sin and hide in the temple as in a robber''s cave between raids. Jesus'' citation places the present establishment under the same Jeremianic condemnation that preceded the Babylonian destruction.', 124),
+  (18, 'ἐκπλήσσομαι', 'ekplēssomai', 'G1605', 'Astonished, struck out of one''s senses — the crowd''s reaction to Jesus'' teaching (1:22; 6:2; 7:37). Mark ironically notes that the crowd''s amazement is precisely what fuels the leaders'' fear and resolve to destroy him: popular acclaim makes Jesus more dangerous, not safer.', 125),
+  (18, 'ἀπολλύω', 'apollyō', 'G622', 'To destroy, kill, ruin — the chief priests'' plot crystallizes (cf. 3:6). Mark uses this verb of Jesus'' enemies'' active intent to kill him; the cross is not an accident but the deliberate target of Jewish leadership from this moment forward.', 126),
+  (20, 'ἐξηραμμένη ἐκ ῥιζῶν', 'exērammenē ek rhizōn', 'G3583/G4491', 'Withered from the roots — perfect passive participle of xērainō. The destruction is total: no possibility of regrowth. Parallels Job 18:16 (the wicked''s roots dry up beneath) and contrasts with the messianic ''Root of David'' (Revelation 5:5; 22:16) as the new and true source of fruit.', 127),
+  (21, 'καταράομαι', 'kataraomai', 'G2672', 'To curse, invoke evil upon — Peter recognizes Jesus'' word as a formal curse (katēramenē, perfect passive participle: it has been cursed and remains so). The fig-tree incident is rare Marcan material that places Jesus in the prophetic line of Jeremiah and Hosea, who used acted parables of judgment.', 128),
+  (22, 'ἔχετε πίστιν θεοῦ', 'echete pistin theou', 'G2192/G4102/G2316', 'Have faith in God — literally ''have faith of God,'' an objective genitive. Jesus connects the withered fig tree to a teaching on prayer-and-faith: judgment on barren religion is paired with the promise of fruitful faith for those who trust God.', 129),
+  (23, 'ὄρος ... θάλασσα', 'oros ... thalassa', 'G3735/G2281', 'Mountain ... sea — likely a deliberate gesture toward the temple mount (visible from Bethany) being cast into the Mediterranean: faith can move even the mountain of corrupt religion. Hyperbolic image of the impossible-yet-possible by faith (cf. Job 9:5; Zechariah 4:7).', 130),
+  (24, 'ἐλάβετε', 'elabete', 'G2983', 'You have received — aorist of lambanō; manuscript variants show present, future, and aorist forms. The aorist (preferred Alexandrian reading) presents prayer as already-answered confidence: the believer prays in the assurance that what God has decided, he has already in heaven granted.', 131),
+  (25, 'στήκετε προσευχόμενοι', 'stēkete proseuchomenoi', 'G4739/G4336', 'When you stand praying — standing was the normal Jewish prayer posture (1 Samuel 1:26; Matthew 6:5; Luke 18:11). Jesus does not impose a posture but assumes the customary one and adds an inward requirement: forgiveness must accompany prayer, or no posture will avail.', 132),
+  (25, 'παράπτωμα', 'paraptōma', 'G3900', 'Trespass, false step, lapse — from para-piptō (to fall aside). Distinct from hamartia (sin) in nuance: paraptōma is a slip rather than a willful violation, but no less in need of forgiveness. The teaching presupposes that praying disciples will continually have lapses to forgive.', 133),
+  (25, 'ὁ πατὴρ ὑμῶν ὁ ἐν τοῖς οὐρανοῖς', 'ho patēr hymōn ho en tois ouranois', 'G3962/G3772', 'Your Father in the heavens — Mark''s rare use of Father-language (cf. 8:38; 13:32; 14:36). The closest Marcan echo of the Sermon on the Mount''s ''our Father.'' Forgiveness is grounded in family relationship: the Father will forgive his children as they forgive each other.', 134),
+  (27, 'ἀρχιερεῖς ... γραμματεῖς ... πρεσβύτεροι', 'archiereis ... grammateis ... presbyteroi', 'G749/G1122/G4245', 'Chief priests, scribes, and elders — Mark''s standard formula for the full Sanhedrin (8:31; 14:43, 53; 15:1). The triad represents the institutional power Jesus has just provoked by overturning their commercial operation in the temple courts. The official body that will condemn him.', 135),
+  (28, 'ποίᾳ ἐξουσίᾳ', 'poia exousia', 'G4169/G1849', 'By what kind of authority — the indefinite poia presses for source. Jesus has not been ordained as a Pharisaic rabbi, has not been authorised by the Sanhedrin, and has not received priestly office; yet he has cleansed the temple. The leaders demand his credentials.', 136),
+  (28, 'ταῦτα ποιεῖς', 'tauta poieis', 'G3778/G4160', 'These things you do — the demonstrative gathers up the cleansing, the colt-procession, and the messianic acclamations into one bundle: ''by what authority are you doing all this?'' The plural deeds together amount to a public claim of messianic authority.', 137),
+  (29, 'ἐπερωτήσω', 'eperōtēsō', 'G1905', 'I will ask, question, interrogate — future of eperōtaō. Jesus turns the interrogation back on them: rabbinic counter-questioning was a standard halakhic technique. Refusal to answer the counter-question forfeits the right to a direct answer.', 138),
+  (30, 'ἐξ οὐρανοῦ ἢ ἐξ ἀνθρώπων', 'ex ouranou ē ex anthrōpōn', 'G3772/G444', 'From heaven or from men — heaven (ouranos) is a Jewish circumlocution for God (cf. ''kingdom of heaven''). The question forces a binary verdict on John''s prophetic ministry — and, by extension, on Jesus, who was baptised by John and pointed to as the Messiah at the Jordan.', 139),
+  (31, 'διελογίζοντο πρὸς ἑαυτούς', 'dielogizonto pros heautous', 'G1260', 'They reasoned among themselves — Mark''s recurring verb for the calculating self-interest of Jesus'' opponents (2:6, 8; 8:16-17; 9:33). They do not weigh truth but tactics: which answer will harm us least?', 140),
+  (31, 'οὐκ ἐπιστεύσατε αὐτῷ', 'ouk episteusate autō', 'G3756/G4100', 'You did not believe him — they have not believed John, hence they cannot affirm his divine origin without self-condemnation. Their unbelief is now exposed by their own logic.', 141),
+  (32, 'ἐφοβοῦντο τὸν λαόν', 'ephobounto ton laon', 'G5399/G2992', 'They feared the people — but not the fear of God; the fear of crowds. Mark contrasts this with Jesus, whose authority is heaven-grounded and crowd-independent. The Sanhedrin''s political fear is calibrated by popular theology, not by truth.', 142),
+  (32, 'ὄντως', 'ontōs', 'G3689', 'Truly, really — used here of the people''s firm conviction that John was ''truly a prophet'' (ontōs hoti prophētēs ēn). The popular acclaim of John as a prophet is what locks the Sanhedrin into silence: to deny his prophethood publicly would mean riot.', 143),
+  (33, 'οὐκ οἴδαμεν', 'ouk oidamen', 'G3756/G1492', 'We do not know — perfect of oida used as present. The cynical refusal to commit; not honest agnosticism but calculated evasion. Their ''we do not know'' forfeits the right to teach Israel: the official guardians of revelation publicly disclaim the ability to discern God''s prophet.', 144),
+  (33, 'οὐδὲ ἐγὼ λέγω ὑμῖν', 'oude egō legō hymin', 'G3761/G1473/G3004', 'Neither do I tell you — Jesus refuses the answer they have forfeited the right to receive. Authority from heaven is not granted to those who refuse to recognise it when it appears in plain sight (John''s baptism and Jesus'' temple-cleansing are of one piece).', 145),
+  (4, 'ἄμφοδος', 'amphodos', 'G296', 'A road that runs around something, crossroads, alleyway — Mark''s eyewitness detail; the colt is tied at a junction of streets, an everyday Jerusalem-village topographical note. Confirms the precision of Jesus'' prediction: the disciples find what he said where he said it.', 146),
+  (15, 'ἤρξατο ἐκβάλλειν', 'ērxato ekballein', 'G756/G1544', 'He began to cast out — ingressive aorist + present infinitive. The construction signals deliberate, sustained action; Jesus did not lash out impulsively but began a programmatic clearing of the temple. The Court of the Gentiles is being reclaimed for prayer.', 147),
+  (17, 'πεποιήκατε', 'pepoiēkate', 'G4160', 'You have made — perfect tense; the indictment is for an enduring corruption, not a passing infraction. Hearers are responsible for what they have made of God''s house and what it now is.', 148),
+  (24, 'πάντα ὅσα', 'panta hosa', 'G3956/G3745', 'All things whatsoever — universal scope, but contextually qualified by the surrounding teaching: prayer that asks in faith, in forgiveness, and in alignment with God''s will. Not a blank cheque, but a full assurance for prayer that meets the conditions Jesus has just laid down.', 149)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 11 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  -- v.1 approach to Jerusalem
+  (1, 'Luke 19:28-29', 100),
+  (1, 'Matthew 21:1-11', 101),
+  (1, 'John 12:12-19', 102),
+  -- v.2 unridden colt
+  (2, 'Genesis 49:10-11', 103),
+  (2, '1 Samuel 6:7', 104),
+  (2, 'Deuteronomy 21:3', 105),
+  -- v.3 the Lord has need
+  (3, 'John 13:13', 106),
+  (3, 'Psalm 24:1', 107),
+  -- v.7 enthronement on the colt
+  (7, '1 Kings 1:33-40', 108),
+  (7, 'Matthew 21:7', 109),
+  -- v.8 spreading branches
+  (8, 'Leviticus 23:40', 110),
+  (8, 'Revelation 7:9-10', 111),
+  (8, '1 Maccabees 13:51', 112),
+  -- v.9 Hosanna acclamation
+  (9, 'Psalm 118:25', 113),
+  (9, 'Luke 19:37-38', 114),
+  (9, 'Matthew 21:9-11', 115),
+  -- v.10 Davidic kingdom
+  (10, 'Luke 1:32-33', 116),
+  (10, 'Acts 2:30', 117),
+  (10, 'Revelation 22:16', 118),
+  (10, 'Jeremiah 23:5-6', 119),
+  -- v.11 inspection of the temple
+  (11, 'Malachi 3:1-3', 120),
+  (11, 'Ezekiel 10:18-19', 121),
+  (11, 'Luke 19:41-44', 122),
+  -- v.12 Monday morning
+  (12, 'Matthew 21:18', 123),
+  -- v.13 fig tree without fruit
+  (13, 'Matthew 21:19', 124),
+  (13, 'Habakkuk 3:17', 125),
+  (13, 'Joel 1:7-12', 126),
+  -- v.14 the curse
+  (14, 'Isaiah 5:1-7', 127),
+  (14, 'Luke 13:6-9', 128),
+  -- v.15 cleansing the temple
+  (15, 'Luke 19:45-46', 129),
+  (15, 'Matthew 21:12', 130),
+  (15, 'Deuteronomy 14:24-26', 131),
+  -- v.16 no carrying through the temple
+  (16, 'Zechariah 14:20-21', 132),
+  -- v.17 house of prayer
+  (17, 'Luke 19:46', 133),
+  (17, 'Matthew 21:13', 134),
+  (17, '1 Kings 8:41-43', 135),
+  (17, 'Isaiah 60:7', 136),
+  -- v.18 plot to destroy
+  (18, 'Mark 3:6', 137),
+  (18, 'Mark 14:1-2', 138),
+  (18, 'Luke 19:47-48', 139),
+  (18, 'John 7:32', 140),
+  -- v.19 evening retreat
+  (19, 'Luke 21:37-38', 141),
+  -- v.20 withered fig tree
+  (20, 'Matthew 21:20', 142),
+  (20, 'Job 18:16', 143),
+  -- v.21 Peter remembers
+  (21, 'Mark 11:14', 144),
+  (21, 'Hosea 9:16', 145),
+  -- v.22 faith in God
+  (22, 'Luke 17:5-6', 146),
+  (22, 'James 1:6-8', 147),
+  (22, 'Romans 4:20-21', 148),
+  -- v.23 mountain into the sea
+  (23, 'Zechariah 4:7', 149),
+  (23, 'Job 9:5', 150),
+  (23, 'Matthew 21:21-22', 151),
+  -- v.24 ask believing receive
+  (24, '1 John 3:22', 152),
+  (24, 'James 4:2-3', 153),
+  (24, 'Mark 9:23', 154),
+  -- v.25 forgive when you pray
+  (25, 'Luke 11:4', 155),
+  (25, 'Matthew 5:23-24', 156),
+  (25, 'Matthew 6:9-12', 157),
+  -- v.27 in the temple
+  (27, 'Matthew 21:23-27', 158),
+  (27, 'Luke 20:1-8', 159),
+  -- v.28 by what authority
+  (28, 'John 2:18-22', 160),
+  (28, 'Acts 4:7', 161),
+  (28, 'Acts 7:27', 162),
+  -- v.29 counter-question
+  (29, 'Matthew 21:24', 163),
+  (29, 'Luke 20:3-4', 164),
+  -- v.30 baptism of John
+  (30, 'Matthew 3:1-6', 165),
+  (30, 'John 1:6-8', 166),
+  (30, 'John 1:33', 167),
+  -- v.31 reasoning together
+  (31, 'Mark 1:9-11', 168),
+  (31, 'Matthew 21:25', 169),
+  -- v.32 fearing the people
+  (32, 'Mark 6:20', 170),
+  (32, 'Matthew 14:5', 171),
+  (32, 'Luke 7:24-30', 172),
+  -- v.33 we cannot tell
+  (33, 'Matthew 21:27', 173),
+  (33, 'Luke 20:7-8', 174)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 11 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

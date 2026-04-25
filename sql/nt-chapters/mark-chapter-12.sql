@@ -347,3 +347,215 @@ CROSS JOIN (VALUES
 ) AS cr(verse_number, reference, ref_order)
 WHERE b.name = 'Mark' AND c.chapter_number = 12
   AND v.verse_number = cr.verse_number;
+
+-- ═══════════════════════════════════════════════════
+-- MARK CHAPTER 12 — BACKFILL (additional word_studies + cross_references)
+-- Wicked Vinedressers · Caesar''s Coin · Resurrection · Greatest Commandment · David''s Lord · Widow''s Mites
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'πύργος', 'pyrgos', 'G4444', 'Tower — watchtower built into vineyards (cf. Isaiah 5:2 LXX). The detailed setting of the parable echoes Isaiah''s Vineyard Song almost verbatim, signaling that Israel itself is the vineyard and the religious leaders are the wicked tenants.', 100),
+  (1, 'ληνός', 'lēnos', 'G3025', 'Winepress / wine-vat — the lower trough that received juice trodden in the upper press; with hedge, tower, and winepress, the parable replicates Isaiah 5:2 LXX point by point. The audience would have heard the allusion immediately.', 101),
+  (1, 'φραγμός', 'phragmos', 'G5418', 'Hedge, fence — protective boundary around the vineyard. In Psalm 80:12 and Isaiah 5:5, the breaching of the hedge symbolizes God''s withdrawal of protection from Israel; here, the hedge is built, then the vineyard is leased.', 102),
+  (2, 'καρπός τοῦ ἀμπελῶνος', 'karpos tou ampelōnos', 'G2590/G290', 'Fruit of the vineyard — the owner''s legitimate share of the harvest (lease arrangements were common in 1st-c Galilee/Judea). The fruit owed to God is righteousness and faithful covenant living (cf. Isaiah 5:4-7).', 103),
+  (4, 'ἐκεφαλίωσαν', 'ekephaliōsan', 'G2775', 'They wounded in the head — rare verb, NT hapax. Mark''s vivid escalation: not merely beaten but specifically struck on the head, an insult-injury combination. The escalating violence corresponds to Israel''s historic mistreatment of the prophets.', 104),
+  (5, 'ἀπέκτειναν ... καὶ πολλοὺς ἄλλους', 'apekteinan ... kai pollous allous', 'G615/G4183/G243', 'They killed ... and many others — climax of the prophetic-mistreatment pattern (Jeremiah 7:25-26; 25:4; 2 Chronicles 36:15-16). The killing of the prophets is the pattern of covenant unfaithfulness; the killing of the Son will not be aberration but completion.', 105),
+  (6, 'υἱὸν ἀγαπητόν', 'huion agapēton', 'G5207/G27', 'A beloved Son — agapētos, the same word at Jesus'' baptism (1:11) and Transfiguration (9:7). Mark uses the parable to echo the Father''s declarations: this is Mark''s clearest narrative claim that Jesus is the Father''s beloved Son.', 106),
+  (7, 'κληρονόμος', 'klēronomos', 'G2818', 'Heir — formal legal term. The tenants reason that killing the heir will give them his inheritance — but their logic is morally and legally absurd: murder cannot transfer property. The point is exposing the leaders'' criminal intent toward Jesus.', 107),
+  (7, 'κληρονομία', 'klēronomia', 'G2817', 'Inheritance — ironic Hebraic resonance: Israel was God''s nahalah (Deuteronomy 4:20). The tenants seek to seize what was always God''s own; the religious leaders, refusing the Son, attempt to steal what is the Son''s rightful inheritance.', 108),
+  (7, 'πρὸς ἑαυτούς', 'pros heautous', 'G4314/G1438', 'To themselves / among themselves — the tenants conspire privately, but readers (and God) overhear. The parable transposes this into the historical setting of the Sanhedrin''s plot: hostile huddles becoming public crucifixion.', 109),
+  (9, 'τί ποιήσει ὁ κύριος τοῦ ἀμπελῶνος', 'ti poiēsei ho kyrios tou ampelōnos', 'G5101/G4160/G2962', 'What will the Lord of the vineyard do? — rhetorical question; the answer (he will destroy them and give the vineyard to others) is a transfer of covenantal stewardship from the present leaders to a new community (cf. Matthew 21:43; Acts 13:46).', 110),
+  (10, 'ἀπεδοκίμασαν', 'apedokimasan', 'G593', 'Rejected after testing — apo + dokimazō (to test, examine). The builders inspected the stone and rejected it after evaluation. The very testing process by the religious establishment becomes, in God''s providence, the means by which the cornerstone is identified.', 111),
+  (11, 'θαυμαστή', 'thaumastē', 'G2298', 'Marvelous, wonderful — the LORD''s reversal of the rejected stone is a divine wonder; the religious leaders'' rejection of Jesus, far from defeating God''s plan, executes it. Psalm 118:23 invites the believer to marvel at God''s vindication of the despised one.', 112),
+  (13, 'Ἡρῳδιανούς', 'Hērōdianous', 'G2265', 'Herodians — partisans of the Herodian dynasty, presumably aligned with Rome. An unholy alliance with Pharisees (their natural rivals) shows how the question of Caesar''s tribute is calibrated to be fatal whichever way Jesus answers.', 113),
+  (13, 'ἀγρεύσωσιν λόγῳ', 'agreusōsin logō', 'G64/G3056', 'They might catch him in a word — agreuō: to ensnare, hunt (NT hapax). The questioners are not seeking truth but a verbal trap. Mark uses hunting language to expose the predatory motive: this is a setup, not a sincere inquiry.', 114),
+  (14, 'ἀληθὴς εἶ ... οὐ μέλει σοι περὶ οὐδενός', 'alēthēs ei ... ou melei soi peri oudenos', 'G227/G3199/G3762', 'You are true ... you care for no one (i.e. for no man''s status) — flattering preface, ironically accurate. Mark exposes the trap by letting questioners speak truer than they realise: Jesus is impartial, fearless, teaching God''s way.', 115),
+  (14, 'κῆνσος', 'kēnsos', 'G2778', 'Tribute, census-tax — Latin loan-word (census), the head-tax imposed on Judea after AD 6. Bitterly resented; non-payment had triggered Judas the Galilean''s revolt. ''Yes, pay'' offends nationalists; ''No, refuse'' is treason against Rome — both answers lethal.', 116),
+  (15, 'εἰδὼς αὐτῶν τὴν ὑπόκρισιν', 'eidōs autōn tēn hypokrisin', 'G1492/G5272', 'Knowing their hypocrisy — perfect oida + accusative. Jesus penetrates the surface flattery and reads the strategic intent. Mark frequently presents Jesus as the discerner of hearts (cf. 2:8; 8:17), an attribute reserved in OT theology for God alone.', 117),
+  (15, 'δηνάριον', 'dēnarion', 'G1220', 'Denarius — Roman silver coin worth a day''s wages. The current denarius bore Tiberius''s image and the inscription ''TI[BERIUS] CAESAR DIVI AUG[USTI] F[ILIUS] AUGUSTUS'' (son of the divine Augustus); both image and titulature were deeply offensive to pious Jews under the Second Commandment.', 118),
+  (16, 'εἰκὼν καὶ ἐπιγραφή', 'eikōn kai epigraphē', 'G1504/G1923', 'Image and inscription — both terms charged with Genesis 1:26-27 (humans bear God''s eikōn). Jesus'' question implies: Caesar''s image marks the coin as Caesar''s; God''s image marks humans as God''s. Render the coin to Caesar; render yourself to God.', 119),
+  (17, 'τὰ Καίσαρος ... τὰ τοῦ θεοῦ', 'ta Kaisaros ... ta tou theou', 'G2541/G2316', 'The things of Caesar ... the things of God — paired command. The state has limited claims (financial, civic); God has unlimited claims (the whole person, made in his image). Jesus does not divide loyalties equally but subordinates Caesar to God.', 120),
+  (18, 'Σαδδουκαῖοι', 'Saddoukaioi', 'G4523', 'Sadducees — priestly aristocracy, accepting only the Pentateuch as binding scripture and rejecting bodily resurrection, angels, and spirits (Acts 23:8). Their hypothetical question is designed to ridicule the resurrection by reductio ad absurdum.', 121),
+  (19, 'ἐξαναστήσῃ σπέρμα', 'exanastēsē sperma', 'G1817/G4690', 'Raise up seed (offspring) — the levirate purpose (Deuteronomy 25:5-10): preserve a deceased brother''s name and inheritance line in Israel. The Sadducees use a Torah passage they accept to attack a doctrine (resurrection) they reject.', 122),
+  (23, 'ἀνάστασις', 'anastasis', 'G386', 'Resurrection — literally a standing-up. The Sadducees deny anastasis (Acts 23:8); Jesus affirms it from Exodus 3:6: ''God of Abraham/Isaac/Jacob'' implies the patriarchs are alive to him, hence will be raised. Exegesis from Torah only — meeting the Sadducees on their own canonical ground.', 123),
+  (24, 'πλανᾶσθε', 'planasthe', 'G4105', 'You are deceived/in error — present passive of planaō (to lead astray, cause to wander). Jesus diagnoses two roots of error: ignorance of scripture (mē eidotes tas graphas) and ignorance of God''s power (mēde tēn dynamin tou theou). Both are scholarly indictments of the supposedly learned.', 124),
+  (25, 'γαμίζονται', 'gamizontai', 'G1061', 'They are given in marriage — distinct from gamousin (they marry); the passive form may signal that resurrection life transcends earthly sexual covenanting altogether. Resurrection life is not no-life but new-life modeled on angelic existence (hōs angeloi en tois ouranois).', 125),
+  (26, 'ἐν τῇ βίβλῳ Μωϋσέως', 'en tē biblō Mōuseōs', 'G976/G3475', 'In the book of Moses — Jesus deliberately argues from the Pentateuch (the only scripture the Sadducees acknowledged as fully binding). His proof from Exodus 3:6 meets them on their own ground; rejection of Prophets and Writings cannot escape this Torah-only argument.', 126),
+  (26, 'ὁ θεὸς Ἀβραὰμ καὶ θεὸς Ἰσαὰκ καὶ θεὸς Ἰακώβ', 'ho theos Abraam kai theos Isaak kai theos Iakōb', 'G11/G2464/G2384', 'The God of Abraham, of Isaac, of Jacob — Exodus 3:6 LXX. The implicit present tense ''I am'' (egō eimi LXX) implies the patriarchs still belong to God; the dead-and-buried cannot be God''s present possession unless they will be raised.', 127),
+  (27, 'ζώντων', 'zōntōn', 'G2198', 'Of the living — God is not the God of the dead but of the living. The patriarchs, though physically dead, are alive to God; the doctrine of resurrection is implicit in covenant language. Jesus adds ''ye therefore do greatly err'' (poly planasthe).', 128),
+  (28, 'ἐντολὴ πρώτη πάντων', 'entolē prōtē pantōn', 'G1785/G4413/G3956', 'The first commandment of all — the scribe asks for the priority among the 613 mitzvot. Rabbinic tradition debated this; Jesus answers with the Shema (Deuteronomy 6:4-5) coupled with Leviticus 19:18, treating love of God and love of neighbor as inseparable.', 129),
+  (29, 'ἄκουε, Ἰσραήλ', 'akoue, Israēl', 'G191/G2474', 'Hear, O Israel — opening of the Shema (Deuteronomy 6:4), the foundational Jewish creed recited daily morning and evening. Mark uniquely (among synoptics) cites the Shema in full, including ''the Lord our God is one Lord'' — a striking christological setting.', 130),
+  (30, 'ἐξ ὅλης τῆς καρδίας ... ψυχῆς ... διανοίας ... ἰσχύος', 'ex holēs tēs kardias ... psychēs ... dianoias ... ischyos', 'G2588/G5590/G1271/G2479', 'Heart, soul, mind, strength — Mark''s expansion of LXX Deut 6:5 (heart, soul, strength). Adding dianoia (mind) gives a fourfold totality: emotion, life, intellect, energy. Total devotion engages every faculty.', 131),
+  (31, 'πλησίον', 'plēsion', 'G4139', 'Neighbor — Leviticus 19:18 (''love your neighbor as yourself''). Jesus pairs this with the Shema, making love of others inseparable from love of God. The two commands together summarize the whole Torah (Romans 13:9-10; Galatians 5:14).', 132),
+  (31, 'οὐκ ἔστιν ἄλλη ἐντολὴ μείζων', 'ouk estin allē entolē meizōn', 'G3756/G243/G3187', 'No other commandment is greater — Jesus declares no commandment exceeds these two. The whole Law and Prophets hang on love of God and love of neighbor; ritual, sabbath, dietary, sacrificial laws all serve these.', 133),
+  (32, 'καλῶς ... ἐπ᾽ ἀληθείας', 'kalōs ... ep alētheias', 'G2573/G225', 'Rightly ... in truth — the scribe affirms Jesus'' answer with rabbinic agreement-language. He goes further (v.33), comparing love of God and neighbor to all sacrifices: a dramatic prophetic concession from a member of the establishment.', 134),
+  (33, 'ὁλοκαυτωμάτων καὶ θυσιῶν', 'holokautōmatōn kai thysiōn', 'G3646/G2378', 'Whole burnt-offerings and sacrifices — the most costly cultic offerings. The scribe places love above sacrifice (echoing 1 Samuel 15:22; Hosea 6:6; Micah 6:6-8). A startling prophetic turn from a temple official: the man closest to the cult declares the cult inferior to love.', 135),
+  (34, 'οὐ μακρὰν ... ἀπὸ τῆς βασιλείας', 'ou makran ... apo tēs basileias', 'G3756/G3112/G932', 'Not far from the kingdom — Jesus'' qualified commendation: the scribe is close, but proximity is not entry. The chapter''s only sympathetic scribe; the reader is left to wonder whether he crossed the threshold.', 136),
+  (34, 'οὐδεὶς οὐκέτι ἐτόλμα', 'oudeis ouketi etolma', 'G3762/G3765/G5111', 'No one any longer dared — perfect of tolmaō (to dare). Mark''s programmatic summary: the round of opposition-questions (vv.13-34) ends with all hostile parties silenced. Jesus has out-thought every faction.', 137),
+  (35, 'πῶς λέγουσιν', 'pōs legousin', 'G4459/G3004', 'How do they say — Jesus initiates a counter-interrogation. Having silenced opposition, he poses the messianic puzzle: Psalm 110:1 has David call the Messiah ''my Lord,'' yet rabbinic tradition holds the Messiah is David''s son. How can the Messiah be both son and Lord of David?', 138),
+  (36, 'ἐν τῷ πνεύματι τῷ ἁγίῳ', 'en tō pneumati tō hagiō', 'G1722/G4151/G40', 'In the Holy Spirit — Mark''s explicit attribution of David''s authorship of Psalm 110 to inspiration. The argument depends on accepting the psalm as divinely inspired prophecy: only then does ''the LORD said to my Lord'' become a christological argument.', 139),
+  (36, 'ὑποπόδιον τῶν ποδῶν σου', 'hypopodion tōn podōn sou', 'G5286', 'Footstool of your feet — Psalm 110:1 LXX. Royal-victory imagery: the conquered enemy placed under the conqueror''s feet (cf. Joshua 10:24). The Messiah waits at God''s right hand until cosmic enthronement is complete (Hebrews 10:13).', 140),
+  (37, 'ὁ πολὺς ὄχλος ἤκουεν αὐτοῦ ἡδέως', 'ho polys ochlos ēkouen autou hēdeōs', 'G3793/G2234', 'The great crowd heard him gladly — imperfect tense, sustained delight. While the leadership plots, the people listen with pleasure. The contrast frames the Passion narrative: the crowd''s ''Hosanna'' has not yet turned to ''Crucify.''', 141),
+  (38, 'βλέπετε ἀπό', 'blepete apo', 'G991/G575', 'Beware of — imperative + apo = beware (and keep away from). Jesus warns the crowd not merely to see the scribes'' hypocrisy but to keep distance from their pattern. The crowd''s temptation is to admire what they should avoid.', 142),
+  (38, 'ἐν στολαῖς περιπατεῖν', 'en stolais peripatein', 'G4749/G4043', 'To walk about in long robes — stolē, the long ankle-length robe of the scholar/dignitary. Jesus rebukes the love of conspicuous status: walking, not laboring; long robes, not work clothes; visibility, not service.', 143),
+  (38, 'ἀσπασμοὺς ἐν ταῖς ἀγοραῖς', 'aspasmous en tais agorais', 'G783/G58', 'Greetings in the marketplaces — public hailings ''Rabbi'' or ''my master'' from passersby. The scribes love this status-recognition. Jesus condemns the pursuit of public deference as antithetical to true greatness (cf. 9:35; 10:43-44).', 144),
+  (39, 'πρωτοκαθεδρίας ... πρωτοκλισίας', 'prōtokathedrias ... prōtoklisias', 'G4410/G4411', 'Chief seats ... chief places — the bench in front of the synagogue facing the congregation (reserved for honored teachers); the most honored couches at banquets (closest to the host). Both expressions of social rank-seeking. Jesus indicts the pursuit of such honor.', 145),
+  (40, 'οἱ κατεσθίοντες τὰς οἰκίας τῶν χηρῶν', 'hoi katesthiontes tas oikias tōn chērōn', 'G2719/G3614/G5503', 'They who devour the houses of widows — kat-esthiō (eat down). Likely refers to scribes mismanaging widows'' estates as legal trustees, or accepting payment for prayer-services from the destitute. Whatever the mechanism, exploitation of vulnerable women under religious cover.', 146),
+  (40, 'προφάσει μακρὰ προσευχόμενοι', 'prophasei makra proseuchomenoi', 'G4392/G3117/G4336', 'For a pretext, making long prayers — prophasis = pretext, false front. The lengthy public prayers cloak the financial predation. The verdict: ''these shall receive greater condemnation'' (perissoteron krima) — a stricter judgment for hypocrisy.', 147),
+  (41, 'γαζοφυλάκιον', 'gazophylakion', 'G1049', 'Treasury — the temple offering chests. Thirteen trumpet-shaped receptacles in the Court of the Women received contributions (m. Sheqalim 6:5). Jesus sat opposite (katenanti) the offering boxes, observing the comparative weight of contributions hitting the metal.', 148),
+  (42, 'λεπτὰ δύο ὅ ἐστιν κοδράντης', 'lepta dyo ho estin kodrantēs', 'G3016/G2835', 'Two lepta which is a quadrans — Mark''s Roman gloss (translating Greek for Roman readers; same readership as 5:41 and 7:34). A lepton (1/128 of a denarius) was the smallest coin; two = ¼ assarion = a quadrans = 1/64 denarius — the smallest possible offering.', 149),
+  (43, 'πλείονα πάντων', 'pleiona pantōn', 'G4119/G3956', 'More than all — Jesus reverses ordinary arithmetic. The widow''s tiny offering exceeds the rich gifts because it is everything she had. God measures gift by sacrifice, not absolute amount: proportional generosity, not display.', 150),
+  (44, 'ἐκ τοῦ περισσεύοντος αὐτοῖς ... ἐκ τῆς ὑστερήσεως αὐτῆς', 'ek tou perisseuontos autois ... ek tēs husterēseōs autēs', 'G4052/G5304', 'Out of their abundance ... out of her poverty — perisseuō (overflow) vs. husterēsis (deficiency, lack). The contrast is between gift from surplus and gift from need. The rich gave excess; the widow gave necessity.', 151),
+  (44, 'ὅλον τὸν βίον αὐτῆς', 'holon ton bion autēs', 'G3650/G979', 'Her whole livelihood — bios here is the means of life (cf. 1 John 3:17), not zōē (life as such). The widow gives the totality of her economic existence. The story is bittersweet: an act of total devotion within a system Jesus has just denounced for ''devouring widows'' houses.''', 152)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 12 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  -- v.1 vineyard imagery
+  (1, 'Psalm 80:8-19', 100),
+  (1, 'Jeremiah 2:21', 101),
+  (1, 'Hosea 10:1', 102),
+  -- v.2 fruit due
+  (2, 'Hosea 9:10', 103),
+  (2, 'Isaiah 5:4', 104),
+  -- v.4 wounded prophet
+  (4, '2 Chronicles 24:20-21', 105),
+  -- v.5 prophets killed
+  (5, '2 Chronicles 36:15-16', 106),
+  (5, 'Nehemiah 9:26', 107),
+  (5, 'Jeremiah 7:25-26', 108),
+  (5, 'Acts 7:52', 109),
+  (5, 'Hebrews 11:36-38', 110),
+  -- v.6 beloved son
+  (6, 'Genesis 22:2', 111),
+  (6, 'John 1:14', 112),
+  -- v.7 the heir
+  (7, 'Hebrews 1:2', 113),
+  (7, 'Romans 8:17', 114),
+  -- v.8 cast out and killed
+  (8, 'Hebrews 13:12-13', 115),
+  -- v.9 destroy the husbandmen
+  (9, 'Matthew 21:41', 116),
+  (9, 'Daniel 2:44', 117),
+  -- v.10 the rejected stone
+  (10, 'Isaiah 28:16', 118),
+  (10, 'Zechariah 3:9', 119),
+  (10, 'Daniel 2:34-35', 120),
+  -- v.11 the Lord''s doing
+  (11, 'Acts 5:38-39', 121),
+  -- v.12 they perceived
+  (12, 'Mark 11:18', 122),
+  (12, 'Matthew 21:45-46', 123),
+  -- v.13 Pharisees + Herodians
+  (13, 'Mark 3:6', 124),
+  (13, 'Mark 8:15', 125),
+  (13, 'Matthew 22:15-16', 126),
+  -- v.14 way of God
+  (14, 'Acts 18:26', 127),
+  (14, 'John 3:2', 128),
+  -- v.15 hypocrisy
+  (15, 'Mark 7:6', 129),
+  (15, 'Matthew 23:13', 130),
+  -- v.16 image and inscription
+  (16, 'Daniel 3:1-7', 131),
+  (16, 'Matthew 22:19-20', 132),
+  -- v.17 render unto Caesar
+  (17, 'Matthew 22:22', 133),
+  (17, 'Luke 20:25-26', 134),
+  -- v.18 Sadducees
+  (18, 'Acts 23:6-8', 135),
+  (18, 'Matthew 22:23', 136),
+  -- v.19 Mosaic levirate
+  (19, 'Ruth 4:1-10', 137),
+  (19, 'Deuteronomy 25:7-10', 138),
+  -- v.23 in the resurrection
+  (23, 'John 11:24-25', 139),
+  (23, '1 Thessalonians 4:13-17', 140),
+  -- v.24 know not the scriptures
+  (24, '1 Corinthians 15:34', 141),
+  (24, '2 Timothy 3:7', 142),
+  -- v.25 like the angels
+  (25, 'Matthew 22:30', 143),
+  (25, 'Luke 20:34-36', 144),
+  (25, 'Revelation 19:9', 145),
+  -- v.26 burning bush
+  (26, 'Acts 7:30-34', 146),
+  (26, 'Matthew 22:31-32', 147),
+  -- v.27 God of the living
+  (27, 'Romans 14:9', 148),
+  (27, 'Luke 20:38', 149),
+  (27, 'Hebrews 11:13-16', 150),
+  -- v.28 first commandment
+  (28, 'Romans 13:8-10', 151),
+  (28, 'James 2:10', 152),
+  -- v.29 Shema
+  (29, '1 Corinthians 8:6', 153),
+  (29, 'James 2:19', 154),
+  (29, 'Ephesians 4:6', 155),
+  -- v.30 love the LORD
+  (30, 'Joshua 22:5', 156),
+  (30, 'Deuteronomy 10:12-13', 157),
+  (30, 'Deuteronomy 30:6', 158),
+  -- v.31 second is like
+  (31, '1 John 4:20-21', 159),
+  (31, 'Matthew 5:43-44', 160),
+  (31, 'Matthew 7:12', 161),
+  -- v.32 well, Master
+  (32, 'Deuteronomy 4:35', 162),
+  (32, 'Isaiah 45:5-6', 163),
+  -- v.33 love above sacrifice
+  (33, 'Psalm 51:16-17', 164),
+  (33, 'Proverbs 21:3', 165),
+  (33, 'Matthew 9:13', 166),
+  -- v.34 not far from kingdom
+  (34, 'Acts 26:27-28', 167),
+  (34, 'Luke 9:62', 168),
+  (34, 'John 8:32', 169),
+  -- v.35 Jesus teaching in temple
+  (35, 'Matthew 22:41-46', 170),
+  (35, 'Luke 20:41-44', 171),
+  -- v.36 inspired by the Spirit
+  (36, '2 Samuel 23:2', 172),
+  (36, '2 Peter 1:21', 173),
+  (36, 'Hebrews 1:3', 174),
+  -- v.37 David himself calls him Lord
+  (37, 'Romans 1:3-4', 175),
+  (37, 'Revelation 22:16', 176),
+  -- v.38 long robes
+  (38, 'Matthew 23:5-7', 177),
+  (38, 'Luke 20:46', 178),
+  -- v.39 chief seats
+  (39, 'Luke 14:7-11', 179),
+  (39, 'Matthew 23:6', 180),
+  (39, 'Luke 11:43', 181),
+  -- v.40 widow oppression + long prayers
+  (40, 'Matthew 6:5-7', 182),
+  (40, 'Matthew 23:14', 183),
+  (40, '2 Timothy 3:6', 184),
+  -- v.41 sat over against the treasury
+  (41, '2 Chronicles 24:8-11', 185),
+  (41, 'John 8:20', 186),
+  (41, '2 Kings 12:9', 187),
+  -- v.42 the widow
+  (42, '2 Kings 4:1-7', 188),
+  (42, 'Acts 9:36-39', 189),
+  -- v.43 truly I say
+  (43, 'Mark 3:28', 190),
+  (43, 'Mark 9:1', 191),
+  (43, 'Matthew 5:18', 192),
+  -- v.44 cast in all
+  (44, '2 Corinthians 8:2-4', 193),
+  (44, '1 Kings 17:8-16', 194),
+  (44, 'Hebrews 11:35', 195)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 12 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;

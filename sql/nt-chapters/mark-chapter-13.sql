@@ -324,3 +324,180 @@ CROSS JOIN (VALUES
 ) AS cr(verse_number, reference, ref_order)
 WHERE b.name = 'Mark' AND c.chapter_number = 13
   AND v.verse_number = cr.verse_number;
+
+-- ═══════════════════════════════════════════════════
+-- MARK CHAPTER 13 — BACKFILL (additional word_studies + cross_references)
+-- Olivet Discourse: Temple''s fall · Birth-pangs · Persecution · Abomination · Coming Son of Man · Watch
+-- ═══════════════════════════════════════════════════
+
+INSERT INTO word_studies (verse_id, original_word, transliteration, strongs_number, meaning, word_order)
+SELECT v.id, w.original_word, w.transliteration, w.strongs_number, w.meaning, w.word_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  (1, 'ποταποὶ λίθοι ... ποταπαὶ οἰκοδομαί', 'potapoi lithoi ... potapai oikodomai', 'G4217/G3037/G3619', 'What manner of stones ... what manner of buildings — Herod''s temple was a marvel; Josephus describes white limestone blocks of immense size (Antiquities 15.392; some surviving Western Wall stones weigh 500+ tons). The disciples'' awe is the natural response to one of the wonders of the ancient world.', 100),
+  (2, 'οὐ μὴ ἀφεθῇ λίθος ἐπὶ λίθον', 'ou mē aphethē lithos epi lithon', 'G3756/G3361/G863/G3037', 'There shall not be left one stone upon another — emphatic double negative ou mē + aorist subjunctive. Fulfilled in AD 70 when Titus''s legions razed the temple; the Western Wall surviving today is a retaining wall of the Temple Mount platform, not the temple itself.', 101),
+  (3, 'κατ᾽ ἰδίαν', 'kat idian', 'G2596/G2398', 'Privately, by themselves — Mark''s habitual phrase for esoteric instruction (4:34; 6:31-32; 7:33; 9:2, 28). The Olivet Discourse is delivered to the inner four (Peter, James, John, Andrew); apocalyptic teaching is given to disciples, not crowds.', 102),
+  (4, 'πότε ταῦτα ἔσται', 'pote tauta estai', 'G4219/G2071', 'When shall these things be — the disciples ask one question; Jesus answers a complex of questions (temple destruction, signs of his coming, end of the age). The discourse blends near-historical fulfillment (AD 70) with eschatological consummation, a prophetic pattern of telescoping.', 103),
+  (5, 'βλέπετε μή τις ὑμᾶς πλανήσῃ', 'blepete mē tis hymas planēsē', 'G991/G4105', 'See that no one leads you astray — present imperative + aorist subjunctive. ''Watch out lest someone deceive you.'' Mark''s discourse is structured by repeated imperatives blepete (vv.5, 9, 23, 33) and grēgoreite (vv.35, 37): vigilance is the dominant exhortation.', 104),
+  (6, 'ἐπὶ τῷ ὀνόματί μου', 'epi tō onomati mou', 'G1909/G3686', 'In my name — false claimants impersonating Christ. Many would come saying ''egō eimi'' (I am [he]); 1st-c Judea spawned numerous messianic pretenders (Theudas, Judas the Galilean, the Egyptian; cf. Acts 5:36-37). The verse anticipates both immediate-historical and eschatological deceivers.', 105),
+  (7, 'θρόους', 'throous', 'G2360', 'Tumults, rumors of war — phonetically vivid; the rumblings of conflict. Jesus distinguishes between disturbing news (which must not destabilize) and ''the end'' (which has not yet come). Disciples must keep their eschatological calm.', 106),
+  (8, 'ἀρχὴ ὠδίνων', 'archē ōdinōn', 'G746/G5604', 'Beginning of birth-pangs — fixed apocalyptic phrase (Hebrew chevley ha-mashiach, ''messianic woes''). Wars, earthquakes, famines are the labor pains heralding the new age; not mere disasters but the contractions before the kingdom''s birth.', 107),
+  (8, 'σεισμοί', 'seismoi', 'G4578', 'Earthquakes — sēio (to shake). Already a stock element of OT theophany (Isaiah 13:13; Joel 2:10) and apocalyptic imagery (Haggai 2:6-7; Hebrews 12:26-27). The shaking of the natural order is part of the dismantling of the present age.', 108),
+  (8, 'λιμοί', 'limoi', 'G3042', 'Famines — a recurring 1st-c reality (cf. Acts 11:28, the famine under Claudius). Famines accompany wars and earthquakes as triple sign of cosmic distress, recalling the four horsemen of Revelation 6.', 109),
+  (9, 'συνέδρια', 'synedria', 'G4892', 'Councils — local Sanhedrin courts (every Jewish town with 120+ adult males had one). Disciples will be hauled before these for trial. Persecution will come from the religious establishment first, then synagogues, then secular rulers.', 110),
+  (9, 'ἡγεμόνας καὶ βασιλεῖς ... εἰς μαρτύριον αὐτοῖς', 'hēgemonas kai basileis ... eis martyrion autois', 'G2232/G935/G3142', 'Governors and kings ... for a testimony to them — Roman procurators (Pilate, Felix, Festus) and client-kings (Agrippa I and II); fulfilled by Paul''s appearances before Felix, Festus, and Agrippa (Acts 24-26). Even hostile tribunals become mission platforms for the gospel.', 111),
+  (10, 'πρῶτον ... τὰ ἔθνη', 'prōton ... ta ethnē', 'G4413/G1484', 'First ... the nations — the gospel must first be preached to all the nations (cf. Matthew 24:14; Romans 15:19-24; Colossians 1:23). Mark places this Gentile-mission imperative inside the Olivet Discourse: missions is eschatological necessity, not optional.', 112),
+  (11, 'μὴ προμεριμνᾶτε', 'mē promerimnate', 'G4305', 'Do not be anxious beforehand — pro + merimnaō (to worry); compound emphasizes the temptation to rehearse defenses. Reliance on the Spirit (cf. Luke 12:11-12) overrides the disciple''s natural impulse to script their own apologia.', 113),
+  (11, 'τὸ πνεῦμα τὸ ἅγιον', 'to pneuma to hagion', 'G4151/G40', 'The Holy Spirit — explicitly named as the source of the disciples'' words under trial. The Spirit who descended at baptism (1:10) and brooded over Jesus'' ministry now becomes the inner advocate of his persecuted followers. Pentecost foreshadowed.', 114),
+  (12, 'παραδώσει', 'paradōsei', 'G3860', 'Will deliver up, betray — the same word used of Judas''s betrayal (3:19; 14:10). Family-level paradosis is the most painful: brother betrays brother, father betrays child, children rise against parents. The gospel divides households (Micah 7:6 fulfilled in eschatological intensity).', 115),
+  (13, 'ὑπομείνας εἰς τέλος', 'hypomeinas eis telos', 'G5278/G5056', 'He who endures to the end — hypomenō (to remain under, persevere). Endurance, not perfection, is the saving virtue. ''Until the end'' refers either to personal death/martyrdom or to the eschatological end. Salvation is for those who persist through hatred.', 116),
+  (14, 'ὁ ἀναγινώσκων νοείτω', 'ho anaginōskōn noeitō', 'G314/G3539', 'Let the reader understand — Mark''s only direct fourth-wall break. The narrator addresses the reader of the Gospel itself (or the synagogue lector reading aloud), urging careful interpretation of the cryptic ''abomination of desolation.'' A literary signal that the prophecy demands hermeneutical work.', 117),
+  (14, 'φευγέτωσαν εἰς τὰ ὄρη', 'phugetōsan eis ta orē', 'G5343/G3735', 'Let them flee to the mountains — present imperative urging immediate flight. Eusebius (Ecclesiastical History 3.5.3) records that the Jerusalem church fled to Pella (in the Decapolis hills) before Titus''s siege, in obedience to this prophecy. The disciples took Mark''s warning literally.', 118),
+  (15, 'ἐπὶ τοῦ δώματος', 'epi tou dōmatos', 'G1430', 'On the housetop — flat-roofed Palestinian houses had external stairs to the roof, used as living space in cool evenings. Flight must be so urgent that one descends and runs, not even pausing to gather possessions. Lot leaving Sodom (Genesis 19:17) is the OT type.', 119),
+  (16, 'εἰς τὰ ὀπίσω', 'eis ta opisō', 'G1519/G3694', 'Back / behind — the field-worker must not return to the village for his outer cloak. Echoes Lot''s wife (Genesis 19:26) and Jesus'' earlier ''no one putting his hand to the plow and looking back is fit for the kingdom'' (Luke 9:62). Eschatological flight permits no looking back.', 120),
+  (17, 'ταῖς ἐν γαστρὶ ἐχούσαις καὶ ταῖς θηλαζούσαις', 'tais en gastri echousais kai tais thēlazousais', 'G1722/G1064/G2192/G2337', 'To those with child and those nursing — pregnancy and nursing make rapid flight impossible. ''Woe'' here is lament, not curse: Jesus pities those for whom the eschatological emergency will be most cruel. The siege of AD 70 produced the horrors Josephus records (J.W. 6.193-219).', 121),
+  (18, 'χειμῶνος', 'cheimōnos', 'G5494', 'In winter — Palestinian winters bring cold rains, swollen wadis, and impassable roads. Flight in winter would be catastrophically harder. Pray that the eschatological flight not coincide with the difficult season — a humane addition to the discourse.', 122),
+  (19, 'θλῖψις', 'thlipsis', 'G2347', 'Tribulation, pressing distress — from thlibō (to press, squeeze). The eschatological great tribulation (cf. Daniel 12:1; Revelation 7:14). Jesus characterizes it as unprecedented in cosmic history (oia ou gegonen ... oude mē genētai), cosmically unique distress.', 123),
+  (20, 'ἐκολόβωσεν κύριος τὰς ἡμέρας', 'ekolobōsen kyrios tas hēmeras', 'G2856/G2962/G2250', 'The Lord shortened the days — kolobōō (to cut short, mutilate). Without divine intervention, no flesh would survive the tribulation. The shortening is for the sake of the elect (dia tous eklektous): God''s mercy to his chosen truncates judgment''s duration.', 124),
+  (20, 'τοὺς ἐκλεκτούς', 'tous eklektous', 'G1588', 'The elect — chosen ones; those whom God has selected for salvation (cf. Isaiah 42:1; Romans 8:33; 1 Peter 1:1). Their existence determines eschatological mercy: the days are shortened for them. Election is no abstract doctrine but the lever of cosmic providence.', 125),
+  (22, 'σημεῖα καὶ τέρατα', 'sēmeia kai terata', 'G4592/G5059', 'Signs and wonders — paired phrase used both for genuine miracles (Acts 2:22) and for satanic counterfeits (2 Thessalonians 2:9). False messiahs and false prophets will perform miracles convincing enough to deceive (apoplanan), if possible, even the elect — but the elect cannot ultimately be deceived.', 126),
+  (23, 'προείρηκα', 'proeirēka', 'G4280', 'I have foretold beforehand — perfect of prolegō. Forewarning is forearmament: Jesus has spoken in advance precisely to prevent his disciples'' deception. Apocalyptic teaching is pastoral, not speculative; it builds resilience against the eschatological emergency.', 127),
+  (24, 'ὁ ἥλιος σκοτισθήσεται', 'ho hēlios skotisthēsetai', 'G2246/G4654', 'The sun shall be darkened — apocalyptic shorthand from Isaiah 13:10; Joel 2:10, 31; Amos 8:9. Cosmic disorder accompanies divine judgment. Whether read literally (eschatological cosmos-shaking) or symbolically (collapse of the political-religious order), the imagery signals the dismantling of the old age.', 128),
+  (25, 'αἱ δυνάμεις αἱ ἐν τοῖς οὐρανοῖς', 'hai dynameis hai en tois ouranois', 'G1411/G3772', 'The powers in the heavens — angelic/cosmic forces governing the heavenly bodies (1 Enoch 80; cf. Ephesians 6:12). Their shaking signals dethroning of the present spiritual order before the Son of Man''s arrival. Cosmic regime change.', 129),
+  (26, 'ἐν νεφέλαις μετὰ δυνάμεως πολλῆς καὶ δόξης', 'en nephelais meta dynameōs pollēs kai doxēs', 'G3507/G1411/G1391', 'In clouds with great power and glory — direct citation of Daniel 7:13-14, where ''one like a son of man'' comes with the clouds of heaven and receives universal dominion. Mark presents Jesus'' return as Daniel''s Son of Man enthronement, not a private rapture but a public coronation.', 130),
+  (27, 'ἐπισυνάξει', 'episynaxei', 'G1996', 'He will gather together — epi + syn + agō. Strong compound: the elect are gathered up from the four winds, from the extremities of earth and heaven. Echoes Deuteronomy 30:4; Isaiah 11:12; Zechariah 2:6 — ingathering as eschatological motif. The Son of Man becomes the cosmic harvester.', 131),
+  (28, 'παραβολή ... κλάδος αὐτῆς ἁπαλός', 'parabolē ... klados autēs hapalos', 'G3850/G2798/G527', 'Parable ... her branch already tender — hapalos (soft, tender). The fig tree''s soft branch and emerging leaves predict summer. Just as the fig tree''s budding signals seasonal transition, so the apocalyptic signs signal the imminence of the eschaton — but not its precise timing.', 132),
+  (29, 'ἐπὶ θύραις', 'epi thyrais', 'G2374', 'At the doors — proximate but not yet within. The signs do not announce arrival but imminence. The Lord stands at the door (cf. James 5:9; Revelation 3:20); the disciple''s posture is alert anticipation, not calculated chronology.', 133),
+  (30, 'ἡ γενεὰ αὕτη', 'hē genea hautē', 'G1074', 'This generation — the most contested phrase in the discourse. (a) The contemporary generation, fulfilled at AD 70; (b) the Jewish people as a whole; (c) the generation alive when the final signs begin. Best read in light of the prophetic telescoping that has framed the whole discourse.', 134),
+  (30, 'οὐ μὴ παρέλθῃ', 'ou mē parelthē', 'G3756/G3361/G3928', 'Shall not pass away — emphatic double negative ou mē. Whatever ''this generation'' refers to, the prediction is guaranteed. Jesus''s prophetic word is more durable than the cosmic order itself (v.31).', 135),
+  (31, 'οἱ λόγοι μου οὐ μὴ παρελεύσονται', 'hoi logoi mou ou mē pareleusontai', 'G3056/G3756/G3361/G3928', 'My words shall not pass away — Jesus places his own teaching on a level only Scripture has previously claimed (Isaiah 40:8). Tacit divine authority: Jesus''s words have the eternal durability of YHWH''s spoken word. Christology by implication.', 136),
+  (32, 'οὐδὲ ὁ υἱός', 'oude ho huios', 'G3761/G5207', 'Not even the Son — striking christological subordination: in his earthly ministry, the Son does not know the timing of his own return. Read with Philippians 2:7 (kenōsis), this is the Son''s voluntary participation in human limitation. The Father alone knows the day and hour.', 137),
+  (33, 'βλέπετε ἀγρυπνεῖτε', 'blepete agrypneite', 'G991/G69', 'Watch, stay awake — agrypneō (a- privative + hypnos = sleeplessness). Doubled imperative for emphasis; vigilance the basic eschatological virtue. Disciples cannot calculate the time, but they can keep watch.', 138),
+  (34, 'ἄνθρωπος ἀπόδημος', 'anthrōpos apodēmos', 'G444/G590', 'A man on a journey — apodēmos (away from one''s people). The mini-parable: a householder leaves servants in charge during his absence. Jesus is the absent owner; the church is the household; vigilance is the appointed task during the interim.', 139),
+  (34, 'τῷ θυρωρῷ', 'tō thyrōrō', 'G2377', 'To the doorkeeper — specific charge to the watchman. Among the servants, the doorkeeper has the dedicated vigilance role. The figure may suggest particular responsibility for church leaders, or universalize the watchman ethic for every disciple.', 140),
+  (35, 'ὀψέ ... μεσονυκτίου ... ἀλεκτοροφωνίας ... πρωΐ', 'opse ... mesonyktiou ... alektorophōnias ... prōi', 'G3796/G3317/G219/G4404', 'Evening ... midnight ... cockcrow ... morning — the four Roman watches of the night (each three hours, 6pm-6am). Mark uses Roman, not Jewish, watches — fitting his Roman audience. Jesus could come at any of the four; vigilance must be unbroken.', 141),
+  (36, 'εὕρῃ ὑμᾶς καθεύδοντας', 'heurē hymas katheudontas', 'G2147/G2518', 'He find you sleeping — katheudō, the same verb of the disciples'' sleeping in Gethsemane (14:37). The Olivet warning to ''watch'' will be tested almost immediately at Gethsemane, where the disciples literally fail to keep awake. Mark binds discourse to narrative: the warning precedes the failure.', 142),
+  (37, 'ὃ δὲ ὑμῖν λέγω, πᾶσιν λέγω', 'ho de hymin legō, pasin legō', 'G3956/G3004', 'What I say to you, I say to all — the four-disciple audience is universalized to the whole church. The Olivet Discourse is not for Peter, James, John, and Andrew alone; vigilance is the universal disciple-ethic across all generations.', 143),
+  (37, 'γρηγορεῖτε', 'grēgoreite', 'G1127', 'Watch, be alert — present imperative; sustained, ongoing vigilance. Repeats the discourse-summarizing imperative that opened (v.5) and now closes the speech. The whole apocalypse boils down to one verb of action: stay awake.', 144),
+  (2, 'οἰκοδομαὶ τοῦ ἱεροῦ', 'oikodomai tou hierou', 'G3619/G2411', 'Buildings of the temple — Herod''s 46-year construction project (cf. John 2:20) was still ongoing when Jesus spoke; the entire complex would not be completed until AD 64, only six years before its destruction. Tragic irony: the temple finished and razed within a decade.', 145),
+  (4, 'συντελεῖσθαι πάντα', 'syntelesthai panta', 'G4931/G3956', 'All these things to be accomplished — syntel-: to bring to completion, consummate. Echoes Daniel 12:7 LXX (syntelesthēsetai panta tauta). The disciples'' question itself is framed in Danielic apocalyptic vocabulary, and Jesus''s answer continues in that register.', 146),
+  (10, 'εἰς πάντα τὰ ἔθνη', 'eis panta ta ethnē', 'G3956/G1484', 'To all the nations — universal Gentile mission. Mark places this command at the heart of the apocalyptic timeline: the gospel''s reach to all peoples is itself an eschatological event, not a precondition for the eschaton but a constituent part of it.', 147),
+  (33, 'οὐκ οἴδατε γὰρ πότε ὁ καιρός ἐστιν', 'ouk oidate gar pote ho kairos estin', 'G3756/G1492/G2540', 'You do not know when the appointed time is — kairos (appointed time, ripe moment) rather than chronos (sequential time). Disciples cannot calculate the eschaton; God''s clock is hidden. Vigilance, not calculation, is the appropriate posture.', 148),
+  (37, 'πᾶσιν', 'pasin', 'G3956', 'To all — final word of the discourse. The dative of recipient broadens the audience to every reader of Mark''s Gospel and every disciple in every age. The Olivet warnings are not historically isolated to the four; they are pastoral universals for the church.', 149)
+) AS w(verse_number, original_word, transliteration, strongs_number, meaning, word_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 13 AND v.verse_number = w.verse_number
+ON CONFLICT DO NOTHING;
+
+INSERT INTO cross_references (verse_id, reference, ref_order)
+SELECT v.id, x.reference, x.ref_order
+FROM verses v JOIN chapters c ON v.chapter_id = c.id
+JOIN books b ON c.book_id = b.id
+CROSS JOIN (VALUES
+  -- v.1 great stones
+  (1, '1 Kings 9:8', 100),
+  (1, 'Matthew 24:1', 101),
+  -- v.2 not one stone
+  (2, 'Jeremiah 26:18', 102),
+  (2, 'Micah 3:12', 103),
+  (2, 'Luke 19:43-44', 104),
+  -- v.3 Mount of Olives
+  (3, 'Matthew 24:3', 105),
+  (3, 'Zechariah 14:4', 106),
+  -- v.4 when shall these things be
+  (4, 'Daniel 12:6-7', 107),
+  -- v.5 take heed
+  (5, 'Jeremiah 29:8', 108),
+  (5, 'Ephesians 5:6', 109),
+  (5, 'Colossians 2:8', 110),
+  -- v.6 false christs
+  (6, 'John 5:43', 111),
+  (6, 'Acts 5:36-37', 112),
+  -- v.7 wars and rumors
+  (7, 'Daniel 9:26', 113),
+  (7, 'Luke 21:9-10', 114),
+  -- v.8 birth pangs
+  (8, 'Joel 2:30-31', 115),
+  (8, 'Haggai 2:6', 116),
+  (8, 'Hebrews 12:26-27', 117),
+  -- v.9 deliver you to councils
+  (9, '2 Corinthians 11:23-25', 118),
+  (9, 'Acts 22:19', 119),
+  (9, 'John 16:2', 120),
+  -- v.10 gospel to all nations
+  (10, 'Revelation 14:6-7', 121),
+  -- v.11 Spirit speaks
+  (11, 'Mark 12:36', 122),
+  (11, 'Exodus 4:11-12', 123),
+  -- v.12 family betrayal
+  (12, '2 Timothy 3:1-5', 124),
+  -- v.13 hated for my name
+  (13, 'Mark 8:35', 125),
+  (13, 'James 1:12', 126),
+  (13, 'Matthew 24:13', 127),
+  -- v.14 abomination
+  (14, 'Daniel 8:13', 128),
+  (14, 'Luke 21:20', 129),
+  -- v.17 woe to nursing mothers
+  (17, 'Hosea 13:16', 130),
+  (17, 'Lamentations 4:10', 131),
+  -- v.18 winter flight
+  (18, 'Exodus 12:11', 132),
+  -- v.19 unprecedented tribulation
+  (19, 'Joel 2:2', 133),
+  (19, 'Daniel 9:12', 134),
+  -- v.20 days shortened
+  (20, 'Isaiah 65:8-9', 135),
+  -- v.21 false christs (II)
+  (21, 'Matthew 24:23-26', 136),
+  -- v.22 false miracles
+  (22, 'Matthew 24:24', 137),
+  (22, '2 Peter 2:1', 138),
+  (22, '1 John 4:1', 139),
+  -- v.23 forewarning
+  (23, 'John 13:19', 140),
+  (23, 'Mark 13:5', 141),
+  -- v.25 stars fall
+  (25, 'Isaiah 34:4', 142),
+  (25, 'Revelation 6:13', 143),
+  -- v.26 Son of Man
+  (26, 'Mark 14:62', 144),
+  (26, 'Revelation 14:14', 145),
+  (26, 'Daniel 7:13', 146),
+  -- v.27 gathering the elect
+  (27, 'Deuteronomy 30:4', 147),
+  (27, 'Isaiah 11:12', 148),
+  (27, 'Zechariah 2:6', 149),
+  -- v.28 fig tree parable
+  (28, 'Matthew 24:32', 150),
+  (28, 'Luke 21:29-31', 151),
+  -- v.29 at the door
+  (29, 'James 5:9', 152),
+  (29, 'Revelation 3:20', 153),
+  -- v.30 this generation
+  (30, 'Mark 9:1', 154),
+  (30, 'Matthew 23:36', 155),
+  (30, 'Matthew 24:34', 156),
+  -- v.31 my words shall not pass
+  (31, 'Matthew 24:35', 157),
+  (31, 'Luke 21:33', 158),
+  (31, '2 Peter 3:10-13', 159),
+  -- v.32 day and hour
+  (32, '1 Thessalonians 5:1-2', 160),
+  -- v.33 watch and pray
+  (33, 'Mark 14:38', 161),
+  -- v.34 traveling man parable
+  (34, 'Matthew 25:14-15', 162),
+  (34, 'Luke 19:12-13', 163),
+  -- v.35 watch — coming uncertain
+  (35, 'Matthew 24:42', 164),
+  (35, 'Revelation 3:3', 165),
+  -- v.36 finding you sleeping
+  (36, '1 Thessalonians 5:6-7', 166),
+  (36, 'Romans 13:11-12', 167),
+  -- v.37 watch — to all
+  (37, 'Luke 12:37', 168),
+  (37, 'Hebrews 12:1', 169)
+) AS x(verse_number, reference, ref_order)
+WHERE b.name = 'Mark' AND c.chapter_number = 13 AND v.verse_number = x.verse_number
+ON CONFLICT DO NOTHING;
